@@ -544,13 +544,21 @@
       fetch('/api/v1/vitals')
         .then(r => r.json())
         .then(v => {
-          document.getElementById('hudCpu').textContent = `~${Math.round(v.load_1m / v.cpu_cores * 100)}% (${v.load_1m})`;
-          document.getElementById('hudCpuBar').style.width = `${Math.min(100, Math.round(v.load_1m / v.cpu_cores * 100))}%`;
-          document.getElementById('hudRam').textContent = `${v.ram_used_gib} / ${v.ram_total_gib} GiB`;
-          document.getElementById('hudRamBar').style.width = `${v.ram_pct}%`;
-          document.getElementById('hudDisk').textContent = `${v.disk_used_gib} / ${v.disk_total_gib} GiB`;
-          document.getElementById('hudDiskBar').style.width = `${v.disk_pct}%`;
-          document.getElementById('hudUptime').textContent = v.uptime;
+          const cpuEl = document.getElementById('hudCpu');
+          const cpuBar = document.getElementById('hudCpuBar');
+          const ramEl = document.getElementById('hudRam');
+          const ramBar = document.getElementById('hudRamBar');
+          const diskEl = document.getElementById('hudDisk');
+          const diskBar = document.getElementById('hudDiskBar');
+          const upEl = document.getElementById('hudUptime');
+
+          if (cpuEl) cpuEl.textContent = `~${Math.round(v.load_1m / v.cpu_cores * 100)}% (${v.load_1m})`;
+          if (cpuBar) cpuBar.style.width = `${Math.min(100, Math.round(v.load_1m / v.cpu_cores * 100))}%`;
+          if (ramEl) ramEl.textContent = `${v.ram_used_gib} / ${v.ram_total_gib} GiB`;
+          if (ramBar) ramBar.style.width = `${v.ram_pct}%`;
+          if (diskEl) diskEl.textContent = `${v.disk_used_gib} / ${v.disk_total_gib} GiB`;
+          if (diskBar) diskBar.style.width = `${v.disk_pct}%`;
+          if (upEl) upEl.textContent = v.uptime;
         })
         .catch(e => console.warn('Vitals error:', e));
     }
