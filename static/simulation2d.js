@@ -1,7 +1,7 @@
 /**
- * Hermes Sovereign Stronghold — Master VTT Battle Map Procedural Engine
+ * Hermes Sovereign Stronghold — Grouped Rooms & Empty War Table Edition
  * 100% PROGRAMMATIC JAVASCRIPT CANVAS 2D — ZERO STATIC IMAGES
- * Built strictly according to Professor's Computer Graphics Blueprint & User Task Flow
+ * Faithfully matches user reference img_60158fdf4126.jpg
  */
 
 (function() {
@@ -83,7 +83,7 @@
     briefing: {
       id: 'briefing',
       name: 'The Painted War Table',
-      desc: 'Carved dragonstone war table with strategic relief map & troop markers',
+      desc: 'Carved dragonstone war table with strategic relief map & 12 empty high-backed chairs',
       x: 800, y: 440, w: 260, h: 160,
       color: '#3b82f6',
       icon: '⚔️',
@@ -100,9 +100,9 @@
     },
     library: {
       id: 'library',
-      name: "The Grand Maester's Study",
+      name: "The Grand Maester's Scriptorium",
       desc: 'Citadel library with astrolabe, scrolls & leather-bound tomes',
-      x: 320, y: 260, w: 220, h: 160,
+      x: 320, y: 240, w: 220, h: 160,
       color: '#8b5cf6',
       icon: '📜',
       terminalKey: 'ST_LIBRARY'
@@ -111,25 +111,34 @@
       id: 'crawler',
       name: 'The Alchemical Laboratory',
       desc: 'Bubbling emerald flasks, alembics & arcane scrying vials',
-      x: 170, y: 250, w: 140, h: 140,
+      x: 170, y: 340, w: 140, h: 140,
       color: '#10b981',
       icon: '🧪',
       terminalKey: 'ST_ALCHEMY'
     },
     compiler: {
       id: 'compiler',
-      name: 'The Royal Forge & Armory',
-      desc: 'Blazing coal hearth, dual heavy anvils & weapon toolracks',
-      x: 1300, y: 230, w: 240, h: 160,
+      name: 'The Royal Forge & Anvils',
+      desc: 'Blazing coal smelting hearth, dual heavy steel anvils & weapon toolracks',
+      x: 1300, y: 220, w: 240, h: 160,
       color: '#ef4444',
       icon: '🔨',
       terminalKey: 'ST_FORGE'
+    },
+    guildhall: {
+      id: 'guildhall',
+      name: 'The Royal Engineering Guildhall',
+      desc: 'Craftsmen workbenches with system blueprints, calipers & drafting tools',
+      x: 1300, y: 400, w: 240, h: 170,
+      color: '#38bdf8',
+      icon: '📐',
+      terminalKey: 'ST_GUILDHALL'
     },
     quarantine: {
       id: 'quarantine',
       name: 'Armor Inspection Sentry Rack',
       desc: 'Articulated armor stands & static security analysis sentry',
-      x: 1200, y: 380, w: 150, h: 120,
+      x: 1450, y: 440, w: 140, h: 120,
       color: '#34d399',
       icon: '🛡️',
       terminalKey: 'ST_ARMOR_RACK'
@@ -138,7 +147,7 @@
       id: 'pantry',
       name: 'Great Banquet Hall & Ale Bar',
       desc: 'Tavern casks of mead, wine bottles & roasted trenchers',
-      x: 1300, y: 730, w: 220, h: 150,
+      x: 1100, y: 740, w: 220, h: 150,
       color: '#d97706',
       icon: '🍗',
       terminalKey: 'ST_ALE_BAR'
@@ -147,7 +156,7 @@
       id: 'lakehouse',
       name: 'Subterranean Dragon Cistern',
       desc: 'Water reservoir feeding lakehouse conduits with golden duck mascot',
-      x: 260, y: 730, w: 180, h: 150,
+      x: 280, y: 740, w: 180, h: 150,
       color: '#0284c7',
       icon: '🦆',
       terminalKey: 'ST_CISTERN'
@@ -155,16 +164,17 @@
     hearth: {
       id: 'hearth',
       name: 'Great Stag Hearth Fireplace',
-      desc: 'Roaring log fire under the mounted great horned stag skull',
-      x: 800, y: 600, w: 180, h: 90,
+      desc: 'Roaring log fire under the mounted great horned stag skull with bearskin rug',
+      x: 800, y: 620, w: 180, h: 90,
       color: '#f97316',
       icon: '🔥',
       terminalKey: 'ST_STAG_HEARTH'
     }
   };
 
-  // --- 13 AI Agent Roster mapped onto Medieval Roles ---
+  // --- 13 AI Agent Roster grouped logically into 4 rooms (Central table is EMPTY!) ---
   const AGENTS_ROSTER = [
+    // 1. NORTH THRONE ROOM (Lord Commander)
     {
       id: 'vps-boss',
       name: 'vps-boss',
@@ -173,68 +183,22 @@
       hairColor: '#0f172a',
       desk: { x: 800, y: 120 },
       aisleKey: 'AE_BOSS',
+      room: 'North Throne Dais',
       bubble: 'Reigning from the Iron Throne',
       type: 'boss'
     },
-    {
-      id: 'chief-architect',
-      name: 'chief-architect',
-      title: 'Grand Strategist of Systems',
-      accentColor: '#38bdf8',
-      hairColor: '#1e293b',
-      desk: { x: 800, y: 350 },
-      aisleKey: 'AE_ARCHITECT',
-      bubble: 'Charting strategic war maps'
-    },
-    {
-      id: 'swe-backend',
-      name: 'swe-backend',
-      title: 'Master of Server Strongholds',
-      accentColor: '#10b981',
-      hairColor: '#064e3b',
-      desk: { x: 710, y: 415 },
-      aisleKey: 'AE_BACKEND',
-      bubble: 'Guarding ACID database gates'
-    },
-    {
-      id: 'swe-frontend',
-      name: 'swe-frontend',
-      title: 'Royal Visual Artisan',
-      accentColor: '#06b6d4',
-      hairColor: '#083344',
-      desk: { x: 710, y: 475 },
-      aisleKey: 'AE_FRONTEND',
-      bubble: 'Crafting responsive interfaces'
-    },
-    {
-      id: 'swe-verifier',
-      name: 'swe-verifier',
-      title: 'High Sentry of Verification',
-      accentColor: '#34d399',
-      hairColor: '#022c22',
-      desk: { x: 890, y: 415 },
-      aisleKey: 'AE_VERIFIER',
-      bubble: 'Zero-tolerance quality audit'
-    },
-    {
-      id: 'github-manager',
-      name: 'github-manager',
-      title: 'Keeper of the Castle Armory & Git',
-      accentColor: '#8b5cf6',
-      hairColor: '#2e1065',
-      desk: { x: 890, y: 475 },
-      aisleKey: 'AE_GITHUB',
-      bubble: 'Guarding release branches'
-    },
+
+    // 2. WEST WING: CITADEL SCRIPTORIUM & ALCHEMICAL LAB (Research & Paper Scribe)
     {
       id: 'professor',
       name: 'professor',
       title: 'Grand Maester of Research',
       accentColor: '#ec4899',
       hairColor: '#831843',
-      desk: { x: 320, y: 260 },
+      desk: { x: 260, y: 230 },
       aisleKey: 'AE_PROFESSOR',
-      bubble: 'Consulting Citadel manuscripts'
+      room: 'Citadel Scriptorium',
+      bubble: 'Consulting celestial astrolabe & ancient tomes'
     },
     {
       id: 'paperwright',
@@ -242,9 +206,67 @@
       title: 'Citadel Scribe & Typesetter',
       accentColor: '#e11d48',
       hairColor: '#4c0519',
-      desk: { x: 230, y: 350 },
+      desk: { x: 390, y: 230 },
       aisleKey: 'AE_PAPERWRIGHT',
-      bubble: 'Illuminating parchment scrolls'
+      room: 'Citadel Scriptorium',
+      bubble: 'Illuminating manuscripts & LaTeX scrolls'
+    },
+
+    // 3. EAST WING: ROYAL ENGINEERING GUILDHALL & FORGE (6 Agents)
+    {
+      id: 'chief-architect',
+      name: 'chief-architect',
+      title: 'Grand Strategist of Systems',
+      accentColor: '#38bdf8',
+      hairColor: '#1e293b',
+      desk: { x: 1200, y: 360 },
+      aisleKey: 'AE_ARCHITECT',
+      room: 'Engineering Guildhall',
+      bubble: 'Drafting architectural system blueprints'
+    },
+    {
+      id: 'swe-backend',
+      name: 'swe-backend',
+      title: 'Master of Server Strongholds',
+      accentColor: '#10b981',
+      hairColor: '#064e3b',
+      desk: { x: 1330, y: 340 },
+      aisleKey: 'AE_BACKEND',
+      room: 'Engineering Guildhall',
+      bubble: 'Hardening ACID database transaction logic'
+    },
+    {
+      id: 'swe-frontend',
+      name: 'swe-frontend',
+      title: 'Royal Visual Artisan',
+      accentColor: '#06b6d4',
+      hairColor: '#083344',
+      desk: { x: 1200, y: 460 },
+      aisleKey: 'AE_FRONTEND',
+      room: 'Engineering Guildhall',
+      bubble: 'Polishing responsive canvas UI components'
+    },
+    {
+      id: 'swe-verifier',
+      name: 'swe-verifier',
+      title: 'High Sentry of Verification',
+      accentColor: '#34d399',
+      hairColor: '#022c22',
+      desk: { x: 1330, y: 460 },
+      aisleKey: 'AE_VERIFIER',
+      room: 'Armor Inspection Cleanroom',
+      bubble: 'Conducting zero-tolerance QA invariant audit'
+    },
+    {
+      id: 'github-manager',
+      name: 'github-manager',
+      title: 'Quartermaster of Git & Releases',
+      accentColor: '#8b5cf6',
+      hairColor: '#2e1065',
+      desk: { x: 1440, y: 360 },
+      aisleKey: 'AE_GITHUB',
+      room: 'Royal Armory & Quartermaster',
+      bubble: 'Locking release tags & branch cleanliness'
     },
     {
       id: 'devops-engineer',
@@ -252,9 +274,34 @@
       title: 'Master Blacksmith & SRE',
       accentColor: '#f97316',
       hairColor: '#431407',
-      desk: { x: 1280, y: 270 },
+      desk: { x: 1280, y: 210 },
       aisleKey: 'AE_DEVOPS',
-      bubble: 'Fueling container forge hearths'
+      room: 'Royal Smelting Forge',
+      bubble: 'Striking anvil & fueling container hearth'
+    },
+
+    // 4. SOUTH WING: GREAT HEARTH FEAST HALL & DRAGON CISTERN (4 Agents)
+    {
+      id: 'tech-mentor',
+      name: 'tech-mentor',
+      title: 'Wise Mentor of the Great Hall',
+      accentColor: '#14b8a6',
+      hairColor: '#042f2e',
+      desk: { x: 740, y: 720 },
+      aisleKey: 'AE_MENTOR',
+      room: 'Great Stag Hearth Lounge',
+      bubble: 'Counseling engineers beside the stag hearth'
+    },
+    {
+      id: 'ui-designer',
+      name: 'ui-designer',
+      title: 'Royal Tapestry & Experience Artisan',
+      accentColor: '#d946ef',
+      hairColor: '#4a044e',
+      desk: { x: 500, y: 740 },
+      aisleKey: 'AE_DESIGNER',
+      room: 'Grand Feast & Design Hall',
+      bubble: 'Balancing visual aesthetic & color palette'
     },
     {
       id: 'data-engineer',
@@ -262,29 +309,10 @@
       title: 'Keeper of the Dragon Cistern',
       accentColor: '#0284c7',
       hairColor: '#082f49',
-      desk: { x: 480, y: 730 },
+      desk: { x: 280, y: 740 },
       aisleKey: 'AE_DATAENG',
-      bubble: 'Diverting data pipeline aqueducts'
-    },
-    {
-      id: 'tech-mentor',
-      name: 'tech-mentor',
-      title: 'Wise Mentor of the Great Hall',
-      accentColor: '#14b8a6',
-      hairColor: '#042f2e',
-      desk: { x: 580, y: 730 },
-      aisleKey: 'AE_MENTOR',
-      bubble: 'Counseling junior squires & engineers'
-    },
-    {
-      id: 'ui-designer',
-      name: 'ui-designer',
-      title: 'Royal Tapestry Weaver',
-      accentColor: '#d946ef',
-      hairColor: '#4a044e',
-      desk: { x: 1020, y: 730 },
-      aisleKey: 'AE_DESIGNER',
-      bubble: 'Weaving heraldic tapestries'
+      room: 'Subterranean Dragon Cistern',
+      bubble: 'Directing Medallion DuckDB pipeline channels'
     },
     {
       id: 'vps-assistant',
@@ -292,9 +320,10 @@
       title: 'Castellan of Logistics & Larder',
       accentColor: '#a855f7',
       hairColor: '#3b0764',
-      desk: { x: 1120, y: 730 },
+      desk: { x: 1080, y: 740 },
       aisleKey: 'AE_ASSISTANT',
-      bubble: 'Managing stronghold operations'
+      room: 'Tavern Supply Bar',
+      bubble: 'Triaging orders & managing stronghold supplies'
     }
   ];
 
@@ -305,49 +334,66 @@
     return inBox || inRadius;
   }
 
-  // --- Waypoint Navigation Graph (Zero-Clipping) ---
+  // --- Waypoint Navigation Graph with Zero-Clipping Room Connectivity ---
   const WAYPOINTS = {
+    // North Dais
     'W_THRONE_EXIT':   { x: 800, y: 190, neighbors: ['W_THRONE_STEPS', 'ST_THRONE'] },
     'W_THRONE_STEPS':  { x: 800, y: 260, neighbors: ['W_THRONE_EXIT', 'C_NORTH_HALL'] },
     'C_NORTH_HALL':    { x: 800, y: 320, neighbors: ['W_THRONE_STEPS', 'C_NW_DOOR', 'C_NE_DOOR', 'ST_WAR_NORTH'] },
+
+    // Doors to Wings
     'C_NW_DOOR':       { x: 520, y: 320, neighbors: ['C_NORTH_HALL', 'W_LIB_EAST', 'C_WEST_BREEZEWAY'] },
-    'C_NE_DOOR':       { x: 1080, y: 320, neighbors: ['C_NORTH_HALL', 'W_FORGE_WEST', 'C_EAST_BREEZEWAY'] },
-    'W_LIB_EAST':      { x: 430, y: 320, neighbors: ['C_NW_DOOR', 'ST_LIBRARY', 'W_LIB_SOUTH'] },
-    'ST_LIBRARY':      { x: 320, y: 260, neighbors: ['W_LIB_EAST', 'ST_ALCHEMY', 'AE_PROFESSOR'] },
-    'ST_ALCHEMY':      { x: 170, y: 250, neighbors: ['ST_LIBRARY'] },
-    'W_LIB_SOUTH':     { x: 320, y: 350, neighbors: ['W_LIB_EAST', 'AE_PAPERWRIGHT'] },
-    'W_FORGE_WEST':    { x: 1170, y: 320, neighbors: ['C_NE_DOOR', 'ST_FORGE', 'ST_ARMOR_RACK'] },
-    'ST_FORGE':        { x: 1300, y: 230, neighbors: ['W_FORGE_WEST', 'AE_DEVOPS'] },
-    'ST_ARMOR_RACK':   { x: 1200, y: 380, neighbors: ['W_FORGE_WEST'] },
-    'ST_WAR_NORTH':    { x: 800, y: 350, neighbors: ['C_NORTH_HALL', 'ST_WAR_TABLE', 'AE_ARCHITECT'] },
+    'C_NE_DOOR':       { x: 1080, y: 320, neighbors: ['C_NORTH_HALL', 'W_GUILD_WEST', 'C_EAST_BREEZEWAY'] },
+
+    // West Wing (Library & Alchemy)
+    'W_LIB_EAST':      { x: 440, y: 320, neighbors: ['C_NW_DOOR', 'ST_LIBRARY', 'W_LIB_SOUTH'] },
+    'ST_LIBRARY':      { x: 320, y: 260, neighbors: ['W_LIB_EAST', 'AE_PROFESSOR', 'AE_PAPERWRIGHT', 'ST_ALCHEMY'] },
+    'AE_PROFESSOR':    { x: 260, y: 260, neighbors: ['ST_LIBRARY'] },
+    'AE_PAPERWRIGHT':  { x: 390, y: 260, neighbors: ['ST_LIBRARY'] },
+    'W_LIB_SOUTH':     { x: 320, y: 340, neighbors: ['W_LIB_EAST', 'ST_ALCHEMY'] },
+    'ST_ALCHEMY':      { x: 170, y: 340, neighbors: ['W_LIB_SOUTH', 'ST_LIBRARY'] },
+
+    // East Wing (Forge & Guildhall)
+    'W_GUILD_WEST':    { x: 1140, y: 320, neighbors: ['C_NE_DOOR', 'ST_FORGE', 'ST_GUILDHALL'] },
+    'ST_FORGE':        { x: 1280, y: 240, neighbors: ['W_GUILD_WEST', 'AE_DEVOPS'] },
+    'AE_DEVOPS':       { x: 1280, y: 240, neighbors: ['ST_FORGE'] },
+    'ST_GUILDHALL':    { x: 1260, y: 360, neighbors: ['W_GUILD_WEST', 'AE_ARCHITECT', 'AE_BACKEND', 'W_GUILD_SOUTH'] },
+    'AE_ARCHITECT':    { x: 1200, y: 390, neighbors: ['ST_GUILDHALL'] },
+    'AE_BACKEND':      { x: 1330, y: 390, neighbors: ['ST_GUILDHALL', 'AE_GITHUB'] },
+    'AE_GITHUB':       { x: 1400, y: 390, neighbors: ['AE_BACKEND', 'ST_ARMOR_RACK'] },
+    'W_GUILD_SOUTH':   { x: 1260, y: 440, neighbors: ['ST_GUILDHALL', 'AE_FRONTEND', 'AE_VERIFIER', 'ST_ARMOR_RACK'] },
+    'AE_FRONTEND':     { x: 1200, y: 440, neighbors: ['W_GUILD_SOUTH'] },
+    'AE_VERIFIER':     { x: 1330, y: 440, neighbors: ['W_GUILD_SOUTH'] },
+    'ST_ARMOR_RACK':   { x: 1440, y: 440, neighbors: ['W_GUILD_SOUTH', 'AE_GITHUB'] },
+
+    // Center War Table (EMPTY when idle!)
+    'ST_WAR_NORTH':    { x: 800, y: 360, neighbors: ['C_NORTH_HALL', 'ST_WAR_TABLE'] },
     'ST_WAR_TABLE':    { x: 800, y: 440, neighbors: ['ST_WAR_NORTH', 'ST_WAR_WEST', 'ST_WAR_EAST', 'ST_WAR_SOUTH'] },
-    'ST_WAR_WEST':     { x: 710, y: 445, neighbors: ['ST_WAR_TABLE', 'AE_BACKEND', 'AE_FRONTEND'] },
-    'ST_WAR_EAST':     { x: 890, y: 445, neighbors: ['ST_WAR_TABLE', 'AE_VERIFIER', 'AE_GITHUB'] },
-    'ST_WAR_SOUTH':    { x: 800, y: 530, neighbors: ['ST_WAR_TABLE', 'ST_STAG_HEARTH', 'C_SOUTH_HALL'] },
-    'ST_STAG_HEARTH':  { x: 800, y: 600, neighbors: ['ST_WAR_SOUTH', 'C_SOUTH_HALL'] },
+    'ST_WAR_WEST':     { x: 710, y: 440, neighbors: ['ST_WAR_TABLE'] },
+    'ST_WAR_EAST':     { x: 890, y: 440, neighbors: ['ST_WAR_TABLE'] },
+    'ST_WAR_SOUTH':    { x: 800, y: 520, neighbors: ['ST_WAR_TABLE', 'ST_STAG_HEARTH', 'C_SOUTH_HALL'] },
+
+    // Corridors & Breezeways
     'C_WEST_BREEZEWAY':{ x: 520, y: 480, neighbors: ['C_NW_DOOR', 'C_SW_DOOR'] },
     'C_EAST_BREEZEWAY':{ x: 1080, y: 480, neighbors: ['C_NE_DOOR', 'C_SE_DOOR'] },
-    'C_SOUTH_HALL':    { x: 800, y: 650, neighbors: ['ST_STAG_HEARTH', 'C_SW_DOOR', 'C_SE_DOOR'] },
-    'C_SW_DOOR':       { x: 520, y: 650, neighbors: ['C_SOUTH_HALL', 'C_WEST_BREEZEWAY', 'W_FEAST_WEST'] },
-    'C_SE_DOOR':       { x: 1080, y: 650, neighbors: ['C_SOUTH_HALL', 'C_EAST_BREEZEWAY', 'W_FEAST_EAST'] },
-    'W_FEAST_WEST':    { x: 520, y: 730, neighbors: ['C_SW_DOOR', 'ST_CISTERN', 'AE_DATAENG', 'AE_MENTOR'] },
-    'ST_CISTERN':      { x: 260, y: 730, neighbors: ['W_FEAST_WEST'] },
-    'W_FEAST_EAST':    { x: 1080, y: 730, neighbors: ['C_SE_DOOR', 'ST_ALE_BAR', 'AE_DESIGNER', 'AE_ASSISTANT'] },
-    'ST_ALE_BAR':      { x: 1300, y: 730, neighbors: ['W_FEAST_EAST'] },
+
+    // South Wing (Banquet, Lounge, Cistern, Tavern)
+    'ST_STAG_HEARTH':  { x: 800, y: 620, neighbors: ['ST_WAR_SOUTH', 'C_SOUTH_HALL', 'AE_MENTOR'] },
+    'C_SOUTH_HALL':    { x: 800, y: 670, neighbors: ['ST_STAG_HEARTH', 'C_SW_DOOR', 'C_SE_DOOR', 'AE_MENTOR'] },
+    'AE_MENTOR':       { x: 740, y: 690, neighbors: ['C_SOUTH_HALL', 'ST_STAG_HEARTH'] },
+    'C_SW_DOOR':       { x: 520, y: 670, neighbors: ['C_SOUTH_HALL', 'C_WEST_BREEZEWAY', 'W_FEAST_WEST'] },
+    'C_SE_DOOR':       { x: 1080, y: 670, neighbors: ['C_SOUTH_HALL', 'C_EAST_BREEZEWAY', 'W_FEAST_EAST'] },
+    'W_FEAST_WEST':    { x: 520, y: 730, neighbors: ['C_SW_DOOR', 'ST_CISTERN', 'AE_DESIGNER'] },
+    'AE_DESIGNER':     { x: 500, y: 720, neighbors: ['W_FEAST_WEST'] },
+    'ST_CISTERN':      { x: 340, y: 730, neighbors: ['W_FEAST_WEST', 'AE_DATAENG'] },
+    'AE_DATAENG':      { x: 300, y: 730, neighbors: ['ST_CISTERN'] },
+    'W_FEAST_EAST':    { x: 1080, y: 730, neighbors: ['C_SE_DOOR', 'ST_ALE_BAR', 'AE_ASSISTANT'] },
+    'AE_ASSISTANT':    { x: 1080, y: 720, neighbors: ['W_FEAST_EAST'] },
+    'ST_ALE_BAR':      { x: 1180, y: 730, neighbors: ['W_FEAST_EAST'] },
+
+    // Boss Station
     'ST_THRONE':       { x: 800, y: 110, neighbors: ['W_THRONE_EXIT'] },
-    'AE_BOSS':         { x: 800, y: 155, neighbors: ['W_THRONE_EXIT'] },
-    'AE_ARCHITECT':    { x: 800, y: 350, neighbors: ['ST_WAR_NORTH'] },
-    'AE_BACKEND':      { x: 710, y: 415, neighbors: ['ST_WAR_WEST'] },
-    'AE_FRONTEND':     { x: 710, y: 475, neighbors: ['ST_WAR_WEST'] },
-    'AE_VERIFIER':     { x: 890, y: 415, neighbors: ['ST_WAR_EAST'] },
-    'AE_GITHUB':       { x: 890, y: 475, neighbors: ['ST_WAR_EAST'] },
-    'AE_PROFESSOR':    { x: 320, y: 260, neighbors: ['ST_LIBRARY'] },
-    'AE_PAPERWRIGHT':  { x: 230, y: 350, neighbors: ['W_LIB_SOUTH'] },
-    'AE_DEVOPS':       { x: 1280, y: 270, neighbors: ['ST_FORGE'] },
-    'AE_DATAENG':      { x: 480, y: 730, neighbors: ['W_FEAST_WEST'] },
-    'AE_MENTOR':       { x: 580, y: 730, neighbors: ['W_FEAST_WEST'] },
-    'AE_DESIGNER':     { x: 1020, y: 730, neighbors: ['W_FEAST_EAST'] },
-    'AE_ASSISTANT':    { x: 1120, y: 730, neighbors: ['W_FEAST_EAST'] }
+    'AE_BOSS':         { x: 800, y: 155, neighbors: ['W_THRONE_EXIT'] }
   };
 
   function aStarPath(startKey, endKey) {
@@ -465,7 +511,6 @@
       this.canvas.width = this.displayWidth * dpr;
       this.canvas.height = this.displayHeight * dpr;
 
-      // Fit scale: ensures 100% of the council keep is visible without overlap
       this.scale = Math.min(
         this.canvas.width / this.virtualWidth,
         this.canvas.height / this.virtualHeight
@@ -508,7 +553,7 @@
       ctx.restore();
     }
 
-    // --- 100% PURE PROCEDURAL ARCHITECTURE (ZERO IMAGE FILES) ---
+    // --- 100% PURE PROCEDURAL ARCHITECTURE MATCHING img_60158fdf4126.jpg ---
     bakeProceduralArchitecture() {
       const ctx = this.floorCtx;
       const W = this.virtualWidth;
@@ -519,38 +564,38 @@
       ctx.fillRect(0, 0, W, H);
 
       // 2. FLOOR MATERIAL SYSTEM (Differentiated per room!)
-      // A. Great Banquet Hall: Warm Honey Oak Wood Planks
+      // South Hall: Warm Honey Oak Wood Planks
       this.renderWoodPlanks(ctx, 40, 600, W - 80, H - 640, true, '#6e4526', '#4e2d14');
 
-      // B. Grand Maester Library: Polished Dark Scholar Oak Planks
+      // West Library & Scriptorium: Polished Dark Scholar Oak Planks
       this.renderWoodPlanks(ctx, 40, 35, 480, 385, false, '#4a2f1c', '#331f11');
 
-      // C. Central Council Room & Throne Hall: Warm Sandstone Flagstones
+      // Center War Room & Throne Hall: Warm Sandstone Flagstones
       this.renderRichStoneTiles(ctx, 520, 35, 560, 565, 'sandstone');
 
-      // D. Royal Forge & Armory: Heat-Darkened Ironstone Flagstones
-      this.renderRichStoneTiles(ctx, 1080, 35, W - 1120, 385, 'ironstone');
+      // East Forge & Guildhall: Heat-Darkened Ironstone Flagstones
+      this.renderRichStoneTiles(ctx, 1080, 35, W - 1120, 565, 'ironstone');
 
       // 3. Ambient Occlusion Bands at Wall-Floor Junctions
       this.renderWallFloorAmbientOcclusion(ctx, W, H);
 
-      // 4. Heraldic Sigil Rugs of the 4 Great Houses
+      // 4. Heraldic Sigil Rugs of the Great Houses
       this.renderHeraldicSigilRugs(ctx);
 
-      // 5. Procedural Iron Throne on 5-Tier Dais with Knight Sentinels
+      // 5. Procedural Iron Throne on 5-Tier Dais with Stone Gargoyles & Candelabras
       this.renderProceduralIronThrone(ctx, 800, 110);
 
-      // 6. Procedural Octagonal Painted War Table with Topography & 14 Chairs
+      // 6. Procedural 12-Sided Painted War Table with 12 EMPTY Chairs (0 idle agents!)
       this.renderProceduralWarTable(ctx, 800, 440, 130);
 
-      // 7. 3D Thick Masonry Walls with Cut Stone Blocks & Doorway Thresholds
+      // 7. 3D Thick Masonry Walls with Cut Stone Blocks & Archways
       this.renderDimensional3DMasonryWalls(ctx, W, H);
 
-      // 8. Gothic Clustered Stone Pillars
+      // 8. Gothic Clustered Stone Pillars & Torch Braziers
       this.renderGothicPillars(ctx);
 
-      // 9. Enriched Furniture & Storytelling Props
-      this.renderEnrichedWingFurnishings(ctx);
+      // 9. Enriched Grouped Room Furnishings matching reference
+      this.renderGroupedRoomFurnishings(ctx);
     }
 
     // --- A. Procedural Wood Planks with Grain & Knots ---
@@ -569,7 +614,6 @@
           ctx.fillStyle = baseCol;
           ctx.fillRect(bx, y, bw, plankWidth);
 
-          // Wood grain lines
           ctx.strokeStyle = darkCol;
           ctx.lineWidth = 1;
           for (let g = 0; g < 3; g++) {
@@ -583,7 +627,6 @@
             ctx.stroke();
           }
 
-          // Plank edge seam
           ctx.strokeStyle = '#18110b';
           ctx.lineWidth = 1.5;
           ctx.beginPath();
@@ -591,7 +634,6 @@
           ctx.lineTo(bx + bw, y + plankWidth);
           ctx.stroke();
 
-          // Occasional knot holes
           if (rng() < 0.15) {
             const kx = bx + rng() * bw;
             ctx.fillStyle = '#261408';
@@ -601,12 +643,10 @@
           }
         }
       } else {
-        // Vertical planks
         for (let x = bx; x < bx + bw; x += plankWidth) {
           ctx.fillStyle = baseCol;
           ctx.fillRect(x, by, plankWidth, bh);
 
-          // Wood grain lines
           ctx.strokeStyle = darkCol;
           ctx.lineWidth = 1;
           for (let g = 0; g < 3; g++) {
@@ -620,7 +660,6 @@
             ctx.stroke();
           }
 
-          // Plank edge seam
           ctx.strokeStyle = '#18110b';
           ctx.lineWidth = 1.5;
           ctx.beginPath();
@@ -684,7 +723,6 @@
           ctx.lineTo(rx, y + tileH);
           ctx.stroke();
 
-          // Weathering Cracks
           if (rng() < 0.10) {
             ctx.strokeStyle = 'rgba(18, 14, 10, 0.65)';
             ctx.lineWidth = 1;
@@ -706,10 +744,8 @@
       ctx.shadowColor = 'rgba(0, 0, 0, 0.75)';
       ctx.shadowBlur = 12;
 
-      // Outer perimeter AO
       ctx.strokeRect(40, 35, W - 80, H - 70);
 
-      // Inner partition wall AO
       [
         [40, 420, 520, 420],
         [520, 35, 520, 420],
@@ -727,11 +763,10 @@
       ctx.restore();
     }
 
-    // --- D. 3D Thick Masonry Walls with Individual Cut Stone Blocks ---
+    // --- D. 3D Thick Masonry Walls with Cut Stone Blocks ---
     renderDimensional3DMasonryWalls(ctx, W, H) {
       const renderMasonrySegment = (x, y, w, h, isHorizontal = true) => {
         ctx.save();
-        // Drop shadow onto floor
         ctx.fillStyle = 'rgba(0, 0, 0, 0.65)';
         ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
         ctx.shadowBlur = 14;
@@ -740,7 +775,6 @@
         ctx.fillRect(x, y, w, h);
         ctx.shadowBlur = 0;
 
-        // Wall Base Fill
         ctx.fillStyle = '#261f18';
         ctx.fillRect(x, y, w, h);
 
@@ -748,7 +782,6 @@
         const blockW = isHorizontal ? 28 : w - 4;
         const blockH = isHorizontal ? h - 4 : 20;
 
-        // Individual stone blocks
         if (isHorizontal) {
           for (let bx = x + 2; bx < x + w - 2; bx += blockW + 2) {
             const bw = Math.min(blockW, (x + w - 2) - bx);
@@ -759,7 +792,6 @@
 
             ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
             ctx.fillRect(bx, y + 2, bw, h - 4);
-
             ctx.strokeStyle = 'rgba(235, 220, 190, 0.22)';
             ctx.lineWidth = 1;
             ctx.strokeRect(bx, y + 2, bw, h - 4);
@@ -774,14 +806,12 @@
 
             ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
             ctx.fillRect(x + 2, by, w - 4, bh);
-
             ctx.strokeStyle = 'rgba(235, 220, 190, 0.22)';
             ctx.lineWidth = 1;
             ctx.strokeRect(x + 2, by, w - 4, bh);
           }
         }
 
-        // Inner Face Depth Strip
         ctx.fillStyle = 'rgba(10, 8, 6, 0.45)';
         if (isHorizontal) {
           ctx.fillRect(x, y + h - 6, w, 6);
@@ -813,80 +843,9 @@
       renderMasonrySegment(880, 590, W - 910, wallThick, true);
     }
 
-    // --- E. Heraldic Sigil Rugs of the 4 Great Houses ---
+    // --- E. Heraldic Sigil Rugs of the Great Houses ---
     renderHeraldicSigilRugs(ctx) {
-      // 1. House Stark Rug (North-West)
-      this.drawRug(ctx, 600, 260, 110, 130, '#2b3544', '#5a697d', () => {
-        ctx.fillStyle = '#f1f5f9';
-        ctx.beginPath();
-        ctx.moveTo(0, 18);
-        ctx.bezierCurveTo(-15, 12, -22, 0, -18, -12);
-        ctx.lineTo(-24, -24); ctx.lineTo(-14, -18);
-        ctx.bezierCurveTo(-5, -28, 12, -26, 24, -10);
-        ctx.lineTo(26, -4); ctx.lineTo(18, -2);
-        ctx.bezierCurveTo(15, 8, 8, 15, 0, 18);
-        ctx.closePath();
-        ctx.fill();
-        ctx.fillStyle = '#f59e0b';
-        ctx.beginPath(); ctx.arc(4, -10, 2.5, 0, Math.PI * 2); ctx.fill();
-      });
-
-      // 2. House Targaryen Rug (North-East)
-      this.drawRug(ctx, 1000, 260, 110, 130, '#1c1917', '#991b1b', () => {
-        ctx.fillStyle = '#dc2626';
-        ctx.beginPath();
-        ctx.arc(0, 4, 18, 0, Math.PI * 2);
-        ctx.fill();
-        [-12, 0, 12].forEach(ox => {
-          ctx.beginPath();
-          ctx.moveTo(ox * 0.6, -6);
-          ctx.quadraticCurveTo(ox * 1.4, -22, ox * 1.1, -28);
-          ctx.lineTo(ox * 1.5, -24);
-          ctx.closePath();
-          ctx.fill();
-        });
-        ctx.beginPath();
-        ctx.moveTo(-10, -4);
-        ctx.quadraticCurveTo(-30, -22, -28, 2);
-        ctx.lineTo(-10, 6);
-        ctx.moveTo(10, -4);
-        ctx.quadraticCurveTo(30, -22, 28, 2);
-        ctx.lineTo(10, 6);
-        ctx.fill();
-      });
-
-      // 3. House Lannister Promenade Rug & Royal Wall Banners
-      this.drawRug(ctx, 800, 235, 130, 85, '#881337', '#d97706', () => {
-        ctx.fillStyle = '#fbbf24';
-        ctx.beginPath();
-        ctx.moveTo(0, 22);
-        ctx.bezierCurveTo(-10, 14, -12, -7, -4, -18);
-        ctx.lineTo(-10, -25); ctx.lineTo(-1, -22);
-        ctx.bezierCurveTo(6, -29, 14, -22, 11, -14);
-        ctx.lineTo(20, -17); ctx.lineTo(14, -10);
-        ctx.bezierCurveTo(11, 4, 8, 15, 0, 22);
-        ctx.closePath();
-        ctx.fill();
-      });
-
-      // Twin Lannister Crimson Banners flanking Iron Throne
-      [670, 930].forEach(bx => {
-        this.drawRug(ctx, bx, 110, 36, 95, '#881337', '#fbbf24', () => {
-          ctx.fillStyle = '#fbbf24';
-          ctx.beginPath();
-          ctx.arc(0, -12, 8, 0, Math.PI * 2);
-          ctx.fill();
-        });
-      });
-
-      // Central Council Floor Rug under War Table
-      this.drawRug(ctx, 800, 440, 360, 220, '#701a1a', '#d97706', () => {
-        ctx.strokeStyle = '#fef08a';
-        ctx.lineWidth = 1.5;
-        ctx.strokeRect(-165, -95, 330, 190);
-      });
-
-      // 4. House Baratheon Rug (Great Banquet Hall South)
+      // 1. House Baratheon Golden Stag Rug (Banquet & Lounge)
       this.drawRug(ctx, 800, 730, 280, 140, '#92400e', '#1c1917', () => {
         ctx.fillStyle = '#0f172a';
         ctx.beginPath();
@@ -906,33 +865,51 @@
         ctx.fillStyle = '#fbbf24';
         ctx.fillRect(-6, -12, 12, 4);
       });
+
+      // 2. Twin Royal Wall Banners flanking Iron Throne (Crimson with Golden Stag)
+      [670, 930].forEach(bx => {
+        this.drawRug(ctx, bx, 110, 36, 95, '#881337', '#fbbf24', () => {
+          ctx.fillStyle = '#fbbf24';
+          ctx.beginPath();
+          ctx.arc(0, -12, 8, 0, Math.PI * 2);
+          ctx.fill();
+        });
+      });
+
+      // 3. Central Council Floor Rug under War Table
+      this.drawRug(ctx, 800, 440, 360, 220, '#701a1a', '#d97706', () => {
+        ctx.strokeStyle = '#fef08a';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(-165, -95, 330, 190);
+      });
+
+      // 4. Library Scholar Area Rug
+      this.drawRug(ctx, 320, 250, 240, 120, '#2b3544', '#5a697d', null);
     }
 
     drawRug(ctx, cx, cy, w, h, baseCol, borderCol, sigilFn) {
       ctx.save();
       ctx.translate(cx, cy);
 
-      // Contact Drop Shadow
       this.drawContactShadow(ctx, -w / 2 + 3, -h / 2 + 3, w, h, 6);
 
-      // Rug Surface
       ctx.fillStyle = baseCol;
       ctx.fillRect(-w / 2, -h / 2, w, h);
 
-      // Decorative Ornate Border
-      ctx.strokeStyle = borderCol;
-      ctx.lineWidth = 3;
-      ctx.strokeRect(-w / 2 + 4, -h / 2 + 4, w - 8, h - 8);
+      if (borderCol) {
+        ctx.strokeStyle = borderCol;
+        ctx.lineWidth = 3;
+        ctx.strokeRect(-w / 2 + 4, -h / 2 + 4, w - 8, h - 8);
 
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
-      ctx.lineWidth = 1;
-      ctx.strokeRect(-w / 2 + 8, -h / 2 + 8, w - 16, h - 16);
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(-w / 2 + 8, -h / 2 + 8, w - 16, h - 16);
 
-      // Fringed tassels
-      ctx.fillStyle = borderCol;
-      for (let tx = -w / 2 + 4; tx < w / 2 - 4; tx += 6) {
-        ctx.fillRect(tx, -h / 2 - 3, 2.5, 3);
-        ctx.fillRect(tx, h / 2, 2.5, 3);
+        ctx.fillStyle = borderCol;
+        for (let tx = -w / 2 + 4; tx < w / 2 - 4; tx += 6) {
+          ctx.fillRect(tx, -h / 2 - 3, 2.5, 3);
+          ctx.fillRect(tx, h / 2, 2.5, 3);
+        }
       }
 
       if (sigilFn) sigilFn();
@@ -1031,15 +1008,15 @@
       ctx.restore();
     }
 
-    // --- G. Procedural Octagonal Painted War Table with Topography ---
+    // --- G. 12-Sided Painted War Table with 12 EMPTY Chairs (Zero Idle Agents!) ---
     renderProceduralWarTable(ctx, cx, cy, R) {
       ctx.save();
       ctx.translate(cx, cy);
 
-      const drawOctagon = (r) => {
+      const drawDodecagon = (r) => {
         ctx.beginPath();
-        for (let i = 0; i < 8; i++) {
-          const a = (i * Math.PI / 4) + Math.PI / 8;
+        for (let i = 0; i < 12; i++) {
+          const a = (i * Math.PI / 6);
           const px = Math.cos(a) * r;
           const py = Math.sin(a) * r;
           if (i === 0) ctx.moveTo(px, py);
@@ -1057,22 +1034,22 @@
       wg.addColorStop(0.6, '#542608');
       wg.addColorStop(1, '#321404');
       ctx.fillStyle = wg;
-      drawOctagon(R);
+      drawDodecagon(R);
       ctx.fill();
 
-      // Beveled Carved Edge with Brass Corner Studs
+      // Beveled Edge with Brass Corner Studs
       ctx.strokeStyle = '#d97706';
       ctx.lineWidth = 4;
-      drawOctagon(R);
+      drawDodecagon(R);
       ctx.stroke();
 
       ctx.strokeStyle = '#fef3c7';
       ctx.lineWidth = 1;
-      drawOctagon(R - 4);
+      drawDodecagon(R - 4);
       ctx.stroke();
 
-      for (let i = 0; i < 8; i++) {
-        const a = (i * Math.PI / 4) + Math.PI / 8;
+      for (let i = 0; i < 12; i++) {
+        const a = (i * Math.PI / 6);
         ctx.fillStyle = '#fbbf24';
         ctx.beginPath();
         ctx.arc(Math.cos(a) * (R - 2), Math.sin(a) * (R - 2), 3, 0, Math.PI * 2);
@@ -1081,13 +1058,13 @@
 
       // Painted Relief Map of Westeros Topography
       ctx.save();
-      drawOctagon(R - 10);
+      drawDodecagon(R - 10);
       ctx.clip();
 
       ctx.fillStyle = '#1e3a8a';
       ctx.fillRect(-R, -R, R * 2, R * 2);
 
-      // Continent landmass
+      // Landmass
       ctx.fillStyle = '#78716c';
       ctx.beginPath();
       ctx.moveTo(-60, -R + 10);
@@ -1125,9 +1102,9 @@
 
       ctx.restore();
 
-      // 14 High-Backed Carved Council Chairs around table
-      for (let c = 0; c < 14; c++) {
-        const ca = (c / 14) * Math.PI * 2 - Math.PI / 2;
+      // 12 High-Backed Carved Council Chairs (ALL EMPTY during idle!)
+      for (let c = 0; c < 12; c++) {
+        const ca = (c / 12) * Math.PI * 2 - Math.PI / 2;
         const cxp = Math.cos(ca) * (R + 26);
         const cyp = Math.sin(ca) * (R + 26);
 
@@ -1135,10 +1112,9 @@
         ctx.translate(cxp, cyp);
         ctx.rotate(ca + Math.PI / 2);
 
-        // Chair Seat Contact Shadow
         this.drawContactShadow(ctx, -10, -8, 20, 16, 3);
 
-        // Chair Seat Cushion
+        // Crimson velvet seat
         ctx.fillStyle = '#881337';
         ctx.beginPath();
         ctx.roundRect(-10, -8, 20, 16, 3);
@@ -1190,11 +1166,14 @@
       });
     }
 
-    // --- I. Enriched Furniture & Storytelling Props ---
-    renderEnrichedWingFurnishings(ctx) {
-      // 1. Library Bookcases & Maester Desks (West Wing)
+    // --- I. Enriched Grouped Room Furnishings (4 Rooms) ---
+    renderGroupedRoomFurnishings(ctx) {
+      // =========================================================================
+      // 1. WEST WING: CITADEL LIBRARY & ALCHEMICAL LAB (professor & paperwright)
+      // =========================================================================
+      // Bookcases along North & West walls
       ctx.fillStyle = '#3e2723';
-      for (let by = 60; by <= 360; by += 45) {
+      for (let by = 50; by <= 350; by += 45) {
         this.drawContactShadow(ctx, 45, by, 32, 38, 4);
         ctx.fillRect(45, by, 32, 38);
         ctx.strokeStyle = '#5d4037';
@@ -1207,69 +1186,102 @@
         }
       }
 
-      // Rolling Ladder leaning on bookshelves
+      // Rolling Ladder
       ctx.strokeStyle = '#a1887f';
       ctx.lineWidth = 2.5;
       ctx.beginPath();
-      ctx.moveTo(80, 100); ctx.lineTo(65, 220);
-      ctx.moveTo(92, 100); ctx.lineTo(77, 220);
-      for (let ly = 120; ly < 210; ly += 16) {
-        ctx.moveTo(80 - (ly - 100) * 0.12, ly);
-        ctx.lineTo(92 - (ly - 100) * 0.12, ly);
+      ctx.moveTo(80, 80); ctx.lineTo(65, 200);
+      ctx.moveTo(92, 80); ctx.lineTo(77, 200);
+      for (let ly = 100; ly < 190; ly += 16) {
+        ctx.moveTo(80 - (ly - 80) * 0.12, ly);
+        ctx.lineTo(92 - (ly - 80) * 0.12, ly);
       }
       ctx.stroke();
 
-      // Spiral Staircase in NW corner
+      // Spiral Stone Staircase in NW corner
       ctx.fillStyle = '#292524';
       ctx.beginPath();
       ctx.arc(80, 80, 22, 0, Math.PI * 2);
       ctx.fill();
       ctx.strokeStyle = '#78716c';
       ctx.stroke();
-      for (let sa = 0; sa < Math.PI * 2; sa += Math.PI / 4) {
-        ctx.beginPath();
-        ctx.moveTo(80, 80);
-        ctx.lineTo(80 + Math.cos(sa) * 22, 80 + Math.sin(sa) * 22);
-        ctx.stroke();
-      }
 
-      // Maester Study Desk with Items
-      this.drawContactShadow(ctx, 260, 240, 100, 48, 4);
+      // Desk 1: Professor's Scholar Study Desk (Left)
+      this.drawContactShadow(ctx, 210, 210, 100, 48, 4);
       ctx.fillStyle = '#543019';
       ctx.beginPath();
-      ctx.roundRect(260, 240, 100, 48, 4);
+      ctx.roundRect(210, 210, 100, 48, 4);
       ctx.fill();
       ctx.strokeStyle = '#8d6e63';
       ctx.lineWidth = 1.5;
       ctx.stroke();
 
-      // Open Manuscripts & Brass Astrolabe
-      ctx.fillStyle = '#fef3c7';
-      ctx.fillRect(275, 250, 28, 20);
+      // Astrolabe & Globe on Professor's Desk
       ctx.fillStyle = '#f59e0b';
-      ctx.beginPath(); ctx.arc(335, 264, 8, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.arc(235, 234, 8, 0, Math.PI * 2); ctx.stroke();
+      ctx.fillStyle = '#38bdf8';
+      ctx.beginPath(); ctx.arc(295, 234, 7, 0, Math.PI * 2); ctx.fill();
 
-      // 2. Castle Forge Anvils & Quench Trough (East Wing)
-      ctx.fillStyle = '#3e2723';
-      ctx.fillRect(1240, 60, 110, 80);
+      // Desk 2: Paperwright's Scribe Desk (Right)
+      this.drawContactShadow(ctx, 340, 210, 100, 48, 4);
+      ctx.fillStyle = '#4a2810';
+      ctx.beginPath();
+      ctx.roundRect(340, 210, 100, 48, 4);
+      ctx.fill();
+      ctx.strokeStyle = '#8d6e63';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // Open Manuscripts & Inkpots
+      ctx.fillStyle = '#fef3c7';
+      ctx.fillRect(355, 222, 28, 18);
+      ctx.fillStyle = '#0f172a';
+      ctx.beginPath(); ctx.arc(415, 232, 4, 0, Math.PI * 2); ctx.fill();
+
+      // Alchemy Reagent Bench (Station: crawler)
+      this.drawContactShadow(ctx, 110, 320, 110, 50, 4);
+      ctx.fillStyle = '#2d1b0e';
+      ctx.fillRect(110, 320, 110, 50);
       ctx.strokeStyle = '#5d4037';
-      ctx.strokeRect(1240, 60, 110, 80);
+      ctx.strokeRect(110, 320, 110, 50);
 
-      // Water Quench Trough with Blue Water Reflection
-      this.drawContactShadow(ctx, 1160, 180, 36, 60, 3);
+      // Bubbling Green Wildfire Cauldron
+      ctx.fillStyle = '#1c1917';
+      ctx.beginPath();
+      ctx.arc(165, 345, 14, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.fillStyle = '#10b981';
+      ctx.beginPath();
+      ctx.arc(165, 345, 9, 0, Math.PI * 2);
+      ctx.fill();
+
+      // =========================================================================
+      // 2. EAST WING: FORGE & GUILDHALL (devops, architect, swe-backend, etc.)
+      // =========================================================================
+      // Upper: Smelting Furnace & Chimney Hood
+      ctx.fillStyle = '#3e2723';
+      ctx.fillRect(1240, 55, 110, 75);
+      ctx.strokeStyle = '#5d4037';
+      ctx.strokeRect(1240, 55, 110, 75);
+
+      // Water Quench Trough
+      this.drawContactShadow(ctx, 1150, 170, 36, 60, 3);
       ctx.fillStyle = '#451a03';
-      ctx.fillRect(1160, 180, 36, 60);
+      ctx.fillRect(1150, 170, 36, 60);
       ctx.fillStyle = '#0284c7';
-      ctx.fillRect(1164, 184, 28, 52);
+      ctx.fillRect(1154, 174, 28, 52);
 
-      // Dual Heavy Iron Anvils on Timber Blocks
-      [1260, 1340].forEach(ax => {
-        this.drawContactShadow(ctx, ax - 2, 258, 40, 22, 3);
+      // Dual Heavy Steel Anvils
+      [1250, 1340].forEach(ax => {
+        this.drawContactShadow(ctx, ax - 2, 230, 40, 22, 3);
         ctx.fillStyle = '#78350f';
-        ctx.fillRect(ax - 2, 258, 40, 22);
+        ctx.fillRect(ax - 2, 230, 40, 22);
         ctx.fillStyle = '#1c1917';
         ctx.beginPath();
-        ctx.roundRect(ax, 260, 36, 18, 4);
+        ctx.roundRect(ax, 232, 36, 18, 4);
         ctx.fill();
         ctx.strokeStyle = '#a8a29e';
         ctx.lineWidth = 1;
@@ -1278,75 +1290,130 @@
 
       // Weapon Racks along East Wall
       ctx.fillStyle = '#5d4037';
-      ctx.fillRect(1450, 150, 20, 180);
+      ctx.fillRect(1460, 140, 20, 160);
       ctx.strokeStyle = '#a8a29e';
-      for (let wy = 160; wy <= 310; wy += 20) {
+      for (let wy = 150; wy <= 280; wy += 20) {
         ctx.beginPath();
-        ctx.moveTo(1445, wy); ctx.lineTo(1465, wy);
+        ctx.moveTo(1455, wy); ctx.lineTo(1475, wy);
         ctx.stroke();
       }
 
-      // 3. Great Banquet Hall Fireplace with Stag Skull (South)
-      this.drawContactShadow(ctx, 720, 560, 160, 70, 6);
+      // Lower Guildhall: 4 Craftsmen Workbenches
+      const benches = [
+        [1160, 340, 'chief-architect (Table 1)'],
+        [1290, 320, 'swe-backend (Table 2)'],
+        [1160, 440, 'swe-frontend (Table 3)'],
+        [1290, 440, 'swe-verifier (Table 4)']
+      ];
+
+      benches.forEach(b => {
+        this.drawContactShadow(ctx, b[0], b[1], 80, 40, 3);
+        ctx.fillStyle = '#543019';
+        ctx.beginPath();
+        ctx.roundRect(b[0], b[1], 80, 40, 3);
+        ctx.fill();
+        ctx.strokeStyle = '#8d6e63';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Blueprints & drafting instruments
+        ctx.fillStyle = '#38bdf8';
+        ctx.fillRect(b[0] + 12, b[1] + 8, 22, 16);
+      });
+
+      // Armor Inspection Cleanroom Rack (swe-verifier / github-manager)
+      this.drawContactShadow(ctx, 1420, 420, 40, 50, 4);
+      ctx.fillStyle = '#334155';
+      ctx.beginPath();
+      ctx.roundRect(1420, 420, 40, 50, 4);
+      ctx.fill();
+      ctx.strokeStyle = '#34d399';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // =========================================================================
+      // 3. SOUTH WING: BANQUET HALL, LOUNGE & DRAGON CISTERN
+      // =========================================================================
+      // Great Stag Hearth Stone Fireplace
+      this.drawContactShadow(ctx, 720, 570, 160, 70, 6);
       ctx.fillStyle = '#262626';
       ctx.beginPath();
-      ctx.roundRect(720, 560, 160, 70, 6);
+      ctx.roundRect(720, 570, 160, 70, 6);
       ctx.fill();
       ctx.strokeStyle = '#525252';
       ctx.stroke();
 
-      // Mounted Great Stag Skull
+      // Mounted Great Stag Skull with 8-Point Antlers
       ctx.fillStyle = '#f5f5f4';
       ctx.beginPath();
-      ctx.ellipse(800, 575, 12, 16, 0, 0, Math.PI * 2);
+      ctx.ellipse(800, 585, 12, 16, 0, 0, Math.PI * 2);
       ctx.fill();
       ctx.strokeStyle = '#e7e5e4';
       ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(800, 565); ctx.lineTo(775, 545); ctx.lineTo(765, 535);
-      ctx.moveTo(800, 565); ctx.lineTo(825, 545); ctx.lineTo(835, 535);
+      ctx.moveTo(800, 575); ctx.lineTo(775, 555); ctx.lineTo(765, 545);
+      ctx.moveTo(800, 575); ctx.lineTo(825, 555); ctx.lineTo(835, 545);
       ctx.stroke();
 
-      // Long Banquet Feast Tables with Food & Plates!
-      [420, 960].forEach(tx => {
-        this.drawContactShadow(ctx, tx, 710, 180, 44, 4);
-        ctx.fillStyle = '#542608';
-        ctx.beginPath();
-        ctx.roundRect(tx, 710, 180, 44, 4);
-        ctx.fill();
-        ctx.strokeStyle = '#854d0e';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
+      // Bearskin Pelt Rug in front of Fireplace
+      this.drawRug(ctx, 800, 680, 140, 60, '#3e2723', '#2d1b0e', null);
 
-        for (let p = 0; p < 4; p++) {
-          const px = tx + 24 + p * 42;
-          ctx.fillStyle = '#94a3b8';
-          ctx.beginPath();
-          ctx.arc(px, 732, 6, 0, Math.PI * 2);
-          ctx.fill();
+      // Fireside Armchair (tech-mentor)
+      this.drawContactShadow(ctx, 725, 705, 32, 30, 3);
+      ctx.fillStyle = '#881337';
+      ctx.beginPath();
+      ctx.roundRect(725, 705, 32, 30, 6);
+      ctx.fill();
+      ctx.strokeStyle = '#d97706';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
 
-          ctx.fillStyle = '#d97706';
-          ctx.fillRect(px + 10, 727, 5, 8);
-        }
-      });
+      // Long Banquet Feast Table (ui-designer)
+      this.drawContactShadow(ctx, 420, 720, 160, 44, 4);
+      ctx.fillStyle = '#542608';
+      ctx.beginPath();
+      ctx.roundRect(420, 720, 160, 44, 4);
+      ctx.fill();
+      ctx.strokeStyle = '#854d0e';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
 
-      // 5 Realistic Ale Casks in Larder with Staves & Hoops
-      for (let cy = 660; cy <= 790; cy += 32) {
-        this.drawContactShadow(ctx, 1420, cy - 8, 30, 24, 3);
+      // Feast Platters & Tankards
+      for (let p = 0; p < 4; p++) {
+        const px = 420 + 20 + p * 38;
+        ctx.fillStyle = '#94a3b8';
+        ctx.beginPath(); ctx.arc(px, 742, 6, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#d97706';
+        ctx.fillRect(px + 8, 737, 5, 8);
+      }
+
+      // Subterranean Dragon Cistern (data-engineer)
+      this.drawContactShadow(ctx, 230, 710, 95, 65, 5);
+      ctx.fillStyle = '#1e293b';
+      ctx.beginPath();
+      ctx.roundRect(230, 710, 95, 65, 8);
+      ctx.fill();
+      ctx.strokeStyle = '#0284c7';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Tavern Service Bar & Ale Casks (vps-assistant)
+      this.drawContactShadow(ctx, 1020, 725, 120, 35, 3);
+      ctx.fillStyle = '#5c3a21';
+      ctx.beginPath();
+      ctx.roundRect(1020, 725, 120, 35, 4);
+      ctx.fill();
+      ctx.strokeStyle = '#8d6e63';
+      ctx.stroke();
+
+      for (let cy = 680; cy <= 790; cy += 28) {
+        this.drawContactShadow(ctx, 1420, cy - 8, 30, 22, 3);
         ctx.fillStyle = '#78350f';
         ctx.beginPath();
         ctx.ellipse(1435, cy, 14, 18, Math.PI / 2, 0, Math.PI * 2);
         ctx.fill();
-
         ctx.strokeStyle = '#1c1917';
         ctx.lineWidth = 2;
-        ctx.stroke();
-
-        ctx.strokeStyle = '#451a03';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(1425, cy - 8); ctx.lineTo(1425, cy + 8);
-        ctx.moveTo(1445, cy - 8); ctx.lineTo(1445, cy + 8);
         ctx.stroke();
       }
     }
@@ -1380,13 +1447,12 @@
       const hudDesc = document.getElementById('hudDesc');
       const hudIcon = document.getElementById('hudIcon');
 
-      // Check agents with generous hit box
       for (const a of this.agents) {
         if (isAgentHit(a, mx, my)) {
           if (hud && hudIcon && hudTitle && hudDesc) {
             hud.style.opacity = '1';
             hudIcon.innerText = a.type === 'boss' ? '👑' : '⚔️';
-            hudTitle.innerText = a.name;
+            hudTitle.innerText = `${a.name} (${a.room})`;
             hudDesc.innerText = `${a.title} • ${a.state}`;
           }
           this.canvas.style.cursor = 'pointer';
@@ -1394,7 +1460,6 @@
         }
       }
 
-      // Check War Table (Briefing)
       const table = STATIONS.briefing;
       if (mx >= table.x - table.w / 2 && mx <= table.x + table.w / 2 &&
           my >= table.y - table.h / 2 && my <= table.y + table.h / 2) {
@@ -1402,7 +1467,7 @@
           hud.style.opacity = '1';
           hudIcon.innerText = table.icon;
           hudTitle.innerText = table.name;
-          hudDesc.innerText = 'Click to view Council Decrees & Delegation Logs';
+          hudDesc.innerText = 'Empty Council War Table — Click to view Decrees';
         }
         this.canvas.style.cursor = 'pointer';
         return;
@@ -1412,14 +1477,13 @@
       this.canvas.style.cursor = 'default';
     }
 
-    // --- USER INTERACTION: CLICK AGENT FOR DETAILS (NO WALKING), NO CLICK-TO-MOVE ON MAP ---
     handleClick(mx, my) {
       // 1. Click on Agent -> Inspect & Highlight ONLY!
       for (const a of this.agents) {
         if (isAgentHit(a, mx, my)) {
           this.selectedAgentId = a.id;
           a.bubbleTimer = 450;
-          a.bubbleText = a.bubbleText || `Reporting from station: ${a.title}`;
+          a.bubbleText = a.bubbleText || `Stationed at ${a.room}: ${a.title}`;
           if (typeof focusOnAgent === 'function') {
             focusOnAgent(a.id);
           }
@@ -1434,10 +1498,6 @@
         this.openConversationsModal();
         return;
       }
-
-      // NOTE: Manual click-to-move for rooms/tools is DISABLED per user instruction:
-      // "matikan fitur jika saya mengklik tools atau daerah maka karakter akan bergerak.
-      //  karakter akan bergerak sesuai tugas dan stepnya saja melalui prompt atau hasil delegasi task"
     }
 
     dispatchAgent(agentId, stationKey, actionText, onComplete) {
@@ -1471,7 +1531,7 @@
       agent.currentWaypointIdx = 0;
       agent.targetStation = null;
       agent.state = 'WALKING';
-      agent.stepBadge = 'RETURNING TO POST';
+      agent.stepBadge = `RETURNING ➔ ${agent.room.slice(0, 14)}`;
       agent.bubbleText = 'Task concluded. Returning to post.';
       agent.bubbleTimer = 220;
       agent.onCompleteCallback = onComplete || null;
@@ -1522,7 +1582,7 @@
         const emitters = [
           [1300, 100, '#ef4444'], // Forge
           [800, 600, '#f97316'],  // Hearth
-          [170, 250, '#10b981']   // Alchemy
+          [170, 340, '#10b981']   // Alchemy
         ];
         const em = emitters[Math.floor(Math.random() * emitters.length)];
         this.particles.push({
@@ -1613,14 +1673,13 @@
       ctx.save();
       ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-      // Fit Viewport Transform
       ctx.translate(this.offsetX, this.offsetY);
       ctx.scale(this.scale, this.scale);
 
       // Layer 0: Pre-baked Procedural Castle Floor & Architecture
       ctx.drawImage(this.floorCanvas, 0, 0, this.virtualWidth, this.virtualHeight);
 
-      // Layer 1: Ambient Lighting & Torch Braziers (Warm chiaroscuro!)
+      // Layer 1: Ambient Lighting & Torch Braziers
       this.drawAmbientLighting();
 
       // Layer 2: Characters (Y-sorted)
@@ -1633,13 +1692,11 @@
       // Layer 4: Floating Embers Particle Pass
       this.drawEmberParticles();
 
-      // Optional Debug Waypoints
       if (this.showWaypoints) this.drawWaypointGraph();
 
       ctx.restore();
     }
 
-    // --- PHASE 1: LIGHTING OVERHAUL (0.16 darkness opacity & 2.5x light radii) ---
     drawAmbientLighting() {
       const ctx = this.ctx;
       const flicker = Math.sin(this.tick * 0.12) * 5;
@@ -1647,7 +1704,6 @@
       const lctx = this.lightCtx;
       lctx.clearRect(0, 0, this.virtualWidth, this.virtualHeight);
 
-      // Warm dusk shadow overlay (0.16 opacity)
       lctx.fillStyle = 'rgba(18, 14, 10, 0.16)';
       lctx.fillRect(0, 0, this.virtualWidth, this.virtualHeight);
 
@@ -1667,7 +1723,7 @@
 
       cutLightHole(800, 600, 280 + flicker, 0.95);
       cutLightHole(1300, 100, 310 + flicker, 0.95);
-      cutLightHole(170, 250, 220 + flicker * 0.5, 0.85);
+      cutLightHole(170, 340, 220 + flicker * 0.5, 0.85);
 
       const braziers = [
         [690, 360], [910, 360],
@@ -1709,13 +1765,13 @@
       ctx.arc(1300, 100, 200 + flicker, 0, Math.PI * 2);
       ctx.fill();
 
-      const gAlchemy = ctx.createRadialGradient(170, 250, 2, 170, 250, 140 + flicker * 0.5);
+      const gAlchemy = ctx.createRadialGradient(170, 340, 2, 170, 340, 140 + flicker * 0.5);
       gAlchemy.addColorStop(0, 'rgba(16, 185, 129, 0.55)');
       gAlchemy.addColorStop(0.6, 'rgba(5, 150, 105, 0.2)');
       gAlchemy.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = gAlchemy;
       ctx.beginPath();
-      ctx.arc(170, 250, 140 + flicker * 0.5, 0, Math.PI * 2);
+      ctx.arc(170, 340, 140 + flicker * 0.5, 0, Math.PI * 2);
       ctx.fill();
 
       [...braziers, ...wallSconces].forEach(b => {
@@ -1728,12 +1784,12 @@
         ctx.fill();
       });
 
-      const gCistern = ctx.createRadialGradient(260, 730, 5, 260, 730, 65);
+      const gCistern = ctx.createRadialGradient(280, 740, 5, 280, 740, 65);
       gCistern.addColorStop(0, 'rgba(2, 132, 199, 0.45)');
       gCistern.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = gCistern;
       ctx.beginPath();
-      ctx.arc(260, 730, 65, 0, Math.PI * 2);
+      ctx.arc(280, 740, 65, 0, Math.PI * 2);
       ctx.fill();
 
       ctx.restore();
@@ -1741,7 +1797,7 @@
       ctx.font = '22px sans-serif';
       ctx.textAlign = 'center';
       const duckWave = Math.sin(this.tick * 0.08) * 3;
-      ctx.fillText('🦆', 260, 736 + duckWave);
+      ctx.fillText('🦆', 280, 746 + duckWave);
     }
 
     drawEmberParticles() {
@@ -1761,7 +1817,6 @@
       ctx.save();
       ctx.translate(agent.x, agent.y);
 
-      // Selected Glowing Selection Ring
       if (this.selectedAgentId === agent.id) {
         ctx.strokeStyle = '#fbbf24';
         ctx.lineWidth = 2.5;
@@ -1772,13 +1827,11 @@
         ctx.setLineDash([]);
       }
 
-      // Contact Shadow
       ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
       ctx.beginPath();
       ctx.ellipse(0, 11, 10, 4.5, 0, 0, Math.PI * 2);
       ctx.fill();
 
-      // Walk Kinematics
       const isWalking = agent.state === 'WALKING';
       const legStep = isWalking ? Math.sin(agent.walkCycle) * 3.5 : 0;
       const bodyBob = isWalking ? Math.abs(Math.sin(agent.walkCycle)) * 1.2 : 0;
@@ -1787,7 +1840,6 @@
       ctx.fillRect(-6, 6 + legStep - bodyBob, 4, 6);
       ctx.fillRect(2, 6 - legStep - bodyBob, 4, 6);
 
-      // Torso
       ctx.fillStyle = agent.accentColor;
       ctx.beginPath();
       ctx.roundRect(-7, -6 - bodyBob, 14, 12, 3);
@@ -1796,7 +1848,6 @@
       ctx.fillStyle = agent.type === 'boss' ? '#fbbf24' : '#e2e8f0';
       ctx.fillRect(-2, -4 - bodyBob, 4, 6);
 
-      // Head
       ctx.fillStyle = '#fde047';
       ctx.beginPath();
       ctx.roundRect(-7, -18 - bodyBob, 14, 12, 3);
@@ -1850,7 +1901,6 @@
       ctx.textAlign = 'center';
       ctx.fillText(agent.name, 0, -25 - bodyBob);
 
-      // Active Step Badge Indicator (e.g. [EXECUTING], [WALKING])
       if (agent.stepBadge) {
         ctx.fillStyle = '#f59e0b';
         ctx.font = '800 7.5px "JetBrains Mono", monospace';
@@ -1916,8 +1966,7 @@
       this.telemetryEvents = events || [];
       this.conversations = conversations || [];
 
-      // Check if sequence can be started
-      if (this.activeSequence) return; // Sequence in progress
+      if (this.activeSequence) return;
 
       // 1. Check for real delegation events
       if (conversations && conversations.length > 0) {
@@ -1936,7 +1985,6 @@
       }
     }
 
-    // Alur 1: Boss mendelegasikan tugas ke subagent (bertemu di meja bundar, lalu subagent ke stasiun alat)
     executeDelegationSequence(convo) {
       const subagent = this.agents.find(a => a.id === convo.receiver);
       const boss = this.agents.find(a => a.id === 'vps-boss');
@@ -1955,13 +2003,12 @@
         boss.bubbleTimer = 360;
       });
 
-      // Step 2: Subagent ke kursi Meja Perang (bertemu dengan Boss!)
-      this.dispatchAgent(subagent.id, 'briefing', `⚔️ Summoned to War Table`, () => {
+      // Step 2: Subagent dari ruangannya berjalan ke kursi Meja Perang (bertemu dengan Boss!)
+      this.dispatchAgent(subagent.id, 'briefing', `⚔️ Summoned from ${subagent.room}`, () => {
         subagent.facing = 'up';
         subagent.bubbleText = `⚔️ ${convo.receiver}: "Decree acknowledged. Moving to station..."`;
         subagent.bubbleTimer = 360;
 
-        // Bertemu di meja selama 3.5 detik, lalu subagent melangkah ke stasiun alatnya!
         setTimeout(() => {
           this.executeSubagentToolStep(subagent, convo);
         }, 3500);
@@ -1992,31 +2039,27 @@
         toolAction = 'Channeling data streams at Dragon Cistern';
       }
 
-      // Boss kembali ke Iron Throne
       const boss = this.agents.find(a => a.id === 'vps-boss');
       if (boss) {
         this.returnAgentToDesk(boss);
       }
 
-      // Subagent melangkah ke stasiun alat spesifik
       this.dispatchAgent(subagent.id, targetStation, `${toolIcon} ${toolAction}`, () => {
         subagent.state = 'WORKING_AT_STATION';
         subagent.stepBadge = `OPERATING ${targetStation.toUpperCase()}`;
         subagent.bubbleText = `${toolIcon} Operating: ${tools.slice(0, 3).join(', ')}`;
         subagent.bubbleTimer = 320;
 
-        // Selesai bekerja, kembali ke workstation
         setTimeout(() => {
           subagent.bubbleText = `✅ Completed: "${(convo.subagent_reply || 'Evidence verified').slice(0, 36)}..."`;
           subagent.bubbleTimer = 260;
           this.returnAgentToDesk(subagent, () => {
-            this.activeSequence = null; // Selesai siklus delegasi
+            this.activeSequence = null;
           });
         }, 5000);
       });
     }
 
-    // Alur 2: Boss memakai tool crawler/terminal langsung -> Boss melangkah ke stasiun alat
     executeBossToolAction(toolEvent) {
       const boss = this.agents.find(a => a.id === 'vps-boss');
       if (!boss || boss.state !== 'IDLE_AT_DESK') return;
