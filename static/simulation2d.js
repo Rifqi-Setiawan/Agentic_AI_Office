@@ -286,7 +286,7 @@
       title: 'Wise Mentor of the Great Hall',
       accentColor: '#14b8a6',
       hairColor: '#042f2e',
-      desk: { x: 836, y: 730 },
+      desk: { x: 836, y: 680 },
       aisleKey: 'AE_MENTOR',
       room: 'Great Stag Hearth Lounge',
       bubble: 'Counseling engineers beside the stag hearth'
@@ -297,7 +297,7 @@
       title: 'Royal Tapestry & Experience Artisan',
       accentColor: '#d946ef',
       hairColor: '#4a044e',
-      desk: { x: 995, y: 785 },
+      desk: { x: 995, y: 730 },
       aisleKey: 'AE_DESIGNER',
       room: 'Grand Feast & Design Hall',
       bubble: 'Balancing visual aesthetic & color palette'
@@ -308,7 +308,7 @@
       title: 'Keeper of the Dragon Cistern',
       accentColor: '#0284c7',
       hairColor: '#082f49',
-      desk: { x: 1135, y: 865 },
+      desk: { x: 1110, y: 740 },
       aisleKey: 'AE_DATAENG',
       room: 'Subterranean Dragon Cistern',
       bubble: 'Directing Medallion DuckDB pipeline channels'
@@ -319,17 +319,17 @@
       title: 'Castellan of Logistics & Larder',
       accentColor: '#a855f7',
       hairColor: '#3b0764',
-      desk: { x: 1140, y: 715 },
+      desk: { x: 1260, y: 720 },
       aisleKey: 'AE_ASSISTANT',
       room: 'Tavern Supply Bar',
       bubble: 'Triaging orders & managing stronghold supplies'
     }
   ];
 
-  // Generous Hit Detection covering name tag, hair, body, and feet
+  // Generous Hit Detection covering enlarged name tag, hair, body, and feet
   function isAgentHit(a, mx, my) {
-    const inBox = (mx >= a.x - 44 && mx <= a.x + 44 && my >= a.y - 50 && my <= a.y + 22);
-    const inRadius = Math.hypot(a.x - mx, a.y - my) < 38;
+    const inBox = (mx >= a.x - 52 && mx <= a.x + 52 && my >= a.y - 70 && my <= a.y + 26);
+    const inRadius = Math.hypot(a.x - mx, a.y - my) < 46;
     return inBox || inRadius;
   }
 
@@ -375,14 +375,14 @@
     // Twin southern corridors wrap the hearth at x=720 and x=950.
     'C_SOUTH_WEST':    { x: 720, y: 650, neighbors: ['C_SW_DOOR', 'ST_WAR_WEST', 'ST_WAR_SOUTH', 'C_SOUTH_HALL'] },
     'C_SOUTH_EAST':    { x: 950, y: 650, neighbors: ['C_SE_DOOR', 'ST_WAR_EAST', 'ST_WAR_SOUTH', 'C_SOUTH_HALL'] },
-    'C_SOUTH_HALL':    { x: 950, y: 730, neighbors: ['C_SOUTH_WEST', 'C_SOUTH_EAST', 'ST_STAG_HEARTH', 'AE_MENTOR', 'AE_DESIGNER', 'ST_CISTERN', 'AE_DATAENG', 'ST_ALE_BAR', 'AE_ASSISTANT'] },
-    'ST_STAG_HEARTH':  { x: 836, y: 730, neighbors: ['C_SOUTH_HALL', 'AE_MENTOR'] },
-    'AE_MENTOR':       { x: 836, y: 730, neighbors: ['ST_STAG_HEARTH', 'C_SOUTH_HALL'] },
-    'AE_DESIGNER':     { x: 995, y: 785, neighbors: ['C_SOUTH_HALL'] },
-    'ST_CISTERN':      { x: 1135, y: 840, neighbors: ['C_SOUTH_HALL', 'AE_DATAENG'] },
-    'AE_DATAENG':      { x: 1135, y: 865, neighbors: ['ST_CISTERN'] },
-    'ST_ALE_BAR':      { x: 1140, y: 715, neighbors: ['C_SOUTH_HALL', 'AE_ASSISTANT'] },
-    'AE_ASSISTANT':    { x: 1140, y: 715, neighbors: ['ST_ALE_BAR'] }
+    'C_SOUTH_HALL':    { x: 950, y: 700, neighbors: ['C_SOUTH_WEST', 'C_SOUTH_EAST', 'ST_STAG_HEARTH', 'AE_MENTOR', 'AE_DESIGNER', 'ST_CISTERN', 'AE_DATAENG', 'ST_ALE_BAR', 'AE_ASSISTANT'] },
+    'ST_STAG_HEARTH':  { x: 836, y: 680, neighbors: ['C_SOUTH_HALL', 'AE_MENTOR'] },
+    'AE_MENTOR':       { x: 836, y: 680, neighbors: ['ST_STAG_HEARTH', 'C_SOUTH_HALL'] },
+    'AE_DESIGNER':     { x: 995, y: 730, neighbors: ['C_SOUTH_HALL'] },
+    'ST_CISTERN':      { x: 1110, y: 740, neighbors: ['C_SOUTH_HALL', 'AE_DATAENG'] },
+    'AE_DATAENG':      { x: 1110, y: 740, neighbors: ['ST_CISTERN'] },
+    'ST_ALE_BAR':      { x: 1260, y: 720, neighbors: ['C_SOUTH_HALL', 'AE_ASSISTANT'] },
+    'AE_ASSISTANT':    { x: 1260, y: 720, neighbors: ['ST_ALE_BAR'] }
   };
 
   function aStarPath(startKey, endKey) {
@@ -1793,12 +1793,12 @@
         ctx.fill();
       });
 
-      const gCistern = ctx.createRadialGradient(1135, 865, 5, 1135, 865, 65);
+      const gCistern = ctx.createRadialGradient(1110, 740, 5, 1110, 740, 65);
       gCistern.addColorStop(0, 'rgba(2, 132, 199, 0.45)');
       gCistern.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = gCistern;
       ctx.beginPath();
-      ctx.arc(1135, 865, 65, 0, Math.PI * 2);
+      ctx.arc(1110, 740, 65, 0, Math.PI * 2);
       ctx.fill();
 
       ctx.restore();
@@ -1806,7 +1806,7 @@
       ctx.font = '22px sans-serif';
       ctx.textAlign = 'center';
       const duckWave = Math.sin(this.tick * 0.08) * 3;
-      ctx.fillText('🦆', 1135, 871 + duckWave);
+      ctx.fillText('🦆', 1110, 746 + duckWave);
     }
 
     drawEmberParticles() {
@@ -1828,92 +1828,100 @@
 
       if (this.selectedAgentId === agent.id) {
         ctx.strokeStyle = '#fbbf24';
-        ctx.lineWidth = 2.5;
-        ctx.setLineDash([5, 3]);
+        ctx.lineWidth = 3;
+        ctx.setLineDash([6, 4]);
         ctx.beginPath();
-        ctx.arc(0, -6, 26, 0, Math.PI * 2);
+        ctx.arc(0, -8, 32, 0, Math.PI * 2);
         ctx.stroke();
         ctx.setLineDash([]);
       }
 
+      // Contact Shadow (scaled up)
       ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
       ctx.beginPath();
-      ctx.ellipse(0, 11, 10, 4.5, 0, 0, Math.PI * 2);
+      ctx.ellipse(0, 14, 15, 6, 0, 0, Math.PI * 2);
       ctx.fill();
 
       const isWalking = agent.state === 'WALKING';
-      const legStep = isWalking ? Math.sin(agent.walkCycle) * 3.5 : 0;
-      const bodyBob = isWalking ? Math.abs(Math.sin(agent.walkCycle)) * 1.2 : 0;
+      const legStep = isWalking ? Math.sin(agent.walkCycle) * 4.5 : 0;
+      const bodyBob = isWalking ? Math.abs(Math.sin(agent.walkCycle)) * 1.5 : 0;
 
+      // Legs (scaled up: 5x8)
       ctx.fillStyle = '#0f172a';
-      ctx.fillRect(-6, 6 + legStep - bodyBob, 4, 6);
-      ctx.fillRect(2, 6 - legStep - bodyBob, 4, 6);
+      ctx.fillRect(-8, 8 + legStep - bodyBob, 5, 8);
+      ctx.fillRect(3, 8 - legStep - bodyBob, 5, 8);
 
+      // Torso (scaled up: 18x15)
       ctx.fillStyle = agent.accentColor;
       ctx.beginPath();
-      ctx.roundRect(-7, -6 - bodyBob, 14, 12, 3);
+      ctx.roundRect(-9, -8 - bodyBob, 18, 15, 4);
       ctx.fill();
 
       ctx.fillStyle = agent.type === 'boss' ? '#fbbf24' : '#e2e8f0';
-      ctx.fillRect(-2, -4 - bodyBob, 4, 6);
+      ctx.fillRect(-2.5, -5 - bodyBob, 5, 8);
 
+      // Head (scaled up: 18x15)
       ctx.fillStyle = '#fde047';
       ctx.beginPath();
-      ctx.roundRect(-7, -18 - bodyBob, 14, 12, 3);
+      ctx.roundRect(-9, -23 - bodyBob, 18, 15, 4);
       ctx.fill();
 
       ctx.fillStyle = agent.hairColor || '#1e293b';
-      ctx.fillRect(-7, -18 - bodyBob, 14, 4);
+      ctx.fillRect(-9, -23 - bodyBob, 18, 5);
 
       if (agent.type === 'boss') {
         ctx.fillStyle = '#fbbf24';
-        ctx.font = '10px sans-serif';
+        ctx.font = '13px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('👑', 0, -20 - bodyBob);
+        ctx.fillText('👑', 0, -25 - bodyBob);
       } else {
         ctx.fillStyle = agent.hasError ? '#ef4444' : agent.accentColor;
         ctx.shadowColor = agent.hasError ? '#ef4444' : agent.accentColor;
-        ctx.shadowBlur = 6;
+        ctx.shadowBlur = 8;
         if (agent.facing === 'down') {
-          ctx.fillRect(-5, -13 - bodyBob, 10, 3);
+          ctx.fillRect(-6, -17 - bodyBob, 12, 3.5);
         } else if (agent.facing === 'right') {
-          ctx.fillRect(-2, -13 - bodyBob, 7, 3);
+          ctx.fillRect(-2, -17 - bodyBob, 8, 3.5);
         } else if (agent.facing === 'left') {
-          ctx.fillRect(-5, -13 - bodyBob, 7, 3);
+          ctx.fillRect(-6, -17 - bodyBob, 8, 3.5);
         }
         ctx.shadowBlur = 0;
       }
 
       ctx.strokeStyle = agent.hasError ? '#ef4444' : agent.accentColor;
-      ctx.lineWidth = agent.hasError ? 2.5 : 1.5;
+      ctx.lineWidth = agent.hasError ? 3 : 2;
       ctx.beginPath();
-      ctx.arc(0, 8, 14, 0, Math.PI * 2);
+      ctx.arc(0, 10, 17, 0, Math.PI * 2);
       ctx.stroke();
 
       if (agent.hasError) {
-        ctx.font = '12px sans-serif';
+        ctx.font = '15px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('🚨', 0, -32 - bodyBob);
+        ctx.fillText('🚨', 0, -44 - bodyBob);
       }
 
-      // Name Badge Pill
-      ctx.fillStyle = 'rgba(7, 12, 24, 0.9)';
+      // Name Badge Pill (DI-ENLARGE & TULISAN LEBIH TEBAL DAN JELAS)
+      const badgeW = 92;
+      const badgeH = 18;
+      const badgeY = -44 - bodyBob;
+
+      ctx.fillStyle = 'rgba(7, 12, 24, 0.95)';
       ctx.strokeStyle = agent.hasError ? '#ef4444' : agent.accentColor;
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.roundRect(-36, -34 - bodyBob, 72, 13, 5);
+      ctx.roundRect(-badgeW / 2, badgeY, badgeW, badgeH, 6);
       ctx.fill();
       ctx.stroke();
 
       ctx.fillStyle = '#ffffff';
-      ctx.font = '700 8px "JetBrains Mono", monospace';
+      ctx.font = '800 10.5px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
-      ctx.fillText(agent.name, 0, -25 - bodyBob);
+      ctx.fillText(agent.name, 0, badgeY + 13);
 
       if (agent.stepBadge) {
-        ctx.fillStyle = '#f59e0b';
-        ctx.font = '800 7.5px "JetBrains Mono", monospace';
-        ctx.fillText(`▶ ${agent.stepBadge}`, 0, -42 - bodyBob);
+        ctx.fillStyle = '#fbbf24';
+        ctx.font = '800 9px "JetBrains Mono", monospace';
+        ctx.fillText(`▶ ${agent.stepBadge}`, 0, badgeY - 6);
       }
 
       ctx.restore();
@@ -1927,13 +1935,13 @@
       ctx.translate(agent.x, agent.y);
 
       const text = agent.bubbleText;
-      ctx.font = '600 10.5px "Plus Jakarta Sans", sans-serif';
+      ctx.font = '600 12px "Plus Jakarta Sans", sans-serif';
       const textWidth = ctx.measureText(text).width;
-      const bw = Math.max(90, textWidth + 24);
-      const bh = 28;
-      const by = -66;
+      const bw = Math.max(105, textWidth + 28);
+      const bh = 32;
+      const by = -86;
 
-      ctx.fillStyle = 'rgba(7, 12, 24, 0.95)';
+      ctx.fillStyle = 'rgba(7, 12, 24, 0.96)';
       ctx.strokeStyle = agent.hasError ? '#ef4444' : agent.accentColor;
       ctx.lineWidth = 1.5;
       ctx.beginPath();
