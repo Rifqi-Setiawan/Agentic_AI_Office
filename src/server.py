@@ -12,6 +12,7 @@ import time
 import shutil
 import yaml
 import subprocess
+import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Any, List, Optional
@@ -234,7 +235,7 @@ def parse_delegation_stream(limit: int = 25) -> List[Dict[str, Any]]:
                     "delegation_id": deleg_id,
                     "type": "tool_call",
                     "detail": detail,
-                    "goal": goal_text[:90],
+                    "goal": goal_text,
                     "station": station
                 })
             elif " result " in line_str:
@@ -247,8 +248,8 @@ def parse_delegation_stream(limit: int = 25) -> List[Dict[str, Any]]:
                     "agent": agent_target,
                     "delegation_id": deleg_id,
                     "type": "tool_result",
-                    "detail": detail[:160],
-                    "goal": goal_text[:90],
+                    "detail": detail,
+                    "goal": goal_text,
                     "station": station
                 })
 
@@ -294,7 +295,7 @@ def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
         tools = list(set(re.findall(r"->\s*([a-zA-Z0-9_]+)\(", content)))
 
         summary_matches = re.findall(r"assistant\s*\|\s*(.*?)(?=\n\d{2}:\d{2}:\d{2}|\Z)", content, re.DOTALL)
-        reply = summary_matches[-1].strip()[:300] if summary_matches else ""
+        reply = summary_matches[-1].strip() if summary_matches else ""
 
         convos.append({
             "id": Path(d).name,
@@ -488,6 +489,53 @@ def get_recent_conversations() -> Dict[str, Any]:
         "conversations": convos,
         "timestamp": datetime.now(timezone.utc).isoformat()
     }
+
+
+@app.get("/api/v1/costs/summary")
+def get_costs_summary() -> Dict[str, Any]:
+    """Returns real-time token counts, model usage, and spend metrics from 9Router DB."""
+    db_path = "/srv/apps/9router/data/db/data.sqlite"
+    if not os.path.exists(db_path):
+        return {"status": "error", "message": "9Router DB not found"}
+    try:
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+        cur.execute("SELECT dateKey, data FROM usageDaily ORDER BY dateKey DESC LIMIT 7")
+        rows = cur.fetchall()
+        daily = []
+        for d, raw in rows:
+            try:
+                parsed = json.loads(raw)
+                daily.append({"date": d, "metrics": parsed})
+            except Exception:
+                pass
+        
+        # Recent requests
+        cur.execute("""
+            SELECT timestamp, model, promptTokens, completionTokens, cost, status 
+            FROM usageHistory 
+            ORDER BY timestamp DESC 
+            LIMIT 20
+        """)
+        recent_reqs = []
+        for r in cur.fetchall():
+            recent_reqs.append({
+                "time": r[0],
+                "model": r[1],
+                "prompt_tokens": r[2],
+                "completion_tokens": r[3],
+                "cost_usd": r[4],
+                "status": r[5]
+            })
+
+        return {
+            "status": "success",
+            "daily_trends": daily,
+            "recent_requests": recent_reqs,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
 
 
 # Serve static web assets
