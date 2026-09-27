@@ -1924,6 +1924,99 @@
         ctx.fillText(`▶ ${agent.stepBadge}`, 0, badgeY - 6);
       }
 
+      // Attached Working Sign Component (appears whenever agent is active/working)
+      const isWorking = agent.state === 'WALKING' || agent.state === 'WORKING_AT_STATION' ||
+                        (agent.rosterState && agent.rosterState !== 'IDLE');
+
+      if (isWorking) {
+        // 1. Pulsing work beacon halo under feet
+        const pulse = (Math.sin(this.tick * 0.12) + 1) / 2;
+        ctx.save();
+        ctx.strokeStyle = agent.accentColor || '#38bdf8';
+        ctx.lineWidth = 2;
+        ctx.shadowColor = agent.accentColor || '#38bdf8';
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        ctx.ellipse(0, 14, 18 + pulse * 5, 8 + pulse * 2.5, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+
+        // 2. Physical Signpost Bracket attached to character right shoulder
+        ctx.save();
+        ctx.strokeStyle = '#94a3b8';
+        ctx.lineWidth = 1.8;
+        ctx.beginPath();
+        ctx.moveTo(9, -8 - bodyBob);
+        ctx.lineTo(16, -20 - bodyBob);
+        ctx.lineTo(24, -20 - bodyBob);
+        ctx.stroke();
+
+        // Determine Sign Text & Icon
+        let signIcon = '⚡';
+        let rawText = agent.state === 'WALKING' ? 'EN ROUTE' :
+                      (agent.stepBadge ? agent.stepBadge.replace(/▶\s*/, '') :
+                      (agent.rosterState && agent.rosterState !== 'IDLE' ? agent.rosterState : 'WORKING'));
+
+        if (rawText.includes('OPERATING') || rawText.includes('CODING') || rawText.includes('FORGE')) signIcon = '🔨';
+        else if (rawText.includes('SCRYING') || rawText.includes('CRAWL')) signIcon = '🔍';
+        else if (rawText.includes('AUDITING') || rawText.includes('QA')) signIcon = '🛡️';
+        else if (rawText.includes('WALKING') || rawText.includes('EN ROUTE')) signIcon = '▶';
+        else if (rawText.includes('THINKING')) signIcon = '💡';
+
+        const cleanText = rawText.slice(0, 11);
+        const signW = Math.max(76, cleanText.length * 6.8 + 26);
+        const signH = 19;
+        const signX = 22;
+        const signY = -30 - bodyBob;
+
+        // Sign Drop Shadow
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
+        ctx.beginPath();
+        ctx.roundRect(signX + 2, signY + 2, signW, signH, 5);
+        ctx.fill();
+
+        // Signplate with pulsing amber border
+        const signGrad = ctx.createLinearGradient(signX, signY, signX, signY + signH);
+        signGrad.addColorStop(0, '#1e293b');
+        signGrad.addColorStop(1, '#090d16');
+        ctx.fillStyle = signGrad;
+        ctx.strokeStyle = '#f59e0b';
+        ctx.lineWidth = 1.5;
+        ctx.shadowColor = '#f59e0b';
+        ctx.shadowBlur = 6;
+        ctx.beginPath();
+        ctx.roundRect(signX, signY, signW, signH, 5);
+        ctx.fill();
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+
+        // Animated rotating gear/tool icon on sign
+        ctx.save();
+        ctx.translate(signX + 10, signY + signH / 2);
+        ctx.rotate((this.tick * 0.08) % (Math.PI * 2));
+        ctx.font = '10px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(signIcon, 0, 0);
+        ctx.restore();
+
+        // Active green LED indicator
+        const ledAlpha = 0.5 + Math.sin(this.tick * 0.15) * 0.5;
+        ctx.fillStyle = `rgba(34, 197, 94, ${ledAlpha})`;
+        ctx.beginPath();
+        ctx.arc(signX + signW - 7, signY + signH / 2, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Sign text
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = '800 8.5px "JetBrains Mono", monospace';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(cleanText, signX + 20, signY + signH / 2);
+
+        ctx.restore();
+      }
+
       ctx.restore();
     }
 
@@ -1973,6 +2066,8 @@
         if (char) {
           char.model = ag.model;
           char.role = ag.role;
+          char.rosterState = ag.state;
+          char.statusDesc = ag.status_desc;
           if (ag.accent_color) char.accentColor = ag.accent_color;
         }
       });
