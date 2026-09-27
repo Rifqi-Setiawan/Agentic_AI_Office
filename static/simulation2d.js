@@ -389,14 +389,15 @@
 
     resize() {
       if (!this.canvas) return;
+      const parent = this.canvas.parentElement;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      this.displayWidth = window.innerWidth;
-      this.displayHeight = window.innerHeight;
+      this.displayWidth = parent ? parent.clientWidth : window.innerWidth;
+      this.displayHeight = parent ? parent.clientHeight : window.innerHeight;
       this.canvas.width = this.displayWidth * dpr;
       this.canvas.height = this.displayHeight * dpr;
 
-      // Cover scaling: fills entire screen edge-to-edge without black borders
-      this.scale = Math.max(
+      // Scale to fit cleanly within the viewport container below the header
+      this.scale = Math.min(
         this.canvas.width / this.virtualWidth,
         this.canvas.height / this.virtualHeight
       );

@@ -47,45 +47,16 @@
     .diff-hunk { background: rgba(59, 130, 246, 0.15); color: #60a5fa; font-weight: bold; }
   </style>
 </head>
-<body class="fixed inset-0 w-screen h-screen m-0 p-0 overflow-hidden bg-black font-sans select-none text-slate-200 antialiased">
-
-  <!-- 2D Living Work Simulation Canvas Container (Game of Thrones Stronghold Battle Map) -->
-  <div id="sim2d-container" class="absolute inset-0 w-full h-full z-0 m-0 p-0 overflow-hidden bg-black">
-    <canvas id="simCanvas" class="absolute inset-0 w-full h-full m-0 p-0 block cursor-default"></canvas>
-
-    <!-- Interactive Timeline Scrubber & Replay Bar -->
-    <div class="absolute bottom-4 inset-x-4 z-20 flex justify-center pointer-events-none">
-      <div class="bg-cyber-900/90 backdrop-blur-md border border-cyber-800/90 rounded-2xl px-5 py-2 max-w-3xl w-full shadow-2xl flex items-center justify-between pointer-events-auto space-x-4">
-        <div class="flex items-center space-x-2">
-          <button id="btnPlayPause" onclick="toggleTimelinePlay()" class="w-8 h-8 rounded-xl bg-amber-600 hover:bg-amber-500 text-white flex items-center justify-center transition shadow-xs text-xs font-bold">
-            ▶
-          </button>
-          <span class="text-xs font-bold text-white uppercase tracking-wider">Session Replay</span>
-        </div>
-        <div class="flex-1 flex items-center space-x-3">
-          <span id="timelineStartLabel" class="text-[10px] font-mono text-slate-400">-30m</span>
-          <input id="timelineSlider" type="range" min="0" max="100" value="100" 
-                 oninput="onTimelineScrub(this.value)"
-                 class="flex-1 h-1.5 bg-cyber-800 rounded-lg appearance-none cursor-pointer accent-amber-500">
-          <span id="timelineCurrentLabel" class="text-[10px] font-mono text-emerald-400 font-bold">LIVE NOW</span>
-        </div>
-        <div class="flex items-center space-x-2">
-          <button onclick="resetSimulation()" class="px-2.5 py-1 rounded-lg bg-cyber-850 hover:bg-cyber-800 border border-cyber-700/60 text-[11px] font-mono text-slate-300">
-            Reset
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+<body class="flex flex-col w-screen h-screen m-0 p-0 overflow-hidden bg-cyber-950 font-sans select-none text-slate-200 antialiased">
 
   <!-- ======================================================================= -->
-  <!-- TOP HUD BAR (FLOATING GLASS NAVBAR — ZERO LETTERBOX PADDING)            -->
+  <!-- TOP HEADER NAVBAR (SOLID, NON-OVERLAPPING)                              -->
   <!-- ======================================================================= -->
-  <header class="absolute top-3 inset-x-4 h-13 z-30 bg-cyber-950/80 backdrop-blur-xl border border-cyber-700/60 rounded-2xl px-4 flex items-center justify-between shadow-2xl">
+  <header class="h-14 w-full shrink-0 z-30 bg-cyber-900 border-b border-cyber-800 px-4 sm:px-6 flex items-center justify-between shadow-md">
     
     <!-- Left: Brand & Status -->
     <div class="flex items-center space-x-3">
-      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-600 via-yellow-600 to-orange-700 flex items-center justify-center text-white shadow-lg shadow-amber-500/20 font-extrabold text-base">
+      <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-600 via-yellow-600 to-orange-700 flex items-center justify-center text-white shadow-md shadow-amber-500/20 font-extrabold text-base">
         🏰
       </div>
       <div>
@@ -135,6 +106,15 @@
       </a>
     </div>
   </header>
+
+  <!-- ======================================================================= -->
+  <!-- MAIN WORKSPACE VIEWPORT (BELOW HEADER WITH PADDING, ZERO OVERLAP)       -->
+  <!-- ======================================================================= -->
+  <main class="flex-1 relative w-full h-full overflow-hidden bg-black">
+    <!-- 2D Stronghold Workspace Container -->
+    <div id="sim2d-container" class="absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center p-2 sm:p-3 bg-black">
+      <canvas id="simCanvas" class="w-full h-full block cursor-default"></canvas>
+    </div>
 
   <!-- ======================================================================= -->
   <!-- AGENT TRANSPARENCY INSPECTOR MODAL / SIDEBAR (RIGHT)                   -->
@@ -370,6 +350,7 @@
 
     </div>
   </section>
+  </main>
 
   <!-- ======================================================================= -->
   <!-- ======================================================================= -->
@@ -633,43 +614,6 @@
         navigator.clipboard.writeText(bodyEl.textContent).then(() => {
           alert('Copied to clipboard!');
         });
-      }
-    }
-
-    // --- Timeline Scrubber & Replay ---
-    let isTimelinePlaying = false;
-    let timelineTimer = null;
-
-    function toggleTimelinePlay() {
-      isTimelinePlaying = !isTimelinePlaying;
-      const btn = document.getElementById('btnPlayPause');
-      if (btn) btn.textContent = isTimelinePlaying ? '⏸' : '▶';
-
-      if (isTimelinePlaying) {
-        timelineTimer = setInterval(() => {
-          const slider = document.getElementById('timelineSlider');
-          if (slider) {
-            let val = parseInt(slider.value) + 2;
-            if (val > 100) val = 0;
-            slider.value = val;
-            onTimelineScrub(val);
-          }
-        }, 300);
-      } else {
-        clearInterval(timelineTimer);
-      }
-    }
-
-    function onTimelineScrub(val) {
-      const label = document.getElementById('timelineCurrentLabel');
-      if (!label) return;
-      if (val >= 98) {
-        label.textContent = 'LIVE NOW';
-        label.className = 'text-[10px] font-mono text-emerald-400 font-bold';
-      } else {
-        const minsAgo = Math.round((100 - val) * 0.3);
-        label.textContent = `-${minsAgo}m AGO`;
-        label.className = 'text-[10px] font-mono text-amber-400 font-bold';
       }
     }
 
