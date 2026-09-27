@@ -439,8 +439,16 @@
 
     function resetSimulation() {
       if (window.officeSim) {
+        window.officeSim.activeSequence = null;
         window.officeSim.agents.forEach(a => {
-          window.officeSim.returnAgentToDesk(a);
+          a.x = a.deskX;
+          a.y = a.deskY;
+          a.state = 'IDLE_AT_DESK';
+          a.pathQueue = [];
+          a.targetStation = null;
+          a.stepBadge = null;
+          a.bubbleTimer = 0;
+          a.onCompleteCallback = null;
         });
       }
       closeInspector();

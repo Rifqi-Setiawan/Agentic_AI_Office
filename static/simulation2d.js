@@ -1966,9 +1966,23 @@
       this.telemetryEvents = events || [];
       this.conversations = conversations || [];
 
+      // Initial baseline: mark all existing past history as already processed
+      // This guarantees that refreshing the page will NEVER trigger a past delegation!
+      if (!this.initialPollDone) {
+        this.initialPollDone = true;
+        (conversations || []).forEach(c => this.executedConvoIds.add(c.id));
+        (events || []).forEach(e => {
+          if (e.type === 'tool_call') {
+            if (!this.executedToolKeys) this.executedToolKeys = new Set();
+            this.executedToolKeys.add(`${e.time}_${e.detail}`);
+          }
+        });
+        return;
+      }
+
       if (this.activeSequence) return;
 
-      // 1. Check for real delegation events
+      // 1. Check for real NEW delegation events that arrived AFTER page load
       if (conversations && conversations.length > 0) {
         const latestConvo = conversations[0];
         if (!this.executedConvoIds.has(latestConvo.id)) {
@@ -1978,10 +1992,15 @@
         }
       }
 
-      // 2. Check for real tool events by Boss
+      // 2. Check for real NEW tool events by Boss that arrived AFTER page load
       const recentTool = (events || []).find(e => e.type === 'tool_call');
       if (recentTool && recentTool.agent === 'vps-boss') {
-        this.executeBossToolAction(recentTool);
+        const toolKey = `${recentTool.time}_${recentTool.detail}`;
+        if (!this.executedToolKeys) this.executedToolKeys = new Set();
+        if (!this.executedToolKeys.has(toolKey)) {
+          this.executedToolKeys.add(toolKey);
+          this.executeBossToolAction(recentTool);
+        }
       }
     }
 

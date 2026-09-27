@@ -278,6 +278,7 @@ def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
 
     for d in live_dirs[-limit:]:
         log_f = Path(d) / "task-0.log"
+        manifest_f = Path(d) / "manifest.json"
         if not log_f.exists():
             continue
         try:
@@ -286,22 +287,39 @@ def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
         except Exception:
             continue
 
+        manifest = {}
+        if manifest_f.exists():
+            try:
+                with open(manifest_f, "r", encoding="utf-8", errors="replace") as mfp:
+                    manifest = json.load(mfp)
+            except Exception:
+                pass
+
         m_goal = re.search(r"goal:\s*(.*?)\n\s*started:", content, re.DOTALL)
         goal = m_goal.group(1).strip() if m_goal else ""
         m_role = re.search(r"Role:\s*([a-zA-Z0-9_\-]+)", content)
         agent = m_role.group(1) if m_role else "subagent"
         m_time = re.search(r"started:\s*([0-9\- :]+)", content)
-        started = m_time.group(1) if m_time else ""
+        started = m_time.group(1) if m_time else manifest.get("started", "")
         tools = list(set(re.findall(r"->\s*([a-zA-Z0-9_]+)\(", content)))
 
         summary_matches = re.findall(r"assistant\s*\|\s*(.*?)(?=\n\d{2}:\d{2}:\d{2}|\Z)", content, re.DOTALL)
         reply = summary_matches[-1].strip() if summary_matches else ""
+
+        # Determine if actively running
+        completed_at = manifest.get("completed")
+        tasks_list = manifest.get("tasks", [])
+        status = tasks_list[0].get("status", "completed") if tasks_list else ("completed" if completed_at else "running")
+        is_running = (status == "running" and not completed_at)
 
         convos.append({
             "id": Path(d).name,
             "sender": "vps-boss",
             "receiver": agent,
             "started_at": started,
+            "completed_at": completed_at,
+            "status": status,
+            "is_running": is_running,
             "boss_order": goal,
             "subagent_reply": reply,
             "tools_used": tools
