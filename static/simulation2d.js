@@ -1,7 +1,6 @@
 /**
- * Hermes Sovereign Stronghold — Grouped Rooms & Empty War Table Edition
- * 100% PROGRAMMATIC JAVASCRIPT CANVAS 2D — ZERO STATIC IMAGES
- * Faithfully matches user reference img_60158fdf4126.jpg
+ * Hermes Sovereign Stronghold — Hybrid 2.5D HD Matte Plate Edition
+ * Pre-rendered 1672×941 architecture + dynamic lighting, particles and agents.
  */
 
 (function() {
@@ -84,7 +83,7 @@
       id: 'briefing',
       name: 'The Painted War Table',
       desc: 'Carved dragonstone war table with strategic relief map & 12 empty high-backed chairs',
-      x: 800, y: 440, w: 260, h: 160,
+      x: 836, y: 398, w: 240, h: 240,
       color: '#3b82f6',
       icon: '⚔️',
       terminalKey: 'ST_WAR_TABLE'
@@ -181,7 +180,7 @@
       title: 'Lord Commander & Chief Orchestrator',
       accentColor: '#f59e0b',
       hairColor: '#0f172a',
-      desk: { x: 800, y: 120 },
+      desk: { x: 836, y: 120 },
       aisleKey: 'AE_BOSS',
       room: 'North Throne Dais',
       bubble: 'Reigning from the Iron Throne',
@@ -195,7 +194,7 @@
       title: 'Grand Maester of Research',
       accentColor: '#ec4899',
       hairColor: '#831843',
-      desk: { x: 260, y: 230 },
+      desk: { x: 215, y: 320 },
       aisleKey: 'AE_PROFESSOR',
       room: 'Citadel Scriptorium',
       bubble: 'Consulting celestial astrolabe & ancient tomes'
@@ -206,7 +205,7 @@
       title: 'Citadel Scribe & Typesetter',
       accentColor: '#e11d48',
       hairColor: '#4c0519',
-      desk: { x: 390, y: 230 },
+      desk: { x: 395, y: 320 },
       aisleKey: 'AE_PAPERWRIGHT',
       room: 'Citadel Scriptorium',
       bubble: 'Illuminating manuscripts & LaTeX scrolls'
@@ -219,7 +218,7 @@
       title: 'Grand Strategist of Systems',
       accentColor: '#38bdf8',
       hairColor: '#1e293b',
-      desk: { x: 1200, y: 360 },
+      desk: { x: 1270, y: 460 },
       aisleKey: 'AE_ARCHITECT',
       room: 'Engineering Guildhall',
       bubble: 'Drafting architectural system blueprints'
@@ -230,7 +229,7 @@
       title: 'Master of Server Strongholds',
       accentColor: '#10b981',
       hairColor: '#064e3b',
-      desk: { x: 1330, y: 340 },
+      desk: { x: 1500, y: 348 },
       aisleKey: 'AE_BACKEND',
       room: 'Engineering Guildhall',
       bubble: 'Hardening ACID database transaction logic'
@@ -241,7 +240,7 @@
       title: 'Royal Visual Artisan',
       accentColor: '#06b6d4',
       hairColor: '#083344',
-      desk: { x: 1200, y: 460 },
+      desk: { x: 1365, y: 460 },
       aisleKey: 'AE_FRONTEND',
       room: 'Engineering Guildhall',
       bubble: 'Polishing responsive canvas UI components'
@@ -252,7 +251,7 @@
       title: 'High Sentry of Verification',
       accentColor: '#34d399',
       hairColor: '#022c22',
-      desk: { x: 1330, y: 460 },
+      desk: { x: 1460, y: 460 },
       aisleKey: 'AE_VERIFIER',
       room: 'Armor Inspection Cleanroom',
       bubble: 'Conducting zero-tolerance QA invariant audit'
@@ -263,7 +262,7 @@
       title: 'Quartermaster of Git & Releases',
       accentColor: '#8b5cf6',
       hairColor: '#2e1065',
-      desk: { x: 1440, y: 360 },
+      desk: { x: 1555, y: 460 },
       aisleKey: 'AE_GITHUB',
       room: 'Royal Armory & Quartermaster',
       bubble: 'Locking release tags & branch cleanliness'
@@ -274,7 +273,7 @@
       title: 'Master Blacksmith & SRE',
       accentColor: '#f97316',
       hairColor: '#431407',
-      desk: { x: 1280, y: 210 },
+      desk: { x: 1350, y: 348 },
       aisleKey: 'AE_DEVOPS',
       room: 'Royal Smelting Forge',
       bubble: 'Striking anvil & fueling container hearth'
@@ -287,7 +286,7 @@
       title: 'Wise Mentor of the Great Hall',
       accentColor: '#14b8a6',
       hairColor: '#042f2e',
-      desk: { x: 740, y: 720 },
+      desk: { x: 836, y: 730 },
       aisleKey: 'AE_MENTOR',
       room: 'Great Stag Hearth Lounge',
       bubble: 'Counseling engineers beside the stag hearth'
@@ -298,7 +297,7 @@
       title: 'Royal Tapestry & Experience Artisan',
       accentColor: '#d946ef',
       hairColor: '#4a044e',
-      desk: { x: 500, y: 740 },
+      desk: { x: 995, y: 785 },
       aisleKey: 'AE_DESIGNER',
       room: 'Grand Feast & Design Hall',
       bubble: 'Balancing visual aesthetic & color palette'
@@ -309,7 +308,7 @@
       title: 'Keeper of the Dragon Cistern',
       accentColor: '#0284c7',
       hairColor: '#082f49',
-      desk: { x: 280, y: 740 },
+      desk: { x: 1135, y: 865 },
       aisleKey: 'AE_DATAENG',
       room: 'Subterranean Dragon Cistern',
       bubble: 'Directing Medallion DuckDB pipeline channels'
@@ -320,7 +319,7 @@
       title: 'Castellan of Logistics & Larder',
       accentColor: '#a855f7',
       hairColor: '#3b0764',
-      desk: { x: 1080, y: 740 },
+      desk: { x: 1140, y: 715 },
       aisleKey: 'AE_ASSISTANT',
       room: 'Tavern Supply Bar',
       bubble: 'Triaging orders & managing stronghold supplies'
@@ -334,66 +333,56 @@
     return inBox || inRadius;
   }
 
-  // --- Waypoint Navigation Graph with Zero-Clipping Room Connectivity ---
+  // --- A* topology aligned to the HD matte plate; paths stay outside the table/hearth. ---
   const WAYPOINTS = {
-    // North Dais
-    'W_THRONE_EXIT':   { x: 800, y: 190, neighbors: ['W_THRONE_STEPS', 'ST_THRONE'] },
-    'W_THRONE_STEPS':  { x: 800, y: 260, neighbors: ['W_THRONE_EXIT', 'C_NORTH_HALL'] },
-    'C_NORTH_HALL':    { x: 800, y: 320, neighbors: ['W_THRONE_STEPS', 'C_NW_DOOR', 'C_NE_DOOR', 'ST_WAR_NORTH'] },
+    'ST_THRONE':       { x: 836, y: 120, neighbors: ['W_THRONE_EXIT'] },
+    'AE_BOSS':         { x: 836, y: 165, neighbors: ['W_THRONE_EXIT'] },
+    'W_THRONE_EXIT':   { x: 836, y: 225, neighbors: ['ST_THRONE', 'AE_BOSS', 'C_NORTH_HALL'] },
+    'C_NORTH_HALL':    { x: 836, y: 245, neighbors: ['W_THRONE_EXIT', 'ST_WAR_NORTH', 'DR_WEST', 'DR_EAST'] },
 
-    // Doors to Wings
-    'C_NW_DOOR':       { x: 520, y: 320, neighbors: ['C_NORTH_HALL', 'W_LIB_EAST', 'C_WEST_BREEZEWAY'] },
-    'C_NE_DOOR':       { x: 1080, y: 320, neighbors: ['C_NORTH_HALL', 'W_GUILD_WEST', 'C_EAST_BREEZEWAY'] },
+    // Explicit room thresholds requested for zero-clipping.
+    'DR_WEST':         { x: 545, y: 360, neighbors: ['C_NORTH_HALL', 'W_LIB_EAST', 'C_WEST_BREEZEWAY'] },
+    'DR_EAST':         { x: 1150, y: 410, neighbors: ['C_NORTH_HALL', 'W_GUILD_WEST', 'C_EAST_BREEZEWAY'] },
 
-    // West Wing (Library & Alchemy)
-    'W_LIB_EAST':      { x: 440, y: 320, neighbors: ['C_NW_DOOR', 'ST_LIBRARY', 'W_LIB_SOUTH'] },
-    'ST_LIBRARY':      { x: 320, y: 260, neighbors: ['W_LIB_EAST', 'AE_PROFESSOR', 'AE_PAPERWRIGHT', 'ST_ALCHEMY'] },
-    'AE_PROFESSOR':    { x: 260, y: 260, neighbors: ['ST_LIBRARY'] },
-    'AE_PAPERWRIGHT':  { x: 390, y: 260, neighbors: ['ST_LIBRARY'] },
-    'W_LIB_SOUTH':     { x: 320, y: 340, neighbors: ['W_LIB_EAST', 'ST_ALCHEMY'] },
-    'ST_ALCHEMY':      { x: 170, y: 340, neighbors: ['W_LIB_SOUTH', 'ST_LIBRARY'] },
+    'W_LIB_EAST':      { x: 490, y: 360, neighbors: ['DR_WEST', 'ST_LIBRARY', 'ST_ALCHEMY'] },
+    'ST_LIBRARY':      { x: 330, y: 370, neighbors: ['W_LIB_EAST', 'AE_PROFESSOR', 'AE_PAPERWRIGHT', 'ST_ALCHEMY'] },
+    'AE_PROFESSOR':    { x: 215, y: 350, neighbors: ['ST_LIBRARY'] },
+    'AE_PAPERWRIGHT':  { x: 395, y: 350, neighbors: ['ST_LIBRARY'] },
+    'ST_ALCHEMY':      { x: 225, y: 500, neighbors: ['ST_LIBRARY', 'W_LIB_EAST'] },
 
-    // East Wing (Forge & Guildhall)
-    'W_GUILD_WEST':    { x: 1140, y: 320, neighbors: ['C_NE_DOOR', 'ST_FORGE', 'ST_GUILDHALL'] },
-    'ST_FORGE':        { x: 1280, y: 240, neighbors: ['W_GUILD_WEST', 'AE_DEVOPS'] },
-    'AE_DEVOPS':       { x: 1280, y: 240, neighbors: ['ST_FORGE'] },
-    'ST_GUILDHALL':    { x: 1260, y: 360, neighbors: ['W_GUILD_WEST', 'AE_ARCHITECT', 'AE_BACKEND', 'W_GUILD_SOUTH'] },
-    'AE_ARCHITECT':    { x: 1200, y: 390, neighbors: ['ST_GUILDHALL'] },
-    'AE_BACKEND':      { x: 1330, y: 390, neighbors: ['ST_GUILDHALL', 'AE_GITHUB'] },
-    'AE_GITHUB':       { x: 1400, y: 390, neighbors: ['AE_BACKEND', 'ST_ARMOR_RACK'] },
-    'W_GUILD_SOUTH':   { x: 1260, y: 440, neighbors: ['ST_GUILDHALL', 'AE_FRONTEND', 'AE_VERIFIER', 'ST_ARMOR_RACK'] },
-    'AE_FRONTEND':     { x: 1200, y: 440, neighbors: ['W_GUILD_SOUTH'] },
-    'AE_VERIFIER':     { x: 1330, y: 440, neighbors: ['W_GUILD_SOUTH'] },
-    'ST_ARMOR_RACK':   { x: 1440, y: 440, neighbors: ['W_GUILD_SOUTH', 'AE_GITHUB'] },
+    'W_GUILD_WEST':    { x: 1190, y: 410, neighbors: ['DR_EAST', 'ST_FORGE', 'ST_GUILDHALL'] },
+    'ST_FORGE':        { x: 1425, y: 390, neighbors: ['W_GUILD_WEST', 'AE_DEVOPS', 'AE_BACKEND'] },
+    'AE_DEVOPS':       { x: 1350, y: 390, neighbors: ['ST_FORGE'] },
+    'AE_BACKEND':      { x: 1500, y: 390, neighbors: ['ST_FORGE'] },
+    'ST_GUILDHALL':    { x: 1410, y: 510, neighbors: ['W_GUILD_WEST', 'AE_ARCHITECT', 'AE_FRONTEND', 'AE_VERIFIER', 'AE_GITHUB', 'ST_ARMOR_RACK'] },
+    'AE_ARCHITECT':    { x: 1270, y: 500, neighbors: ['ST_GUILDHALL'] },
+    'AE_FRONTEND':     { x: 1365, y: 500, neighbors: ['ST_GUILDHALL'] },
+    'AE_VERIFIER':     { x: 1460, y: 500, neighbors: ['ST_GUILDHALL'] },
+    'AE_GITHUB':       { x: 1555, y: 500, neighbors: ['ST_GUILDHALL'] },
+    'ST_ARMOR_RACK':   { x: 1550, y: 410, neighbors: ['ST_GUILDHALL'] },
 
-    // Center War Table (EMPTY when idle!)
-    'ST_WAR_NORTH':    { x: 800, y: 360, neighbors: ['C_NORTH_HALL', 'ST_WAR_TABLE'] },
-    'ST_WAR_TABLE':    { x: 800, y: 440, neighbors: ['ST_WAR_NORTH', 'ST_WAR_WEST', 'ST_WAR_EAST', 'ST_WAR_SOUTH'] },
-    'ST_WAR_WEST':     { x: 710, y: 440, neighbors: ['ST_WAR_TABLE'] },
-    'ST_WAR_EAST':     { x: 890, y: 440, neighbors: ['ST_WAR_TABLE'] },
-    'ST_WAR_SOUTH':    { x: 800, y: 520, neighbors: ['ST_WAR_TABLE', 'ST_STAG_HEARTH', 'C_SOUTH_HALL'] },
+    // Meeting terminals are opposite the table, never on its center/footprint.
+    'ST_WAR_TABLE':    { x: 836, y: 290, neighbors: ['ST_WAR_NORTH'] },
+    'ST_WAR_NORTH':    { x: 836, y: 290, neighbors: ['C_NORTH_HALL', 'ST_WAR_TABLE', 'ST_WAR_WEST', 'ST_WAR_EAST'] },
+    'ST_WAR_WEST':     { x: 675, y: 398, neighbors: ['ST_WAR_NORTH', 'C_WEST_BREEZEWAY', 'C_SOUTH_WEST'] },
+    'ST_WAR_EAST':     { x: 1000, y: 398, neighbors: ['ST_WAR_NORTH', 'C_EAST_BREEZEWAY', 'C_SOUTH_EAST'] },
+    'ST_WAR_SOUTH':    { x: 836, y: 505, neighbors: ['C_SOUTH_WEST', 'C_SOUTH_EAST'] },
 
-    // Corridors & Breezeways
-    'C_WEST_BREEZEWAY':{ x: 520, y: 480, neighbors: ['C_NW_DOOR', 'C_SW_DOOR'] },
-    'C_EAST_BREEZEWAY':{ x: 1080, y: 480, neighbors: ['C_NE_DOOR', 'C_SE_DOOR'] },
-
-    // South Wing (Banquet, Lounge, Cistern, Tavern)
-    'ST_STAG_HEARTH':  { x: 800, y: 620, neighbors: ['ST_WAR_SOUTH', 'C_SOUTH_HALL', 'AE_MENTOR'] },
-    'C_SOUTH_HALL':    { x: 800, y: 670, neighbors: ['ST_STAG_HEARTH', 'C_SW_DOOR', 'C_SE_DOOR', 'AE_MENTOR'] },
-    'AE_MENTOR':       { x: 740, y: 690, neighbors: ['C_SOUTH_HALL', 'ST_STAG_HEARTH'] },
-    'C_SW_DOOR':       { x: 520, y: 670, neighbors: ['C_SOUTH_HALL', 'C_WEST_BREEZEWAY', 'W_FEAST_WEST'] },
-    'C_SE_DOOR':       { x: 1080, y: 670, neighbors: ['C_SOUTH_HALL', 'C_EAST_BREEZEWAY', 'W_FEAST_EAST'] },
-    'W_FEAST_WEST':    { x: 520, y: 730, neighbors: ['C_SW_DOOR', 'ST_CISTERN', 'AE_DESIGNER'] },
-    'AE_DESIGNER':     { x: 500, y: 720, neighbors: ['W_FEAST_WEST'] },
-    'ST_CISTERN':      { x: 340, y: 730, neighbors: ['W_FEAST_WEST', 'AE_DATAENG'] },
-    'AE_DATAENG':      { x: 300, y: 730, neighbors: ['ST_CISTERN'] },
-    'W_FEAST_EAST':    { x: 1080, y: 730, neighbors: ['C_SE_DOOR', 'ST_ALE_BAR', 'AE_ASSISTANT'] },
-    'AE_ASSISTANT':    { x: 1080, y: 720, neighbors: ['W_FEAST_EAST'] },
-    'ST_ALE_BAR':      { x: 1180, y: 730, neighbors: ['W_FEAST_EAST'] },
-
-    // Boss Station
-    'ST_THRONE':       { x: 800, y: 110, neighbors: ['W_THRONE_EXIT'] },
-    'AE_BOSS':         { x: 800, y: 155, neighbors: ['W_THRONE_EXIT'] }
+    'C_WEST_BREEZEWAY':{ x: 545, y: 500, neighbors: ['DR_WEST', 'ST_WAR_WEST', 'C_SW_DOOR'] },
+    'C_EAST_BREEZEWAY':{ x: 1150, y: 500, neighbors: ['DR_EAST', 'ST_WAR_EAST', 'C_SE_DOOR'] },
+    'C_SW_DOOR':       { x: 610, y: 585, neighbors: ['C_WEST_BREEZEWAY', 'C_SOUTH_WEST'] },
+    'C_SE_DOOR':       { x: 1060, y: 585, neighbors: ['C_EAST_BREEZEWAY', 'C_SOUTH_EAST'] },
+    // Twin southern corridors wrap the hearth at x=720 and x=950.
+    'C_SOUTH_WEST':    { x: 720, y: 650, neighbors: ['C_SW_DOOR', 'ST_WAR_WEST', 'ST_WAR_SOUTH', 'C_SOUTH_HALL'] },
+    'C_SOUTH_EAST':    { x: 950, y: 650, neighbors: ['C_SE_DOOR', 'ST_WAR_EAST', 'ST_WAR_SOUTH', 'C_SOUTH_HALL'] },
+    'C_SOUTH_HALL':    { x: 950, y: 730, neighbors: ['C_SOUTH_WEST', 'C_SOUTH_EAST', 'ST_STAG_HEARTH', 'AE_MENTOR', 'AE_DESIGNER', 'ST_CISTERN', 'AE_DATAENG', 'ST_ALE_BAR', 'AE_ASSISTANT'] },
+    'ST_STAG_HEARTH':  { x: 836, y: 730, neighbors: ['C_SOUTH_HALL', 'AE_MENTOR'] },
+    'AE_MENTOR':       { x: 836, y: 730, neighbors: ['ST_STAG_HEARTH', 'C_SOUTH_HALL'] },
+    'AE_DESIGNER':     { x: 995, y: 785, neighbors: ['C_SOUTH_HALL'] },
+    'ST_CISTERN':      { x: 1135, y: 840, neighbors: ['C_SOUTH_HALL', 'AE_DATAENG'] },
+    'AE_DATAENG':      { x: 1135, y: 865, neighbors: ['ST_CISTERN'] },
+    'ST_ALE_BAR':      { x: 1140, y: 715, neighbors: ['C_SOUTH_HALL', 'AE_ASSISTANT'] },
+    'AE_ASSISTANT':    { x: 1140, y: 715, neighbors: ['ST_ALE_BAR'] }
   };
 
   function aStarPath(startKey, endKey) {
@@ -464,8 +453,8 @@
     constructor(canvasId) {
       this.canvas = document.getElementById(canvasId);
       this.ctx = this.canvas.getContext('2d');
-      this.virtualWidth = 1600;
-      this.virtualHeight = 900;
+      this.virtualWidth = 1672;
+      this.virtualHeight = 941;
 
       this.tick = 0;
       this.fps = 60;
@@ -495,7 +484,7 @@
       this.particles = [];
 
       this.initAgents();
-      this.bakeProceduralArchitecture();
+      this.loadMattePlate();
       this.setupInteractions();
       this.resize();
       window.addEventListener('resize', () => this.resize());
@@ -539,6 +528,26 @@
         stepBadge: null,
         hasError: false
       }));
+    }
+
+    // Decode once, then bake the HD matte plate into the 1672×941 offscreen floor.
+    loadMattePlate() {
+      const ctx = this.floorCtx;
+      ctx.fillStyle = '#080604';
+      ctx.fillRect(0, 0, this.virtualWidth, this.virtualHeight);
+      this.backgroundReady = false;
+      const matte = new Image();
+      matte.decoding = 'async';
+      matte.onload = () => {
+        ctx.clearRect(0, 0, this.virtualWidth, this.virtualHeight);
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(matte, 0, 0, this.virtualWidth, this.virtualHeight);
+        this.backgroundReady = true;
+      };
+      matte.onerror = () => console.error('Failed to load HD stronghold matte plate: /assets/stronghold_map.jpg');
+      matte.src = '/assets/stronghold_map.jpg';
+      this.backgroundImage = matte;
     }
 
     // Helper: Soft Contact Shadow under objects
@@ -1580,9 +1589,9 @@
       // Update ember particles
       if (this.particles.length < 120 && Math.random() < 0.65) {
         const emitters = [
-          [1300, 100, '#ef4444'], // Forge
-          [800, 600, '#f97316'],  // Hearth
-          [170, 340, '#10b981']   // Alchemy
+          [1455, 225, '#ef4444'], // Forge
+          [836, 645, '#f97316'],  // Hearth
+          [225, 500, '#10b981']   // Alchemy
         ];
         const em = emitters[Math.floor(Math.random() * emitters.length)];
         this.particles.push({
@@ -1721,9 +1730,9 @@
         lctx.fill();
       };
 
-      cutLightHole(800, 600, 280 + flicker, 0.95);
-      cutLightHole(1300, 100, 310 + flicker, 0.95);
-      cutLightHole(170, 340, 220 + flicker * 0.5, 0.85);
+      cutLightHole(836, 645, 280 + flicker, 0.95);
+      cutLightHole(1455, 225, 310 + flicker, 0.95);
+      cutLightHole(225, 500, 220 + flicker * 0.5, 0.85);
 
       const braziers = [
         [690, 360], [910, 360],
@@ -1747,31 +1756,31 @@
       ctx.save();
       ctx.globalCompositeOperation = 'screen';
 
-      const gHearth = ctx.createRadialGradient(800, 600, 5, 800, 600, 180 + flicker);
+      const gHearth = ctx.createRadialGradient(836, 645, 5, 836, 645, 180 + flicker);
       gHearth.addColorStop(0, 'rgba(251, 146, 60, 0.55)');
       gHearth.addColorStop(0.5, 'rgba(234, 88, 12, 0.22)');
       gHearth.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = gHearth;
       ctx.beginPath();
-      ctx.arc(800, 600, 180 + flicker, 0, Math.PI * 2);
+      ctx.arc(836, 645, 180 + flicker, 0, Math.PI * 2);
       ctx.fill();
 
-      const gForge = ctx.createRadialGradient(1300, 100, 5, 1300, 100, 200 + flicker);
+      const gForge = ctx.createRadialGradient(1455, 225, 5, 1455, 225, 200 + flicker);
       gForge.addColorStop(0, 'rgba(239, 68, 68, 0.6)');
       gForge.addColorStop(0.6, 'rgba(245, 158, 11, 0.25)');
       gForge.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = gForge;
       ctx.beginPath();
-      ctx.arc(1300, 100, 200 + flicker, 0, Math.PI * 2);
+      ctx.arc(1455, 225, 200 + flicker, 0, Math.PI * 2);
       ctx.fill();
 
-      const gAlchemy = ctx.createRadialGradient(170, 340, 2, 170, 340, 140 + flicker * 0.5);
+      const gAlchemy = ctx.createRadialGradient(225, 500, 2, 225, 500, 140 + flicker * 0.5);
       gAlchemy.addColorStop(0, 'rgba(16, 185, 129, 0.55)');
       gAlchemy.addColorStop(0.6, 'rgba(5, 150, 105, 0.2)');
       gAlchemy.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = gAlchemy;
       ctx.beginPath();
-      ctx.arc(170, 340, 140 + flicker * 0.5, 0, Math.PI * 2);
+      ctx.arc(225, 500, 140 + flicker * 0.5, 0, Math.PI * 2);
       ctx.fill();
 
       [...braziers, ...wallSconces].forEach(b => {
@@ -1784,12 +1793,12 @@
         ctx.fill();
       });
 
-      const gCistern = ctx.createRadialGradient(280, 740, 5, 280, 740, 65);
+      const gCistern = ctx.createRadialGradient(1135, 865, 5, 1135, 865, 65);
       gCistern.addColorStop(0, 'rgba(2, 132, 199, 0.45)');
       gCistern.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = gCistern;
       ctx.beginPath();
-      ctx.arc(280, 740, 65, 0, Math.PI * 2);
+      ctx.arc(1135, 865, 65, 0, Math.PI * 2);
       ctx.fill();
 
       ctx.restore();
@@ -1797,7 +1806,7 @@
       ctx.font = '22px sans-serif';
       ctx.textAlign = 'center';
       const duckWave = Math.sin(this.tick * 0.08) * 3;
-      ctx.fillText('🦆', 280, 746 + duckWave);
+      ctx.fillText('🦆', 1135, 871 + duckWave);
     }
 
     drawEmberParticles() {
@@ -2015,18 +2024,18 @@
         receiver: convo.receiver
       };
 
-      // Step 1: both agents walk to opposite sides of the council table.
+      // Step 1: both agents walk to exact opposite sides of the council table.
       this.dispatchAgent('vps-boss', 'briefing', `👑 Decree for ${convo.receiver}...`, () => {
-        boss.x = WAYPOINTS.ST_WAR_NORTH.x;
-        boss.y = WAYPOINTS.ST_WAR_NORTH.y;
+        boss.x = 836;
+        boss.y = 290;
         boss.facing = 'down';
         boss.bubbleText = `👑 Boss: "${convo.boss_order.slice(0, 40)}..."`;
         boss.bubbleTimer = 360;
       });
 
       this.dispatchAgent(subagent.id, 'briefing', `⚔️ Summoned from ${subagent.room}`, () => {
-        subagent.x = WAYPOINTS.ST_WAR_SOUTH.x;
-        subagent.y = WAYPOINTS.ST_WAR_SOUTH.y;
+        subagent.x = 836;
+        subagent.y = 505;
         subagent.facing = 'up';
         subagent.bubbleText = `⚔️ ${convo.receiver}: "Decree acknowledged. Moving to station..."`;
         subagent.bubbleTimer = 360;
