@@ -1,7 +1,7 @@
 /**
  * Hermes Sovereign Stronghold — Master VTT Battle Map Procedural Engine
  * 100% PROGRAMMATIC JAVASCRIPT CANVAS 2D — ZERO STATIC IMAGES
- * Built strictly according to Professor's Computer Graphics Blueprint (2026-09-27)
+ * Built strictly according to Professor's Computer Graphics Blueprint & User Task Flow
  */
 
 (function() {
@@ -298,6 +298,13 @@
     }
   ];
 
+  // Generous Hit Detection covering name tag, hair, body, and feet
+  function isAgentHit(a, mx, my) {
+    const inBox = (mx >= a.x - 44 && mx <= a.x + 44 && my >= a.y - 50 && my <= a.y + 22);
+    const inRadius = Math.hypot(a.x - mx, a.y - my) < 38;
+    return inBox || inRadius;
+  }
+
   // --- Waypoint Navigation Graph (Zero-Clipping) ---
   const WAYPOINTS = {
     'W_THRONE_EXIT':   { x: 800, y: 190, neighbors: ['W_THRONE_STEPS', 'ST_THRONE'] },
@@ -419,6 +426,12 @@
       this.lastFrameTime = performance.now();
       this.frameCount = 0;
       this.showWaypoints = false;
+      this.selectedAgentId = null;
+
+      // Orchestration State Machine
+      this.activeSequence = null;
+      this.executedConvoIds = new Set();
+      this.lastTelemetryCheck = 0;
 
       // Offscreen Pre-baked Architectural Floor Canvas
       this.floorCanvas = document.createElement('canvas');
@@ -470,13 +483,15 @@
         deskY: a.desk.y,
         state: 'IDLE_AT_DESK',
         facing: 'down',
-        speed: 2.6,
+        speed: 2.8,
         walkCycle: 0,
         bubbleText: a.bubble,
         bubbleTimer: (idx % 3 === 0) ? 600 : 0,
         pathQueue: [],
         currentWaypointIdx: 0,
         targetStation: null,
+        onCompleteCallback: null,
+        stepBadge: null,
         hasError: false
       }));
     }
@@ -551,7 +566,6 @@
       if (isHorizontal) {
         for (let y = by; y < by + bh; y += plankWidth) {
           const noise = Perlin.noise2D(bx * 0.01, y * 0.05);
-          const rVar = Math.floor(noise * 18);
           ctx.fillStyle = baseCol;
           ctx.fillRect(bx, y, bw, plankWidth);
 
@@ -641,12 +655,10 @@
 
           let r, g, b;
           if (style === 'sandstone') {
-            // Warm Golden Sandstone palette
             r = Math.floor(52 + noiseVal * 22 + rng() * 6);
             g = Math.floor(45 + noiseVal * 18 + rng() * 5);
             b = Math.floor(36 + noiseVal * 14 + rng() * 4);
           } else {
-            // Ironstone / Forge darkened stone
             r = Math.floor(44 + noiseVal * 18 + rng() * 5);
             g = Math.floor(38 + noiseVal * 14 + rng() * 4);
             b = Math.floor(34 + noiseVal * 12 + rng() * 4);
@@ -748,7 +760,6 @@
             ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
             ctx.fillRect(bx, y + 2, bw, h - 4);
 
-            // Block highlight bevel
             ctx.strokeStyle = 'rgba(235, 220, 190, 0.22)';
             ctx.lineWidth = 1;
             ctx.strokeRect(bx, y + 2, bw, h - 4);
@@ -770,7 +781,7 @@
           }
         }
 
-        // Inner Face Depth Strip (shows 3D height from top-down)
+        // Inner Face Depth Strip
         ctx.fillStyle = 'rgba(10, 8, 6, 0.45)';
         if (isHorizontal) {
           ctx.fillRect(x, y + h - 6, w, 6);
@@ -790,21 +801,14 @@
       renderMasonrySegment(W - 45, 20, wallThick, H - 40, false);
 
       // Inner Room Partition Walls with Open Doorway Portals
-      // West Wing North-South Wall (with door at y: 310-380)
       renderMasonrySegment(510, 20, wallThick, 290, false);
       renderMasonrySegment(510, 380, wallThick, 220, false);
-
-      // West Wing East-West Wall (y: 420)
       renderMasonrySegment(30, 410, 480, wallThick, true);
 
-      // East Wing North-South Wall (with door at y: 310-380)
       renderMasonrySegment(1070, 20, wallThick, 290, false);
       renderMasonrySegment(1070, 380, wallThick, 220, false);
-
-      // East Wing East-West Wall (y: 420)
       renderMasonrySegment(1096, 410, W - 1126, wallThick, true);
 
-      // South Great Banquet Hall Wall (with grand double portal at x: 720-880)
       renderMasonrySegment(30, 590, 690, wallThick, true);
       renderMasonrySegment(880, 590, W - 910, wallThick, true);
     }
@@ -993,12 +997,11 @@
         ctx.rotate(angle);
         ctx.translate(0, -len * 0.45);
 
-        // 7-stop Specular Metallic Steel Gradient
         const mg = ctx.createLinearGradient(-wid, 0, wid, 0);
         mg.addColorStop(0.00, '#1c1917');
         mg.addColorStop(0.25, '#78716c');
         mg.addColorStop(0.48, '#44403c');
-        mg.addColorStop(0.50, '#f5f5f4'); // Specular peak
+        mg.addColorStop(0.50, '#f5f5f4');
         mg.addColorStop(0.52, '#57534e');
         mg.addColorStop(0.80, '#a8a29e');
         mg.addColorStop(1.00, '#1c1917');
@@ -1166,7 +1169,6 @@
         const px = pl[0];
         const py = pl[1];
 
-        // Soft Radial Contact Shadow
         this.drawContactShadow(ctx, px - 18, py - 18, 36, 36, 6);
 
         ctx.fillStyle = '#292524';
@@ -1263,9 +1265,9 @@
       // Dual Heavy Iron Anvils on Timber Blocks
       [1260, 1340].forEach(ax => {
         this.drawContactShadow(ctx, ax - 2, 258, 40, 22, 3);
-        ctx.fillStyle = '#78350f'; // Timber block
+        ctx.fillStyle = '#78350f';
         ctx.fillRect(ax - 2, 258, 40, 22);
-        ctx.fillStyle = '#1c1917'; // Iron Anvil
+        ctx.fillStyle = '#1c1917';
         ctx.beginPath();
         ctx.roundRect(ax, 260, 36, 18, 4);
         ctx.fill();
@@ -1316,7 +1318,6 @@
         ctx.lineWidth = 1.5;
         ctx.stroke();
 
-        // Pewter plates and wooden flagons
         for (let p = 0; p < 4; p++) {
           const px = tx + 24 + p * 42;
           ctx.fillStyle = '#94a3b8';
@@ -1337,12 +1338,10 @@
         ctx.ellipse(1435, cy, 14, 18, Math.PI / 2, 0, Math.PI * 2);
         ctx.fill();
 
-        // Iron hoops
         ctx.strokeStyle = '#1c1917';
         ctx.lineWidth = 2;
         ctx.stroke();
 
-        // Stave seam lines
         ctx.strokeStyle = '#451a03';
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -1381,9 +1380,9 @@
       const hudDesc = document.getElementById('hudDesc');
       const hudIcon = document.getElementById('hudIcon');
 
-      // Check agents
+      // Check agents with generous hit box
       for (const a of this.agents) {
-        if (Math.hypot(a.x - mx, a.y - my) < 26) {
+        if (isAgentHit(a, mx, my)) {
           if (hud && hudIcon && hudTitle && hudDesc) {
             hud.style.opacity = '1';
             hudIcon.innerText = a.type === 'boss' ? '👑' : '⚔️';
@@ -1395,78 +1394,73 @@
         }
       }
 
-      // Check stations
-      for (const [key, s] of Object.entries(STATIONS)) {
-        if (mx >= s.x - s.w / 2 && mx <= s.x + s.w / 2 && my >= s.y - s.h / 2 && my <= s.y + s.h / 2) {
-          if (hud && hudIcon && hudTitle && hudDesc) {
-            hud.style.opacity = '1';
-            hudIcon.innerText = s.icon;
-            hudTitle.innerText = s.name;
-            hudDesc.innerText = s.desc;
-          }
-          this.canvas.style.cursor = 'pointer';
-          return;
+      // Check War Table (Briefing)
+      const table = STATIONS.briefing;
+      if (mx >= table.x - table.w / 2 && mx <= table.x + table.w / 2 &&
+          my >= table.y - table.h / 2 && my <= table.y + table.h / 2) {
+        if (hud && hudIcon && hudTitle && hudDesc) {
+          hud.style.opacity = '1';
+          hudIcon.innerText = table.icon;
+          hudTitle.innerText = table.name;
+          hudDesc.innerText = 'Click to view Council Decrees & Delegation Logs';
         }
+        this.canvas.style.cursor = 'pointer';
+        return;
       }
 
       if (hud) hud.style.opacity = '0';
       this.canvas.style.cursor = 'default';
     }
 
+    // --- USER INTERACTION: CLICK AGENT FOR DETAILS (NO WALKING), NO CLICK-TO-MOVE ON MAP ---
     handleClick(mx, my) {
-      // 1. Click on Agent
+      // 1. Click on Agent -> Inspect & Highlight ONLY!
       for (const a of this.agents) {
-        if (Math.hypot(a.x - mx, a.y - my) < 26) {
+        if (isAgentHit(a, mx, my)) {
+          this.selectedAgentId = a.id;
+          a.bubbleTimer = 450;
+          a.bubbleText = a.bubbleText || `Reporting from station: ${a.title}`;
           if (typeof focusOnAgent === 'function') {
             focusOnAgent(a.id);
           }
-          if (a.state === 'IDLE_AT_DESK') {
-            this.dispatchAgent(a.id, 'pantry', '🍗 Feast & Mead Break in Great Hall');
-          } else {
-            this.returnAgentToDesk(a);
-          }
           return;
         }
       }
 
-      // 2. Click on Station
-      for (const [key, s] of Object.entries(STATIONS)) {
-        if (mx >= s.x - s.w / 2 && mx <= s.x + s.w / 2 && my >= s.y - s.h / 2 && my <= s.y + s.h / 2) {
-          if (key === 'briefing') {
-            this.openConversationsModal();
-            return;
-          }
-          const idle = this.agents.find(a => a.state === 'IDLE_AT_DESK');
-          if (idle) {
-            this.dispatchAgent(idle.id, key, `${s.icon} Inspecting ${s.name}`);
-          }
-          return;
-        }
+      // 2. Click on War Table (briefing) -> View Council Decrees Modal
+      const table = STATIONS.briefing;
+      if (mx >= table.x - table.w / 2 && mx <= table.x + table.w / 2 &&
+          my >= table.y - table.h / 2 && my <= table.y + table.h / 2) {
+        this.openConversationsModal();
+        return;
       }
+
+      // NOTE: Manual click-to-move for rooms/tools is DISABLED per user instruction:
+      // "matikan fitur jika saya mengklik tools atau daerah maka karakter akan bergerak.
+      //  karakter akan bergerak sesuai tugas dan stepnya saja melalui prompt atau hasil delegasi task"
     }
 
-    dispatchAgent(agentId, stationKey, actionText) {
+    dispatchAgent(agentId, stationKey, actionText, onComplete) {
       const agent = this.agents.find(a => a.id === agentId);
       const station = STATIONS[stationKey];
       if (!agent || !station) return;
 
-      const startKey = agent.aisleKey;
+      const currentNearest = this.findNearestWaypoint(agent.x, agent.y);
       const targetKey = station.terminalKey;
-      const corridorWaypoints = aStarPath(startKey, targetKey);
+      const corridorWaypoints = aStarPath(currentNearest, targetKey);
 
-      agent.pathQueue = [
-        WAYPOINTS[agent.aisleKey],
-        ...corridorWaypoints
-      ];
+      agent.pathQueue = corridorWaypoints;
       agent.currentWaypointIdx = 0;
       agent.targetStation = station;
       agent.state = 'WALKING';
+      agent.stepBadge = `WALKING ➔ ${station.name.slice(0, 16)}`;
       agent.bubbleText = actionText || `${station.icon} Operating ${station.name}`;
       agent.bubbleTimer = 360;
+      agent.onCompleteCallback = onComplete || null;
     }
 
-    returnAgentToDesk(agent) {
-      if (!agent || agent.state === 'IDLE_AT_DESK') return;
+    returnAgentToDesk(agent, onComplete) {
+      if (!agent) return;
       const currentNearest = this.findNearestWaypoint(agent.x, agent.y);
       const returnWaypoints = aStarPath(currentNearest, agent.aisleKey);
 
@@ -1475,9 +1469,12 @@
         { x: agent.deskX, y: agent.deskY }
       ];
       agent.currentWaypointIdx = 0;
+      agent.targetStation = null;
       agent.state = 'WALKING';
+      agent.stepBadge = 'RETURNING TO POST';
       agent.bubbleText = 'Task concluded. Returning to post.';
-      agent.bubbleTimer = 180;
+      agent.bubbleTimer = 220;
+      agent.onCompleteCallback = onComplete || null;
     }
 
     findNearestWaypoint(x, y) {
@@ -1547,7 +1544,7 @@
       });
       this.particles = this.particles.filter(p => p.life > 0);
 
-      // Update agents walking
+      // Update agents walking & step state machine
       this.agents.forEach(a => {
         if (a.bubbleTimer > 0) a.bubbleTimer--;
 
@@ -1558,12 +1555,12 @@
             const dy = targetWP.y - a.y;
             const d = Math.hypot(dx, dy);
 
-            if (d > 3) {
+            if (d > 3.2) {
               const vx = (dx / d) * a.speed;
               const vy = (dy / d) * a.speed;
               a.x += vx;
               a.y += vy;
-              a.walkCycle += 0.25;
+              a.walkCycle += 0.28;
 
               if (Math.abs(dx) > Math.abs(dy)) {
                 a.facing = dx > 0 ? 'right' : 'left';
@@ -1579,16 +1576,33 @@
             a.walkCycle = 0;
             if (a.targetStation) {
               a.state = 'WORKING_AT_STATION';
-              a.workTimer = 220;
+              a.workTimer = 260;
+              if (a.onCompleteCallback) {
+                const cb = a.onCompleteCallback;
+                a.onCompleteCallback = null;
+                cb();
+              }
             } else {
               a.state = 'IDLE_AT_DESK';
+              a.stepBadge = null;
               a.facing = a.type === 'boss' ? 'down' : 'up';
+              if (a.onCompleteCallback) {
+                const cb = a.onCompleteCallback;
+                a.onCompleteCallback = null;
+                cb();
+              }
             }
           }
         } else if (a.state === 'WORKING_AT_STATION') {
           a.workTimer--;
           if (a.workTimer <= 0) {
-            this.returnAgentToDesk(a);
+            if (a.onCompleteCallback) {
+              const cb = a.onCompleteCallback;
+              a.onCompleteCallback = null;
+              cb();
+            } else {
+              this.returnAgentToDesk(a);
+            }
           }
         }
       });
@@ -1630,15 +1644,13 @@
       const ctx = this.ctx;
       const flicker = Math.sin(this.tick * 0.12) * 5;
 
-      // 1. Dual-Canvas Darkness & Light Attenuation Pass
       const lctx = this.lightCtx;
       lctx.clearRect(0, 0, this.virtualWidth, this.virtualHeight);
 
-      // Warm dusk shadow overlay (0.16 opacity — 60% bright : 25% mid : 15% shadow!)
+      // Warm dusk shadow overlay (0.16 opacity)
       lctx.fillStyle = 'rgba(18, 14, 10, 0.16)';
       lctx.fillRect(0, 0, this.virtualWidth, this.virtualHeight);
 
-      // Cut out light holes
       lctx.globalCompositeOperation = 'destination-out';
 
       const cutLightHole = (x, y, radius, intensity = 1.0) => {
@@ -1653,14 +1665,10 @@
         lctx.fill();
       };
 
-      // Great Stag Hearth (radius 280)
       cutLightHole(800, 600, 280 + flicker, 0.95);
-      // Royal Forge (radius 310)
       cutLightHole(1300, 100, 310 + flicker, 0.95);
-      // Alchemical Flasks (radius 220)
       cutLightHole(170, 250, 220 + flicker * 0.5, 0.85);
 
-      // 6 Standing Braziers (radius 160)
       const braziers = [
         [690, 360], [910, 360],
         [690, 520], [910, 520],
@@ -1668,7 +1676,6 @@
       ];
       braziers.forEach(b => cutLightHole(b[0], b[1], 160 + flicker * 0.5, 0.85));
 
-      // 8 Wall-Mounted Torch Sconces along corridors
       const wallSconces = [
         [520, 200], [520, 400],
         [1080, 200], [1080, 400],
@@ -1678,15 +1685,12 @@
       wallSconces.forEach(ws => cutLightHole(ws[0], ws[1], 130 + flicker * 0.5, 0.8));
 
       lctx.globalCompositeOperation = 'source-over';
-
-      // Composite darkness layer onto scene
       ctx.drawImage(this.lightCanvas, 0, 0);
 
-      // 2. Additive Warm Golden Fire Glow Pass (screen mode)
+      // Additive Warm Fire Glow Pass
       ctx.save();
       ctx.globalCompositeOperation = 'screen';
 
-      // Hearth Fire Glow
       const gHearth = ctx.createRadialGradient(800, 600, 5, 800, 600, 180 + flicker);
       gHearth.addColorStop(0, 'rgba(251, 146, 60, 0.55)');
       gHearth.addColorStop(0.5, 'rgba(234, 88, 12, 0.22)');
@@ -1696,7 +1700,6 @@
       ctx.arc(800, 600, 180 + flicker, 0, Math.PI * 2);
       ctx.fill();
 
-      // Royal Forge Glow
       const gForge = ctx.createRadialGradient(1300, 100, 5, 1300, 100, 200 + flicker);
       gForge.addColorStop(0, 'rgba(239, 68, 68, 0.6)');
       gForge.addColorStop(0.6, 'rgba(245, 158, 11, 0.25)');
@@ -1706,7 +1709,6 @@
       ctx.arc(1300, 100, 200 + flicker, 0, Math.PI * 2);
       ctx.fill();
 
-      // Emerald Alchemical Flasks Glow
       const gAlchemy = ctx.createRadialGradient(170, 250, 2, 170, 250, 140 + flicker * 0.5);
       gAlchemy.addColorStop(0, 'rgba(16, 185, 129, 0.55)');
       gAlchemy.addColorStop(0.6, 'rgba(5, 150, 105, 0.2)');
@@ -1716,7 +1718,6 @@
       ctx.arc(170, 250, 140 + flicker * 0.5, 0, Math.PI * 2);
       ctx.fill();
 
-      // Standing Braziers & Wall Sconces
       [...braziers, ...wallSconces].forEach(b => {
         const gb = ctx.createRadialGradient(b[0], b[1], 2, b[0], b[1], 80 + flicker * 0.5);
         gb.addColorStop(0, 'rgba(245, 158, 11, 0.45)');
@@ -1727,7 +1728,6 @@
         ctx.fill();
       });
 
-      // Dragon Cistern Water Ripple & Golden Duck
       const gCistern = ctx.createRadialGradient(260, 730, 5, 260, 730, 65);
       gCistern.addColorStop(0, 'rgba(2, 132, 199, 0.45)');
       gCistern.addColorStop(1, 'rgba(0, 0, 0, 0)');
@@ -1738,7 +1738,6 @@
 
       ctx.restore();
 
-      // Golden duck mascot
       ctx.font = '22px sans-serif';
       ctx.textAlign = 'center';
       const duckWave = Math.sin(this.tick * 0.08) * 3;
@@ -1761,6 +1760,17 @@
       const ctx = this.ctx;
       ctx.save();
       ctx.translate(agent.x, agent.y);
+
+      // Selected Glowing Selection Ring
+      if (this.selectedAgentId === agent.id) {
+        ctx.strokeStyle = '#fbbf24';
+        ctx.lineWidth = 2.5;
+        ctx.setLineDash([5, 3]);
+        ctx.beginPath();
+        ctx.arc(0, -6, 26, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
 
       // Contact Shadow
       ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
@@ -1826,6 +1836,7 @@
         ctx.fillText('🚨', 0, -32 - bodyBob);
       }
 
+      // Name Badge Pill
       ctx.fillStyle = 'rgba(7, 12, 24, 0.9)';
       ctx.strokeStyle = agent.hasError ? '#ef4444' : agent.accentColor;
       ctx.lineWidth = 1;
@@ -1838,6 +1849,13 @@
       ctx.font = '700 8px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
       ctx.fillText(agent.name, 0, -25 - bodyBob);
+
+      // Active Step Badge Indicator (e.g. [EXECUTING], [WALKING])
+      if (agent.stepBadge) {
+        ctx.fillStyle = '#f59e0b';
+        ctx.font = '800 7.5px "JetBrains Mono", monospace';
+        ctx.fillText(`▶ ${agent.stepBadge}`, 0, -42 - bodyBob);
+      }
 
       ctx.restore();
     }
@@ -1854,7 +1872,7 @@
       const textWidth = ctx.measureText(text).width;
       const bw = Math.max(90, textWidth + 24);
       const bh = 28;
-      const by = -62;
+      const by = -66;
 
       ctx.fillStyle = 'rgba(7, 12, 24, 0.95)';
       ctx.strokeStyle = agent.hasError ? '#ef4444' : agent.accentColor;
@@ -1893,41 +1911,145 @@
       });
     }
 
+    // --- REAL MULTI-STEP TASK & DELEGATION PIPELINE ---
     processTelemetry(events, conversations) {
       this.telemetryEvents = events || [];
       this.conversations = conversations || [];
 
-      const recentTool = (events || []).find(e => e.type === 'tool_call');
-      if (recentTool) {
-        const char = this.agents.find(a => a.id === recentTool.agent);
-        if (char && char.state === 'IDLE_AT_DESK') {
-          const stationKey = recentTool.station || 'compiler';
-          this.dispatchAgent(char.id, stationKey, this.formatActionBubble(recentTool.detail));
+      // Check if sequence can be started
+      if (this.activeSequence) return; // Sequence in progress
+
+      // 1. Check for real delegation events
+      if (conversations && conversations.length > 0) {
+        const latestConvo = conversations[0];
+        if (!this.executedConvoIds.has(latestConvo.id)) {
+          this.executedConvoIds.add(latestConvo.id);
+          this.executeDelegationSequence(latestConvo);
+          return;
         }
       }
 
-      if (conversations && conversations.length > 0 && Math.random() < 0.35) {
-        const convo = conversations[0];
-        const subagent = this.agents.find(a => a.id === convo.receiver);
-        if (subagent && subagent.state === 'IDLE_AT_DESK') {
-          this.dispatchAgent('vps-boss', 'briefing', `👑 Boss: "${convo.boss_order.slice(0, 36)}..."`);
-          setTimeout(() => {
-            this.dispatchAgent(subagent.id, 'briefing', `⚔️ ${subagent.id}: "Executing decree..."`);
-          }, 600);
-        }
+      // 2. Check for real tool events by Boss
+      const recentTool = (events || []).find(e => e.type === 'tool_call');
+      if (recentTool && recentTool.agent === 'vps-boss') {
+        this.executeBossToolAction(recentTool);
       }
     }
 
-    formatActionBubble(detail) {
-      if (!detail) return 'Executing royal decree...';
-      let clean = detail.replace(/->\s*/, '').replace(/\(.*\)/, '');
-      if (detail.includes('web_search')) return '🔍 Scrying the known realms...';
-      if (detail.includes('pytest')) return '🛡️ Testing armor invariants...';
-      if (detail.includes('terminal')) return '🔨 Striking castle forge...';
-      if (detail.includes('patch')) return '📜 Scribing scroll amendment...';
-      if (detail.includes('read_file')) return '📖 Consulting library tome...';
-      if (detail.includes('duckdb')) return '🦆 Channeling dragon cistern...';
-      return clean.slice(0, 32);
+    // Alur 1: Boss mendelegasikan tugas ke subagent (bertemu di meja bundar, lalu subagent ke stasiun alat)
+    executeDelegationSequence(convo) {
+      const subagent = this.agents.find(a => a.id === convo.receiver);
+      const boss = this.agents.find(a => a.id === 'vps-boss');
+      if (!subagent || !boss) return;
+
+      this.activeSequence = {
+        id: convo.id,
+        stage: 'WAR_TABLE_MEETING',
+        receiver: convo.receiver
+      };
+
+      // Step 1: Boss ke kepala Meja Perang
+      this.dispatchAgent('vps-boss', 'briefing', `👑 Decree for ${convo.receiver}...`, () => {
+        boss.facing = 'down';
+        boss.bubbleText = `👑 Boss: "${convo.boss_order.slice(0, 40)}..."`;
+        boss.bubbleTimer = 360;
+      });
+
+      // Step 2: Subagent ke kursi Meja Perang (bertemu dengan Boss!)
+      this.dispatchAgent(subagent.id, 'briefing', `⚔️ Summoned to War Table`, () => {
+        subagent.facing = 'up';
+        subagent.bubbleText = `⚔️ ${convo.receiver}: "Decree acknowledged. Moving to station..."`;
+        subagent.bubbleTimer = 360;
+
+        // Bertemu di meja selama 3.5 detik, lalu subagent melangkah ke stasiun alatnya!
+        setTimeout(() => {
+          this.executeSubagentToolStep(subagent, convo);
+        }, 3500);
+      });
+    }
+
+    executeSubagentToolStep(subagent, convo) {
+      const tools = convo.tools_used || [];
+      let targetStation = 'compiler';
+      let toolIcon = '🔨';
+      let toolAction = 'Executing shell & compilation in Royal Forge';
+
+      if (tools.some(t => t.includes('web') || t.includes('crawl') || t.includes('scry'))) {
+        targetStation = 'crawler';
+        toolIcon = '🔍';
+        toolAction = 'Scrying realms via Web Crawler in Alchemical Lab';
+      } else if (tools.some(t => t.includes('read') || t.includes('write') || t.includes('patch') || t.includes('paper') || t.includes('session'))) {
+        targetStation = 'library';
+        toolIcon = '📜';
+        toolAction = 'Analyzing manuscripts & files in Grand Library';
+      } else if (subagent.id === 'swe-verifier' || tools.some(t => t.includes('audit') || t.includes('inspect') || t.includes('verify'))) {
+        targetStation = 'quarantine';
+        toolIcon = '🛡️';
+        toolAction = 'Auditing armor invariants in Sentry Inspection Rack';
+      } else if (subagent.id === 'data-engineer' || tools.some(t => t.includes('duckdb') || t.includes('lakehouse') || t.includes('sql'))) {
+        targetStation = 'lakehouse';
+        toolIcon = '🦆';
+        toolAction = 'Channeling data streams at Dragon Cistern';
+      }
+
+      // Boss kembali ke Iron Throne
+      const boss = this.agents.find(a => a.id === 'vps-boss');
+      if (boss) {
+        this.returnAgentToDesk(boss);
+      }
+
+      // Subagent melangkah ke stasiun alat spesifik
+      this.dispatchAgent(subagent.id, targetStation, `${toolIcon} ${toolAction}`, () => {
+        subagent.state = 'WORKING_AT_STATION';
+        subagent.stepBadge = `OPERATING ${targetStation.toUpperCase()}`;
+        subagent.bubbleText = `${toolIcon} Operating: ${tools.slice(0, 3).join(', ')}`;
+        subagent.bubbleTimer = 320;
+
+        // Selesai bekerja, kembali ke workstation
+        setTimeout(() => {
+          subagent.bubbleText = `✅ Completed: "${(convo.subagent_reply || 'Evidence verified').slice(0, 36)}..."`;
+          subagent.bubbleTimer = 260;
+          this.returnAgentToDesk(subagent, () => {
+            this.activeSequence = null; // Selesai siklus delegasi
+          });
+        }, 5000);
+      });
+    }
+
+    // Alur 2: Boss memakai tool crawler/terminal langsung -> Boss melangkah ke stasiun alat
+    executeBossToolAction(toolEvent) {
+      const boss = this.agents.find(a => a.id === 'vps-boss');
+      if (!boss || boss.state !== 'IDLE_AT_DESK') return;
+
+      const detail = toolEvent.detail || '';
+      let targetStation = 'compiler';
+      let toolIcon = '🔨';
+      let actionText = 'Striking server forge terminal';
+
+      if (detail.includes('web_search') || detail.includes('web_extract') || detail.includes('crawl')) {
+        targetStation = 'crawler';
+        toolIcon = '🔍';
+        actionText = 'Boss scrying realms via Web Crawler in Alchemical Lab';
+      } else if (detail.includes('read_file') || detail.includes('patch') || detail.includes('write_file')) {
+        targetStation = 'library';
+        toolIcon = '📜';
+        actionText = 'Boss consulting Citadel archives in Library';
+      }
+
+      this.activeSequence = { id: 'boss_tool', stage: 'BOSS_TOOL' };
+
+      this.dispatchAgent('vps-boss', targetStation, `${toolIcon} ${actionText}`, () => {
+        boss.state = 'WORKING_AT_STATION';
+        boss.stepBadge = `SCRYING ${targetStation.toUpperCase()}`;
+        boss.bubbleText = `${toolIcon} Boss: "${detail.slice(0, 30)}..."`;
+        boss.bubbleTimer = 280;
+
+        setTimeout(() => {
+          this.returnAgentToDesk(boss, () => {
+            this.activeSequence = null;
+          });
+        }, 4500);
+      });
     }
 
     openConversationsModal() {

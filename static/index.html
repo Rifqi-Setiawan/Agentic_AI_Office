@@ -405,14 +405,33 @@
     // --- Focus On Agent ---
     function focusOnAgent(agentId) {
       if (window.officeSim) {
+        window.officeSim.selectedAgentId = agentId;
         const ag = window.officeSim.agents.find(a => a.id === agentId);
         if (ag) {
-          ag.bubbleTimer = 400;
-          ag.bubbleText = ag.bubbleText || 'At workstation.';
+          ag.bubbleTimer = 450;
+          ag.bubbleText = ag.bubbleText || `Reporting from station: ${ag.title}`;
         }
       }
 
-      const fullAgent = globalRoster.find(a => a.id === agentId);
+      let fullAgent = globalRoster.find(a => a.id === agentId);
+      if (!fullAgent && window.officeSim) {
+        const ag = window.officeSim.agents.find(a => a.id === agentId);
+        if (ag) {
+          fullAgent = {
+            id: ag.id,
+            name: ag.name,
+            role: ag.title,
+            accent_color: ag.accentColor,
+            state: ag.state,
+            project: 'Rifqi Sovereign Stronghold',
+            phase: 'Live Production',
+            status_desc: ag.bubbleText || 'Active at workstation.',
+            model: ag.model || 'ag/claude-opus-4-6-thinking',
+            zone: ag.targetStation ? ag.targetStation.name : 'Chamber Desk'
+          };
+        }
+      }
+
       if (fullAgent) {
         openInspector(fullAgent);
       }
