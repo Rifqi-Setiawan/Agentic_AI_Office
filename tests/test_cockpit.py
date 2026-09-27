@@ -103,3 +103,29 @@ def test_triage_errors_endpoint():
     assert isinstance(data["errors"], list)
 
 
+def test_kanban_boards_and_tasks_endpoints():
+    response = client.get("/api/v1/kanban/boards")
+    assert response.status_code == 200
+    boards = response.json()
+    assert boards["status"] == "success"
+    assert any(b["slug"] == "bitcoin-data-platform" for b in boards["boards"])
+
+    response = client.get("/api/v1/kanban/tasks?board=bitcoin-data-platform")
+    assert response.status_code == 200
+    data = response.json()
+    assert set(["todo", "in_progress", "review", "done", "blocked"]).issubset(data["columns"])
+    tasks = [task for column in data["columns"].values() for task in column]
+    assert data["total_tasks"] == len(tasks)
+    if tasks:
+        assert {"id", "title", "assignee", "priority", "created_at", "status"}.issubset(tasks[0])
+        detail = client.get(f"/api/v1/kanban/task/{tasks[0]['id']}?board=bitcoin-data-platform")
+        assert detail.status_code == 200
+        payload = detail.json()
+        assert {"task", "comments", "runs", "events", "links"}.issubset(payload)
+
+
+def test_kanban_unknown_board_and_task_are_404():
+    assert client.get("/api/v1/kanban/tasks?board=missing").status_code == 404
+    assert client.get("/api/v1/kanban/task/missing?board=bitcoin-data-platform").status_code == 404
+
+

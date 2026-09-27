@@ -41,6 +41,60 @@ BASE_DIR = Path("/srv/hermes-control")
 PROFILES_DIR = Path("/srv/apps/hermes/profiles")
 STATIC_DIR = Path(__file__).resolve().parents[1] / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
+KANBAN_ROOT = Path("/srv/apps/hermes/kanban")
+KANBAN_GLOBAL_DB = Path("/srv/apps/hermes/kanban.db")
+
+
+def _kanban_boards() -> List[Dict[str, Any]]:
+    """Discover readable Hermes Kanban SQLite boards without mutating them."""
+    candidates = [("default", "Hermes Global", KANBAN_GLOBAL_DB)]
+    boards_dir = KANBAN_ROOT / "boards"
+    if boards_dir.exists():
+        for db_path in sorted(boards_dir.glob("*/kanban.db")):
+            slug = db_path.parent.name
+            candidates.append((slug, slug.replace("-", " ").title(), db_path))
+    return [{"slug": slug, "name": name, "path": path} for slug, name, path in candidates if path.is_file()]
+
+
+def _kanban_db(board: str) -> sqlite3.Connection:
+    match = next((item for item in _kanban_boards() if item["slug"] == board), None)
+    if not match:
+        raise HTTPException(status_code=404, detail=f"Kanban board '{board}' not found")
+    conn = sqlite3.connect(f"file:{match['path']}?mode=ro", uri=True)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def _iso_timestamp(value: Optional[int]) -> Optional[str]:
+    if value is None:
+        return None
+    return datetime.fromtimestamp(value, tz=timezone.utc).isoformat()
+
+
+def _task_payload(row: sqlite3.Row, board: str) -> Dict[str, Any]:
+    item = dict(row)
+    for key in ("created_at", "started_at", "completed_at", "last_heartbeat_at"):
+        if key in item:
+            item[key] = _iso_timestamp(item[key])
+    item["board"] = board
+    return item
+
+
+def get_active_kanban_tasks() -> Dict[str, Dict[str, Any]]:
+    """Return the newest non-terminal Kanban assignment for each agent."""
+    active: Dict[str, Dict[str, Any]] = {}
+    terminal = {"done", "completed", "cancelled", "archived"}
+    for board in _kanban_boards():
+        try:
+            with _kanban_db(board["slug"]) as conn:
+                rows = conn.execute("SELECT * FROM tasks WHERE assignee IS NOT NULL ORDER BY created_at DESC").fetchall()
+            for row in rows:
+                task = _task_payload(row, board["slug"])
+                if task.get("status", "").lower() not in terminal and task["assignee"] not in active:
+                    active[task["assignee"]] = task
+        except sqlite3.Error:
+            continue
+    return active
 
 # 13 Dedicated Agent Spatial Assignments in 3D Office World Space
 OFFICE_ZONES = {
@@ -505,6 +559,7 @@ def get_agents_roster() -> Dict[str, Any]:
     """Returns all 13 agents with real models, status, active task, and 3D coordinates."""
     models_map = get_agent_models_map()
     events = parse_delegation_stream(150)
+    active_kanban = get_active_kanban_tasks()
     
     # Check latest activity per agent
     latest_agent_event = {}
@@ -567,6 +622,14 @@ def get_agents_roster() -> Dict[str, Any]:
             "vps-assistant": {"project": "General Operations", "phase": "Server Automation & Utility Scripts"}
         }
         proj_info = project_map.get(agent_id, {"project": "Global Control", "phase": "Standard Active"})
+        kanban_task = active_kanban.get(agent_id)
+        if kanban_task:
+            state = state if state != "IDLE" else "EXECUTING"
+            status_desc = f"Kanban {kanban_task['id']}: {kanban_task['title']}"
+            proj_info = {
+                "project": kanban_task["board"].replace("-", " ").title(),
+                "phase": f"Kanban · {kanban_task['status'].replace('_', ' ').title()} · {kanban_task['title']}",
+            }
 
         roster.append({
             "id": agent_id,
@@ -585,7 +648,12 @@ def get_agents_roster() -> Dict[str, Any]:
             "chair_color": zone_data["chair_color"],
             "avatar_archetype": zone_data["avatar_archetype"],
             "responsibilities": meta.get("responsibilities", ["Autonomous system operations"]),
-            "latest_activity": last_ev
+            "latest_activity": last_ev or ({
+                "type": "kanban_task",
+                "detail": status_desc,
+                "time": kanban_task.get("created_at"),
+            } if kanban_task else None),
+            "kanban_task": kanban_task
         })
 
     return {
@@ -740,6 +808,56 @@ def get_triage_errors(limit: int = Query(default=20, ge=1, le=50)) -> Dict[str, 
         "errors": errors,
         "timestamp": datetime.now(timezone.utc).isoformat()
     }
+
+
+@app.get("/api/v1/kanban/boards")
+def get_kanban_boards() -> Dict[str, Any]:
+    boards = []
+    for board in _kanban_boards():
+        with _kanban_db(board["slug"]) as conn:
+            counts = {row["status"]: row["count"] for row in conn.execute(
+                "SELECT status, COUNT(*) AS count FROM tasks GROUP BY status"
+            )}
+        boards.append({"slug": board["slug"], "name": board["name"], "task_counts": counts, "total_tasks": sum(counts.values())})
+    return {"status": "success", "boards": boards, "total_boards": len(boards)}
+
+
+@app.get("/api/v1/kanban/tasks")
+def get_kanban_tasks(board: str = Query(default="default")) -> Dict[str, Any]:
+    columns = {"todo": [], "in_progress": [], "review": [], "done": [], "blocked": []}
+    aliases = {"ready": "in_progress", "running": "in_progress", "in-progress": "in_progress",
+               "completed": "done", "triage": "blocked", "failed": "blocked"}
+    with _kanban_db(board) as conn:
+        rows = conn.execute("SELECT * FROM tasks ORDER BY priority DESC, created_at DESC").fetchall()
+    for row in rows:
+        task = _task_payload(row, board)
+        column = aliases.get(task["status"].lower(), task["status"].lower())
+        columns.setdefault(column, []).append(task)
+    return {"status": "success", "board": board, "columns": columns, "total_tasks": sum(len(v) for v in columns.values())}
+
+
+@app.get("/api/v1/kanban/task/{task_id}")
+def get_kanban_task(task_id: str, board: Optional[str] = Query(default=None)) -> Dict[str, Any]:
+    board_slugs = [board] if board else [item["slug"] for item in _kanban_boards()]
+    for slug in board_slugs:
+        with _kanban_db(slug) as conn:
+            row = conn.execute("SELECT * FROM tasks WHERE id = ?", (task_id,)).fetchone()
+            if not row:
+                continue
+            comments = [dict(r) for r in conn.execute("SELECT * FROM task_comments WHERE task_id = ? ORDER BY created_at", (task_id,))]
+            runs = [dict(r) for r in conn.execute("SELECT * FROM task_runs WHERE task_id = ? ORDER BY started_at DESC", (task_id,))]
+            events = [dict(r) for r in conn.execute("SELECT * FROM task_events WHERE task_id = ? ORDER BY created_at DESC", (task_id,))]
+            links = [dict(r) for r in conn.execute("SELECT * FROM task_links WHERE parent_id = ? OR child_id = ?", (task_id, task_id))]
+        for collection in (comments, events):
+            for item in collection:
+                item["created_at"] = _iso_timestamp(item.get("created_at"))
+        for run in runs:
+            for key in ("started_at", "ended_at", "last_heartbeat_at", "claim_expires"):
+                if key in run:
+                    run[key] = _iso_timestamp(run[key])
+        return {"status": "success", "task": _task_payload(row, slug), "comments": comments,
+                "runs": runs, "events": events, "links": links}
+    raise HTTPException(status_code=404, detail=f"Kanban task '{task_id}' not found")
 
 
 # Serve static web assets

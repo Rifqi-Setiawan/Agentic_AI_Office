@@ -2068,6 +2068,8 @@
           char.role = ag.role;
           char.rosterState = ag.state;
           char.statusDesc = ag.status_desc;
+          char.kanbanTask = ag.kanban_task || null;
+          if (char.kanbanTask && char.rosterState === 'IDLE') char.rosterState = 'KANBAN';
           if (ag.accent_color) char.accentColor = ag.accent_color;
         }
       });

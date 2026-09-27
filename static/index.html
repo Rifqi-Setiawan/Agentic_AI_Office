@@ -172,6 +172,14 @@
           <div id="inspPhase" class="text-xs font-semibold text-blue-400">Phase & Task Details</div>
         </div>
 
+        <!-- Kanban Assignment -->
+        <div id="inspKanbanCard" class="hidden p-3.5 rounded-xl bg-amber-950/20 border border-amber-500/30 space-y-1">
+          <div class="text-[10px] uppercase font-bold text-amber-400 tracking-wider">📋 Active Kanban Task</div>
+          <div id="inspKanbanId" class="font-mono text-[10px] text-slate-400"></div>
+          <div id="inspKanbanTitle" class="text-xs font-bold text-white"></div>
+          <div id="inspKanbanMeta" class="text-[10px] text-slate-400"></div>
+        </div>
+
         <!-- Real-time Activity Card -->
         <div class="p-3.5 rounded-xl bg-cyber-850 border border-cyber-700/60 space-y-2">
           <div class="flex items-center justify-between text-[10px] uppercase font-bold text-slate-400">
@@ -310,6 +318,9 @@
         <button id="btn-sub-triage" onclick="setWarRoomSubTab('triage')" class="px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white flex items-center space-x-1.5">
           <span>🚨 Error & Failure Triage</span>
         </button>
+        <button id="btn-sub-kanban" onclick="setWarRoomSubTab('kanban')" class="px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white flex items-center space-x-1.5">
+          <span>📋 Hermes Kanban Board</span>
+        </button>
       </div>
 
       <!-- SUB-VIEW 1: HIERARCHICAL EXECUTION TRACE DAG -->
@@ -349,6 +360,15 @@
         <div id="warTriageList" class="space-y-3 max-h-[500px] overflow-y-auto font-mono text-xs">
           <!-- Populated via JS -->
         </div>
+      </div>
+
+      <!-- SUB-VIEW 4: HERMES KANBAN BOARD -->
+      <div id="war-sub-kanban" class="hidden space-y-4">
+        <div class="flex items-center justify-between">
+          <div><h3 class="text-sm font-bold text-white">Hermes Kanban Board</h3><p class="text-xs text-slate-400">Data langsung dari SQLite Hermes.</p></div>
+          <select id="kanbanBoardSelect" onchange="hydrateKanban(this.value)" class="bg-cyber-900 border border-cyber-700 rounded-lg px-3 py-1.5 text-xs text-white"></select>
+        </div>
+        <div id="kanbanColumns" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-3"></div>
       </div>
 
     </div>
@@ -481,6 +501,15 @@
       document.getElementById('inspStatusDesc').textContent = agent.status_desc || 'Standing by for autonomous execution.';
       document.getElementById('inspZone').textContent = agent.zone || 'Main Office';
       document.getElementById('inspModel').textContent = agent.model || 'ag/gemini-3.8-flash-high';
+      const kanbanCard = document.getElementById('inspKanbanCard');
+      if (agent.kanban_task) {
+        kanbanCard.classList.remove('hidden');
+        document.getElementById('inspKanbanId').textContent = `${agent.kanban_task.board} · ${agent.kanban_task.id}`;
+        document.getElementById('inspKanbanTitle').textContent = agent.kanban_task.title;
+        document.getElementById('inspKanbanMeta').textContent = `${agent.kanban_task.status.replaceAll('_', ' ')} · priority ${agent.kanban_task.priority}`;
+      } else {
+        kanbanCard.classList.add('hidden');
+      }
 
       if (agent.latest_activity) {
         document.getElementById('inspToolTime').textContent = agent.latest_activity.time || 'recent';
@@ -616,7 +645,7 @@
     
     // --- Sub-Tab Switching inside War Room (DAG, Stream, Triage) ---
     function setWarRoomSubTab(tabId) {
-      ['dag', 'stream', 'triage'].forEach(t => {
+      ['dag', 'stream', 'triage', 'kanban'].forEach(t => {
         const v = document.getElementById('war-sub-' + t);
         const b = document.getElementById('btn-sub-' + t);
         if (v && b) {
@@ -629,6 +658,34 @@
           }
         }
       });
+      if (tabId === 'kanban') hydrateKanban();
+    }
+
+    function esc(value) {
+      return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    async function hydrateKanban(boardSlug) {
+      const select = document.getElementById('kanbanBoardSelect');
+      const boardData = await fetch('/api/v1/kanban/boards').then(r => r.json());
+      if (!boardSlug) boardSlug = boardData.boards.find(b => b.total_tasks > 0)?.slug || boardData.boards[0]?.slug;
+      if (!boardSlug) return;
+      select.innerHTML = boardData.boards.map(b => `<option value="${esc(b.slug)}" ${b.slug === boardSlug ? 'selected' : ''}>${esc(b.name)} (${b.total_tasks})</option>`).join('');
+      const data = await fetch(`/api/v1/kanban/tasks?board=${encodeURIComponent(boardSlug)}`).then(r => r.json());
+      const labels = {todo:'Backlog / Todo', in_progress:'In Progress', review:'Review', done:'Done', blocked:'Blocked'};
+      const colors = {todo:'slate', in_progress:'sky', review:'amber', done:'emerald', blocked:'rose'};
+      document.getElementById('kanbanColumns').innerHTML = Object.keys(labels).map(key => {
+        const tasks = data.columns[key] || [];
+        return `<section class="rounded-xl bg-cyber-900 border border-cyber-800 p-3 min-h-48">
+          <header class="flex justify-between mb-3 text-xs font-bold"><span class="text-${colors[key]}-400">${labels[key]}</span><span class="font-mono text-slate-500">${tasks.length}</span></header>
+          <div class="space-y-2">${tasks.map(t => {
+            const agent = globalRoster.find(a => a.id === t.assignee);
+            return `<article class="rounded-lg bg-cyber-950 border border-cyber-800 p-3 space-y-2">
+              <div class="font-mono text-[9px] text-slate-500">${esc(t.id)}</div><div class="text-xs font-semibold text-white leading-snug">${esc(t.title)}</div>
+              <div class="flex justify-between items-center"><span class="px-2 py-0.5 rounded text-[9px] font-bold" style="color:${agent?.accent_color || '#94a3b8'};background:${agent?.accent_color || '#94a3b8'}20">${esc(t.assignee || 'unassigned')}</span><span class="text-[9px] text-amber-400">P${esc(t.priority ?? 0)}</span></div>
+            </article>`;
+          }).join('') || '<p class="text-[10px] text-slate-600">No tasks</p>'}</div></section>`;
+      }).join('');
     }
 
     // --- Full Payload Modal ---
