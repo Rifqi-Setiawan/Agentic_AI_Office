@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rifqi Studio — Living Cyber-Office & Sovereign Cockpit</title>
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            cyber: {
+              950: '#030712',
+              900: '#070d1e',
+              850: '#0b152d',
+              800: '#111f42',
+              700: '#1e3264',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="/simulation2d.js"></script>
+
+  <style>
+    .tabular { font-variant-numeric: tabular-nums; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(3, 7, 18, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #1e3264; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+    .diff-del { background: rgba(239, 68, 68, 0.15); color: #f87171; border-left: 2px solid #ef4444; }
+    .diff-add { background: rgba(16, 185, 129, 0.15); color: #34d399; border-left: 2px solid #10b981; }
+    .diff-hunk { background: rgba(59, 130, 246, 0.15); color: #60a5fa; font-weight: bold; }
+  </style>
+</head>
+<body class="bg-cyber-950 text-slate-200 antialiased overflow-hidden h-screen select-none font-sans">
+
+  <!-- 2D Living Work Simulation Canvas Container (Smallville/Generative Agents style) -->
+  <div id="sim2d-container" class="absolute inset-0 w-full h-full z-0 overflow-hidden bg-cyber-950 flex items-center justify-center">
+    <canvas id="simCanvas" width="1400" height="900" class="max-w-full max-h-full block cursor-default object-contain shadow-2xl"></canvas>
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- TOP HUD BAR                                                             -->
+  <!-- ======================================================================= -->
+  <header class="absolute top-0 inset-x-0 h-16 z-20 bg-cyber-900/80 backdrop-blur-md border-b border-cyber-800/80 px-4 sm:px-6 flex items-center justify-between">
+    
+    <!-- Left: Brand & Status -->
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-cyan-500/20 font-extrabold text-sm">
+        HQ
+      </div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Rifqi Studio Ecosystem</span>
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+            13 Agents Live
+          </span>
+        </div>
+        <div class="text-sm font-extrabold text-white tracking-tight flex items-center space-x-2">
+          <span>The Living Cyber-Office & Sovereign Cockpit</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: View Mode Switcher (2D Work Simulation & War Room) -->
+    <div class="hidden md:flex items-center p-1 bg-cyber-950/90 rounded-xl border border-cyber-800 text-xs font-bold space-x-1">
+      <button id="btn-view-2d" onclick="switchView('2d')" 
+              class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white shadow-md transition-all flex items-center space-x-1.5">
+        <span>👾 2D Work Simulation</span>
+      </button>
+      <button id="btn-view-war" onclick="switchView('war')" 
+              class="px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center space-x-1.5">
+        <span>📊 War Room & DAG</span>
+      </button>
+    </div>
+
+    <!-- Right: Vitals & Utility Controls -->
+    <div class="flex items-center space-x-3">
+      <!-- Live Clock WIB -->
+      <div class="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-cyber-850/80 border border-cyber-700/60 text-xs font-mono font-bold text-slate-300">
+        <span id="clockWIB">--:--:-- WIB</span>
+      </div>
+
+      <!-- Reset Simulation Button -->
+      <button onclick="resetSimulation()" 
+              class="px-3 py-1.5 rounded-lg bg-cyber-850 border border-cyber-700/60 text-xs font-semibold text-slate-300 hover:text-white hover:bg-cyber-800 transition shadow-xs flex items-center space-x-1" title="Reset Agents to Desks">
+        <span>🔄</span>
+        <span class="hidden sm:inline">Reset All</span>
+      </button>
+
+      <!-- Exit to Main Dashboard -->
+      <a href="https://vps.rifqisetiawan.my.id" 
+         class="px-3 py-1.5 rounded-lg bg-blue-600/20 text-blue-400 border border-blue-500/30 text-xs font-bold hover:bg-blue-600 hover:text-white transition shadow-xs">
+        Dashboard ↗
+      </a>
+    </div>
+  </header>
+
+  <!-- ======================================================================= -->
+  <!-- AGENT TRANSPARENCY INSPECTOR MODAL / SIDEBAR (RIGHT)                   -->
+  <!-- ======================================================================= -->
+  <aside id="inspectorPanel" 
+         class="hidden absolute top-20 right-4 bottom-20 w-full sm:w-[480px] z-30 bg-cyber-900/95 backdrop-blur-xl border border-cyber-700/80 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300">
+    
+    <!-- Inspector Header -->
+    <div class="p-4 border-b border-cyber-800 bg-cyber-850/80 flex items-start justify-between">
+      <div class="flex items-center space-x-3">
+        <div id="inspAvatar" class="w-12 h-12 rounded-xl bg-blue-600 text-white font-extrabold text-lg flex items-center justify-center shadow-md">
+          AG
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h2 id="inspName" class="text-base font-extrabold text-white tracking-tight">agent-name</h2>
+            <span id="inspStatePill" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+              IDLE
+            </span>
+          </div>
+          <p id="inspRole" class="text-xs text-slate-400 mt-0.5">Specialist Role</p>
+        </div>
+      </div>
+      <button onclick="closeInspector()" class="w-8 h-8 rounded-lg bg-cyber-800 text-slate-400 hover:text-white flex items-center justify-center transition">
+        ✕
+      </button>
+    </div>
+
+    <!-- Inspector Navigation Tabs -->
+    <div class="px-4 py-2 bg-cyber-950/60 border-b border-cyber-800 flex space-x-2 text-xs font-bold">
+      <button id="tab-insp-telemetry" onclick="setInspectorTab('telemetry')" class="px-3 py-1 rounded-lg bg-blue-600 text-white shadow-xs">
+        ⚡ Live Telemetry
+      </button>
+      <button id="tab-insp-diff" onclick="setInspectorTab('diff')" class="px-3 py-1 rounded-lg text-slate-400 hover:text-white">
+        📝 Code Diff
+      </button>
+      <button id="tab-insp-specs" onclick="setInspectorTab('specs')" class="px-3 py-1 rounded-lg text-slate-400 hover:text-white">
+        ⚙️ Specs & Model
+      </button>
+    </div>
+
+    <!-- Inspector Content (Scrollable) -->
+    <div class="flex-1 overflow-y-auto p-4 space-y-4 text-xs font-sans">
+      
+      <!-- TAB 1: TELEMETRY (LIVE TOOL & STATUS) -->
+      <div id="insp-view-telemetry" class="space-y-4">
+        
+        <!-- Active Project & Phase Banner -->
+        <div class="p-3.5 rounded-xl bg-cyber-850 border border-cyber-700/60 space-y-1">
+          <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Active Assignment</div>
+          <div id="inspProject" class="text-sm font-extrabold text-white">Project Name</div>
+          <div id="inspPhase" class="text-xs font-semibold text-blue-400">Phase & Task Details</div>
+        </div>
+
+        <!-- Real-time Activity Card -->
+        <div class="p-3.5 rounded-xl bg-cyber-850 border border-cyber-700/60 space-y-2">
+          <div class="flex items-center justify-between text-[10px] uppercase font-bold text-slate-400">
+            <span>Execution Status</span>
+            <span class="text-emerald-400">Live Inotify</span>
+          </div>
+          <p id="inspStatusDesc" class="text-xs text-slate-200 leading-relaxed font-medium">
+            Standing by for autonomous execution.
+          </p>
+        </div>
+
+        <!-- Latest Tool Call Inspector -->
+        <div class="p-3.5 rounded-xl bg-cyber-950 border border-cyber-800 space-y-2 font-mono">
+          <div class="flex items-center justify-between text-[10px] uppercase font-bold text-slate-400">
+            <span>Recent Tool Call</span>
+            <span id="inspToolTime" class="text-slate-500">--:--:--</span>
+          </div>
+          <div id="inspToolDetail" class="text-[11px] text-emerald-400 bg-black/40 p-2.5 rounded-lg break-all border border-cyber-800">
+            -> No active tool call in buffer
+          </div>
+        </div>
+
+        <!-- Office Zone Info -->
+        <div class="flex items-center justify-between p-3 rounded-xl bg-cyber-850/60 border border-cyber-800 text-xs">
+          <span class="text-slate-400">Workstation Zone:</span>
+          <span id="inspZone" class="font-bold text-slate-200">Main Office</span>
+        </div>
+      </div>
+
+      <!-- TAB 2: CODE DIFF (REAL GIT DIFF VIEWER) -->
+      <div id="insp-view-diff" class="hidden space-y-3 font-mono">
+        <div class="flex items-center justify-between">
+          <span id="diffRepoName" class="text-xs font-bold text-white">food-inflation-lakehouse</span>
+          <span id="diffCommit" class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 text-[10px] font-bold">commit: --</span>
+        </div>
+        <p id="diffCommitMsg" class="text-[11px] text-slate-400 font-sans italic border-l-2 border-blue-500 pl-2">
+          Loading commit message...
+        </p>
+        <div class="overflow-x-auto rounded-xl bg-black/60 border border-cyber-800 p-2 text-[10px] leading-relaxed max-h-[360px] overflow-y-auto">
+          <pre id="diffContent" class="whitespace-pre">Memuat diff kode riil...</pre>
+        </div>
+      </div>
+
+      <!-- TAB 3: SPECS & MODEL (METADATA & RESPONSIBILITIES) -->
+      <div id="insp-view-specs" class="hidden space-y-4">
+        
+        <!-- Model Card -->
+        <div class="p-3.5 rounded-xl bg-cyber-850 border border-cyber-700/60 space-y-2">
+          <div class="text-[10px] uppercase font-bold text-slate-400">Active Foundation Model</div>
+          <div class="flex items-center justify-between">
+            <span id="inspModel" class="text-sm font-extrabold text-indigo-400 font-mono">ag/claude-opus-4-6-thinking</span>
+            <span class="px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 text-[10px] font-bold">9Router</span>
+          </div>
+          <p class="text-[11px] text-slate-400">Loopback reverse proxy (port :20128) with isolated session context.</p>
+        </div>
+
+        <!-- Responsibilities Checklist -->
+        <div class="p-3.5 rounded-xl bg-cyber-850 border border-cyber-700/60 space-y-2">
+          <div class="text-[10px] uppercase font-bold text-slate-400">Core Responsibilities</div>
+          <ul id="inspResponsibilities" class="space-y-1.5 text-[11px] text-slate-300 list-disc list-inside">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- ======================================================================= -->
+  <!-- WAR ROOM & MULTI-AGENT DAG OVERLAY (ALTERNATE VIEW)                     -->
+  <!-- ======================================================================= -->
+  <section id="warRoomView" class="hidden absolute inset-0 top-16 z-10 bg-cyber-950/95 backdrop-blur-2xl p-6 overflow-y-auto space-y-6">
+    <div class="max-w-7xl mx-auto space-y-6">
+      
+      <!-- War Room Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-cyber-800 pb-4">
+        <div>
+          <h1 class="text-xl font-extrabold text-white tracking-tight">Mission Control & Multi-Agent War Room</h1>
+          <p class="text-xs text-slate-400 mt-0.5">Observabilitas graf delegasi hierarkis, stream log aktivitas tool, dan ringkasan diff kode.</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="px-3 py-1 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/30 text-xs font-bold">
+            Architecture: Sovereign 13 Squad
+          </span>
+        </div>
+      </div>
+
+      <!-- 3-Column Cockpit Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Left: 13 Agent Status Matrix (4 cols) -->
+        <div class="lg:col-span-4 bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-white">13 Agents Status Matrix</h3>
+            <span class="text-[10px] font-mono font-bold text-emerald-400">100% Operational</span>
+          </div>
+          <div id="warRosterList" class="divide-y divide-cyber-800/80 text-xs max-h-[500px] overflow-y-auto pr-1">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- Center: Live Delegation Stream & Tool Call Timeline (5 cols) -->
+        <div class="lg:col-span-5 bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-white">Real-Time Tool Call Stream</h3>
+            <span class="text-[10px] font-mono text-slate-400">Append-only Telemetry</span>
+          </div>
+          <div id="warTelemetryStream" class="divide-y divide-cyber-800/80 text-xs max-h-[500px] overflow-y-auto font-mono space-y-2 pr-1">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- Right: System Vitals & Verification Seal (3 cols) -->
+        <div class="lg:col-span-3 space-y-6">
+          
+          <!-- System Vitals Card -->
+          <div class="bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-4">
+            <h3 class="text-sm font-bold text-white">Host Infrastructure Vitals</h3>
+            <div class="space-y-3 text-xs">
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span class="text-slate-400">vCPU Load</span>
+                  <span id="hudCpu" class="font-mono text-white">--%</span>
+                </div>
+                <div class="w-full bg-cyber-800 rounded-full h-1.5"><div id="hudCpuBar" class="bg-blue-500 h-full rounded-full" style="width: 20%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span class="text-slate-400">Memory (RAM)</span>
+                  <span id="hudRam" class="font-mono text-white">-- GiB</span>
+                </div>
+                <div class="w-full bg-cyber-800 rounded-full h-1.5"><div id="hudRamBar" class="bg-emerald-500 h-full rounded-full" style="width: 14%"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span class="text-slate-400">NVMe Storage</span>
+                  <span id="hudDisk" class="font-mono text-white">-- GiB</span>
+                </div>
+                <div class="w-full bg-cyber-800 rounded-full h-1.5"><div id="hudDiskBar" class="bg-purple-500 h-full rounded-full" style="width: 38%"></div></div>
+              </div>
+              <div class="pt-2 border-t border-cyber-800 flex justify-between text-[11px] text-slate-400">
+                <span>System Uptime:</span>
+                <span id="hudUptime" class="font-mono text-slate-200">--</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Independent QA Gate Seal -->
+          <div class="bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-3">
+            <div class="flex items-center space-x-2 text-xs font-bold text-emerald-400">
+              <span class="text-base">🛡️</span>
+              <span>Independent QA Gate</span>
+            </div>
+            <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs space-y-1">
+              <div class="font-bold text-emerald-300">Audited by swe-verifier</div>
+              <p class="text-[11px] text-emerald-400/90 leading-relaxed">
+                Zero self-approval policy strictly enforced. 100% test coverage verified across all microservices.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- ======================================================================= -->
+  <!-- 2D LIVING CYBER-OFFICE & SOVEREIGN COCKPIT CLIENT SCRIPT                   -->
+  <!-- ======================================================================= -->
+  <script>
+    let globalRoster = [];
+    let selectedAgent = null;
+    let currentView = '2d';
+
+    // --- Live Clock WIB ---
+    function updateClock() {
+      const el = document.getElementById('clockWIB');
+      if (!el) return;
+      const now = new Date();
+      const wib = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }));
+      const pad = (n) => String(n).padStart(2, '0');
+      el.textContent = `${pad(wib.getHours())}:${pad(wib.getMinutes())}:${pad(wib.getSeconds())} WIB`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // --- Switch View: 2D Simulation vs War Room ---
+    function switchView(viewId) {
+      currentView = viewId;
+      const sim2d = document.getElementById('sim2d-container');
+      const warRoom = document.getElementById('warRoomView');
+
+      const btn2d = document.getElementById('btn-view-2d');
+      const btnWar = document.getElementById('btn-view-war');
+
+      const inactiveClass = "px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center space-x-1.5";
+      const activeClass = "px-3.5 py-1.5 rounded-lg bg-blue-600 text-white shadow-md transition-all flex items-center space-x-1.5";
+
+      btn2d.className = inactiveClass;
+      btnWar.className = inactiveClass;
+
+      sim2d.classList.add('hidden');
+      warRoom.classList.add('hidden');
+
+      if (viewId === '2d') {
+        sim2d.classList.remove('hidden');
+        btn2d.className = activeClass;
+      } else if (viewId === 'war') {
+        warRoom.classList.remove('hidden');
+        btnWar.className = activeClass;
+        closeInspector();
+        hydrateWarRoom();
+      }
+    }
+
+    // --- Focus On Agent ---
+    function focusOnAgent(agentId) {
+      if (window.officeSim) {
+        const ag = window.officeSim.agents.find(a => a.id === agentId);
+        if (ag) {
+          ag.bubbleTimer = 400;
+          ag.bubbleText = ag.bubbleText || 'At workstation.';
+        }
+      }
+
+      const fullAgent = globalRoster.find(a => a.id === agentId);
+      if (fullAgent) {
+        openInspector(fullAgent);
+      }
+    }
+
+    function resetSimulation() {
+      if (window.officeSim) {
+        window.officeSim.agents.forEach(a => {
+          window.officeSim.returnAgentToDesk(a);
+        });
+      }
+      closeInspector();
+    }
+
+    // --- Inspector Drawer Open/Close ---
+    function openInspector(agent) {
+      selectedAgent = agent;
+      const panel = document.getElementById('inspectorPanel');
+      panel.classList.remove('hidden');
+
+      document.getElementById('inspName').textContent = agent.name;
+      document.getElementById('inspRole').textContent = agent.role;
+      document.getElementById('inspAvatar').textContent = agent.name.slice(0, 2).toUpperCase();
+      document.getElementById('inspAvatar').style.backgroundColor = agent.accent_color || '#3b82f6';
+
+      const statePill = document.getElementById('inspStatePill');
+      statePill.textContent = agent.state || 'IDLE';
+      statePill.className = `px-2 py-0.5 rounded-full text-[10px] font-bold ${
+        agent.state === 'CODING' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' :
+        (agent.state === 'CRAWLING' ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' :
+        (agent.state === 'AUDITING' ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' : 'bg-slate-500/20 text-slate-400 border border-slate-500/30'))
+      }`;
+
+      document.getElementById('inspProject').textContent = agent.project || 'Active Platform';
+      document.getElementById('inspPhase').textContent = agent.phase || 'Operational';
+      document.getElementById('inspStatusDesc').textContent = agent.status_desc || 'Standing by for autonomous execution.';
+      document.getElementById('inspZone').textContent = agent.zone || 'Main Office';
+      document.getElementById('inspModel').textContent = agent.model || 'ag/gemini-3.8-flash-high';
+
+      if (agent.latest_activity) {
+        document.getElementById('inspToolTime').textContent = agent.latest_activity.time || 'recent';
+        document.getElementById('inspToolDetail').textContent = agent.latest_activity.detail || '(no parameters)';
+      }
+
+      // Responsibilities
+      const respEl = document.getElementById('inspResponsibilities');
+      respEl.innerHTML = (agent.responsibilities || []).map(r => `<li>${r}</li>`).join('');
+
+      // Fetch Latest Git Diff
+      fetch('/api/v1/diff/latest')
+        .then(r => r.json())
+        .then(d => {
+          const p = d.projects?.food_inflation_lakehouse;
+          if (p && p.status === 'success') {
+            document.getElementById('diffRepoName').textContent = p.repo_name;
+            document.getElementById('diffCommit').textContent = `commit: ${p.commit}`;
+            document.getElementById('diffCommitMsg').textContent = `"${p.message}" — by ${p.author}`;
+            formatDiffContent(p.diff_snippet);
+          }
+        })
+        .catch(e => console.warn('Diff error:', e));
+    }
+
+    function formatDiffContent(diffText) {
+      const container = document.getElementById('diffContent');
+      if (!diffText) {
+        container.textContent = 'Tidak ada perubahan kode aktif.';
+        return;
+      }
+      const lines = diffText.split('\n');
+      container.innerHTML = lines.map(line => {
+        let cls = 'text-slate-300';
+        if (line.startsWith('+') && !line.startsWith('+++')) cls = 'diff-add block px-1';
+        else if (line.startsWith('-') && !line.startsWith('---')) cls = 'diff-del block px-1';
+        else if (line.startsWith('@@')) cls = 'diff-hunk block px-1';
+        const escaped = line.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return `<span class="${cls}">${escaped}</span>`;
+      }).join('\n');
+    }
+
+    function closeInspector() {
+      const panel = document.getElementById('inspectorPanel');
+      panel.classList.add('hidden');
+      selectedAgent = null;
+    }
+
+    function setInspectorTab(tabId) {
+      ['telemetry', 'diff', 'specs'].forEach(t => {
+        const v = document.getElementById('insp-view-' + t);
+        const b = document.getElementById('tab-insp-' + t);
+        if (t === tabId) {
+          v.classList.remove('hidden');
+          b.className = "px-3 py-1 rounded-lg bg-blue-600 text-white shadow-xs font-bold";
+        } else {
+          v.classList.add('hidden');
+          b.className = "px-3 py-1 rounded-lg text-slate-400 hover:text-white font-bold";
+        }
+      });
+    }
+
+    // --- Sync Roster & Telemetry Data ---
+    function syncRosterData() {
+      fetch('/api/v1/agents/roster')
+        .then(r => r.json())
+        .then(d => {
+          if (d.status === 'success') {
+            globalRoster = d.agents;
+            if (window.officeSim) window.officeSim.setRoster(d.agents);
+            renderQuickSwitcher(d.agents);
+            if (selectedAgent) {
+              const updated = d.agents.find(a => a.id === selectedAgent.id);
+              if (updated) openInspector(updated);
+            }
+          }
+        })
+        .catch(e => console.warn('Roster sync error:', e));
+
+      // Synchronize Telemetry & Recent Conversations
+      Promise.all([
+        fetch('/api/v1/telemetry/live').then(r => r.json()),
+        fetch('/api/v1/conversations/recent').then(r => r.json())
+      ]).then(([telData, convoData]) => {
+        if (window.officeSim && telData.events) {
+          window.officeSim.processTelemetry(telData.events, convoData.conversations || []);
+        }
+      }).catch(err => console.warn('Telemetry sync error:', err));
+
+      // Hydrate Vitals
+      fetch('/api/v1/vitals')
+        .then(r => r.json())
+        .then(v => {
+          document.getElementById('hudCpu').textContent = `~${Math.round(v.load_1m / v.cpu_cores * 100)}% (${v.load_1m})`;
+          document.getElementById('hudCpuBar').style.width = `${Math.min(100, Math.round(v.load_1m / v.cpu_cores * 100))}%`;
+          document.getElementById('hudRam').textContent = `${v.ram_used_gib} / ${v.ram_total_gib} GiB`;
+          document.getElementById('hudRamBar').style.width = `${v.ram_pct}%`;
+          document.getElementById('hudDisk').textContent = `${v.disk_used_gib} / ${v.disk_total_gib} GiB`;
+          document.getElementById('hudDiskBar').style.width = `${v.disk_pct}%`;
+          document.getElementById('hudUptime').textContent = v.uptime;
+        })
+        .catch(e => console.warn('Vitals error:', e));
+    }
+
+    function renderQuickSwitcher(roster) {
+      const container = document.getElementById('rosterQuickPills');
+      if (!container) return;
+      container.innerHTML = roster.map(a => `
+        <button onclick="focusOnAgent('${a.id}')" 
+                class="px-2.5 py-1 rounded-lg bg-cyber-850 hover:bg-cyber-800 border border-cyber-700/60 text-slate-300 hover:text-white transition whitespace-nowrap flex items-center space-x-1.5">
+          <span class="w-2 h-2 rounded-full" style="background-color: ${a.accent_color}"></span>
+          <span>${a.name}</span>
+        </button>
+      `).join('');
+    }
+
+    function hydrateWarRoom() {
+      const listEl = document.getElementById('warRosterList');
+      if (listEl) {
+        listEl.innerHTML = globalRoster.map(a => `
+          <div class="py-3 flex items-start justify-between">
+            <div class="flex items-start space-x-2.5">
+              <span class="w-3 h-3 rounded-full mt-1 shrink-0" style="background-color: ${a.accent_color}"></span>
+              <div>
+                <div class="font-extrabold text-white text-xs">${a.name}</div>
+                <div class="text-[11px] text-slate-400">${a.role}</div>
+                <div class="text-[10px] font-mono text-indigo-400 mt-0.5">${a.model}</div>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${a.state === 'CODING' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-slate-800 text-slate-400'}">
+              ${a.state}
+            </span>
+          </div>
+        `).join('');
+      }
+
+      fetch('/api/v1/telemetry/live')
+        .then(r => r.json())
+        .then(d => {
+          const streamEl = document.getElementById('warTelemetryStream');
+          if (streamEl) {
+            streamEl.innerHTML = d.events.map(e => `
+              <div class="py-2.5 flex flex-col space-y-1">
+                <div class="flex items-center justify-between text-[11px]">
+                  <span class="font-bold text-blue-400">${e.agent}</span>
+                  <span class="text-slate-500">${e.time}</span>
+                </div>
+                <div class="text-[11px] text-slate-300 truncate" title="${e.detail}">${e.detail}</div>
+                <div class="text-[10px] text-slate-500 truncate italic">${e.goal || ''}</div>
+              </div>
+            `).join('');
+          }
+        })
+        .catch(e => console.warn('War room stream error:', e));
+    }
+
+    // --- Initialize Everything ---
+    function initApp() {
+      window.officeSim = new CyberOfficeSimulation('simCanvas');
+      syncRosterData();
+      setInterval(syncRosterData, 10000);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+      initApp();
+    }
+  </script>
+
+</body>
+</html>
