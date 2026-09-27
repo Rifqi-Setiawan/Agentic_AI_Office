@@ -1983,46 +1983,52 @@
       this.telemetryEvents = events || [];
       this.conversations = conversations || [];
 
-      // Initial baseline: mark all existing past history as already processed
-      // This guarantees that refreshing the page will NEVER trigger a past delegation!
+      if (!this.executedToolKeys) this.executedToolKeys = new Set();
+
+      // Seed only inactive history. A running or just-completed delegation is live state,
+      // not history, and must still animate when the operator opens or refreshes the page.
       if (!this.initialPollDone) {
         this.initialPollDone = true;
-        (conversations || []).forEach(c => this.executedConvoIds.add(c.id));
+        (conversations || []).forEach(c => {
+          if (!c.is_live) this.executedConvoIds.add(c.id);
+        });
+        const liveDelegationIds = new Set((conversations || []).filter(c => c.is_live).map(c => c.id));
         (events || []).forEach(e => {
-          if (e.type === 'tool_call') {
-            if (!this.executedToolKeys) this.executedToolKeys = new Set();
-            this.executedToolKeys.add(`${e.time}_${e.detail}`);
+          if (e.type === 'tool_call' && !liveDelegationIds.has(e.delegation_id)) {
+            this.executedToolKeys.add(e.id || `${e.delegation_id}_${e.time}_${e.detail}`);
           }
         });
-        return;
       }
 
-      if (this.activeSequence) return;
-
-      // 1. Check for real NEW delegation events that arrived AFTER page load
-      if (conversations && conversations.length > 0) {
-        const latestConvo = conversations[0];
-        if (!this.executedConvoIds.has(latestConvo.id)) {
-          this.executedConvoIds.add(latestConvo.id);
-          this.executeDelegationSequence(latestConvo);
-          return;
-        }
+      const latestLiveConvo = (conversations || []).find(c => c.is_live && !this.executedConvoIds.has(c.id));
+      if (!this.activeSequence && latestLiveConvo) {
+        this.executedConvoIds.add(latestLiveConvo.id);
+        this.executeDelegationSequence(latestLiveConvo);
       }
 
-      // 2. Check for real NEW tool events by Boss that arrived AFTER page load
-      const recentTool = (events || []).find(e => e.type === 'tool_call');
-      if (recentTool && recentTool.agent === 'vps-boss') {
-        const toolKey = `${recentTool.time}_${recentTool.detail}`;
-        if (!this.executedToolKeys) this.executedToolKeys = new Set();
-        if (!this.executedToolKeys.has(toolKey)) {
-          this.executedToolKeys.add(toolKey);
-          this.executeBossToolAction(recentTool);
-        }
+      // Consume every newly observed live tool call, including subagent calls. During a
+      // briefing it is queued; once free it immediately moves the actor to its apparatus.
+      const recentTool = (events || []).find(e => {
+        if (e.type !== 'tool_call') return false;
+        const key = e.id || `${e.delegation_id}_${e.time}_${e.detail}`;
+        return !this.executedToolKeys.has(key);
+      });
+      if (!recentTool) return;
+
+      const toolKey = recentTool.id || `${recentTool.delegation_id}_${recentTool.time}_${recentTool.detail}`;
+      this.executedToolKeys.add(toolKey);
+      if (this.activeSequence) {
+        this.pendingToolEvent = recentTool;
+      } else {
+        this.executeLiveToolAction(recentTool);
       }
     }
 
     executeDelegationSequence(convo) {
-      const subagent = this.agents.find(a => a.id === convo.receiver);
+      // Ephemeral delegation roles (for example office-lead) are not permanent map
+      // residents. Represent them with the operations avatar instead of dropping the event.
+      const subagent = this.agents.find(a => a.id === convo.receiver) ||
+        this.agents.find(a => a.id === 'vps-assistant');
       const boss = this.agents.find(a => a.id === 'vps-boss');
       if (!subagent || !boss) return;
 
@@ -2041,7 +2047,7 @@
         boss.bubbleTimer = 360;
       });
 
-      this.dispatchAgent(subagent.id, 'briefing', `⚔️ Summoned from ${subagent.room}`, () => {
+      this.dispatchAgent(subagent.id, 'briefing', `⚔️ ${convo.receiver} summoned via ${subagent.name}`, () => {
         subagent.x = 836;
         subagent.y = 505;
         subagent.facing = 'up';
@@ -2094,8 +2100,35 @@
           subagent.bubbleTimer = 260;
           this.returnAgentToDesk(subagent, () => {
             this.activeSequence = null;
+            if (this.pendingToolEvent) {
+              const pending = this.pendingToolEvent;
+              this.pendingToolEvent = null;
+              this.executeLiveToolAction(pending);
+            }
           });
         }, 5000);
+      });
+    }
+
+    executeLiveToolAction(toolEvent) {
+      const actor = this.agents.find(a => a.id === toolEvent.agent);
+      if (!actor || actor.state !== 'IDLE_AT_DESK') return;
+      if (toolEvent.agent === 'vps-boss') {
+        this.executeBossToolAction(toolEvent);
+        return;
+      }
+
+      const station = STATIONS[toolEvent.station] ? toolEvent.station : 'compiler';
+      const detail = toolEvent.detail || 'Executing tool';
+      this.activeSequence = { id: toolEvent.delegation_id, stage: 'LIVE_TOOL', receiver: actor.id };
+      this.dispatchAgent(actor.id, station, `⚡ ${detail.slice(0, 58)}`, () => {
+        actor.state = 'WORKING_AT_STATION';
+        actor.stepBadge = `OPERATING ${station.toUpperCase()}`;
+        actor.bubbleText = `⚡ ${detail.slice(0, 72)}`;
+        actor.bubbleTimer = 420;
+        setTimeout(() => {
+          this.returnAgentToDesk(actor, () => { this.activeSequence = null; });
+        }, 4500);
       });
     }
 

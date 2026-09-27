@@ -111,6 +111,9 @@
   <!-- MAIN WORKSPACE VIEWPORT (BELOW HEADER WITH PADDING, ZERO OVERLAP)       -->
   <!-- ======================================================================= -->
   <main class="flex-1 relative w-full h-full overflow-hidden bg-black">
+    <div id="liveDelegationBanner" class="hidden absolute top-3 left-1/2 -translate-x-1/2 z-40 px-4 py-2 rounded-lg bg-emerald-950/95 border border-emerald-400/60 text-emerald-200 shadow-xl font-mono text-xs font-bold tabular">
+      <span class="inline-block w-2 h-2 mr-2 rounded-full bg-emerald-400 animate-pulse"></span><span id="liveDelegationText">LIVE DELEGATION IN PROGRESS</span>
+    </div>
     <!-- 2D Stronghold Workspace Container -->
     <div id="sim2d-container" class="absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center p-2 sm:p-3 bg-black">
       <canvas id="simCanvas" class="w-full h-full block cursor-default"></canvas>
@@ -562,8 +565,16 @@
         fetch('/api/v1/telemetry/live').then(r => r.json()),
         fetch('/api/v1/conversations/recent').then(r => r.json())
       ]).then(([telData, convoData]) => {
+        const conversations = convoData.conversations || [];
         if (window.officeSim && telData.events) {
-          window.officeSim.processTelemetry(telData.events, convoData.conversations || []);
+          window.officeSim.processTelemetry(telData.events, conversations);
+        }
+        const live = conversations.find(c => c.is_running || c.completed_recently);
+        const banner = document.getElementById('liveDelegationBanner');
+        const text = document.getElementById('liveDelegationText');
+        if (banner && text) {
+          banner.classList.toggle('hidden', !live);
+          if (live) text.textContent = `LIVE DELEGATION ${live.is_running ? 'IN PROGRESS' : 'JUST COMPLETED'}: vps-boss ➔ ${live.receiver}`;
         }
       }).catch(err => console.warn('Telemetry sync error:', err));
 
@@ -799,7 +810,7 @@
     function initApp() {
       window.officeSim = new CyberOfficeSimulation('simCanvas');
       syncRosterData();
-      setInterval(syncRosterData, 10000);
+      setInterval(syncRosterData, 1500);
     }
 
     if (document.readyState === 'loading') {

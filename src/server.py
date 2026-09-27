@@ -225,7 +225,8 @@ def parse_delegation_stream(limit: int = 25) -> List[Dict[str, Any]]:
             if line.startswith("goal:"):
                 goal_text = line.replace("goal:", "").strip()
 
-        for line in lines:
+        log_mtime = log_f.stat().st_mtime
+        for line_number, line in enumerate(lines, start=1):
             line_str = line.strip()
             if not line_str:
                 continue
@@ -235,7 +236,9 @@ def parse_delegation_stream(limit: int = 25) -> List[Dict[str, Any]]:
                 detail = parts[-1].strip() if len(parts) > 1 else line_str
                 station = categorize_tool_station(detail, agent_target)
                 events.append({
+                    "id": f"{deleg_id}:{line_number}:tool_call",
                     "time": t_str,
+                    "observed_at": log_mtime,
                     "agent": agent_target,
                     "delegation_id": deleg_id,
                     "type": "tool_call",
@@ -249,7 +252,9 @@ def parse_delegation_stream(limit: int = 25) -> List[Dict[str, Any]]:
                 detail = parts[-1].strip() if len(parts) > 1 else line_str
                 station = categorize_tool_station(detail, agent_target)
                 events.append({
+                    "id": f"{deleg_id}:{line_number}:tool_result",
                     "time": t_str,
+                    "observed_at": log_mtime,
                     "agent": agent_target,
                     "delegation_id": deleg_id,
                     "type": "tool_result",
@@ -317,6 +322,10 @@ def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
         status = tasks_list[0].get("status", "completed") if tasks_list else ("completed" if completed_at else "running")
         is_running = (status == "running" and not completed_at)
 
+        # The manifest uses host-local timestamps without an offset; log mtime is the
+        # unambiguous source for the 60-second live-completion window.
+        completed_recently = bool(completed_at) and (time.time() - log_f.stat().st_mtime) < 60
+
         convos.append({
             "id": Path(d).name,
             "sender": "vps-boss",
@@ -325,6 +334,8 @@ def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
             "completed_at": completed_at,
             "status": status,
             "is_running": is_running,
+            "completed_recently": completed_recently,
+            "is_live": is_running or completed_recently,
             "boss_order": goal,
             "subagent_reply": reply,
             "tools_used": tools
