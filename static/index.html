@@ -47,17 +47,17 @@
     .diff-hunk { background: rgba(59, 130, 246, 0.15); color: #60a5fa; font-weight: bold; }
   </style>
 </head>
-<body class="bg-cyber-950 text-slate-200 antialiased overflow-hidden h-screen select-none font-sans">
+<body class="fixed inset-0 w-screen h-screen m-0 p-0 overflow-hidden bg-black font-sans select-none text-slate-200 antialiased">
 
-  <!-- 2D Living Work Simulation Canvas Container (Smallville/Generative Agents style) -->
-  <div id="sim2d-container" class="absolute inset-0 w-full h-full z-0 overflow-hidden bg-cyber-950 flex items-center justify-center">
-    <canvas id="simCanvas" width="1400" height="900" class="max-w-full max-h-full block cursor-default object-contain shadow-2xl"></canvas>
+  <!-- 2D Living Work Simulation Canvas Container (Game of Thrones Stronghold Battle Map) -->
+  <div id="sim2d-container" class="absolute inset-0 w-full h-full z-0 m-0 p-0 overflow-hidden bg-black">
+    <canvas id="simCanvas" class="absolute inset-0 w-full h-full m-0 p-0 block cursor-default"></canvas>
 
     <!-- Interactive Timeline Scrubber & Replay Bar -->
     <div class="absolute bottom-4 inset-x-4 z-20 flex justify-center pointer-events-none">
-      <div class="bg-cyber-900/90 backdrop-blur-md border border-cyber-800/90 rounded-2xl px-5 py-2.5 max-w-3xl w-full shadow-2xl flex items-center justify-between pointer-events-auto space-x-4">
+      <div class="bg-cyber-900/90 backdrop-blur-md border border-cyber-800/90 rounded-2xl px-5 py-2 max-w-3xl w-full shadow-2xl flex items-center justify-between pointer-events-auto space-x-4">
         <div class="flex items-center space-x-2">
-          <button id="btnPlayPause" onclick="toggleTimelinePlay()" class="w-8 h-8 rounded-xl bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center transition shadow-xs text-xs font-bold">
+          <button id="btnPlayPause" onclick="toggleTimelinePlay()" class="w-8 h-8 rounded-xl bg-amber-600 hover:bg-amber-500 text-white flex items-center justify-center transition shadow-xs text-xs font-bold">
             ▶
           </button>
           <span class="text-xs font-bold text-white uppercase tracking-wider">Session Replay</span>
@@ -66,7 +66,7 @@
           <span id="timelineStartLabel" class="text-[10px] font-mono text-slate-400">-30m</span>
           <input id="timelineSlider" type="range" min="0" max="100" value="100" 
                  oninput="onTimelineScrub(this.value)"
-                 class="flex-1 h-1.5 bg-cyber-800 rounded-lg appearance-none cursor-pointer accent-blue-500">
+                 class="flex-1 h-1.5 bg-cyber-800 rounded-lg appearance-none cursor-pointer accent-amber-500">
           <span id="timelineCurrentLabel" class="text-[10px] font-mono text-emerald-400 font-bold">LIVE NOW</span>
         </div>
         <div class="flex items-center space-x-2">
@@ -79,34 +79,34 @@
   </div>
 
   <!-- ======================================================================= -->
-  <!-- TOP HUD BAR                                                             -->
+  <!-- TOP HUD BAR (FLOATING GLASS NAVBAR — ZERO LETTERBOX PADDING)            -->
   <!-- ======================================================================= -->
-  <header class="absolute top-0 inset-x-0 h-16 z-20 bg-cyber-900/80 backdrop-blur-md border-b border-cyber-800/80 px-4 sm:px-6 flex items-center justify-between">
+  <header class="absolute top-3 inset-x-4 h-13 z-30 bg-cyber-950/80 backdrop-blur-xl border border-cyber-700/60 rounded-2xl px-4 flex items-center justify-between shadow-2xl">
     
     <!-- Left: Brand & Status -->
     <div class="flex items-center space-x-3">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-cyan-500/20 font-extrabold text-sm">
-        HQ
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-600 via-yellow-600 to-orange-700 flex items-center justify-center text-white shadow-lg shadow-amber-500/20 font-extrabold text-base">
+        🏰
       </div>
       <div>
         <div class="flex items-center space-x-2">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Rifqi Studio Ecosystem</span>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Rifqi Sovereign Stronghold</span>
           <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
-            13 Agents Live
+            13 Agents Active
           </span>
         </div>
-        <div class="text-sm font-extrabold text-white tracking-tight flex items-center space-x-2">
-          <span>The Living Cyber-Office & Sovereign Cockpit</span>
+        <div class="text-xs font-extrabold text-white tracking-tight flex items-center space-x-2">
+          <span>Medieval Fantasy Keep • Game of Thrones Edition</span>
         </div>
       </div>
     </div>
 
-    <!-- Center: View Mode Switcher (2D Work Simulation & War Room) -->
+    <!-- Center: View Mode Switcher -->
     <div class="hidden md:flex items-center p-1 bg-cyber-950/90 rounded-xl border border-cyber-800 text-xs font-bold space-x-1">
       <button id="btn-view-2d" onclick="switchView('2d')" 
-              class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white shadow-md transition-all flex items-center space-x-1.5">
-        <span>👾 2D Work Simulation</span>
+              class="px-3.5 py-1.5 rounded-lg bg-amber-600 text-white shadow-md transition-all flex items-center space-x-1.5">
+        <span>🏰 Stronghold Simulation</span>
       </button>
       <button id="btn-view-war" onclick="switchView('war')" 
               class="px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all flex items-center space-x-1.5">
