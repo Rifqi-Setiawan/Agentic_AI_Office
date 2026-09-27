@@ -180,7 +180,10 @@ def get_git_diff_summary(repo_path: str) -> Dict[str, Any]:
         commit_msg = subprocess.check_output("git log -1 --pretty=%s", shell=True, cwd=str(p), text=True, stderr=subprocess.DEVNULL).strip()
         author = subprocess.check_output("git log -1 --pretty=%an", shell=True, cwd=str(p), text=True, stderr=subprocess.DEVNULL).strip()
         date_str = subprocess.check_output("git log -1 --pretty=%cd", shell=True, cwd=str(p), text=True, stderr=subprocess.DEVNULL).strip()
-        diff = subprocess.check_output("git diff HEAD~1..HEAD", shell=True, cwd=str(p), text=True, stderr=subprocess.DEVNULL)
+        diff = subprocess.check_output(
+            ["git", "diff", "--no-ext-diff", "HEAD~1..HEAD"],
+            cwd=str(p), text=True, stderr=subprocess.DEVNULL
+        )
         return {
             "status": "success",
             "repo_name": p.name,
@@ -188,7 +191,9 @@ def get_git_diff_summary(repo_path: str) -> Dict[str, Any]:
             "message": commit_msg,
             "author": author,
             "date": date_str,
-            "diff_snippet": diff[:5000] if diff else "(Clean working tree / no diff in commit)"
+            # Intentionally untruncated: the cockpit is an execution-transparency UI.
+            "diff": diff if diff else "(Clean working tree / no diff in commit)",
+            "diff_snippet": diff if diff else "(Clean working tree / no diff in commit)"
         }
     except Exception as e:
         return {"status": "error", "message": str(e)}

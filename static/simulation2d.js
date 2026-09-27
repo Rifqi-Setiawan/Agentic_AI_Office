@@ -2015,15 +2015,18 @@
         receiver: convo.receiver
       };
 
-      // Step 1: Boss ke kepala Meja Perang
+      // Step 1: both agents walk to opposite sides of the council table.
       this.dispatchAgent('vps-boss', 'briefing', `👑 Decree for ${convo.receiver}...`, () => {
+        boss.x = WAYPOINTS.ST_WAR_NORTH.x;
+        boss.y = WAYPOINTS.ST_WAR_NORTH.y;
         boss.facing = 'down';
         boss.bubbleText = `👑 Boss: "${convo.boss_order.slice(0, 40)}..."`;
         boss.bubbleTimer = 360;
       });
 
-      // Step 2: Subagent dari ruangannya berjalan ke kursi Meja Perang (bertemu dengan Boss!)
       this.dispatchAgent(subagent.id, 'briefing', `⚔️ Summoned from ${subagent.room}`, () => {
+        subagent.x = WAYPOINTS.ST_WAR_SOUTH.x;
+        subagent.y = WAYPOINTS.ST_WAR_SOUTH.y;
         subagent.facing = 'up';
         subagent.bubbleText = `⚔️ ${convo.receiver}: "Decree acknowledged. Moving to station..."`;
         subagent.bubbleTimer = 360;
