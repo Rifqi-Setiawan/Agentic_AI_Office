@@ -79,3 +79,27 @@ def test_conversations_endpoint():
         assert "receiver" in first
         assert "boss_order" in first
 
+
+def test_dag_trace_endpoint():
+    response = client.get("/api/v1/dag/trace?limit=5")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "success"
+    assert "traces" in data
+    assert isinstance(data["traces"], list)
+    if data["traces"]:
+        first = data["traces"][0]
+        assert "delegation_id" in first
+        assert "agent" in first
+        assert "steps" in first
+
+
+def test_triage_errors_endpoint():
+    response = client.get("/api/v1/triage/errors?limit=5")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "success"
+    assert "errors" in data
+    assert isinstance(data["errors"], list)
+
+

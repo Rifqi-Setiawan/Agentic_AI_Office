@@ -310,6 +310,152 @@ def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
     return list(reversed(convos))
 
 
+def build_hierarchical_dag(limit: int = 10) -> List[Dict[str, Any]]:
+    """Builds hierarchical execution trees of delegations and tool calls."""
+    live_dirs = sorted(glob.glob("/srv/apps/hermes/profiles/vps-boss/cache/delegation/live/*"), key=os.path.getmtime)
+    trees = []
+
+    for d in live_dirs[-limit:]:
+        log_f = Path(d) / "task-0.log"
+        manifest_f = Path(d) / "manifest.json"
+        if not log_f.exists():
+            continue
+        
+        deleg_id = Path(d).name
+        manifest = {}
+        if manifest_f.exists():
+            try:
+                with open(manifest_f, "r", encoding="utf-8") as mfp:
+                    manifest = json.load(mfp)
+            except Exception:
+                pass
+
+        try:
+            with open(log_f, "r", encoding="utf-8", errors="replace") as fp:
+                lines = fp.readlines()
+        except Exception:
+            continue
+
+        goal = manifest.get("tasks", [{}])[0].get("goal", "") if manifest.get("tasks") else ""
+        started = manifest.get("started", "")
+        completed = manifest.get("completed", "")
+        model = manifest.get("model", "ag/gemini-3.8-flash-high")
+        provider = manifest.get("provider", "9router")
+
+        agent_target = "unknown"
+        for line in lines[:15]:
+            if "Role:" in line:
+                m = re.search(r"Role:\s*([a-zA-Z0-9_\-]+)", line)
+                if m:
+                    agent_target = m.group(1)
+            if not goal and line.startswith("goal:"):
+                goal = line.replace("goal:", "").strip()
+            if not started and line.startswith("started:"):
+                started = line.replace("started:", "").strip()
+
+        if agent_target == "unknown":
+            low_goal = goal.lower()
+            if "professor" in low_goal or "riset" in low_goal or "blueprint" in low_goal:
+                agent_target = "professor"
+            elif "swe-verifier" in low_goal or "verifikasi" in low_goal or "qa" in low_goal:
+                agent_target = "swe-verifier"
+            elif "ui-designer" in low_goal or "desain" in low_goal:
+                agent_target = "ui-designer"
+            elif "data-engineer" in low_goal or "lakehouse" in low_goal:
+                agent_target = "data-engineer"
+            elif "devops" in low_goal or "docker" in low_goal or "systemd" in low_goal:
+                agent_target = "devops-engineer"
+            elif "tech-mentor" in low_goal or "mentor" in low_goal:
+                agent_target = "tech-mentor"
+            elif "chief-architect" in low_goal or "arsitektur" in low_goal:
+                agent_target = "chief-architect"
+            else:
+                agent_target = "vps-assistant"
+
+        steps = []
+        current_step = None
+        for line in lines:
+            line_str = line.strip()
+            if not line_str:
+                continue
+            if " tool " in line_str or "-> " in line_str:
+                parts = line_str.split("|", 2)
+                t_str = parts[0].strip() if len(parts) > 0 else ""
+                detail = parts[-1].strip() if len(parts) > 1 else line_str
+                m_tool = re.search(r"->\s*([a-zA-Z0-9_]+)\((.*)\)", detail, re.DOTALL)
+                t_name = m_tool.group(1) if m_tool else "tool"
+                t_args = m_tool.group(2) if m_tool else detail
+                current_step = {
+                    "id": f"step-{len(steps)+1}",
+                    "time": t_str,
+                    "tool": t_name,
+                    "args": t_args,
+                    "status": "running",
+                    "duration": None,
+                    "output": None
+                }
+                steps.append(current_step)
+            elif " result " in line_str:
+                parts = line_str.split("|", 2)
+                res_detail = parts[-1].strip() if len(parts) > 1 else line_str
+                is_error = "ERROR" in res_detail or "failed" in res_detail.lower() or '"exit_code": [^0]' in res_detail
+                status = "error" if is_error else "ok"
+                m_dur = re.search(r"(\d+\.?\d*s)", res_detail)
+                dur = m_dur.group(1) if m_dur else ""
+                if current_step:
+                    current_step["status"] = status
+                    current_step["duration"] = dur
+                    current_step["output"] = res_detail
+                    current_step = None
+                else:
+                    steps.append({
+                        "id": f"step-{len(steps)+1}",
+                        "time": "",
+                        "tool": "result",
+                        "status": status,
+                        "duration": dur,
+                        "output": res_detail
+                    })
+
+        errors = [s for s in steps if s.get("status") == "error"]
+        trees.append({
+            "delegation_id": deleg_id,
+            "root_agent": "vps-boss",
+            "agent": agent_target,
+            "model": model,
+            "provider": provider,
+            "goal": goal,
+            "started_at": started,
+            "completed_at": completed,
+            "status": "error" if errors else "completed",
+            "total_steps": len(steps),
+            "error_count": len(errors),
+            "steps": steps
+        })
+
+    return list(reversed(trees))
+
+
+def extract_execution_errors(limit: int = 25) -> List[Dict[str, Any]]:
+    """Scans recent delegation logs for failed commands, errors, and warnings."""
+    dags = build_hierarchical_dag(limit=15)
+    errors = []
+    for dag in dags:
+        for s in dag.get("steps", []):
+            if s.get("status") == "error":
+                errors.append({
+                    "delegation_id": dag["delegation_id"],
+                    "agent": dag["agent"],
+                    "model": dag["model"],
+                    "time": s["time"],
+                    "tool": s["tool"],
+                    "command": s["args"] if s.get("args") else "",
+                    "error_output": s["output"] if s.get("output") else "Execution failure",
+                    "severity": "critical" if "command not found" in str(s.get("output", "")) else "warning"
+                })
+    return errors[:limit]
+
+
 @app.get("/health")
 def health_check() -> Dict[str, Any]:
     return {
@@ -536,6 +682,30 @@ def get_costs_summary() -> Dict[str, Any]:
         }
     except Exception as e:
         return {"status": "error", "message": str(e)}
+
+
+@app.get("/api/v1/dag/trace")
+def get_dag_trace(limit: int = Query(default=8, ge=1, le=20)) -> Dict[str, Any]:
+    """Returns hierarchical execution DAG trees of recent delegations and tool traces."""
+    trees = build_hierarchical_dag(limit=limit)
+    return {
+        "status": "success",
+        "total_traces": len(trees),
+        "traces": trees,
+        "timestamp": datetime.now(timezone.utc).isoformat()
+    }
+
+
+@app.get("/api/v1/triage/errors")
+def get_triage_errors(limit: int = Query(default=20, ge=1, le=50)) -> Dict[str, Any]:
+    """Returns failure triage stream of detected errors, failed commands, and loop warnings."""
+    errors = extract_execution_errors(limit=limit)
+    return {
+        "status": "success",
+        "total_errors": len(errors),
+        "errors": errors,
+        "timestamp": datetime.now(timezone.utc).isoformat()
+    }
 
 
 # Serve static web assets

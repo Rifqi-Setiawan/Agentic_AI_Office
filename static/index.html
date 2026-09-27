@@ -52,6 +52,30 @@
   <!-- 2D Living Work Simulation Canvas Container (Smallville/Generative Agents style) -->
   <div id="sim2d-container" class="absolute inset-0 w-full h-full z-0 overflow-hidden bg-cyber-950 flex items-center justify-center">
     <canvas id="simCanvas" width="1400" height="900" class="max-w-full max-h-full block cursor-default object-contain shadow-2xl"></canvas>
+
+    <!-- Interactive Timeline Scrubber & Replay Bar -->
+    <div class="absolute bottom-4 inset-x-4 z-20 flex justify-center pointer-events-none">
+      <div class="bg-cyber-900/90 backdrop-blur-md border border-cyber-800/90 rounded-2xl px-5 py-2.5 max-w-3xl w-full shadow-2xl flex items-center justify-between pointer-events-auto space-x-4">
+        <div class="flex items-center space-x-2">
+          <button id="btnPlayPause" onclick="toggleTimelinePlay()" class="w-8 h-8 rounded-xl bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center transition shadow-xs text-xs font-bold">
+            ▶
+          </button>
+          <span class="text-xs font-bold text-white uppercase tracking-wider">Session Replay</span>
+        </div>
+        <div class="flex-1 flex items-center space-x-3">
+          <span id="timelineStartLabel" class="text-[10px] font-mono text-slate-400">-30m</span>
+          <input id="timelineSlider" type="range" min="0" max="100" value="100" 
+                 oninput="onTimelineScrub(this.value)"
+                 class="flex-1 h-1.5 bg-cyber-800 rounded-lg appearance-none cursor-pointer accent-blue-500">
+          <span id="timelineCurrentLabel" class="text-[10px] font-mono text-emerald-400 font-bold">LIVE NOW</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button onclick="resetSimulation()" class="px-2.5 py-1 rounded-lg bg-cyber-850 hover:bg-cyber-800 border border-cyber-700/60 text-[11px] font-mono text-slate-300">
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ======================================================================= -->
@@ -252,83 +276,98 @@
         </div>
       </div>
 
-      <!-- 3-Column Cockpit Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        
-        <!-- Left: 13 Agent Status Matrix (4 cols) -->
+      <!-- Top Vitals & 9Router Spend Bar -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <!-- Spend Card -->
+        <div class="bg-cyber-900 border border-cyber-800 rounded-2xl p-4 shadow-xl space-y-1">
+          <div class="flex items-center justify-between text-[10px] uppercase font-bold text-slate-400">
+            <span>24h Token Spend</span>
+            <span class="text-emerald-400 font-mono">9Router DB</span>
+          </div>
+          <div class="text-xl font-extrabold text-white font-mono" id="warTotalSpend">$0.00</div>
+          <p class="text-[10px] text-slate-400" id="warTokensBurned">0 tokens burned today</p>
+        </div>
+
+        <!-- Model Ratio Card -->
+        <div class="bg-cyber-900 border border-cyber-800 rounded-2xl p-4 shadow-xl space-y-1">
+          <div class="text-[10px] uppercase font-bold text-slate-400">Model Distribution</div>
+          <div class="text-xs font-bold text-indigo-400" id="warModelRatio">Claude Opus 4.6 Thinking: Active</div>
+          <p class="text-[10px] text-slate-400">Zero-compromise high reasoning tier</p>
+        </div>
+
+        <!-- Error Triage Card -->
+        <div class="bg-cyber-900 border border-cyber-800 rounded-2xl p-4 shadow-xl space-y-1">
+          <div class="flex items-center justify-between text-[10px] uppercase font-bold text-slate-400">
+            <span>Execution Triage</span>
+            <span id="warErrorPill" class="px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-500/10 text-emerald-400">0 Critical</span>
+          </div>
+          <div class="text-base font-extrabold text-white" id="warTriageStatus">All Agents Healthy</div>
+          <p class="text-[10px] text-slate-400">AgentRx failure detection engine</p>
+        </div>
+
+        <!-- Active Host Vitals Card -->
+        <div class="bg-cyber-900 border border-cyber-800 rounded-2xl p-4 shadow-xl space-y-1">
+          <div class="text-[10px] uppercase font-bold text-slate-400">Host Infrastructure</div>
+          <div class="text-sm font-bold text-slate-200 flex justify-between">
+            <span id="hudCpuMini">CPU: --</span>
+            <span id="hudRamMini">RAM: --</span>
+          </div>
+          <p class="text-[10px] text-slate-400" id="hudUptimeMini">Uptime: --</p>
+        </div>
+      </div>
+
+      <!-- War Room Navigation Sub-Tabs -->
+      <div class="flex items-center space-x-2 border-b border-cyber-800 pb-3 text-xs font-bold">
+        <button id="btn-sub-dag" onclick="setWarRoomSubTab('dag')" class="px-3.5 py-1.5 rounded-lg bg-blue-600 text-white shadow-xs flex items-center space-x-1.5">
+          <span>🌳 Hierarchical Trace DAG</span>
+        </button>
+        <button id="btn-sub-stream" onclick="setWarRoomSubTab('stream')" class="px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white flex items-center space-x-1.5">
+          <span>⚡ Live Telemetry Stream</span>
+        </button>
+        <button id="btn-sub-triage" onclick="setWarRoomSubTab('triage')" class="px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white flex items-center space-x-1.5">
+          <span>🚨 Error & Failure Triage</span>
+        </button>
+      </div>
+
+      <!-- SUB-VIEW 1: HIERARCHICAL EXECUTION TRACE DAG -->
+      <div id="war-sub-dag" class="space-y-4">
+        <div id="warDagContainer" class="space-y-3">
+          <!-- Populated via JS with real expandable DAG cards -->
+        </div>
+      </div>
+
+      <!-- SUB-VIEW 2: LIVE TELEMETRY STREAM -->
+      <div id="war-sub-stream" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div class="lg:col-span-4 bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-4">
           <div class="flex items-center justify-between">
             <h3 class="text-sm font-bold text-white">13 Agents Status Matrix</h3>
             <span class="text-[10px] font-mono font-bold text-emerald-400">100% Operational</span>
           </div>
-          <div id="warRosterList" class="divide-y divide-cyber-800/80 text-xs max-h-[500px] overflow-y-auto pr-1">
-            <!-- Populated via JS -->
-          </div>
+          <div id="warRosterList" class="divide-y divide-cyber-800/80 text-xs max-h-[500px] overflow-y-auto pr-1"></div>
         </div>
-
-        <!-- Center: Live Delegation Stream & Tool Call Timeline (5 cols) -->
-        <div class="lg:col-span-5 bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-4">
+        <div class="lg:col-span-8 bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-4">
           <div class="flex items-center justify-between">
-            <h3 class="text-sm font-bold text-white">Real-Time Tool Call Stream</h3>
-            <span class="text-[10px] font-mono text-slate-400">Append-only Telemetry</span>
+            <h3 class="text-sm font-bold text-white">Live Execution Event Stream</h3>
+            <span class="text-[10px] font-mono text-slate-400">Untruncated Telemetry</span>
           </div>
-          <div id="warTelemetryStream" class="divide-y divide-cyber-800/80 text-xs max-h-[500px] overflow-y-auto font-mono space-y-2 pr-1">
-            <!-- Populated via JS -->
-          </div>
+          <div id="warTelemetryStream" class="divide-y divide-cyber-800/80 text-xs max-h-[500px] overflow-y-auto font-mono space-y-2 pr-1"></div>
         </div>
-
-        <!-- Right: System Vitals & Verification Seal (3 cols) -->
-        <div class="lg:col-span-3 space-y-6">
-          
-          <!-- System Vitals Card -->
-          <div class="bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-4">
-            <h3 class="text-sm font-bold text-white">Host Infrastructure Vitals</h3>
-            <div class="space-y-3 text-xs">
-              <div>
-                <div class="flex justify-between font-semibold mb-1">
-                  <span class="text-slate-400">vCPU Load</span>
-                  <span id="hudCpu" class="font-mono text-white">--%</span>
-                </div>
-                <div class="w-full bg-cyber-800 rounded-full h-1.5"><div id="hudCpuBar" class="bg-blue-500 h-full rounded-full" style="width: 20%"></div></div>
-              </div>
-              <div>
-                <div class="flex justify-between font-semibold mb-1">
-                  <span class="text-slate-400">Memory (RAM)</span>
-                  <span id="hudRam" class="font-mono text-white">-- GiB</span>
-                </div>
-                <div class="w-full bg-cyber-800 rounded-full h-1.5"><div id="hudRamBar" class="bg-emerald-500 h-full rounded-full" style="width: 14%"></div></div>
-              </div>
-              <div>
-                <div class="flex justify-between font-semibold mb-1">
-                  <span class="text-slate-400">NVMe Storage</span>
-                  <span id="hudDisk" class="font-mono text-white">-- GiB</span>
-                </div>
-                <div class="w-full bg-cyber-800 rounded-full h-1.5"><div id="hudDiskBar" class="bg-purple-500 h-full rounded-full" style="width: 38%"></div></div>
-              </div>
-              <div class="pt-2 border-t border-cyber-800 flex justify-between text-[11px] text-slate-400">
-                <span>System Uptime:</span>
-                <span id="hudUptime" class="font-mono text-slate-200">--</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Independent QA Gate Seal -->
-          <div class="bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-3">
-            <div class="flex items-center space-x-2 text-xs font-bold text-emerald-400">
-              <span class="text-base">🛡️</span>
-              <span>Independent QA Gate</span>
-            </div>
-            <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs space-y-1">
-              <div class="font-bold text-emerald-300">Audited by swe-verifier</div>
-              <p class="text-[11px] text-emerald-400/90 leading-relaxed">
-                Zero self-approval policy strictly enforced. 100% test coverage verified across all microservices.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
       </div>
+
+      <!-- SUB-VIEW 3: ERROR & FAILURE TRIAGE -->
+      <div id="war-sub-triage" class="hidden bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-4">
+        <div class="flex items-center justify-between border-b border-cyber-800 pb-3">
+          <div>
+            <h3 class="text-sm font-bold text-white">Error & Failure Triage Queue</h3>
+            <p class="text-xs text-slate-400">Deteksi otomatis command error, exit code non-zero, dan warning tool loop.</p>
+          </div>
+          <span class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-400 text-xs font-mono font-bold">Auto-Triage Active</span>
+        </div>
+        <div id="warTriageList" class="space-y-3 max-h-[500px] overflow-y-auto font-mono text-xs">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -547,44 +586,234 @@
       `).join('');
     }
 
+    
+    // --- Sub-Tab Switching inside War Room (DAG, Stream, Triage) ---
+    function setWarRoomSubTab(tabId) {
+      ['dag', 'stream', 'triage'].forEach(t => {
+        const v = document.getElementById('war-sub-' + t);
+        const b = document.getElementById('btn-sub-' + t);
+        if (v && b) {
+          if (t === tabId) {
+            v.classList.remove('hidden');
+            b.className = "px-3.5 py-1.5 rounded-lg bg-blue-600 text-white shadow-xs flex items-center space-x-1.5";
+          } else {
+            v.classList.add('hidden');
+            b.className = "px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white flex items-center space-x-1.5";
+          }
+        }
+      });
+    }
+
+    // --- Full Payload Modal ---
+    function openPayloadModal(title, text) {
+      const modal = document.getElementById('payloadModal');
+      const titleEl = document.getElementById('payloadModalTitle');
+      const bodyEl = document.getElementById('payloadModalBody');
+      if (modal && titleEl && bodyEl) {
+        titleEl.textContent = title || 'Full Execution Payload & Output';
+        try {
+          // If JSON string, format nicely
+          const parsed = JSON.parse(text);
+          bodyEl.textContent = JSON.stringify(parsed, null, 2);
+        } catch(e) {
+          bodyEl.textContent = text;
+        }
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function closePayloadModal() {
+      const modal = document.getElementById('payloadModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function copyPayloadModalContent() {
+      const bodyEl = document.getElementById('payloadModalBody');
+      if (bodyEl) {
+        navigator.clipboard.writeText(bodyEl.textContent).then(() => {
+          alert('Copied to clipboard!');
+        });
+      }
+    }
+
+    // --- Timeline Scrubber & Replay ---
+    let isTimelinePlaying = false;
+    let timelineTimer = null;
+
+    function toggleTimelinePlay() {
+      isTimelinePlaying = !isTimelinePlaying;
+      const btn = document.getElementById('btnPlayPause');
+      if (btn) btn.textContent = isTimelinePlaying ? '⏸' : '▶';
+
+      if (isTimelinePlaying) {
+        timelineTimer = setInterval(() => {
+          const slider = document.getElementById('timelineSlider');
+          if (slider) {
+            let val = parseInt(slider.value) + 2;
+            if (val > 100) val = 0;
+            slider.value = val;
+            onTimelineScrub(val);
+          }
+        }, 300);
+      } else {
+        clearInterval(timelineTimer);
+      }
+    }
+
+    function onTimelineScrub(val) {
+      const label = document.getElementById('timelineCurrentLabel');
+      if (!label) return;
+      if (val >= 98) {
+        label.textContent = 'LIVE NOW';
+        label.className = 'text-[10px] font-mono text-emerald-400 font-bold';
+      } else {
+        const minsAgo = Math.round((100 - val) * 0.3);
+        label.textContent = `-${minsAgo}m AGO`;
+        label.className = 'text-[10px] font-mono text-amber-400 font-bold';
+      }
+    }
+
+    // --- Comprehensive War Room Hydration (DAG, 9Router Costs, Error Triage) ---
     function hydrateWarRoom() {
-      const listEl = document.getElementById('warRosterList');
-      if (listEl) {
-        listEl.innerHTML = globalRoster.map(a => `
-          <div class="py-3 flex items-start justify-between">
-            <div class="flex items-start space-x-2.5">
-              <span class="w-3 h-3 rounded-full mt-1 shrink-0" style="background-color: ${a.accent_color}"></span>
-              <div>
-                <div class="font-extrabold text-white text-xs">${a.name}</div>
-                <div class="text-[11px] text-slate-400">${a.role}</div>
-                <div class="text-[10px] font-mono text-indigo-400 mt-0.5">${a.model}</div>
+      // 1. 9Router Token & Spend Telemetry
+      fetch('/api/v1/costs/summary')
+        .then(r => r.json())
+        .then(d => {
+          if (d.status === 'success' && d.daily_trends && d.daily_trends.length > 0) {
+            const today = d.daily_trends[0].metrics;
+            const spend = today.cost || 0;
+            const tokens = (today.promptTokens || 0) + (today.completionTokens || 0);
+            document.getElementById('warTotalSpend').textContent = `$${spend.toFixed(2)}`;
+            document.getElementById('warTokensBurned').textContent = `${(tokens / 1_000_000).toFixed(2)}M tokens burned today`;
+            
+            // Check Opus ratio
+            const opus = today.byModel?.['claude-opus-4-6-thinking|antigravity'];
+            if (opus) {
+              document.getElementById('warModelRatio').textContent = `Opus 4.6: $${(opus.cost||0).toFixed(2)} (${opus.requests} reqs)`;
+            }
+          }
+        })
+        .catch(e => console.warn('Cost fetch error:', e));
+
+      // 2. Hierarchical Execution DAG Trees
+      fetch('/api/v1/dag/trace?limit=8')
+        .then(r => r.json())
+        .then(d => {
+          const container = document.getElementById('warDagContainer');
+          if (!container || !d.traces) return;
+          container.innerHTML = d.traces.map(t => `
+            <div class="p-4 rounded-2xl bg-cyber-900 border ${t.status === 'error' ? 'border-red-500/40' : 'border-cyber-800'} space-y-3 shadow-xl font-sans">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-cyber-800 pb-2">
+                <div class="flex items-center space-x-2.5">
+                  <span class="w-3 h-3 rounded-full ${t.status === 'error' ? 'bg-red-400 animate-pulse' : 'bg-emerald-400'}"></span>
+                  <span class="font-extrabold text-white text-sm">👑 vps-boss ➔ 🤖 ${t.agent}</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/30">
+                    ${t.model}
+                  </span>
+                </div>
+                <div class="flex items-center space-x-2 text-xs font-mono text-slate-400">
+                  <span>${t.started_at || 'recent'}</span>
+                  <span class="px-2 py-0.5 rounded ${t.status === 'error' ? 'bg-red-500/20 text-red-400' : 'bg-emerald-500/20 text-emerald-400'} font-bold">
+                    ${t.total_steps} steps ${t.error_count > 0 ? `(${t.error_count} ERRORS)` : ''}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Goal Prompt -->
+              <div class="p-2.5 rounded-xl bg-cyber-950/80 border border-cyber-800 text-xs text-slate-300">
+                <span class="font-bold text-blue-400">Delegation Goal:</span> ${t.goal}
+              </div>
+
+              <!-- Sequential Execution Steps -->
+              <div class="space-y-1.5 font-mono text-xs max-h-48 overflow-y-auto pr-1">
+                ${t.steps.map(s => `
+                  <div class="p-2 rounded-lg bg-black/40 border ${s.status === 'error' ? 'border-red-500/50 text-red-300' : 'border-cyber-800/60 text-slate-300'} flex items-start justify-between gap-2">
+                    <div class="flex-1 truncate">
+                      <span class="font-bold ${s.status === 'error' ? 'text-red-400' : 'text-emerald-400'}">${s.tool}:</span>
+                      <span class="text-slate-400 text-[11px]">${(s.args || '').slice(0, 100)}...</span>
+                    </div>
+                    <div class="flex items-center space-x-2 shrink-0">
+                      ${s.duration ? `<span class="text-[10px] text-slate-500">${s.duration}</span>` : ''}
+                      <button onclick='openPayloadModal("Step: ${s.tool}", ${JSON.stringify(s.output || s.args || "")})' 
+                              class="px-2 py-0.5 rounded bg-cyber-800 hover:bg-cyber-700 text-[10px] text-blue-400 hover:text-white transition">
+                        Payload ↗
+                      </button>
+                    </div>
+                  </div>
+                `).join('')}
               </div>
             </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${a.state === 'CODING' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-slate-800 text-slate-400'}">
-              ${a.state}
-            </span>
-          </div>
-        `).join('');
-      }
+          `).join('');
+        })
+        .catch(e => console.warn('DAG fetch error:', e));
 
+      // 3. Error & Failure Triage Stream
+      fetch('/api/v1/triage/errors?limit=15')
+        .then(r => r.json())
+        .then(d => {
+          const listEl = document.getElementById('warTriageList');
+          const pillEl = document.getElementById('warErrorPill');
+          const statusEl = document.getElementById('warTriageStatus');
+
+          if (pillEl) {
+            pillEl.textContent = `${d.total_errors} Detected`;
+            pillEl.className = d.total_errors > 0 ? "px-2 py-0.5 rounded text-[9px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/40" : "px-2 py-0.5 rounded text-[9px] font-bold bg-emerald-500/10 text-emerald-400";
+          }
+          if (statusEl) {
+            statusEl.textContent = d.total_errors > 0 ? `${d.total_errors} Logged Incidents` : "All Agents Healthy";
+          }
+
+          if (listEl && d.errors) {
+            listEl.innerHTML = d.errors.map(err => `
+              <div class="p-3.5 rounded-xl bg-red-950/20 border border-red-500/30 space-y-1.5">
+                <div class="flex items-center justify-between text-[11px]">
+                  <span class="font-bold text-red-400">${err.agent} ➔ ${err.tool}</span>
+                  <span class="text-slate-500">${err.time || 'recent'}</span>
+                </div>
+                <div class="text-[11px] text-slate-300 font-mono bg-black/40 p-2 rounded truncate" title="${err.command}">
+                  $ ${err.command}
+                </div>
+                <div class="text-[10px] text-red-300/80 bg-red-900/10 p-2 rounded">
+                  ${err.error_output}
+                </div>
+              </div>
+            `).join('');
+          }
+        })
+        .catch(e => console.warn('Triage fetch error:', e));
+
+      // 4. Live Telemetry Stream
       fetch('/api/v1/telemetry/live')
         .then(r => r.json())
         .then(d => {
           const streamEl = document.getElementById('warTelemetryStream');
-          if (streamEl) {
+          if (streamEl && d.events) {
             streamEl.innerHTML = d.events.map(e => `
               <div class="py-2.5 flex flex-col space-y-1">
                 <div class="flex items-center justify-between text-[11px]">
                   <span class="font-bold text-blue-400">${e.agent}</span>
                   <span class="text-slate-500">${e.time}</span>
                 </div>
-                <div class="text-[11px] text-slate-300 truncate" title="${e.detail}">${e.detail}</div>
-                <div class="text-[10px] text-slate-500 truncate italic">${e.goal || ''}</div>
+                <div class="text-[11px] text-slate-300 break-all" title="${e.detail}">${e.detail}</div>
+                ${e.goal ? `<div class="text-[10px] text-slate-500 italic truncate">${e.goal}</div>` : ''}
               </div>
             `).join('');
           }
         })
-        .catch(e => console.warn('War room stream error:', e));
+        .catch(e => console.warn('Stream fetch error:', e));
+
+      // 5. Mini Host Vitals
+      fetch('/api/v1/vitals')
+        .then(r => r.json())
+        .then(v => {
+          const cpuEl = document.getElementById('hudCpuMini');
+          const ramEl = document.getElementById('hudRamMini');
+          const upEl = document.getElementById('hudUptimeMini');
+          if (cpuEl) cpuEl.textContent = `CPU: ~${Math.round(v.load_1m / v.cpu_cores * 100)}%`;
+          if (ramEl) ramEl.textContent = `RAM: ${v.ram_used_gib} GiB`;
+          if (upEl) upEl.textContent = `Uptime: ${v.uptime}`;
+        })
+        .catch(e => console.warn('Vitals mini error:', e));
     }
 
     // --- Initialize Everything ---
@@ -600,6 +829,40 @@
       initApp();
     }
   </script>
+
+
+  <!-- Full Payload Expander Modal -->
+  <div id="payloadModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-cyber-900 border border-cyber-700 rounded-2xl max-w-4xl w-full p-6 shadow-2xl flex flex-col max-h-[85vh] font-sans">
+      <div class="flex items-center justify-between border-b border-cyber-800 pb-3 mb-3">
+        <div class="flex items-center space-x-2">
+          <span class="text-xl">🔍</span>
+          <h3 id="payloadModalTitle" class="text-sm font-extrabold text-white">Full Execution Payload & Output</h3>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button onclick="copyPayloadModalContent()" class="px-2.5 py-1 rounded bg-cyber-800 hover:bg-cyber-700 text-xs font-mono text-slate-300">
+            📋 Copy
+          </button>
+          <button onclick="closePayloadModal()" class="w-7 h-7 rounded bg-cyber-800 hover:bg-cyber-700 text-slate-400 hover:text-white flex items-center justify-center">
+            ✕
+          </button>
+        </div>
+      </div>
+      <div class="flex-1 overflow-y-auto rounded-xl bg-black/60 border border-cyber-800 p-3 font-mono text-xs text-slate-300 leading-relaxed">
+        <pre id="payloadModalBody" class="whitespace-pre-wrap break-all"></pre>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 2D Canvas Hover HUD Tooltip -->
+  <div id="hoverHUD" class="pointer-events-none fixed z-40 px-3 py-2 rounded-xl bg-cyber-900/90 backdrop-blur-md border border-cyber-700 shadow-xl text-xs opacity-0 transition-opacity duration-150 flex items-center space-x-2">
+    <span id="hudIcon" class="text-base">👤</span>
+    <div>
+      <div id="hudTitle" class="font-bold text-white text-[11px]">Agent Name</div>
+      <div id="hudDesc" class="text-[10px] text-slate-400">Status & Role</div>
+    </div>
+  </div>
 
 </body>
 </html>
