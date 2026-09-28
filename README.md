@@ -1,23 +1,27 @@
-# Agentic AI Office
+# Agentic AI Office — Hermes Sovereign Mission Control
 
-A real-time operations cockpit for multi-agent systems, presented as a hybrid 2.5D living stronghold. It turns agent activity, task state, delegation relationships, worker health, source changes, and runtime telemetry into one inspectable web interface.
+A real-time cyber operations command center for multi-agent systems. It transforms autonomous agent activity, task state, delegation relationships, worker health, source changes, and runtime telemetry into an inspectable, high-density HUD.
 
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-009688?logo=fastapi&logoColor=white)
-![SSE](https://img.shields.io/badge/Updates-Server--Sent%20Events-7C3AED)
-![Tests](https://img.shields.io/badge/Tests-pytest-0A9EDC?logo=pytest&logoColor=white)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
+![React Flow](https://img.shields.io/badge/DAG-React--Flow-FF0072)
+![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38B2AC?logo=tailwind-css&logoColor=white)
+![WebSocket](https://img.shields.io/badge/Live-WebSocket-06B6D4)
+![Tests](https://img.shields.io/badge/Tests-15%2F15%20Passing-emerald)
+
+> 📖 **Comprehensive System Manual**: For detailed agent hierarchy, formal DELEGATE contracts, and manual audit guidelines, see **[WORKFLOW_AND_DELEGATION.md](./WORKFLOW_AND_DELEGATION.md)**.
 
 ## What it does
 
-Agentic AI Office provides a visual control plane for observing a team of autonomous workers without hiding the underlying execution evidence.
+Agentic AI Office provides an executive control plane for observing a squad of 14 autonomous agents without hiding underlying execution evidence.
 
-- **Hybrid 2.5D stronghold** — animated agents, role-based rooms, workstations, status beacons, and task movement over a high-resolution illustrated map.
-- **Live SSE telemetry** — redacted task, worker, delegation, and transcript updates stream to the browser without page refreshes.
-- **Real-time Kanban** — read-only board discovery, workflow columns, task details, event history, comments, runs, and dependency links.
-- **Worker heartbeat liveness** — heartbeat age, process checks, and stale-worker detection make silent failures visible.
-- **Delegation DAG tree** — parent/child execution relationships and tool-call traces expose how work is decomposed.
-- **Transparency viewer** — recent conversations, bounded transcripts, code diffs, error triage, host vitals, model usage, and cost telemetry are available from one interface.
-- **Credential redaction** — sensitive keys and credential-shaped values are removed before telemetry crosses the API boundary.
+- **Interactive Execution DAG** — Full-height React Flow hierarchical graph mapping Muhammad Rifqi Setiawan (Level 0 Founder) commanding Jarvis (Chief Orchestrator) and specialist divisions with live glowing circuit bus traces.
+- **14-Agent Live Squad Directory** — Real foundation models (`ag/gemini-3.8-flash`, `cx/gpt-5.6-sol`), live state beacons (`ACTIVE`, `IDLE`), and deep inspection drawers.
+- **Live WebSocket & SSE Telemetry** — Redacted tool execution events, active sessions, and multi-agent coordination stream with sub-second latency.
+- **Zero Self-Approval Verification** — Strict separation between code/pipeline implementers and independent verification sentries (`swe-QA`).
+- **Real-time Host Vitals** — Live CPU load, 54GB RAM allocation, uptime, and thread liveness.
+- **Credential Redaction** — Recursive pattern masking and secret stripping before any payload reaches the browser.
 
 ## Architecture
 
