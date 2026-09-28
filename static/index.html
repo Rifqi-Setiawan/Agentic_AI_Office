@@ -1055,7 +1055,7 @@
       ['auditProfileFilter','auditStatusFilter','auditTimeFilter'].forEach(id=>document.getElementById(id).addEventListener('change',renderAuditTimeline));
       document.querySelectorAll('[data-ops-filter]').forEach(button=>button.addEventListener('click',()=>{switchView('war');setWarRoomSubTab(button.dataset.opsFilter==='delegation'?'observability':'kanban');}));
       window.addEventListener('beforeunload',()=>eventSource?.close(),{once:true});
-      setInterval(syncRosterData, 15000);
+      setInterval(syncRosterData, 3000);
     }
 
     if (document.readyState === 'loading') {

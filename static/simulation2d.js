@@ -176,7 +176,8 @@
     // 1. NORTH THRONE ROOM (Lord Commander)
     {
       id: 'vps-boss',
-      name: 'vps-boss',
+      name: 'Jarvis',
+      alias: 'vps-boss',
       title: 'Lord Commander & Chief Orchestrator',
       accentColor: '#f59e0b',
       hairColor: '#0f172a',
@@ -190,7 +191,8 @@
     // 2. WEST WING: CITADEL SCRIPTORIUM & ALCHEMICAL LAB (Research & Paper Scribe)
     {
       id: 'professor',
-      name: 'professor',
+      name: 'Senku',
+      alias: 'professor',
       title: 'Grand Maester of Research',
       accentColor: '#ec4899',
       hairColor: '#831843',
@@ -247,7 +249,8 @@
     },
     {
       id: 'swe-verifier',
-      name: 'swe-verifier',
+      name: 'swe-QA',
+      alias: 'swe-verifier',
       title: 'High Sentry of Verification',
       accentColor: '#34d399',
       hairColor: '#022c22',
@@ -323,6 +326,18 @@
       aisleKey: 'AE_ASSISTANT',
       room: 'Tavern Supply Bar',
       bubble: 'Triaging orders & managing stronghold supplies'
+    },
+    {
+      id: 'office-lead',
+      name: 'office-lead',
+      alias: 'office-lead',
+      title: 'Grand Architect of Virtual Strongholds',
+      accentColor: '#6366f1',
+      hairColor: '#312e81',
+      desk: { x: 545, y: 730 },
+      aisleKey: 'AE_OFFICELEAD',
+      room: 'Observatory & Graphics Deck',
+      bubble: 'Rendering procedural stronghold canvas & WebGL'
     }
   ];
 
@@ -373,9 +388,10 @@
     'C_SW_DOOR':       { x: 610, y: 585, neighbors: ['C_WEST_BREEZEWAY', 'C_SOUTH_WEST'] },
     'C_SE_DOOR':       { x: 1060, y: 585, neighbors: ['C_EAST_BREEZEWAY', 'C_SOUTH_EAST'] },
     // Twin southern corridors wrap the hearth at x=720 and x=950.
-    'C_SOUTH_WEST':    { x: 720, y: 650, neighbors: ['C_SW_DOOR', 'ST_WAR_WEST', 'ST_WAR_SOUTH', 'C_SOUTH_HALL'] },
+    'C_SOUTH_WEST':    { x: 720, y: 650, neighbors: ['C_SW_DOOR', 'ST_WAR_WEST', 'ST_WAR_SOUTH', 'C_SOUTH_HALL', 'AE_OFFICELEAD'] },
     'C_SOUTH_EAST':    { x: 950, y: 650, neighbors: ['C_SE_DOOR', 'ST_WAR_EAST', 'ST_WAR_SOUTH', 'C_SOUTH_HALL'] },
-    'C_SOUTH_HALL':    { x: 950, y: 700, neighbors: ['C_SOUTH_WEST', 'C_SOUTH_EAST', 'ST_STAG_HEARTH', 'AE_MENTOR', 'AE_DESIGNER', 'ST_CISTERN', 'AE_DATAENG', 'ST_ALE_BAR', 'AE_ASSISTANT'] },
+    'C_SOUTH_HALL':    { x: 950, y: 700, neighbors: ['C_SOUTH_WEST', 'C_SOUTH_EAST', 'ST_STAG_HEARTH', 'AE_MENTOR', 'AE_DESIGNER', 'ST_CISTERN', 'AE_DATAENG', 'ST_ALE_BAR', 'AE_ASSISTANT', 'AE_OFFICELEAD'] },
+    'AE_OFFICELEAD':   { x: 545, y: 730, neighbors: ['C_SOUTH_WEST', 'C_SOUTH_HALL'] },
     'ST_STAG_HEARTH':  { x: 836, y: 680, neighbors: ['C_SOUTH_HALL', 'AE_MENTOR'] },
     'AE_MENTOR':       { x: 836, y: 680, neighbors: ['ST_STAG_HEARTH', 'C_SOUTH_HALL'] },
     'AE_DESIGNER':     { x: 995, y: 730, neighbors: ['C_SOUTH_HALL'] },
@@ -2062,15 +2078,20 @@
     setRoster(roster) {
       if (!roster) return;
       roster.forEach(ag => {
-        const char = this.agents.find(a => a.id === ag.id);
+        const char = this.agents.find(a => a.id === ag.id || a.alias === ag.id || a.id === ag.alias);
         if (char) {
           char.model = ag.model;
           char.role = ag.role;
           char.rosterState = ag.state;
           char.statusDesc = ag.status_desc;
+          if (ag.name) char.name = ag.name;
           char.kanbanTask = ag.kanban_task || null;
           if (char.kanbanTask && char.rosterState === 'IDLE') char.rosterState = 'KANBAN';
           if (ag.accent_color) char.accentColor = ag.accent_color;
+          if (char.rosterState && char.rosterState !== 'IDLE' && char.state === 'IDLE_AT_DESK') {
+            char.bubbleText = (ag.status_desc || char.rosterState).slice(0, 48);
+            char.bubbleTimer = 240;
+          }
         }
       });
     }

@@ -58,3 +58,26 @@ def test_v12_missing_corrupt_unavailable(env):
 def test_partial_manifest_missing_log_multiboard_detail(env):
  delegation(env,"deleg_partial",[],malformed=True); delegation(env,"deleg_gap",[{"index":0,"status":"running","missing_log":True}]); delegations=env["client"].get("/api/v1/delegations/tree").json()["delegations"]; assert len(delegations)==2 and next(d for d in delegations if d["id"]=="deleg_partial")["status"]=="unknown"; assert env["client"].get("/api/v1/delegations/deleg_gap/transcript/0").status_code==404
  board(env,"alpha",[{"id":"same","title":"A","status":"todo"}]); board(env,"beta",[{"id":"same","title":"B","status":"todo"}]); assert env["client"].get("/api/v1/kanban/task/same",params={"board":"beta"}).json()["task"]["title"]=="B"
+
+def test_v13_office_lead_and_live_profile_harvesting(env):
+ r = env["client"].get("/api/v1/agents/roster").json()
+ assert r["total_agents"] == 14
+ agents = {a["id"]: a for a in r["agents"]}
+ assert "office-lead" in agents
+ assert agents["vps-boss"]["name"] == "Jarvis"
+ assert agents["professor"]["name"] == "Senku"
+ assert agents["swe-verifier"]["name"] == "swe-QA"
+ # Test live session harvesting with mock state.db
+ profile_dir = env["profiles"] / "office-lead"
+ profile_dir.mkdir(parents=True, exist_ok=True)
+ db_path = profile_dir / "state.db"
+ now = time.time()
+ with sqlite3.connect(db_path) as conn:
+  conn.execute("CREATE TABLE sessions (id TEXT PRIMARY KEY, model TEXT, last_activity_at REAL, last_activity_description TEXT, message_count INTEGER, tool_call_count INTEGER)")
+  conn.execute("CREATE TABLE messages (session_id TEXT, role TEXT, content TEXT, timestamp REAL)")
+  conn.execute("INSERT INTO sessions VALUES ('sess_1', 'cx/gpt-5.6-sol', ?, 'executing tool: patch', 5, 2)", (now,))
+  conn.execute("INSERT INTO messages VALUES ('sess_1', 'tool', 'patch applied', ?)", (now,))
+ live = server.harvest_live_sessions(max_age_seconds=60)
+ assert "office-lead" in live
+ assert live["office-lead"]["state"] == "CODING"
+ assert "Writing/Editing" in live["office-lead"]["status_desc"]

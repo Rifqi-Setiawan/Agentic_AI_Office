@@ -292,8 +292,137 @@ OFFICE_ZONES = {
         "accent_color": "#ef4444",
         "avatar_archetype": "scholar",
         "rotation": 0.8
+    },
+    "office-lead": {
+        "zone_name": "Observatory & Virtual Systems Deck",
+        "desk_pos": [-14, 0, 8],
+        "chair_color": "#1e1b4b",
+        "accent_color": "#6366f1",
+        "avatar_archetype": "lead",
+        "rotation": -0.8
     }
 }
+
+
+AGENT_DISPLAY_NAME = {
+    "vps-boss": "Jarvis",
+    "professor": "Senku",
+    "senku": "Senku",
+    "swe-verifier": "swe-QA",
+    "swe-QA": "swe-QA",
+    "office-lead": "office-lead",
+    "chief-architect": "chief-architect",
+    "swe-backend": "swe-backend",
+    "swe-frontend": "swe-frontend",
+    "data-engineer": "data-engineer",
+    "devops-engineer": "devops-engineer",
+    "ui-designer": "ui-designer",
+    "tech-mentor": "tech-mentor",
+    "github-manager": "github-manager",
+    "vps-assistant": "vps-assistant",
+    "paperwright": "paperwright"
+}
+
+
+def harvest_live_sessions(max_age_seconds: int = 60) -> Dict[str, Dict[str, Any]]:
+    """Inspects SQLite state.db of all Hermes profiles for real-time running sessions and tool execution."""
+    live_map: Dict[str, Dict[str, Any]] = {}
+    now = time.time()
+    
+    if not PROFILES_DIR.exists():
+        return live_map
+
+    for p_dir in PROFILES_DIR.iterdir():
+        if not p_dir.is_dir():
+            continue
+        p_name = p_dir.name
+        db_file = p_dir / "state.db"
+        if not db_file.exists():
+            continue
+            
+        try:
+            uri = f"file:{db_file}?mode=ro"
+            with sqlite3.connect(uri, uri=True, timeout=0.5) as conn:
+                conn.row_factory = sqlite3.Row
+                sess = conn.execute("""
+                    SELECT id, model, last_activity_at, last_activity_description, message_count, tool_call_count
+                    FROM sessions
+                    WHERE last_activity_at IS NOT NULL
+                    ORDER BY last_activity_at DESC
+                    LIMIT 1
+                """).fetchone()
+                
+                if not sess or not sess["last_activity_at"]:
+                    continue
+                    
+                age = now - float(sess["last_activity_at"])
+                if age > max_age_seconds:
+                    continue
+                    
+                msg = conn.execute("""
+                    SELECT role, content, timestamp
+                    FROM messages
+                    WHERE session_id = ?
+                    ORDER BY rowid DESC
+                    LIMIT 1
+                """, (sess["id"],)).fetchone()
+                
+                desc = sess["last_activity_description"] or ""
+                desc_lower = desc.lower()
+                role = msg["role"] if msg else "assistant"
+                content = (msg["content"] or "")[:120] if msg else ""
+                
+                if any(k in desc_lower for k in ["patch", "write", "search_files", "read_file", "git"]):
+                    state = "CODING"
+                    status_desc = f"Writing/Editing: {desc[:60]}"
+                elif any(k in desc_lower for k in ["pytest", "test", "audit", "verify"]):
+                    state = "AUDITING"
+                    status_desc = f"Running QA Audit: {desc[:60]}"
+                elif any(k in desc_lower for k in ["crawl", "web", "fetch", "scrape", "search"]):
+                    state = "CRAWLING"
+                    status_desc = f"Searching/Crawling: {desc[:60]}"
+                elif "tool" in desc_lower or role == "tool":
+                    state = "EXECUTING"
+                    status_desc = f"Executing Tool: {desc[:60]}"
+                else:
+                    state = "THINKING"
+                    status_desc = f"Reasoning: {desc[:60] or 'Processing task prompt'}"
+                    
+                iso_time = datetime.fromtimestamp(sess["last_activity_at"], timezone.utc).isoformat()
+                
+                event_detail = status_desc
+                if content and role == "user":
+                    event_detail = f"User prompt: {content[:60]}..."
+                elif desc:
+                    event_detail = desc[:80]
+                    
+                display_name = AGENT_DISPLAY_NAME.get(p_name, p_name)
+                
+                live_map[p_name] = {
+                    "agent": p_name,
+                    "display_name": display_name,
+                    "session_id": sess["id"],
+                    "model": sess["model"],
+                    "state": state,
+                    "status_desc": status_desc,
+                    "age_seconds": round(age, 1),
+                    "iso_time": iso_time,
+                    "event": {
+                        "id": f"{sess['id']}:{sess['tool_call_count']}:live",
+                        "time": iso_time,
+                        "observed_at": sess["last_activity_at"],
+                        "agent": p_name,
+                        "delegation_id": sess["id"],
+                        "type": "tool_call" if state in ("CODING", "AUDITING", "CRAWLING", "EXECUTING") else "thought",
+                        "detail": event_detail,
+                        "goal": event_detail,
+                        "station": categorize_tool_station(desc, p_name)
+                    }
+                }
+        except Exception:
+            continue
+            
+    return live_map
 
 
 def get_agent_models_map() -> Dict[str, str]:
@@ -677,6 +806,12 @@ def _delegation_records(limit: int = 50) -> List[Dict[str, Any]]:
 
 def parse_delegation_stream(limit: int = 25) -> List[Dict[str, Any]]:
     events = []
+    # 1. Inject live session activity from all profiles
+    live_sessions = harvest_live_sessions(max_age_seconds=60)
+    for ls in live_sessions.values():
+        events.append(ls["event"])
+
+    # 2. Add events from delegation transcripts
     for record in _delegation_records(limit):
         for child in record["children"]:
             for step in child["steps"]:
@@ -685,7 +820,29 @@ def parse_delegation_stream(limit: int = 25) -> List[Dict[str, Any]]:
 
 
 def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
-    return [{"id": r["id"], "sender": r["profile"], "receiver": c["agent"], "started_at": r["started_at"], "completed_at": r["completed_at"], "status": c["status"], "is_running": c["status"] == "running", "is_live": c["status"] == "running", "completed_recently": False, "boss_order": c["goal"], "subagent_reply": "", "tools_used": list(dict.fromkeys(s["tool"] for s in c["steps"]))} for r in _delegation_records(limit) for c in r["children"]][:limit]
+    convos = []
+    live_sessions = harvest_live_sessions(max_age_seconds=60)
+    for p_name, ls in live_sessions.items():
+        convos.append({
+            "id": f"live_{ls['session_id'][:12]}",
+            "sender": "user" if p_name == "vps-boss" else "vps-boss",
+            "receiver": p_name,
+            "started_at": ls["iso_time"][:19].replace("T", " "),
+            "completed_at": None,
+            "status": "running",
+            "is_running": True,
+            "is_live": True,
+            "completed_recently": False,
+            "boss_order": ls["status_desc"],
+            "subagent_reply": "",
+            "tools_used": [ls["state"].lower()]
+        })
+    convos.extend([
+        {"id": r["id"], "sender": r["profile"], "receiver": c["agent"], "started_at": r["started_at"], "completed_at": r["completed_at"], "status": c["status"], "is_running": c["status"] == "running", "is_live": c["status"] == "running", "completed_recently": False, "boss_order": c["goal"], "subagent_reply": "", "tools_used": list(dict.fromkeys(s["tool"] for s in c["steps"]))}
+        for r in _delegation_records(limit)
+        for c in r["children"]
+    ])
+    return convos[:limit]
 
 
 def build_hierarchical_dag(limit: int = 10) -> List[Dict[str, Any]]:
@@ -724,10 +881,11 @@ def health_check() -> Dict[str, Any]:
 
 @app.get("/api/v1/agents/roster")
 def get_agents_roster() -> Dict[str, Any]:
-    """Returns all 13 agents with real models, status, active task, and 3D coordinates."""
+    """Returns all 14 agents with real models, status, active task, and 3D coordinates."""
     models_map = get_agent_models_map()
     events = parse_delegation_stream(150)
     active_kanban = get_active_kanban_tasks()
+    live_sessions = harvest_live_sessions(max_age_seconds=60)
     
     # Check latest activity per agent
     latest_agent_event = {}
@@ -750,9 +908,44 @@ def get_agents_roster() -> Dict[str, Any]:
         meta = roles_meta.get(agent_id, {})
         model_name = models_map.get(agent_id, "ag/gemini-3.8-flash-high")
         last_ev = latest_agent_event.get(agent_id)
+        live_sess = live_sessions.get(agent_id)
+        display_name = AGENT_DISPLAY_NAME.get(agent_id, agent_id)
 
-        # Dynamic state inference
-        if last_ev:
+        # Active Project & Phase mapping
+        project_map = {
+            "professor": {"project": "Enterprise Agentic Research", "phase": "SOTA 2026 Deep Research & Literature Grounding"},
+            "swe-backend": {"project": "National Food Lakehouse", "phase": "Phase 4 Read-Only API Hardening (:8097)"},
+            "swe-verifier": {"project": "Global Quality Assurance", "phase": "Independent QA Forensic Certification"},
+            "data-engineer": {"project": "National Food Lakehouse", "phase": "Phase 4 Lineage & Fail-Closed Ingestion"},
+            "devops-engineer": {"project": "VPS Infrastructure", "phase": "Caddy Gateway & Ingress Isolation (:8097/:8085)"},
+            "vps-boss": {"project": "Rifqi Studio Orchestration", "phase": "Executive Mission Control & Autonomous Routing"},
+            "ui-designer": {"project": "Design Engineering", "phase": "Anti-AI-Slop Visual Systems & Prototypes"},
+            "tech-mentor": {"project": "Technical Mentorship", "phase": "Interactive Architectural Explanations"},
+            "github-manager": {"project": "Global Git Releases", "phase": "Clean Commit Hygiene & Zero-AI Audit"},
+            "paperwright": {"project": "OpenWikiForge Research", "phase": "IEEEtran LaTeX Manuscript Compilation"},
+            "swe-frontend": {"project": "National Food Lakehouse / Office", "phase": "Phase 4 Visual Dashboard & Living Stronghold"},
+            "vps-assistant": {"project": "General Operations", "phase": "Server Automation & Utility Scripts"},
+            "office-lead": {"project": "Agentic AI Office", "phase": "Real-time Telemetry & Stronghold 2D/3D Engine"}
+        }
+        proj_info = project_map.get(agent_id, {"project": "Global Control", "phase": "Standard Active"})
+
+        # Dynamic state inference priority:
+        active_runs = active_kanban.get(agent_id, [])
+        kanban_task = active_runs[0] if active_runs else None
+
+        if kanban_task:
+            state = "EXECUTING"
+            status_desc = f"Kanban {kanban_task['id']}: {kanban_task['title']}"
+            proj_info = {
+                "project": kanban_task["board"].replace("-", " ").title(),
+                "phase": f"Kanban · {kanban_task['status'].replace('_', ' ').title()} · {kanban_task['title']}",
+            }
+        elif live_sess:
+            state = live_sess["state"]
+            status_desc = f"{display_name} • {live_sess['status_desc']}"
+            last_ev = live_sess["event"]
+            proj_info = {"project": "Live Session Interaction", "phase": f"Active: {live_sess['state']}"}
+        elif last_ev:
             if "tool_call" in last_ev.get("type", ""):
                 dt = last_ev.get("detail", "").lower()
                 if "web_search" in dt or "crawl" in dt or "fetch" in dt:
@@ -770,39 +963,15 @@ def get_agents_roster() -> Dict[str, Any]:
             else:
                 state = "THINKING"
                 status_desc = "Reasoning & Analyzing Task Output"
+            proj_info = {"project": "Delegation Execution", "phase": f"Task: {last_ev.get('goal', '')[:40]}"}
         else:
             state = "IDLE"
-            status_desc = "Standing by for Next Autonomous Delegation"
-
-        # Active Project & Phase mapping
-        project_map = {
-            "professor": {"project": "National Food Lakehouse", "phase": "Phase 4 Backend Complete / Visual Research"},
-            "swe-backend": {"project": "National Food Lakehouse", "phase": "Phase 4 High-Concurrency API (:8097)"},
-            "swe-verifier": {"project": "Global Verification", "phase": "Independent QA & Zero-AI Security Audit"},
-            "data-engineer": {"project": "National Food Lakehouse", "phase": "SCD Type 2 & Gold Snowflake Sync"},
-            "devops-engineer": {"project": "VPS Infrastructure", "phase": "Caddy Gateway & Ingress Isolation (8080/8085)"},
-            "vps-boss": {"project": "Rifqi Studio Orchestration", "phase": "Executive Mission Control & Task Routing"},
-            "ui-designer": {"project": "3D Virtual Cyber-Office", "phase": "WebGL Three.js Photorealistic Spatial Scene"},
-            "tech-mentor": {"project": "Technical Mentorship", "phase": "Interactive Architectural Explanations"},
-            "github-manager": {"project": "Global Git Releases", "phase": "Clean Commit Hygiene & Zero-AI Audit"},
-            "paperwright": {"project": "OpenWikiForge Research", "phase": "IEEEtran LaTeX Manuscript Compilation"},
-            "swe-frontend": {"project": "TechHiring.id / 3D Office", "phase": "Client UI / WebGL Spatial Component"},
-            "vps-assistant": {"project": "General Operations", "phase": "Server Automation & Utility Scripts"}
-        }
-        proj_info = project_map.get(agent_id, {"project": "Global Control", "phase": "Standard Active"})
-        active_runs = active_kanban.get(agent_id, [])
-        kanban_task = active_runs[0] if active_runs else None
-        if kanban_task:
-            state = "EXECUTING"
-            status_desc = f"Kanban {kanban_task['id']}: {kanban_task['title']}"
-            proj_info = {
-                "project": kanban_task["board"].replace("-", " ").title(),
-                "phase": f"Kanban · {kanban_task['status'].replace('_', ' ').title()} · {kanban_task['title']}",
-            }
+            status_desc = f"Standing by at {zone_data['zone_name']}"
 
         roster.append({
             "id": agent_id,
-            "name": agent_id,
+            "name": display_name,
+            "alias": agent_id,
             "role": meta.get("role", "Specialist Agent").replace("_", " ").title(),
             "model": model_name,
             "provider": "9Router Local Loopback",
@@ -1038,7 +1207,7 @@ def _legacy_delegation_records(limit: int = 50) -> List[Dict[str, Any]]:
     return records
 
 
-def _event_snapshot(board: str = "bitcoin-data-platform") -> Dict[str, Any]:
+def _event_snapshot(board: str = "default") -> Dict[str, Any]:
     """Build stable domain state; transport timestamps belong outside the digest."""
     try:
         tasks = get_kanban_tasks(board)
@@ -1061,7 +1230,7 @@ def _event_snapshot(board: str = "bitcoin-data-platform") -> Dict[str, Any]:
 
 
 @app.get("/api/v1/stream/events")
-async def stream_events(request: Request, board: str = Query(default="bitcoin-data-platform")) -> StreamingResponse:
+async def stream_events(request: Request, board: str = Query(default="default")) -> StreamingResponse:
     """Push redacted Kanban, worker, delegation, and transcript updates over SSE."""
     async def generate():
         last_digest = None
