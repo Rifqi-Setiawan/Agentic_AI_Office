@@ -1509,13 +1509,5 @@ def set_chat_cron_state():
     return {"ok": True}
 
 
-if FRONTEND_DIST.exists():
-    sprites_path = FRONTEND_DIST / "sprites"
-    rooms_path = FRONTEND_DIST / "rooms"
-    if sprites_path.exists():
-        app.mount("/sprites", StaticFiles(directory=str(sprites_path)), name="sprites")
-    if rooms_path.exists():
-        app.mount("/rooms", StaticFiles(directory=str(rooms_path)), name="rooms")
-
 # Serve static web assets
 app.mount("/", StaticFiles(directory=str(STATIC_DIR), html=True), name="static")
