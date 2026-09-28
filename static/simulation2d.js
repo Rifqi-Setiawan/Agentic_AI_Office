@@ -2265,51 +2265,24 @@
     }
 
     openConversationsModal() {
-      let modal = document.getElementById('convoModal');
-      if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'convoModal';
-        modal.className = 'fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4';
-        document.body.appendChild(modal);
-      }
-
-      modal.innerHTML = `
-        <div class="bg-cyber-900 border border-cyber-700 rounded-2xl max-w-3xl w-full p-6 shadow-2xl flex flex-col max-h-[85vh] font-sans">
-          <div class="flex items-center justify-between border-b border-cyber-800 pb-4 mb-4">
-            <div class="flex items-center space-x-3">
-              <span class="text-2xl">⚔️</span>
-              <div>
-                <h2 class="text-base font-extrabold text-white">The Painted War Table — Royal Council Decrees</h2>
-                <p class="text-xs text-slate-400">Transkrip nyata perintah delegasi vps-boss dan laporan balik para subagent.</p>
-              </div>
-            </div>
-            <button onclick="document.getElementById('convoModal').remove()" class="w-8 h-8 rounded-lg bg-cyber-800 text-slate-400 hover:text-white flex items-center justify-center transition">✕</button>
-          </div>
-
-          <div class="flex-1 overflow-y-auto space-y-4 pr-1 text-xs">
-            ${(this.conversations || []).map(c => `
-              <div class="p-4 rounded-xl bg-cyber-950/80 border border-cyber-800/80 space-y-2">
-                <div class="flex items-center justify-between font-mono text-[11px]">
-                  <span class="font-bold text-amber-400">👑 vps-boss ➔ ⚔️ ${c.receiver}</span>
-                  <span class="text-slate-500">${c.started_at || 'recent'}</span>
-                </div>
-                <div class="p-2.5 rounded-lg bg-amber-500/10 border-l-2 border-amber-500 text-slate-200">
-                  <span class="font-bold text-amber-400">Royal Decree:</span> "${c.boss_order}"
-                </div>
-                ${c.subagent_reply ? `
-                  <div class="p-2.5 rounded-lg bg-emerald-500/10 border-l-2 border-emerald-500 text-emerald-200">
-                    <span class="font-bold text-emerald-400">${c.receiver} Report:</span> "${c.subagent_reply}"
-                  </div>
-                ` : ''}
-                <div class="flex items-center space-x-2 text-[10px] text-slate-400 font-mono pt-1">
-                  <span>Tools Used:</span>
-                  ${(c.tools_used || []).map(t => `<span class="px-1.5 py-0.5 rounded bg-cyber-800 text-slate-300 font-bold">${t}</span>`).join(' ')}
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      `;
+      document.getElementById('convoModal')?.remove();
+      const make = (tag, className, text) => { const el=document.createElement(tag); if(className)el.className=className; if(text!==undefined)el.textContent=String(text); return el; };
+      const modal=make('div','fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4'); modal.id='convoModal';
+      const panel=make('div','bg-cyber-900 border border-cyber-700 rounded-2xl max-w-3xl w-full p-6 shadow-2xl flex flex-col max-h-[85vh] font-sans');
+      const header=make('div','flex items-center justify-between border-b border-cyber-800 pb-4 mb-4');
+      const heading=make('div',''); heading.append(make('h2','text-base font-extrabold text-white','⚔️ The Painted War Table — Royal Council Decrees'),make('p','text-xs text-slate-400','Server-redacted delegation orders and subagent reports.'));
+      const close=make('button','w-8 h-8 rounded-lg bg-cyber-800 text-slate-400 hover:text-white','✕'); close.type='button'; close.addEventListener('click',()=>modal.remove()); header.append(heading,close);
+      const list=make('div','flex-1 overflow-y-auto space-y-4 pr-1 text-xs');
+      (this.conversations||[]).forEach(c=>{
+        const card=make('article','p-4 rounded-xl bg-cyber-950/80 border border-cyber-800/80 space-y-2');
+        const meta=make('div','flex items-center justify-between font-mono text-[11px]'); meta.append(make('span','font-bold text-amber-400',`👑 vps-boss ➔ ⚔️ ${c.receiver||'unknown'}`),make('time','text-slate-500',c.started_at||'recent'));
+        card.append(meta,make('div','p-2.5 rounded-lg bg-amber-500/10 border-l-2 border-amber-500 text-slate-200',`Royal Decree: “${c.boss_order||''}”`));
+        if(c.subagent_reply) card.append(make('div','p-2.5 rounded-lg bg-emerald-500/10 border-l-2 border-emerald-500 text-emerald-200',`${c.receiver||'Agent'} Report: “${c.subagent_reply}”`));
+        const tools=make('div','flex flex-wrap items-center gap-2 text-[10px] text-slate-400 font-mono pt-1'); tools.append(make('span','','Tools Used:'));
+        (c.tools_used||[]).forEach(tool=>tools.append(make('span','px-1.5 py-0.5 rounded bg-cyber-800 text-slate-300 font-bold',tool))); card.append(tools); list.append(card);
+      });
+      if(!list.children.length) list.append(make('p','text-slate-500','No delegation records available.'));
+      panel.append(header,list); modal.append(panel); document.body.append(modal);
     }
 
     drawWaypointGraph() {

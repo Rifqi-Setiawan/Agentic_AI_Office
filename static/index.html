@@ -45,6 +45,9 @@
     .diff-del { background: rgba(239, 68, 68, 0.15); color: #f87171; border-left: 2px solid #ef4444; }
     .diff-add { background: rgba(16, 185, 129, 0.15); color: #34d399; border-left: 2px solid #10b981; }
     .diff-hunk { background: rgba(59, 130, 246, 0.15); color: #60a5fa; font-weight: bold; }
+    .ops-summary { position:absolute; top:12px; left:12px; z-index:20; width:min(560px,calc(100% - 24px)); }
+    .ops-card { background:rgba(7,13,30,.94); border:1px solid rgba(51,65,85,.9); }
+    @media (max-width:640px) { .ops-summary { top:8px; left:8px; width:calc(100% - 16px); } .ops-hide-mobile { display:none; } }
   </style>
 </head>
 <body class="flex flex-col w-screen h-screen m-0 p-0 overflow-hidden bg-cyber-950 font-sans select-none text-slate-200 antialiased">
@@ -117,6 +120,16 @@
     <!-- 2D Stronghold Workspace Container -->
     <div id="sim2d-container" class="absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center p-2 sm:p-3 bg-black">
       <canvas id="simCanvas" class="w-full h-full block cursor-default"></canvas>
+      <section id="operationalSummary" class="ops-summary ops-card rounded-xl shadow-xl p-3" aria-label="Operational summary">
+        <div class="flex items-center justify-between gap-3 mb-2"><h2 class="text-[11px] font-extrabold uppercase tracking-wider text-white">Operational Summary</h2><span id="opsObserved" class="text-[9px] font-mono text-slate-500 tabular">Awaiting evidence</span></div>
+        <div class="grid grid-cols-4 gap-2 tabular">
+          <button data-ops-filter="running" class="rounded-lg bg-emerald-500/10 border border-emerald-500/30 p-2 text-left"><b id="opsRunning" class="block text-lg text-emerald-400">0</b><span class="text-[9px] text-slate-300">Running</span></button>
+          <button data-ops-filter="ready" class="rounded-lg bg-sky-500/10 border border-sky-500/30 p-2 text-left"><b id="opsQueued" class="block text-lg text-sky-400">0</b><span class="text-[9px] text-slate-300">Queued</span></button>
+          <button data-ops-filter="blocked" class="rounded-lg bg-rose-500/10 border border-rose-500/30 p-2 text-left"><b id="opsBlocked" class="block text-lg text-rose-400">0</b><span class="text-[9px] text-slate-300">Blocked/Stale</span></button>
+          <button data-ops-filter="delegation" class="rounded-lg bg-amber-500/10 border border-amber-500/30 p-2 text-left"><b id="opsDelegations" class="block text-lg text-amber-400">0</b><span class="text-[9px] text-slate-300">Delegations</span></button>
+        </div>
+        <button id="opsLatest" class="ops-hide-mobile mt-2 w-full text-left truncate text-[10px] text-slate-300 font-mono">No observed activity</button>
+      </section>
     </div>
 
   <!-- ======================================================================= -->
@@ -184,7 +197,7 @@
         <div class="p-3.5 rounded-xl bg-cyber-850 border border-cyber-700/60 space-y-2">
           <div class="flex items-center justify-between text-[10px] uppercase font-bold text-slate-400">
             <span>Execution Status</span>
-            <span class="text-emerald-400">Live Inotify</span>
+            <span class="text-slate-500">Evidence timestamped</span>
           </div>
           <p id="inspStatusDesc" class="text-xs text-slate-200 leading-relaxed font-medium">
             Standing by for autonomous execution.
@@ -338,14 +351,14 @@
         <div class="lg:col-span-4 bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-4">
           <div class="flex items-center justify-between">
             <h3 class="text-sm font-bold text-white">13 Agents Status Matrix</h3>
-            <span class="text-[10px] font-mono font-bold text-emerald-400">100% Operational</span>
+            <span id="warRosterEvidence" class="text-[10px] font-mono font-bold text-slate-400">Evidence pending</span>
           </div>
           <div id="warRosterList" class="divide-y divide-cyber-800/80 text-xs max-h-[500px] overflow-y-auto pr-1"></div>
         </div>
         <div class="lg:col-span-8 bg-cyber-900 border border-cyber-800 rounded-2xl p-5 shadow-xl space-y-4">
           <div class="flex items-center justify-between">
             <h3 class="text-sm font-bold text-white">Live Execution Event Stream</h3>
-            <span class="text-[10px] font-mono text-slate-400">Untruncated Telemetry</span>
+            <span class="text-[10px] font-mono text-slate-400">Bounded, server-redacted</span>
           </div>
           <div id="warTelemetryStream" class="divide-y divide-cyber-800/80 text-xs max-h-[500px] overflow-y-auto font-mono space-y-2 pr-1"></div>
         </div>
@@ -371,7 +384,8 @@
           <div><h3 class="text-sm font-bold text-white">Hermes Kanban Board</h3><p class="text-xs text-slate-400">Read-only SQLite · dependencies · heartbeat truth.</p></div>
           <select id="kanbanBoardSelect" onchange="hydrateKanban(this.value)" class="bg-cyber-900 border border-cyber-700 rounded-lg px-3 py-1.5 text-xs text-white"></select>
         </div>
-        <div id="kanbanColumns" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-3"></div>
+        <div id="kanbanState" class="hidden rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-xs text-amber-300"></div>
+        <div id="kanbanColumns" class="grid grid-flow-col auto-cols-[minmax(260px,1fr)] overflow-x-auto gap-3 pb-2"></div>
         <div class="bg-cyber-900 border border-cyber-800 rounded-xl p-4"><h3 class="text-sm font-bold text-white mb-3">Kanban Event History</h3><div id="kanbanEventFeed" class="max-h-72 overflow-y-auto divide-y divide-cyber-800 text-xs font-mono"></div></div>
       </div>
 
@@ -380,6 +394,11 @@
         <section class="bg-cyber-900 border border-cyber-800 rounded-xl p-4"><h3 class="text-sm font-bold text-white mb-3">🌳 Delegation DAG Tree</h3><div id="delegationTree" class="space-y-3 text-xs"></div></section>
         <section class="xl:col-span-2 bg-cyber-900 border border-cyber-800 rounded-xl p-4"><div class="flex justify-between"><h3 class="text-sm font-bold text-white">Live Child Transcript</h3><span class="text-[10px] text-emerald-400 font-mono">SERVER REDACTED</span></div><pre id="liveChildTranscript" class="mt-3 max-h-96 overflow-auto whitespace-pre-wrap break-all bg-black/50 border border-cyber-800 rounded-lg p-3 text-[11px] text-slate-300 font-mono">Select a child node.</pre></section>
       </div>
+
+      <section class="bg-cyber-900 border border-cyber-800 rounded-xl p-4 space-y-3">
+        <div class="flex flex-wrap items-center gap-2"><h3 class="text-sm font-bold text-white mr-auto">Audit Trail</h3><select id="auditProfileFilter" class="bg-cyber-950 border border-cyber-700 rounded px-2 py-1 text-[10px]"><option value="">All profiles</option></select><select id="auditStatusFilter" class="bg-cyber-950 border border-cyber-700 rounded px-2 py-1 text-[10px]"><option value="">All statuses</option><option>running</option><option>completed</option><option>failed</option><option>blocked</option><option>stale</option></select><select id="auditTimeFilter" class="bg-cyber-950 border border-cyber-700 rounded px-2 py-1 text-[10px]"><option value="0">Any time</option><option value="1">Last hour</option><option value="24">Last 24h</option><option value="168">Last 7d</option></select></div>
+        <div id="auditTimeline" class="space-y-2 text-xs"></div>
+      </section>
 
     </div>
   </section>
@@ -528,7 +547,11 @@
 
       // Responsibilities
       const respEl = document.getElementById('inspResponsibilities');
-      respEl.innerHTML = (agent.responsibilities || []).map(r => `<li>${r}</li>`).join('');
+      respEl.replaceChildren(...(agent.responsibilities || []).map(r => {
+        const li = document.createElement('li');
+        li.textContent = r;
+        return li;
+      }));
 
       // Fetch Latest Git Diff
       fetch('/api/v1/diff/latest')
@@ -643,13 +666,11 @@
     function renderQuickSwitcher(roster) {
       const container = document.getElementById('rosterQuickPills');
       if (!container) return;
-      container.innerHTML = roster.map(a => `
-        <button onclick="focusOnAgent('${a.id}')" 
-                class="px-2.5 py-1 rounded-lg bg-cyber-850 hover:bg-cyber-800 border border-cyber-700/60 text-slate-300 hover:text-white transition whitespace-nowrap flex items-center space-x-1.5">
-          <span class="w-2 h-2 rounded-full" style="background-color: ${a.accent_color}"></span>
-          <span>${a.name}</span>
-        </button>
-      `).join('');
+      container.replaceChildren(...roster.map(a => {
+        const button=document.createElement('button'); button.className='px-2.5 py-1 rounded-lg bg-cyber-850 hover:bg-cyber-800 border border-cyber-700/60 text-slate-300 hover:text-white transition whitespace-nowrap flex items-center space-x-1.5';
+        const dot=document.createElement('span'); dot.className='w-2 h-2 rounded-full'; dot.style.backgroundColor=safeAccent(a.accent_color);
+        const name=document.createElement('span'); name.textContent=a.name; button.append(dot,name); button.addEventListener('click',()=>focusOnAgent(a.id)); return button;
+      }));
     }
 
     
@@ -675,33 +696,90 @@
       return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     }
 
-    async function hydrateKanban(boardSlug) {
-      const select = document.getElementById('kanbanBoardSelect');
-      const boardData = await fetch('/api/v1/kanban/boards').then(r => r.json());
-      if (!boardSlug) boardSlug = boardData.boards.find(b => b.total_tasks > 0)?.slug || boardData.boards[0]?.slug;
-      if (!boardSlug) return;
-      select.innerHTML = boardData.boards.map(b => `<option value="${esc(b.slug)}" ${b.slug === boardSlug ? 'selected' : ''}>${esc(b.name)} (${b.total_tasks})</option>`).join('');
-      const data = await fetch(`/api/v1/kanban/tasks?board=${encodeURIComponent(boardSlug)}`).then(r => r.json());
-      const labels = {todo:'Backlog / Todo', in_progress:'In Progress', review:'Review', done:'Done', blocked:'Blocked'};
-      const colors = {todo:'slate', in_progress:'sky', review:'amber', done:'emerald', blocked:'rose'};
-      document.getElementById('kanbanColumns').innerHTML = Object.keys(labels).map(key => {
-        const tasks = data.columns[key] || [];
-        return `<section class="rounded-xl bg-cyber-900 border border-cyber-800 p-3 min-h-48">
-          <header class="flex justify-between mb-3 text-xs font-bold"><span class="text-${colors[key]}-400">${labels[key]}</span><span class="font-mono text-slate-500">${tasks.length}</span></header>
-          <div class="space-y-2">${tasks.map(t => {
-            const agent = globalRoster.find(a => a.id === t.assignee);
-            return `<article class="rounded-lg bg-cyber-950 border border-cyber-800 p-3 space-y-2">
-              <div class="font-mono text-[9px] text-slate-500">${esc(t.id)}</div><div class="text-xs font-semibold text-white leading-snug">${esc(t.title)}</div>
-              <div class="flex justify-between items-center"><span class="px-2 py-0.5 rounded text-[9px] font-bold" style="color:${agent?.accent_color || '#94a3b8'};background:${agent?.accent_color || '#94a3b8'}20">${esc(t.assignee || 'unassigned')}</span><span class="text-[9px] text-amber-400">P${esc(t.priority ?? 0)}</span></div>
-              ${(t.parents||[]).length ? `<div class="text-[9px] text-sky-400">↑ Parent: ${t.parents.map(esc).join(', ')}</div>` : ''}${(t.children||[]).length ? `<div class="text-[9px] text-purple-400">↓ Child: ${t.children.map(esc).join(', ')}</div>` : ''}
-              <div class="text-[9px] ${t.is_stale ? 'text-rose-400' : t.liveness === 'ACTIVE' ? 'text-emerald-400' : 'text-slate-500'}">${esc(t.liveness_label)}</div>
-            </article>`;
-          }).join('') || '<p class="text-[10px] text-slate-600">No tasks</p>'}</div></section>`;
-      }).join('');
-      const history = await fetch(`/api/v1/kanban/events?board=${encodeURIComponent(boardSlug)}&limit=50`).then(r => r.json());
-      const feed = document.getElementById('kanbanEventFeed');
-      if (feed) feed.innerHTML = history.events.map(e => `<div class="py-2"><span class="text-slate-500">${esc(e.created_at)}</span> <span class="text-emerald-400">${esc(e.kind)}</span> <span class="text-sky-400">${esc(e.task_id)}</span> <span class="text-slate-300">${esc(e.title || '')}</span></div>`).join('');
+    const KANBAN_STATUSES = ['triage', 'todo', 'ready', 'running', 'review', 'blocked', 'done', 'failed', 'archived'];
+    const STATUS_LABELS = {triage:'Triage',todo:'Todo',ready:'Queued',running:'Running',review:'Review',blocked:'Blocked',done:'Done',failed:'Failed',archived:'Archived'};
+    let activeBoard = new URLSearchParams(location.search).get('board') || localStorage.getItem('cockpit.board') || '';
+    let kanbanRequest = 0;
+    let kanbanAbort = null;
+    let eventSource = null;
+    let lastSnapshot = null;
+
+    function setNodeText(id, value) { const el = document.getElementById(id); if (el) el.textContent = String(value ?? ''); }
+    function setBoardPreference(slug) {
+      activeBoard = slug;
+      localStorage.setItem('cockpit.board', slug);
+      const url = new URL(location.href); url.searchParams.set('board', slug); history.replaceState(null, '', url);
     }
+    function safeAccent(value) { return /^#[0-9a-f]{6}$/i.test(value || '') ? value : '#94a3b8'; }
+    function showKanbanState(message) { const el=document.getElementById('kanbanState'); if(!el)return; el.textContent=message; el.classList.toggle('hidden', !message); }
+
+    async function hydrateKanban(boardSlug) {
+      const requestId = ++kanbanRequest;
+      if (kanbanAbort) kanbanAbort.abort();
+      kanbanAbort = new AbortController();
+      const signal = kanbanAbort.signal;
+      const select = document.getElementById('kanbanBoardSelect');
+      showKanbanState('Loading board…');
+      try {
+        const boardRes = await fetch('/api/v1/kanban/boards', {signal});
+        if (!boardRes.ok) throw new Error(`Boards HTTP ${boardRes.status}`);
+        const boardData = await boardRes.json();
+        const boards = boardData.boards || [];
+        boardSlug = boardSlug || activeBoard || boards.find(b => b.total_tasks > 0)?.slug || boards[0]?.slug;
+        const selected = boards.find(b => b.slug === boardSlug);
+        if (!selected) throw new Error(boardSlug ? `Board “${boardSlug}” is unavailable` : 'No Kanban boards available');
+        if (requestId !== kanbanRequest) return;
+        setBoardPreference(boardSlug);
+        select.replaceChildren(...boards.map(b => { const o=document.createElement('option'); o.value=b.slug; o.textContent=`${b.name} (${b.total_tasks})`; o.selected=b.slug===boardSlug; return o; }));
+        const [taskRes, historyRes] = await Promise.all([
+          fetch(`/api/v1/kanban/tasks?board=${encodeURIComponent(boardSlug)}`, {signal}),
+          fetch(`/api/v1/kanban/events?board=${encodeURIComponent(boardSlug)}&limit=50`, {signal})
+        ]);
+        if (!taskRes.ok || !historyRes.ok) throw new Error(`Board data HTTP ${taskRes.status}/${historyRes.status}`);
+        const [data, history] = await Promise.all([taskRes.json(), historyRes.json()]);
+        if (requestId !== kanbanRequest || boardSlug !== activeBoard) return;
+        renderKanbanColumns(data.columns || {}, boardSlug);
+        renderKanbanEvents(history.events || []);
+        showKanbanState('');
+        connectSSE(boardSlug);
+      } catch (error) {
+        if (error.name !== 'AbortError' && requestId === kanbanRequest) { showKanbanState(error.message); document.getElementById('kanbanColumns').replaceChildren(); }
+      }
+    }
+
+    function renderKanbanColumns(columns, boardSlug) {
+      const root = document.getElementById('kanbanColumns');
+      const present = new Set(Object.keys(columns));
+      const statuses = [...KANBAN_STATUSES.filter(s => present.has(s)), ...Object.keys(columns).filter(s => !KANBAN_STATUSES.includes(s))];
+      root.replaceChildren(...statuses.map(status => {
+        const section=document.createElement('section'); section.className='rounded-xl bg-cyber-900 border border-cyber-800 p-3 min-h-48';
+        const header=document.createElement('header'); header.className='flex justify-between mb-3 text-xs font-bold';
+        const label=document.createElement('span'); label.className=status==='running'?'text-emerald-400':status==='ready'?'text-sky-400':status==='blocked'||status==='failed'?'text-rose-400':'text-slate-300'; label.textContent=STATUS_LABELS[status] || status;
+        const count=document.createElement('span'); count.className='font-mono text-slate-500'; count.textContent=(columns[status]||[]).length; header.append(label,count);
+        const list=document.createElement('div'); list.className='space-y-2';
+        (columns[status]||[]).forEach(task => list.appendChild(buildTaskCard(task, boardSlug)));
+        if (!list.children.length) { const p=document.createElement('p'); p.className='text-[10px] text-slate-600'; p.textContent='No tasks'; list.appendChild(p); }
+        section.append(header,list); return section;
+      }));
+    }
+    function buildTaskCard(task, boardSlug) {
+      const card=document.createElement('button'); card.type='button'; card.className='block w-full text-left rounded-lg bg-cyber-950 border border-cyber-800 hover:border-sky-500 p-3 space-y-2';
+      const id=document.createElement('div'); id.className='font-mono text-[9px] text-slate-500'; id.textContent=task.id;
+      const title=document.createElement('div'); title.className='text-xs font-semibold text-white leading-snug'; title.textContent=task.title;
+      const meta=document.createElement('div'); meta.className='flex justify-between text-[9px]'; const assignee=document.createElement('span'); assignee.textContent=task.assignee||'unassigned'; assignee.style.color=safeAccent(globalRoster.find(a=>a.id===task.assignee)?.accent_color); const priority=document.createElement('span'); priority.className='text-amber-400'; priority.textContent=`P${task.priority ?? 0}`; meta.append(assignee,priority);
+      const deps=document.createElement('div'); deps.className='text-[9px] text-sky-400'; deps.textContent=`Dependencies: ${(task.parents||[]).join(', ') || 'none'} · Children: ${(task.children||[]).length}`;
+      const updated=document.createElement('div'); updated.className='text-[9px] text-slate-500'; updated.textContent=`Updated ${task.updated_at || task.created_at || 'unknown'}`;
+      card.append(id,title,meta,deps,updated);
+      if (task.liveness === 'ACTIVE' || task.is_stale) { const live=document.createElement('div'); live.className=`text-[9px] ${task.is_stale?'text-rose-400':'text-emerald-400'}`; live.textContent=task.liveness_label || task.liveness; card.appendChild(live); }
+      card.addEventListener('click',()=>openTaskDetail(boardSlug,task.id)); return card;
+    }
+    function renderKanbanEvents(events) { const feed=document.getElementById('kanbanEventFeed'); feed.replaceChildren(...events.map(e=>{const row=document.createElement('div');row.className='py-2 text-slate-300';row.textContent=`${e.created_at||'unknown'}  ${e.kind||'event'}  ${e.task_id||''}  ${e.title||''}`;return row;})); }
+    async function openTaskDetail(board, taskId) {
+      const modal=document.getElementById('taskDetailModal'); modal.classList.remove('hidden'); setNodeText('taskDetailTitle','Loading task…'); setNodeText('taskDetailMeta',`${board} · ${taskId}`); const body=document.getElementById('taskDetailBody'); body.replaceChildren();
+      try { const res=await fetch(`/api/v1/kanban/task/${encodeURIComponent(taskId)}?board=${encodeURIComponent(board)}`); if(!res.ok)throw new Error(`Task detail HTTP ${res.status}`); const d=await res.json(); setNodeText('taskDetailTitle',d.task.title); renderTaskDetail(body,d); } catch(error) { body.textContent=error.message; }
+    }
+    function detailSection(title, rows) { const section=document.createElement('section'); const h=document.createElement('h4');h.className='font-bold text-white mb-2';h.textContent=title;section.appendChild(h);(rows||[]).forEach(item=>{const pre=document.createElement('pre');pre.className='whitespace-pre-wrap break-all rounded bg-black/40 border border-cyber-800 p-2 text-[10px] text-slate-300';pre.textContent=JSON.stringify(item,null,2);section.appendChild(pre);});if(!(rows||[]).length){const p=document.createElement('p');p.className='text-slate-500';p.textContent='No records';section.appendChild(p);}return section; }
+    function renderTaskDetail(body,d) { body.replaceChildren(detailSection('Task',[d.task]),detailSection('Comments',d.comments),detailSection('Run history',d.runs),detailSection('Events',d.events)); }
 
     let selectedTranscript = null;
     function renderObservability(snapshot) {
@@ -717,13 +795,41 @@
       const d = await fetch(`/api/v1/delegations/${encodeURIComponent(id)}/transcript/${idx}?profile=${encodeURIComponent(profile)}`).then(r => r.json());
       document.getElementById('liveChildTranscript').textContent = d.transcript || d.detail || 'Transcript unavailable';
     }
-    function connectSSE() {
-      const source = new EventSource('/api/v1/stream/events?board=bitcoin-data-platform');
+    function updateOperationalSummary(snapshot) {
+      lastSnapshot = snapshot;
+      const workers = snapshot.workers?.workers || [];
+      const columns = snapshot.kanban?.columns || {};
+      const running = workers.filter(w => w.liveness === 'ACTIVE' && !w.is_stale).length;
+      const stale = workers.filter(w => w.is_stale || w.liveness === 'UNKNOWN').length;
+      const blocked = (columns.blocked || []).length + stale;
+      const delegations = (snapshot.delegations || []).filter(d => d.status === 'running').length;
+      setNodeText('opsRunning', running); setNodeText('opsQueued', (columns.ready || []).length); setNodeText('opsBlocked', blocked); setNodeText('opsDelegations', delegations);
+      setNodeText('opsObserved', snapshot.emitted_at ? `Observed ${snapshot.emitted_at}` : 'Evidence time unavailable');
+      const latest = (snapshot.telemetry || [])[0] || (snapshot.events || [])[0];
+      setNodeText('opsLatest', latest ? `${latest.observed_at || latest.created_at || latest.time || 'unknown'} · ${latest.agent || latest.task_id || 'system'} · ${latest.detail || latest.kind || latest.title || 'activity'}` : 'No observed activity');
+      setNodeText('warRosterEvidence', `${running} active · ${stale} stale/unknown`);
+      renderAuditTimeline();
+    }
+    function connectSSE(boardSlug = activeBoard) {
+      if (!boardSlug || (eventSource && eventSource.datasetBoard === boardSlug)) return;
+      if (eventSource) eventSource.close();
+      const source = new EventSource(`/api/v1/stream/events?board=${encodeURIComponent(boardSlug)}`);
+      source.datasetBoard = boardSlug; eventSource = source;
       const status = document.getElementById('sseStatus');
-      source.onopen = () => { status.className='inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'; status.lastChild.textContent=' SSE LIVE'; };
-      source.addEventListener('snapshot', ev => { const data=JSON.parse(ev.data); renderObservability(data); if(currentView==='war') hydrateKanban(data.board); });
-      source.onerror = () => { status.className='inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/30'; status.lastChild.textContent=' SSE RECONNECTING'; };
-      window.addEventListener('beforeunload', () => source.close(), {once:true});
+      source.onopen = () => { if(source!==eventSource)return; status.className='inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'; status.lastChild.textContent=' SSE LIVE'; };
+      source.addEventListener('snapshot', ev => { if(source!==eventSource)return; const data=JSON.parse(ev.data); if(data.board!==activeBoard)return; renderObservability(data); updateOperationalSummary(data); if(currentView==='war' && data.kanban) { renderKanbanColumns(data.kanban.columns||{}, data.board); renderKanbanEvents(data.events||[]); } });
+      source.onerror = () => { if(source!==eventSource)return; status.className='inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/30'; status.lastChild.textContent=' SSE RECONNECTING'; };
+    }
+    function renderAuditTimeline() {
+      const root=document.getElementById('auditTimeline'); if(!root||!lastSnapshot)return;
+      const profile=document.getElementById('auditProfileFilter')?.value||''; const status=document.getElementById('auditStatusFilter')?.value||''; const hours=Number(document.getElementById('auditTimeFilter')?.value||0); const cutoff=hours?Date.now()-hours*3600000:0;
+      const rows=[];
+      (lastSnapshot.delegations||[]).forEach(d=>{ rows.push({time:d.started_at,status:d.status,profile:d.profile,source:'delegation manifest',label:`delegation ${d.delegation_id}`}); (d.children||[]).forEach(c=>rows.push({time:c.last_activity_at,status:c.is_stale?'stale':c.status,profile:d.profile,source:'child log',label:`${d.delegation_id} → task-${c.task_idx}: ${c.goal||''}`})); });
+      (lastSnapshot.telemetry||[]).forEach(e=>rows.push({time:e.observed_at||e.time,status:e.status||e.type,profile:e.agent,source:'telemetry',label:`${e.type||'step'}: ${e.detail||''}`}));
+      const profiles=[...new Set(rows.map(r=>r.profile).filter(Boolean))]; const selector=document.getElementById('auditProfileFilter'); const selected=selector.value; selector.replaceChildren(Object.assign(document.createElement('option'),{value:'',textContent:'All profiles'}),...profiles.map(p=>Object.assign(document.createElement('option'),{value:p,textContent:p}))); selector.value=selected;
+      const filtered=rows.filter(r=>(!profile||r.profile===profile)&&(!status||r.status===status)&&(!cutoff||Date.parse(r.time)>=cutoff)).sort((a,b)=>(Date.parse(b.time)||0)-(Date.parse(a.time)||0));
+      root.replaceChildren(...filtered.map(r=>{const row=document.createElement('div');row.className='rounded-lg border border-cyber-800 bg-black/30 p-3';const top=document.createElement('div');top.className='flex justify-between gap-3 font-mono text-[10px]';top.textContent=`${r.time||'unknown'} · ${r.profile||'unknown'} · ${r.status||'unknown'} · source: ${r.source}`;const label=document.createElement('div');label.className='mt-1 text-slate-300 break-all';label.textContent=r.label;row.append(top,label);return row;}));
+      if(!filtered.length) root.textContent='No audit records match the filters.';
     }
 
     // --- Full Payload Modal ---
@@ -791,13 +897,13 @@
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-cyber-800 pb-2">
                 <div class="flex items-center space-x-2.5">
                   <span class="w-3 h-3 rounded-full ${t.status === 'error' ? 'bg-red-400 animate-pulse' : 'bg-emerald-400'}"></span>
-                  <span class="font-extrabold text-white text-sm">👑 vps-boss ➔ 🤖 ${t.agent}</span>
+                  <span class="font-extrabold text-white text-sm">👑 vps-boss ➔ 🤖 ${esc(t.agent)}</span>
                   <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/30">
-                    ${t.model}
+                    ${esc(t.model)}
                   </span>
                 </div>
                 <div class="flex items-center space-x-2 text-xs font-mono text-slate-400">
-                  <span>${t.started_at || 'recent'}</span>
+                  <span>${esc(t.started_at || 'recent')}</span>
                   <span class="px-2 py-0.5 rounded ${t.status === 'error' ? 'bg-red-500/20 text-red-400' : 'bg-emerald-500/20 text-emerald-400'} font-bold">
                     ${t.total_steps} steps ${t.error_count > 0 ? `(${t.error_count} ERRORS)` : ''}
                   </span>
@@ -806,7 +912,7 @@
 
               <!-- Goal Prompt -->
               <div class="p-2.5 rounded-xl bg-cyber-950/80 border border-cyber-800 text-xs text-slate-300">
-                <span class="font-bold text-blue-400">Delegation Goal:</span> ${t.goal}
+                <span class="font-bold text-blue-400">Delegation Goal:</span> ${esc(t.goal)}
               </div>
 
               <!-- Sequential Execution Steps -->
@@ -814,12 +920,12 @@
                 ${t.steps.map(s => `
                   <div class="p-2 rounded-lg bg-black/40 border ${s.status === 'error' ? 'border-red-500/50 text-red-300' : 'border-cyber-800/60 text-slate-300'} flex items-start justify-between gap-2">
                     <div class="flex-1 min-w-0 break-all whitespace-pre-wrap">
-                      <span class="font-bold ${s.status === 'error' ? 'text-red-400' : 'text-emerald-400'}">${s.tool}:</span>
-                      <span class="text-slate-400 text-[11px]">${s.args || ''}</span>
+                      <span class="font-bold ${s.status === 'error' ? 'text-red-400' : 'text-emerald-400'}">${esc(s.tool)}:</span>
+                      <span class="text-slate-400 text-[11px]">${esc(s.args || '')}</span>
                     </div>
                     <div class="flex items-center space-x-2 shrink-0">
                       ${s.duration ? `<span class="text-[10px] text-slate-500">${s.duration}</span>` : ''}
-                      <button onclick='openPayloadModal("Step: ${s.tool}", ${JSON.stringify(s.output || s.args || "")})' 
+                      <button data-payload-title="${esc(encodeURIComponent(`Step: ${s.tool}`))}" data-payload="${esc(encodeURIComponent(s.output || s.args || ''))}" onclick="openPayloadModal(decodeURIComponent(this.dataset.payloadTitle), decodeURIComponent(this.dataset.payload))"
                               class="px-2 py-0.5 rounded bg-cyber-800 hover:bg-cyber-700 text-[10px] text-blue-400 hover:text-white transition">
                         Payload ↗
                       </button>
@@ -852,14 +958,14 @@
             listEl.innerHTML = d.errors.map(err => `
               <div class="p-3.5 rounded-xl bg-red-950/20 border border-red-500/30 space-y-1.5">
                 <div class="flex items-center justify-between text-[11px]">
-                  <span class="font-bold text-red-400">${err.agent} ➔ ${err.tool}</span>
-                  <span class="text-slate-500">${err.time || 'recent'}</span>
+                  <span class="font-bold text-red-400">${esc(err.agent)} ➔ ${esc(err.tool)}</span>
+                  <span class="text-slate-500">${esc(err.time || 'recent')}</span>
                 </div>
-                <div class="text-[11px] text-slate-300 font-mono bg-black/40 p-2 rounded truncate" title="${err.command}">
-                  $ ${err.command}
+                <div class="text-[11px] text-slate-300 font-mono bg-black/40 p-2 rounded truncate" title="${esc(err.command)}">
+                  $ ${esc(err.command)}
                 </div>
                 <div class="text-[10px] text-red-300/80 bg-red-900/10 p-2 rounded">
-                  ${err.error_output}
+                  ${esc(err.error_output)}
                 </div>
               </div>
             `).join('');
@@ -876,11 +982,11 @@
             streamEl.innerHTML = d.events.map(e => `
               <div class="py-2.5 flex flex-col space-y-1">
                 <div class="flex items-center justify-between text-[11px]">
-                  <span class="font-bold text-blue-400">${e.agent}</span>
-                  <span class="text-slate-500">${e.time}</span>
+                  <span class="font-bold text-blue-400">${esc(e.agent)}</span>
+                  <span class="text-slate-500">${esc(e.time)}</span>
                 </div>
-                <div class="text-[11px] text-slate-300 break-all" title="${e.detail}">${e.detail}</div>
-                ${e.goal ? `<div class="text-[10px] text-slate-500 italic truncate">${e.goal}</div>` : ''}
+                <div class="text-[11px] text-slate-300 break-all" title="${esc(e.detail)}">${esc(e.detail)}</div>
+                ${e.goal ? `<div class="text-[10px] text-slate-500 italic truncate">${esc(e.goal)}</div>` : ''}
               </div>
             `).join('');
           }
@@ -905,7 +1011,11 @@
     function initApp() {
       window.officeSim = new CyberOfficeSimulation('simCanvas');
       syncRosterData();
-      connectSSE();
+      hydrateKanban(activeBoard);
+      document.getElementById('taskDetailClose').addEventListener('click',()=>document.getElementById('taskDetailModal').classList.add('hidden'));
+      ['auditProfileFilter','auditStatusFilter','auditTimeFilter'].forEach(id=>document.getElementById(id).addEventListener('change',renderAuditTimeline));
+      document.querySelectorAll('[data-ops-filter]').forEach(button=>button.addEventListener('click',()=>{switchView('war');setWarRoomSubTab(button.dataset.opsFilter==='delegation'?'observability':'kanban');}));
+      window.addEventListener('beforeunload',()=>eventSource?.close(),{once:true});
       setInterval(syncRosterData, 15000);
     }
 
@@ -916,6 +1026,8 @@
     }
   </script>
 
+
+  <div id="taskDetailModal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"><div class="bg-cyber-900 border border-cyber-700 rounded-2xl max-w-4xl w-full max-h-[88vh] flex flex-col"><header class="p-4 border-b border-cyber-800 flex justify-between"><div><h3 id="taskDetailTitle" class="font-bold text-white">Task detail</h3><p id="taskDetailMeta" class="text-[10px] text-slate-400 font-mono"></p></div><button id="taskDetailClose" class="px-2 text-slate-400" aria-label="Close task detail">✕</button></header><div id="taskDetailBody" class="p-4 overflow-y-auto space-y-4 text-xs"></div></div></div>
 
   <!-- Full Payload Expander Modal -->
   <div id="payloadModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">

@@ -14,6 +14,7 @@ import yaml
 import subprocess
 import sqlite3
 import asyncio
+import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Any, List, Optional
@@ -97,22 +98,35 @@ def _epoch(value: Any) -> Optional[float]:
         return None
 
 
-def _liveness(last_heartbeat: Any, worker_pid: Optional[int], status: str, fallback_activity: Any = None) -> Dict[str, Any]:
+def _liveness(last_heartbeat: Any, worker_pid: Optional[int], status: str, fallback_activity: Any = None,
+              claim_expires: Any = None, worker_started_at: Any = None) -> Dict[str, Any]:
     now = time.time()
     heartbeat = _epoch(last_heartbeat) or _epoch(fallback_activity)
     age = max(0, int(now - heartbeat)) if heartbeat else None
-    running = status.lower() in {"running", "in_progress", "in-progress", "ready", "claimed"}
+    running = status.lower() in {"running", "in_progress", "in-progress", "claimed", "active"}
     pid_alive = _pid_alive(worker_pid) if worker_pid else None
-    stale = bool(running and (heartbeat is None or age > STALE_HEARTBEAT_SECONDS or pid_alive is False))
+    lease = _epoch(claim_expires)
+    lease_expired = bool(lease is not None and lease <= now)
+    stale = bool(running and (heartbeat is None or age > min(STALE_HEARTBEAT_SECONDS, 120) or
+                              pid_alive is not True or lease_expired))
     if stale:
-        reason = "PID not alive" if pid_alive is False else (f"no heartbeat {age // 60}m {age % 60}s" if age is not None else "no heartbeat")
+        reason = ("PID not alive" if pid_alive is False else "PID unavailable" if pid_alive is None else
+                  "lease expired" if lease_expired else
+                  (f"heartbeat is {age}s old" if age is not None else "no heartbeat"))
         label = f"⚠️ STALE ({reason})"
         state = "STALE"
-    elif running and heartbeat and (pid_alive is not False):
+    elif running and heartbeat and pid_alive is True:
         label, state = "Active", "ACTIVE"
+    elif running:
+        label, state = "Unknown", "UNKNOWN"
     else:
         label, state = "Idle", "IDLE"
-    return {"is_stale": stale, "liveness": state, "liveness_label": label, "heartbeat_age_seconds": age, "pid_alive": pid_alive}
+    return {"is_stale": stale, "liveness": state, "liveness_label": label,
+            "heartbeat_age_seconds": age, "pid_alive": pid_alive, "lease_expired": lease_expired,
+            "observed_at": datetime.now(timezone.utc).isoformat(),
+            "evidence": {"status": status, "heartbeat": last_heartbeat,
+                         "worker_pid": worker_pid, "worker_started_at": worker_started_at,
+                         "claim_expires": claim_expires}}
 
 
 def _kanban_boards() -> List[Dict[str, Any]]:
@@ -145,7 +159,10 @@ def _task_payload(row: sqlite3.Row, board: str, links: Optional[List[Dict[str, s
     item = dict(row)
     raw_heartbeat = item.get("last_heartbeat_at")
     raw_activity = raw_heartbeat or item.get("started_at") or item.get("created_at")
-    item.update(_liveness(raw_heartbeat, item.get("worker_pid"), item.get("status", ""), raw_activity))
+    item.update(_liveness(raw_heartbeat, item.get("worker_pid"), item.get("status", ""), raw_activity,
+                          item.get("claim_expires"), item.get("worker_started_at")))
+    item["execution_state"] = ({"ready": "QUEUED", "todo": "TODO", "blocked": "BLOCKED"}
+                               .get(str(item.get("status", "")).lower(), item["liveness"]))
     for key in ("created_at", "started_at", "completed_at", "last_heartbeat_at", "worker_started_at", "claim_expires"):
         if key in item:
             item[key] = _iso_timestamp(item[key])
@@ -155,18 +172,17 @@ def _task_payload(row: sqlite3.Row, board: str, links: Optional[List[Dict[str, s
     return redact_payload(item)
 
 
-def get_active_kanban_tasks() -> Dict[str, Dict[str, Any]]:
-    """Return the newest non-terminal Kanban assignment for each agent."""
-    active: Dict[str, Dict[str, Any]] = {}
-    terminal = {"done", "completed", "cancelled", "archived"}
+def get_active_kanban_tasks() -> Dict[str, List[Dict[str, Any]]]:
+    """Return every evidenced live run, grouped by profile (never queued assignments)."""
+    active: Dict[str, List[Dict[str, Any]]] = {}
     for board in _kanban_boards():
         try:
             with _kanban_db(board["slug"]) as conn:
-                rows = conn.execute("SELECT * FROM tasks WHERE assignee IS NOT NULL ORDER BY created_at DESC").fetchall()
+                rows = conn.execute("SELECT * FROM tasks WHERE assignee IS NOT NULL AND lower(status) IN ('running','in_progress','in-progress','claimed') ORDER BY last_heartbeat_at DESC").fetchall()
             for row in rows:
                 task = _task_payload(row, board["slug"])
-                if task.get("status", "").lower() not in terminal and task["assignee"] not in active:
-                    active[task["assignee"]] = task
+                if task["liveness"] == "ACTIVE":
+                    active.setdefault(task["assignee"], []).append(task)
         except sqlite3.Error:
             continue
     return active
@@ -599,6 +615,83 @@ def build_hierarchical_dag(limit: int = 10) -> List[Dict[str, Any]]:
     return list(reversed(trees))
 
 
+def _bounded_log_lines(path: Path, maximum: int = MAX_TRANSCRIPT_BYTES) -> tuple[List[str], bool]:
+    size = path.stat().st_size
+    with path.open("rb") as stream:
+        if size > maximum:
+            stream.seek(size - maximum)
+            stream.readline()
+        raw = stream.read(maximum)
+    return raw.decode("utf-8", errors="replace").splitlines(), size > maximum
+
+
+def _delegation_records(limit: int = 50) -> List[Dict[str, Any]]:
+    """Unified bounded adapter for every profile, manifest, and child log."""
+    roots = list(PROFILES_DIR.glob("*/cache/delegation/live/*"))
+    roots.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    records = []
+    for root in roots[:limit]:
+        manifest_path, manifest, gap = root / "manifest.json", {}, None
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            gap = type(exc).__name__
+        delegation_id = str(manifest.get("delegation_id") or root.name)
+        declared = {int(t.get("index", i)): t for i, t in enumerate(manifest.get("tasks") or [])}
+        indexes = set(declared)
+        for log in root.glob("task-*.log"):
+            match = re.fullmatch(r"task-(\d+)\.log", log.name)
+            if match:
+                indexes.add(int(match.group(1)))
+        children = []
+        for idx in sorted(indexes):
+            task, log_path = declared.get(idx, {}), root / f"task-{idx}.log"
+            lines, truncated = _bounded_log_lines(log_path) if log_path.is_file() else ([], False)
+            role = task.get("profile") or task.get("agent") or task.get("role")
+            if not role:
+                match = next((re.search(r"Role:\s*([\w-]+)", line) for line in lines[:20] if "Role:" in line), None)
+                role = match.group(1) if match else "unknown"
+            status = {"done": "completed", "error": "failed"}.get(str(task.get("status") or "unknown").lower(), str(task.get("status") or "unknown").lower())
+            status = status if status in {"running", "completed", "failed", "stalled", "unknown"} else "unknown"
+            mtime = log_path.stat().st_mtime if log_path.is_file() else manifest_path.stat().st_mtime if manifest_path.exists() else root.stat().st_mtime
+            if status == "running" and time.time() - mtime > min(STALE_HEARTBEAT_SECONDS, 120):
+                status = "stalled"
+            steps, pending = [], None
+            for number, line in enumerate(lines, 1):
+                parts = line.strip().split("|", 2)
+                detail, timestamp = parts[-1].strip(), parts[0].strip() if len(parts) > 1 else None
+                call = re.search(r"->\s*([A-Za-z0-9_]+)\(", detail)
+                if " tool " in line or call:
+                    pending = {"id": f"{delegation_id}:{idx}:{number}", "type": "tool_start", "tool": call.group(1) if call else "tool", "timestamp": timestamp, "status": "running", "source": f"task-{idx}.log", "detail": redact_text(detail)}
+                    steps.append(pending)
+                elif " result " in line:
+                    steps.append({"id": f"{delegation_id}:{idx}:{number}", "type": "tool_result", "tool": pending.get("tool") if pending else "result", "timestamp": timestamp, "status": "observed", "source": f"task-{idx}.log", "detail": redact_text(detail)})
+                    if pending:
+                        pending["status"], pending = "completed", None
+            children.append(redact_payload({"id": f"{delegation_id}:{idx}", "task_idx": idx, "session_id": task.get("session_id"), "tool_call_id": task.get("tool_call_id"), "parent_id": delegation_id, "agent": role, "goal": task.get("goal", ""), "status": status, "exit_reason": task.get("exit_reason"), "last_activity_at": _iso_timestamp(int(mtime)), "log_available": log_path.is_file(), "log_truncated": truncated, "steps": steps}))
+        statuses = {child["status"] for child in children}
+        overall = "failed" if "failed" in statuses else "running" if "running" in statuses else "stalled" if "stalled" in statuses else "completed" if children and statuses == {"completed"} else "unknown"
+        records.append(redact_payload({"id": delegation_id, "delegation_id": delegation_id, "profile": root.parents[3].name, "parent_id": manifest.get("parent_id"), "started_at": manifest.get("started"), "completed_at": manifest.get("completed"), "model": manifest.get("model"), "provider": manifest.get("provider"), "status": overall, "source": str(manifest_path), "data_gap": gap, "parallel": len(children) > 1, "children": children}))
+    return records
+
+
+def parse_delegation_stream(limit: int = 25) -> List[Dict[str, Any]]:
+    events = []
+    for record in _delegation_records(limit):
+        for child in record["children"]:
+            for step in child["steps"]:
+                events.append({**step, "agent": child["agent"], "delegation_id": record["delegation_id"], "task_idx": child["task_idx"], "goal": child["goal"], "station": categorize_tool_station(step["detail"], child["agent"])})
+    return events[-limit:]
+
+
+def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
+    return [{"id": r["id"], "sender": r["profile"], "receiver": c["agent"], "started_at": r["started_at"], "completed_at": r["completed_at"], "status": c["status"], "is_running": c["status"] == "running", "is_live": c["status"] == "running", "completed_recently": False, "boss_order": c["goal"], "subagent_reply": "", "tools_used": list(dict.fromkeys(s["tool"] for s in c["steps"]))} for r in _delegation_records(limit) for c in r["children"]][:limit]
+
+
+def build_hierarchical_dag(limit: int = 10) -> List[Dict[str, Any]]:
+    return [{"delegation_id": r["delegation_id"], "root_agent": r["profile"], "agent": c["agent"], "model": r["model"], "provider": r["provider"], "goal": c["goal"], "started_at": r["started_at"], "completed_at": r["completed_at"], "status": c["status"], "total_steps": len(c["steps"]), "error_count": int(c["status"] == "failed"), "steps": c["steps"]} for r in _delegation_records(limit) for c in r["children"]][:limit]
+
+
 def extract_execution_errors(limit: int = 25) -> List[Dict[str, Any]]:
     """Scans recent delegation logs for failed commands, errors, and warnings."""
     dags = build_hierarchical_dag(limit=15)
@@ -697,9 +790,10 @@ def get_agents_roster() -> Dict[str, Any]:
             "vps-assistant": {"project": "General Operations", "phase": "Server Automation & Utility Scripts"}
         }
         proj_info = project_map.get(agent_id, {"project": "Global Control", "phase": "Standard Active"})
-        kanban_task = active_kanban.get(agent_id)
+        active_runs = active_kanban.get(agent_id, [])
+        kanban_task = active_runs[0] if active_runs else None
         if kanban_task:
-            state = state if state != "IDLE" else "EXECUTING"
+            state = "EXECUTING"
             status_desc = f"Kanban {kanban_task['id']}: {kanban_task['title']}"
             proj_info = {
                 "project": kanban_task["board"].replace("-", " ").title(),
@@ -728,7 +822,9 @@ def get_agents_roster() -> Dict[str, Any]:
                 "detail": status_desc,
                 "time": kanban_task.get("created_at"),
             } if kanban_task else None),
-            "kanban_task": kanban_task
+            "kanban_task": kanban_task,
+            "active_runs": active_runs,
+            "observed_at": datetime.now(timezone.utc).isoformat()
         })
 
     return {
@@ -877,16 +973,39 @@ def get_dag_trace(limit: int = Query(default=8, ge=1, le=20)) -> Dict[str, Any]:
 def get_triage_errors(limit: int = Query(default=20, ge=1, le=50)) -> Dict[str, Any]:
     """Returns failure triage stream of detected errors, failed commands, and loop warnings."""
     errors = extract_execution_errors(limit=limit)
-    return {
-        "status": "success",
-        "total_errors": len(errors),
-        "errors": errors,
-        "timestamp": datetime.now(timezone.utc).isoformat()
-    }
+    return {"status": "success", "total_errors": len(errors), "errors": errors,
+            "timestamp": datetime.now(timezone.utc).isoformat()}
 
 
-def _delegation_records(limit: int = 50) -> List[Dict[str, Any]]:
-    """Scan every profile's live delegation manifests and normalize parallel children."""
+@app.get("/api/v1/audit/timeline")
+def get_audit_timeline(board: Optional[str] = None, profile: Optional[str] = None,
+                       status: Optional[str] = None, since: Optional[str] = None,
+                       limit: int = Query(default=200, ge=1, le=500)) -> Dict[str, Any]:
+    """Correlated task/run/delegation/child/tool audit trail with source attribution."""
+    items: List[Dict[str, Any]] = []
+    boards = [b for b in _kanban_boards() if not board or b["slug"] == board]
+    for entry in boards:
+        try:
+            with _kanban_db(entry["slug"]) as conn:
+                rows = conn.execute("SELECT e.id,e.task_id,e.run_id,e.kind,e.payload,e.created_at,t.assignee FROM task_events e LEFT JOIN tasks t ON t.id=e.task_id ORDER BY e.created_at DESC LIMIT ?", (limit,)).fetchall()
+            for row in rows:
+                items.append({"id": f"{entry['slug']}:event:{row['id']}", "type": row["kind"], "board": entry["slug"], "profile": row["assignee"], "task_id": row["task_id"], "run_id": row["run_id"], "timestamp": _iso_timestamp(row["created_at"]), "status": row["kind"], "source": "task_events", "detail": redact_text(row["payload"] or "")})
+        except sqlite3.Error:
+            continue
+    for delegation in _delegation_records(limit):
+        for child in delegation["children"]:
+            items.append({"id": child["id"], "type": "child", "profile": child["agent"], "delegation_id": delegation["id"], "child_id": child["id"], "timestamp": child["last_activity_at"], "status": child["status"], "source": delegation["source"], "reason": child["exit_reason"]})
+            for step in child["steps"]:
+                items.append({**step, "profile": child["agent"], "delegation_id": delegation["id"], "child_id": child["id"]})
+    since_epoch = _epoch(since)
+    items = [i for i in items if (not profile or i.get("profile") == profile) and (not status or i.get("status") == status) and (not since_epoch or (_epoch(i.get("timestamp")) or 0) >= since_epoch)]
+    items.sort(key=lambda item: (_epoch(item.get("timestamp")) or 0, item["id"]), reverse=True)
+    items = items[:limit]
+    return redact_payload({"status": "success", "timeline": items, "total_events": len(items), "observed_at": datetime.now(timezone.utc).isoformat()})
+
+
+def _legacy_delegation_records(limit: int = 50) -> List[Dict[str, Any]]:
+    """Deprecated manifest-only reader retained for compatibility reference."""
     records: List[Dict[str, Any]] = []
     pattern = str(PROFILES_DIR / "*" / "cache" / "delegation" / "live" / "*" / "manifest.json")
     for manifest_path in sorted(glob.glob(pattern), key=os.path.getmtime, reverse=True)[:limit]:
@@ -920,17 +1039,25 @@ def _delegation_records(limit: int = 50) -> List[Dict[str, Any]]:
 
 
 def _event_snapshot(board: str = "bitcoin-data-platform") -> Dict[str, Any]:
+    """Build stable domain state; transport timestamps belong outside the digest."""
     try:
         tasks = get_kanban_tasks(board)
         latest_events = get_kanban_events(board, 30)
     except HTTPException:
         tasks, latest_events = {"columns": {}}, {"events": []}
-    return redact_payload({
-        "emitted_at": datetime.now(timezone.utc).isoformat(),
+    state = {
         "board": board, "kanban": tasks, "events": latest_events.get("events", []),
         "workers": get_worker_liveness(), "delegations": _delegation_records(20),
         "telemetry": parse_delegation_stream(30),
-    })
+    }
+    def stable(value: Any) -> Any:
+        if isinstance(value, dict):
+            return {key: stable(item) for key, item in value.items() if key not in {"observed_at", "emitted_at"}}
+        if isinstance(value, list):
+            return [stable(item) for item in value]
+        return value
+    return redact_payload(stable(state))
+
 
 
 @app.get("/api/v1/stream/events")
@@ -942,8 +1069,9 @@ async def stream_events(request: Request, board: str = Query(default="bitcoin-da
         yield "retry: 3000\n\n"
         while not await request.is_disconnected():
             snapshot = await asyncio.to_thread(_event_snapshot, board)
-            payload = json.dumps(snapshot, separators=(",", ":"), ensure_ascii=False)
-            digest = str(hash(payload))
+            payload = json.dumps({**snapshot, "emitted_at": datetime.now(timezone.utc).isoformat()}, separators=(",", ":"), ensure_ascii=False)
+            canonical = json.dumps(snapshot, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+            digest = hashlib.sha256(canonical.encode()).hexdigest()
             if digest != last_digest:
                 sequence += 1
                 yield f"id: {sequence}\nevent: snapshot\ndata: {payload}\n\n"
@@ -979,17 +1107,20 @@ def get_delegation_transcript(delegation_id: str, task_idx: int, profile: Option
 
 @app.get("/api/v1/workers/liveness")
 def get_worker_liveness() -> Dict[str, Any]:
-    workers: Dict[str, Dict[str, Any]] = {}
+    workers: List[Dict[str, Any]] = []
+    executing = {"running", "in_progress", "in-progress", "claimed"}
     for board in _kanban_boards():
-        with _kanban_db(board["slug"]) as conn:
-            rows = conn.execute("SELECT id,title,assignee,status,worker_pid,last_heartbeat_at,started_at,created_at FROM tasks WHERE assignee IS NOT NULL ORDER BY created_at DESC").fetchall()
+        try:
+            with _kanban_db(board["slug"]) as conn:
+                rows = conn.execute("SELECT id,title,assignee,status,worker_pid,worker_started_at,claim_expires,last_heartbeat_at,started_at,created_at,current_run_id FROM tasks WHERE assignee IS NOT NULL ORDER BY last_heartbeat_at DESC").fetchall()
+        except sqlite3.Error:
+            continue
         for row in rows:
-            agent = row["assignee"]
-            if agent in workers:
+            if str(row["status"]).lower() not in executing:
                 continue
-            liveness = _liveness(row["last_heartbeat_at"], row["worker_pid"], row["status"], row["started_at"] or row["created_at"])
-            workers[agent] = redact_payload({"profile": agent, "board": board["slug"], "task_id": row["id"], "task_title": row["title"], "task_status": row["status"], "worker_pid": row["worker_pid"], "last_heartbeat_at": _iso_timestamp(row["last_heartbeat_at"]), **liveness})
-    return {"status": "success", "stale_after_seconds": STALE_HEARTBEAT_SECONDS, "workers": list(workers.values())}
+            liveness = _liveness(row["last_heartbeat_at"], row["worker_pid"], row["status"], row["started_at"] or row["created_at"], row["claim_expires"], row["worker_started_at"])
+            workers.append(redact_payload({"profile": row["assignee"], "board": board["slug"], "task_id": row["id"], "run_id": row["current_run_id"], "task_title": row["title"], "task_status": row["status"], "worker_pid": row["worker_pid"], "last_heartbeat_at": _iso_timestamp(row["last_heartbeat_at"]), **liveness}))
+    return {"status": "success", "stale_after_seconds": min(STALE_HEARTBEAT_SECONDS, 120), "workers": workers, "observed_at": datetime.now(timezone.utc).isoformat()}
 
 
 @app.get("/api/v1/kanban/boards")
@@ -1006,12 +1137,17 @@ def get_kanban_boards() -> Dict[str, Any]:
 
 @app.get("/api/v1/kanban/tasks")
 def get_kanban_tasks(board: str = Query(default="default")) -> Dict[str, Any]:
-    columns = {"todo": [], "in_progress": [], "review": [], "done": [], "blocked": []}
-    aliases = {"ready": "in_progress", "running": "in_progress", "in-progress": "in_progress",
-               "completed": "done", "triage": "blocked", "failed": "blocked"}
-    with _kanban_db(board) as conn:
-        rows = conn.execute("SELECT * FROM tasks ORDER BY priority DESC, created_at DESC").fetchall()
-        links = [dict(row) for row in conn.execute("SELECT parent_id, child_id FROM task_links ORDER BY parent_id, child_id")]
+    columns = {key: [] for key in ("triage", "todo", "ready", "running", "blocked", "review", "done", "archived")}
+    aliases = {"in-progress": "running", "in_progress": "running", "completed": "done", "failed": "blocked"}
+    try:
+        with _kanban_db(board) as conn:
+            rows = conn.execute("SELECT * FROM tasks ORDER BY priority DESC, created_at DESC").fetchall()
+            links = [dict(row) for row in conn.execute("SELECT parent_id, child_id FROM task_links ORDER BY parent_id, child_id")]
+    except sqlite3.Error:
+        return JSONResponse(status_code=503, content={
+            "status": "unavailable", "board": board, "columns": columns,
+            "total_tasks": 0, "reason": "Kanban data unavailable",
+        })
     for row in rows:
         task = _task_payload(row, board, links)
         column = aliases.get(task["status"].lower(), task["status"].lower())

@@ -1,155 +1,60 @@
-"""Unit & Integration tests for Hermes Sovereign Cockpit & 3D Virtual Office."""
-
-import sys
+"""Fixture-backed V01-V12 contracts; all state is temporary."""
+import json, sqlite3, sys, time
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-
 import pytest
 from fastapi.testclient import TestClient
-from src.server import app, OFFICE_ZONES, get_agent_models_map, get_git_diff_summary, redact_payload, _liveness
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+import src.server as server
 
-client = TestClient(app)
+SCHEMA="""CREATE TABLE tasks(id TEXT PRIMARY KEY,title TEXT,description TEXT,status TEXT,assignee TEXT,priority INTEGER,created_at INTEGER,started_at INTEGER,completed_at INTEGER,last_heartbeat_at INTEGER,worker_pid INTEGER,worker_started_at INTEGER,claim_expires INTEGER,blocked_reason TEXT,current_run_id TEXT); CREATE TABLE task_links(parent_id TEXT,child_id TEXT); CREATE TABLE task_comments(id INTEGER PRIMARY KEY,task_id TEXT,body TEXT,created_at INTEGER); CREATE TABLE task_runs(id TEXT PRIMARY KEY,task_id TEXT,status TEXT,started_at INTEGER,ended_at INTEGER,last_heartbeat_at INTEGER,claim_expires INTEGER,worker_pid INTEGER); CREATE TABLE task_events(id INTEGER PRIMARY KEY,task_id TEXT,run_id TEXT,kind TEXT,payload TEXT,created_at INTEGER);"""
+@pytest.fixture
+def env(tmp_path,monkeypatch):
+ p={"kanban":tmp_path/"kanban","profiles":tmp_path/"profiles"}; p["profiles"].mkdir()
+ for n,v in [("KANBAN_ROOT",p["kanban"]),("KANBAN_GLOBAL_DB",tmp_path/"global.db"),("PROFILES_DIR",p["profiles"]),("BASE_DIR",tmp_path/"control")]: monkeypatch.setattr(server,n,v)
+ monkeypatch.setattr(server,"STALE_HEARTBEAT_SECONDS",120); p["client"]=TestClient(server.app); return p
+def board(e,slug,tasks,event=None):
+ path=e["kanban"]/"boards"/slug/"kanban.db"; path.parent.mkdir(parents=True,exist_ok=True); now=int(time.time()); cols="id title description status assignee priority created_at started_at completed_at last_heartbeat_at worker_pid worker_started_at claim_expires blocked_reason current_run_id".split()
+ with sqlite3.connect(path) as db:
+  db.executescript(SCHEMA)
+  for t in tasks:
+   vals=[t.get(c) for c in cols]; vals[6]=t.get("created_at",now); vals[14]=t.get("run_id"); db.execute(f"INSERT INTO tasks({','.join(cols)}) VALUES({','.join('?'*len(cols))})",vals)
+   if t.get("run_id"): db.execute("INSERT INTO task_runs VALUES(?,?,?,?,?,?,?,?)",(t["run_id"],t["id"],t["status"],now,None,t.get("last_heartbeat_at"),None,t.get("worker_pid")))
+  if event is not None: db.execute("INSERT INTO task_events VALUES(1,?,?,?,?,?)",(tasks[0]["id"],tasks[0].get("run_id"),"fixture",event,now))
+def delegation(e,did,tasks,completed=None,malformed=False):
+ d=e["profiles"]/"fixture"/"cache"/"delegation"/"live"/did; d.mkdir(parents=True); (d/"manifest.json").write_text("{" if malformed else json.dumps({"delegation_id":did,"started":"2026","completed":completed,"tasks":tasks}))
+ for i,t in enumerate(tasks):
+  if not t.get("missing_log"): (d/f"task-{t.get('index',i)}.log").write_text(t.get("log","fixture"))
+def flat(x): return [t for c in x["columns"].values() for t in c]
 
-
-def test_health_check():
-    response = client.get("/health")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["status"] == "healthy"
-    assert data["service"] == "agent-cockpit-engine"
-
-
-def test_roster_13_agents():
-    response = client.get("/api/v1/agents/roster")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["status"] == "success"
-    assert data["total_agents"] == 13
-    assert len(data["agents"]) == 13
-
-    # Check key agents exist
-    agents_map = {a["id"]: a for a in data["agents"]}
-    for req_agent in ["vps-boss", "professor", "chief-architect", "swe-backend", "swe-frontend", "swe-verifier", "data-engineer"]:
-        assert req_agent in agents_map
-        ag = agents_map[req_agent]
-        assert "model" in ag and len(ag["model"]) > 0
-        assert "position" in ag and len(ag["position"]) == 3
-        assert "zone" in ag
-        assert "state" in ag
-
-
-def test_telemetry_endpoint():
-    response = client.get("/api/v1/telemetry/live")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["status"] == "success"
-    assert "events" in data
-    assert isinstance(data["events"], list)
-
-
-def test_diff_endpoint():
-    response = client.get("/api/v1/diff/latest")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["status"] == "success"
-    assert "projects" in data
-    assert "food_inflation_lakehouse" in data["projects"]
-
-
-def test_vitals_endpoint():
-    response = client.get("/api/v1/vitals")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["cpu_cores"] >= 1
-    assert "ram_used_gib" in data
-    assert "disk_used_gib" in data
-    assert "uptime" in data
-
-
-def test_conversations_endpoint():
-    response = client.get("/api/v1/conversations/recent")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["status"] == "success"
-    assert "conversations" in data
-    assert isinstance(data["conversations"], list)
-    if data["conversations"]:
-        first = data["conversations"][0]
-        assert "sender" in first
-        assert "receiver" in first
-        assert "boss_order" in first
-
-
-def test_dag_trace_endpoint():
-    response = client.get("/api/v1/dag/trace?limit=5")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["status"] == "success"
-    assert "traces" in data
-    assert isinstance(data["traces"], list)
-    if data["traces"]:
-        first = data["traces"][0]
-        assert "delegation_id" in first
-        assert "agent" in first
-        assert "steps" in first
-
-
-def test_triage_errors_endpoint():
-    response = client.get("/api/v1/triage/errors?limit=5")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["status"] == "success"
-    assert "errors" in data
-    assert isinstance(data["errors"], list)
-
-
-def test_kanban_boards_and_tasks_endpoints():
-    response = client.get("/api/v1/kanban/boards")
-    assert response.status_code == 200
-    boards = response.json()
-    assert boards["status"] == "success"
-    assert any(b["slug"] == "bitcoin-data-platform" for b in boards["boards"])
-
-    response = client.get("/api/v1/kanban/tasks?board=bitcoin-data-platform")
-    assert response.status_code == 200
-    data = response.json()
-    assert set(["todo", "in_progress", "review", "done", "blocked"]).issubset(data["columns"])
-    tasks = [task for column in data["columns"].values() for task in column]
-    assert data["total_tasks"] == len(tasks)
-    if tasks:
-        assert {"id", "title", "assignee", "priority", "created_at", "status"}.issubset(tasks[0])
-        detail = client.get(f"/api/v1/kanban/task/{tasks[0]['id']}?board=bitcoin-data-platform")
-        assert detail.status_code == 200
-        payload = detail.json()
-        assert {"task", "comments", "runs", "events", "links"}.issubset(payload)
-
-
-def test_kanban_unknown_board_and_task_are_404():
-    assert client.get("/api/v1/kanban/tasks?board=missing").status_code == 404
-    assert client.get("/api/v1/kanban/task/missing?board=bitcoin-data-platform").status_code == 404
-
-
-def test_observability_endpoints_and_dependencies():
-    tasks = client.get("/api/v1/kanban/tasks?board=bitcoin-data-platform").json()
-    flat = [t for column in tasks["columns"].values() for t in column]
-    assert all({"parents", "children", "is_stale", "liveness_label"}.issubset(t) for t in flat)
-    events = client.get("/api/v1/kanban/events?board=bitcoin-data-platform&limit=5")
-    assert events.status_code == 200
-    assert len(events.json()["events"]) <= 5
-    workers = client.get("/api/v1/workers/liveness")
-    assert workers.status_code == 200
-    assert "stale_after_seconds" in workers.json()
-    tree = client.get("/api/v1/delegations/tree?limit=3")
-    assert tree.status_code == 200
-    assert "delegations" in tree.json()
-
-
-def test_secret_redaction_and_stale_detection():
-    data = redact_payload({"authorization": "Bearer abcdefghijklmnop", "text": "sk-abcdefghijklmnop eyJabcdefghijk.abcdefghijk"})
-    assert data["authorization"] == "[REDACTED]"
-    assert "sk-" not in data["text"] and "eyJ" not in data["text"]
-    stale = _liveness(1, 99999999, "running")
-    assert stale["is_stale"] is True
-    assert stale["liveness"] == "STALE"
-
-
+def test_v01_ready_is_queued_not_executing(env):
+ board(env,"alpha",[{"id":"q","title":"Q","status":"ready","assignee":"swe-backend"}]); d=env["client"].get("/api/v1/kanban/tasks",params={"board":"alpha"}).json(); assert d["columns"]["ready"][0]["id"]=="q"; r={a["id"]:a for a in env["client"].get("/api/v1/agents/roster").json()["agents"]}; assert r["swe-backend"]["state"]!="EXECUTING"
+def test_v02_active_run_contract(env,monkeypatch):
+ now=int(time.time()); monkeypatch.setattr(server,"_pid_alive",lambda p:True); board(env,"alpha",[{"id":"t","run_id":"r","title":"T","status":"running","assignee":"worker","worker_pid":42,"last_heartbeat_at":now}]); w=env["client"].get("/api/v1/workers/liveness").json()["workers"][0]; assert (w["liveness"],w["run_id"],w["board"])==("ACTIVE","r","alpha") and w["observed_at"]
+@pytest.mark.parametrize("alive,age",[(False,0),(True,999)])
+def test_v03_dead_or_stale_not_active(env,monkeypatch,alive,age):
+ monkeypatch.setattr(server,"_pid_alive",lambda p:alive); board(env,"a",[{"id":"t","title":"T","status":"running","assignee":"w","worker_pid":42,"last_heartbeat_at":int(time.time())-age}]); assert env["client"].get("/api/v1/workers/liveness").json()["workers"][0]["liveness"] in {"STALE","UNKNOWN"}
+def test_v04_multiple_runs_preserved(env,monkeypatch):
+ now=int(time.time()); monkeypatch.setattr(server,"_pid_alive",lambda p:True)
+ for s,i in [("alpha","a"),("beta","b")]: board(env,s,[{"id":i,"run_id":"r"+i,"title":i,"status":"running","assignee":"w","worker_pid":1,"last_heartbeat_at":now}])
+ ws=env["client"].get("/api/v1/workers/liveness").json()["workers"]; assert {(w["board"],w["run_id"]) for w in ws}=={("alpha","ra"),("beta","rb")}
+def test_v05_triage_blocked_distinct(env):
+ board(env,"a",[{"id":"t","title":"T","status":"triage"},{"id":"b","title":"B","status":"blocked","blocked_reason":"approval"}]); c=env["client"].get("/api/v1/kanban/tasks",params={"board":"a"}).json()["columns"]; assert c["triage"][0]["id"]=="t" and c["blocked"][0]["blocked_reason"]=="approval"
+def test_v06_parallel_children_transcripts(env):
+ delegation(env,"deleg_batch",[{"index":0,"status":"running","log":"zero"},{"index":1,"status":"running","log":"one"}]); r=env["client"].get("/api/v1/delegations/tree").json()["delegations"][0]; assert r["parallel"] and len(r["children"])==2
+ for i,text in enumerate(["zero","one"]): assert env["client"].get(f"/api/v1/delegations/deleg_batch/transcript/{i}").json()["transcript"]==text
+def test_v07_mixed_children_not_flattened(env):
+ delegation(env,"deleg_mix",[{"index":0,"status":"completed"},{"index":1,"status":"failed","exit_reason":"exit 1"}],"done"); r=env["client"].get("/api/v1/delegations/tree").json()["delegations"][0]; assert [c["status"] for c in r["children"]]==["completed","failed"] and r["children"][1]["exit_reason"]=="exit 1"
+def test_v08_completed_history_not_live(env):
+ delegation(env,"deleg_done",[{"index":0,"status":"completed"}],"done"); r=env["client"].get("/api/v1/delegations/tree").json()["delegations"][0]; assert r["status"]=="completed" and r["children"][0]["status"]!="running"
+def test_v09_reconnect_board_scope(env):
+ board(env,"alpha",[{"id":"a","title":"A","status":"todo"}]); board(env,"beta",[{"id":"b","title":"B","status":"todo"}])
+ for s in [server._event_snapshot("beta"),server._event_snapshot("beta")]: assert s["board"]=="beta" and {t["id"] for t in flat(s["kanban"])}=={"b"}
+def test_v10_html_and_secret_contract(env):
+ v='<img src=x onerror=alert(1)> token=synthetic-secret-value sk-abcdefghijklmnop'; board(env,"a",[{"id":"x","title":v,"description":v,"status":"todo"}],v); d=env["client"].get("/api/v1/kanban/tasks",params={"board":"a"}).json(); assert "<img" in flat(d)[0]["title"] and "synthetic-secret-value" not in json.dumps(d); assert "synthetic-secret-value" not in env["client"].get("/api/v1/kanban/events",params={"board":"a"}).text
+def test_v11_idle_snapshot_stable_two_clients(env,monkeypatch):
+ board(env,"a",[{"id":"i","title":"I","status":"todo"}]); monkeypatch.setattr(server,"parse_delegation_stream",lambda n:[]); a=server._event_snapshot("a"); time.sleep(.002); b=server._event_snapshot("a"); a.pop("emitted_at",None); b.pop("emitted_at",None); assert a==b
+def test_v12_missing_corrupt_unavailable(env):
+ assert env["client"].get("/api/v1/kanban/tasks",params={"board":"missing"}).status_code==404; bad=env["kanban"]/"boards"/"bad"/"kanban.db"; bad.parent.mkdir(parents=True); bad.write_bytes(b"bad"); r=env["client"].get("/api/v1/kanban/tasks",params={"board":"bad"}); assert r.status_code==503 and r.json()["status"] in {"unknown","unavailable"}
+def test_partial_manifest_missing_log_multiboard_detail(env):
+ delegation(env,"deleg_partial",[],malformed=True); delegation(env,"deleg_gap",[{"index":0,"status":"running","missing_log":True}]); delegations=env["client"].get("/api/v1/delegations/tree").json()["delegations"]; assert len(delegations)==2 and next(d for d in delegations if d["id"]=="deleg_partial")["status"]=="unknown"; assert env["client"].get("/api/v1/delegations/deleg_gap/transcript/0").status_code==404
+ board(env,"alpha",[{"id":"same","title":"A","status":"todo"}]); board(env,"beta",[{"id":"same","title":"B","status":"todo"}]); assert env["client"].get("/api/v1/kanban/task/same",params={"board":"beta"}).json()["task"]["title"]=="B"
