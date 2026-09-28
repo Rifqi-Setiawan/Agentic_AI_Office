@@ -63,9 +63,24 @@ export const CustomAgentNode = memo(({ data }: { data: AgentNodeData }) => {
         <Handle
           type="target"
           position={Position.Top}
+          id="target-top"
           className="!h-2.5 !w-2.5 !border-2 !border-slate-900 !bg-cyan-400"
         />
       )}
+
+      {/* Side Handles for Horizontal Co-pilot / Assistant Routing */}
+      <Handle
+        type="target"
+        position={Position.Left}
+        id="target-left"
+        className="!h-2 !w-2 !border-2 !border-slate-900 !bg-cyan-400"
+      />
+      <Handle
+        type="source"
+        position={Position.Right}
+        id="source-right"
+        className="!h-2 !w-2 !border-2 !border-slate-900 !bg-cyan-400"
+      />
 
       {/* Header */}
       <div className="flex items-center justify-between gap-2">
