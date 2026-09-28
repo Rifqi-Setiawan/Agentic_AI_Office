@@ -71,7 +71,6 @@ export const AgentSquadMatrix: React.FC<AgentSquadMatrixProps> = ({ agents, onIn
                     <span className="truncate text-xs font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">
                       {ag.name}
                     </span>
-                    <span className="text-[10px]">{ag.emoji}</span>
                   </div>
                   <p className="truncate text-[10px] font-mono text-slate-400">
                     {ag.model || 'ag/gemini-3.8-flash'}

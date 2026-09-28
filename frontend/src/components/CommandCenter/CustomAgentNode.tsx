@@ -15,7 +15,6 @@ export interface AgentNodeData {
   activeTool?: string
   task?: string
   color: string
-  emoji: string
   onInspect?: (agentId: string) => void
 }
 
@@ -43,15 +42,19 @@ export const CustomAgentNode = memo(({ data }: { data: AgentNodeData }) => {
   const isWorking = data.state !== 'idle'
   const isFounder = data.id === 'rifqi'
 
+  // Extract meaningful activity (avoiding duplicate "standing by" noise)
+  const isActionActive = isWorking && (data.activeTool || data.task)
+  const actionText = data.activeTool || data.task
+
   return (
     <div
       onClick={() => data.onInspect?.(data.id)}
-      className={`group relative w-[240px] rounded-xl border bg-slate-950/95 p-3 backdrop-blur-md transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer ${
+      className={`group relative w-[260px] rounded-xl border bg-slate-950/95 p-3.5 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl cursor-pointer ${
         isFounder
-          ? 'border-amber-500/90 shadow-[0_0_30px_rgba(245,158,11,0.35)] ring-1 ring-amber-400/60'
+          ? 'border-amber-500/90 shadow-[0_0_25px_rgba(245,158,11,0.3)] ring-1 ring-amber-400/50'
           : isWorking
-          ? 'border-cyan-500/90 shadow-[0_0_30px_rgba(6,182,212,0.4)] ring-1 ring-cyan-400/60'
-          : 'border-slate-800/90 shadow-lg hover:border-slate-700'
+          ? 'border-cyan-500/90 shadow-[0_0_25px_rgba(6,182,212,0.35)] ring-1 ring-cyan-400/50'
+          : 'border-slate-800/90 shadow-md hover:border-slate-700'
       }`}
       style={{
         borderTopColor: data.color,
@@ -83,7 +86,7 @@ export const CustomAgentNode = memo(({ data }: { data: AgentNodeData }) => {
       />
 
       {/* Header */}
-      <div className="flex items-center justify-between gap-2">
+      <div className="flex items-center justify-between gap-2.5">
         <div className="flex items-center gap-2.5 min-w-0">
           <div
             className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10"
@@ -92,16 +95,13 @@ export const CustomAgentNode = memo(({ data }: { data: AgentNodeData }) => {
             <IconComponent className="h-4 w-4" style={{ color: data.color }} />
           </div>
           <div className="min-w-0">
-            <div className="flex items-center gap-1.5">
-              <h4 className="truncate text-xs font-bold text-white tracking-wide">{data.name}</h4>
-              <span className="text-[10px]">{data.emoji}</span>
-            </div>
+            <h4 className="truncate text-xs font-bold text-white tracking-wide">{data.name}</h4>
             <p className="truncate text-[10px] text-slate-400 font-medium">{data.title}</p>
           </div>
         </div>
 
         {/* State Indicator Beacon */}
-        <div className="flex items-center gap-1 shrink-0">
+        <div className="flex items-center gap-1.5 shrink-0">
           <span
             className={`inline-block h-2 w-2 rounded-full ${
               isFounder
@@ -116,7 +116,7 @@ export const CustomAgentNode = memo(({ data }: { data: AgentNodeData }) => {
               isFounder
                 ? 'text-amber-400 font-bold'
                 : isWorking
-                ? 'text-emerald-400'
+                ? 'text-emerald-400 font-bold'
                 : 'text-slate-500'
             }`}
           >
@@ -125,21 +125,21 @@ export const CustomAgentNode = memo(({ data }: { data: AgentNodeData }) => {
         </div>
       </div>
 
-      {/* Model & Runtime Spec Badge */}
-      <div className="mt-2.5 flex items-center justify-between gap-1 border-t border-slate-800/80 pt-2">
-        <div className="flex items-center gap-1 font-mono text-[9px] text-cyan-300/90 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/40">
-          <span>🧠</span>
-          <span className="truncate max-w-[120px]">{data.model || 'hermes-core'}</span>
+      {/* Model Spec Badge */}
+      <div className="mt-2.5 flex items-center justify-between gap-1 border-t border-slate-800/80 pt-2 text-[9px] font-mono">
+        <div className="flex items-center gap-1 text-cyan-300/90 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/40 truncate max-w-[170px]">
+          <span className="text-slate-500">MODEL:</span>
+          <span className="truncate">{data.model || 'hermes-core'}</span>
         </div>
-        <span className="text-[9px] font-mono text-slate-400">
-          {data.activeTool ? `⚡ ${data.activeTool}` : 'ready'}
+        <span className={isWorking ? 'text-emerald-400 font-semibold' : 'text-slate-500'}>
+          {isWorking ? 'RUNNING' : 'STANDBY'}
         </span>
       </div>
 
-      {/* Current Task Teaser */}
-      {data.task && (
-        <div className="mt-2 text-[10px] text-slate-300 font-mono bg-slate-900/80 rounded px-2 py-1 border border-slate-800/60 truncate">
-          {data.task}
+      {/* Active Execution Task (Only rendered when agent is actually executing) */}
+      {isActionActive && (
+        <div className="mt-2 text-[9px] text-cyan-200 font-mono bg-cyan-950/80 rounded px-2 py-1 border border-cyan-800/60 truncate">
+          {actionText}
         </div>
       )}
 

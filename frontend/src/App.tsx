@@ -7,7 +7,7 @@ export const App: React.FC = () => {
   const [vitals, setVitals] = useState<SystemVitals | null>(null)
   const [telemetryEvents, setTelemetryEvents] = useState<TelemetryEvent[]>([])
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { sender: 'Jarvis', text: '👑 Mission Control initialized. All 14 sovereign agents operational.', timestamp: 'now' }
+    { sender: 'Jarvis', text: 'Mission Control initialized. All 14 sovereign agents operational.', timestamp: 'now' }
   ])
 
   // Hydrate vitals and historical telemetry

@@ -112,7 +112,9 @@ export const AgentInspectorModal: React.FC<AgentInspectorModalProps> = ({ agentI
           {/* Header */}
           <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">{liveAgent.emoji || '🤖'}</span>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-500/30 bg-cyan-950/40 text-cyan-400">
+                <Cpu className="h-5 w-5" />
+              </div>
               <div>
                 <h3 className="text-lg font-bold text-white font-mono">{liveAgent.name || agentId}</h3>
                 <p className="text-xs text-cyan-400 font-mono">{spec.role}</p>
@@ -171,7 +173,7 @@ export const AgentInspectorModal: React.FC<AgentInspectorModalProps> = ({ agentI
                   key={t}
                   className="rounded-md border border-slate-700 bg-slate-900 px-2 py-1 font-mono text-[10px] text-cyan-300"
                 >
-                  ⚡ {t}
+                  {t}
                 </span>
               ))}
             </div>
