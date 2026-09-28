@@ -1509,5 +1509,13 @@ def set_chat_cron_state():
     return {"ok": True}
 
 
+# Additive mission-control read API; the private writer runs on loopback separately.
+import os as _mc_os
+from src.mission_control.api import install_mission_control
+
+if _mc_os.environ.get("HERMES_MC_ENABLED") == "1":
+    install_mission_control(app)
+
+
 # Serve static web assets
 app.mount("/", StaticFiles(directory=str(STATIC_DIR), html=True), name="static")

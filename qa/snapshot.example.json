@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "type": "delegation_snapshot",
+  "stream_id": "55cee824-560a-43b4-9a65-271e79ef48ca",
+  "revision": 6,
+  "generated_at_ms": 1790000000000,
+  "freshness_ttl_ms": 15000,
+  "instrumentation_seen": true,
+  "active_delegation_chains": [
+    {
+      "chain_id": "qa",
+      "mission_id": "mission-1",
+      "task_id": "task:qa",
+      "span_ids": [
+        "root",
+        "backend",
+        "qa"
+      ],
+      "active_delegation_path": [
+        "rifqi",
+        "vps-boss",
+        "swe-backend",
+        "swe-verifier"
+      ],
+      "expires_at_ms": 1790000030000
+    }
+  ],
+  "caller_callee_pairs": [
+    {
+      "caller": "vps-boss",
+      "callee": "swe-backend",
+      "invocations": [
+        {
+          "span_id": "backend",
+          "mission_id": "mission-1",
+          "task_id": "task:backend",
+          "state": "running",
+          "expires_at_ms": 1790000030000
+        }
+      ]
+    },
+    {
+      "caller": "swe-backend",
+      "callee": "swe-verifier",
+      "invocations": [
+        {
+          "span_id": "qa",
+          "mission_id": "mission-1",
+          "task_id": "task:qa",
+          "state": "running",
+          "expires_at_ms": 1790000030000
+        }
+      ]
+    },
+    {
+      "caller": "rifqi",
+      "callee": "vps-boss",
+      "invocations": [
+        {
+          "span_id": "root",
+          "mission_id": "mission-1",
+          "task_id": "task:root",
+          "state": "running",
+          "expires_at_ms": 1790000030000
+        }
+      ]
+    }
+  ],
+  "queued_count": 0,
+  "recent_events": [
+    {
+      "seq": 6,
+      "kind": "span.running",
+      "at_ms": 1790000000000,
+      "mission_id": "mission-1",
+      "task_id": "task:qa",
+      "span_id": "qa",
+      "actor": "runtime-dispatcher",
+      "details": {
+        "callee": "swe-verifier",
+        "caller": "swe-backend"
+      }
+    },
+    {
+      "seq": 5,
+      "kind": "span.queued",
+      "at_ms": 1790000000000,
+      "mission_id": "mission-1",
+      "task_id": "task:qa",
+      "span_id": "qa",
+      "actor": "runtime-dispatcher",
+      "details": {
+        "callee": "swe-verifier",
+        "caller": "swe-backend"
+      }
+    },
+    {
+      "seq": 4,
+      "kind": "span.running",
+      "at_ms": 1790000000000,
+      "mission_id": "mission-1",
+      "task_id": "task:backend",
+      "span_id": "backend",
+      "actor": "runtime-dispatcher",
+      "details": {
+        "callee": "swe-backend",
+        "caller": "vps-boss"
+      }
+    },
+    {
+      "seq": 3,
+      "kind": "span.queued",
+      "at_ms": 1790000000000,
+      "mission_id": "mission-1",
+      "task_id": "task:backend",
+      "span_id": "backend",
+      "actor": "runtime-dispatcher",
+      "details": {
+        "callee": "swe-backend",
+        "caller": "vps-boss"
+      }
+    },
+    {
+      "seq": 2,
+      "kind": "span.running",
+      "at_ms": 1790000000000,
+      "mission_id": "mission-1",
+      "task_id": "task:root",
+      "span_id": "root",
+      "actor": "runtime-dispatcher",
+      "details": {
+        "callee": "vps-boss",
+        "caller": "rifqi"
+      }
+    },
+    {
+      "seq": 1,
+      "kind": "span.queued",
+      "at_ms": 1790000000000,
+      "mission_id": "mission-1",
+      "task_id": "task:root",
+      "span_id": "root",
+      "actor": "runtime-dispatcher",
+      "details": {
+        "callee": "vps-boss",
+        "caller": "rifqi"
+      }
+    }
+  ],
+  "release_gates": []
+}
