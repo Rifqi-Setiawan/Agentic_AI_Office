@@ -45,12 +45,10 @@
     .diff-del { background: rgba(239, 68, 68, 0.15); color: #f87171; border-left: 2px solid #ef4444; }
     .diff-add { background: rgba(16, 185, 129, 0.15); color: #34d399; border-left: 2px solid #10b981; }
     .diff-hunk { background: rgba(59, 130, 246, 0.15); color: #60a5fa; font-weight: bold; }
-    .ops-toggle-btn { position:absolute; top:12px; left:12px; z-index:25; }
-    .ops-summary { position:absolute; top:52px; left:12px; z-index:24; width:min(560px,calc(100% - 24px)); }
-    .ops-card { background:rgba(7,13,30,.96); border:1px solid rgba(51,65,85,.9); }
+    .ops-summary { position:fixed; top:62px; right:16px; z-index:50; width:min(520px, calc(100vw - 32px)); }
+    .ops-card { background:rgba(7,13,30,.97); border:1px solid rgba(51,65,85,.9); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.7), 0 10px 10px -5px rgba(0,0,0,0.5); }
     @media (max-width:640px) {
-      .ops-toggle-btn { top:8px; left:8px; }
-      .ops-summary { top:46px; left:8px; width:calc(100% - 16px); }
+      .ops-summary { top:58px; right:8px; left:8px; width:calc(100vw - 16px); }
       .ops-hide-mobile { display:none; }
     }
   </style>
@@ -94,7 +92,15 @@
     </div>
 
     <!-- Right: Vitals & Utility Controls -->
-    <div class="flex items-center space-x-3">
+    <div class="flex items-center space-x-2 sm:space-x-3">
+      <!-- Operational Summary Navbar Button (Ultra-compact, Zero Map Obstruction) -->
+      <button id="opsToggleBtn" onclick="toggleOperationalSummary()" class="px-2.5 py-1.5 rounded-lg bg-cyber-850 hover:bg-cyber-800 text-slate-200 border border-cyber-700/80 hover:border-amber-500/60 shadow-xs flex items-center space-x-1.5 text-xs font-semibold transition cursor-pointer" aria-expanded="false" aria-controls="operationalSummary" title="Klik untuk membuka / menutup ringkasan operasional">
+        <span>📊</span>
+        <span class="hidden sm:inline">Summary</span>
+        <span id="opsMiniBadge" class="px-1.5 py-0.2 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">0</span>
+        <span id="opsChevron" class="text-[9px] text-slate-400">▼</span>
+      </button>
+
       <!-- Live Clock WIB -->
       <div class="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-cyber-850/80 border border-cyber-700/60 text-xs font-mono font-bold text-slate-300">
         <span id="clockWIB">--:--:-- WIB</span>
@@ -116,41 +122,35 @@
   </header>
 
   <!-- ======================================================================= -->
+  <!-- OPERATIONAL SUMMARY POPUP (DROPDOWN FROM NAVBAR, ZERO MAP OVERLAY)      -->
+  <!-- ======================================================================= -->
+  <section id="operationalSummary" class="hidden ops-summary ops-card rounded-xl shadow-2xl p-3 backdrop-blur-xl border border-cyber-700/90" aria-label="Operational summary">
+    <div class="flex items-center justify-between gap-3 mb-2">
+      <div class="flex items-center space-x-2">
+        <h2 class="text-[11px] font-extrabold uppercase tracking-wider text-white">Operational Summary</h2>
+        <span id="opsObserved" class="text-[9px] font-mono text-slate-500 tabular">Awaiting evidence</span>
+      </div>
+      <button onclick="toggleOperationalSummary(false)" class="w-6 h-6 rounded-md bg-cyber-800 text-slate-400 hover:text-white flex items-center justify-center text-xs transition cursor-pointer" title="Tutup ringkasan">✕</button>
+    </div>
+    <div class="grid grid-cols-4 gap-2 tabular">
+      <button data-ops-filter="running" class="rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 p-2 text-left transition"><b id="opsRunning" class="block text-lg text-emerald-400">0</b><span class="text-[9px] text-slate-300">Running</span></button>
+      <button data-ops-filter="ready" class="rounded-lg bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 p-2 text-left transition"><b id="opsQueued" class="block text-lg text-sky-400">0</b><span class="text-[9px] text-slate-300">Queued</span></button>
+      <button data-ops-filter="blocked" class="rounded-lg bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 p-2 text-left transition"><b id="opsBlocked" class="block text-lg text-rose-400">0</b><span class="text-[9px] text-slate-300">Blocked/Stale</span></button>
+      <button data-ops-filter="delegation" class="rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 p-2 text-left transition"><b id="opsDelegations" class="block text-lg text-amber-400">0</b><span class="text-[9px] text-slate-300">Delegations</span></button>
+    </div>
+    <button id="opsLatest" class="ops-hide-mobile mt-2 w-full text-left truncate text-[10px] text-slate-300 font-mono hover:text-white transition">No observed activity</button>
+  </section>
+
+  <!-- ======================================================================= -->
   <!-- MAIN WORKSPACE VIEWPORT (BELOW HEADER WITH PADDING, ZERO OVERLAP)       -->
   <!-- ======================================================================= -->
   <main class="flex-1 relative w-full h-full overflow-hidden bg-black">
     <div id="liveDelegationBanner" class="hidden absolute top-3 left-1/2 -translate-x-1/2 z-40 px-4 py-2 rounded-lg bg-emerald-950/95 border border-emerald-400/60 text-emerald-200 shadow-xl font-mono text-xs font-bold tabular">
       <span class="inline-block w-2 h-2 mr-2 rounded-full bg-emerald-400 animate-pulse"></span><span id="liveDelegationText">LIVE DELEGATION IN PROGRESS</span>
     </div>
-    <!-- 2D Stronghold Workspace Container -->
+    <!-- 2D Stronghold Workspace Container (100% UNTOUCHED, ZERO BUTTON OVERLAYS) -->
     <div id="sim2d-container" class="absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center p-2 sm:p-3 bg-black">
       <canvas id="simCanvas" class="w-full h-full block cursor-default"></canvas>
-
-      <!-- Operational Summary Toggle Button (Click to show / hide card, keeping map unobstructed) -->
-      <button id="opsToggleBtn" onclick="toggleOperationalSummary()" class="ops-toggle-btn px-3 py-1.5 rounded-lg bg-cyber-900/90 hover:bg-cyber-800 text-slate-200 border border-cyber-700/80 hover:border-blue-500/60 shadow-xl backdrop-blur-md flex items-center space-x-2 text-xs font-semibold transition cursor-pointer" aria-expanded="false" aria-controls="operationalSummary" title="Klik untuk menampilkan / menyembunyikan ringkasan operasional">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="tracking-wide">📊 Operational Summary</span>
-        <span id="opsMiniBadge" class="hidden sm:inline-block px-1.5 py-0.5 rounded text-[10px] font-mono bg-cyber-800/90 text-slate-300 border border-cyber-700/50">0 Run · 0 Q</span>
-        <span id="opsChevron" class="text-[10px] text-slate-400 transition-transform duration-200">▼</span>
-      </button>
-
-      <!-- Operational Summary Expandable Card (Hidden by default) -->
-      <section id="operationalSummary" class="hidden ops-summary ops-card rounded-xl shadow-2xl p-3 backdrop-blur-xl border border-cyber-700/90" aria-label="Operational summary">
-        <div class="flex items-center justify-between gap-3 mb-2">
-          <div class="flex items-center space-x-2">
-            <h2 class="text-[11px] font-extrabold uppercase tracking-wider text-white">Operational Summary</h2>
-            <span id="opsObserved" class="text-[9px] font-mono text-slate-500 tabular">Awaiting evidence</span>
-          </div>
-          <button onclick="toggleOperationalSummary(false)" class="w-6 h-6 rounded-md bg-cyber-800 text-slate-400 hover:text-white flex items-center justify-center text-xs transition" title="Tutup ringkasan">✕</button>
-        </div>
-        <div class="grid grid-cols-4 gap-2 tabular">
-          <button data-ops-filter="running" class="rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 p-2 text-left transition"><b id="opsRunning" class="block text-lg text-emerald-400">0</b><span class="text-[9px] text-slate-300">Running</span></button>
-          <button data-ops-filter="ready" class="rounded-lg bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 p-2 text-left transition"><b id="opsQueued" class="block text-lg text-sky-400">0</b><span class="text-[9px] text-slate-300">Queued</span></button>
-          <button data-ops-filter="blocked" class="rounded-lg bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 p-2 text-left transition"><b id="opsBlocked" class="block text-lg text-rose-400">0</b><span class="text-[9px] text-slate-300">Blocked/Stale</span></button>
-          <button data-ops-filter="delegation" class="rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 p-2 text-left transition"><b id="opsDelegations" class="block text-lg text-amber-400">0</b><span class="text-[9px] text-slate-300">Delegations</span></button>
-        </div>
-        <button id="opsLatest" class="ops-hide-mobile mt-2 w-full text-left truncate text-[10px] text-slate-300 font-mono hover:text-white transition">No observed activity</button>
-      </section>
     </div>
 
   <!-- ======================================================================= -->
@@ -826,7 +826,7 @@
       const delegations = (snapshot.delegations || []).filter(d => d.status === 'running').length;
       setNodeText('opsRunning', running); setNodeText('opsQueued', (columns.ready || []).length); setNodeText('opsBlocked', blocked); setNodeText('opsDelegations', delegations);
       setNodeText('opsObserved', snapshot.emitted_at ? `Observed ${snapshot.emitted_at}` : 'Evidence time unavailable');
-      setNodeText('opsMiniBadge', `${running} Run · ${(columns.ready || []).length} Q · ${blocked} Blk`);
+      setNodeText('opsMiniBadge', running > 0 ? `${running} Active` : '0');
       const latest = (snapshot.telemetry || [])[0] || (snapshot.events || [])[0];
       setNodeText('opsLatest', latest ? `${latest.observed_at || latest.created_at || latest.time || 'unknown'} · ${latest.agent || latest.task_id || 'system'} · ${latest.detail || latest.kind || latest.title || 'activity'}` : 'No observed activity');
       setNodeText('warRosterEvidence', `${running} active · ${stale} stale/unknown`);
