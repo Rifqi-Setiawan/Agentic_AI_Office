@@ -17,9 +17,9 @@ import asyncio
 import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Set
 
-from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi import FastAPI, HTTPException, Query, Request, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
@@ -41,7 +41,8 @@ app.add_middleware(
 
 BASE_DIR = Path("/srv/hermes-control")
 PROFILES_DIR = Path("/srv/apps/hermes/profiles")
-STATIC_DIR = Path(__file__).resolve().parents[1] / "static"
+FRONTEND_DIST = Path(__file__).resolve().parents[1] / "frontend" / "dist"
+STATIC_DIR = FRONTEND_DIST if FRONTEND_DIST.exists() else (Path(__file__).resolve().parents[1] / "static")
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 KANBAN_ROOT = Path("/srv/apps/hermes/kanban")
 KANBAN_GLOBAL_DB = Path("/srv/apps/hermes/kanban.db")
@@ -1398,6 +1399,123 @@ def get_kanban_events(board: str = Query(default="default"), limit: int = Query(
         events.append(redact_payload(event))
     return {"status": "success", "board": board, "events": events, "total_events": len(events)}
 
+
+# Active WebSocket connections for Claude-Office
+connected_clients: Set[WebSocket] = set()
+
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    connected_clients.add(websocket)
+    try:
+        # 1. Send initial snapshot of all 14 agents
+        roster_data = get_agents_roster()
+        active_agents = []
+        for a in roster_data.get("agents", []):
+            active_agents.append({
+                "id": a["id"],
+                "name": a["name"],
+                "role": a["id"],
+                "task": a.get("status_desc"),
+                "state": "working" if a["state"] != "IDLE" else "idle"
+            })
+
+        snapshot = {
+            "type": "snapshot",
+            "activeAgents": active_agents,
+            "mcpServers": ["github", "duckdb", "hermes", "9router", "caddy"],
+            "timestamp": int(time.time() * 1000)
+        }
+        await websocket.send_text(json.dumps(snapshot))
+
+        # 2. Continuous telemetry & chat synchronization loop
+        prev_states = {a["id"]: a["state"] for a in active_agents}
+        while True:
+            try:
+                await asyncio.wait_for(websocket.receive_text(), timeout=1.5)
+            except asyncio.TimeoutError:
+                pass
+
+            current_roster = get_agents_roster()
+            for ag in current_roster.get("agents", []):
+                aid = ag["id"]
+                cur_state = ag["state"]
+                old_state = prev_states.get(aid, "IDLE")
+
+                if cur_state != "IDLE" and old_state == "IDLE":
+                    ev = {
+                        "type": "agent_working",
+                        "agentId": aid,
+                        "status": ag["status_desc"]
+                    }
+                    await websocket.send_text(json.dumps(ev))
+                elif cur_state == "IDLE" and old_state != "IDLE":
+                    ev = {
+                        "type": "agent_completed",
+                        "agentId": aid,
+                        "result": f"{ag['name']} completed task."
+                    }
+                    await websocket.send_text(json.dumps(ev))
+
+                prev_states[aid] = cur_state
+
+    except WebSocketDisconnect:
+        connected_clients.discard(websocket)
+    except Exception:
+        connected_clients.discard(websocket)
+
+
+@app.post("/chat")
+async def post_chat_message(request: Request):
+    """Receive chat from the Slack-style chat panel and broadcast to connected clients."""
+    try:
+        data = await request.json()
+    except Exception:
+        data = {}
+    sender = data.get("sender", "Founder")
+    text = data.get("text", "")
+    if not text:
+        return {"error": "Empty text"}
+
+    msg_id = int(time.time() * 1000)
+    chat_ev = {
+        "type": "chat_message",
+        "id": msg_id,
+        "sender": sender,
+        "role": "boss",
+        "text": text,
+        "timestamp": datetime.now().strftime("%H:%M")
+    }
+
+    payload = json.dumps(chat_ev)
+    disconnected = set()
+    for ws in list(connected_clients):
+        try:
+            await ws.send_text(payload)
+        except Exception:
+            disconnected.add(ws)
+    connected_clients.difference_update(disconnected)
+
+    return {"ok": True, "id": msg_id}
+
+
+@app.get("/chat/cron-state")
+def get_chat_cron_state():
+    return {"paused": False}
+
+
+@app.post("/chat/cron-state")
+def set_chat_cron_state():
+    return {"ok": True}
+
+
+if FRONTEND_DIST.exists():
+    sprites_path = FRONTEND_DIST / "sprites"
+    rooms_path = FRONTEND_DIST / "rooms"
+    if sprites_path.exists():
+        app.mount("/sprites", StaticFiles(directory=str(sprites_path)), name="sprites")
+    if rooms_path.exists():
+        app.mount("/rooms", StaticFiles(directory=str(rooms_path)), name="rooms")
 
 # Serve static web assets
 app.mount("/", StaticFiles(directory=str(STATIC_DIR), html=True), name="static")
