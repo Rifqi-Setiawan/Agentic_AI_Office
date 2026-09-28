@@ -25,9 +25,11 @@
     "install-hooks": "bash hooks/install-hooks.sh"
   },
   "dependencies": {
+    "@xyflow/react": "^12.12.0",
     "better-sqlite3": "^12.8.0",
     "concurrently": "^8.2.2",
     "express": "^4.19.2",
+    "lucide-react": "^1.48.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "ws": "^8.18.0"

@@ -4,6 +4,7 @@ import './styles/rooms.css'
 import SlackChat, { ChatMessage } from './components/SlackChat'
 import Character from './components/Character'
 import FurnitureRenderer from './components/FurnitureRenderer'
+import { MissionControl } from './components/CommandCenter/MissionControl'
 import { Agent, OfficeEvent, AGENT_CONFIGS } from './types'
 import { getCurrentPhase, getPhaseLabel, type DayPhase } from './daylight'
 import { ROOMS } from './rooms'
@@ -287,6 +288,36 @@ const App: React.FC = () => {
   const [muted, setMuted] = useState(false)
   const [dayPhase, setDayPhase] = useState<DayPhase>(getCurrentPhase())
   const [dayNightMode, setDayNightMode] = useState<'auto' | 'day' | 'night'>('auto')
+  const [activeView, setActiveView] = useState<'mission-control' | 'spatial-office'>('mission-control')
+  const [vitals, setVitals] = useState<any>(null)
+  const [telemetryEvents, setTelemetryEvents] = useState<any[]>([])
+
+  useEffect(() => {
+    const fetchVitals = () => {
+      fetch('/api/v1/vitals')
+        .then(r => r.json())
+        .then(d => setVitals(d))
+        .catch(() => {})
+    }
+    const fetchTelemetry = () => {
+      fetch('/api/v1/telemetry/live')
+        .then(r => r.json())
+        .then(d => {
+          if (d.status === 'success' && Array.isArray(d.events)) {
+            setTelemetryEvents(d.events)
+          }
+        })
+        .catch(() => {})
+    }
+
+    fetchVitals()
+    fetchTelemetry()
+    const timer = setInterval(() => {
+      fetchVitals()
+      fetchTelemetry()
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [])
 
   // Compressed day cycle: 10 min = 24 hours
   // nightOpacity: 0 = full day, 1 = full night
@@ -1754,6 +1785,28 @@ const App: React.FC = () => {
     )
   }
 
+  if (activeView === 'mission-control') {
+    return (
+      <MissionControl
+        agents={agents}
+        events={telemetryEvents}
+        vitals={vitals}
+        messages={messages}
+        onSendMessage={(text) => {
+          const bossCfg = AGENT_CONFIGS[BOSS_ROLE] ?? AGENT_CONFIGS['default']
+          addMsg(bossCfg.title, BOSS_ROLE, bossCfg.color, text)
+          fetch('/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sender: bossCfg.title, text }),
+          }).catch(() => {})
+        }}
+        activeView={activeView}
+        onSwitchView={setActiveView}
+      />
+    )
+  }
+
   return (
     <div className="app-wrapper">
       <div className="title-bar">
@@ -1761,6 +1814,14 @@ const App: React.FC = () => {
         <div className="title-bar-dot" style={{ background: '#febc2e' }} />
         <div className="title-bar-dot" style={{ background: '#28c840' }} />
         <span className="title-bar-text">RIFQI STUDIO — AGENTIC AI OFFICE</span>
+        <button
+          className="title-bar-daynight"
+          onClick={() => setActiveView('mission-control')}
+          style={{ background: '#06b6d4', color: '#080b11', fontWeight: 700 }}
+          title="Switch to Mission Control"
+        >
+          🛰️ MISSION CONTROL
+        </button>
         <button
           className="title-bar-daynight"
           onClick={() => setDayNightMode(prev =>
