@@ -91,68 +91,55 @@ function computePath(
 // Roles that go to the filing cabinet instead of their desk (browsing codebase)
 const FILING_ROLES = new Set(['Explore', 'general-purpose'])
 
-// The boss — always in the office, permanent desk (spot-1)
-const BOSS_ID = `boss-${BOSS_NAME.toLowerCase()}`
-const BOSS_SPOT = MAIN_ROOM.agentSpots.find(s => s.id === 'spot-1') ?? MAIN_ROOM.agentSpots.find(s => s.type === 'desk') ?? null
+// Canonical 14 Agents Roster Definitions
+export const CANONICAL_ROSTER = [
+  { id: 'vps-boss', name: 'Jarvis', role: 'vps-boss', spotId: 'spot-boss', task: 'Lord Commander & Chief Orchestrator' },
+  { id: 'professor', name: 'Senku', role: 'professor', spotId: 'spot-senku', task: 'Grand Maester of Research & Science' },
+  { id: 'swe-verifier', name: 'swe-QA', role: 'swe-verifier', spotId: 'spot-swe-qa', task: 'Independent Quality & Verification' },
+  { id: 'swe-backend', name: 'swe-backend', role: 'swe-backend', spotId: 'spot-swe-backend', task: 'Backend Architecture & APIs' },
+  { id: 'swe-frontend', name: 'swe-frontend', role: 'swe-frontend', spotId: 'spot-swe-frontend', task: 'Frontend & UI/UX Engineering' },
+  { id: 'data-engineer', name: 'data-engineer', role: 'data-engineer', spotId: 'spot-data-engineer', task: 'DuckDB Medallion Lakehouse' },
+  { id: 'devops-engineer', name: 'devops-engineer', role: 'devops-engineer', spotId: 'spot-devops-engineer', task: 'Infrastructure & SRE Operations' },
+  { id: 'ui-designer', name: 'ui-designer', role: 'ui-designer', spotId: 'spot-ui-designer', task: 'Design Systems & Aesthetics' },
+  { id: 'tech-mentor', name: 'tech-mentor', role: 'tech-mentor', spotId: 'spot-tech-mentor', task: 'Interactive Architecture Tutor' },
+  { id: 'github-manager', name: 'github-manager', role: 'github-manager', spotId: 'spot-github-manager', task: 'Global Git & Release PIC' },
+  { id: 'office-lead', name: 'office-lead', role: 'office-lead', spotId: 'spot-office-lead', task: 'Virtual Systems & Cockpit Lead' },
+  { id: 'paperwright', name: 'paperwright', role: 'paperwright', spotId: 'spot-paperwright', task: 'LaTeX & Scientific Scribe' },
+  { id: 'vps-assistant', name: 'vps-assistant', role: 'vps-assistant', spotId: 'spot-vps-assistant', task: 'General Operational Utility' },
+  { id: 'rifqi', name: 'Rifqi Setiawan', role: 'boss', spotId: 'spot-founder', task: 'Founder & Principal Authority' },
+]
 
-function createBoss(): Agent {
-  const cfg = AGENT_CONFIGS[BOSS_ROLE] ?? AGENT_CONFIGS['default']
-  const spot = BOSS_SPOT ?? { id: 'spot-temp', type: 'desk' as const, x: 28.9, y: 66 }
-  const entry = MAIN_ROOM.entryPoint
-  const target = { x: spot.x, y: spot.y }
-  return {
-    id: BOSS_ID,
-    name: cfg.title,
-    type: 'subagent',
-    role: BOSS_ROLE,
-    state: 'new-hire',
-    position: { x: entry.x, y: entry.y },
-    targetPosition: target,
-    deskPosition: target,
-    room: 'main-office',
-    assignedRoom: 'main-office',
-    assignedSpotId: spot.id,
-    spriteFacing: spot.spriteFacing,
-    task: 'Running the show',
-    statusText: 'clocked in',
-    color: cfg.color,
-    emoji: cfg.emoji,
-    hiredAt: Date.now(),
-    pathQueue: computePath(entry, target),
-  }
+export function createInitialRoster(): Agent[] {
+  return CANONICAL_ROSTER.map(def => {
+    const cfg = AGENT_CONFIGS[def.role] ?? AGENT_CONFIGS['default']
+    const spot = MAIN_ROOM.agentSpots.find(s => s.id === def.spotId) ?? MAIN_ROOM.agentSpots[0]
+    const pos = { x: spot.x, y: spot.y }
+    return {
+      id: def.id,
+      name: def.name,
+      type: 'subagent',
+      role: def.role,
+      state: 'idle',
+      position: pos,
+      targetPosition: pos,
+      deskPosition: pos,
+      room: 'main-office',
+      assignedRoom: 'main-office',
+      assignedSpotId: spot.id,
+      spriteFacing: spot.spriteFacing,
+      task: def.task,
+      statusText: 'online',
+      color: cfg.color,
+      emoji: cfg.emoji,
+      hiredAt: Date.now(),
+      pathQueue: [],
+    }
+  })
 }
 
-// Claude — the assistant, always in the office at spot-2
-const CLAUDE_ID = 'assistant-claude'
-const CLAUDE_ROLE = 'assistant'
-const CLAUDE_SPOT = MAIN_ROOM.agentSpots.find(s => s.id === 'spot-2') ?? null
-
-function createClaude(): Agent {
-  const cfg = AGENT_CONFIGS[CLAUDE_ROLE] ?? AGENT_CONFIGS['default']
-  const spot = CLAUDE_SPOT ?? { id: 'spot-2', type: 'desk' as const, x: 37.9, y: 68.2, spriteFacing: 'rear-right' as const }
-  const entry = MAIN_ROOM.entryPoint
-  const target = { x: spot.x, y: spot.y }
-  return {
-    id: CLAUDE_ID,
-    name: cfg.title,
-    type: 'subagent',
-    role: CLAUDE_ROLE,
-    state: 'new-hire',
-    position: { x: entry.x, y: entry.y },
-    targetPosition: target,
-    deskPosition: target,
-    room: 'main-office',
-    assignedRoom: 'main-office',
-    assignedSpotId: spot.id,
-    spriteFacing: spot.spriteFacing,
-    task: 'Office assistant',
-    statusText: 'clocked in',
-    color: cfg.color,
-    emoji: cfg.emoji,
-    hiredAt: Date.now() + 500, // arrives just after the boss
-    pathQueue: computePath(entry, target),
-  }
-}
+export const BOSS_ID = 'vps-boss'
+export const CLAUDE_ID = 'office-lead'
+export const CLAUDE_ROLE = 'office-lead'
 
 // How close (in %-units) an agent must be to their target before we consider
 // them "arrived"
@@ -283,11 +270,16 @@ const OFFICE_SIM_CHATTER = [
 const App: React.FC = () => {
   // All hooks must be at the top — before any conditional returns.
   const theme = useTheme() // Why: re-render rooms + agents when /the-office toggles
-  const [agents, setAgents] = useState<Agent[]>(() => [createBoss(), createClaude()])
-  const agentMetaRef = useRef<Map<string, AgentMeta>>(new Map([
-    [BOSS_ID, { spawnedAt: Date.now(), arrivedAtDeskAt: Date.now(), idleSince: null, onBreak: false, breakStartedAt: null }],
-    [CLAUDE_ID, { spawnedAt: Date.now(), arrivedAtDeskAt: Date.now(), idleSince: null, onBreak: false, breakStartedAt: null }],
-  ]))
+  const [agents, setAgents] = useState<Agent[]>(() => createInitialRoster())
+  const agentMetaRef = useRef<Map<string, AgentMeta>>(new Map(
+    CANONICAL_ROSTER.map(def => [def.id, {
+      spawnedAt: Date.now(),
+      arrivedAtDeskAt: Date.now(),
+      idleSince: null,
+      onBreak: false,
+      breakStartedAt: null,
+    }])
+  ))
 
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [chatTypingUser, setChatTypingUser] = useState<string | null>(null)

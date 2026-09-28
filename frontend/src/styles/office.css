@@ -336,6 +336,39 @@
   display: block;
 }
 
+.char-badge {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 1px 5px;
+  background: rgba(10, 10, 15, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: -0.2px;
+  z-index: 1000;
+}
+
+.char-badge-emoji {
+  font-size: 9px;
+  line-height: 1;
+}
+
+.char-badge-name {
+  font-size: 8.5px;
+  line-height: 1;
+}
+
 /* Shadow under character */
 .char-shadow {
   position: absolute;

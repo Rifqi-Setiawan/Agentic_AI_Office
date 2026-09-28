@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Agent, AgentState } from '../types'
+import { ROOMS } from '../rooms'
 import SpeechBubble from './SpeechBubble'
 import EffectBubble from './EffectBubble'
 import { getEffect } from '../agentManager'
@@ -131,6 +132,11 @@ const Character: React.FC<CharacterProps> = ({ agent, idleDurationMs = 0, zIndex
     ? '/sprites/effects/typing.png'
     : getEffect(agent.state, idleDurationMs, agent.statusText, agent.id, agent.task, agent.role)
 
+  const spotZ = agent.assignedSpotId
+    ? (ROOMS['main-office'].agentSpots.find(s => s.id === agent.assignedSpotId)?.zIndex)
+    : undefined
+  const finalZIndex = zIndex ?? spotZ ?? Math.round(agent.position.y)
+
   return (
     <div
       className={`character-wrapper state-${animState}`}
@@ -138,9 +144,14 @@ const Character: React.FC<CharacterProps> = ({ agent, idleDurationMs = 0, zIndex
         left: `${agent.position.x}%`,
         top: `${agent.position.y}%`,
         transform: 'translate(-50%, -100%)',
-        zIndex: zIndex ?? Math.round(agent.position.y),
+        zIndex: finalZIndex,
       }}
     >
+      <div className="char-badge" style={{ borderColor: agent.color }}>
+        <span className="char-badge-emoji">{agent.emoji}</span>
+        <span className="char-badge-name">{agent.name}</span>
+      </div>
+
       {effectSrc && <EffectBubble src={effectSrc} alt={agent.state} />}
 
       {shouldShowBubble(agent.state) && agent.statusText && (

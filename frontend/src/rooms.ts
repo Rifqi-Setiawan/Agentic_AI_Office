@@ -100,6 +100,11 @@ export const ROOMS: Record<RoomId, Room> = {
       { id: 'desk-3b', type: 'desk-standing', sprite: 'desk-standing-left-front', x: 62.6, y: 76 },
       { id: 'desk-3c', type: 'desk-standing', sprite: 'desk-standing-right-front', x: 55.4, y: 78.7 },
       { id: 'desk-3d', type: 'desk-standing', sprite: 'desk-standing-right-rear', x: 66.6, y: 71.1 },
+      // Additional desks for full 14 agents
+      { id: 'desk-4a', type: 'desk-standing', sprite: 'desk-standing-left-rear', x: 21.5, y: 58.0 },
+      { id: 'desk-4b', type: 'desk-standing', sprite: 'desk-standing-right-rear', x: 50.0, y: 45.0 },
+      { id: 'desk-4c', type: 'desk-standing', sprite: 'desk-standing-left-rear', x: 74.0, y: 65.0 },
+      { id: 'desk-4d', type: 'desk-standing', sprite: 'desk-standing-right-front', x: 70.0, y: 78.0 },
       // Coffee machine on counter
       { id: 'coffee', type: 'coffee-machine', sprite: 'coffee-off', x: 78.5, y: 50.2, interactive: true, state: 'off', label: 'Coffee Machine' },
       // Filing cabinet
@@ -124,26 +129,21 @@ export const ROOMS: Record<RoomId, Room> = {
       { toRoom: 'manager-office', position: { x: 67.5, y: 48.9 }, label: "Manager's Office", exitFacing: 'rear-right', entryFacing: 'front-right' },
     ],
     agentSpots: [
-      // Desk spots
-      // In front of desk: rear-left/rear-right (z higher than desk)
-      // Behind desk: front-left/front-right (z lower than desk)
-      // Front-left cluster: desks at y ~65-70
-      { id: 'spot-1', type: 'desk', x: 25.8, y: 71, facing: 'down', spriteFacing: 'rear-left', zIndex: 85 },
-      { id: 'spot-2', type: 'desk', x: 37.9, y: 68.2, facing: 'down', spriteFacing: 'rear-right', zIndex: 85 },
-      { id: 'spot-3', type: 'desk', x: 26.9, y: 59.2, facing: 'down', spriteFacing: 'front-left', zIndex: 40 },
-      // Back cluster: desks at y ~50-55
-      { id: 'spot-4', type: 'desk', x: 38.5, y: 55.2, facing: 'down', spriteFacing: 'rear-left', zIndex: 58 },
-      { id: 'spot-5', type: 'desk', x: 48.9, y: 52.9, facing: 'down', spriteFacing: 'rear-right', zIndex: 70 },
-      { id: 'spot-6', type: 'desk', x: 38.8, y: 43.6, facing: 'down', spriteFacing: 'front-left', zIndex: 30 },
-      // Right cluster: desks at y ~72-79
-      { id: 'spot-7', type: 'desk', x: 52.7, y: 78.8, facing: 'down', spriteFacing: 'rear-left', zIndex: 95 },
-      { id: 'spot-8', type: 'desk', x: 65.9, y: 75.8, facing: 'down', spriteFacing: 'rear-right', zIndex: 95 },
-      { id: 'spot-9', type: 'desk', x: 55.2, y: 66.8, facing: 'down', spriteFacing: 'front-left', zIndex: 55 },
-      { id: 'spot-10', type: 'desk', x: 68.7, y: 66.2, facing: 'down', spriteFacing: 'front-right', zIndex: 55 },
-      { id: 'spot-11', type: 'desk', x: 42.0, y: 72.0, facing: 'down', spriteFacing: 'rear-left', zIndex: 90 },
-      { id: 'spot-12', type: 'desk', x: 30.5, y: 64.0, facing: 'down', spriteFacing: 'front-right', zIndex: 60 },
-      { id: 'spot-13', type: 'desk', x: 60.0, y: 72.0, facing: 'down', spriteFacing: 'front-left', zIndex: 75 },
-      { id: 'spot-14', type: 'desk', x: 44.0, y: 48.0, facing: 'down', spriteFacing: 'rear-right', zIndex: 65 },
+      // 14 Dedicated Agent Workstations (Zero overlap, perfectly spaced pods)
+      { id: 'spot-boss', type: 'desk', x: 24.0, y: 74.0, facing: 'down', spriteFacing: 'rear-left', zIndex: 85 },
+      { id: 'spot-senku', type: 'desk', x: 35.0, y: 64.0, facing: 'down', spriteFacing: 'front-right', zIndex: 65 },
+      { id: 'spot-swe-qa', type: 'desk', x: 30.0, y: 70.0, facing: 'down', spriteFacing: 'rear-left', zIndex: 75 },
+      { id: 'spot-ui-designer', type: 'desk', x: 16.0, y: 56.0, facing: 'down', spriteFacing: 'front-right', zIndex: 60 },
+      { id: 'spot-swe-backend', type: 'desk', x: 36.0, y: 49.0, facing: 'down', spriteFacing: 'front-left', zIndex: 51 },
+      { id: 'spot-swe-frontend', type: 'desk', x: 48.0, y: 48.0, facing: 'down', spriteFacing: 'front-right', zIndex: 51 },
+      { id: 'spot-data-engineer', type: 'desk', x: 42.0, y: 56.0, facing: 'down', spriteFacing: 'rear-left', zIndex: 58 },
+      { id: 'spot-devops-engineer', type: 'desk', x: 52.0, y: 44.0, facing: 'down', spriteFacing: 'rear-right', zIndex: 45 },
+      { id: 'spot-tech-mentor', type: 'desk', x: 58.0, y: 81.0, facing: 'down', spriteFacing: 'rear-left', zIndex: 85 },
+      { id: 'spot-github-manager', type: 'desk', x: 65.5, y: 76.5, facing: 'down', spriteFacing: 'rear-right', zIndex: 82 },
+      { id: 'spot-office-lead', type: 'desk', x: 52.0, y: 74.0, facing: 'down', spriteFacing: 'front-left', zIndex: 72 },
+      { id: 'spot-paperwright', type: 'desk', x: 69.0, y: 67.0, facing: 'down', spriteFacing: 'rear-right', zIndex: 70 },
+      { id: 'spot-vps-assistant', type: 'desk', x: 80.0, y: 62.0, facing: 'down', spriteFacing: 'rear-left', zIndex: 65 },
+      { id: 'spot-founder', type: 'desk', x: 74.0, y: 80.0, facing: 'down', spriteFacing: 'front-left', zIndex: 88 },
       // Activity spots
       { id: 'spot-coffee-1', type: 'coffee', x: 73.5, y: 56.7, facing: 'down', spriteFacing: 'rear-left' },
       { id: 'spot-coffee-2', type: 'coffee', x: 76.2, y: 58.4, facing: 'down', spriteFacing: 'front-right' },
