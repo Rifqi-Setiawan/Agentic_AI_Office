@@ -45,7 +45,7 @@ export const CustomAgentNode = memo(({ data }: { data: AgentNodeData }) => {
   return (
     <div
       onClick={() => data.onInspect?.(data.id)}
-      className={`group relative min-w-[240px] max-w-[280px] rounded-xl border bg-slate-950/90 p-3.5 backdrop-blur-md transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer ${
+      className={`group relative w-[260px] rounded-xl border bg-slate-950/90 p-3.5 backdrop-blur-md transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer ${
         isWorking
           ? 'border-cyan-500/80 shadow-[0_0_25px_rgba(6,182,212,0.35)] ring-1 ring-cyan-400/50'
           : 'border-slate-800/80 shadow-lg hover:border-slate-700'

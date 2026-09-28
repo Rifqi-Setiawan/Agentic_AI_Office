@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import {
   ReactFlow,
-  MiniMap,
   Controls,
   Background,
   BackgroundVariant,
@@ -53,7 +52,7 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
       {
         id: 'vps-boss',
         type: 'agentNode',
-        position: { x: 520, y: 30 },
+        position: { x: 550, y: 40 },
         data: getAgent('vps-boss', 'Jarvis', 'Chief Orchestrator & Planner', '#f59e0b', '👑', 'ag/gemini-3.8-flash'),
       },
 
@@ -61,13 +60,13 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
       {
         id: 'professor',
         type: 'agentNode',
-        position: { x: 260, y: 220 },
+        position: { x: 210, y: 230 },
         data: getAgent('professor', 'Senku', 'Distinguished Research Scientist', '#10b981', '🧪', 'cx/gpt-5.6-sol'),
       },
       {
         id: 'tech-mentor',
         type: 'agentNode',
-        position: { x: 780, y: 220 },
+        position: { x: 890, y: 230 },
         data: getAgent('tech-mentor', 'tech-mentor', 'Technical Architecture Tutor', '#6366f1', '🎓', 'ag/gemini-3.8-flash'),
       },
 
@@ -75,25 +74,25 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
       {
         id: 'swe-backend',
         type: 'agentNode',
-        position: { x: 60, y: 410 },
+        position: { x: 40, y: 420 },
         data: getAgent('swe-backend', 'swe-backend', 'Backend Architecture & APIs', '#3b82f6', '⚙️', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'swe-frontend',
         type: 'agentNode',
-        position: { x: 340, y: 410 },
+        position: { x: 380, y: 420 },
         data: getAgent('swe-frontend', 'swe-frontend', 'Frontend UI/UX Engineering', '#06b6d4', '🎨', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'swe-verifier',
         type: 'agentNode',
-        position: { x: 620, y: 410 },
+        position: { x: 720, y: 420 },
         data: getAgent('swe-verifier', 'swe-QA', 'Independent Quality Verification', '#8b5cf6', '🛡️', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'data-engineer',
         type: 'agentNode',
-        position: { x: 900, y: 410 },
+        position: { x: 1060, y: 420 },
         data: getAgent('data-engineer', 'data-engineer', 'DuckDB Medallion Lakehouse', '#14b8a6', '🌊', 'ag/gemini-3.8-flash'),
       },
 
@@ -101,25 +100,25 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
       {
         id: 'devops-engineer',
         type: 'agentNode',
-        position: { x: 60, y: 600 },
+        position: { x: 40, y: 610 },
         data: getAgent('devops-engineer', 'devops-engineer', 'Principal SRE & Infrastructure', '#f97316', '🚀', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'ui-designer',
         type: 'agentNode',
-        position: { x: 340, y: 600 },
+        position: { x: 380, y: 610 },
         data: getAgent('ui-designer', 'ui-designer', 'Principal Design Systems', '#ec4899', '✨', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'github-manager',
         type: 'agentNode',
-        position: { x: 620, y: 600 },
+        position: { x: 720, y: 610 },
         data: getAgent('github-manager', 'github-manager', 'Global Git & Release PIC', '#64748b', '🐙', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'office-lead',
         type: 'agentNode',
-        position: { x: 900, y: 600 },
+        position: { x: 1060, y: 610 },
         data: getAgent('office-lead', 'office-lead', 'Virtual Systems & Telemetry', '#4f46e5', '🏢', 'cx/gpt-5.6-sol'),
       },
 
@@ -127,19 +126,19 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
       {
         id: 'paperwright',
         type: 'agentNode',
-        position: { x: 200, y: 780 },
+        position: { x: 210, y: 800 },
         data: getAgent('paperwright', 'paperwright', 'LaTeX Manuscript Scribe', '#a855f7', '📜', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'vps-assistant',
         type: 'agentNode',
-        position: { x: 480, y: 780 },
+        position: { x: 550, y: 800 },
         data: getAgent('vps-assistant', 'vps-assistant', 'General Operations Utility', '#84cc16', '⚡', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'rifqi',
         type: 'agentNode',
-        position: { x: 760, y: 780 },
+        position: { x: 890, y: 800 },
         data: getAgent('rifqi', 'Rifqi Setiawan', 'Founder & Final Authority', '#eab308', '👑', 'human-authority'),
       },
     ]
@@ -196,22 +195,12 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
 
   return (
     <div className="h-full w-full rounded-2xl border border-slate-800/80 bg-slate-950/60 overflow-hidden relative shadow-2xl">
-      <div className="absolute top-3 left-4 z-10 flex items-center gap-2">
-        <span className="flex h-2.5 w-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]" />
-        <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-200">
-          Autonomous Execution DAG & Delegation Pathways
-        </h3>
-        <span className="text-[10px] font-mono text-slate-500 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
-          14 Agents Active
-        </span>
-      </div>
-
       <ReactFlow
         nodes={nodes}
         edges={edges}
         nodeTypes={nodeTypes}
         fitView
-        fitViewOptions={{ padding: 0.15 }}
+        fitViewOptions={{ padding: 0.12 }}
         minZoom={0.3}
         maxZoom={1.5}
         proOptions={{ hideAttribution: true }}
@@ -220,11 +209,6 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
         <Controls
           className="!bg-slate-900 !border-slate-800 !fill-slate-300 !shadow-xl [&>button]:!border-slate-800 [&>button:hover]:!bg-slate-800"
           showInteractive={false}
-        />
-        <MiniMap
-          nodeColor={(n: any) => n.data?.color || '#3b82f6'}
-          className="!bg-slate-950/80 !border-slate-800 !rounded-lg overflow-hidden !shadow-2xl"
-          maskColor="rgba(8, 11, 17, 0.7)"
         />
       </ReactFlow>
     </div>
