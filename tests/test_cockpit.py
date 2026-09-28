@@ -6,7 +6,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import pytest
 from fastapi.testclient import TestClient
-from src.server import app, OFFICE_ZONES, get_agent_models_map, get_git_diff_summary
+from src.server import app, OFFICE_ZONES, get_agent_models_map, get_git_diff_summary, redact_payload, _liveness
 
 client = TestClient(app)
 
@@ -127,5 +127,29 @@ def test_kanban_boards_and_tasks_endpoints():
 def test_kanban_unknown_board_and_task_are_404():
     assert client.get("/api/v1/kanban/tasks?board=missing").status_code == 404
     assert client.get("/api/v1/kanban/task/missing?board=bitcoin-data-platform").status_code == 404
+
+
+def test_observability_endpoints_and_dependencies():
+    tasks = client.get("/api/v1/kanban/tasks?board=bitcoin-data-platform").json()
+    flat = [t for column in tasks["columns"].values() for t in column]
+    assert all({"parents", "children", "is_stale", "liveness_label"}.issubset(t) for t in flat)
+    events = client.get("/api/v1/kanban/events?board=bitcoin-data-platform&limit=5")
+    assert events.status_code == 200
+    assert len(events.json()["events"]) <= 5
+    workers = client.get("/api/v1/workers/liveness")
+    assert workers.status_code == 200
+    assert "stale_after_seconds" in workers.json()
+    tree = client.get("/api/v1/delegations/tree?limit=3")
+    assert tree.status_code == 200
+    assert "delegations" in tree.json()
+
+
+def test_secret_redaction_and_stale_detection():
+    data = redact_payload({"authorization": "Bearer abcdefghijklmnop", "text": "sk-abcdefghijklmnop eyJabcdefghijk.abcdefghijk"})
+    assert data["authorization"] == "[REDACTED]"
+    assert "sk-" not in data["text"] and "eyJ" not in data["text"]
+    stale = _liveness(1, 99999999, "running")
+    assert stale["is_stale"] is True
+    assert stale["liveness"] == "STALE"
 
 

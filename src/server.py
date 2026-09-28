@@ -13,14 +13,15 @@ import shutil
 import yaml
 import subprocess
 import sqlite3
+import asyncio
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
 from pydantic import BaseModel
 
 app = FastAPI(
@@ -43,6 +44,75 @@ STATIC_DIR = Path(__file__).resolve().parents[1] / "static"
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 KANBAN_ROOT = Path("/srv/apps/hermes/kanban")
 KANBAN_GLOBAL_DB = Path("/srv/apps/hermes/kanban.db")
+STALE_HEARTBEAT_SECONDS = int(os.getenv("COCKPIT_STALE_HEARTBEAT_SECONDS", "120"))
+MAX_TRANSCRIPT_BYTES = 256_000
+
+_SECRET_KEY_RE = re.compile(r"(?i)(authorization|api[-_]?key|access[-_]?token|refresh[-_]?token|password|passwd|secret|client[-_]?secret|private[-_]?key|cookie|credential|session)")
+_SECRET_PATTERNS = [
+    re.compile(r"\bsk-[A-Za-z0-9_-]{12,}\b"),
+    re.compile(r"\beyJ[A-Za-z0-9_-]{10,}(?:\.[A-Za-z0-9_-]+){1,2}\b"),
+    re.compile(r"(?i)\b(?:bearer|basic)\s+[A-Za-z0-9._~+/=-]{8,}"),
+    re.compile(r"(?i)(?:api[-_]?key|token|password|passwd|secret|authorization)\s*[:=]\s*['\"]?[^\s,'\"}]{4,}"),
+]
+
+
+def redact_text(value: Any) -> str:
+    """Redact credential-like material before it crosses the API boundary."""
+    text = str(value if value is not None else "")
+    for pattern in _SECRET_PATTERNS:
+        text = pattern.sub("[REDACTED]", text)
+    return text
+
+
+def redact_payload(value: Any, key: str = "") -> Any:
+    if _SECRET_KEY_RE.search(key):
+        return "[REDACTED]"
+    if isinstance(value, dict):
+        return {str(k): redact_payload(v, str(k)) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [redact_payload(v) for v in value]
+    if isinstance(value, str):
+        return redact_text(value)
+    return value
+
+
+def _pid_alive(pid: Optional[int]) -> bool:
+    if not pid or pid <= 0:
+        return False
+    try:
+        os.kill(pid, 0)
+        return True
+    except (ProcessLookupError, PermissionError, OSError):
+        return False
+
+
+def _epoch(value: Any) -> Optional[float]:
+    if value is None:
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    try:
+        return datetime.fromisoformat(str(value).replace("Z", "+00:00")).timestamp()
+    except (TypeError, ValueError):
+        return None
+
+
+def _liveness(last_heartbeat: Any, worker_pid: Optional[int], status: str, fallback_activity: Any = None) -> Dict[str, Any]:
+    now = time.time()
+    heartbeat = _epoch(last_heartbeat) or _epoch(fallback_activity)
+    age = max(0, int(now - heartbeat)) if heartbeat else None
+    running = status.lower() in {"running", "in_progress", "in-progress", "ready", "claimed"}
+    pid_alive = _pid_alive(worker_pid) if worker_pid else None
+    stale = bool(running and (heartbeat is None or age > STALE_HEARTBEAT_SECONDS or pid_alive is False))
+    if stale:
+        reason = "PID not alive" if pid_alive is False else (f"no heartbeat {age // 60}m {age % 60}s" if age is not None else "no heartbeat")
+        label = f"⚠️ STALE ({reason})"
+        state = "STALE"
+    elif running and heartbeat and (pid_alive is not False):
+        label, state = "Active", "ACTIVE"
+    else:
+        label, state = "Idle", "IDLE"
+    return {"is_stale": stale, "liveness": state, "liveness_label": label, "heartbeat_age_seconds": age, "pid_alive": pid_alive}
 
 
 def _kanban_boards() -> List[Dict[str, Any]]:
@@ -71,13 +141,18 @@ def _iso_timestamp(value: Optional[int]) -> Optional[str]:
     return datetime.fromtimestamp(value, tz=timezone.utc).isoformat()
 
 
-def _task_payload(row: sqlite3.Row, board: str) -> Dict[str, Any]:
+def _task_payload(row: sqlite3.Row, board: str, links: Optional[List[Dict[str, str]]] = None) -> Dict[str, Any]:
     item = dict(row)
-    for key in ("created_at", "started_at", "completed_at", "last_heartbeat_at"):
+    raw_heartbeat = item.get("last_heartbeat_at")
+    raw_activity = raw_heartbeat or item.get("started_at") or item.get("created_at")
+    item.update(_liveness(raw_heartbeat, item.get("worker_pid"), item.get("status", ""), raw_activity))
+    for key in ("created_at", "started_at", "completed_at", "last_heartbeat_at", "worker_started_at", "claim_expires"):
         if key in item:
             item[key] = _iso_timestamp(item[key])
     item["board"] = board
-    return item
+    item["parents"] = [link["parent_id"] for link in (links or []) if link["child_id"] == item.get("id")]
+    item["children"] = [link["child_id"] for link in (links or []) if link["parent_id"] == item.get("id")]
+    return redact_payload(item)
 
 
 def get_active_kanban_tasks() -> Dict[str, Dict[str, Any]]:
@@ -810,6 +885,113 @@ def get_triage_errors(limit: int = Query(default=20, ge=1, le=50)) -> Dict[str, 
     }
 
 
+def _delegation_records(limit: int = 50) -> List[Dict[str, Any]]:
+    """Scan every profile's live delegation manifests and normalize parallel children."""
+    records: List[Dict[str, Any]] = []
+    pattern = str(PROFILES_DIR / "*" / "cache" / "delegation" / "live" / "*" / "manifest.json")
+    for manifest_path in sorted(glob.glob(pattern), key=os.path.getmtime, reverse=True)[:limit]:
+        path = Path(manifest_path)
+        try:
+            manifest = json.loads(path.read_text(encoding="utf-8", errors="replace"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        delegation_id = str(manifest.get("delegation_id") or path.parent.name)
+        profile = path.parts[path.parts.index("profiles") + 1] if "profiles" in path.parts else "unknown"
+        tasks = []
+        for task in manifest.get("tasks", []):
+            idx = int(task.get("index", len(tasks)))
+            log_path = path.parent / f"task-{idx}.log"
+            status = str(task.get("status") or ("completed" if manifest.get("completed") else "running"))
+            mtime = log_path.stat().st_mtime if log_path.exists() else path.stat().st_mtime
+            tasks.append(redact_payload({
+                "id": f"{delegation_id}:{idx}", "task_idx": idx, "parent_id": delegation_id,
+                "goal": task.get("goal", ""), "status": status, "exit_reason": task.get("exit_reason"),
+                "last_activity_at": datetime.fromtimestamp(mtime, timezone.utc).isoformat(),
+                "is_stale": status == "running" and time.time() - mtime > STALE_HEARTBEAT_SECONDS,
+            }))
+        records.append(redact_payload({
+            "id": delegation_id, "delegation_id": delegation_id, "profile": profile,
+            "started_at": manifest.get("started"), "completed_at": manifest.get("completed"),
+            "model": manifest.get("model"), "provider": manifest.get("provider"),
+            "status": "completed" if manifest.get("completed") else ("running" if any(t["status"] == "running" for t in tasks) else "unknown"),
+            "parallel": len(tasks) > 1, "children": tasks,
+        }))
+    return records
+
+
+def _event_snapshot(board: str = "bitcoin-data-platform") -> Dict[str, Any]:
+    try:
+        tasks = get_kanban_tasks(board)
+        latest_events = get_kanban_events(board, 30)
+    except HTTPException:
+        tasks, latest_events = {"columns": {}}, {"events": []}
+    return redact_payload({
+        "emitted_at": datetime.now(timezone.utc).isoformat(),
+        "board": board, "kanban": tasks, "events": latest_events.get("events", []),
+        "workers": get_worker_liveness(), "delegations": _delegation_records(20),
+        "telemetry": parse_delegation_stream(30),
+    })
+
+
+@app.get("/api/v1/stream/events")
+async def stream_events(request: Request, board: str = Query(default="bitcoin-data-platform")) -> StreamingResponse:
+    """Push redacted Kanban, worker, delegation, and transcript updates over SSE."""
+    async def generate():
+        last_digest = None
+        sequence = 0
+        yield "retry: 3000\n\n"
+        while not await request.is_disconnected():
+            snapshot = await asyncio.to_thread(_event_snapshot, board)
+            payload = json.dumps(snapshot, separators=(",", ":"), ensure_ascii=False)
+            digest = str(hash(payload))
+            if digest != last_digest:
+                sequence += 1
+                yield f"id: {sequence}\nevent: snapshot\ndata: {payload}\n\n"
+                last_digest = digest
+            else:
+                yield f": heartbeat {int(time.time())}\n\n"
+            await asyncio.sleep(1.5)
+    return StreamingResponse(generate(), media_type="text/event-stream", headers={
+        "Cache-Control": "no-cache, no-transform", "Connection": "keep-alive", "X-Accel-Buffering": "no"
+    })
+
+
+@app.get("/api/v1/delegations/tree")
+def get_delegations_tree(limit: int = Query(default=30, ge=1, le=100)) -> Dict[str, Any]:
+    records = _delegation_records(limit)
+    return {"status": "success", "delegations": records, "total_delegations": len(records)}
+
+
+@app.get("/api/v1/delegations/{delegation_id}/transcript/{task_idx}")
+def get_delegation_transcript(delegation_id: str, task_idx: int, profile: Optional[str] = Query(default=None)) -> Dict[str, Any]:
+    if not re.fullmatch(r"deleg_[A-Za-z0-9_-]+", delegation_id) or task_idx < 0:
+        raise HTTPException(status_code=400, detail="Invalid delegation transcript identifier")
+    candidates = ([PROFILES_DIR / profile] if profile and re.fullmatch(r"[A-Za-z0-9_-]+", profile) else list(PROFILES_DIR.glob("*")))
+    for root in candidates:
+        path = root / "cache" / "delegation" / "live" / delegation_id / f"task-{task_idx}.log"
+        if path.is_file():
+            raw = path.read_bytes()[-MAX_TRANSCRIPT_BYTES:].decode("utf-8", errors="replace")
+            return {"status": "success", "delegation_id": delegation_id, "task_idx": task_idx,
+                    "profile": root.name, "transcript": redact_text(raw), "truncated": path.stat().st_size > MAX_TRANSCRIPT_BYTES,
+                    "updated_at": datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).isoformat()}
+    raise HTTPException(status_code=404, detail="Delegation transcript not found")
+
+
+@app.get("/api/v1/workers/liveness")
+def get_worker_liveness() -> Dict[str, Any]:
+    workers: Dict[str, Dict[str, Any]] = {}
+    for board in _kanban_boards():
+        with _kanban_db(board["slug"]) as conn:
+            rows = conn.execute("SELECT id,title,assignee,status,worker_pid,last_heartbeat_at,started_at,created_at FROM tasks WHERE assignee IS NOT NULL ORDER BY created_at DESC").fetchall()
+        for row in rows:
+            agent = row["assignee"]
+            if agent in workers:
+                continue
+            liveness = _liveness(row["last_heartbeat_at"], row["worker_pid"], row["status"], row["started_at"] or row["created_at"])
+            workers[agent] = redact_payload({"profile": agent, "board": board["slug"], "task_id": row["id"], "task_title": row["title"], "task_status": row["status"], "worker_pid": row["worker_pid"], "last_heartbeat_at": _iso_timestamp(row["last_heartbeat_at"]), **liveness})
+    return {"status": "success", "stale_after_seconds": STALE_HEARTBEAT_SECONDS, "workers": list(workers.values())}
+
+
 @app.get("/api/v1/kanban/boards")
 def get_kanban_boards() -> Dict[str, Any]:
     boards = []
@@ -829,8 +1011,9 @@ def get_kanban_tasks(board: str = Query(default="default")) -> Dict[str, Any]:
                "completed": "done", "triage": "blocked", "failed": "blocked"}
     with _kanban_db(board) as conn:
         rows = conn.execute("SELECT * FROM tasks ORDER BY priority DESC, created_at DESC").fetchall()
+        links = [dict(row) for row in conn.execute("SELECT parent_id, child_id FROM task_links ORDER BY parent_id, child_id")]
     for row in rows:
-        task = _task_payload(row, board)
+        task = _task_payload(row, board, links)
         column = aliases.get(task["status"].lower(), task["status"].lower())
         columns.setdefault(column, []).append(task)
     return {"status": "success", "board": board, "columns": columns, "total_tasks": sum(len(v) for v in columns.values())}
@@ -855,9 +1038,28 @@ def get_kanban_task(task_id: str, board: Optional[str] = Query(default=None)) ->
             for key in ("started_at", "ended_at", "last_heartbeat_at", "claim_expires"):
                 if key in run:
                     run[key] = _iso_timestamp(run[key])
-        return {"status": "success", "task": _task_payload(row, slug), "comments": comments,
-                "runs": runs, "events": events, "links": links}
+        return redact_payload({"status": "success", "task": _task_payload(row, slug, links), "comments": comments,
+                "runs": runs, "events": events, "links": links})
     raise HTTPException(status_code=404, detail=f"Kanban task '{task_id}' not found")
+
+
+@app.get("/api/v1/kanban/events")
+def get_kanban_events(board: str = Query(default="default"), limit: int = Query(default=100, ge=1, le=500)) -> Dict[str, Any]:
+    with _kanban_db(board) as conn:
+        rows = conn.execute(
+            "SELECT e.id,e.task_id,e.run_id,e.kind,e.payload,e.created_at,t.title,t.assignee "
+            "FROM task_events e LEFT JOIN tasks t ON t.id=e.task_id ORDER BY e.id DESC LIMIT ?", (limit,)
+        ).fetchall()
+    events = []
+    for row in rows:
+        event = dict(row)
+        event["created_at"] = _iso_timestamp(event["created_at"])
+        try:
+            event["payload"] = json.loads(event["payload"]) if event.get("payload") else None
+        except (json.JSONDecodeError, TypeError):
+            pass
+        events.append(redact_payload(event))
+    return {"status": "success", "board": board, "events": events, "total_events": len(events)}
 
 
 # Serve static web assets
