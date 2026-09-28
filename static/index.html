@@ -639,6 +639,15 @@
               const updated = d.agents.find(a => a.id === selectedAgent.id);
               if (updated) openInspector(updated);
             }
+            // Fast synchronization of Operational Summary from live roster
+            const activeAgents = d.agents.filter(a => a.state !== 'IDLE');
+            const runningCount = activeAgents.length;
+            setNodeText('opsRunning', runningCount);
+            setNodeText('opsMiniBadge', runningCount > 0 ? `${runningCount} Active` : '0');
+            if (activeAgents.length > 0) {
+              const primary = activeAgents[0];
+              setNodeText('opsLatest', `⚡ Live · ${primary.name} · ${primary.status_desc}`);
+            }
           }
         })
         .catch(e => console.warn('Roster sync error:', e));
@@ -820,15 +829,43 @@
       lastSnapshot = snapshot;
       const workers = snapshot.workers?.workers || [];
       const columns = snapshot.kanban?.columns || {};
-      const running = workers.filter(w => w.liveness === 'ACTIVE' && !w.is_stale).length;
+      const liveSessions = snapshot.live_sessions || [];
+
+      // Combine Kanban active workers with live active agent sessions
+      const kanbanRunning = workers.filter(w => w.liveness === 'ACTIVE' && !w.is_stale).length;
+      const running = Math.max(kanbanRunning, liveSessions.length);
+
+      const queued = (columns.ready || []).length + (columns.todo || []).length;
       const stale = workers.filter(w => w.is_stale || w.liveness === 'UNKNOWN').length;
       const blocked = (columns.blocked || []).length + stale;
-      const delegations = (snapshot.delegations || []).filter(d => d.status === 'running').length;
-      setNodeText('opsRunning', running); setNodeText('opsQueued', (columns.ready || []).length); setNodeText('opsBlocked', blocked); setNodeText('opsDelegations', delegations);
-      setNodeText('opsObserved', snapshot.emitted_at ? `Observed ${snapshot.emitted_at}` : 'Evidence time unavailable');
+
+      const liveDelegations = (snapshot.delegations || []).filter(d => d.status === 'running').length;
+      const delegations = liveDelegations + liveSessions.length;
+
+      setNodeText('opsRunning', running);
+      setNodeText('opsQueued', queued);
+      setNodeText('opsBlocked', blocked);
+      setNodeText('opsDelegations', delegations);
+      setNodeText('opsObserved', snapshot.emitted_at ? `Observed ${snapshot.emitted_at.slice(11, 19)} UTC` : 'Live Evidence');
       setNodeText('opsMiniBadge', running > 0 ? `${running} Active` : '0');
-      const latest = (snapshot.telemetry || [])[0] || (snapshot.events || [])[0];
-      setNodeText('opsLatest', latest ? `${latest.observed_at || latest.created_at || latest.time || 'unknown'} · ${latest.agent || latest.task_id || 'system'} · ${latest.detail || latest.kind || latest.title || 'activity'}` : 'No observed activity');
+
+      // Latest Activity text with proper timestamps and live priority
+      let latestText = 'No observed activity';
+      if (liveSessions.length > 0) {
+        const ls = liveSessions[0];
+        const timeStr = ls.time ? ls.time.slice(11, 19) : 'Live';
+        latestText = `⚡ ${timeStr} · ${ls.name || ls.id} · ${ls.status_desc}`;
+      } else {
+        const latest = (snapshot.telemetry || [])[0] || (snapshot.events || [])[0];
+        if (latest) {
+          const rawTime = latest.time || latest.timestamp || (latest.observed_at ? String(latest.observed_at).slice(11, 19) : '');
+          const cleanTime = rawTime ? rawTime.replace(/\s*(tool|result)\s*$/i, '').slice(0, 19) : 'Recent';
+          const agentName = latest.agent || latest.task_id || 'system';
+          const detail = latest.detail || latest.kind || latest.title || latest.goal || 'Activity';
+          latestText = `${cleanTime} · ${agentName} · ${detail}`;
+        }
+      }
+      setNodeText('opsLatest', latestText);
       setNodeText('warRosterEvidence', `${running} active · ${stale} stale/unknown`);
       renderAuditTimeline();
     }

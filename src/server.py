@@ -805,18 +805,30 @@ def _delegation_records(limit: int = 50) -> List[Dict[str, Any]]:
 
 
 def parse_delegation_stream(limit: int = 25) -> List[Dict[str, Any]]:
-    events = []
-    # 1. Inject live session activity from all profiles
-    live_sessions = harvest_live_sessions(max_age_seconds=60)
-    for ls in live_sessions.values():
-        events.append(ls["event"])
-
-    # 2. Add events from delegation transcripts
+    history_events = []
     for record in _delegation_records(limit):
         for child in record["children"]:
             for step in child["steps"]:
-                events.append({**step, "agent": child["agent"], "delegation_id": record["delegation_id"], "task_idx": child["task_idx"], "goal": child["goal"], "station": categorize_tool_station(step["detail"], child["agent"])})
-    return events[-limit:]
+                step_time = step.get("timestamp") or step.get("time") or ""
+                history_events.append({
+                    **step,
+                    "time": step_time,
+                    "observed_at": step.get("observed_at") or step_time,
+                    "agent": child["agent"],
+                    "delegation_id": record["delegation_id"],
+                    "task_idx": child["task_idx"],
+                    "goal": child["goal"],
+                    "station": categorize_tool_station(step.get("detail", ""), child["agent"])
+                })
+
+    # Live session events from active Hermes profiles
+    live_sessions = harvest_live_sessions(max_age_seconds=60)
+    live_events = [ls["event"] for ls in live_sessions.values()]
+
+    if live_events:
+        keep_history = max(0, limit - len(live_events))
+        return history_events[-keep_history:] + live_events
+    return history_events[-limit:]
 
 
 def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
@@ -1214,14 +1226,34 @@ def _event_snapshot(board: str = "default") -> Dict[str, Any]:
         latest_events = get_kanban_events(board, 30)
     except HTTPException:
         tasks, latest_events = {"columns": {}}, {"events": []}
+
+    live_sessions = harvest_live_sessions(max_age_seconds=60)
+    live_agents_list = [
+        {
+            "id": ls["agent"],
+            "name": ls["display_name"],
+            "state": ls["state"],
+            "status_desc": ls["status_desc"],
+            "model": ls["model"],
+            "time": ls["iso_time"]
+        }
+        for ls in live_sessions.values()
+    ]
+    telemetry = parse_delegation_stream(30)
+
     state = {
-        "board": board, "kanban": tasks, "events": latest_events.get("events", []),
-        "workers": get_worker_liveness(), "delegations": _delegation_records(20),
-        "telemetry": parse_delegation_stream(30),
+        "board": board,
+        "kanban": tasks,
+        "events": latest_events.get("events", []),
+        "workers": get_worker_liveness(),
+        "delegations": _delegation_records(20),
+        "telemetry": list(reversed(telemetry)),
+        "live_sessions": live_agents_list,
+        "active_agents_count": len(live_agents_list),
     }
     def stable(value: Any) -> Any:
         if isinstance(value, dict):
-            return {key: stable(item) for key, item in value.items() if key not in {"observed_at", "emitted_at"}}
+            return {key: stable(item) for key, item in value.items() if key not in {"observed_at", "emitted_at", "iso_time", "age_seconds", "time"}}
         if isinstance(value, list):
             return [stable(item) for item in value]
         return value
