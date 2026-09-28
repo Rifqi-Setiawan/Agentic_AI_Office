@@ -48,11 +48,19 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
     }
 
     return [
-      // ── Level 1: Chief Orchestrator (Apex) ──
+      // ── Level 0: Supreme Authority & Founder (The Apex) ──
+      {
+        id: 'rifqi',
+        type: 'agentNode',
+        position: { x: 420, y: 20 },
+        data: getAgent('rifqi', 'Rifqi Setiawan', 'Founder & Supreme Authority', '#eab308', '👑', 'human-authority'),
+      },
+
+      // ── Level 1: Chief Orchestrator (Executive Engine) ──
       {
         id: 'vps-boss',
         type: 'agentNode',
-        position: { x: 550, y: 40 },
+        position: { x: 420, y: 160 },
         data: getAgent('vps-boss', 'Jarvis', 'Chief Orchestrator & Planner', '#f59e0b', '👑', 'ag/gemini-3.8-flash'),
       },
 
@@ -60,13 +68,13 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
       {
         id: 'professor',
         type: 'agentNode',
-        position: { x: 210, y: 230 },
+        position: { x: 140, y: 300 },
         data: getAgent('professor', 'Senku', 'Distinguished Research Scientist', '#10b981', '🧪', 'cx/gpt-5.6-sol'),
       },
       {
         id: 'tech-mentor',
         type: 'agentNode',
-        position: { x: 890, y: 230 },
+        position: { x: 700, y: 300 },
         data: getAgent('tech-mentor', 'tech-mentor', 'Technical Architecture Tutor', '#6366f1', '🎓', 'ag/gemini-3.8-flash'),
       },
 
@@ -74,25 +82,25 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
       {
         id: 'swe-backend',
         type: 'agentNode',
-        position: { x: 40, y: 420 },
+        position: { x: 0, y: 440 },
         data: getAgent('swe-backend', 'swe-backend', 'Backend Architecture & APIs', '#3b82f6', '⚙️', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'swe-frontend',
         type: 'agentNode',
-        position: { x: 380, y: 420 },
+        position: { x: 280, y: 440 },
         data: getAgent('swe-frontend', 'swe-frontend', 'Frontend UI/UX Engineering', '#06b6d4', '🎨', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'swe-verifier',
         type: 'agentNode',
-        position: { x: 720, y: 420 },
+        position: { x: 560, y: 440 },
         data: getAgent('swe-verifier', 'swe-QA', 'Independent Quality Verification', '#8b5cf6', '🛡️', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'data-engineer',
         type: 'agentNode',
-        position: { x: 1060, y: 420 },
+        position: { x: 840, y: 440 },
         data: getAgent('data-engineer', 'data-engineer', 'DuckDB Medallion Lakehouse', '#14b8a6', '🌊', 'ag/gemini-3.8-flash'),
       },
 
@@ -100,25 +108,25 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
       {
         id: 'devops-engineer',
         type: 'agentNode',
-        position: { x: 40, y: 610 },
+        position: { x: 0, y: 580 },
         data: getAgent('devops-engineer', 'devops-engineer', 'Principal SRE & Infrastructure', '#f97316', '🚀', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'ui-designer',
         type: 'agentNode',
-        position: { x: 380, y: 610 },
+        position: { x: 280, y: 580 },
         data: getAgent('ui-designer', 'ui-designer', 'Principal Design Systems', '#ec4899', '✨', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'github-manager',
         type: 'agentNode',
-        position: { x: 720, y: 610 },
+        position: { x: 560, y: 580 },
         data: getAgent('github-manager', 'github-manager', 'Global Git & Release PIC', '#64748b', '🐙', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'office-lead',
         type: 'agentNode',
-        position: { x: 1060, y: 610 },
+        position: { x: 840, y: 580 },
         data: getAgent('office-lead', 'office-lead', 'Virtual Systems & Telemetry', '#4f46e5', '🏢', 'cx/gpt-5.6-sol'),
       },
 
@@ -126,20 +134,14 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
       {
         id: 'paperwright',
         type: 'agentNode',
-        position: { x: 210, y: 800 },
+        position: { x: 280, y: 720 },
         data: getAgent('paperwright', 'paperwright', 'LaTeX Manuscript Scribe', '#a855f7', '📜', 'ag/gemini-3.8-flash'),
       },
       {
         id: 'vps-assistant',
         type: 'agentNode',
-        position: { x: 550, y: 800 },
+        position: { x: 560, y: 720 },
         data: getAgent('vps-assistant', 'vps-assistant', 'General Operations Utility', '#84cc16', '⚡', 'ag/gemini-3.8-flash'),
-      },
-      {
-        id: 'rifqi',
-        type: 'agentNode',
-        position: { x: 890, y: 800 },
-        data: getAgent('rifqi', 'Rifqi Setiawan', 'Founder & Final Authority', '#eab308', '👑', 'human-authority'),
       },
     ]
   }, [agentStateMap, onInspectAgent])
@@ -151,45 +153,58 @@ export const ExecutionGraph: React.FC<ExecutionGraphProps> = ({ agents, onInspec
       return a && a.state && a.state !== 'idle'
     }
 
+    const anyAgentActive = Array.from(agentStateMap.values()).some(a => a.state && a.state !== 'idle')
+
     const makeEdge = (id: string, source: string, target: string) => {
-      const active = isNodeActive(source) || isNodeActive(target)
+      // Rifqi to Jarvis is active whenever any agent or Jarvis is executing work!
+      const active = (source === 'rifqi' && target === 'vps-boss')
+        ? (anyAgentActive || isNodeActive('vps-boss'))
+        : (isNodeActive(source) || isNodeActive(target))
+
+      const isSupreme = source === 'rifqi'
+
       return {
         id,
         source,
         target,
         animated: active,
         style: {
-          stroke: active ? '#06b6d4' : '#334155',
-          strokeWidth: active ? 2.5 : 1.5,
-          filter: active ? 'drop-shadow(0 0 6px rgba(6,182,212,0.8))' : undefined,
+          stroke: active ? (isSupreme ? '#eab308' : '#06b6d4') : (isSupreme ? '#854d0e' : '#334155'),
+          strokeWidth: active ? 3 : 1.5,
+          filter: active ? `drop-shadow(0 0 8px ${isSupreme ? 'rgba(234,179,8,0.9)' : 'rgba(6,182,212,0.9)'})` : undefined,
         },
         markerEnd: {
           type: MarkerType.ArrowClosed,
-          color: active ? '#06b6d4' : '#475569',
+          color: active ? (isSupreme ? '#eab308' : '#06b6d4') : '#475569',
         },
       }
     }
 
     return [
-      // Boss -> Council
+      // Supreme Command: Rifqi -> Jarvis
+      makeEdge('e-rifqi-boss', 'rifqi', 'vps-boss'),
+
+      // Boss -> Council & Direct Specialist Dispatches
       makeEdge('e-boss-senku', 'vps-boss', 'professor'),
       makeEdge('e-boss-mentor', 'vps-boss', 'tech-mentor'),
+      makeEdge('e-boss-backend', 'vps-boss', 'swe-backend'),
+      makeEdge('e-boss-frontend', 'vps-boss', 'swe-frontend'),
       makeEdge('e-boss-qa', 'vps-boss', 'swe-verifier'),
+      makeEdge('e-boss-data', 'vps-boss', 'data-engineer'),
+      makeEdge('e-boss-assistant', 'vps-boss', 'vps-assistant'),
+      makeEdge('e-boss-office', 'vps-boss', 'office-lead'),
 
-      // Council -> Engineering
+      // Council -> Implementation & Academic Scribe
       makeEdge('e-senku-data', 'professor', 'data-engineer'),
       makeEdge('e-senku-paper', 'professor', 'paperwright'),
       makeEdge('e-mentor-backend', 'tech-mentor', 'swe-backend'),
       makeEdge('e-mentor-frontend', 'tech-mentor', 'swe-frontend'),
 
-      // Engineering -> Support & Ops
+      // Quality & Operations Pipeline
       makeEdge('e-backend-qa', 'swe-backend', 'swe-verifier'),
       makeEdge('e-frontend-ui', 'swe-frontend', 'ui-designer'),
       makeEdge('e-qa-github', 'swe-verifier', 'github-manager'),
       makeEdge('e-backend-devops', 'swe-backend', 'devops-engineer'),
-      makeEdge('e-boss-assistant', 'vps-boss', 'vps-assistant'),
-      makeEdge('e-boss-office', 'vps-boss', 'office-lead'),
-      makeEdge('e-boss-founder', 'vps-boss', 'rifqi'),
     ]
   }, [agentStateMap])
 

@@ -41,26 +41,31 @@ const ICON_MAP: Record<string, any> = {
 export const CustomAgentNode = memo(({ data }: { data: AgentNodeData }) => {
   const IconComponent = ICON_MAP[data.id] || Cpu
   const isWorking = data.state !== 'idle'
+  const isFounder = data.id === 'rifqi'
 
   return (
     <div
       onClick={() => data.onInspect?.(data.id)}
-      className={`group relative w-[260px] rounded-xl border bg-slate-950/90 p-3.5 backdrop-blur-md transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer ${
-        isWorking
-          ? 'border-cyan-500/80 shadow-[0_0_25px_rgba(6,182,212,0.35)] ring-1 ring-cyan-400/50'
-          : 'border-slate-800/80 shadow-lg hover:border-slate-700'
+      className={`group relative w-[240px] rounded-xl border bg-slate-950/95 p-3 backdrop-blur-md transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl cursor-pointer ${
+        isFounder
+          ? 'border-amber-500/90 shadow-[0_0_30px_rgba(245,158,11,0.35)] ring-1 ring-amber-400/60'
+          : isWorking
+          ? 'border-cyan-500/90 shadow-[0_0_30px_rgba(6,182,212,0.4)] ring-1 ring-cyan-400/60'
+          : 'border-slate-800/90 shadow-lg hover:border-slate-700'
       }`}
       style={{
         borderTopColor: data.color,
         borderTopWidth: '3px',
       }}
     >
-      {/* Target input handle */}
-      <Handle
-        type="target"
-        position={Position.Top}
-        className="!h-2.5 !w-2.5 !border-2 !border-slate-900 !bg-cyan-400"
-      />
+      {/* Target input handle (not needed for Founder root) */}
+      {!isFounder && (
+        <Handle
+          type="target"
+          position={Position.Top}
+          className="!h-2.5 !w-2.5 !border-2 !border-slate-900 !bg-cyan-400"
+        />
+      )}
 
       {/* Header */}
       <div className="flex items-center justify-between gap-2">
@@ -84,17 +89,23 @@ export const CustomAgentNode = memo(({ data }: { data: AgentNodeData }) => {
         <div className="flex items-center gap-1 shrink-0">
           <span
             className={`inline-block h-2 w-2 rounded-full ${
-              isWorking
+              isFounder
+                ? 'bg-amber-400 shadow-[0_0_8px_#f59e0b]'
+                : isWorking
                 ? 'animate-pulse bg-emerald-400 shadow-[0_0_8px_#34d399]'
                 : 'bg-slate-600'
             }`}
           />
           <span
             className={`text-[9px] font-mono font-semibold uppercase ${
-              isWorking ? 'text-emerald-400' : 'text-slate-500'
+              isFounder
+                ? 'text-amber-400 font-bold'
+                : isWorking
+                ? 'text-emerald-400'
+                : 'text-slate-500'
             }`}
           >
-            {isWorking ? 'ACTIVE' : 'IDLE'}
+            {isFounder ? 'FOUNDER' : isWorking ? 'ACTIVE' : 'IDLE'}
           </span>
         </div>
       </div>

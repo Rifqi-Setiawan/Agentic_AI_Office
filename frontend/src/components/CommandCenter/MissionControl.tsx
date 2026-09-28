@@ -59,33 +59,15 @@ export const MissionControl: React.FC<MissionControlProps> = ({
           </div>
         </div>
 
-        {/* Center: View Switcher */}
-        <div className="flex items-center gap-1 bg-slate-900/90 border border-slate-800 p-1 rounded-xl">
-          <button
-            type="button"
-            onClick={() => onSwitchView('mission-control')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all ${
-              activeView === 'mission-control'
-                ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <LayoutDashboard className="h-3.5 w-3.5" />
-            <span>Mission Control (HUD)</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => onSwitchView('spatial-office')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all ${
-              activeView === 'spatial-office'
-                ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Box className="h-3.5 w-3.5" />
-            <span>3D Spatial View</span>
-          </button>
+        {/* Center: Live Status Indicator */}
+        <div className="hidden md:flex items-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]" />
+          <span className="text-xs font-mono text-slate-300 font-semibold tracking-wider uppercase">
+            Autonomous Multi-Agent Neural Mesh
+          </span>
+          <span className="text-[10px] font-mono text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-800/50">
+            Real-Time Synced
+          </span>
         </div>
 
         {/* Right: Real-time Host Vitals */}
@@ -112,61 +94,24 @@ export const MissionControl: React.FC<MissionControlProps> = ({
         </div>
       </header>
 
-      {/* ── Main Bento Grid Body ── */}
-      <main className="flex-1 p-4 grid grid-cols-12 grid-rows-12 gap-4 min-h-0 overflow-hidden">
-        {/* Top-Left: Dynamic Execution DAG Graph (7 cols, 8 rows) */}
-        <div className="col-span-8 row-span-8 min-h-0">
+      {/* ── Main Layout Body ── */}
+      <main className="flex-1 p-4 grid grid-cols-12 gap-4 min-h-0 overflow-hidden">
+        {/* Left / Center: Full Height Execution DAG Graph (8 cols, 100% height) */}
+        <div className="col-span-8 h-full min-h-0">
           <ExecutionGraph agents={agents} onInspectAgent={setSelectedAgentId} />
         </div>
 
-        {/* Top-Right: 14-Agent Live Squad Matrix (4 cols, 8 rows) */}
-        <div className="col-span-4 row-span-8 min-h-0">
-          <AgentSquadMatrix agents={agents} onInspectAgent={setSelectedAgentId} />
-        </div>
-
-        {/* Bottom-Left: Live Telemetry Stream (7 cols, 4 rows) */}
-        <div className="col-span-8 row-span-4 min-h-0">
-          <TelemetryStream events={events} />
-        </div>
-
-        {/* Bottom-Right: Interactive Channel & Quick Command (4 cols, 4 rows) */}
-        <div className="col-span-4 row-span-4 min-h-0 flex flex-col rounded-2xl border border-slate-800/80 bg-slate-950/70 backdrop-blur-md p-3.5 shadow-2xl">
-          <div className="flex items-center justify-between pb-2 border-b border-slate-800/80 shrink-0">
-            <div className="flex items-center gap-2">
-              <Terminal className="h-4 w-4 text-cyan-400" />
-              <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-200">
-                Direct Command & Channel
-              </h3>
-            </div>
-            <span className="text-[9px] font-mono text-slate-500">#office-general</span>
+        {/* Right Sidebar: Squad Directory & Live Telemetry Stream (4 cols, 100% height) */}
+        <div className="col-span-4 h-full min-h-0 flex flex-col gap-4">
+          {/* Top: 14-Agent Live Squad Matrix (50% height) */}
+          <div className="h-1/2 min-h-0">
+            <AgentSquadMatrix agents={agents} onInspectAgent={setSelectedAgentId} />
           </div>
 
-          {/* Messages list */}
-          <div className="flex-1 overflow-y-auto space-y-1.5 my-2 pr-1 font-mono text-[10px]">
-            {messages.slice(-15).map((m, i) => (
-              <div key={i} className="flex items-start gap-1.5">
-                <span className="font-bold text-cyan-300 shrink-0">{m.sender}:</span>
-                <span className="text-slate-300 break-words">{m.text}</span>
-              </div>
-            ))}
+          {/* Bottom: Live Telemetry Stream (50% height) */}
+          <div className="h-1/2 min-h-0">
+            <TelemetryStream events={events} />
           </div>
-
-          {/* Quick Input Bar */}
-          <form onSubmit={handleSend} className="shrink-0 flex items-center gap-2 mt-auto">
-            <input
-              type="text"
-              value={inputText}
-              onChange={e => setInputText(e.target.value)}
-              placeholder="Send instruction to office..."
-              className="flex-1 rounded-xl border border-slate-800 bg-slate-900/90 px-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 font-mono"
-            />
-            <button
-              type="submit"
-              className="flex items-center justify-center p-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition-colors"
-            >
-              <Send className="h-3.5 w-3.5" />
-            </button>
-          </form>
         </div>
       </main>
 
