@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Background, BackgroundVariant, Controls, MarkerType, Panel, ReactFlow, useNodesInitialized, useReactFlow } from '@xyflow/react'
+import { Background, BackgroundVariant, Controls, MarkerType, Panel, ReactFlow, useNodesInitialized, useReactFlow, useUpdateNodeInternals } from '@xyflow/react'
 import type { RefObject } from 'react'
 import '@xyflow/react/dist/style.css'
 import './mission-control.css'
@@ -26,6 +26,13 @@ function ViewportTools({ host, autoFit, setAutoFit }: {
 }) {
   const { fitView, zoomTo } = useReactFlow()
   const initialized = useNodesInitialized()
+  const updateNodeInternals = useUpdateNodeInternals()
+
+  useEffect(() => {
+    if (!initialized) return
+    AGENTS.forEach(a => updateNodeInternals(a.id))
+  }, [initialized, updateNodeInternals])
+
   useEffect(() => {
     if (!host.current || !autoFit || !initialized) return
     let timer: ReturnType<typeof setTimeout> | undefined
