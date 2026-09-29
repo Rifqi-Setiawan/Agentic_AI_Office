@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { ExecutionGraph } from './ExecutionGraph'
 import { useExecutionFeed } from './useExecutionFeed'
+import { AgentDetailModal } from './AgentDetailModal'
 import { AGENTS, AGENT_MAP, ROUTE_KEYS, activePairs, canonicalAgent, cleanText } from './graphModel'
 import type { AgentId, LiveAgent } from './graphModel'
 import type { ConnectionState } from './useExecutionFeed'
@@ -155,6 +156,16 @@ export function MissionControl({ agents, events = [], vitals, executionApiBase, 
           <footer className="mc-sidebar-footer">{AGENTS.length} simpul / revision {feed.snapshot?.revision ?? '-'} / {snapshotFresh ? 'snapshot mutakhir' : 'menunggu snapshot'}</footer>
         </aside>
       </main>
+      {selectedAgentId && (
+        <AgentDetailModal
+          agentId={selectedAgentId}
+          onClose={() => setSelectedAgentId(null)}
+          agents={agents}
+          snapshot={feed.snapshot}
+          elapsedMs={feed.elapsedMs}
+          theme={theme}
+        />
+      )}
     </div>
   )
 }

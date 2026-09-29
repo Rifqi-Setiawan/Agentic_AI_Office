@@ -93,6 +93,11 @@ export function ExecutionGraph({ agents, onInspectAgent, snapshot = null, elapse
         fitView fitViewOptions={{ padding: 0.1, minZoom: 0.25, maxZoom: 1 }} minZoom={0.25} maxZoom={1.6}
         nodesDraggable={false} nodesConnectable={false} edgesReconnectable={false} elementsSelectable={false}
         deleteKeyCode={null} selectionKeyCode={null} colorMode={theme}
+        onNodeClick={(_event, node) => {
+          if (node?.data?.definition?.id) {
+            onInspectAgent(node.data.definition.id)
+          }
+        }}
         onMoveStart={event => { if (event) setAutoFit(false) }}>
         <Background variant={BackgroundVariant.Dots} gap={24} size={1} />
         <Controls showInteractive={false} position="bottom-left" />

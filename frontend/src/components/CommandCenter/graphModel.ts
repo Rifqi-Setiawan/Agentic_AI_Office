@@ -1,6 +1,6 @@
 /** Pure graph geometry and delegation selectors: no React and no node-state inference. */
 export const AGENT_IDS = [
-  'rifqi', 'vps-boss', 'vps-assistant', 'professor', 'swe-backend',
+  'rifqi', 'jarvis', 'vps-assistant', 'senku', 'swe-backend',
   'swe-frontend', 'tech-mentor', 'data-engineer', 'paperwright', 'swe-verifier',
   'ui-designer', 'devops-engineer', 'github-manager', 'office-lead',
 ] as const
@@ -15,9 +15,9 @@ export interface AgentDefinition {
 }
 export const AGENTS: readonly AgentDefinition[] = [
   { id: 'rifqi', name: 'Rifqi Setiawan', title: 'Founder dan otoritas tertinggi', level: 0, position: at(868, 0) },
-  { id: 'vps-boss', name: 'Jarvis', title: 'Orkestrasi dan perencanaan', level: 1, position: at(868, 1) },
+  { id: 'jarvis', name: 'Jarvis', title: 'Orkestrasi dan perencanaan', level: 1, position: at(868, 1) },
   { id: 'vps-assistant', name: 'vps-assistant', title: 'Asisten eksekutif dan co-pilot', level: 1, position: at(1196, 1) },
-  { id: 'professor', name: 'Senku', title: 'Riset dan sains', level: 2, position: at(296, 2) },
+  { id: 'senku', name: 'Senku', title: 'Riset dan sains', level: 2, position: at(296, 2) },
   { id: 'swe-backend', name: 'swe-backend', title: 'API dan rekayasa backend', level: 2, position: at(788, 2) },
   { id: 'swe-frontend', name: 'swe-frontend', title: 'Antarmuka dan frontend', level: 2, position: at(1116, 2) },
   { id: 'tech-mentor', name: 'tech-mentor', title: 'Arsitektur dan sistem', level: 2, position: at(1444, 2) },
@@ -32,7 +32,7 @@ export const AGENTS: readonly AgentDefinition[] = [
 export const AGENT_MAP = new Map(AGENTS.map(agent => [agent.id, agent]))
 export function canonicalAgent(value: string): AgentId | null {
   const normalized = value.trim().toLowerCase()
-  const id = ({ jarvis: 'vps-boss', senku: 'professor', 'swe-qa': 'swe-verifier' } as Record<string, string>)[normalized] ?? normalized
+  const id = ({ 'swe-qa': 'swe-verifier' } as Record<string, string>)[normalized] ?? normalized
   return (AGENT_IDS as readonly string[]).includes(id) ? id as AgentId : null
 }
 export const pairKey = (caller: string, callee: string) => `${caller}->${callee}`
@@ -40,15 +40,15 @@ export interface Route {
   source: AgentId; target: AgentId; sourceOffset: number; laneOffset: number; horizontal?: boolean
 }
 export const ROUTES: readonly Route[] = [
-  { source: 'rifqi', target: 'vps-boss', sourceOffset: 132, laneOffset: 50 },
-  { source: 'vps-boss', target: 'vps-assistant', sourceOffset: 62, laneOffset: 0, horizontal: true },
+  { source: 'rifqi', target: 'jarvis', sourceOffset: 132, laneOffset: 50 },
+  { source: 'jarvis', target: 'vps-assistant', sourceOffset: 62, laneOffset: 0, horizontal: true },
   // Ordered independent ports. Outer branches bend before inner branches.
-  { source: 'vps-boss', target: 'professor', sourceOffset: 40, laneOffset: 32 },
-  { source: 'vps-boss', target: 'swe-backend', sourceOffset: 100, laneOffset: 68 },
-  { source: 'vps-boss', target: 'swe-frontend', sourceOffset: 164, laneOffset: 68 },
-  { source: 'vps-boss', target: 'tech-mentor', sourceOffset: 224, laneOffset: 32 },
-  { source: 'professor', target: 'data-engineer', sourceOffset: 66, laneOffset: 50 },
-  { source: 'professor', target: 'paperwright', sourceOffset: 198, laneOffset: 50 },
+  { source: 'jarvis', target: 'senku', sourceOffset: 40, laneOffset: 32 },
+  { source: 'jarvis', target: 'swe-backend', sourceOffset: 100, laneOffset: 68 },
+  { source: 'jarvis', target: 'swe-frontend', sourceOffset: 164, laneOffset: 68 },
+  { source: 'jarvis', target: 'tech-mentor', sourceOffset: 224, laneOffset: 32 },
+  { source: 'senku', target: 'data-engineer', sourceOffset: 66, laneOffset: 50 },
+  { source: 'senku', target: 'paperwright', sourceOffset: 198, laneOffset: 50 },
   { source: 'swe-backend', target: 'swe-verifier', sourceOffset: 132, laneOffset: 50 },
   { source: 'swe-frontend', target: 'ui-designer', sourceOffset: 132, laneOffset: 50 },
   { source: 'tech-mentor', target: 'devops-engineer', sourceOffset: 132, laneOffset: 50 },

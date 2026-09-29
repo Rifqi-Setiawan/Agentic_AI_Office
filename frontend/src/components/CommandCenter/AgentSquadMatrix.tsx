@@ -10,8 +10,7 @@ interface AgentSquadMatrixProps {
 }
 
 const ICON_MAP: Record<string, any> = {
-  'vps-boss': Crown,
-  'professor': Sparkles,
+  'jarvis': Crown,
   'senku': Sparkles,
   'swe-verifier': Shield,
   'swe-qa': Shield,

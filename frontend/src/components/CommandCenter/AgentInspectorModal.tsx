@@ -8,13 +8,13 @@ interface AgentInspectorModalProps {
 }
 
 const AGENT_SPEC_METADATA: Record<string, { role: string; desc: string; tools: string[]; permissions: string }> = {
-  'vps-boss': {
+  'jarvis': {
     role: 'Chief Orchestrator & High-Level Planner',
     desc: 'Governs all projects, evaluates evidence, delegates to specialist agents, and interfaces directly with the user via Telegram.',
     tools: ['delegate_task', 'read_file', 'search_files', 'terminal', 'fact_store'],
     permissions: 'Global Orchestrator · Auto-Approve (YOLO)',
   },
-  'professor': {
+  'senku': {
     role: 'Distinguished Research Scientist',
     desc: 'Conducts deep scientific literature reviews, algorithmic audits, academic paper engineering, and prompt strategy design.',
     tools: ['web_search', 'web_extract', 'terminal', 'read_file', 'write_file'],
