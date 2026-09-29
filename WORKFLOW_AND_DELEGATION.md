@@ -46,7 +46,7 @@ Level 1: Executive Suite & Orchestration
 | **`rifqi`** | **Muhammad Rifqi Setiawan** | Founder, Strategy & Final Decision Authority | Human Intelligence | Supreme Authority |
 | **`vps-boss`** | **Jarvis** | Task decomposition, planning, routing, and reporting | `ag/gemini-3.8-flash-high` | Pure Planner / Router |
 | **`vps-assistant`** | **vps-assistant** | Rapid ad-hoc scripting, server maintenance, utility | `ag/gemini-3.8-flash-high` | General Workspace |
-| **`professor`** | **Senku** | Literature review, prompt engineering, paper synthesis | `cx/gpt-5.6-sol` | Research Sandbox |
+| **`senku`** | **Senku** | Literature review, first-principles research, paper synthesis | `ag/claude-opus-4-6-thinking` | Research Sandbox |
 | **`data-engineer`** | **data-engineer** | DuckDB Lakehouse, Bronze/Silver/Gold pipelines | `ag/gemini-3.8-flash-high` | Data Pipelines |
 | **`paperwright`** | **paperwright** | IEEE conference/journal authoring & Tectonic compilation | `ag/gemini-3.8-flash-high` | LaTeX Workspaces |
 | **`swe-backend`** | **swe-backend** | FastAPI, DuckDB/PostgreSQL, transactional APIs | `ag/gemini-3.8-flash-high` | Backend Codebases |

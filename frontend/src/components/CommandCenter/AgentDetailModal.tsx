@@ -94,7 +94,7 @@ export const AGENT_SPEC_RECORD: Record<AgentId, AgentDetailMetadata> = {
     name: 'Senku',
     title: 'Riset dan Sains',
     role: 'Distinguished Research Scientist',
-    model: 'cx/gpt-5.6-sol',
+    model: 'ag/claude-opus-4-6-thinking',
     provider: '9Router (Loopback 127.0.0.1:8080)',
     permissions: 'Autonomous Research Sandbox · First-Principles',
     workspace: '/srv/hermes-control/services',

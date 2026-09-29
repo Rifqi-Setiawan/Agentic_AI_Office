@@ -39,7 +39,7 @@ export interface ChatMessage {
 
 export const CANONICAL_ROSTER: Agent[] = [
   { id: 'jarvis', name: 'Jarvis', role: 'jarvis', title: 'Lord Commander & Chief Orchestrator', model: 'ag/gemini-3.8-flash', state: 'idle', color: '#f59e0b' },
-  { id: 'senku', name: 'Senku', role: 'senku', title: 'Grand Maester of Research & Science', model: 'cx/gpt-5.6-sol', state: 'idle', color: '#10b981' },
+  { id: 'senku', name: 'Senku', role: 'senku', title: 'Grand Maester of Research & Science', model: 'ag/claude-opus-4-6-thinking', state: 'idle', color: '#10b981' },
   { id: 'swe-verifier', name: 'swe-QA', role: 'swe-verifier', title: 'Independent Quality Verification', model: 'ag/gemini-3.8-flash', state: 'idle', color: '#8b5cf6' },
   { id: 'swe-backend', name: 'swe-backend', role: 'swe-backend', title: 'Backend Architecture & APIs', model: 'ag/gemini-3.8-flash', state: 'idle', color: '#3b82f6' },
   { id: 'swe-frontend', name: 'swe-frontend', role: 'swe-frontend', title: 'Frontend UI/UX Engineering', model: 'ag/gemini-3.8-flash', state: 'idle', color: '#06b6d4' },
