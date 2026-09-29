@@ -1,5 +1,5 @@
-import { memo } from 'react'
-import { Handle, Position } from '@xyflow/react'
+import { memo, useEffect } from 'react'
+import { Handle, Position, useUpdateNodeInternals } from '@xyflow/react'
 import type { Node, NodeProps } from '@xyflow/react'
 import { CARD_HEIGHT, CARD_WIDTH, ROUTES, agentStatus } from './graphModel'
 import type { AgentDefinition, AgentId } from './graphModel'
@@ -15,6 +15,12 @@ export type AgentFlowNode = Node<AgentNodeData, 'agentNode'>
 
 export const CustomAgentNode = memo(function CustomAgentNode({ data }: NodeProps<AgentFlowNode>) {
   const { definition, invocationCount, selected, onInspect } = data
+  const updateNodeInternals = useUpdateNodeInternals()
+
+  useEffect(() => {
+    updateNodeInternals(definition.id)
+  }, [definition.id, updateNodeInternals])
+
   const founder = definition.id === 'rifqi'
   const status = founder ? { label: 'Otoritas manusia', tone: 'authority' } : agentStatus(data.state)
   const outgoing = ROUTES.filter(route => route.source === definition.id)

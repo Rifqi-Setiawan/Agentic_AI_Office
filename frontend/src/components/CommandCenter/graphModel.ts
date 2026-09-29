@@ -32,7 +32,7 @@ export const AGENTS: readonly AgentDefinition[] = [
 export const AGENT_MAP = new Map(AGENTS.map(agent => [agent.id, agent]))
 export function canonicalAgent(value: string): AgentId | null {
   const normalized = value.trim().toLowerCase()
-  const id = ({ 'swe-qa': 'swe-verifier' } as Record<string, string>)[normalized] ?? normalized
+  const id = ({ 'vps-boss': 'jarvis', 'professor': 'senku', 'swe-qa': 'swe-verifier' } as Record<string, string>)[normalized] ?? normalized
   return (AGENT_IDS as readonly string[]).includes(id) ? id as AgentId : null
 }
 export const pairKey = (caller: string, callee: string) => `${caller}->${callee}`
@@ -117,8 +117,11 @@ export function activePairs(snapshot: ExecutionSnapshot | null, elapsedMs: numbe
   if (!snapshot || elapsedMs < 0 || elapsedMs >= snapshot.freshness_ttl_ms) return result
   const serverNow = snapshot.generated_at_ms + elapsedMs
   for (const pair of snapshot.caller_callee_pairs) {
+    const caller = canonicalAgent(pair.caller)
+    const callee = canonicalAgent(pair.callee)
+    if (!caller || !callee) continue
     const invocations = pair.invocations.filter(call => call.expires_at_ms > serverNow && (!missionId || call.mission_id === missionId))
-    if (invocations.length) result.set(pairKey(pair.caller, pair.callee), { ...pair, invocations })
+    if (invocations.length) result.set(pairKey(caller, callee), { caller, callee, invocations })
   }
   return result
 }

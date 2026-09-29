@@ -29,16 +29,30 @@ function ViewportTools({ host, autoFit, setAutoFit }: {
   const updateNodeInternals = useUpdateNodeInternals()
 
   useEffect(() => {
+    const trigger = () => {
+      AGENTS.forEach(a => updateNodeInternals(a.id))
+    }
+    trigger()
+    const t1 = setTimeout(trigger, 40)
+    const t2 = setTimeout(trigger, 180)
+    const t3 = setTimeout(trigger, 500)
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3) }
+  }, [updateNodeInternals])
+
+  useEffect(() => {
     if (!initialized) return
-    AGENTS.forEach(a => updateNodeInternals(a.id))
-  }, [initialized, updateNodeInternals])
+    const timer = setTimeout(() => {
+      void fitView({ padding: 0.08, minZoom: 0.25, maxZoom: 1, duration: 250 })
+    }, 80)
+    return () => clearTimeout(timer)
+  }, [initialized, fitView])
 
   useEffect(() => {
     if (!host.current || !autoFit || !initialized) return
     let timer: ReturnType<typeof setTimeout> | undefined
     const fit = () => {
       clearTimeout(timer)
-      timer = setTimeout(() => { void fitView({ padding: 0.1, minZoom: 0.25, maxZoom: 1, duration: 0 }) }, 80)
+      timer = setTimeout(() => { void fitView({ padding: 0.08, minZoom: 0.25, maxZoom: 1, duration: 0 }) }, 80)
     }
     const observer = new ResizeObserver(fit)
     observer.observe(host.current); fit()
