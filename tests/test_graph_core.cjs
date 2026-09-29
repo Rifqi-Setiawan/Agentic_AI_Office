@@ -49,17 +49,17 @@ test('rounded routing is finite and emits explicit curve corners', () => {
   assert.ok(roundedPath([{x:0,y:0},{x:0,y:40},{x:40,y:40}]).includes(' Q '))
 })
 test('non-adjacent membership cannot activate a skipped edge', () => {
-  const pairs=adjacentPairs(['rifqi','vps-boss','swe-backend','swe-verifier'])
-  assert.ok(pairs.has('vps-boss->swe-backend'))
+  const pairs=adjacentPairs(['rifqi','jarvis','swe-backend','swe-verifier'])
+  assert.ok(pairs.has('jarvis->swe-backend'))
   assert.ok(!pairs.has('rifqi->swe-backend'))
-  assert.ok(!pairs.has('vps-boss->swe-verifier'))
+  assert.ok(!pairs.has('jarvis->swe-verifier'))
 })
 test('canonical aliases do not create duplicate graph identities', () => {
   assert.ok(adjacentPairs(['swe-backend','swe-QA']).has('swe-backend->swe-verifier'))
 })
 test('backend-produced snapshot validates and lights precisely its three edges', () => {
   const parsed=decodeSnapshot(sample)
-  assert.deepEqual([...activePairs(parsed,0).keys()].sort(), ['rifqi->vps-boss','vps-boss->swe-backend','swe-backend->swe-verifier'].sort())
+  assert.deepEqual([...activePairs(parsed,0).keys()].sort(), ['rifqi->jarvis','jarvis->swe-backend','swe-backend->swe-verifier'].sort())
 })
 test('disconnected stale snapshot fails closed', () => {
   const parsed=decodeSnapshot(sample)
@@ -87,7 +87,7 @@ test('unknown schema or agent is rejected rather than guessed', () => {
   const unknown=clone(sample);unknown.caller_callee_pairs[0].caller='ghost';assert.throws(()=>decodeSnapshot(unknown))
 })
 test('chain and pair inconsistency is rejected', () => {
-  const bad=clone(sample);bad.active_delegation_chains[0].active_delegation_path[1]='professor';assert.throws(()=>decodeSnapshot(bad))
+  const bad=clone(sample);bad.active_delegation_chains[0].active_delegation_path[1]='senku';assert.throws(()=>decodeSnapshot(bad))
   const orphan=clone(sample);orphan.active_delegation_chains=[];assert.throws(()=>decodeSnapshot(orphan))
 })
 test('duplicate span and unreasonable payload sizes are rejected', () => {

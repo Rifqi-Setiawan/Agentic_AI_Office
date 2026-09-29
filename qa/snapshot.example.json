@@ -18,7 +18,7 @@
       ],
       "active_delegation_path": [
         "rifqi",
-        "vps-boss",
+        "jarvis",
         "swe-backend",
         "swe-verifier"
       ],
@@ -27,7 +27,7 @@
   ],
   "caller_callee_pairs": [
     {
-      "caller": "vps-boss",
+      "caller": "jarvis",
       "callee": "swe-backend",
       "invocations": [
         {
@@ -54,7 +54,7 @@
     },
     {
       "caller": "rifqi",
-      "callee": "vps-boss",
+      "callee": "jarvis",
       "invocations": [
         {
           "span_id": "root",
@@ -104,7 +104,7 @@
       "actor": "runtime-dispatcher",
       "details": {
         "callee": "swe-backend",
-        "caller": "vps-boss"
+        "caller": "jarvis"
       }
     },
     {
@@ -117,7 +117,7 @@
       "actor": "runtime-dispatcher",
       "details": {
         "callee": "swe-backend",
-        "caller": "vps-boss"
+        "caller": "jarvis"
       }
     },
     {
@@ -129,7 +129,7 @@
       "span_id": "root",
       "actor": "runtime-dispatcher",
       "details": {
-        "callee": "vps-boss",
+        "callee": "jarvis",
         "caller": "rifqi"
       }
     },
@@ -142,7 +142,7 @@
       "span_id": "root",
       "actor": "runtime-dispatcher",
       "details": {
-        "callee": "vps-boss",
+        "callee": "jarvis",
         "caller": "rifqi"
       }
     }

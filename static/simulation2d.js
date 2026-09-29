@@ -175,9 +175,9 @@
   const AGENTS_ROSTER = [
     // 1. NORTH THRONE ROOM (Lord Commander)
     {
-      id: 'vps-boss',
+      id: 'jarvis',
       name: 'Jarvis',
-      alias: 'vps-boss',
+      alias: 'jarvis',
       title: 'Lord Commander & Chief Orchestrator',
       accentColor: '#f59e0b',
       hairColor: '#0f172a',
@@ -190,9 +190,9 @@
 
     // 2. WEST WING: CITADEL SCRIPTORIUM & ALCHEMICAL LAB (Research & Paper Scribe)
     {
-      id: 'professor',
+      id: 'senku',
       name: 'Senku',
-      alias: 'professor',
+      alias: 'senku',
       title: 'Grand Maester of Research',
       accentColor: '#ec4899',
       hairColor: '#831843',
@@ -1194,7 +1194,7 @@
     // --- I. Enriched Grouped Room Furnishings (4 Rooms) ---
     renderGroupedRoomFurnishings(ctx) {
       // =========================================================================
-      // 1. WEST WING: CITADEL LIBRARY & ALCHEMICAL LAB (professor & paperwright)
+      // 1. WEST WING: CITADEL LIBRARY & ALCHEMICAL LAB (senku & paperwright)
       // =========================================================================
       // Bookcases along North & West walls
       ctx.fillStyle = '#3e2723';
@@ -2147,7 +2147,7 @@
       // residents. Represent them with the operations avatar instead of dropping the event.
       const subagent = this.agents.find(a => a.id === convo.receiver) ||
         this.agents.find(a => a.id === 'vps-assistant');
-      const boss = this.agents.find(a => a.id === 'vps-boss');
+      const boss = this.agents.find(a => a.id === 'jarvis');
       if (!subagent || !boss) return;
 
       this.activeSequence = {
@@ -2157,7 +2157,7 @@
       };
 
       // Step 1: both agents walk to exact opposite sides of the council table.
-      this.dispatchAgent('vps-boss', 'briefing', `👑 Decree for ${convo.receiver}...`, () => {
+      this.dispatchAgent('jarvis', 'briefing', `👑 Decree for ${convo.receiver}...`, () => {
         boss.x = 836;
         boss.y = 290;
         boss.facing = 'down';
@@ -2202,7 +2202,7 @@
         toolAction = 'Channeling data streams at Dragon Cistern';
       }
 
-      const boss = this.agents.find(a => a.id === 'vps-boss');
+      const boss = this.agents.find(a => a.id === 'jarvis');
       if (boss) {
         this.returnAgentToDesk(boss);
       }
@@ -2231,7 +2231,7 @@
     executeLiveToolAction(toolEvent) {
       const actor = this.agents.find(a => a.id === toolEvent.agent);
       if (!actor || actor.state !== 'IDLE_AT_DESK') return;
-      if (toolEvent.agent === 'vps-boss') {
+      if (toolEvent.agent === 'jarvis') {
         this.executeBossToolAction(toolEvent);
         return;
       }
@@ -2251,7 +2251,7 @@
     }
 
     executeBossToolAction(toolEvent) {
-      const boss = this.agents.find(a => a.id === 'vps-boss');
+      const boss = this.agents.find(a => a.id === 'jarvis');
       if (!boss || boss.state !== 'IDLE_AT_DESK') return;
 
       const detail = toolEvent.detail || '';
@@ -2271,7 +2271,7 @@
 
       this.activeSequence = { id: 'boss_tool', stage: 'BOSS_TOOL' };
 
-      this.dispatchAgent('vps-boss', targetStation, `${toolIcon} ${actionText}`, () => {
+      this.dispatchAgent('jarvis', targetStation, `${toolIcon} ${actionText}`, () => {
         boss.state = 'WORKING_AT_STATION';
         boss.stepBadge = `SCRYING ${targetStation.toUpperCase()}`;
         boss.bubbleText = `${toolIcon} Boss: "${detail.slice(0, 30)}..."`;
@@ -2296,7 +2296,7 @@
       const list=make('div','flex-1 overflow-y-auto space-y-4 pr-1 text-xs');
       (this.conversations||[]).forEach(c=>{
         const card=make('article','p-4 rounded-xl bg-cyber-950/80 border border-cyber-800/80 space-y-2');
-        const meta=make('div','flex items-center justify-between font-mono text-[11px]'); meta.append(make('span','font-bold text-amber-400',`👑 vps-boss ➔ ⚔️ ${c.receiver||'unknown'}`),make('time','text-slate-500',c.started_at||'recent'));
+        const meta=make('div','flex items-center justify-between font-mono text-[11px]'); meta.append(make('span','font-bold text-amber-400',`👑 jarvis ➔ ⚔️ ${c.receiver||'unknown'}`),make('time','text-slate-500',c.started_at||'recent'));
         card.append(meta,make('div','p-2.5 rounded-lg bg-amber-500/10 border-l-2 border-amber-500 text-slate-200',`Royal Decree: “${c.boss_order||''}”`));
         if(c.subagent_reply) card.append(make('div','p-2.5 rounded-lg bg-emerald-500/10 border-l-2 border-emerald-500 text-emerald-200',`${c.receiver||'Agent'} Report: “${c.subagent_reply}”`));
         const tools=make('div','flex flex-wrap items-center gap-2 text-[10px] text-slate-400 font-mono pt-1'); tools.append(make('span','','Tools Used:'));

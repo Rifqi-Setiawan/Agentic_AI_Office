@@ -26,7 +26,7 @@ def system(tmp_path):
     return store, now
 
 
-def create(store, sid='root', caller='rifqi', callee='vps-boss', parent=None, mission='mission-1', lease=30):
+def create(store, sid='root', caller='rifqi', callee='jarvis', parent=None, mission='mission-1', lease=30):
     return store.create_span('runtime-dispatcher', SpanCreate(event_id=f'create:{sid}', span_id=sid,
         mission_id=mission, task_id=f'task:{sid}', caller=caller, callee=callee, parent_span_id=parent, lease_seconds=lease))['span']
 
@@ -36,13 +36,13 @@ def change(store, row, state, actor='runtime-dispatcher'):
         event_id=f'{state}:{row["span_id"]}:{row["version"]}', expected_version=row['version'], state=state))['span']
 
 
-def running(store, sid='root', caller='rifqi', callee='vps-boss', parent=None, mission='mission-1'):
+def running(store, sid='root', caller='rifqi', callee='jarvis', parent=None, mission='mission-1'):
     return change(store, create(store, sid, caller, callee, parent, mission), 'running')
 
 
 def backend_chain(store):
     root = running(store)
-    backend = running(store, 'backend', 'vps-boss', 'swe-backend', 'root')
+    backend = running(store, 'backend', 'jarvis', 'swe-backend', 'root')
     return root, backend
 
 
@@ -57,7 +57,7 @@ def expect_status(status, fn):
 
 
 def contract(store, now, task='release-task', max_attempts=3):
-    return store.create_task('vps-boss', TaskCreate(event_id=f'contract:{task}', task_id=task,
+    return store.create_task('jarvis', TaskCreate(event_id=f'contract:{task}', task_id=task,
         mission_id='mission-1', goal='Implement a verified backend change', implementers=['swe-backend'],
         acceptance_criteria=['All regression tests pass'], allowed_paths=['src/', 'tests/'],
         test_commands=[['python', '-m', 'pytest', '-q']], deadline_at_ms=now[0] + 1000000,
@@ -99,8 +99,8 @@ def test_only_real_adjacent_pairs_light(system):
     store, _ = system
     backend_chain(store)
     snap = store.snapshot()
-    assert keys(snap) == {('rifqi', 'vps-boss'), ('vps-boss', 'swe-backend')}
-    assert snap['active_delegation_chains'][0]['active_delegation_path'] == ['rifqi', 'vps-boss', 'swe-backend']
+    assert keys(snap) == {('rifqi', 'jarvis'), ('jarvis', 'swe-backend')}
+    assert snap['active_delegation_chains'][0]['active_delegation_path'] == ['rifqi', 'jarvis', 'swe-backend']
 
 
 def test_qa_edge_only_after_qa_starts(system):
@@ -109,7 +109,7 @@ def test_qa_edge_only_after_qa_starts(system):
     qa = create(store, 'qa', 'swe-backend', 'swe-verifier', 'backend')
     assert ('swe-backend', 'swe-verifier') not in keys(store.snapshot())
     change(store, qa, 'running')
-    assert keys(store.snapshot()) == {('rifqi', 'vps-boss'), ('vps-boss', 'swe-backend'), ('swe-backend', 'swe-verifier')}
+    assert keys(store.snapshot()) == {('rifqi', 'jarvis'), ('jarvis', 'swe-backend'), ('swe-backend', 'swe-verifier')}
 
 
 def test_waiting_parents_keep_real_context(system):
@@ -124,10 +124,10 @@ def test_waiting_parents_keep_real_context(system):
 def test_parallel_forks_and_branch_completion(system):
     store, _ = system
     root, backend = backend_chain(store)
-    running(store, 'frontend', 'vps-boss', 'swe-frontend', 'root')
+    running(store, 'frontend', 'jarvis', 'swe-frontend', 'root')
     assert len(store.snapshot()['active_delegation_chains']) == 2
     change(store, backend, 'completed')
-    assert keys(store.snapshot()) == {('rifqi', 'vps-boss'), ('vps-boss', 'swe-frontend')}
+    assert keys(store.snapshot()) == {('rifqi', 'jarvis'), ('jarvis', 'swe-frontend')}
 
 
 def test_multiple_missions_share_pair_without_duplicate_span(system):
@@ -170,14 +170,14 @@ def test_expired_work_cannot_resurrect(system):
     store, now = system
     row = running(store)
     now[0] += 31000
-    expect_status(409, lambda: store.heartbeat('vps-boss', 'root', SpanHeartbeat(event_id='late', expected_version=row['version'])))
+    expect_status(409, lambda: store.heartbeat('jarvis', 'root', SpanHeartbeat(event_id='late', expected_version=row['version'])))
     assert store.get_span('root')['state'] == 'expired'
 
 
 def test_stale_version_rejected(system):
     store, _ = system
     row = running(store)
-    expect_status(409, lambda: store.heartbeat('vps-boss', 'root', SpanHeartbeat(event_id='stale', expected_version=0)))
+    expect_status(409, lambda: store.heartbeat('jarvis', 'root', SpanHeartbeat(event_id='stale', expected_version=0)))
     assert store.get_span('root')['version'] == row['version']
 
 
@@ -193,7 +193,7 @@ def test_duplicate_delivery_is_idempotent(system):
 def test_idempotency_key_cannot_change_payload_or_actor(system):
     store, _ = system
     create(store)
-    changed = SpanCreate(event_id='create:root', span_id='different', mission_id='m2', task_id='t2', caller='rifqi', callee='vps-boss')
+    changed = SpanCreate(event_id='create:root', span_id='different', mission_id='m2', task_id='t2', caller='rifqi', callee='jarvis')
     expect_status(409, lambda: store.create_span('runtime-dispatcher', changed))
     original = changed.model_copy(update={'span_id': 'root', 'mission_id': 'mission-1', 'task_id': 'task:root'})
     expect_status(409, lambda: store.create_span('rifqi', original))
@@ -201,24 +201,24 @@ def test_idempotency_key_cannot_change_payload_or_actor(system):
 
 def test_orphan_wrong_parent_and_cross_mission_rejected(system):
     store, _ = system
-    expect_status(404, lambda: create(store, 'orphan', 'vps-boss', 'swe-backend', 'missing'))
+    expect_status(404, lambda: create(store, 'orphan', 'jarvis', 'swe-backend', 'missing'))
     running(store)
-    expect_status(409, lambda: create(store, 'wrong', 'professor', 'data-engineer', 'root'))
-    expect_status(409, lambda: create(store, 'cross', 'vps-boss', 'swe-backend', 'root', mission='other'))
+    expect_status(409, lambda: create(store, 'wrong', 'senku', 'data-engineer', 'root'))
+    expect_status(409, lambda: create(store, 'cross', 'jarvis', 'swe-backend', 'root', mission='other'))
 
 
 def test_root_must_match_authority_and_only_one_per_mission(system):
     store, _ = system
-    expect_status(409, lambda: create(store, 'bad-root', 'vps-boss', 'swe-backend'))
+    expect_status(409, lambda: create(store, 'bad-root', 'jarvis', 'swe-backend'))
     create(store)
     expect_status(409, lambda: create(store, 'second-root'))
 
 
 def test_unknown_identity_and_self_call_rejected():
     with pytest.raises(ValidationError):
-        SpanCreate(event_id='e', span_id='s', mission_id='m', task_id='t', caller='imaginary', callee='vps-boss')
+        SpanCreate(event_id='e', span_id='s', mission_id='m', task_id='t', caller='imaginary', callee='jarvis')
     with pytest.raises(ValidationError):
-        SpanCreate(event_id='e', span_id='s', mission_id='m', task_id='t', caller='jarvis', callee='vps-boss')
+        SpanCreate(event_id='e', span_id='s', mission_id='m', task_id='t', caller='jarvis', callee='jarvis')
 
 
 def test_aliases_normalize_to_canonical_identity():
@@ -230,15 +230,15 @@ def test_wrong_actor_cannot_start_or_delegate(system):
     store, _ = system
     row = create(store)
     expect_status(403, lambda: change(store, row, 'running', 'swe-backend'))
-    bad = SpanCreate(event_id='wrong-actor', span_id='x', mission_id='m2', task_id='t', caller='rifqi', callee='vps-boss')
+    bad = SpanCreate(event_id='wrong-actor', span_id='x', mission_id='m2', task_id='t', caller='rifqi', callee='jarvis')
     expect_status(403, lambda: store.create_span('swe-backend', bad))
 
 
 def test_caller_can_cancel_but_not_complete_child(system):
     store, _ = system
     _, child = backend_chain(store)
-    expect_status(403, lambda: change(store, child, 'completed', 'vps-boss'))
-    change(store, child, 'cancelled', 'vps-boss')
+    expect_status(403, lambda: change(store, child, 'completed', 'jarvis'))
+    change(store, child, 'cancelled', 'jarvis')
     assert store.get_span('backend')['state'] == 'cancelled'
 
 
@@ -265,7 +265,7 @@ def test_concurrent_same_version_only_one_wins(system):
     row = running(store)
     def write(index):
         try:
-            store.heartbeat('vps-boss', 'root', SpanHeartbeat(event_id=f'concurrent-{index}', expected_version=row['version']))
+            store.heartbeat('jarvis', 'root', SpanHeartbeat(event_id=f'concurrent-{index}', expected_version=row['version']))
             return 200
         except StoreError as error:
             return error.status
@@ -376,7 +376,7 @@ def test_router_registered_before_static_mount(system, tmp_path):
 def test_private_token_identity_body_limit_and_validation(system):
     store, _ = system
     app = create_control_app(store, {'runtime-dispatcher': 'd' * 40, 'swe-backend': 'b' * 40})
-    command = dict(event_id='queued', span_id='root', mission_id='mission', task_id='task', caller='rifqi', callee='vps-boss')
+    command = dict(event_id='queued', span_id='root', mission_id='mission', task_id='task', caller='rifqi', callee='jarvis')
     with TestClient(app) as client:
         url = '/internal/v1/execution/spans'
         assert client.post(url, json=command).status_code == 401

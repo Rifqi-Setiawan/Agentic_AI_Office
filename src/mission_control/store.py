@@ -200,8 +200,8 @@ class MissionStore:
                 if depth >= 64:
                     raise StoreError(409, "Maximum call depth exceeded")
             else:
-                if (command.caller, command.callee) != ("rifqi", "vps-boss"):
-                    raise StoreError(409, "A sovereign mission starts with rifqi -> vps-boss")
+                if (command.caller, command.callee) != ("rifqi", "jarvis"):
+                    raise StoreError(409, "A sovereign mission starts with rifqi -> jarvis")
                 if db.execute("SELECT 1 FROM mc_spans WHERE mission_id=? AND parent_span_id IS NULL", (command.mission_id,)).fetchone():
                     raise StoreError(409, "Mission already has a root; create a new mission for a new root")
             db.execute("""INSERT INTO mc_spans
@@ -272,7 +272,7 @@ class MissionStore:
 
     def create_task(self, actor: str, command: TaskCreate) -> dict:
         def perform(db, now):
-            if actor not in {"vps-boss", "runtime-dispatcher"}:
+            if actor not in {"jarvis", "runtime-dispatcher"}:
                 raise StoreError(403, "Task contracts belong to the orchestrator")
             if command.deadline_at_ms <= now:
                 raise StoreError(422, "Task deadline must be in the future")

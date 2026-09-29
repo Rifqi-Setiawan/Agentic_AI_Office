@@ -64,8 +64,8 @@ def test_v13_office_lead_and_live_profile_harvesting(env):
  assert r["total_agents"] == 14
  agents = {a["id"]: a for a in r["agents"]}
  assert "office-lead" in agents
- assert agents["vps-boss"]["name"] == "Jarvis"
- assert agents["professor"]["name"] == "Senku"
+ assert agents["jarvis"]["name"] == "Jarvis"
+ assert agents["senku"]["name"] == "Senku"
  assert agents["swe-verifier"]["name"] == "swe-QA"
  # Test live session harvesting with mock state.db
  profile_dir = env["profiles"] / "office-lead"

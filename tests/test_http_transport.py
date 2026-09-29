@@ -35,13 +35,13 @@ def test_real_sdk_http_and_sse_roundtrip(tmp_path):
         assert server.started, 'Loopback test server failed to start'
         client = MissionClient(dispatcher_token, base_url=base)
         row = client.create_span(span_id='http-root', mission_id='http-mission', task_id='http-task',
-                                 caller='rifqi', callee='vps-boss')
+                                 caller='rifqi', callee='jarvis')
         row = client.transition(row, 'running')
         row = client.heartbeat(row)
         request = Request(base + '/api/v1/execution/snapshot', headers={'Authorization': 'Bearer ' + read_token})
         with urlopen(request, timeout=3) as response:
             payload = json.load(response)
-        assert payload['active_delegation_chains'][0]['active_delegation_path'] == ['rifqi', 'vps-boss']
+        assert payload['active_delegation_chains'][0]['active_delegation_path'] == ['rifqi', 'jarvis']
         with pytest.raises(HTTPError) as unauthorized:
             urlopen(base + '/api/v1/execution/snapshot', timeout=3)
         assert unauthorized.value.code == 401

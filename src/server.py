@@ -190,7 +190,7 @@ def get_active_kanban_tasks() -> Dict[str, List[Dict[str, Any]]]:
 
 # 13 Dedicated Agent Spatial Assignments in 3D Office World Space
 OFFICE_ZONES = {
-    "vps-boss": {
+    "jarvis": {
         "zone_name": "Executive Command Suite",
         "desk_pos": [0, 0, -10],
         "chair_color": "#1e293b",
@@ -198,7 +198,7 @@ OFFICE_ZONES = {
         "avatar_archetype": "orchestrator",
         "rotation": 0
     },
-    "professor": {
+    "senku": {
         "zone_name": "Research Library & Alcove",
         "desk_pos": [-12, 0, -8],
         "chair_color": "#312e81",
@@ -306,8 +306,7 @@ OFFICE_ZONES = {
 
 
 AGENT_DISPLAY_NAME = {
-    "vps-boss": "Jarvis",
-    "professor": "Senku",
+    "jarvis": "Jarvis",
     "senku": "Senku",
     "swe-verifier": "swe-QA",
     "swe-QA": "swe-QA",
@@ -397,10 +396,12 @@ def harvest_live_sessions(max_age_seconds: int = 60) -> Dict[str, Dict[str, Any]
                 elif desc:
                     event_detail = desc[:80]
                     
-                display_name = AGENT_DISPLAY_NAME.get(p_name, p_name)
+                canonical_p = {"vps-boss": "jarvis", "professor": "senku", "swe-qa": "swe-verifier", "swe-coder": "swe-backend"}.get(p_name, p_name)
+                display_name = AGENT_DISPLAY_NAME.get(canonical_p, AGENT_DISPLAY_NAME.get(p_name, p_name))
                 
-                live_map[p_name] = {
-                    "agent": p_name,
+                entry = {
+                    "agent": canonical_p,
+                    "profile": p_name,
                     "display_name": display_name,
                     "session_id": sess["id"],
                     "model": sess["model"],
@@ -412,14 +413,17 @@ def harvest_live_sessions(max_age_seconds: int = 60) -> Dict[str, Dict[str, Any]
                         "id": f"{sess['id']}:{sess['tool_call_count']}:live",
                         "time": iso_time,
                         "observed_at": sess["last_activity_at"],
-                        "agent": p_name,
+                        "agent": canonical_p,
                         "delegation_id": sess["id"],
                         "type": "tool_call" if state in ("CODING", "AUDITING", "CRAWLING", "EXECUTING") else "thought",
                         "detail": event_detail,
                         "goal": event_detail,
-                        "station": categorize_tool_station(desc, p_name)
+                        "station": categorize_tool_station(desc, canonical_p)
                     }
                 }
+                live_map[p_name] = entry
+                if canonical_p != p_name:
+                    live_map[canonical_p] = entry
         except Exception:
             continue
             
@@ -476,7 +480,7 @@ def get_git_diff_summary(repo_path: str) -> Dict[str, Any]:
 
 def parse_delegation_stream(limit: int = 25) -> List[Dict[str, Any]]:
     """Parses live delegation transcripts into structured telemetry events."""
-    live_dirs = sorted(glob.glob("/srv/apps/hermes/profiles/vps-boss/cache/delegation/live/*"), key=os.path.getmtime)
+    live_dirs = sorted(glob.glob("/srv/apps/hermes/profiles/jarvis/cache/delegation/live/*"), key=os.path.getmtime)
     events = []
     
     for d in live_dirs[-12:]:
@@ -557,8 +561,8 @@ def categorize_tool_station(detail: str, agent_id: str) -> str:
 
 
 def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
-    """Extracts high-level dialogue orders and exchanges between vps-boss and subagents."""
-    live_dirs = sorted(glob.glob("/srv/apps/hermes/profiles/vps-boss/cache/delegation/live/*"), key=os.path.getmtime)
+    """Extracts high-level dialogue orders and exchanges between jarvis and subagents."""
+    live_dirs = sorted(glob.glob("/srv/apps/hermes/profiles/jarvis/cache/delegation/live/*"), key=os.path.getmtime)
     convos = []
 
     for d in live_dirs[-limit:]:
@@ -603,7 +607,7 @@ def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
 
         convos.append({
             "id": Path(d).name,
-            "sender": "vps-boss",
+            "sender": "jarvis",
             "receiver": agent,
             "started_at": started,
             "completed_at": completed_at,
@@ -621,7 +625,7 @@ def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
 
 def build_hierarchical_dag(limit: int = 10) -> List[Dict[str, Any]]:
     """Builds hierarchical execution trees of delegations and tool calls."""
-    live_dirs = sorted(glob.glob("/srv/apps/hermes/profiles/vps-boss/cache/delegation/live/*"), key=os.path.getmtime)
+    live_dirs = sorted(glob.glob("/srv/apps/hermes/profiles/jarvis/cache/delegation/live/*"), key=os.path.getmtime)
     trees = []
 
     for d in live_dirs[-limit:]:
@@ -634,10 +638,17 @@ def build_hierarchical_dag(limit: int = 10) -> List[Dict[str, Any]]:
         manifest = {}
         if manifest_f.exists():
             try:
-                with open(manifest_f, "r", encoding="utf-8") as mfp:
+                with open(manifest_f, "r", encoding="utf-8", errors="replace") as mfp:
                     manifest = json.load(mfp)
             except Exception:
                 pass
+
+        agent_target = "unknown"
+        goal = ""
+        started = manifest.get("started", "")
+        completed = manifest.get("completed", "")
+        model = manifest.get("model", "")
+        provider = manifest.get("provider", "")
 
         try:
             with open(log_f, "r", encoding="utf-8", errors="replace") as fp:
@@ -645,14 +656,7 @@ def build_hierarchical_dag(limit: int = 10) -> List[Dict[str, Any]]:
         except Exception:
             continue
 
-        goal = manifest.get("tasks", [{}])[0].get("goal", "") if manifest.get("tasks") else ""
-        started = manifest.get("started", "")
-        completed = manifest.get("completed", "")
-        model = manifest.get("model", "ag/gemini-3.8-flash-high")
-        provider = manifest.get("provider", "9router")
-
-        agent_target = "unknown"
-        for line in lines[:15]:
+        for line in lines[:10]:
             if "Role:" in line:
                 m = re.search(r"Role:\s*([a-zA-Z0-9_\-]+)", line)
                 if m:
@@ -664,8 +668,8 @@ def build_hierarchical_dag(limit: int = 10) -> List[Dict[str, Any]]:
 
         if agent_target == "unknown":
             low_goal = goal.lower()
-            if "professor" in low_goal or "riset" in low_goal or "blueprint" in low_goal:
-                agent_target = "professor"
+            if "senku" in low_goal or "riset" in low_goal or "blueprint" in low_goal:
+                agent_target = "senku"
             elif "swe-verifier" in low_goal or "verifikasi" in low_goal or "qa" in low_goal:
                 agent_target = "swe-verifier"
             elif "ui-designer" in low_goal or "desain" in low_goal:
@@ -729,7 +733,7 @@ def build_hierarchical_dag(limit: int = 10) -> List[Dict[str, Any]]:
         errors = [s for s in steps if s.get("status") == "error"]
         trees.append({
             "delegation_id": deleg_id,
-            "root_agent": "vps-boss",
+            "root_agent": "jarvis",
             "agent": agent_target,
             "model": model,
             "provider": provider,
@@ -781,9 +785,17 @@ def _delegation_records(limit: int = 50) -> List[Dict[str, Any]]:
             if not role:
                 match = next((re.search(r"Role:\s*([\w-]+)", line) for line in lines[:20] if "Role:" in line), None)
                 role = match.group(1) if match else "unknown"
-            status = {"done": "completed", "error": "failed"}.get(str(task.get("status") or "unknown").lower(), str(task.get("status") or "unknown").lower())
-            status = status if status in {"running", "completed", "failed", "stalled", "unknown"} else "unknown"
+            if role in ("leaf", "unknown", ""):
+                from src.mission_control.live_bridge import infer_agent_from_goal
+                role = infer_agent_from_goal(task.get("goal", ""))
+
+            raw_status = str(task.get("status") or "").lower()
             mtime = log_path.stat().st_mtime if log_path.is_file() else manifest_path.stat().st_mtime if manifest_path.exists() else root.stat().st_mtime
+            if not raw_status and not manifest.get("completed"):
+                status = "running" if (time.time() - mtime <= 120) else "stalled"
+            else:
+                status = {"done": "completed", "error": "failed"}.get(raw_status or "unknown", raw_status or "unknown")
+                status = status if status in {"running", "completed", "failed", "stalled", "unknown"} else "unknown"
             if status == "running" and time.time() - mtime > min(STALE_HEARTBEAT_SECONDS, 120):
                 status = "stalled"
             steps, pending = [], None
@@ -835,11 +847,16 @@ def parse_delegation_stream(limit: int = 25) -> List[Dict[str, Any]]:
 def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
     convos = []
     live_sessions = harvest_live_sessions(max_age_seconds=60)
+    seen_agents = set()
     for p_name, ls in live_sessions.items():
+        aid = ls.get("agent", p_name)
+        if aid in seen_agents:
+            continue
+        seen_agents.add(aid)
         convos.append({
             "id": f"live_{ls['session_id'][:12]}",
-            "sender": "user" if p_name == "vps-boss" else "vps-boss",
-            "receiver": p_name,
+            "sender": "user" if aid == "jarvis" else "jarvis",
+            "receiver": aid,
             "started_at": ls["iso_time"][:19].replace("T", " "),
             "completed_at": None,
             "status": "running",
@@ -851,7 +868,7 @@ def extract_recent_conversations(limit: int = 15) -> List[Dict[str, Any]]:
             "tools_used": [ls["state"].lower()]
         })
     convos.extend([
-        {"id": r["id"], "sender": r["profile"], "receiver": c["agent"], "started_at": r["started_at"], "completed_at": r["completed_at"], "status": c["status"], "is_running": c["status"] == "running", "is_live": c["status"] == "running", "completed_recently": False, "boss_order": c["goal"], "subagent_reply": "", "tools_used": list(dict.fromkeys(s["tool"] for s in c["steps"]))}
+        {"id": r["id"], "sender": "jarvis" if r["profile"] == "vps-boss" else r["profile"], "receiver": c["agent"], "started_at": r["started_at"], "completed_at": r["completed_at"], "status": c["status"], "is_running": c["status"] == "running", "is_live": c["status"] == "running", "completed_recently": False, "boss_order": c["goal"], "subagent_reply": "", "tools_used": list(dict.fromkeys(s["tool"] for s in c["steps"]))}
         for r in _delegation_records(limit)
         for c in r["children"]
     ])
@@ -895,6 +912,7 @@ def health_check() -> Dict[str, Any]:
 @app.get("/api/v1/agents/roster")
 def get_agents_roster() -> Dict[str, Any]:
     """Returns all 14 agents with real models, status, active task, and 3D coordinates."""
+    now = time.time()
     models_map = get_agent_models_map()
     events = parse_delegation_stream(150)
     active_kanban = get_active_kanban_tasks()
@@ -926,12 +944,12 @@ def get_agents_roster() -> Dict[str, Any]:
 
         # Active Project & Phase mapping
         project_map = {
-            "professor": {"project": "Enterprise Agentic Research", "phase": "SOTA 2026 Deep Research & Literature Grounding"},
+            "senku": {"project": "Enterprise Agentic Research", "phase": "SOTA 2026 Deep Research & Literature Grounding"},
             "swe-backend": {"project": "National Food Lakehouse", "phase": "Phase 4 Read-Only API Hardening (:8097)"},
             "swe-verifier": {"project": "Global Quality Assurance", "phase": "Independent QA Forensic Certification"},
             "data-engineer": {"project": "National Food Lakehouse", "phase": "Phase 4 Lineage & Fail-Closed Ingestion"},
             "devops-engineer": {"project": "VPS Infrastructure", "phase": "Caddy Gateway & Ingress Isolation (:8097/:8085)"},
-            "vps-boss": {"project": "Rifqi Studio Orchestration", "phase": "Executive Mission Control & Autonomous Routing"},
+            "jarvis": {"project": "Rifqi Studio Orchestration", "phase": "Executive Mission Control & Autonomous Routing"},
             "ui-designer": {"project": "Design Engineering", "phase": "Anti-AI-Slop Visual Systems & Prototypes"},
             "tech-mentor": {"project": "Technical Mentorship", "phase": "Interactive Architectural Explanations"},
             "github-manager": {"project": "Global Git Releases", "phase": "Clean Commit Hygiene & Zero-AI Audit"},
@@ -946,6 +964,17 @@ def get_agents_roster() -> Dict[str, Any]:
         active_runs = active_kanban.get(agent_id, [])
         kanban_task = active_runs[0] if active_runs else None
 
+        is_fresh_ev = False
+        if last_ev:
+            obs = last_ev.get("observed_at")
+            if isinstance(obs, (int, float)):
+                is_fresh_ev = (now - obs) <= 120
+            elif isinstance(obs, str) and ":" not in obs:
+                try:
+                    is_fresh_ev = (now - float(obs)) <= 120
+                except ValueError:
+                    is_fresh_ev = False
+
         if kanban_task:
             state = "EXECUTING"
             status_desc = f"Kanban {kanban_task['id']}: {kanban_task['title']}"
@@ -958,7 +987,7 @@ def get_agents_roster() -> Dict[str, Any]:
             status_desc = f"{display_name} • {live_sess['status_desc']}"
             last_ev = live_sess["event"]
             proj_info = {"project": "Live Session Interaction", "phase": f"Active: {live_sess['state']}"}
-        elif last_ev:
+        elif is_fresh_ev:
             if "tool_call" in last_ev.get("type", ""):
                 dt = last_ev.get("detail", "").lower()
                 if "web_search" in dt or "crawl" in dt or "fetch" in dt:
@@ -1514,7 +1543,17 @@ import os as _mc_os
 from src.mission_control.api import install_mission_control
 
 if _mc_os.environ.get("HERMES_MC_ENABLED") == "1":
-    install_mission_control(app)
+    _mc_store = install_mission_control(app)
+    from src.mission_control.live_bridge import HermesLiveBridge
+    _live_bridge = HermesLiveBridge(_mc_store)
+
+    @app.on_event("startup")
+    def _start_telemetry_bridge():
+        _live_bridge.start()
+
+    @app.on_event("shutdown")
+    def _stop_telemetry_bridge():
+        _live_bridge.stop()
 
 
 # Serve static web assets

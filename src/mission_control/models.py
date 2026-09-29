@@ -3,12 +3,17 @@ from typing import Annotated, Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 AGENTS = (
-    "rifqi", "vps-boss", "vps-assistant", "professor", "swe-backend",
+    "rifqi", "jarvis", "vps-assistant", "senku", "swe-backend",
     "swe-frontend", "tech-mentor", "data-engineer", "paperwright",
     "swe-verifier", "ui-designer", "devops-engineer", "github-manager", "office-lead",
 )
-ALIASES = {"jarvis": "vps-boss", "senku": "professor", "swe-qa": "swe-verifier"}
-IMPLEMENTERS = set(AGENTS) - {"rifqi", "vps-boss", "swe-verifier", "github-manager"}
+ALIASES = {
+    "swe-qa": "swe-verifier",
+    "vps-boss": "jarvis",
+    "professor": "senku",
+    "chief-architect": "tech-mentor",
+}
+IMPLEMENTERS = set(AGENTS) - {"rifqi", "jarvis", "swe-verifier", "github-manager"}
 OPEN_STATES = ("queued", "running", "waiting")
 ACTIVE_STATES = ("running", "waiting")
 TERMINAL_STATES = ("completed", "failed", "cancelled", "expired")

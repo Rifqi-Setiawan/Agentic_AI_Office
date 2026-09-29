@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Background, BackgroundVariant, Controls, MarkerType, Panel, ReactFlow, useNodesInitialized, useReactFlow, useUpdateNodeInternals } from '@xyflow/react'
+import { Background, BackgroundVariant, Controls, MarkerType, Panel, Position, ReactFlow, useNodesInitialized, useReactFlow, useUpdateNodeInternals } from '@xyflow/react'
 import type { RefObject } from 'react'
 import '@xyflow/react/dist/style.css'
 import './mission-control.css'
@@ -42,7 +42,7 @@ function ViewportTools({ host, autoFit, setAutoFit }: {
   useEffect(() => {
     if (!initialized) return
     const timer = setTimeout(() => {
-      void fitView({ padding: 0.08, minZoom: 0.25, maxZoom: 1, duration: 250 })
+      void fitView({ padding: 0.05, maxZoom: 0.75, duration: 250 })
     }, 80)
     return () => clearTimeout(timer)
   }, [initialized, fitView])
@@ -52,7 +52,7 @@ function ViewportTools({ host, autoFit, setAutoFit }: {
     let timer: ReturnType<typeof setTimeout> | undefined
     const fit = () => {
       clearTimeout(timer)
-      timer = setTimeout(() => { void fitView({ padding: 0.08, minZoom: 0.25, maxZoom: 1, duration: 0 }) }, 80)
+      timer = setTimeout(() => { void fitView({ padding: 0.05, maxZoom: 0.75, duration: 0 }) }, 80)
     }
     const observer = new ResizeObserver(fit)
     observer.observe(host.current); fit()
@@ -60,7 +60,7 @@ function ViewportTools({ host, autoFit, setAutoFit }: {
   }, [host, autoFit, initialized, fitView])
   return (
     <Panel position="top-left" className="mc-viewport-actions">
-      <button type="button" onClick={() => { setAutoFit(true); void fitView({ padding: 0.1, maxZoom: 1, duration: 180 }) }}>Sesuaikan</button>
+      <button type="button" onClick={() => { setAutoFit(true); void fitView({ padding: 0.05, maxZoom: 0.75, duration: 180 }) }}>Sesuaikan</button>
       <button type="button" onClick={() => { setAutoFit(false); void zoomTo(1, { duration: 180 }) }}>100%</button>
     </Panel>
   )
@@ -81,9 +81,31 @@ export function ExecutionGraph({ agents, onInspectAgent, snapshot = null, elapse
   const nodes = useMemo<AgentFlowNode[]>(() => AGENTS.map(definition => {
     const calls = [...activity.values()].filter(pair => pair.callee === definition.id).flatMap(pair => pair.invocations)
     const state = calls.length ? (calls.some(call => call.state === 'running') ? 'running' : 'waiting') : agentMap.get(definition.id)?.state
+    const outgoing = ROUTES.filter(route => route.source === definition.id)
+    const handles = [
+      ...(definition.id !== 'rifqi' ? [{
+        type: 'target' as const,
+        id: 'in',
+        position: definition.id === 'vps-assistant' ? Position.Left : Position.Top,
+        x: definition.id === 'vps-assistant' ? 0 : CARD_WIDTH / 2,
+        y: definition.id === 'vps-assistant' ? CARD_HEIGHT / 2 : 0,
+        width: 10,
+        height: 10,
+      }] : []),
+      ...outgoing.map(route => ({
+        type: 'source' as const,
+        id: `out:${route.target}`,
+        position: route.horizontal ? Position.Right : Position.Bottom,
+        x: route.horizontal ? CARD_WIDTH : route.sourceOffset,
+        y: route.horizontal ? route.sourceOffset : CARD_HEIGHT,
+        width: 10,
+        height: 10,
+      }))
+    ]
     return {
       id: definition.id, type: 'agentNode', position: definition.position,
       width: CARD_WIDTH, height: CARD_HEIGHT, style: { width: CARD_WIDTH, height: CARD_HEIGHT },
+      handles,
       draggable: false, connectable: false, selectable: false, focusable: false,
       data: { definition, state, invocationCount: calls.length, selected: selectedAgentId === definition.id, onInspect: onInspectAgent },
     }
@@ -105,6 +127,7 @@ export function ExecutionGraph({ agents, onInspectAgent, snapshot = null, elapse
     <div ref={host} className="mc-graph" data-theme={theme} aria-label="Hierarki komando dan jalur delegasi aktif">
       <ReactFlow<AgentFlowNode, CircuitEdgeType> nodes={nodes} edges={edges} nodeTypes={nodeTypes} edgeTypes={edgeTypes}
         fitView fitViewOptions={{ padding: 0.1, minZoom: 0.25, maxZoom: 1 }} minZoom={0.25} maxZoom={1.6}
+        onlyRenderVisibleElements={false}
         nodesDraggable={false} nodesConnectable={false} edgesReconnectable={false} elementsSelectable={false}
         deleteKeyCode={null} selectionKeyCode={null} colorMode={theme}
         onNodeClick={(_event, node) => {

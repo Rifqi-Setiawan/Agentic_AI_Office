@@ -4,9 +4,9 @@
 
 Agent ID adalah identitas aktor yang dapat digunakan kembali. Span ID adalah identitas satu invocation yang tidak boleh digunakan ulang. Mission ID mengikat satu mandat root. Task ID menghubungkan pekerjaan domain/Kanban, dan dapat sama pada beberapa invocation/retry.
 
-Alias jarvis, senku, swe-qa dinormalisasi menjadi vps-boss, professor, swe-verifier. Alias tidak membuat node duplikat. Child wajib memiliki mission_id sama dengan parent dan caller yang sama dengan callee parent. Parent sudah running/waiting serta lease-nya belum lewat. Tidak boleh parent=self, caller=callee, atau orphan.
+Alias swe-qa dinormalisasi menjadi swe-verifier. Alias tidak membuat node duplikat. Child wajib memiliki mission_id sama dengan parent dan caller yang sama dengan callee parent. Parent sudah running/waiting serta lease-nya belum lewat. Tidak boleh parent=self, caller=callee, atau orphan.
 
-Root yang didukung package adalah rifqi -> vps-boss, satu per mission. Maksimum ancestry 64 dan maksimum invocation terbuka 4096 adalah batas defensif, bukan sasaran kapasitas produksi. Delegasi mandiri tanpa mandat root memerlukan perluasan policy eksplisit, bukan auto-root palsu.
+Root yang didukung package adalah rifqi -> jarvis, satu per mission. Maksimum ancestry 64 dan maksimum invocation terbuka 4096 adalah batas defensif, bukan sasaran kapasitas produksi. Delegasi mandiri tanpa mandat root memerlukan perluasan policy eksplisit, bukan auto-root palsu.
 
 ## API baca publik
 
@@ -47,9 +47,9 @@ Sebuah edge menyala hanya bila ada setidaknya satu invocation pada pasangan sour
 Contoh urutan:
 
 ```text
-root running                    -> hanya rifqi -> vps-boss
+root running                    -> hanya rifqi -> jarvis
 backend queued                  -> tetap hanya root
-backend running                 -> root dan vps-boss -> swe-backend
+backend running                 -> root dan jarvis -> swe-backend
 QA running di bawah backend     -> ketiganya menyala
 QA completed                    -> edge QA padam; parent yang masih terbuka tetap aktif
 backend completed               -> edge backend padam

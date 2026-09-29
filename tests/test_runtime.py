@@ -33,11 +33,11 @@ def test_nested_real_operation_tracks_context_then_closes(tmp_path):
     async def root(ctx):
         async def backend(child):
             snap = store.snapshot()
-            assert snap['active_delegation_chains'][0]['active_delegation_path'] == ['rifqi','vps-boss','swe-backend']
+            assert snap['active_delegation_chains'][0]['active_delegation_path'] == ['rifqi','jarvis','swe-backend']
             return 7 * 6
         await ctx.transition('waiting')
         return await run_tracked(client, ctx.child('swe-backend','backend-task'), backend)
-    result = asyncio.run(run_tracked(client, CallSpec('root','mission','task','rifqi','vps-boss'), root))
+    result = asyncio.run(run_tracked(client, CallSpec('root','mission','task','rifqi','jarvis'), root))
     assert result == 42
     assert not store.snapshot()['caller_callee_pairs']
     assert store.get_span('root')['state'] == 'completed'
@@ -48,7 +48,7 @@ def test_operation_exception_is_not_reported_as_completed(tmp_path):
     async def operation(ctx):
         raise ValueError('Real operation failed')
     with pytest.raises(ValueError, match='Real operation failed'):
-        asyncio.run(run_tracked(LocalClient(store), CallSpec('root','mission','task','rifqi','vps-boss'), operation))
+        asyncio.run(run_tracked(LocalClient(store), CallSpec('root','mission','task','rifqi','jarvis'), operation))
     assert store.get_span('root')['state'] == 'failed'
 
 
@@ -62,7 +62,7 @@ def test_heartbeat_failure_cancels_coroutine_and_fails_closed(tmp_path):
             cancelled.append(True)
     with pytest.raises(LeaseLost):
         asyncio.run(run_tracked(LocalClient(store, fail_heartbeat=True),
-            CallSpec('root','mission','task','rifqi','vps-boss',lease_seconds=5), operation))
+            CallSpec('root','mission','task','rifqi','jarvis',lease_seconds=5), operation))
     assert cancelled == [True]
     assert store.get_span('root')['state'] == 'failed'
 
@@ -74,7 +74,7 @@ def test_external_cancellation_cleans_up_scope(tmp_path):
         async def operation(ctx):
             started.set()
             await asyncio.sleep(30)
-        task = asyncio.create_task(run_tracked(LocalClient(store), CallSpec('root','mission','task','rifqi','vps-boss'), operation))
+        task = asyncio.create_task(run_tracked(LocalClient(store), CallSpec('root','mission','task','rifqi','jarvis'), operation))
         await started.wait()
         task.cancel()
         with pytest.raises(asyncio.CancelledError):

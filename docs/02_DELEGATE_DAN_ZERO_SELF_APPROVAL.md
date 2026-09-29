@@ -8,7 +8,7 @@ Gunakan enam tahap DELEGATE yang sudah tertulis dalam `WORKFLOW_AND_DELEGATION.m
 
 Rifqi memberikan mandat; Jarvis menentukan apakah pekerjaan merupakan perbaikan proyek existing, perluasan fitur, riset, operasi server, atau proyek baru. Untuk pekerjaan ini klasifikasinya enhancement pada cockpit existing. Jangan membangun ulang crawler, scheduler, atau frontend lain.
 
-Dispatcher membuat root `rifqi -> vps-boss` hanya setelah mandat benar-benar diterima oleh runtime. Klik tombol chat, pesan broadcast, dan perubahan status roster bukan pengganti acknowledgement tersebut. Tugas terjadwal hanya boleh menggunakan mandat manusia yang memang masih sah; jangan menciptakan root seolah-olah manusia baru saja memerintah setiap kali proses bangun.
+Dispatcher membuat root `rifqi -> jarvis` hanya setelah mandat benar-benar diterima oleh runtime. Klik tombol chat, pesan broadcast, dan perubahan status roster bukan pengganti acknowledgement tersebut. Tugas terjadwal hanya boleh menggunakan mandat manusia yang memang masih sah; jangan menciptakan root seolah-olah manusia baru saja memerintah setiap kali proses bangun.
 
 ### Tahap 2 - Kontrak tugas formal
 

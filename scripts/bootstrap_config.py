@@ -9,7 +9,7 @@ import shutil
 import subprocess
 from pathlib import Path
 
-ACTORS = ["rifqi", "vps-boss", "vps-assistant", "professor", "swe-backend", "swe-frontend", "tech-mentor",
+ACTORS = ["rifqi", "jarvis", "vps-assistant", "senku", "swe-backend", "swe-frontend", "tech-mentor",
           "data-engineer", "paperwright", "swe-verifier", "ui-designer", "devops-engineer", "github-manager", "office-lead", "runtime-dispatcher"]
 
 
