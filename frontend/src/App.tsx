@@ -28,6 +28,7 @@ import { BOSS_ROLE, BOSS_NAME } from './config'
 import { pickEvent } from './events'
 import { getInteraction } from './interactions'
 import SpatialOverlay from './components/SpatialOverlay'
+import ThreeOfficeCanvas from './components/ThreeOffice/ThreeOfficeCanvas'
 import {
   useTheme, getRoomImage, getAngelaCat, getTheme,
   OFFICE_SIM_TOOL_MESSAGES, OFFICE_SIM_BOSS_PROMPTS,
@@ -275,6 +276,7 @@ const OFFICE_SIM_CHATTER = [
 const App: React.FC = () => {
   // All hooks must be at the top — before any conditional returns.
   const theme = useTheme() // Why: re-render rooms + agents when /the-office toggles
+  const [viewMode, setViewMode] = useState<'3d' | 'classic'>('3d')
   const [selectedRoomId, setSelectedRoomId] = useState<string>('all')
   const [hudExpanded, setHudExpanded] = useState<boolean>(false)
   const activeRoom = TEAM_ROOMS.find(r => r.id === selectedRoomId) || TEAM_ROOMS[0]
@@ -1982,6 +1984,10 @@ const App: React.FC = () => {
     )
   }
 
+  if (viewMode === '3d') {
+    return <ThreeOfficeCanvas onBackToClassic={() => setViewMode('classic')} />
+  }
+
   return (
     <div className="app-wrapper">
       <div className="title-bar">
@@ -1989,6 +1995,24 @@ const App: React.FC = () => {
         <div className="title-bar-dot" style={{ background: '#febc2e' }} />
         <div className="title-bar-dot" style={{ background: '#28c840' }} />
         <span className="title-bar-text">RIFQI STUDIO — AGENTIC AI OFFICE</span>
+        <button
+          onClick={() => setViewMode('3d')}
+          style={{
+            background: 'rgba(56, 189, 248, 0.2)',
+            border: '1px solid rgba(56, 189, 248, 0.5)',
+            borderRadius: '4px',
+            color: '#38bdf8',
+            fontSize: '10px',
+            fontFamily: 'JetBrains Mono',
+            fontWeight: 700,
+            padding: '2px 8px',
+            cursor: 'pointer',
+            marginLeft: 8,
+          }}
+          title="Beralih ke mode 3D Architectural Dollhouse"
+        >
+          🏛️ Mode 3D Native
+        </button>
         <button
           className="title-bar-daynight"
           onClick={() => setDayNightMode(prev =>
