@@ -79,6 +79,9 @@ function computePath(
   from: { x: number; y: number },
   to: { x: number; y: number },
 ): { x: number; y: number }[] {
+  if (!from || isNaN(from.x) || isNaN(from.y) || !to || isNaN(to.x) || isNaN(to.y)) {
+    return []
+  }
   if (MAIN_WAYPOINTS.length === 0) {
     console.warn('[pathfinding] No waypoints loaded!')
     return []
@@ -1774,6 +1777,25 @@ const App: React.FC = () => {
           {dayNightMode === 'auto' ? 'AUTO' : dayNightMode === 'day' ? 'DAY' : 'NIGHT'}
         </button>
         <span className="title-bar-phase">{getPhaseLabel(effectivePhase)}</span>
+        <button
+          onClick={handleToggleMute}
+          style={{
+            background: 'rgba(255,255,255,0.05)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '3px',
+            cursor: 'pointer',
+            padding: '2px 8px',
+            fontSize: '11px',
+            color: muted ? '#ef4444' : '#10b981',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 4,
+          }}
+          title={muted ? 'Unmute Audio' : 'Mute Audio'}
+        >
+          <span>{muted ? '🔇' : '🔊'}</span>
+          <span style={{ fontSize: 9, fontFamily: 'JetBrains Mono', color: '#9ca3af' }}>{muted ? 'MUTED' : `${Math.round(volume * 100)}%`}</span>
+        </button>
       </div>
 
       <div className="app-body">
@@ -1967,34 +1989,6 @@ const App: React.FC = () => {
         </div>
         </div>
       </div>
-
-      <SlackChat
-        messages={messages}
-        muted={muted}
-        volume={volume}
-        onToggleMute={handleToggleMute}
-        onVolumeChange={handleVolumeChange}
-        onSendMessage={(text) => {
-          const bossCfg = AGENT_CONFIGS[BOSS_ROLE] ?? AGENT_CONFIGS['default']
-          addMsg(bossCfg.title, BOSS_ROLE, bossCfg.color, text)
-          setAutoTypeText(undefined)
-          // Send to server so Claude can read it
-          fetch('/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ sender: bossCfg.title, text }),
-          }).catch(() => {})
-        }}
-        autoTypeText={autoTypeText}
-        dayPhase={effectivePhase}
-        typingUser={chatTypingUser}
-        lastSeenId={lastSeenId}
-        onReaction={(messageId, reactions) => {
-          setMessages(prev => prev.map(m =>
-            m.id === messageId ? { ...m, reactions } : m
-          ))
-        }}
-      />
       </div>
     </div>
   )
