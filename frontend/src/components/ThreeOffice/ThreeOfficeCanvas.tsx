@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import * as THREE from 'three'
+import gsap from 'gsap'
 import { buildArchitecturalOffice, OfficeSceneBundle } from './officeGeometry'
 import { INITIAL_3D_AGENTS, Agent3DDef } from './avatar3DManager'
 import './three-office.css'
@@ -45,12 +46,34 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
     const target = ROOM_TARGETS[roomId]
     if (!target) return
     setSelectedRoom(roomId)
-    targetLookAtRef.current.set(...target.lookAt)
-    setZoomLevel(target.zoom)
 
+    // Kill any in-flight tweens
+    gsap.killTweensOf(targetLookAtRef.current)
     if (cameraRef.current) {
-      cameraRef.current.zoom = target.zoom
-      cameraRef.current.updateProjectionMatrix()
+      gsap.killTweensOf(cameraRef.current)
+    }
+
+    // Smooth cinematic pan flight
+    gsap.to(targetLookAtRef.current, {
+      x: target.lookAt[0],
+      y: target.lookAt[1],
+      z: target.lookAt[2],
+      duration: 1.25,
+      ease: 'power2.inOut',
+    })
+
+    // Smooth synchronized zoom transition
+    if (cameraRef.current) {
+      const cam = cameraRef.current
+      gsap.to(cam, {
+        zoom: target.zoom,
+        duration: 1.25,
+        ease: 'power2.inOut',
+        onUpdate: () => {
+          cam.updateProjectionMatrix()
+          setZoomLevel(cam.zoom)
+        },
+      })
     }
   }, [])
 
@@ -190,8 +213,11 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
       const dy = e.clientY - lastMousePosRef.current.y
       lastMousePosRef.current = { x: e.clientX, y: e.clientY }
 
+      // Kill any active flyTo tweens on manual user drag
+      gsap.killTweensOf(targetLookAtRef.current)
+
       // Pan along isometric ground plane
-      const panFactor = 0.035 * (35 / (cameraRef.current.zoom || 35))
+      const panFactor = 0.035 * (1.0 / (cameraRef.current.zoom || 1.0))
       const right = new THREE.Vector3(-1, 0, 1).normalize()
       const up = new THREE.Vector3(1, 0, 1).normalize()
 
@@ -206,11 +232,21 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
     const onWheel = (e: WheelEvent) => {
       e.preventDefault()
       if (!cameraRef.current) return
-      const factor = e.deltaY < 0 ? 1.08 : 0.92
-      const newZoom = Math.max(0.6, Math.min(3.5, (cameraRef.current.zoom || 1.0) * factor))
-      setZoomLevel(newZoom)
-      cameraRef.current.zoom = newZoom
-      cameraRef.current.updateProjectionMatrix()
+      const factor = e.deltaY < 0 ? 1.15 : 0.87
+      const targetZoom = Math.max(0.6, Math.min(3.5, (cameraRef.current.zoom || 1.0) * factor))
+
+      gsap.killTweensOf(cameraRef.current)
+      gsap.to(cameraRef.current, {
+        zoom: targetZoom,
+        duration: 0.28,
+        ease: 'power1.out',
+        onUpdate: () => {
+          if (cameraRef.current) {
+            cameraRef.current.updateProjectionMatrix()
+            setZoomLevel(cameraRef.current.zoom)
+          }
+        },
+      })
     }
 
     container.addEventListener('mousedown', onMouseDown)
@@ -391,10 +427,19 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
             className="hud-ctrl-btn"
             onClick={() => {
               if (cameraRef.current) {
-                const z = Math.min(3.5, (cameraRef.current.zoom || 1.0) * 1.2)
-                cameraRef.current.zoom = z
-                cameraRef.current.updateProjectionMatrix()
-                setZoomLevel(z)
+                const targetZ = Math.min(3.5, (cameraRef.current.zoom || 1.0) * 1.25)
+                gsap.killTweensOf(cameraRef.current)
+                gsap.to(cameraRef.current, {
+                  zoom: targetZ,
+                  duration: 0.35,
+                  ease: 'power1.out',
+                  onUpdate: () => {
+                    if (cameraRef.current) {
+                      cameraRef.current.updateProjectionMatrix()
+                      setZoomLevel(cameraRef.current.zoom)
+                    }
+                  },
+                })
               }
             }}
           >
@@ -404,10 +449,19 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
             className="hud-ctrl-btn"
             onClick={() => {
               if (cameraRef.current) {
-                const z = Math.max(0.6, (cameraRef.current.zoom || 1.0) * 0.8)
-                cameraRef.current.zoom = z
-                cameraRef.current.updateProjectionMatrix()
-                setZoomLevel(z)
+                const targetZ = Math.max(0.6, (cameraRef.current.zoom || 1.0) * 0.8)
+                gsap.killTweensOf(cameraRef.current)
+                gsap.to(cameraRef.current, {
+                  zoom: targetZ,
+                  duration: 0.35,
+                  ease: 'power1.out',
+                  onUpdate: () => {
+                    if (cameraRef.current) {
+                      cameraRef.current.updateProjectionMatrix()
+                      setZoomLevel(cameraRef.current.zoom)
+                    }
+                  },
+                })
               }
             }}
           >
