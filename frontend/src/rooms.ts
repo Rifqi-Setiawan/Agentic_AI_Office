@@ -87,17 +87,24 @@ export const ROOMS: Record<RoomId, Room> = {
     width: 1672,
     height: 941,
     furniture: [
-      // Clean interactive hotspots over the high-res 3D architectural illustration
-      { id: 'pool', type: 'hotspot', sprite: 'hotspot', x: 89.0, y: 33.0, interactive: true, label: '🏊 Kolam Renang Rooftop' },
-      { id: 'sunbed', type: 'hotspot', sprite: 'hotspot', x: 84.0, y: 22.0, interactive: true, label: '☀️ Kursi Berjemur Sundeck' },
-      { id: 'espresso', type: 'hotspot', sprite: 'hotspot', x: 73.0, y: 65.0, interactive: true, label: '☕ Mesin Kopi Espresso' },
+      // Clean interactive hotspots over the architectural illustration
+      { id: 'pool', type: 'hotspot', sprite: 'hotspot', x: 88.5, y: 33.0, interactive: true, label: '🏊 Kolam Renang Rooftop' },
+      { id: 'sunbed', type: 'hotspot', sprite: 'hotspot', x: 82.0, y: 18.0, interactive: true, label: '☀️ Kursi Berjemur Sundeck' },
       { id: 'billiards', type: 'hotspot', sprite: 'hotspot', x: 14.0, y: 21.0, interactive: true, label: '🎱 Meja Biliar Laken Hijau' },
       { id: 'arcade', type: 'hotspot', sprite: 'hotspot', x: 18.0, y: 12.0, interactive: true, label: '🕹️ Mesin Dingdong Arcade' },
       { id: 'meeting-display', type: 'hotspot', sprite: 'hotspot', x: 40.0, y: 19.0, interactive: true, label: '📊 Dashboard Telemetri Ruang Rapat' },
-      { id: 'server-rack', type: 'hotspot', sprite: 'hotspot', x: 54.0, y: 73.0, interactive: true, label: '🗄️ Server Rack Data Lakehouse' },
-      { id: 'chemistry-bench', type: 'hotspot', sprite: 'hotspot', x: 21.0, y: 82.0, interactive: true, label: '🧪 Meja Laboratorium & Rumus Fisika' },
       { id: 'kanban-board', type: 'hotspot', sprite: 'hotspot', x: 56.0, y: 46.0, interactive: true, label: '📋 Agile Sprint Scrum Board' },
-      { id: 'boss-desk', type: 'hotspot', sprite: 'hotspot', x: 61.0, y: 17.0, interactive: true, label: '👑 Meja Eksekutif CEO Jarvis' },
+      { id: 'boss-desk', type: 'hotspot', sprite: 'hotspot', x: 60.5, y: 17.0, interactive: true, label: '👑 Meja Eksekutif CEO Jarvis' },
+
+      // Discrete Props with Depth Z-Sorting (Claude-Office Standard)
+      { id: 'espresso', type: 'coffee-machine', sprite: 'coffee-off', x: 73.0, y: 64.0, zIndex: 68, interactive: true, label: '☕ Mesin Kopi Espresso' },
+      { id: 'plant-cafe', type: 'plant-monstera', sprite: 'plant-monstera', x: 91.0, y: 84.0, zIndex: 88, label: '🌿 Tanaman Hias Monstera' },
+      { id: 'plant-boss', type: 'plant-snake', sprite: 'plant-snake', x: 68.0, y: 14.0, zIndex: 25, label: '🌱 Snake Plant Ruang Bos' },
+      { id: 'senku-bookshelf', type: 'decoration', sprite: 'bookshelf', x: 11.5, y: 78.0, zIndex: 75, label: '📚 Rak Buku Sains & Jurnal' },
+      { id: 'senku-chalkboard', type: 'decoration', sprite: 'chalkboard-formulas', x: 26.0, y: 68.0, zIndex: 65, label: '🧮 Papan Tulis Rumus Fisika' },
+      { id: 'senku-lab-kit', type: 'decoration', sprite: 'lab-equipment', x: 21.5, y: 83.5, zIndex: 88, label: '🧪 Peralatan Kimia & Tabung Reaksi' },
+      { id: 'server-rack-1', type: 'furniture', sprite: 'server-rack', x: 46.0, y: 72.0, zIndex: 71, label: '🗄️ Server Rack Primary' },
+      { id: 'server-rack-2', type: 'furniture', sprite: 'server-rack', x: 61.0, y: 72.0, zIndex: 71, label: '🗄️ Server Rack Analytics' },
     ],
     connections: [],
     agentSpots: [
@@ -118,8 +125,8 @@ export const ROOMS: Record<RoomId, Room> = {
       { id: 'spot-devops-engineer', type: 'desk', x: 49.0, y: 76.0, facing: 'down', spriteFacing: 'front-right', zIndex: 78 },
 
       // Activity Spots across the Penthouse (Swimmng, Meetings, Gaming, Cafe, Reading)
-      { id: 'spot-pool-swim-1', type: 'swimming', x: 89.0, y: 33.0, facing: 'down', spriteFacing: 'front-left', zIndex: 40 },
-      { id: 'spot-pool-swim-2', type: 'swimming', x: 87.0, y: 38.0, facing: 'down', spriteFacing: 'rear-right', zIndex: 42 },
+      { id: 'spot-pool-swim-1', type: 'swimming', x: 90.0, y: 36.5, facing: 'down', spriteFacing: 'front-left', zIndex: 40 },
+      { id: 'spot-pool-swim-2', type: 'swimming', x: 92.5, y: 39.5, facing: 'down', spriteFacing: 'rear-right', zIndex: 42 },
       { id: 'spot-pool-sunbed-2', type: 'sunbathing', x: 82.0, y: 17.5, facing: 'down', spriteFacing: 'front-left', zIndex: 30 },
       { id: 'spot-meeting-seat-1', type: 'meeting', x: 37.5, y: 16.5, facing: 'down', spriteFacing: 'rear-right', zIndex: 28 },
       { id: 'spot-meeting-seat-2', type: 'meeting', x: 43.5, y: 17.0, facing: 'down', spriteFacing: 'rear-left', zIndex: 28 },
@@ -135,29 +142,54 @@ export const ROOMS: Record<RoomId, Room> = {
     ],
     entryPoint: { x: 14.0, y: 44.0 },
     waypoints: [
-      { id: 'W-center', x: 50.0, y: 44.0, connections: ['W-dev-west', 'W-dev-east', 'W-scrum', 'W-hall-boss', 'W-hall-meeting', 'W-hall-server'] },
-      { id: 'W-dev-west', x: 32.0, y: 44.0, connections: ['W-center', 'W-dev-south', 'W-hall-reception', 'W-hall-arcade', 'W-hall-lab'] },
-      { id: 'W-dev-south', x: 32.0, y: 56.0, connections: ['W-dev-west', 'W-hall-lab'] },
-      { id: 'W-dev-east', x: 46.0, y: 48.0, connections: ['W-center', 'W-hall-cafe', 'W-scrum'] },
-      { id: 'W-scrum', x: 55.0, y: 46.0, connections: ['W-center', 'W-dev-east', 'W-hall-pool'] },
-      { id: 'W-hall-boss', x: 61.0, y: 28.0, connections: ['W-center', 'W-boss-desk', 'W-hall-meeting', 'W-hall-pool'] },
-      { id: 'W-boss-desk', x: 60.5, y: 17.0, connections: ['W-hall-boss'] },
-      { id: 'W-hall-meeting', x: 40.0, y: 30.0, connections: ['W-center', 'W-meeting-table', 'W-hall-boss', 'W-hall-arcade'] },
-      { id: 'W-meeting-table', x: 40.0, y: 21.0, connections: ['W-hall-meeting'] },
-      { id: 'W-hall-arcade', x: 22.0, y: 32.0, connections: ['W-dev-west', 'W-arcade-center', 'W-hall-meeting'] },
-      { id: 'W-arcade-center', x: 16.0, y: 21.0, connections: ['W-hall-arcade'] },
-      { id: 'W-hall-reception', x: 14.0, y: 44.0, connections: ['W-dev-west'] },
-      { id: 'W-hall-lab', x: 24.0, y: 62.0, connections: ['W-dev-west', 'W-dev-south', 'W-lab-chem', 'W-lab-lib'] },
-      { id: 'W-lab-chem', x: 20.0, y: 80.0, connections: ['W-hall-lab', 'W-lab-lib'] },
-      { id: 'W-lab-lib', x: 33.0, y: 75.0, connections: ['W-hall-lab', 'W-lab-chem'] },
-      { id: 'W-hall-server', x: 54.0, y: 64.0, connections: ['W-center', 'W-server-aisle'] },
-      { id: 'W-server-aisle', x: 53.0, y: 75.0, connections: ['W-hall-server'] },
-      { id: 'W-hall-cafe', x: 68.0, y: 54.0, connections: ['W-dev-east', 'W-cafe-bar', 'W-cafe-dining', 'W-hall-pool'] },
-      { id: 'W-cafe-bar', x: 73.0, y: 65.0, connections: ['W-hall-cafe', 'W-cafe-dining'] },
-      { id: 'W-cafe-dining', x: 80.0, y: 75.0, connections: ['W-hall-cafe', 'W-cafe-bar'] },
-      { id: 'W-hall-pool', x: 75.0, y: 32.0, connections: ['W-scrum', 'W-hall-boss', 'W-hall-cafe', 'W-pool-deck', 'W-pool-water'] },
-      { id: 'W-pool-deck', x: 84.0, y: 22.0, connections: ['W-hall-pool', 'W-pool-water'] },
-      { id: 'W-pool-water', x: 88.0, y: 34.0, connections: ['W-pool-deck', 'W-hall-pool'] },
+      // Central Open Spine (Main Floor)
+      { id: 'W-center', x: 45.0, y: 44.0, connections: ['W-door-arcade', 'W-door-meeting', 'W-door-boss', 'W-door-lab', 'W-door-server', 'W-door-cafe', 'W-door-pool-in', 'W-dev-cluster-1', 'W-dev-cluster-2'] },
+      { id: 'W-dev-cluster-1', x: 32.0, y: 46.0, connections: ['W-center', 'W-door-arcade', 'W-door-lab', 'W-dev-cluster-2'] },
+      { id: 'W-dev-cluster-2', x: 42.0, y: 52.0, connections: ['W-center', 'W-dev-cluster-1', 'W-door-server', 'W-door-cafe'] },
+
+      // Boss Room (Executive Suite) - Wall at y=31.5, Door at (61.0, 31.5)
+      { id: 'W-door-boss', x: 61.0, y: 35.0, connections: ['W-center', 'W-inside-boss', 'W-door-meeting', 'W-door-pool-in'] },
+      { id: 'W-inside-boss', x: 61.0, y: 26.0, connections: ['W-door-boss', 'W-boss-desk', 'W-boss-sofa'] },
+      { id: 'W-boss-desk', x: 60.5, y: 15.0, connections: ['W-inside-boss'] },
+      { id: 'W-boss-sofa', x: 65.0, y: 25.0, connections: ['W-inside-boss'] },
+
+      // Boardroom (Ruang Rapat Kaca) - Glass Wall at y=31.5, Door at (40.0, 31.5)
+      { id: 'W-door-meeting', x: 40.0, y: 35.0, connections: ['W-center', 'W-door-boss', 'W-door-arcade', 'W-inside-meeting'] },
+      { id: 'W-inside-meeting', x: 40.0, y: 26.0, connections: ['W-door-meeting', 'W-meeting-table', 'W-meeting-east'] },
+      { id: 'W-meeting-table', x: 40.0, y: 19.0, connections: ['W-inside-meeting', 'W-meeting-east'] },
+      { id: 'W-meeting-east', x: 44.0, y: 18.0, connections: ['W-inside-meeting', 'W-meeting-table'] },
+
+      // Arcade & Game Lounge - Wall at y=31.5, Door at (22.0, 31.5)
+      { id: 'W-door-arcade', x: 22.0, y: 35.0, connections: ['W-center', 'W-door-meeting', 'W-inside-arcade', 'W-dev-cluster-1'] },
+      { id: 'W-inside-arcade', x: 22.0, y: 26.0, connections: ['W-door-arcade', 'W-arcade-center', 'W-billiards'] },
+      { id: 'W-arcade-center', x: 18.0, y: 14.0, connections: ['W-inside-arcade'] },
+      { id: 'W-billiards', x: 14.0, y: 21.0, connections: ['W-inside-arcade'] },
+
+      // Senku Lab & Library - Partition at y=58.5, Door at (24.0, 58.5)
+      { id: 'W-door-lab', x: 24.0, y: 56.0, connections: ['W-center', 'W-dev-cluster-1', 'W-inside-lab'] },
+      { id: 'W-inside-lab', x: 24.0, y: 64.0, connections: ['W-door-lab', 'W-lab-chem', 'W-lab-lib'] },
+      { id: 'W-lab-chem', x: 18.5, y: 82.0, connections: ['W-inside-lab', 'W-lab-lib'] },
+      { id: 'W-lab-lib', x: 34.0, y: 76.0, connections: ['W-inside-lab', 'W-lab-chem'] },
+
+      // Server Room (Data Lakehouse) - Acoustic Glass Partition at y=59.0, Door at (54.0, 59.0)
+      { id: 'W-door-server', x: 54.0, y: 56.0, connections: ['W-center', 'W-dev-cluster-2', 'W-inside-server'] },
+      { id: 'W-inside-server', x: 54.0, y: 64.0, connections: ['W-door-server', 'W-server-aisle'] },
+      { id: 'W-server-aisle', x: 54.0, y: 78.0, connections: ['W-inside-server'] },
+
+      // Cafeteria & Dining - Partition at y=53.5, Door at (68.0, 53.5)
+      { id: 'W-door-cafe', x: 68.0, y: 50.0, connections: ['W-center', 'W-dev-cluster-2', 'W-inside-cafe'] },
+      { id: 'W-inside-cafe', x: 68.0, y: 58.0, connections: ['W-door-cafe', 'W-cafe-bar', 'W-cafe-dining'] },
+      { id: 'W-cafe-bar', x: 73.0, y: 65.0, connections: ['W-inside-cafe', 'W-cafe-dining'] },
+      { id: 'W-cafe-dining', x: 80.0, y: 75.0, connections: ['W-inside-cafe', 'W-cafe-bar'] },
+
+      // Rooftop Pool Terrace - Sliding Glass Doors at x=71.0, Doorway at (71.0, 33.0)
+      { id: 'W-door-pool-in', x: 68.0, y: 33.0, connections: ['W-center', 'W-door-boss', 'W-door-pool-out'] },
+      { id: 'W-door-pool-out', x: 74.0, y: 33.0, connections: ['W-door-pool-in', 'W-pool-deck'] },
+      { id: 'W-pool-deck', x: 82.0, y: 22.0, connections: ['W-door-pool-out', 'W-pool-ladder', 'W-pool-sunbed'] },
+      { id: 'W-pool-sunbed', x: 82.0, y: 18.0, connections: ['W-pool-deck'] },
+      { id: 'W-pool-ladder', x: 84.0, y: 28.0, connections: ['W-pool-deck', 'W-pool-water'] },
+      { id: 'W-pool-water', x: 88.5, y: 33.0, connections: ['W-pool-ladder', 'W-pool-deep'] },
+      { id: 'W-pool-deep', x: 92.0, y: 30.0, connections: ['W-pool-water'] },
     ],
   },
   'manager-office': {

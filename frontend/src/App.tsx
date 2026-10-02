@@ -27,6 +27,7 @@ import {
 import { BOSS_ROLE, BOSS_NAME } from './config'
 import { pickEvent } from './events'
 import { getInteraction } from './interactions'
+import SpatialOverlay from './components/SpatialOverlay'
 import {
   useTheme, getRoomImage, getAngelaCat, getTheme,
   OFFICE_SIM_TOOL_MESSAGES, OFFICE_SIM_BOSS_PROMPTS,
@@ -347,6 +348,99 @@ const App: React.FC = () => {
     }))
   }
 
+  // Interactive Commands for spatial rooms
+  const handleSendToPool = (agentId?: string) => {
+    setAgents(prev => {
+      const targetAgent = agentId
+        ? prev.find(a => a.id === agentId)
+        : prev.find(a => a.id === 'rifqi') || prev.find(a => a.id === BOSS_ID) || prev[0]
+      if (!targetAgent) return prev
+
+      const poolLadder = { x: 84.0, y: 28.0 }
+      const poolWaterTarget = { x: 88.5, y: 33.0 }
+
+      const meta = agentMetaRef.current.get(targetAgent.id)
+      if (meta) {
+        meta.onBreak = true
+        meta.breakStartedAt = Date.now()
+        meta.arrivedAtDeskAt = null
+      }
+
+      addMsg(targetAgent.name, targetAgent.role, targetAgent.color, '🏊 Menuju ke kolam renang rooftop!')
+
+      const pathToLadder = computePath(targetAgent.position, poolLadder)
+      const fullPath = [...pathToLadder, poolLadder, poolWaterTarget]
+
+      return prev.map(a => a.id === targetAgent.id ? {
+        ...a,
+        state: 'walking-to-desk' as const,
+        targetPosition: poolWaterTarget,
+        statusText: 'Menuju kolam renang 🏊',
+        pathQueue: fullPath,
+      } : a)
+    })
+  }
+
+  const handleSendToMeeting = () => {
+    setAgents(prev => {
+      const meetingSpots = MAIN_ROOM.agentSpots.filter(s => s.type === 'meeting')
+      let spotIdx = 0
+
+      return prev.map(a => {
+        if (spotIdx < meetingSpots.length && (a.role.startsWith('swe-') || a.role === 'tech-mentor' || a.role === 'chief-architect')) {
+          const spot = meetingSpots[spotIdx++]
+          const target = { x: spot.x, y: spot.y }
+          const meta = agentMetaRef.current.get(a.id)
+          if (meta) {
+            meta.onBreak = true
+            meta.breakStartedAt = Date.now()
+            meta.arrivedAtDeskAt = null
+          }
+          return {
+            ...a,
+            state: 'meeting' as const,
+            targetPosition: target,
+            statusText: 'Rapat di ruang kaca 📊',
+            pathQueue: computePath(a.position, target),
+          }
+        }
+        return a
+      })
+    })
+  }
+
+  const handleSendToWork = () => {
+    setAgents(prev => {
+      return prev.map(a => {
+        const meta = agentMetaRef.current.get(a.id)
+        if (meta) {
+          meta.onBreak = false
+          meta.breakStartedAt = null
+          meta.arrivedAtDeskAt = Date.now()
+        }
+
+        let path: { x: number; y: number }[] = []
+        if (a.state === 'swimming') {
+          // First swim to ladder, climb out to deck, then compute path through doors to desk
+          const ladder = { x: 84.0, y: 28.0 }
+          const deck = { x: 82.0, y: 22.0 }
+          const pathToDesk = computePath(deck, a.deskPosition)
+          path = [ladder, deck, ...pathToDesk]
+        } else {
+          path = computePath(a.position, a.deskPosition)
+        }
+
+        return {
+          ...a,
+          state: 'walking-to-desk' as const,
+          targetPosition: { ...a.deskPosition },
+          statusText: workMessage(),
+          pathQueue: path,
+        }
+      })
+    })
+  }
+
   const [agents, setAgents] = useState<Agent[]>(() => createInitialRoster())
   const agentMetaRef = useRef<Map<string, AgentMeta>>(new Map(
     CANONICAL_ROSTER.map(def => [def.id, {
@@ -363,7 +457,7 @@ const App: React.FC = () => {
   const [lastSeenId, setLastSeenId] = useState<number | null>(null)
   const [muted, setMuted] = useState(false)
   const [dayPhase, setDayPhase] = useState<DayPhase>(getCurrentPhase())
-  const [dayNightMode, setDayNightMode] = useState<'auto' | 'day' | 'night'>('auto')
+  const [dayNightMode, setDayNightMode] = useState<'auto' | 'day' | 'night'>('day')
 
   // Compressed day cycle: 10 min = 24 hours
   // nightOpacity: 0 = full day, 1 = full night
@@ -1421,7 +1515,7 @@ const App: React.FC = () => {
         }
         agentMetaRef.current.set(agent.id, meta)
 
-        const speed = WALK_SPEED * dt
+        const speed = (agent.state === 'swimming' ? WALK_SPEED * 0.45 : WALK_SPEED) * dt
 
         // Walk toward the first waypoint in the queue, or directly to the
         // final targetPosition if the queue is empty.
@@ -1466,7 +1560,24 @@ const App: React.FC = () => {
               Math.abs(agent.targetPosition.y - DOOR_TARGET.y) < ARRIVAL_THRESHOLD
             )
 
-            if (agent.state === 'new-hire' || agent.state === 'walking-to-desk') {
+            const isAtPoolBasin = (
+              agent.targetPosition.x >= 84.0 && agent.targetPosition.x <= 96.0 &&
+              agent.targetPosition.y >= 26.0 && agent.targetPosition.y <= 40.0
+            )
+
+            if (agent.state === 'walking-to-desk' && isAtPoolBasin) {
+              meta.onBreak = true
+              meta.breakStartedAt = nowMs
+              meta.arrivedAtDeskAt = null
+              updated = {
+                ...agent,
+                position,
+                state: 'swimming',
+                statusText: 'Berenang di rooftop pool 🏊',
+                targetPosition: { x: 92.5, y: 30.5 },
+              }
+              changed = true
+            } else if (agent.state === 'new-hire' || agent.state === 'walking-to-desk') {
               if (isAtDesk || agent.state === 'new-hire') {
                 meta.arrivedAtDeskAt = nowMs
                 meta.onBreak = false
@@ -1480,9 +1591,22 @@ const App: React.FC = () => {
             } else if (agent.state === 'completed' && isAtDoor) {
               updated = { ...agent, position }
               changed = true
+            } else if (agent.state === 'swimming') {
+              if (!meta.onBreak) {
+                meta.onBreak = true
+                meta.breakStartedAt = nowMs
+              }
+              const nextLap = agent.targetPosition.x < 89.0
+                ? { x: 92.5, y: 30.5 }
+                : { x: 86.0, y: 35.5 }
+              updated = {
+                ...agent,
+                position,
+                targetPosition: nextLap,
+              }
+              changed = true
             } else if (
               agent.state === 'coffee-break' ||
-              agent.state === 'swimming' ||
               agent.state === 'sunbathing' ||
               agent.state === 'meeting' ||
               agent.state === 'billiards' ||
@@ -1894,6 +2018,75 @@ const App: React.FC = () => {
           <span>{muted ? '🔇' : '🔊'}</span>
           <span style={{ fontSize: 9, fontFamily: 'JetBrains Mono', color: '#9ca3af' }}>{muted ? 'MUTED' : `${Math.round(volume * 100)}%`}</span>
         </button>
+
+        {/* Global Activity Triggers */}
+        <div style={{ display: 'flex', gap: 6, marginLeft: 10 }}>
+          <button
+            onClick={() => handleSendToPool()}
+            style={{
+              background: 'rgba(6, 182, 212, 0.25)',
+              border: '1px solid rgba(6, 182, 212, 0.6)',
+              borderRadius: '4px',
+              color: '#38bdf8',
+              fontSize: '10px',
+              fontFamily: 'JetBrains Mono',
+              fontWeight: 700,
+              padding: '2px 7px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 4,
+            }}
+            title="Kirim agen berenang di rooftop pool"
+          >
+            <span>🏊</span>
+            <span>Berenang</span>
+          </button>
+
+          <button
+            onClick={handleSendToMeeting}
+            style={{
+              background: 'rgba(99, 102, 241, 0.25)',
+              border: '1px solid rgba(99, 102, 241, 0.6)',
+              borderRadius: '4px',
+              color: '#818cf8',
+              fontSize: '10px',
+              fontFamily: 'JetBrains Mono',
+              fontWeight: 700,
+              padding: '2px 7px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 4,
+            }}
+            title="Kumpulkan tim di ruang rapat kaca"
+          >
+            <span>📊</span>
+            <span>Rapat</span>
+          </button>
+
+          <button
+            onClick={handleSendToWork}
+            style={{
+              background: 'rgba(16, 185, 129, 0.25)',
+              border: '1px solid rgba(16, 185, 129, 0.6)',
+              borderRadius: '4px',
+              color: '#34d399',
+              fontSize: '10px',
+              fontFamily: 'JetBrains Mono',
+              fontWeight: 700,
+              padding: '2px 7px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 4,
+            }}
+            title="Kembalikan semua agen ke meja coding"
+          >
+            <span>💻</span>
+            <span>Kerja</span>
+          </button>
+        </div>
       </div>
 
       <div className="app-body">
@@ -2037,6 +2230,16 @@ const App: React.FC = () => {
                 backgroundImage: `url(${getRoomImage('night')})`,
                 opacity: dayNightMode === 'auto' ? nightOpacity : dayNightMode === 'night' ? 1 : 0,
               }}
+            />
+
+            {/* Interactive Coded Spatial Rooms & Swimming Pool Engine */}
+            <SpatialOverlay
+              agents={agents}
+              selectedRoomId={selectedRoomId}
+              onSelectRoom={handleSelectRoom}
+              onSendToPool={handleSendToPool}
+              onSendToMeeting={handleSendToMeeting}
+              onSendToWork={handleSendToWork}
             />
 
           {/* Furniture — apply interactive state overrides */}

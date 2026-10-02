@@ -579,13 +579,58 @@
 /* ===== AGENT ACTIVITY STATES (Swimming, Meeting, Arcade, etc.) ===== */
 .character-wrapper.state-swimming {
   animation: swimBob 2.2s ease-in-out infinite;
-  filter: drop-shadow(0 2px 8px rgba(6, 182, 212, 0.7));
-  clip-path: inset(0 0 25% 0);
+  filter: drop-shadow(0 2px 10px rgba(6, 182, 212, 0.85));
+}
+
+.character-wrapper.state-swimming .char-shadow {
+  display: none !important;
+}
+
+.character-wrapper.state-swimming .char-sprite {
+  clip-path: inset(0 0 42% 0) !important;
+  animation: swimStroke 1.8s ease-in-out infinite alternate !important;
+}
+
+@keyframes swimStroke {
+  0% { transform: translateY(0px) rotate(-3deg); }
+  50% { transform: translateY(6px) rotate(0deg); }
+  100% { transform: translateY(2px) rotate(3deg); }
+}
+
+.character-wrapper.state-swimming .swimmer-water-ring {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 22px;
+  border: 2px solid rgba(56, 189, 248, 0.95);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.5) 0%, rgba(56, 189, 248, 0.2) 60%, transparent 100%);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.9), inset 0 0 10px rgba(56, 189, 248, 0.6);
+  animation: waterRingPulse 1.6s ease-out infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes waterRingPulse {
+  0% {
+    width: 32px;
+    height: 14px;
+    opacity: 0.95;
+    transform: translateX(-50%) scale(0.9);
+  }
+  100% {
+    width: 68px;
+    height: 28px;
+    opacity: 0.2;
+    transform: translateX(-50%) scale(1.15);
+  }
 }
 
 @keyframes swimBob {
-  0%, 100% { transform: translate(-50%, -96%); }
-  50% { transform: translate(-50%, -104%); }
+  0%, 100% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, -56%); }
 }
 
 .character-wrapper.state-sunbathing {
@@ -607,4 +652,47 @@
 
 .character-wrapper.state-dining {
   filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.5));
+}
+
+/* ===== WATER RIPPLE & AQUATIC SWIMMING ===== */
+.water-ripple-wave {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(6, 182, 212, 0.9);
+  border-radius: 50%;
+  animation: rippleExpand 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes rippleExpand {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 1;
+    border-color: rgba(56, 189, 248, 1);
+  }
+  100% {
+    width: 90px;
+    height: 90px;
+    opacity: 0;
+    border-color: rgba(6, 182, 212, 0);
+  }
+}
+
+.spatial-pool-water:hover {
+  fill: rgba(56, 189, 248, 0.45) !important;
+  stroke: #38bdf8 !important;
+  stroke-width: 0.6px !important;
+}
+
+.spatial-room-polygon:hover {
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+}
+
+.quick-action-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.2);
+}
+
+.quick-action-btn:active {
+  transform: translateY(1px);
 }

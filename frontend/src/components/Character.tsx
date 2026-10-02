@@ -139,10 +139,11 @@ const Character: React.FC<CharacterProps> = ({ agent, idleDurationMs = 0, zIndex
     ? '/sprites/effects/typing.png'
     : getEffect(agent.state, idleDurationMs, agent.statusText, agent.id, agent.task, agent.role)
 
-  const spotZ = agent.assignedSpotId
+  const isStationaryAtSpot = (agent.state === 'working' || agent.state === 'idle' || agent.state === 'meeting' || agent.state === 'dining' || agent.state === 'sunbathing')
+  const spotZ = isStationaryAtSpot && agent.assignedSpotId
     ? (ROOMS['main-office'].agentSpots.find(s => s.id === agent.assignedSpotId)?.zIndex)
     : undefined
-  const finalZIndex = zIndex ?? spotZ ?? Math.round(agent.position.y)
+  const finalZIndex = zIndex ?? (agent.state === 'swimming' ? 38 : (spotZ ?? Math.round(agent.position.y)))
 
   return (
     <div
@@ -150,14 +151,22 @@ const Character: React.FC<CharacterProps> = ({ agent, idleDurationMs = 0, zIndex
       style={{
         left: `${agent.position.x}%`,
         top: `${agent.position.y}%`,
-        transform: 'translate(-50%, -100%)',
-        zIndex: finalZIndex,
+        transform: agent.state === 'swimming'
+          ? 'translate(-50%, -50%)'
+          : (agent.state === 'working' || agent.state === 'idle' || agent.state === 'meeting')
+          ? 'translate(-50%, -85%)'
+          : 'translate(-50%, -100%)',
+        zIndex: agent.state === 'swimming' ? 38 : finalZIndex,
       }}
     >
       <div className="char-badge" style={{ borderColor: agent.color }}>
-        <span className="char-badge-emoji">{agent.emoji}</span>
+        <span className="char-badge-emoji">{agent.state === 'swimming' ? '🏊' : agent.emoji}</span>
         <span className="char-badge-name">{agent.name}</span>
       </div>
+
+      {agent.state === 'swimming' && (
+        <div className="swimmer-water-ring" />
+      )}
 
       {effectSrc && <EffectBubble src={effectSrc} alt={agent.state} />}
 
