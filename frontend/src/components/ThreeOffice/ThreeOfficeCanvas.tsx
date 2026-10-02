@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import * as THREE from 'three'
 import gsap from 'gsap'
-import { buildArchitecturalOffice, OfficeSceneBundle } from './officeGeometry'
-import { INITIAL_3D_AGENTS, Agent3DDef } from './avatar3DManager'
+import { buildArchitecturalOfficeGLTF, OfficeSceneBundle } from './officeModelBuilder'
+import { INITIAL_3D_AGENTS, Agent3DDef, createAgent3DInstance } from './avatar3DManager'
 import './three-office.css'
 
 interface ThreeOfficeCanvasProps {
@@ -29,52 +29,59 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
   // Agent sprite meshes
   const agentMeshesRef = useRef<Map<string, THREE.Group>>(new Map())
 
+  const [showDialogs, setShowDialogs] = useState<boolean>(true)
+  const [hoveredAgentId, setHoveredAgentId] = useState<string | null>(null)
+
   // Room Camera Targets
-  const ROOM_TARGETS: Record<string, { lookAt: [number, number, number]; zoom: number; label: string; icon: string }> = {
+  const ROOM_TARGETS: Record<string, { lookAt: [number, number, number]; zoom: number; label: string; icon: string; agentRoles?: string[] }> = {
     'all': { lookAt: [0, 0, 0], zoom: 1.0, label: 'Semua Ruangan (Penthouse Overview)', icon: '🏢' },
-    'boss': { lookAt: [9.0, 1.4, -6.5], zoom: 1.85, label: 'Ruang Bos (Executive Suite)', icon: '👑' },
-    'meeting': { lookAt: [0.0, 1.4, -6.5], zoom: 1.8, label: 'Ruang Rapat Kaca (Boardroom)', icon: '🤝' },
-    'swe': { lookAt: [-2.0, 0.5, 3.0], zoom: 1.6, label: 'Software Engineering Pods', icon: '💻' },
-    'senku': { lookAt: [-10.0, 0.5, 0.0], zoom: 1.75, label: 'Laboratorium & Perpustakaan Senku', icon: '🧪' },
-    'data': { lookAt: [5.0, 0.5, 7.5], zoom: 1.75, label: 'Data Center & Lakehouse Server', icon: '🗄️' },
-    'musholla': { lookAt: [-11.0, -0.6, 7.0], zoom: 1.85, label: 'Musholla Khusus (Lower Level)', icon: '🕌' },
-    'pool': { lookAt: [11.0, 0.0, 6.0], zoom: 1.65, label: 'Rooftop Terrace & Kolam Renang', icon: '🏊' },
-    'arcade': { lookAt: [-8.0, 1.4, -6.5], zoom: 1.75, label: 'Arcade & Game Lounge', icon: '🕹️' },
+    'boss': { lookAt: [9.0, 1.4, -6.5], zoom: 2.1, label: 'Ruang Bos (Executive Suite)', icon: '👑', agentRoles: ['vps-boss', 'vps-assistant'] },
+    'meeting': { lookAt: [0.0, 1.4, -6.5], zoom: 2.0, label: 'Ruang Rapat Kaca (Boardroom)', icon: '🤝', agentRoles: ['tech-mentor', 'chief-architect'] },
+    'swe': { lookAt: [-2.0, 0.5, 3.0], zoom: 1.9, label: 'Software Engineering Pods', icon: '💻', agentRoles: ['swe-backend', 'swe-frontend', 'swe-qa', 'ui-designer'] },
+    'senku': { lookAt: [-10.0, 0.5, 0.5], zoom: 2.0, label: 'Laboratorium & Perpustakaan Senku', icon: '🧪', agentRoles: ['senku', 'paperwright'] },
+    'data': { lookAt: [5.0, 0.5, 7.5], zoom: 2.0, label: 'Data Center & Lakehouse Server', icon: '🗄️', agentRoles: ['data-engineer', 'devops-engineer'] },
+    'musholla': { lookAt: [-11.0, -0.6, 7.0], zoom: 2.2, label: 'Musholla Khusus (Lower Level)', icon: '🕌', agentRoles: ['dimas-musholla'] },
+    'pool': { lookAt: [11.0, 0.0, 6.0], zoom: 1.85, label: 'Rooftop Terrace & Kolam Renang', icon: '🏊', agentRoles: ['rifqi'] },
+    'arcade': { lookAt: [-8.0, 1.4, -6.5], zoom: 2.0, label: 'Arcade & Game Lounge', icon: '🕹️' },
   }
 
   const focusRoom = useCallback((roomId: string) => {
     const target = ROOM_TARGETS[roomId]
-    if (!target) return
+    if (!target || !cameraRef.current) return
     setSelectedRoom(roomId)
 
     // Kill any in-flight tweens
-    gsap.killTweensOf(targetLookAtRef.current)
-    if (cameraRef.current) {
-      gsap.killTweensOf(cameraRef.current)
-    }
+    gsap.killTweensOf(currentLookAtRef.current)
+    gsap.killTweensOf(cameraRef.current)
 
-    // Smooth cinematic pan flight
-    gsap.to(targetLookAtRef.current, {
+    // Smooth cinematic pan flight directly on camera target
+    gsap.to(currentLookAtRef.current, {
       x: target.lookAt[0],
       y: target.lookAt[1],
       z: target.lookAt[2],
-      duration: 1.25,
+      duration: 1.2,
       ease: 'power2.inOut',
+      onUpdate: () => {
+        if (cameraRef.current) {
+          cameraRef.current.position.x = currentLookAtRef.current.x + 28
+          cameraRef.current.position.y = currentLookAtRef.current.y + 28
+          cameraRef.current.position.z = currentLookAtRef.current.z + 28
+          cameraRef.current.lookAt(currentLookAtRef.current)
+        }
+      },
     })
 
     // Smooth synchronized zoom transition
-    if (cameraRef.current) {
-      const cam = cameraRef.current
-      gsap.to(cam, {
-        zoom: target.zoom,
-        duration: 1.25,
-        ease: 'power2.inOut',
-        onUpdate: () => {
-          cam.updateProjectionMatrix()
-          setZoomLevel(cam.zoom)
-        },
-      })
-    }
+    const cam = cameraRef.current
+    gsap.to(cam, {
+      zoom: target.zoom,
+      duration: 1.2,
+      ease: 'power2.inOut',
+      onUpdate: () => {
+        cam.updateProjectionMatrix()
+        setZoomLevel(cam.zoom)
+      },
+    })
   }, [])
 
   useEffect(() => {
@@ -149,54 +156,26 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
     mushollaLight.position.set(-11.0, 1.5, 7.0)
     scene.add(mushollaLight)
 
-    // 5. Build Architectural Office Scene
-    const bundle = buildArchitecturalOffice()
-    bundleRef.current = bundle
-    scene.add(bundle.rootGroup)
+    // 5. Build Architectural Office Scene with Real 3D GLTF Furniture Models
+    let isDisposed = false
 
-    // 6. Build 3D Agent Avatars (Chibi Mesh + Texture Canvas)
+    buildArchitecturalOfficeGLTF().then(bundle => {
+      if (isDisposed) return
+      bundleRef.current = bundle
+      scene.add(bundle.rootGroup)
+    }).catch(err => {
+      console.error('Failed to load architectural GLTF scene:', err)
+    })
+
+    // 6. Build 3D Agent Avatars (Real 3D Human Models)
     INITIAL_3D_AGENTS.forEach(def => {
-      const agentGroup = new THREE.Group()
-      agentGroup.position.copy(def.position)
-
-      // Stylized Chibi Capsule Body
-      const bodyGeo = new THREE.CapsuleGeometry(0.32, 0.45, 8, 16)
-      const bodyMat = new THREE.MeshStandardMaterial({
-        color: def.color,
-        roughness: 0.3,
-        metalness: 0.1,
+      createAgent3DInstance(def).then(agentGroup => {
+        if (isDisposed) return
+        scene.add(agentGroup)
+        agentMeshesRef.current.set(def.id, agentGroup)
+      }).catch(err => {
+        console.error(`Failed to load avatar model for ${def.name}:`, err)
       })
-      const body = new THREE.Mesh(bodyGeo, bodyMat)
-      body.position.y = 0.45
-      body.castShadow = true
-      agentGroup.add(body)
-
-      // Head
-      const headGeo = new THREE.SphereGeometry(0.28, 16, 16)
-      const headMat = new THREE.MeshStandardMaterial({
-        color: 0xf5d0b5,
-        roughness: 0.4,
-      })
-      const head = new THREE.Mesh(headGeo, headMat)
-      head.position.y = 0.95
-      head.castShadow = true
-      agentGroup.add(head)
-
-      // Drop Shadow
-      const shadowGeo = new THREE.CircleGeometry(0.35, 16)
-      const shadowMat = new THREE.MeshBasicMaterial({
-        color: 0x000000,
-        transparent: true,
-        opacity: 0.35,
-        depthWrite: false,
-      })
-      const shadow = new THREE.Mesh(shadowGeo, shadowMat)
-      shadow.rotation.x = -Math.PI / 2
-      shadow.position.y = 0.02
-      agentGroup.add(shadow)
-
-      scene.add(agentGroup)
-      agentMeshesRef.current.set(def.id, agentGroup)
     })
 
     // 7. Mouse Pan & Zoom Handlers
@@ -270,12 +249,12 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
       camera.lookAt(currentLookAtRef.current)
 
       // Water Ripple Oscillation
-      if (bundle.waterMesh) {
-        bundle.waterMesh.position.y = -0.35 + Math.sin(t * 2.2) * 0.03
+      if (bundleRef.current?.waterMesh) {
+        bundleRef.current.waterMesh.position.y = -0.35 + Math.sin(t * 2.2) * 0.03
       }
 
       // LED server pulses
-      bundle.ledLights.forEach((led, idx) => {
+      bundleRef.current?.ledLights.forEach((led: THREE.Mesh, idx: number) => {
         const mat = led.material as THREE.MeshStandardMaterial
         if (mat && mat.emissiveIntensity !== undefined) {
           mat.emissiveIntensity = 0.8 + Math.sin(t * 4 + idx * 0.7) * 0.5
@@ -336,6 +315,7 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
     window.addEventListener('resize', onResize)
 
     return () => {
+      isDisposed = true
       cancelAnimationFrame(reqId)
       window.removeEventListener('resize', onResize)
       container.removeEventListener('mousedown', onMouseDown)
@@ -378,6 +358,14 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
         </div>
 
         <div className="three-actions">
+          <button
+            className="three-action-btn"
+            onClick={() => setShowDialogs(!showDialogs)}
+            style={{ marginRight: 6 }}
+            title="Sembunyikan/Tampilkan balon obrolan"
+          >
+            {showDialogs ? '💬 Sembunyikan Dialog' : '💬 Tampilkan Dialog'}
+          </button>
           {onBackToClassic && (
             <button className="three-action-btn switch-btn" onClick={onBackToClassic}>
               🔄 Mode 2.5D Classic
@@ -390,24 +378,52 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
       <div className="three-speech-overlay">
         {agents.map(agent => {
           if (!agent.screenPos || !agent.screenPos.visible) return null
+
+          const isRoomFocused = selectedRoom !== 'all'
+          const activeRoomDef = ROOM_TARGETS[selectedRoom]
+          const isAgentInActiveRoom = activeRoomDef?.agentRoles?.includes(agent.id)
+          const isHovered = hoveredAgentId === agent.id
+
+          // In Overview mode: only show 2-3 prominent bubbles (Jarvis, Dimas in Musholla)
+          // In Focused Room mode: only show bubbles for agents in that room
+          // On hover: always show!
+          const shouldShowBubble =
+            showDialogs &&
+            (isHovered ||
+              (isRoomFocused
+                ? isAgentInActiveRoom
+                : agent.id === 'vps-boss' || agent.id === 'dimas-musholla'))
+
           return (
             <div
               key={agent.id}
-              className="three-agent-callout"
+              className={`three-agent-callout ${isHovered ? 'hovered' : ''}`}
               style={{
                 left: `${agent.screenPos.x}px`,
                 top: `${agent.screenPos.y}px`,
+                zIndex: isHovered ? 100 : shouldShowBubble ? 40 : 20,
               }}
+              onMouseEnter={() => setHoveredAgentId(agent.id)}
+              onMouseLeave={() => setHoveredAgentId(null)}
             >
               {/* Speech Callout Bubble */}
-              {agent.speechText && (
+              {shouldShowBubble && agent.speechText && (
                 <div className="three-speech-bubble" style={{ borderLeftColor: agent.color }}>
                   <div className="speech-text">{agent.speechText}</div>
                 </div>
               )}
 
-              {/* Agent Name & Role Badge */}
-              <div className="three-agent-badge" style={{ borderColor: agent.color }}>
+              {/* Agent Name & Role Badge (Pill) */}
+              <div
+                className="three-agent-badge"
+                style={{
+                  borderColor: agent.color,
+                  opacity: isRoomFocused && !isAgentInActiveRoom && !isHovered ? 0.35 : 1.0,
+                  transform: isHovered ? 'scale(1.12)' : 'scale(1.0)',
+                  transition: 'all 0.2s ease',
+                  cursor: 'pointer',
+                }}
+              >
                 <span className="badge-emoji">{agent.emoji}</span>
                 <span className="badge-name">{agent.name}</span>
                 <span className="badge-role">{agent.role}</span>
