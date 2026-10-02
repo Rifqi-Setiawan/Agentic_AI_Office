@@ -562,7 +562,7 @@ export const TEAM_ROOMS: TeamRoom[] = [
     icon: '🏢',
     tagline: 'Denah Lengkap Kantor Virtual',
     description: 'Seluruh 14 AI Agent & semua divisi dalam satu denah isometric terpadu.',
-    camera: { x: 50, y: 55, zoom: 1.0 },
+    camera: { x: 50, y: 55, zoom: 1.15 },
     roles: [
       'vps-boss', 'jarvis', 'vps-assistant', 'swe-frontend', 'swe-backend', 'swe-verifier', 'swe-qa',
       'data-engineer', 'senku', 'professor', 'paperwright', 'devops-engineer', 'ui-designer',

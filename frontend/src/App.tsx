@@ -276,6 +276,76 @@ const App: React.FC = () => {
   const [selectedRoomId, setSelectedRoomId] = useState<string>('all')
   const [hudExpanded, setHudExpanded] = useState<boolean>(false)
   const activeRoom = TEAM_ROOMS.find(r => r.id === selectedRoomId) || TEAM_ROOMS[0]
+
+  // Interactive Camera View State (Pan & Zoom)
+  const [camera, setCamera] = useState<{ x: number; y: number; zoom: number }>({
+    x: 50,
+    y: 55,
+    zoom: 1.15,
+  })
+  const [isDragging, setIsDragging] = useState(false)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const dragStartRef = useRef<{ clientX: number; clientY: number; camX: number; camY: number } | null>(null)
+  const hasDraggedRef = useRef(false)
+  const viewportRef = useRef<HTMLDivElement | null>(null)
+
+  const handleSelectRoom = (r: TeamRoom) => {
+    setSelectedRoomId(r.id)
+    setIsTransitioning(true)
+    setCamera({ ...r.camera })
+    setTimeout(() => setIsTransitioning(false), 650)
+  }
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    if (e.button !== 0) return
+    setIsDragging(true)
+    setIsTransitioning(false)
+    hasDraggedRef.current = false
+    dragStartRef.current = {
+      clientX: e.clientX,
+      clientY: e.clientY,
+      camX: camera.x,
+      camY: camera.y,
+    }
+  }
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDragging || !dragStartRef.current || !viewportRef.current) return
+    const dx = e.clientX - dragStartRef.current.clientX
+    const dy = e.clientY - dragStartRef.current.clientY
+    if (Math.hypot(dx, dy) > 4) {
+      hasDraggedRef.current = true
+    }
+
+    const rect = viewportRef.current.getBoundingClientRect()
+    if (!rect.width || !rect.height) return
+
+    // Convert pixel delta to percentage of viewport
+    const pctX = (dx / rect.width) * 100 / camera.zoom
+    const pctY = (dy / rect.height) * 100 / camera.zoom
+
+    setCamera(prev => ({
+      ...prev,
+      x: Math.max(5, Math.min(95, dragStartRef.current!.camX - pctX)),
+      y: Math.max(5, Math.min(95, dragStartRef.current!.camY - pctY)),
+    }))
+  }
+
+  const handlePointerUp = () => {
+    setIsDragging(false)
+    dragStartRef.current = null
+  }
+
+  const handleWheel = (e: React.WheelEvent) => {
+    e.preventDefault()
+    setIsTransitioning(false)
+    const factor = e.deltaY < 0 ? 1.12 : 0.89
+    setCamera(prev => ({
+      ...prev,
+      zoom: Math.max(0.65, Math.min(4.5, prev.zoom * factor)),
+    }))
+  }
+
   const [agents, setAgents] = useState<Agent[]>(() => createInitialRoster())
   const agentMetaRef = useRef<Map<string, AgentMeta>>(new Map(
     CANONICAL_ROSTER.map(def => [def.id, {
@@ -1811,7 +1881,7 @@ const App: React.FC = () => {
               <button
                 key={r.id}
                 className={`room-sidebar-btn ${isActive ? 'active' : ''}`}
-                onClick={() => setSelectedRoomId(r.id)}
+                onClick={() => handleSelectRoom(r)}
                 title={`${r.name} — ${r.tagline}`}
               >
                 <span className="sidebar-icon">{r.icon}</span>
@@ -1822,12 +1892,24 @@ const App: React.FC = () => {
           })}
         </div>
 
-        {/* Room Viewport with Camera Zoom & Pan */}
-        <div className="room-viewport" style={{ flex: 1, position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        {/* Room Viewport with Interactive Camera Zoom & Pan */}
+        <div
+          ref={viewportRef}
+          className={`room-viewport ${isDragging ? 'dragging' : ''}`}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          onWheel={handleWheel}
+          style={{ flex: 1, position: 'relative', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        >
           {/* Active Room Floating HUD */}
           <div
             className={`active-room-hud ${hudExpanded ? 'expanded' : 'compact'}`}
-            onClick={() => setHudExpanded(!hudExpanded)}
+            onClick={(e) => {
+              e.stopPropagation()
+              setHudExpanded(!hudExpanded)
+            }}
             style={{ cursor: 'pointer', pointerEvents: 'auto' }}
             title="Klik untuk buka/tutup info ruangan"
           >
@@ -1860,6 +1942,48 @@ const App: React.FC = () => {
             )}
           </div>
 
+          {/* Floating Zoom & Camera Reset Controls */}
+          <div className="camera-controls" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="cam-btn"
+              onClick={() => {
+                setIsTransitioning(true)
+                setCamera(prev => ({ ...prev, zoom: Math.min(4.5, prev.zoom * 1.25) }))
+                setTimeout(() => setIsTransitioning(false), 300)
+              }}
+              title="Perbesar / Zoom In (+)"
+            >
+              ＋
+            </button>
+            <button
+              className="cam-btn"
+              onClick={() => {
+                setIsTransitioning(true)
+                setCamera(prev => ({ ...prev, zoom: Math.max(0.65, prev.zoom * 0.8) }))
+                setTimeout(() => setIsTransitioning(false), 300)
+              }}
+              title="Perkecil / Zoom Out (-)"
+            >
+              －
+            </button>
+            <button
+              className="cam-btn"
+              onClick={() => {
+                setIsTransitioning(true)
+                setSelectedRoomId('all')
+                setCamera({ x: 50, y: 55, zoom: 1.15 })
+                setTimeout(() => setIsTransitioning(false), 650)
+              }}
+              title="Reset Tampilan Penuh"
+            >
+              ⛶
+            </button>
+          </div>
+
+          <div className="camera-hint">
+            🖱️ Drag untuk geser kamera • Scroll untuk zoom
+          </div>
+
           <div
             className={`room-container${flickering ? ' flickering' : ''}`}
             style={{
@@ -1867,10 +1991,8 @@ const App: React.FC = () => {
               width: '100%',
               maxHeight: '100%',
               position: 'relative',
-              transform: selectedRoomId === 'all'
-                ? 'none'
-                : `scale(${activeRoom.camera.zoom}) translate(${50 - activeRoom.camera.x}%, ${50 - activeRoom.camera.y}%)`,
-              transition: 'transform 0.65s cubic-bezier(0.2, 0.9, 0.3, 1)',
+              transform: `scale(${camera.zoom}) translate(${50 - camera.x}%, ${50 - camera.y}%)`,
+              transition: isTransitioning ? 'transform 0.65s cubic-bezier(0.2, 0.9, 0.3, 1)' : 'none',
               transformOrigin: '50% 50%',
             }}
           >
