@@ -88,14 +88,16 @@ export const ROOMS: Record<RoomId, Room> = {
     height: 941,
     furniture: [
       // Clean interactive hotspots over the architectural illustration
-      { id: 'pool', type: 'hotspot', sprite: 'hotspot', x: 88.5, y: 33.0, interactive: true, label: '🏊 Kolam Renang Rooftop' },
       { id: 'sunbed', type: 'hotspot', sprite: 'hotspot', x: 82.0, y: 18.0, interactive: true, label: '☀️ Kursi Berjemur Sundeck' },
       { id: 'billiards', type: 'hotspot', sprite: 'hotspot', x: 14.0, y: 21.0, interactive: true, label: '🎱 Meja Biliar Laken Hijau' },
       { id: 'arcade', type: 'hotspot', sprite: 'hotspot', x: 18.0, y: 12.0, interactive: true, label: '🕹️ Mesin Dingdong Arcade' },
       { id: 'meeting-display', type: 'hotspot', sprite: 'hotspot', x: 40.0, y: 19.0, interactive: true, label: '📊 Dashboard Telemetri Ruang Rapat' },
       { id: 'kanban-board', type: 'hotspot', sprite: 'hotspot', x: 56.0, y: 46.0, interactive: true, label: '📋 Agile Sprint Scrum Board' },
       
-      // Discrete Props with Depth Z-Sorting (Claude-Office Standard)
+      // Discrete Hero Entities with Depth Z-Sorting (Claude-Office Standard)
+      // Rooftop Swimming Pool Basin (bottom-anchored at y: 42.2% so water center is at y: 33.5%)
+      { id: 'pool', type: 'furniture', sprite: 'rooftop-pool-basin', x: 88.5, y: 42.2, zIndex: 35, interactive: true, label: '🏊 Kolam Renang Rooftop' },
+
       // Boss Executive Suite: Chair (z:28) -> Jarvis Avatar (z:30) -> Mahogany Desk & Accessories (z:32)
       { id: 'boss-chair', type: 'furniture', sprite: 'boss-chair', x: 60.5, y: 18.5, zIndex: 28, interactive: false },
       { id: 'boss-desk', type: 'furniture', sprite: 'boss-desk-front', x: 60.5, y: 18.5, zIndex: 32, interactive: true, label: '👑 Meja Eksekutif CEO Jarvis' },
