@@ -99,12 +99,14 @@ export const ROOMS: Record<RoomId, Room> = {
       // Boss Executive Suite: Chair (z:28) -> Jarvis Avatar (z:30) -> Mahogany Desk & Accessories (z:32)
       { id: 'boss-chair', type: 'furniture', sprite: 'boss-chair', x: 60.5, y: 18.5, zIndex: 28, interactive: false },
       { id: 'boss-desk', type: 'furniture', sprite: 'boss-desk-front', x: 60.5, y: 18.5, zIndex: 32, interactive: true, label: '👑 Meja Eksekutif CEO Jarvis' },
+
+      // Kitchen & Lab Props
       { id: 'espresso', type: 'coffee-machine', sprite: 'coffee-off', x: 73.0, y: 64.0, zIndex: 68, interactive: true, label: '☕ Mesin Kopi Espresso' },
       { id: 'plant-cafe', type: 'plant-monstera', sprite: 'plant-monstera', x: 91.0, y: 84.0, zIndex: 88, label: '🌿 Tanaman Hias Monstera' },
       { id: 'plant-boss', type: 'plant-snake', sprite: 'plant-snake', x: 68.0, y: 14.0, zIndex: 25, label: '🌱 Snake Plant Ruang Bos' },
-      { id: 'senku-bookshelf', type: 'decoration', sprite: 'bookshelf', x: 11.5, y: 78.0, zIndex: 75, label: '📚 Rak Buku Sains & Jurnal' },
-      { id: 'senku-chalkboard', type: 'decoration', sprite: 'chalkboard-formulas', x: 26.0, y: 68.0, zIndex: 65, label: '🧮 Papan Tulis Rumus Fisika' },
-      { id: 'senku-lab-kit', type: 'decoration', sprite: 'lab-equipment', x: 21.5, y: 83.5, zIndex: 88, label: '🧪 Peralatan Kimia & Tabung Reaksi' },
+      // Laboratorium Senku & Perpustakaan (Chemistry Lab Bench & Library Bookcase)
+      { id: 'senku-lab-unit', type: 'furniture', sprite: 'senku-lab-bench', x: 22.0, y: 80.0, zIndex: 78, interactive: true, label: '🧪 Laboratorium Sains & Perpustakaan Senku' },
+      { id: 'senku-chalkboard', type: 'decoration', sprite: 'chalkboard-formulas', x: 26.0, y: 67.5, zIndex: 65, label: '🧮 Papan Tulis Rumus Fisika' },
       { id: 'server-rack-1', type: 'furniture', sprite: 'server-rack', x: 46.0, y: 72.0, zIndex: 71, label: '🗄️ Server Rack Primary' },
       { id: 'server-rack-2', type: 'furniture', sprite: 'server-rack', x: 61.0, y: 72.0, zIndex: 71, label: '🗄️ Server Rack Analytics' },
     ],
@@ -116,8 +118,8 @@ export const ROOMS: Record<RoomId, Room> = {
       { id: 'spot-vps-assistant', type: 'desk', x: 65.0, y: 25.0, facing: 'down', spriteFacing: 'rear-left', zIndex: 35 },
       { id: 'spot-founder', type: 'desk', x: 84.0, y: 22.0, facing: 'down', spriteFacing: 'front-right', zIndex: 32 },
       { id: 'spot-tech-mentor', type: 'desk', x: 40.5, y: 23.0, facing: 'down', spriteFacing: 'rear-left', zIndex: 33 },
-      { id: 'spot-senku', type: 'desk', x: 18.5, y: 83.5, facing: 'down', spriteFacing: 'front-right', zIndex: 85 },
-      { id: 'spot-paperwright', type: 'desk', x: 34.8, y: 76.8, facing: 'down', spriteFacing: 'rear-right', zIndex: 80 },
+      { id: 'spot-senku', type: 'desk', x: 18.0, y: 81.0, facing: 'up', spriteFacing: 'rear-right', zIndex: 82 },
+      { id: 'spot-paperwright', type: 'desk', x: 27.5, y: 80.5, facing: 'up', spriteFacing: 'rear-left', zIndex: 82 },
       { id: 'spot-swe-frontend', type: 'desk', x: 27.5, y: 44.5, facing: 'down', spriteFacing: 'front-left', zIndex: 50 },
       { id: 'spot-swe-backend', type: 'desk', x: 41.5, y: 44.5, facing: 'down', spriteFacing: 'front-left', zIndex: 50 },
       { id: 'spot-swe-qa', type: 'desk', x: 29.5, y: 57.0, facing: 'down', spriteFacing: 'front-left', zIndex: 60 },
@@ -171,8 +173,8 @@ export const ROOMS: Record<RoomId, Room> = {
       // Senku Lab & Library - Partition at y=58.5, Door at (24.0, 58.5)
       { id: 'W-door-lab', x: 24.0, y: 56.0, connections: ['W-center', 'W-dev-cluster-1', 'W-inside-lab'] },
       { id: 'W-inside-lab', x: 24.0, y: 64.0, connections: ['W-door-lab', 'W-lab-chem', 'W-lab-lib'] },
-      { id: 'W-lab-chem', x: 18.5, y: 82.0, connections: ['W-inside-lab', 'W-lab-lib'] },
-      { id: 'W-lab-lib', x: 34.0, y: 76.0, connections: ['W-inside-lab', 'W-lab-chem'] },
+      { id: 'W-lab-chem', x: 18.0, y: 81.0, connections: ['W-inside-lab', 'W-lab-lib'] },
+      { id: 'W-lab-lib', x: 27.5, y: 80.5, connections: ['W-inside-lab', 'W-lab-chem'] },
 
       // Server Room (Data Lakehouse) - Acoustic Glass Partition at y=59.0, Door at (54.0, 59.0)
       { id: 'W-door-server', x: 54.0, y: 56.0, connections: ['W-center', 'W-dev-cluster-2', 'W-inside-server'] },

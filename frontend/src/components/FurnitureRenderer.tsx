@@ -11,6 +11,12 @@ function resolveSpriteUrl(sprite: string): string | null {
   // Direct asset key lookup
   if (ASSETS[sprite]) return ASSETS[sprite].path
 
+  // Kenney library lookup
+  if (sprite.startsWith('kenney-')) {
+    const filename = sprite.replace('kenney-', '')
+    return `/assets/kenney/furniture/${filename}.png`
+  }
+
   // Legacy sprite-sheet format "sheet-name:frame" — no image available
   if (sprite.includes(':')) return null
 
@@ -20,7 +26,9 @@ function resolveSpriteUrl(sprite: string): string | null {
 
 function getSpriteHeight(sprite: string): number {
   const asset = ASSETS[sprite]
-  return asset?.height ?? 64
+  if (asset?.height) return asset.height
+  if (sprite.startsWith('kenney-')) return 58
+  return 64
 }
 
 // Items that the boss can interact with
