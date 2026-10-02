@@ -107,8 +107,9 @@ export const ROOMS: Record<RoomId, Room> = {
       // Laboratorium Senku & Perpustakaan (Chemistry Lab Bench & Library Bookcase)
       { id: 'senku-lab-unit', type: 'furniture', sprite: 'senku-lab-bench', x: 22.0, y: 80.0, zIndex: 78, interactive: true, label: '🧪 Laboratorium Sains & Perpustakaan Senku' },
       { id: 'senku-chalkboard', type: 'decoration', sprite: 'chalkboard-formulas', x: 26.0, y: 67.5, zIndex: 65, label: '🧮 Papan Tulis Rumus Fisika' },
-      { id: 'server-rack-1', type: 'furniture', sprite: 'server-rack', x: 46.0, y: 72.0, zIndex: 71, label: '🗄️ Server Rack Primary' },
-      { id: 'server-rack-2', type: 'furniture', sprite: 'server-rack', x: 61.0, y: 72.0, zIndex: 71, label: '🗄️ Server Rack Analytics' },
+      // Data Center & Lakehouse Server Racks
+      { id: 'server-rack-1', type: 'furniture', sprite: 'server-rack-enterprise', x: 47.0, y: 72.0, zIndex: 71, label: '🗄️ Primary Lakehouse Server Rack' },
+      { id: 'server-rack-2', type: 'furniture', sprite: 'server-rack-enterprise', x: 60.0, y: 72.0, zIndex: 71, label: '🗄️ Analytics & Ingestion Server Rack' },
     ],
     connections: [],
     agentSpots: [
