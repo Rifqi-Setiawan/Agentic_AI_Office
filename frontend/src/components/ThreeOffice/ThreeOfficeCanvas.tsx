@@ -31,6 +31,19 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
 
   const [showDialogs, setShowDialogs] = useState<boolean>(true)
   const [hoveredAgentId, setHoveredAgentId] = useState<string | null>(null)
+  const [lightingMode, setLightingMode] = useState<'day' | 'dusk' | 'night'>('day')
+
+  const lightsRef = useRef<{
+    hemi: THREE.HemisphereLight
+    sun: THREE.DirectionalLight
+    rim: THREE.DirectionalLight
+    boss: THREE.PointLight
+    lab: THREE.PointLight
+    musholla: THREE.PointLight
+    data: THREE.PointLight
+    arcade: THREE.PointLight
+    pool: THREE.PointLight
+  } | null>(null)
 
   // Room Camera Targets
   const ROOM_TARGETS: Record<string, { lookAt: [number, number, number]; zoom: number; label: string; icon: string; agentRoles?: string[] }> = {
@@ -84,6 +97,89 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
     })
   }, [])
 
+  const setAtmosphere = useCallback((mode: 'day' | 'dusk' | 'night') => {
+    setLightingMode(mode)
+    if (!lightsRef.current || !sceneRef.current) return
+    const l = lightsRef.current
+    const scene = sceneRef.current
+
+    const targetColors = {
+      day: {
+        bg: new THREE.Color(0x0e1117),
+        hemiSky: new THREE.Color(0xdbeafe),
+        hemiGnd: new THREE.Color(0x473223),
+        hemiInt: 0.95,
+        sunColor: new THREE.Color(0xfff7ed),
+        sunInt: 1.45,
+        rimColor: new THREE.Color(0x93c5fd),
+        rimInt: 0.45,
+        bossInt: 0.9,
+        labInt: 0.85,
+        mushollaInt: 1.0,
+        dataInt: 0.9,
+        arcadeInt: 0.9,
+        poolInt: 0.8,
+      },
+      dusk: {
+        bg: new THREE.Color(0x180f14),
+        hemiSky: new THREE.Color(0xfed7aa),
+        hemiGnd: new THREE.Color(0x291811),
+        hemiInt: 0.85,
+        sunColor: new THREE.Color(0xf97316),
+        sunInt: 1.7,
+        rimColor: new THREE.Color(0xec4899),
+        rimInt: 0.65,
+        bossInt: 1.4,
+        labInt: 1.3,
+        mushollaInt: 1.5,
+        dataInt: 1.4,
+        arcadeInt: 1.5,
+        poolInt: 1.2,
+      },
+      night: {
+        bg: new THREE.Color(0x050811),
+        hemiSky: new THREE.Color(0x1e1b4b),
+        hemiGnd: new THREE.Color(0x030712),
+        hemiInt: 0.35,
+        sunColor: new THREE.Color(0x3b82f6),
+        sunInt: 0.35,
+        rimColor: new THREE.Color(0x818cf8),
+        rimInt: 0.4,
+        bossInt: 2.2,
+        labInt: 2.0,
+        mushollaInt: 2.3,
+        dataInt: 2.5,
+        arcadeInt: 2.5,
+        poolInt: 2.2,
+      },
+    }[mode]
+
+    gsap.to(scene.background, {
+      r: targetColors.bg.r,
+      g: targetColors.bg.g,
+      b: targetColors.bg.b,
+      duration: 0.9,
+      ease: 'power2.inOut',
+    })
+
+    gsap.to(l.hemi.color, { r: targetColors.hemiSky.r, g: targetColors.hemiSky.g, b: targetColors.hemiSky.b, duration: 0.9 })
+    gsap.to(l.hemi.groundColor, { r: targetColors.hemiGnd.r, g: targetColors.hemiGnd.g, b: targetColors.hemiGnd.b, duration: 0.9 })
+    gsap.to(l.hemi, { intensity: targetColors.hemiInt, duration: 0.9 })
+
+    gsap.to(l.sun.color, { r: targetColors.sunColor.r, g: targetColors.sunColor.g, b: targetColors.sunColor.b, duration: 0.9 })
+    gsap.to(l.sun, { intensity: targetColors.sunInt, duration: 0.9 })
+
+    gsap.to(l.rim.color, { r: targetColors.rimColor.r, g: targetColors.rimColor.g, b: targetColors.rimColor.b, duration: 0.9 })
+    gsap.to(l.rim, { intensity: targetColors.rimInt, duration: 0.9 })
+
+    gsap.to(l.boss, { intensity: targetColors.bossInt, duration: 0.9 })
+    gsap.to(l.lab, { intensity: targetColors.labInt, duration: 0.9 })
+    gsap.to(l.musholla, { intensity: targetColors.mushollaInt, duration: 0.9 })
+    gsap.to(l.data, { intensity: targetColors.dataInt, duration: 0.9 })
+    gsap.to(l.arcade, { intensity: targetColors.arcadeInt, duration: 0.9 })
+    gsap.to(l.pool, { intensity: targetColors.poolInt, duration: 0.9 })
+  }, [])
+
   useEffect(() => {
     const container = mountRef.current
     if (!container) return
@@ -118,43 +214,76 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
     renderer.setSize(width, height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.shadowMap.enabled = true
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap
+    renderer.shadowMap.type = THREE.PCFShadowMap
     renderer.toneMapping = THREE.ACESFilmicToneMapping
     renderer.toneMappingExposure = 1.05
     rendererRef.current = renderer
     container.appendChild(renderer.domElement)
 
-    // 4. Lighting Setup
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.85)
-    scene.add(ambientLight)
+    // 4. Studio Three-Point Lighting + Global Illumination Bounces
+    // A. Hemisphere Light (Soft Sky Blue + Warm Oak Floor Bounce)
+    const hemiLight = new THREE.HemisphereLight(0xdbeafe, 0x473223, 0.95)
+    hemiLight.position.set(0, 40, 0)
+    scene.add(hemiLight)
 
-    const sunLight = new THREE.DirectionalLight(0xfff7ed, 1.4)
+    // B. Key Sun Light (Warm Direct Sunlight with High-Res Shadows)
+    const sunLight = new THREE.DirectionalLight(0xfff7ed, 1.45)
     sunLight.position.set(22, 38, 24)
     sunLight.castShadow = true
     sunLight.shadow.mapSize.width = 2048
     sunLight.shadow.mapSize.height = 2048
     sunLight.shadow.camera.near = 0.5
     sunLight.shadow.camera.far = 100
-    const d = 25
+    const d = 26
     sunLight.shadow.camera.left = -d
     sunLight.shadow.camera.right = d
     sunLight.shadow.camera.top = d
     sunLight.shadow.camera.bottom = -d
-    sunLight.shadow.bias = -0.0005
+    sunLight.shadow.bias = -0.0002
+    sunLight.shadow.normalBias = 0.02
     scene.add(sunLight)
 
-    // Warm Interior Point Lights
-    const bossLight = new THREE.PointLight(0xfef08a, 1.2, 12)
-    bossLight.position.set(9.0, 3.0, -6.5)
+    // C. Rim / Accent Light (Cool Backlight for Crisp Silhouette Separation)
+    const rimLight = new THREE.DirectionalLight(0x93c5fd, 0.45)
+    rimLight.position.set(-24, 20, -26)
+    scene.add(rimLight)
+
+    // D. Room-Specific Interior Point Lights
+    const bossLight = new THREE.PointLight(0xfef08a, 0.9, 12)
+    bossLight.position.set(9.0, 2.5, -6.5)
     scene.add(bossLight)
 
-    const labLight = new THREE.PointLight(0xa7f3d0, 1.0, 14)
-    labLight.position.set(-10.0, 2.5, 0.0)
+    const labLight = new THREE.PointLight(0x6ee7b7, 0.85, 14)
+    labLight.position.set(-10.0, 2.2, 0.0)
     scene.add(labLight)
 
-    const mushollaLight = new THREE.PointLight(0xfde047, 1.1, 10)
+    const mushollaLight = new THREE.PointLight(0xfde047, 1.0, 10)
     mushollaLight.position.set(-11.0, 1.5, 7.0)
     scene.add(mushollaLight)
+
+    const dataLight = new THREE.PointLight(0x38bdf8, 0.9, 12)
+    dataLight.position.set(5.0, 2.2, 7.5)
+    scene.add(dataLight)
+
+    const arcadeLight = new THREE.PointLight(0xc084fc, 0.9, 12)
+    arcadeLight.position.set(-8.0, 2.5, -6.5)
+    scene.add(arcadeLight)
+
+    const poolLight = new THREE.PointLight(0x06b6d4, 0.8, 14)
+    poolLight.position.set(11.0, 0.8, 6.0)
+    scene.add(poolLight)
+
+    lightsRef.current = {
+      hemi: hemiLight,
+      sun: sunLight,
+      rim: rimLight,
+      boss: bossLight,
+      lab: labLight,
+      musholla: mushollaLight,
+      data: dataLight,
+      arcade: arcadeLight,
+      pool: poolLight,
+    }
 
     // 5. Build Architectural Office Scene with Real 3D GLTF Furniture Models
     let isDisposed = false
@@ -357,11 +486,77 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
           ))}
         </div>
 
-        <div className="three-actions">
+        <div className="three-actions" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          {/* Atmosphere Lighting Mode Switcher */}
+          <div
+            className="three-atmosphere-group"
+            style={{
+              display: 'flex',
+              background: 'rgba(30, 41, 59, 0.7)',
+              borderRadius: 6,
+              padding: 2,
+              border: '1px solid rgba(148, 163, 184, 0.2)',
+            }}
+          >
+            <button
+              className={`three-atmo-btn ${lightingMode === 'day' ? 'active' : ''}`}
+              onClick={() => setAtmosphere('day')}
+              style={{
+                background: lightingMode === 'day' ? '#0284c7' : 'transparent',
+                border: 'none',
+                color: lightingMode === 'day' ? '#fff' : '#94a3b8',
+                fontSize: 10,
+                fontWeight: 700,
+                padding: '3px 8px',
+                borderRadius: 4,
+                cursor: 'pointer',
+                fontFamily: 'JetBrains Mono, monospace',
+              }}
+              title="Pencahayaan Siang Hari Alami"
+            >
+              ☀️ Siang
+            </button>
+            <button
+              className={`three-atmo-btn ${lightingMode === 'dusk' ? 'active' : ''}`}
+              onClick={() => setAtmosphere('dusk')}
+              style={{
+                background: lightingMode === 'dusk' ? '#ea580c' : 'transparent',
+                border: 'none',
+                color: lightingMode === 'dusk' ? '#fff' : '#94a3b8',
+                fontSize: 10,
+                fontWeight: 700,
+                padding: '3px 8px',
+                borderRadius: 4,
+                cursor: 'pointer',
+                fontFamily: 'JetBrains Mono, monospace',
+              }}
+              title="Pencahayaan Golden Hour Sunset"
+            >
+              🌅 Senja
+            </button>
+            <button
+              className={`three-atmo-btn ${lightingMode === 'night' ? 'active' : ''}`}
+              onClick={() => setAtmosphere('night')}
+              style={{
+                background: lightingMode === 'night' ? '#7c3aed' : 'transparent',
+                border: 'none',
+                color: lightingMode === 'night' ? '#fff' : '#94a3b8',
+                fontSize: 10,
+                fontWeight: 700,
+                padding: '3px 8px',
+                borderRadius: 4,
+                cursor: 'pointer',
+                fontFamily: 'JetBrains Mono, monospace',
+              }}
+              title="Pencahayaan Cyberpunk Malam Hari"
+            >
+              🌙 Malam
+            </button>
+          </div>
+
           <button
             className="three-action-btn"
             onClick={() => setShowDialogs(!showDialogs)}
-            style={{ marginRight: 6 }}
             title="Sembunyikan/Tampilkan balon obrolan"
           >
             {showDialogs ? '💬 Sembunyikan Dialog' : '💬 Tampilkan Dialog'}
