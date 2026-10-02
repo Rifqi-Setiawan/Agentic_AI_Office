@@ -242,6 +242,7 @@ export async function createAgent3DInstance(agent: Agent3DDef): Promise<THREE.Gr
   const group = new THREE.Group()
   group.name = `Agent_${agent.id}`
   group.position.copy(agent.position)
+  group.userData = { id: agent.id, baseY: agent.position.y, state: agent.state }
 
   try {
     const model = await preloadGLTF(modelUrl)

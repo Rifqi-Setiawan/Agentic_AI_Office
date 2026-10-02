@@ -28,10 +28,13 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
 
   // Agent sprite meshes
   const agentMeshesRef = useRef<Map<string, THREE.Group>>(new Map())
+  const calloutElementsRef = useRef<Map<string, HTMLDivElement>>(new Map())
 
   const [showDialogs, setShowDialogs] = useState<boolean>(true)
   const [hoveredAgentId, setHoveredAgentId] = useState<string | null>(null)
   const [lightingMode, setLightingMode] = useState<'day' | 'dusk' | 'night'>('day')
+  const [activeActivity, setActiveActivity] = useState<'work' | 'meeting' | 'swim' | 'sholat'>('work')
+  const [inspectedAgent, setInspectedAgent] = useState<Agent3DDef | null>(null)
 
   const lightsRef = useRef<{
     hemi: THREE.HemisphereLight
@@ -53,7 +56,7 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
     'swe': { lookAt: [-2.0, 0.5, 3.0], zoom: 1.9, label: 'Software Engineering Pods', icon: '💻', agentRoles: ['swe-backend', 'swe-frontend', 'swe-qa', 'ui-designer'] },
     'senku': { lookAt: [-10.0, 0.5, 0.5], zoom: 2.0, label: 'Laboratorium & Perpustakaan Senku', icon: '🧪', agentRoles: ['senku', 'paperwright'] },
     'data': { lookAt: [5.0, 0.5, 7.5], zoom: 2.0, label: 'Data Center & Lakehouse Server', icon: '🗄️', agentRoles: ['data-engineer', 'devops-engineer'] },
-    'musholla': { lookAt: [-11.0, -0.6, 7.0], zoom: 2.2, label: 'Musholla Khusus (Lower Level)', icon: '🕌', agentRoles: ['dimas-musholla'] },
+    'musholla': { lookAt: [-11.0, -0.5, 7.0], zoom: 1.85, label: 'Musholla Khusus (Lower Level)', icon: '🕌', agentRoles: ['dimas-musholla'] },
     'pool': { lookAt: [11.0, 0.0, 6.0], zoom: 1.85, label: 'Rooftop Terrace & Kolam Renang', icon: '🏊', agentRoles: ['rifqi'] },
     'arcade': { lookAt: [-8.0, 1.4, -6.5], zoom: 2.0, label: 'Arcade & Game Lounge', icon: '🕹️' },
   }
@@ -64,31 +67,23 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
     setSelectedRoom(roomId)
 
     // Kill any in-flight tweens
-    gsap.killTweensOf(currentLookAtRef.current)
+    gsap.killTweensOf(targetLookAtRef.current)
     gsap.killTweensOf(cameraRef.current)
 
-    // Smooth cinematic pan flight directly on camera target
-    gsap.to(currentLookAtRef.current, {
+    // Smooth cinematic pan flight
+    gsap.to(targetLookAtRef.current, {
       x: target.lookAt[0],
       y: target.lookAt[1],
       z: target.lookAt[2],
-      duration: 1.2,
+      duration: 1.25,
       ease: 'power2.inOut',
-      onUpdate: () => {
-        if (cameraRef.current) {
-          cameraRef.current.position.x = currentLookAtRef.current.x + 28
-          cameraRef.current.position.y = currentLookAtRef.current.y + 28
-          cameraRef.current.position.z = currentLookAtRef.current.z + 28
-          cameraRef.current.lookAt(currentLookAtRef.current)
-        }
-      },
     })
 
     // Smooth synchronized zoom transition
     const cam = cameraRef.current
     gsap.to(cam, {
       zoom: target.zoom,
-      duration: 1.2,
+      duration: 1.25,
       ease: 'power2.inOut',
       onUpdate: () => {
         cam.updateProjectionMatrix()
@@ -180,6 +175,92 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
     gsap.to(l.pool, { intensity: targetColors.poolInt, duration: 0.9 })
   }, [])
 
+  const handleTriggerActivity = useCallback((activity: 'work' | 'meeting' | 'swim' | 'sholat') => {
+    setActiveActivity(activity)
+
+    if (activity === 'swim') {
+      // Rifqi swims in rooftop pool
+      const mesh = agentMeshesRef.current.get('rifqi')
+      if (mesh) {
+        mesh.userData.state = 'swimming'
+        gsap.to(mesh.userData, { baseY: -0.38, duration: 1.4 })
+        gsap.to(mesh.position, { x: 11.0, z: 6.0, duration: 1.4, ease: 'power2.inOut' })
+      }
+      setAgents(prev => prev.map(a => a.id === 'rifqi' ? { ...a, state: 'swimming', speechText: 'Berenang di rooftop pool 🏊' } : a))
+      focusRoom('pool')
+    } else if (activity === 'meeting') {
+      // Tech-mentor, Chief-architect, SWE Devs move to Boardroom table
+      const meetingSpots = [
+        { id: 'tech-mentor', pos: [-1.4, 1.0, -6.5], rot: Math.PI / 2, speech: 'Membahas arsitektur event-driven 🤝' },
+        { id: 'chief-architect', pos: [1.4, 1.0, -6.5], rot: -Math.PI / 2, speech: 'Validasi RFC blueprint sistem 📐' },
+        { id: 'swe-backend', pos: [-0.8, 1.0, -8.2], rot: 0, speech: 'Refactoring connection pool DuckDB 💻' },
+        { id: 'swe-frontend', pos: [0.8, 1.0, -8.2], rot: 0, speech: 'Sinkronisasi GSAP & Three.js 🎨' },
+        { id: 'ui-designer', pos: [0.0, 1.0, -4.8], rot: Math.PI, speech: 'Standar anti-AI-slop disetujui ✨' },
+      ]
+
+      meetingSpots.forEach(s => {
+        const mesh = agentMeshesRef.current.get(s.id)
+        if (mesh) {
+          mesh.userData.state = 'meeting'
+          gsap.to(mesh.userData, { baseY: s.pos[1], duration: 1.5 })
+          gsap.to(mesh.position, { x: s.pos[0], z: s.pos[2], duration: 1.5, ease: 'power2.inOut' })
+          gsap.to(mesh.rotation, { y: s.rot, duration: 0.8 })
+        }
+      })
+
+      setAgents(prev => prev.map(a => {
+        const spot = meetingSpots.find(s => s.id === a.id)
+        if (spot) {
+          return { ...a, state: 'meeting', speechText: spot.speech }
+        }
+        return a
+      }))
+      focusRoom('meeting')
+    } else if (activity === 'sholat') {
+      // Dimas, DevOps, Assistant sholat di musholla
+      const mushollaSpots = [
+        { id: 'dimas-musholla', pos: [-11.0, -0.75, 5.8], rot: Math.PI, speech: 'Allāhu akbar... ٱللَّٰهُ أَكْبَرُ 🤲' },
+        { id: 'vps-assistant', pos: [-9.0, -0.75, 7.8], rot: Math.PI, speech: 'Sholat berjamaah di musholla 🕌' },
+        { id: 'devops-engineer', pos: [-13.0, -0.75, 7.8], rot: Math.PI, speech: 'Istirahat sholat sejenak 🤲' },
+      ]
+
+      mushollaSpots.forEach(s => {
+        const mesh = agentMeshesRef.current.get(s.id)
+        if (mesh) {
+          mesh.userData.state = 'praying'
+          gsap.to(mesh.userData, { baseY: s.pos[1], duration: 1.6 })
+          gsap.to(mesh.position, { x: s.pos[0], z: s.pos[2], duration: 1.6, ease: 'power2.inOut' })
+          gsap.to(mesh.rotation, { y: s.rot, duration: 0.8 })
+        }
+      })
+
+      setAgents(prev => prev.map(a => {
+        const spot = mushollaSpots.find(s => s.id === a.id)
+        if (spot) {
+          return { ...a, state: 'praying', speechText: spot.speech }
+        }
+        return a
+      }))
+      focusRoom('musholla')
+    } else if (activity === 'work') {
+      // All return to work desks
+      INITIAL_3D_AGENTS.forEach(def => {
+        const mesh = agentMeshesRef.current.get(def.id)
+        if (mesh) {
+          mesh.userData.state = 'working'
+          gsap.to(mesh.userData, { baseY: def.position.y, duration: 1.4 })
+          gsap.to(mesh.position, { x: def.position.x, z: def.position.z, duration: 1.4, ease: 'power2.inOut' })
+          if (def.rotationY !== undefined) {
+            gsap.to(mesh.rotation, { y: def.rotationY, duration: 0.8 })
+          }
+        }
+      })
+
+      setAgents(INITIAL_3D_AGENTS)
+      focusRoom('all')
+    }
+  }, [focusRoom])
+
   useEffect(() => {
     const container = mountRef.current
     if (!container) return
@@ -200,8 +281,8 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
       (frustumSize * aspect) / 2,
       frustumSize / 2,
       -frustumSize / 2,
-      0.1,
-      200
+      -200,
+      500
     )
     camera.position.set(28, 28, 28)
     camera.lookAt(0, 0, 0)
@@ -392,22 +473,21 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
 
       // Bobbing character animations
       agentMeshesRef.current.forEach((mesh, id) => {
-        const agent = INITIAL_3D_AGENTS.find(a => a.id === id)
-        if (agent) {
-          if (agent.state === 'swimming') {
-            mesh.position.y = -0.1 + Math.sin(t * 2.5) * 0.04
-          } else {
-            mesh.position.y = agent.position.y + Math.sin(t * 1.5 + (id.charCodeAt(0) % 5)) * 0.02
-          }
+        const baseY = mesh.userData.baseY !== undefined ? mesh.userData.baseY : 1.0
+        if (mesh.userData.state === 'swimming') {
+          mesh.position.y = baseY + Math.sin(t * 2.5) * 0.04
+        } else {
+          mesh.position.y = baseY + Math.sin(t * 1.5 + (id.charCodeAt(0) % 5)) * 0.02
         }
       })
 
       renderer.render(scene, camera)
 
-      // Project 3D positions to 2D screen coordinates for DOM callouts
-      const updatedAgents = INITIAL_3D_AGENTS.map(agent => {
+      // Project 3D positions directly to DOM callout elements (Zero React re-renders!)
+      INITIAL_3D_AGENTS.forEach(agent => {
         const mesh = agentMeshesRef.current.get(agent.id)
-        if (!mesh) return agent
+        const el = calloutElementsRef.current.get(agent.id)
+        if (!mesh || !el) return
 
         const pos = new THREE.Vector3()
         mesh.getWorldPosition(pos)
@@ -418,12 +498,10 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
         const y = (-(pos.y * 0.5) + 0.5) * height
         const visible = pos.z > -1 && pos.z < 1
 
-        return {
-          ...agent,
-          screenPos: { x, y, visible },
-        }
+        el.style.left = `${x}px`
+        el.style.top = `${y}px`
+        el.style.display = visible ? 'flex' : 'none'
       })
-      setAgents(updatedAgents)
     }
 
     animate()
@@ -554,6 +632,42 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
             </button>
           </div>
 
+          {/* Quick Activity Locomotion Triggers */}
+          <div className="three-activity-triggers">
+            <button
+              className={`three-trigger-btn ${activeActivity === 'swim' ? 'active' : ''}`}
+              onClick={() => handleTriggerActivity('swim')}
+              title="Kirim Rifqi berenang di kolam renang"
+            >
+              <span>🏊</span>
+              <span>Berenang</span>
+            </button>
+            <button
+              className={`three-trigger-btn ${activeActivity === 'meeting' ? 'active' : ''}`}
+              onClick={() => handleTriggerActivity('meeting')}
+              title="Kumpulkan tim di ruang rapat kaca"
+            >
+              <span>📊</span>
+              <span>Rapat</span>
+            </button>
+            <button
+              className={`three-trigger-btn ${activeActivity === 'work' ? 'active' : ''}`}
+              onClick={() => handleTriggerActivity('work')}
+              title="Kembalikan semua agen ke meja coding"
+            >
+              <span>💻</span>
+              <span>Kerja</span>
+            </button>
+            <button
+              className={`three-trigger-btn ${activeActivity === 'sholat' ? 'active' : ''}`}
+              onClick={() => handleTriggerActivity('sholat')}
+              title="Sholat berjamaah di musholla"
+            >
+              <span>🕌</span>
+              <span>Sholat</span>
+            </button>
+          </div>
+
           <button
             className="three-action-btn"
             onClick={() => setShowDialogs(!showDialogs)}
@@ -572,8 +686,6 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
       {/* Interactive 3D Projected Speech Bubbles & Badges */}
       <div className="three-speech-overlay">
         {agents.map(agent => {
-          if (!agent.screenPos || !agent.screenPos.visible) return null
-
           const isRoomFocused = selectedRoom !== 'all'
           const activeRoomDef = ROOM_TARGETS[selectedRoom]
           const isAgentInActiveRoom = activeRoomDef?.agentRoles?.includes(agent.id)
@@ -592,10 +704,14 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
           return (
             <div
               key={agent.id}
+              ref={el => {
+                if (el) calloutElementsRef.current.set(agent.id, el)
+                else calloutElementsRef.current.delete(agent.id)
+              }}
               className={`three-agent-callout ${isHovered ? 'hovered' : ''}`}
               style={{
-                left: `${agent.screenPos.x}px`,
-                top: `${agent.screenPos.y}px`,
+                left: `${agent.screenPos?.x ?? 0}px`,
+                top: `${agent.screenPos?.y ?? 0}px`,
                 zIndex: isHovered ? 100 : shouldShowBubble ? 40 : 20,
               }}
               onMouseEnter={() => setHoveredAgentId(agent.id)}
@@ -618,6 +734,8 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
                   transition: 'all 0.2s ease',
                   cursor: 'pointer',
                 }}
+                onClick={() => setInspectedAgent(agent)}
+                title="Klik untuk membuka Agent Inspector"
               >
                 <span className="badge-emoji">{agent.emoji}</span>
                 <span className="badge-name">{agent.name}</span>
@@ -627,6 +745,85 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
           )
         })}
       </div>
+
+      {/* Agent Inspector Slide-Out Drawer */}
+      {inspectedAgent && (
+        <aside className="three-inspector-drawer">
+          <div className="inspector-header">
+            <div className="inspector-profile">
+              <div className="inspector-avatar-box" style={{ borderColor: inspectedAgent.color }}>
+                {inspectedAgent.emoji}
+              </div>
+              <div className="inspector-name-title">
+                <span className="inspector-title-name">{inspectedAgent.name}</span>
+                <span className="inspector-title-role">{inspectedAgent.role}</span>
+              </div>
+            </div>
+            <button className="inspector-close-btn" onClick={() => setInspectedAgent(null)}>
+              ✕
+            </button>
+          </div>
+
+          <div className="inspector-field">
+            <div className="inspector-label">Foundation Model</div>
+            <div className="inspector-value" style={{ fontFamily: 'JetBrains Mono', color: '#38bdf8' }}>
+              {inspectedAgent.id === 'senku' ? 'ag/claude-opus-4-6-thinking' : 'ag/gemini-3.8-flash-high'}
+            </div>
+          </div>
+
+          <div className="inspector-field">
+            <div className="inspector-label">Status & State</div>
+            <div className="inspector-value" style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: inspectedAgent.color, display: 'inline-block' }} />
+              <span style={{ textTransform: 'capitalize' }}>{inspectedAgent.state}</span>
+            </div>
+          </div>
+
+          <div className="inspector-field">
+            <div className="inspector-label">Current Objective / Task</div>
+            <div className="inspector-value">{inspectedAgent.task || 'Autonomous VPS Ops'}</div>
+          </div>
+
+          {inspectedAgent.speechText && (
+            <div className="inspector-field">
+              <div className="inspector-label">Live Telemetry Decree</div>
+              <div className="inspector-value" style={{ fontStyle: 'italic', borderLeft: `3px solid ${inspectedAgent.color}` }}>
+                "{inspectedAgent.speechText}"
+              </div>
+            </div>
+          )}
+
+          <button
+            className="inspector-focus-btn"
+            onClick={() => {
+              if (cameraRef.current) {
+                gsap.killTweensOf(targetLookAtRef.current)
+                gsap.killTweensOf(cameraRef.current)
+                gsap.to(targetLookAtRef.current, {
+                  x: inspectedAgent.position.x,
+                  y: inspectedAgent.position.y + 0.5,
+                  z: inspectedAgent.position.z,
+                  duration: 1.25,
+                  ease: 'power2.inOut',
+                })
+                gsap.to(cameraRef.current, {
+                  zoom: 2.3,
+                  duration: 1.25,
+                  ease: 'power2.inOut',
+                  onUpdate: () => {
+                    if (cameraRef.current) {
+                      cameraRef.current.updateProjectionMatrix()
+                      setZoomLevel(cameraRef.current.zoom)
+                    }
+                  },
+                })
+              }
+            }}
+          >
+            🎯 Fokus Kamera ke {inspectedAgent.name}
+          </button>
+        </aside>
+      )}
 
       {/* Bottom Floating Control Bar */}
       <footer className="three-hud-footer">

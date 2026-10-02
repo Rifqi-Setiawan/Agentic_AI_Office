@@ -119,12 +119,32 @@ export async function buildArchitecturalOfficeGLTF(): Promise<OfficeSceneBundle>
   // 2. MULTI-LEVEL FLOORS & ELEVATIONS
   // ==========================================
 
-  // Level A: Main Open Floor (Y = 0)
-  const mainFloorGeo = new THREE.BoxGeometry(32, 0.4, 24)
-  const mainFloor = new THREE.Mesh(mainFloorGeo, matLightOak)
-  mainFloor.position.set(0, -0.2, 0)
-  mainFloor.receiveShadow = true
-  root.add(mainFloor)
+  // Level A: Main Open Floor (Y = 0) with architectural cutaways for Sunken Musholla & Pool Deck
+  // 1. North Transition Floor (between Mezzanine and lower zones)
+  const floorNorthGeo = new THREE.BoxGeometry(32, 0.4, 5)
+  const floorNorth = new THREE.Mesh(floorNorthGeo, matLightOak)
+  floorNorth.position.set(0, -0.2, 0.0)
+  floorNorth.receiveShadow = true
+  root.add(floorNorth)
+
+  // 2. Central Open Corridor & Data Center Floor
+  const floorCenterGeo = new THREE.BoxGeometry(12, 0.4, 10)
+  const floorCenter = new THREE.Mesh(floorCenterGeo, matLightOak)
+  floorCenter.position.set(0.0, -0.2, 7.0)
+  floorCenter.receiveShadow = true
+  root.add(floorCenter)
+
+  // 3. Sunken Musholla Architectural Retaining Walls
+  const matCurb = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.25 })
+  const curbEast = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.8, 10), matCurb)
+  curbEast.position.set(-5.85, -0.4, 7.0)
+  curbEast.castShadow = true
+  curbEast.receiveShadow = true
+  const curbNorth = new THREE.Mesh(new THREE.BoxGeometry(10, 0.8, 0.3), matCurb)
+  curbNorth.position.set(-11.0, -0.4, 2.15)
+  curbNorth.castShadow = true
+  curbNorth.receiveShadow = true
+  root.add(curbEast, curbNorth)
 
   // Level B: Upper Mezzanine (Y = 1.0)
   const upperMezzGeo = new THREE.BoxGeometry(32, 1.0, 10)
