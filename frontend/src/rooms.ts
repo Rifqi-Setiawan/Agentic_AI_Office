@@ -94,9 +94,11 @@ export const ROOMS: Record<RoomId, Room> = {
       { id: 'arcade', type: 'hotspot', sprite: 'hotspot', x: 18.0, y: 12.0, interactive: true, label: '🕹️ Mesin Dingdong Arcade' },
       { id: 'meeting-display', type: 'hotspot', sprite: 'hotspot', x: 40.0, y: 19.0, interactive: true, label: '📊 Dashboard Telemetri Ruang Rapat' },
       { id: 'kanban-board', type: 'hotspot', sprite: 'hotspot', x: 56.0, y: 46.0, interactive: true, label: '📋 Agile Sprint Scrum Board' },
-      { id: 'boss-desk', type: 'hotspot', sprite: 'hotspot', x: 60.5, y: 17.0, interactive: true, label: '👑 Meja Eksekutif CEO Jarvis' },
-
+      
       // Discrete Props with Depth Z-Sorting (Claude-Office Standard)
+      // Boss Executive Suite: Chair (z:28) -> Jarvis Avatar (z:30) -> Mahogany Desk & Accessories (z:32)
+      { id: 'boss-chair', type: 'furniture', sprite: 'boss-chair', x: 60.5, y: 18.5, zIndex: 28, interactive: false },
+      { id: 'boss-desk', type: 'furniture', sprite: 'boss-desk-front', x: 60.5, y: 18.5, zIndex: 32, interactive: true, label: '👑 Meja Eksekutif CEO Jarvis' },
       { id: 'espresso', type: 'coffee-machine', sprite: 'coffee-off', x: 73.0, y: 64.0, zIndex: 68, interactive: true, label: '☕ Mesin Kopi Espresso' },
       { id: 'plant-cafe', type: 'plant-monstera', sprite: 'plant-monstera', x: 91.0, y: 84.0, zIndex: 88, label: '🌿 Tanaman Hias Monstera' },
       { id: 'plant-boss', type: 'plant-snake', sprite: 'plant-snake', x: 68.0, y: 14.0, zIndex: 25, label: '🌱 Snake Plant Ruang Bos' },
@@ -109,7 +111,8 @@ export const ROOMS: Record<RoomId, Room> = {
     connections: [],
     agentSpots: [
       // 14 Dedicated Agent Workstations (Zero overlap, verified against 3D furniture)
-      { id: 'spot-boss', type: 'desk', x: 60.5, y: 15.0, facing: 'down', spriteFacing: 'front-left', zIndex: 30 },
+      // Jarvis sits squarely in the executive leather chair with head, shoulders & suit visible
+      { id: 'spot-boss', type: 'desk', x: 60.5, y: 11.0, facing: 'down', spriteFacing: 'front-left', zIndex: 30 },
       { id: 'spot-vps-assistant', type: 'desk', x: 65.0, y: 25.0, facing: 'down', spriteFacing: 'rear-left', zIndex: 35 },
       { id: 'spot-founder', type: 'desk', x: 84.0, y: 22.0, facing: 'down', spriteFacing: 'front-right', zIndex: 32 },
       { id: 'spot-tech-mentor', type: 'desk', x: 40.5, y: 23.0, facing: 'down', spriteFacing: 'rear-left', zIndex: 33 },
@@ -150,7 +153,7 @@ export const ROOMS: Record<RoomId, Room> = {
       // Boss Room (Executive Suite) - Wall at y=31.5, Door at (61.0, 31.5)
       { id: 'W-door-boss', x: 61.0, y: 35.0, connections: ['W-center', 'W-inside-boss', 'W-door-meeting', 'W-door-pool-in'] },
       { id: 'W-inside-boss', x: 61.0, y: 26.0, connections: ['W-door-boss', 'W-boss-desk', 'W-boss-sofa'] },
-      { id: 'W-boss-desk', x: 60.5, y: 15.0, connections: ['W-inside-boss'] },
+      { id: 'W-boss-desk', x: 60.5, y: 11.0, connections: ['W-inside-boss'] },
       { id: 'W-boss-sofa', x: 65.0, y: 25.0, connections: ['W-inside-boss'] },
 
       // Boardroom (Ruang Rapat Kaca) - Glass Wall at y=31.5, Door at (40.0, 31.5)

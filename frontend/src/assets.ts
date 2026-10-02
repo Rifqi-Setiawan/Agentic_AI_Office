@@ -70,6 +70,9 @@ export const ASSETS: Record<string, SpriteAsset> = {
   'finer-things-club':        { path: '/sprites/office/props/finer-things-club.png', width: 32, height: 32, category: 'decoration' },
 
   // === SPECIALIST TEAM ROOM PROPS ===
+  'boss-desk-executive':      { path: '/assets/furniture/boss-desk-executive.png', width: 120, height: 115, category: 'furniture' },
+  'boss-chair':               { path: '/assets/furniture/boss-chair.png', width: 120, height: 115, category: 'furniture' },
+  'boss-desk-front':          { path: '/assets/furniture/boss-desk-front.png', width: 120, height: 115, category: 'furniture' },
   'bookshelf':                { path: '/sprites/decoration/bookshelf.png', width: 55, height: 75, category: 'decoration' },
   'chalkboard-formulas':      { path: '/sprites/decoration/chalkboard-formulas.png', width: 68, height: 50, category: 'decoration' },
   'lab-equipment':            { path: '/sprites/decoration/lab-equipment.png', width: 42, height: 42, category: 'decoration' },
