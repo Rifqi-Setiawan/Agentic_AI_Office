@@ -49,6 +49,13 @@ function getAnimState(state: AgentState): string {
     case 'walking-to-desk':     return 'walking'
     case 'talking-to-manager':  return 'talking'
     case 'coffee-break':        return 'coffee'
+    case 'swimming':            return 'swimming'
+    case 'sunbathing':          return 'sunbathing'
+    case 'meeting':             return 'meeting'
+    case 'billiards':           return 'billiards'
+    case 'arcade':              return 'arcade'
+    case 'dining':              return 'dining'
+    case 'reading':             return 'reading'
     case 'new-hire':            return 'new-hire'
     default:                    return 'idle'
   }
@@ -72,8 +79,8 @@ const Character: React.FC<CharacterProps> = ({ agent, idleDurationMs = 0, zIndex
   const directionRef = useRef<SpriteDirection>(agent.spriteFacing ?? 'front-right')
   const [turnedAround, setTurnedAround] = useState(false)
 
-  const isMoving = agent.state === 'new-hire' || agent.state === 'walking-to-desk' ||
-    agent.state === 'coffee-break' || agent.state === 'completed' || agent.state === 'changing-room'
+  const isMoving = Math.hypot(agent.position.x - agent.targetPosition.x, agent.position.y - agent.targetPosition.y) > 0.4 ||
+    agent.state === 'walking-to-desk' || agent.state === 'walking-to-manager' || agent.state === 'changing-room'
 
   // Calculate movement direction when walking
   const dx = agent.position.x - prevPosRef.current.x

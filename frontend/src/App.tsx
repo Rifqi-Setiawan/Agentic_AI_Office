@@ -4,7 +4,7 @@ import './styles/rooms.css'
 import SlackChat, { ChatMessage } from './components/SlackChat'
 import Character from './components/Character'
 import FurnitureRenderer from './components/FurnitureRenderer'
-import { Agent, OfficeEvent, AGENT_CONFIGS } from './types'
+import { Agent, AgentState, OfficeEvent, AGENT_CONFIGS } from './types'
 import { getCurrentPhase, getPhaseLabel, type DayPhase } from './daylight'
 import { ROOMS, TEAM_ROOMS, type TeamRoom } from './rooms'
 import { useAgentSocket } from './hooks/useAgentSocket'
@@ -56,11 +56,12 @@ function timeNow(): string {
 let nextMsgId = 1
 function makeMsgId() { return nextMsgId++ }
 
-// Room spots for main office
+// Room spots for penthouse office
 const MAIN_ROOM = ROOMS['main-office']
 const ENTRY = MAIN_ROOM.entryPoint           // door position (%)
 const COFFEE_SPOT = MAIN_ROOM.agentSpots.find(s => s.type === 'coffee') ?? null
 const WATER_SPOTS  = MAIN_ROOM.agentSpots.filter(s => s.type === 'water')
+const ACTIVITY_SPOTS = MAIN_ROOM.agentSpots.filter(s => s.type !== 'desk')
 
 // Agent that is walking toward door to leave has this as targetPosition
 const DOOR_TARGET = { x: ENTRY.x, y: ENTRY.y }
@@ -1479,22 +1480,19 @@ const App: React.FC = () => {
             } else if (agent.state === 'completed' && isAtDoor) {
               updated = { ...agent, position }
               changed = true
-            } else if (agent.state === 'coffee-break') {
+            } else if (
+              agent.state === 'coffee-break' ||
+              agent.state === 'swimming' ||
+              agent.state === 'sunbathing' ||
+              agent.state === 'meeting' ||
+              agent.state === 'billiards' ||
+              agent.state === 'arcade' ||
+              agent.state === 'dining' ||
+              agent.state === 'reading'
+            ) {
               if (!meta.onBreak) {
                 meta.onBreak = true
                 meta.breakStartedAt = nowMs
-                // Toggle furniture state on arrival
-                if (COFFEE_SPOT !== null && agent.id !== BOSS_ID) {
-                  const atCoffee = Math.abs(position.x - COFFEE_SPOT.x) < 3 && Math.abs(position.y - COFFEE_SPOT.y) < 3
-                  if (atCoffee) {
-                    setFurnitureStates(prev => ({ ...prev, coffee: 'on' }))
-                  }
-                }
-                const filingSpot = MAIN_ROOM.agentSpots.find(s => s.type === 'filing')
-                const atFiling = filingSpot && Math.abs(position.x - filingSpot.x) < 3 && Math.abs(position.y - filingSpot.y) < 3
-                if (atFiling) {
-                  setFurnitureStates(prev => ({ ...prev, 'filing-1': 'open' }))
-                }
                 updated = { ...agent, position }
                 changed = true
               } else {
@@ -1503,8 +1501,6 @@ const App: React.FC = () => {
                   meta.onBreak = false
                   meta.breakStartedAt = null
                   meta.arrivedAtDeskAt = nowMs
-                  // Toggle furniture state back on departure
-                  setFurnitureStates(prev => ({ ...prev, coffee: 'off', 'filing-1': 'closed' }))
                   const newTarget = { ...agent.deskPosition }
                   updated = {
                     ...agent,
@@ -1538,38 +1534,70 @@ const App: React.FC = () => {
           }
         }
 
-        // Random break trigger
+        // Random activity / break trigger across penthouse zones
         if (
           updated.state === 'working' &&
           meta.arrivedAtDeskAt !== null &&
           !meta.onBreak &&
-          COFFEE_SPOT !== null
+          ACTIVITY_SPOTS.length > 0
         ) {
           const deskTime = nowMs - meta.arrivedAtDeskAt
           if (deskTime >= BREAK_MIN_DESK_TIME) {
             const breakRoll = BREAK_CHANCE_PER_SEC * (dt / 60)
             if (Math.random() < breakRoll) {
-              const useWater = Math.random() < 0.35 && WATER_SPOTS.length > 0
-              const breakSpot = useWater
-                ? WATER_SPOTS[Math.floor(Math.random() * WATER_SPOTS.length)]
-                : COFFEE_SPOT
+              const spot = ACTIVITY_SPOTS[Math.floor(Math.random() * ACTIVITY_SPOTS.length)]
 
               meta.onBreak = false
               meta.arrivedAtDeskAt = null
 
-              const cfg = AGENT_CONFIGS[updated.role] ?? AGENT_CONFIGS['default']
-              const isBoss = updated.id === BOSS_ID
-              const breakMsg = useWater ? waterMessage() : (isBoss ? 'grabbing a Red Bull' : coffeeMessage())
-              const breakIcon = isBoss ? '🥫' : (useWater ? '💧' : '☕')
-              addMsg(updated.name, updated.role, cfg.color, `${breakIcon} ${breakMsg}`)
-              if (!sfx.isMuted()) sfx.playCoffee()
+              let activityMsg = 'rehat sejenak'
+              let targetState: AgentState = 'coffee-break'
 
-              const breakTarget = { x: breakSpot.x, y: breakSpot.y }
+              switch (spot.type) {
+                case 'swimming':
+                  activityMsg = 'berenang di rooftop pool 🏊'
+                  targetState = 'swimming'
+                  break
+                case 'sunbathing':
+                  activityMsg = 'santai berjemur di sundeck ☀️'
+                  targetState = 'sunbathing'
+                  break
+                case 'meeting':
+                  activityMsg = 'diskusi di ruang rapat kaca 📊'
+                  targetState = 'meeting'
+                  break
+                case 'billiards':
+                  activityMsg = 'main biliar di arcade lounge 🎱'
+                  targetState = 'billiards'
+                  break
+                case 'arcade':
+                  activityMsg = 'main dingdong arcade 🕹️'
+                  targetState = 'arcade'
+                  break
+                case 'coffee':
+                  activityMsg = 'bikin kopi espresso segar ☕'
+                  targetState = 'coffee-break'
+                  if (!sfx.isMuted()) sfx.playCoffee()
+                  break
+                case 'dining':
+                  activityMsg = 'santai makan di kafetaria 🍽️'
+                  targetState = 'dining'
+                  break
+                case 'reading':
+                  activityMsg = 'membaca jurnal di perpustakaan 📖'
+                  targetState = 'reading'
+                  break
+                default:
+                  activityMsg = 'jalan santai di koridor'
+                  targetState = 'coffee-break'
+              }
+
+              const breakTarget = { x: spot.x, y: spot.y }
               updated = {
                 ...updated,
-                state: 'coffee-break',
+                state: targetState,
                 targetPosition: breakTarget,
-                statusText: breakMsg,
+                statusText: activityMsg,
                 pathQueue: computePath(updated.position, breakTarget),
               }
               changed = true
@@ -1987,7 +2015,7 @@ const App: React.FC = () => {
           <div
             className={`room-container${flickering ? ' flickering' : ''}`}
             style={{
-              aspectRatio: theme === 'office' ? '1200/896' : '4800/3584',
+              aspectRatio: '1672/941',
               width: '100%',
               maxHeight: '100%',
               position: 'relative',

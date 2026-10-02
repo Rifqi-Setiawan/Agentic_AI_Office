@@ -170,10 +170,7 @@ export function getSpritePath(_agentId: string, role: string, defaultBase: strin
 }
 
 export function getRoomImage(phase: 'day' | 'night'): string {
-  if (state.name === 'office') {
-    return phase === 'night' ? '/rooms/office-night-dm.png' : '/rooms/office-day-dm.png'
-  }
-  return phase === 'night' ? '/rooms/office-night.png' : '/rooms/office-day.png'
+  return phase === 'night' ? '/rooms/office-night-custom.jpg' : '/rooms/office-day-custom.jpg'
 }
 
 /** Returns the ROLE currently cast as Angela (if any), plus cat sprite path. */

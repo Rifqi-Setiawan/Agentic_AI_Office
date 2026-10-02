@@ -575,3 +575,36 @@
   transform: scale(1.02);
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
+
+/* ===== AGENT ACTIVITY STATES (Swimming, Meeting, Arcade, etc.) ===== */
+.character-wrapper.state-swimming {
+  animation: swimBob 2.2s ease-in-out infinite;
+  filter: drop-shadow(0 2px 8px rgba(6, 182, 212, 0.7));
+  clip-path: inset(0 0 25% 0);
+}
+
+@keyframes swimBob {
+  0%, 100% { transform: translate(-50%, -96%); }
+  50% { transform: translate(-50%, -104%); }
+}
+
+.character-wrapper.state-sunbathing {
+  filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.5));
+}
+
+.character-wrapper.state-meeting {
+  filter: drop-shadow(0 2px 8px rgba(99, 102, 241, 0.5));
+}
+
+.character-wrapper.state-arcade,
+.character-wrapper.state-billiards {
+  filter: drop-shadow(0 2px 8px rgba(168, 85, 247, 0.6));
+}
+
+.character-wrapper.state-reading {
+  filter: drop-shadow(0 2px 8px rgba(234, 179, 8, 0.5));
+}
+
+.character-wrapper.state-dining {
+  filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.5));
+}
