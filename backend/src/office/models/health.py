@@ -27,6 +27,7 @@ class HealthResponse(BaseModel):
     """Laporan komprehensif kesehatan layanan backend."""
 
     status: Literal["ok", "degraded", "error"] = "ok"
+    app: str = "office-v2"
     timestamp: int
     uptime_seconds: float
     memory_rss_mb: float

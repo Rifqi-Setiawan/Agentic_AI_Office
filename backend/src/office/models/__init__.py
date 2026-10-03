@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from office.models.errors import ErrorResponse
 from office.models.events import OfficeEvent, OfficeEventKind
 from office.models.health import HealthResponse, ReaderHealth, ReaderHealthMap
 from office.models.host import HostVitals, HostVitalsDetails
@@ -13,6 +14,7 @@ __all__ = [
     "AgentProfileDetail",
     "AgentState",
     "CollectiveEventState",
+    "ErrorResponse",
     "HealthResponse",
     "HostVitals",
     "HostVitalsDetails",
