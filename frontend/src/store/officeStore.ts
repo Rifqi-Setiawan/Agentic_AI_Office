@@ -31,6 +31,11 @@ export interface OfficeState {
   // Interaktivitas HUD dan Agen
   selectedAgentId: string | null;
   hoveredAgentId: string | null;
+  isAgentSidebarOpen: boolean;
+  isFounderPanelOpen: boolean;
+  isLoginModalOpen: boolean;
+  isFounderAuthenticated: boolean;
+  atmosphereOverride: TimeOfDay | 'auto';
 
   // Actions
   setConnectionStatus: (status: ConnectionStatus) => void;
@@ -42,6 +47,12 @@ export interface OfficeState {
   updateCollective: (collective: CollectiveEventState | null, seq?: number) => void;
   selectAgent: (agentId: string | null) => void;
   hoverAgent: (agentId: string | null) => void;
+  setAgentSidebarOpen: (isOpen: boolean) => void;
+  setFounderPanelOpen: (isOpen: boolean) => void;
+  setLoginModalOpen: (isOpen: boolean) => void;
+  setFounderAuthenticated: (isAuth: boolean) => void;
+  setAtmosphereOverride: (mode: TimeOfDay | 'auto') => void;
+  setProjection: (projection: ProjectionMode) => void;
   reset: () => void;
 }
 
@@ -53,6 +64,7 @@ const createInitialState = () => ({
   lastUpdateTs: 0,
   projection: 'public' as ProjectionMode,
   timeOfDay: 'day' as TimeOfDay,
+  atmosphereOverride: 'auto' as TimeOfDay | 'auto',
   errorMessage: null as string | null,
   snapshot: null as WorldSnapshot | null,
   agents: initialAgentsRecord,
@@ -62,6 +74,10 @@ const createInitialState = () => ({
   activeCollective: null as CollectiveEventState | null,
   selectedAgentId: null as string | null,
   hoveredAgentId: null as string | null,
+  isAgentSidebarOpen: false,
+  isFounderPanelOpen: false,
+  isLoginModalOpen: false,
+  isFounderAuthenticated: false,
 });
 
 /**
@@ -86,12 +102,22 @@ export const officeStore = createStore<OfficeState>((set, get) => ({
       agentsMap[agent.id] = agent;
     }
 
+    const state = get();
+    const effectiveTimeOfDay =
+      state.atmosphereOverride !== 'auto'
+        ? state.atmosphereOverride
+        : snapshot.time_of_day;
+
+    const effectiveProjection = state.isFounderAuthenticated
+      ? snapshot.projection || 'founder'
+      : snapshot.projection;
+
     set({
       snapshot,
-      lastSeq: Math.max(get().lastSeq, snapshot.seq),
+      lastSeq: Math.max(state.lastSeq, snapshot.seq),
       lastUpdateTs: snapshot.generated_at,
-      projection: snapshot.projection,
-      timeOfDay: snapshot.time_of_day,
+      projection: effectiveProjection,
+      timeOfDay: effectiveTimeOfDay,
       agents: agentsMap,
       agentList: snapshot.agents,
       recentEvents: snapshot.recent_events.slice(0, 500),
@@ -161,6 +187,41 @@ export const officeStore = createStore<OfficeState>((set, get) => ({
 
   hoverAgent: (hoveredAgentId) => {
     set({ hoveredAgentId });
+  },
+
+  setAgentSidebarOpen: (isAgentSidebarOpen) => {
+    set({ isAgentSidebarOpen });
+  },
+
+  setFounderPanelOpen: (isFounderPanelOpen) => {
+    set({ isFounderPanelOpen });
+  },
+
+  setLoginModalOpen: (isLoginModalOpen) => {
+    set({ isLoginModalOpen });
+  },
+
+  setFounderAuthenticated: (isFounderAuthenticated) => {
+    set({
+      isFounderAuthenticated,
+      projection: isFounderAuthenticated ? 'founder' : 'public',
+    });
+  },
+
+  setAtmosphereOverride: (atmosphereOverride) => {
+    const state = get();
+    const effectiveTimeOfDay =
+      atmosphereOverride === 'auto'
+        ? state.snapshot?.time_of_day || 'day'
+        : atmosphereOverride;
+    set({
+      atmosphereOverride,
+      timeOfDay: effectiveTimeOfDay,
+    });
+  },
+
+  setProjection: (projection) => {
+    set({ projection });
   },
 
   reset: () => {

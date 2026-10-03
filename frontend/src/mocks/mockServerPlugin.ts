@@ -110,6 +110,65 @@ export function mockOfficeApiPlugin(): Plugin {
           return;
         }
 
+        // 3. Endpoint REST: POST /api/v1/auth/login
+        if (url.pathname === '/api/v1/auth/login' && req.method === 'POST') {
+          res.setHeader('Content-Type', 'application/json; charset=utf-8');
+          res.setHeader('Access-Control-Allow-Origin', '*');
+          res.statusCode = 200;
+          res.end(
+            JSON.stringify({
+              success: true,
+              role: 'founder',
+              expires_at: Math.floor(Date.now() / 1000) + 7 * 24 * 3600,
+            }),
+          );
+          return;
+        }
+
+        // 4. Endpoint REST: POST /api/v1/auth/logout
+        if (url.pathname === '/api/v1/auth/logout' && req.method === 'POST') {
+          res.setHeader('Content-Type', 'application/json; charset=utf-8');
+          res.setHeader('Access-Control-Allow-Origin', '*');
+          res.statusCode = 200;
+          res.end(JSON.stringify({ success: true }));
+          return;
+        }
+
+        // 5. Endpoint REST: POST /api/v1/collective
+        if (url.pathname === '/api/v1/collective' && req.method === 'POST') {
+          let body = '';
+          req.on('data', (chunk) => {
+            body += chunk;
+          });
+          req.on('end', () => {
+            let parsed = { kind: 'rapat' };
+            try {
+              parsed = JSON.parse(body);
+            } catch {
+              // ignore
+            }
+            const now = Math.floor(Date.now() / 1000);
+            const titles: Record<string, string> = {
+              rapat: 'Rapat Mendadak',
+              break: 'Break Time',
+              sholat: 'Sholat Berjamaah',
+            };
+            const responseData = {
+              kind: parsed.kind,
+              title: titles[parsed.kind] || 'Event Kolektif',
+              active: true,
+              started_at: now,
+              expires_at: now + 300,
+              participants: ['jarvis', 'daedalus', 'forge', 'prism'],
+            };
+            res.setHeader('Content-Type', 'application/json; charset=utf-8');
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.statusCode = 200;
+            res.end(JSON.stringify(responseData));
+          });
+          return;
+        }
+
         next();
       });
     },

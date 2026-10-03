@@ -4,6 +4,9 @@ import { AgentStatusBar } from './AgentStatusBar';
 import { ActivityFeed } from './ActivityFeed';
 import { SnapshotInspector } from './SnapshotInspector';
 import { AgentInspector } from './AgentInspector';
+import { AgentSidebar } from './AgentSidebar';
+import { FounderPanel } from './FounderPanel';
+import { LoginModal } from './LoginModal';
 
 /**
  * Root komponen HUD terpisah.
@@ -20,8 +23,17 @@ export const HudRoot: React.FC = () => {
         <AgentStatusBar />
       </div>
 
+      {/* Sidebar Daftar Agen (Navigasi Keyboard & Alternatif Kanvas) */}
+      <AgentSidebar />
+
       {/* Panel Inspector Agen Terpilih */}
       <AgentInspector />
+
+      {/* Panel Kontrol Founder (Trigger Kolektif & Override Atmosfer) */}
+      <FounderPanel />
+
+      {/* Modal Autentikasi Founder */}
+      <LoginModal />
 
       {/* Bagian Bawah: ActivityFeed & SnapshotInspector */}
       <div className="w-full relative z-10">

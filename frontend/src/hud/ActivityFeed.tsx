@@ -56,7 +56,7 @@ export const ActivityFeed: React.FC = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label={isOpen ? 'Tutup linimasa aktivitas' : 'Buka linimasa aktivitas'}
-          className="text-xs text-[#9ca8b8] hover:text-[#f5f0e1] px-1.5 py-0.5 rounded hover:bg-[#282d3f] transition-colors"
+          className="text-xs text-[#9ca8b8] hover:text-[#f5f0e1] px-1.5 py-0.5 rounded hover:bg-[#282d3f] transition-colors focus-visible:ring-2 focus-visible:ring-[#2bb3c0] focus-visible:outline-none"
         >
           {isOpen ? 'Sembunyikan' : 'Buka'}
         </button>
@@ -64,7 +64,12 @@ export const ActivityFeed: React.FC = () => {
 
       {/* Body List */}
       {isOpen && (
-        <div className="max-h-64 overflow-y-auto divide-y divide-[#282d3f]/60 p-2 space-y-1.5 focus:outline-none">
+        <div
+          role="feed"
+          aria-label="Daftar item linimasa aktivitas terkini"
+          tabIndex={0}
+          className="max-h-64 overflow-y-auto divide-y divide-[#282d3f]/60 p-2 space-y-1.5 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#2bb3c0]"
+        >
           {recentEvents.length === 0 ? (
             <p className="text-xs text-[#687594] text-center py-4">
               Menunggu event dari server...
