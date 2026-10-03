@@ -7,12 +7,19 @@ from datetime import datetime
 from typing import Any, Literal
 from zoneinfo import ZoneInfo
 
+from office.config import OfficeConfig
 from office.domain.normalizer import EventNormalizer
 from office.models.events import OfficeEvent
 from office.models.host import HostVitals
 from office.models.kanban import KanbanEventRow, TaskRef, TaskRow
 from office.models.profiles import AgentProfile
 from office.models.state import AgentState, CollectiveEventState, WorldSnapshot
+from office.projection import (
+    FounderWorldSnapshot,
+    PublicWorldSnapshot,
+    project_world_snapshot_founder,
+    project_world_snapshot_public,
+)
 from office.sources.profiles import STATIC_AGENT_METADATA
 
 logger = logging.getLogger(__name__)
@@ -653,8 +660,9 @@ class StateEngine:
         self,
         projection: Literal["public", "founder"] = "public",
         current_time: int | None = None,
-    ) -> WorldSnapshot:
-        """Menghasilkan WorldSnapshot terkini untuk klien REST / SSE."""
+        config: OfficeConfig | None = None,
+    ) -> PublicWorldSnapshot | FounderWorldSnapshot:
+        """Menghasilkan WorldSnapshot terkini untuk klien REST / SSE sesuai proyeksi."""
         now_ts = int(time.time()) if current_time is None else current_time
         tod = get_wib_time_of_day(now_ts)
         last_seq = self.ring_buffer.current_seq - 1
@@ -663,7 +671,7 @@ class StateEngine:
         agent_list = [self._agents[aid] for aid in sorted(self._agents.keys())]
         recent_events = self.ring_buffer.get_recent(limit=500)
 
-        return WorldSnapshot(
+        raw_snapshot = WorldSnapshot(
             generated_at=now_ts,
             seq=max(0, last_seq),
             projection=projection,
@@ -673,3 +681,7 @@ class StateEngine:
             active_collective=self._active_collective,
             vitals=self._vitals,
         )
+
+        if projection == "founder":
+            return project_world_snapshot_founder(raw_snapshot)
+        return project_world_snapshot_public(raw_snapshot, config=config)

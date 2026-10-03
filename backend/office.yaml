@@ -1,0 +1,45 @@
+# Office v2 Configuration
+# Blueprint F04: Aturan Redaksi Whitelist Proyeksi Publik & Founder
+
+# Allowlist nama board yang diizinkan tampil di proyeksi publik
+public_boards:
+  - office-v2
+
+# Peta kategori judul tugas publik berdasarkan ID profile agen
+task_categories_by_agent:
+  forge: "Pengembangan modul backend dan database"
+  prism: "Pembaruan antarmuka pengguna"
+  steward: "Optimasi pipeline grafis dan rendering"
+  sentinel: "Verifikasi kualitas dan validasi sistem"
+  bastion: "Hardening infrastruktur dan keamanan"
+  relay: "Automasi CI/CD dan rilis"
+  daedalus: "Perancangan arsitektur dan spesifikasi data"
+  muse: "Desain visual dan tinjauan gaya"
+  jarvis: "Orkestrasi alur kerja agen"
+  oracle: "Riset literatur dan eksperimen ilmiah"
+  vector: "Rekayasa pipeline data dan analitik"
+  merlin: "Mentoring teknis dan edukasi rekayasa"
+  warden: "Pemeliharaan fasilitas dan operasi kantor"
+  scribe: "Penyusunan dokumentasi teknis dan arsip"
+  nova: "Eksplorasi sistem dan navigasi spasial"
+  rifqi: "Pengawasan strategis dan visi produk"
+  default: "Operasi sistem dan komputasi rutin"
+
+# Fallback kategori judul tugas publik berdasarkan nama peran (role)
+task_categories_by_role:
+  "Backend Specialist": "Pengembangan modul backend dan database"
+  "Frontend Specialist": "Pembaruan antarmuka pengguna"
+  "Graphics Lab Lead": "Optimasi pipeline grafis dan rendering"
+  "QA Lead & Verifier": "Verifikasi kualitas dan validasi sistem"
+  "Systems & Security Architect": "Hardening infrastruktur dan keamanan"
+  "Release Engineer & Delivery": "Automasi CI/CD dan rilis"
+  "Principal Systems & Data Architect": "Perancangan arsitektur dan spesifikasi data"
+  "Design Engineer & UI/UX Lead": "Desain visual dan tinjauan gaya"
+  "Chief Orchestrator": "Orkestrasi alur kerja agen"
+  "Research Lead & Scientist": "Riset literatur dan eksperimen ilmiah"
+  "Data Engineer": "Rekayasa pipeline data dan analitik"
+  "Tech Mentor & Pedagogis": "Mentoring teknis dan edukasi rekayasa"
+  "Operations & Facilities Lead": "Pemeliharaan fasilitas dan operasi kantor"
+  "Technical Writer & Documentarian": "Penyusunan dokumentasi teknis dan arsip"
+  "Junior Systems Engineer": "Eksplorasi sistem dan navigasi spasial"
+  "Founder & Human Lead": "Pengawasan strategis dan visi produk"
