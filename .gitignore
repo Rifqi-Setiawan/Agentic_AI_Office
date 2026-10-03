@@ -52,6 +52,10 @@ art/pipeline/dist/raw_sprites/
 # OS & IDE
 .DS_Store
 Thumbs.db
+*.db-wal
+*.db-shm
+*.db.init.lock
+*.db.dispatch.lock
 .vscode/
 .idea/
 *.swp
