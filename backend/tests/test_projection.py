@@ -503,8 +503,7 @@ class TestFounderProjection:
         assert f_task.title == "Judul Asli Sangat Rahasia"
         assert f_task.board == "internal-accounting"
         assert (
-            f_task.workspace_path
-            == "/srv/apps/hermes/kanban/boards/internal/workspaces/t_real_001"
+            f_task.workspace_path == "/srv/apps/hermes/kanban/boards/internal/workspaces/t_real_001"
         )
         assert f_task.branch_name == "feature/secret-ledger"
         assert f_task.worker_pid == 98765
@@ -614,12 +613,12 @@ class TestFixtureAntiLeakVerification:
         pub_json = public_snapshot.model_dump_json()
 
         # Invarian Utama: Nol Kebocoran
-        assert (
-            "LEAK-CANARY" not in pub_json
-        ), "Token LEAK-CANARY ditemukan pada JSON snapshot publik!"
-        assert (
-            "/srv/apps/hermes" not in pub_json
-        ), "Path sistem /srv/apps/hermes ditemukan pada JSON publik!"
+        assert "LEAK-CANARY" not in pub_json, (
+            "Token LEAK-CANARY ditemukan pada JSON snapshot publik!"
+        )
+        assert "/srv/apps/hermes" not in pub_json, (
+            "Path sistem /srv/apps/hermes ditemukan pada JSON publik!"
+        )
         assert "workspace_path" not in pub_json
         assert "branch_name" not in pub_json
         assert "worker_pid" not in pub_json
@@ -629,9 +628,7 @@ class TestFixtureAntiLeakVerification:
         for agent in public_snapshot.agents:
             if agent.task:
                 # Board harus diizinkan atau Proyek internal
-                assert agent.task.board in (
-                    list(DEFAULT_PUBLIC_BOARDS) + ["Proyek internal"]
-                )
+                assert agent.task.board in (list(DEFAULT_PUBLIC_BOARDS) + ["Proyek internal"])
                 # Judul tugas harus tersanitasi menjadi kategori peran
                 assert agent.task.title == DEFAULT_TASK_CATEGORIES_BY_AGENT.get(
                     agent.id, "Operasi sistem dan komputasi rutin"
@@ -642,9 +639,7 @@ class TestFixtureAntiLeakVerification:
         founder_json = founder_snapshot.model_dump_json()
 
         # Founder harus bisa melihat board asli dan judul asli
-        assert (
-            "workspace_path" in founder_json
-        ), "Founder harus memiliki akses ke workspace_path"
+        assert "workspace_path" in founder_json, "Founder harus memiliki akses ke workspace_path"
         assert "branch_name" in founder_json, "Founder harus memiliki akses ke branch_name"
         assert "worker_pid" in founder_json, "Founder harus memiliki akses ke worker_pid"
 
@@ -706,10 +701,7 @@ class TestAgentProfileDetailProjection:
         assert "workspace_path" not in pub_json
         assert "branch_name" not in pub_json
         assert "worker_pid" not in pub_json
-        assert (
-            pub_detail.recent_tasks[0].title
-            == "Pengembangan modul backend dan database"
-        )
+        assert pub_detail.recent_tasks[0].title == "Pengembangan modul backend dan database"
 
         # 2. Proyeksi Founder
         founder_detail = project_agent_profile_detail_founder(detail)

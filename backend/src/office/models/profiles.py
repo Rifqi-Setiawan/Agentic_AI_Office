@@ -39,5 +39,3 @@ class AgentProfileDetail(BaseModel):
     agent: AgentState
     bio: AgentBio
     recent_tasks: list[TaskRef] = Field(default_factory=list)
-
-
