@@ -1,5 +1,10 @@
-import { Application, Container, Graphics } from 'pixi.js';
+import { Application, Assets, Container, Graphics, Spritesheet, Texture } from 'pixi.js';
+import { Viewport } from 'pixi-viewport';
 import { officeStore } from '../store/officeStore';
+import { CameraManager } from './camera';
+import { LoadedOfficeMap, OfficeMapLoader } from './mapLoader';
+import { TiledMapDoc } from './types';
+import { WORLD_HEIGHT, WORLD_ORIGIN_X, WORLD_ORIGIN_Y, WORLD_WIDTH } from './projection';
 
 /**
  * WorldApp mengelola satu-satunya instans `PIXI.Application` untuk render dunia isometrik.
@@ -8,11 +13,17 @@ import { officeStore } from '../store/officeStore';
  */
 export class WorldApp {
   private app: Application | null = null;
+  private camera: CameraManager | null = null;
   private worldContainer: Container | null = null;
+  private loadedMap: LoadedOfficeMap | null = null;
   private gridGraphics: Graphics | null = null;
+  private spritesheet: Spritesheet | null = null;
   private isInitialized = false;
 
-  public async init(container: HTMLElement): Promise<Application> {
+  public async init(
+    container: HTMLElement,
+    mapDocOverride?: TiledMapDoc,
+  ): Promise<Application> {
     if (this.app && this.isInitialized) {
       return this.app;
     }
@@ -39,13 +50,30 @@ export class WorldApp {
 
     container.replaceChildren(app.canvas);
 
-    // Kontainer utama dunia untuk layer peta Tiled & entitas karakter (T1.11)
+    // Inisialisasi pixi-viewport untuk drag/zoom (1x–3x)
+    this.camera = new CameraManager({
+      app,
+      worldWidth: WORLD_WIDTH,
+      worldHeight: WORLD_HEIGHT,
+      minZoom: 1,
+      maxZoom: 3,
+    });
+
+    const viewport = this.camera.getViewport();
+    app.stage.addChild(viewport);
+
+    // Kontainer utama dunia di dalam viewport
     this.worldContainer = new Container();
     this.worldContainer.label = 'WorldContainer';
-    app.stage.addChild(this.worldContainer);
+    viewport.addChild(this.worldContainer);
 
-    // Gambar panduan grid isometrik 2:1 pada kanvas kosong awal
-    this.renderBlankCanvasGrid();
+    // Muat peta Tiled dan atlas jika tersedia
+    await this.initMap(mapDocOverride);
+
+    // Pasang culling otomatis saat viewport digeser atau di-zoom
+    viewport.on('moved', () => {
+      this.updateCulling();
+    });
 
     // Loop ticker Pixi: membaca store vanilla tiap frame
     app.ticker.add((time) => {
@@ -54,6 +82,77 @@ export class WorldApp {
 
     this.isInitialized = true;
     return app;
+  }
+
+  /**
+   * Memuat atlas tekstur lingkungan dan dokumen peta Tiled floor1.tmj
+   */
+  private async initMap(mapDocOverride?: TiledMapDoc): Promise<void> {
+    if (!this.worldContainer) return;
+
+    let mapDoc: TiledMapDoc | null = mapDocOverride || null;
+
+    // Coba muat spritesheet environment jika di browser environment
+    if (typeof window !== 'undefined') {
+      try {
+        const loadedSheet = await Assets.load('/sprites/environment.json');
+        if (loadedSheet && loadedSheet.textures) {
+          this.spritesheet = loadedSheet;
+        }
+      } catch (err) {
+        console.warn('[WorldApp] Atlas environment tidak dapat dimuat, menggunakan texture fallback:', err);
+      }
+    }
+
+    // Jika map doc belum ada, coba fetch dari /maps/floor1.tmj
+    if (!mapDoc && typeof window !== 'undefined') {
+      try {
+        const resp = await fetch('/maps/floor1.tmj');
+        if (resp.ok) {
+          mapDoc = (await resp.json()) as TiledMapDoc;
+        }
+      } catch (err) {
+        console.warn('[WorldApp] Gagal fetch /maps/floor1.tmj, render grid fallback:', err);
+      }
+    }
+
+    if (mapDoc) {
+      const textureProvider = (frameName: string): Texture | null => {
+        if (this.spritesheet && this.spritesheet.textures[frameName]) {
+          return this.spritesheet.textures[frameName];
+        }
+        return null;
+      };
+
+      this.loadedMap = OfficeMapLoader.loadFromDoc(mapDoc, {
+        textureProvider,
+        originX: WORLD_ORIGIN_X,
+        originY: WORLD_ORIGIN_Y,
+      });
+
+      this.worldContainer.addChild(this.loadedMap.worldRoot);
+
+      // Jalankan culling awal
+      this.updateCulling();
+    } else {
+      // Fallback: render isometric grid scaffold
+      this.renderBlankCanvasGrid();
+    }
+  }
+
+  /**
+   * Evaluasi culling sprite di luar viewport.
+   */
+  public updateCulling(): void {
+    if (!this.loadedMap || !this.camera) return;
+    const viewport = this.camera.getViewport();
+    const visibleBounds = viewport.getVisibleBounds();
+    this.loadedMap.cullingManager.update({
+      x: visibleBounds.x,
+      y: visibleBounds.y,
+      width: visibleBounds.width,
+      height: visibleBounds.height,
+    });
   }
 
   /**
@@ -71,8 +170,8 @@ export class WorldApp {
     const g = new Graphics();
     g.label = 'IsometricScaffoldGrid';
 
-    const width = this.app.screen.width || 1280;
-    const height = this.app.screen.height || 720;
+    const width = WORLD_WIDTH;
+    const height = WORLD_HEIGHT;
     const centerX = width / 2;
     const centerY = height / 2;
 
@@ -81,7 +180,7 @@ export class WorldApp {
     const gridCols = 16;
     const gridRows = 16;
 
-    // Warna lantai malam (#1a1c29) dan garis grid redup (#282d3f)
+    // Warna void #14141e
     g.rect(0, 0, width, height);
     g.fill({ color: 0x14141e });
 
@@ -117,11 +216,39 @@ export class WorldApp {
     // Akses vanilla store tanpa melalui React runtime
     const state = officeStore.getState();
 
-    // Hook untuk downstream renderer (Steward T1.11):
-    // Mengonsumsi state.agents dan state.timeOfDay secara langsung
-    if (this.gridGraphics && state.timeOfDay) {
-      // Penyesuaian alpha atmosfer jika diperlukan tanpa touching React
+    // Hook untuk downstream FSM gerak karakter (Steward T1.13) dan atmosfer (Warden T1.18):
+    if (this.loadedMap && state.agents) {
+      // Sort entitas dinamis di container entities
+      const entitiesContainer = this.loadedMap.containers.entities;
+      if (entitiesContainer.sortableChildren) {
+        entitiesContainer.sortChildren();
+      }
     }
+  }
+
+  /**
+   * Menggerakkan kamera dengan animasi flight GSAP 1,25 dtk (power2.inOut) ke zona tertentu.
+   */
+  public flyToZone(zoneId: string, onComplete?: () => void): boolean {
+    if (!this.camera || !this.loadedMap) return false;
+    const zone = this.loadedMap.getZone(zoneId);
+    if (!zone) return false;
+    this.camera.flyToZone(zone, onComplete);
+    return true;
+  }
+
+  /**
+   * Mengatur level zoom kamera ke integer 1x, 2x, atau 3x.
+   */
+  public setZoomLevel(level: 1 | 2 | 3): void {
+    if (this.camera) {
+      this.camera.setZoomLevel(level);
+      this.updateCulling();
+    }
+  }
+
+  public getZoomLevel(): number {
+    return this.camera ? this.camera.getZoomLevel() : 1;
   }
 
   public getApp(): Application | null {
@@ -132,17 +259,35 @@ export class WorldApp {
     return this.worldContainer;
   }
 
+  public getCamera(): CameraManager | null {
+    return this.camera;
+  }
+
+  public getViewport(): Viewport | null {
+    return this.camera ? this.camera.getViewport() : null;
+  }
+
+  public getLoadedMap(): LoadedOfficeMap | null {
+    return this.loadedMap;
+  }
+
   public isReady(): boolean {
     return this.isInitialized && this.app !== null;
   }
 
   public destroy(): void {
+    if (this.camera) {
+      this.camera.destroy();
+      this.camera = null;
+    }
     if (this.app) {
       this.app.destroy(true, { children: true, texture: true });
       this.app = null;
     }
     this.worldContainer = null;
+    this.loadedMap = null;
     this.gridGraphics = null;
+    this.spritesheet = null;
     this.isInitialized = false;
   }
 }

@@ -14,7 +14,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'vendor-pixi': ['pixi.js'],
+          'vendor-pixi': ['pixi.js', 'pixi-viewport'],
+          'vendor-gsap': ['gsap'],
           'vendor-react': ['react', 'react-dom', 'zustand'],
         },
       },

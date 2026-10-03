@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useOfficeStore } from '../store/officeStore';
+import { worldApp } from '../world/WorldApp';
 
 export const TopBar: React.FC = () => {
   const connectionStatus = useOfficeStore((s) => s.connectionStatus);
@@ -9,6 +10,20 @@ export const TopBar: React.FC = () => {
 
   // Jam waktu nyata Asia/Jakarta (WIB)
   const [wibTime, setWibTime] = useState<string>('');
+  const [currentZoom, setCurrentZoom] = useState<number>(1);
+
+  const handleZoom = (level: 1 | 2 | 3) => {
+    worldApp.setZoomLevel(level);
+    setCurrentZoom(level);
+  };
+
+  const handleFlight = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const zoneId = e.target.value;
+    if (zoneId) {
+      worldApp.flyToZone(zoneId);
+      e.target.value = '';
+    }
+  };
 
   useEffect(() => {
     const updateTime = () => {
@@ -114,7 +129,7 @@ export const TopBar: React.FC = () => {
         {getConnectionBadge()}
       </div>
 
-      {/* Center: Live WIB Digital Clock & Atmosphere */}
+      {/* Center: Live WIB Digital Clock & Atmosphere + Camera Controls */}
       <div className="flex items-center gap-3 text-xs text-[#9ca8b8]">
         <div className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#1a1c29] border border-[#282d3f]">
           <span className="text-xs">{getAtmosphereLabel()}</span>
@@ -123,6 +138,54 @@ export const TopBar: React.FC = () => {
             {wibTime || '--:--:-- WIB'}
           </time>
         </div>
+
+        {/* Camera Zoom (1x, 2x, 3x) */}
+        <div className="flex items-center rounded bg-[#1a1c29] border border-[#282d3f] p-0.5" role="group" aria-label="Kontrol Zoom Kamera">
+          {([1, 2, 3] as const).map((lvl) => (
+            <button
+              key={lvl}
+              type="button"
+              onClick={() => handleZoom(lvl)}
+              className={`px-2 py-0.5 text-[11px] font-mono rounded transition-colors ${
+                currentZoom === lvl
+                  ? 'bg-[#2bb3c0] text-[#14141e] font-bold shadow-sm'
+                  : 'text-[#9ca8b8] hover:text-[#f5f0e1] hover:bg-[#282d3f]'
+              }`}
+              aria-label={`Skala Zoom ${lvl}x`}
+            >
+              {lvl}x
+            </button>
+          ))}
+        </div>
+
+        {/* Quick Zone Flight */}
+        <select
+          onChange={handleFlight}
+          defaultValue=""
+          className="bg-[#1a1c29] border border-[#282d3f] text-[#9ca8b8] text-[11px] rounded px-2 py-1 outline-none hover:text-[#f5f0e1] focus:border-[#2bb3c0] cursor-pointer"
+          aria-label="Pilih Zona Flight"
+        >
+          <option value="" disabled>
+            ✈️ Terbang ke Zona...
+          </option>
+          <option value="Z01">Z01 Ruang CEO (Jarvis)</option>
+          <option value="Z02">Z02 Boardroom</option>
+          <option value="Z03">Z03 Ruang Arsitektur (Daedalus)</option>
+          <option value="Z04">Z04 Ruang Kelas (Merlin)</option>
+          <option value="Z05">Z05 Perpustakaan (Scribe)</option>
+          <option value="Z06">Z06 Lab Riset (Oracle)</option>
+          <option value="Z07">Z07 Studio Desain (Muse)</option>
+          <option value="Z08">Z08 Dev Pods (Prism/Forge/Nova)</option>
+          <option value="Z09">Z09 Graphics Lab (Steward)</option>
+          <option value="Z10">Z10 QA Station (Sentinel)</option>
+          <option value="Z11">Z11 Release Dock (Relay)</option>
+          <option value="Z12">Z12 Data Center & SOC (Vector/Bastion)</option>
+          <option value="Z13">Z13 Lobi (Warden)</option>
+          <option value="Z14">Z14 Kafetaria & Lounge</option>
+          <option value="Z15">Z15 Arcade</option>
+          <option value="Z16">Z16 Musholla</option>
+          <option value="Z17">Z17 Kolam luar</option>
+        </select>
       </div>
 
       {/* Right: Host Vitals Chip (CPU / RAM / Disk) */}
