@@ -6,6 +6,10 @@ import { TiledMapDoc } from './types';
 import { WORLD_HEIGHT, WORLD_ORIGIN_X, WORLD_ORIGIN_Y, WORLD_WIDTH } from './projection';
 import { CharacterManager } from './CharacterManager';
 import type { Character } from './Character';
+import { Choreographer } from './Choreographer';
+import { GridMap, type RawTiledMap } from '../navigation/GridMap';
+import { AStarPathfinder } from '../navigation/AStarPathfinder';
+import { SlotReservationManager } from '../navigation/SlotReservationManager';
 
 /**
  * WorldApp mengelola satu-satunya instans `PIXI.Application` untuk render dunia isometrik.
@@ -18,6 +22,10 @@ export class WorldApp {
   private worldContainer: Container | null = null;
   private loadedMap: LoadedOfficeMap | null = null;
   private characterManager: CharacterManager | null = null;
+  private choreographer: Choreographer | null = null;
+  private gridMap: GridMap | null = null;
+  private pathfinder: AStarPathfinder | null = null;
+  private slotReservationManager: SlotReservationManager | null = null;
   private gridGraphics: Graphics | null = null;
   private spritesheet: Spritesheet | null = null;
   private isInitialized = false;
@@ -138,6 +146,19 @@ export class WorldApp {
       this.characterManager = new CharacterManager(this.loadedMap);
       this.characterManager.spawnAllAgents();
 
+      // Inisialisasi navigasi dan Choreographer (T1.14: task nyata + ambient + event kolektif)
+      this.gridMap = new GridMap(mapDoc as unknown as RawTiledMap);
+      this.pathfinder = new AStarPathfinder(this.gridMap);
+      this.slotReservationManager = new SlotReservationManager(this.gridMap);
+
+      this.choreographer = new Choreographer({
+        characterManager: this.characterManager,
+        gridMap: this.gridMap,
+        pathfinder: this.pathfinder,
+        slotManager: this.slotReservationManager,
+      });
+      this.choreographer.init();
+
       if (typeof window !== 'undefined') {
         this.characterManager.loadAllCharacterSpritesheets().catch((err) => {
           console.warn('[WorldApp] Gagal memuat spritesheet karakter:', err);
@@ -227,6 +248,11 @@ export class WorldApp {
     // Konversi deltaTime ticker ke detik (standar 60fps = 1/60 detik per delta frame)
     const dtSec = (deltaTime ?? 1.0) / 60;
 
+    // Pembaruan Choreographer (T1.14: task nyata, ambient, event kolektif)
+    if (this.choreographer) {
+      this.choreographer.update(dtSec);
+    }
+
     // Pembaruan FSM gerak dan rendering entitas karakter (T1.13)
     if (this.characterManager) {
       this.characterManager.update(dtSec);
@@ -287,6 +313,22 @@ export class WorldApp {
     return this.characterManager;
   }
 
+  public getChoreographer(): Choreographer | null {
+    return this.choreographer;
+  }
+
+  public getGridMap(): GridMap | null {
+    return this.gridMap;
+  }
+
+  public getPathfinder(): AStarPathfinder | null {
+    return this.pathfinder;
+  }
+
+  public getSlotReservationManager(): SlotReservationManager | null {
+    return this.slotReservationManager;
+  }
+
   public getCharacter(id: string): Character | undefined {
     return this.characterManager?.getCharacter(id);
   }
@@ -300,10 +342,17 @@ export class WorldApp {
       this.camera.destroy();
       this.camera = null;
     }
+    if (this.choreographer) {
+      this.choreographer.destroy();
+      this.choreographer = null;
+    }
     if (this.characterManager) {
       this.characterManager.destroy();
       this.characterManager = null;
     }
+    this.gridMap = null;
+    this.pathfinder = null;
+    this.slotReservationManager = null;
     if (this.app) {
       this.app.destroy(true, { children: true, texture: true });
       this.app = null;
