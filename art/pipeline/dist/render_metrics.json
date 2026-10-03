@@ -1,0 +1,19 @@
+{
+  "character_model": "art/sumber/characters/figure_Casual.glb",
+  "character_times_seconds": {
+    "walk_se": 0.4355771541595459,
+    "idle_se": 0.20199155807495117,
+    "walk_ne": 0.3379056453704834,
+    "idle_ne": 0.2112436294555664
+  },
+  "total_character_time_seconds": 1.1867179870605469,
+  "furniture_times_seconds": {
+    "desk.glb": 0.1083221435546875,
+    "chairDesk.glb": 0.09206175804138184,
+    "computerScreen.glb": 0.09543013572692871
+  },
+  "total_furniture_time_seconds": 0.29581403732299805,
+  "total_render_time_seconds": 1.482532024383545,
+  "samples_per_pixel": 16,
+  "timestamp": "2026-10-03 18:31:51 WIB"
+}
