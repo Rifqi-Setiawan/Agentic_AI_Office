@@ -39,7 +39,7 @@ describe('T0.4 Isometric Sprite Pipeline & Atlas Verification', () => {
     }
   });
 
-  it('validates 32-color master temporary palette', () => {
+  it('validates 32-color master palette and 16 agent signatures', () => {
     expect(fs.existsSync(palettePath)).toBe(true);
     const palette = JSON.parse(fs.readFileSync(palettePath, 'utf-8'));
     expect(palette.colors).toBeDefined();
@@ -50,6 +50,29 @@ describe('T0.4 Isometric Sprite Pipeline & Atlas Verification', () => {
     expect(hexColors).toContain('#6b7785'); // Bastion Signature Slate
     expect(hexColors).toContain('#14141e'); // Outline Charcoal
     expect(hexColors).toContain('#00f0ff'); // Helmet LED Glow
+
+    // Verify all 16 agent signature colors from Spec 03
+    const agentHexes = [
+      '#1f3a68', // Jarvis
+      '#2f6fb3', // Daedalus
+      '#8a4fbf', // Oracle
+      '#b5652b', // Merlin
+      '#e0567a', // Muse
+      '#2bb3c0', // Prism
+      '#d9622b', // Forge
+      '#3fa66b', // Vector
+      '#d23c3c', // Sentinel
+      '#6b7785', // Bastion
+      '#6d5bd0', // Relay
+      '#8e8e3a', // Warden
+      '#9cc23a', // Steward
+      '#7a4a2e', // Scribe
+      '#f2c230', // Nova
+      '#f5f0e1', // Rifqi
+    ];
+    for (const hex of agentHexes) {
+      expect(hexColors).toContain(hex);
+    }
   });
 
   it('records render benchmarks and timing metrics', () => {

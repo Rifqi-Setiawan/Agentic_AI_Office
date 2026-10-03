@@ -3,34 +3,34 @@ Name: Office-v2 Master 32-Color
 Columns: 8
 #
  20  20  30 #14141e Outline Charcoal
- 30  30  46 #1e1e2e Deep Shadow
- 45  55  72 #2d3748 Dark Slate Shadow
- 51  65  85 #334155 Steel Gray Shadow
- 72  82  95 #48525f Bastion Armor Shade
-100 116 139 #64748b Slate Midtone
-107 119 133 #6b7785 Bastion Signature Slate
-142 154 168 #8e9aa8 Bastion Armor Highlight
-148 163 184 #94a3b8 Light Slate
-203 213 225 #cbd5e1 Cool Light Metal
-226 232 240 #e2e8f0 Highlight Metal
-255 255 255 #ffffff Pure White Highlight
- 78  46  24 #4e2e18 Deep Wood Shadow
-135  85  41 #875529 Dark Oak Wood
-199 154  99 #c79a63 Medium Oak Desk
-244 226 199 #f4e2c7 Light Warm Wood
-140  83  56 #8c5338 Skin Shadow
-198 134  90 #c6865a Skin Midtone
-240 181 141 #f0b58d Skin Light
-255 215 181 #ffd7b5 Skin Highlight
-180  83   9 #b45309 Dark Amber Shade
-217 119   6 #d97706 Hazard Amber
-251 191  36 #fbbf24 Warning Yellow
-254 240 138 #fef08a Pale Yellow Glow
-  3 105 161 #0369a1 Deep Cyan Shadow
-  2 132 199 #0284c7 Tactical Cyan Mid
- 56 189 248 #38bdf8 Tactical Cyan Bright
-  0 240 255 #00f0ff Helmet LED Glow
- 16 185 129 #10b981 Terminal Green
-239  68  68 #ef4444 Alert Red
- 99 102 241 #6366f1 Accent Purple
- 15  23  42 #0f172a Dark Monitor Chassis
+ 26  28  41 #1a1c29 Night Void Base
+ 40  45  63 #282d3f Night Floor Mid
+ 71  80 105 #475069 Day Floor Slate
+104 117 148 #687594 Floor Light / Wall Trim
+156 168 184 #9ca8b8 Cool Metal Grey
+209 216 224 #d1d8e0 Highlight Metal
+255 255 255 #ffffff Pure White
+143  83  56 #8f5338 Skin Shadow
+201 133  91 #c9855b Skin Midtone
+242 184 150 #f2b896 Skin Light
+ 74  40  20 #4a2814 Deep Walnut
+162 109  63 #a26d3f Warm Oak Mid
+224 182 120 #e0b678 Honey Wood Light
+  0 240 255 #00f0ff Cyber Cyan Glow
+254 249 195 #fef9c3 Warm Filament Glow
+ 31  58 104 #1f3a68 Jarvis Navy
+ 47 111 179 #2f6fb3 Daedalus Cerulean
+138  79 191 #8a4fbf Oracle Violet
+181 101  43 #b5652b Merlin Ochre
+224  86 122 #e0567a Muse Coral
+ 43 179 192 #2bb3c0 Prism Teal
+217  98  43 #d9622b Forge Terracotta
+ 63 166 107 #3fa66b Vector Emerald
+210  60  60 #d23c3c Sentinel Crimson
+107 119 133 #6b7785 Bastion Slate
+109  91 208 #6d5bd0 Relay Indigo
+142 142  58 #8e8e3a Warden Olive
+156 194  58 #9cc23a Steward Lime
+122  74  46 #7a4a2e Scribe Tweed
+242 194  48 #f2c230 Nova Gold
+245 240 225 #f5f0e1 Rifqi Cream

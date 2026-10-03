@@ -1,39 +1,360 @@
 {
-  "name": "Office-v2 Master Temporary Palette (32 colors)",
-  "version": "0.1.0",
-  "description": "Master 32-color temporary palette for isometric pixel-art spike (Fase 0)",
+  "name": "Office-v2 Master Palette (32 colors)",
+  "version": "1.0.0",
+  "standard": "Spec Blueprint 03 & Task T0.5 (Muse)",
+  "description": "Master 32-color palette for 2.5D dimetric isometric pixel-art rendering, covering all 16 agent identities, structural architecture, skin anatomy, organic wood, and lighting.",
   "colors": [
-    { "index": 0, "name": "Outline Charcoal", "hex": "#14141e", "rgb": [20, 20, 30] },
-    { "index": 1, "name": "Deep Shadow", "hex": "#1e1e2e", "rgb": [30, 30, 46] },
-    { "index": 2, "name": "Dark Slate Shadow", "hex": "#2d3748", "rgb": [45, 55, 72] },
-    { "index": 3, "name": "Steel Gray Shadow", "hex": "#334155", "rgb": [51, 65, 85] },
-    { "index": 4, "name": "Bastion Armor Shade", "hex": "#48525f", "rgb": [72, 82, 95] },
-    { "index": 5, "name": "Slate Midtone", "hex": "#64748b", "rgb": [100, 116, 139] },
-    { "index": 6, "name": "Bastion Signature Slate", "hex": "#6b7785", "rgb": [107, 119, 133] },
-    { "index": 7, "name": "Bastion Armor Highlight", "hex": "#8e9aa8", "rgb": [142, 154, 168] },
-    { "index": 8, "name": "Light Slate", "hex": "#94a3b8", "rgb": [148, 163, 184] },
-    { "index": 9, "name": "Cool Light Metal", "hex": "#cbd5e1", "rgb": [203, 213, 225] },
-    { "index": 10, "name": "Highlight Metal", "hex": "#e2e8f0", "rgb": [226, 232, 240] },
-    { "index": 11, "name": "Pure White Highlight", "hex": "#ffffff", "rgb": [255, 255, 255] },
-    { "index": 12, "name": "Deep Wood Shadow", "hex": "#4e2e18", "rgb": [78, 46, 24] },
-    { "index": 13, "name": "Dark Oak Wood", "hex": "#875529", "rgb": [135, 85, 41] },
-    { "index": 14, "name": "Medium Oak Desk", "hex": "#c79a63", "rgb": [199, 154, 99] },
-    { "index": 15, "name": "Light Warm Wood", "hex": "#f4e2c7", "rgb": [244, 226, 199] },
-    { "index": 16, "name": "Skin Shadow", "hex": "#8c5338", "rgb": [140, 83, 56] },
-    { "index": 17, "name": "Skin Midtone", "hex": "#c6865a", "rgb": [198, 134, 90] },
-    { "index": 18, "name": "Skin Light", "hex": "#f0b58d", "rgb": [240, 181, 141] },
-    { "index": 19, "name": "Skin Highlight", "hex": "#ffd7b5", "rgb": [255, 215, 181] },
-    { "index": 20, "name": "Dark Amber Shade", "hex": "#b45309", "rgb": [180, 83, 9] },
-    { "index": 21, "name": "Hazard Amber", "hex": "#d97706", "rgb": [217, 119, 6] },
-    { "index": 22, "name": "Warning Yellow", "hex": "#fbbf24", "rgb": [251, 191, 36] },
-    { "index": 23, "name": "Pale Yellow Glow", "hex": "#fef08a", "rgb": [254, 240, 138] },
-    { "index": 24, "name": "Deep Cyan Shadow", "hex": "#0369a1", "rgb": [3, 105, 161] },
-    { "index": 25, "name": "Tactical Cyan Mid", "hex": "#0284c7", "rgb": [2, 132, 199] },
-    { "index": 26, "name": "Tactical Cyan Bright", "hex": "#38bdf8", "rgb": [56, 189, 248] },
-    { "index": 27, "name": "Helmet LED Glow", "hex": "#00f0ff", "rgb": [0, 240, 255] },
-    { "index": 28, "name": "Terminal Green", "hex": "#10b981", "rgb": [16, 185, 129] },
-    { "index": 29, "name": "Alert Red", "hex": "#ef4444", "rgb": [239, 68, 68] },
-    { "index": 30, "name": "Accent Purple", "hex": "#6366f1", "rgb": [99, 102, 241] },
-    { "index": 31, "name": "Dark Monitor Chassis", "hex": "#0f172a", "rgb": [15, 23, 42] }
+    {
+      "index": 0,
+      "name": "Outline Charcoal",
+      "hex": "#14141e",
+      "role": "1px outer sprite contour & deepest occlusion shadow",
+      "rgb": [
+        20,
+        20,
+        30
+      ]
+    },
+    {
+      "index": 1,
+      "name": "Night Void Base",
+      "hex": "#1a1c29",
+      "role": "Night mode ambient floor shadow & void",
+      "rgb": [
+        26,
+        28,
+        41
+      ]
+    },
+    {
+      "index": 2,
+      "name": "Night Floor Mid",
+      "hex": "#282d3f",
+      "role": "Night mode floor midtone & structural shadow",
+      "rgb": [
+        40,
+        45,
+        63
+      ]
+    },
+    {
+      "index": 3,
+      "name": "Day Floor Slate",
+      "hex": "#475069",
+      "role": "Day mode primary office slate floor & denim base",
+      "rgb": [
+        71,
+        80,
+        105
+      ]
+    },
+    {
+      "index": 4,
+      "name": "Floor Light / Wall Trim",
+      "hex": "#687594",
+      "role": "Day floor bevel highlight & interior partition base",
+      "rgb": [
+        104,
+        117,
+        148
+      ]
+    },
+    {
+      "index": 5,
+      "name": "Cool Metal Grey",
+      "hex": "#9ca8b8",
+      "role": "Aluminium frames, server chassis & hardware fixtures",
+      "rgb": [
+        156,
+        168,
+        184
+      ]
+    },
+    {
+      "index": 6,
+      "name": "Highlight Metal",
+      "hex": "#d1d8e0",
+      "role": "Whiteboard frame, specular rim & metallic glint",
+      "rgb": [
+        209,
+        216,
+        224
+      ]
+    },
+    {
+      "index": 7,
+      "name": "Pure White",
+      "hex": "#ffffff",
+      "role": "Pure specular glint, lab coat body & text highlight",
+      "rgb": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "index": 8,
+      "name": "Skin Shadow",
+      "hex": "#8f5338",
+      "role": "Auburn hair, skin occlusion & facial shading",
+      "rgb": [
+        143,
+        83,
+        56
+      ]
+    },
+    {
+      "index": 9,
+      "name": "Skin Midtone",
+      "hex": "#c9855b",
+      "role": "Standard warm chibi skin base tone & limbs",
+      "rgb": [
+        201,
+        133,
+        91
+      ]
+    },
+    {
+      "index": 10,
+      "name": "Skin Light",
+      "hex": "#f2b896",
+      "role": "Fair skin highlight & lit facial plane",
+      "rgb": [
+        242,
+        184,
+        150
+      ]
+    },
+    {
+      "index": 11,
+      "name": "Deep Walnut",
+      "hex": "#4a2814",
+      "role": "Dark wood shadow, bookshelf core & executive trim",
+      "rgb": [
+        74,
+        40,
+        20
+      ]
+    },
+    {
+      "index": 12,
+      "name": "Warm Oak Mid",
+      "hex": "#a26d3f",
+      "role": "Desk surface midtone, wooden chairs & mihrab timber",
+      "rgb": [
+        162,
+        109,
+        63
+      ]
+    },
+    {
+      "index": 13,
+      "name": "Honey Wood Light",
+      "hex": "#e0b678",
+      "role": "Wood surface highlight & cafe countertop",
+      "rgb": [
+        224,
+        182,
+        120
+      ]
+    },
+    {
+      "index": 14,
+      "name": "Cyber Cyan Glow",
+      "hex": "#00f0ff",
+      "role": "Bastion helmet LED, screen glow & pool glint",
+      "rgb": [
+        0,
+        240,
+        255
+      ]
+    },
+    {
+      "index": 15,
+      "name": "Warm Filament Glow",
+      "hex": "#fef9c3",
+      "role": "Incandescent desk lamp, ceiling warm glow & window light",
+      "rgb": [
+        254,
+        249,
+        195
+      ]
+    },
+    {
+      "index": 16,
+      "name": "Jarvis Navy",
+      "hex": "#1f3a68",
+      "role": "Agent Jarvis signature (Three-piece navy suit)",
+      "rgb": [
+        31,
+        58,
+        104
+      ]
+    },
+    {
+      "index": 17,
+      "name": "Daedalus Cerulean",
+      "hex": "#2f6fb3",
+      "role": "Agent Daedalus signature (Architect cerulean shirt)",
+      "rgb": [
+        47,
+        111,
+        179
+      ]
+    },
+    {
+      "index": 18,
+      "name": "Oracle Violet",
+      "hex": "#8a4fbf",
+      "role": "Agent Oracle signature (Research lab coat violet accent)",
+      "rgb": [
+        138,
+        79,
+        191
+      ]
+    },
+    {
+      "index": 19,
+      "name": "Merlin Ochre",
+      "hex": "#b5652b",
+      "role": "Agent Merlin signature (Warm ochre cardigan)",
+      "rgb": [
+        181,
+        101,
+        43
+      ]
+    },
+    {
+      "index": 20,
+      "name": "Muse Coral",
+      "hex": "#e0567a",
+      "role": "Agent Muse signature (Design berry coral pink)",
+      "rgb": [
+        224,
+        86,
+        122
+      ]
+    },
+    {
+      "index": 21,
+      "name": "Prism Teal",
+      "hex": "#2bb3c0",
+      "role": "Agent Prism signature (Spectrum teal-cyan stripe)",
+      "rgb": [
+        43,
+        179,
+        192
+      ]
+    },
+    {
+      "index": 22,
+      "name": "Forge Terracotta",
+      "hex": "#d9622b",
+      "role": "Agent Forge signature (Blacksmith terracotta leather apron)",
+      "rgb": [
+        217,
+        98,
+        43
+      ]
+    },
+    {
+      "index": 23,
+      "name": "Vector Emerald",
+      "hex": "#3fa66b",
+      "role": "Agent Vector signature (Field vest data emerald)",
+      "rgb": [
+        63,
+        166,
+        107
+      ]
+    },
+    {
+      "index": 24,
+      "name": "Sentinel Crimson",
+      "hex": "#d23c3c",
+      "role": "Agent Sentinel signature (QA crimson alert visor & stamp)",
+      "rgb": [
+        210,
+        60,
+        60
+      ]
+    },
+    {
+      "index": 25,
+      "name": "Bastion Slate",
+      "hex": "#6b7785",
+      "role": "Agent Bastion signature (SOC tactical armor slate)",
+      "rgb": [
+        107,
+        119,
+        133
+      ]
+    },
+    {
+      "index": 26,
+      "name": "Relay Indigo",
+      "hex": "#6d5bd0",
+      "role": "Agent Relay signature (Courier royal indigo jacket & cap)",
+      "rgb": [
+        109,
+        91,
+        208
+      ]
+    },
+    {
+      "index": 27,
+      "name": "Warden Olive",
+      "hex": "#8e8e3a",
+      "role": "Agent Warden signature (Utility brass olive vest)",
+      "rgb": [
+        142,
+        142,
+        58
+      ]
+    },
+    {
+      "index": 28,
+      "name": "Steward Lime",
+      "hex": "#9cc23a",
+      "role": "Agent Steward signature (Builder chartreuse lime overall)",
+      "rgb": [
+        156,
+        194,
+        58
+      ]
+    },
+    {
+      "index": 29,
+      "name": "Scribe Tweed",
+      "hex": "#7a4a2e",
+      "role": "Agent Scribe signature (Library tweed sepia brown)",
+      "rgb": [
+        122,
+        74,
+        46
+      ]
+    },
+    {
+      "index": 30,
+      "name": "Nova Gold",
+      "hex": "#f2c230",
+      "role": "Agent Nova signature (Varsity star gold & founder crown)",
+      "rgb": [
+        242,
+        194,
+        48
+      ]
+    },
+    {
+      "index": 31,
+      "name": "Rifqi Cream",
+      "hex": "#f5f0e1",
+      "role": "Founder Rifqi signature (Warm cream hoodie & parchment)",
+      "rgb": [
+        245,
+        240,
+        225
+      ]
+    }
   ]
 }

@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Office-v2 Style Guide v0 & Visual Spike Gate [T0.5 - Muse]</title>
+<style>
+  :root {
+    --bg: #090a0f;
+    --surface: #11141e;
+    --surface-card: #161b28;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent: #00f0ff;
+    --accent-glow: rgba(0, 240, 255, 0.15);
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+    line-height: 1.5;
+    padding: 32px 24px;
+    font-size: 14px;
+  }
+  .tabular { font-variant-numeric: tabular-nums; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  .container { max-width: 1280px; margin: 0 auto; }
+  
+  /* Header */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(0, 240, 255, 0.25);
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-top: 8px;
+    color: #fff;
+  }
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  
+  /* Verdict Hero Banner */
+  .verdict-banner {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(17, 20, 30, 0.95) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 36px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+  .verdict-stamp {
+    background: #10b981;
+    color: #042f1a;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 0.08em;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid #34d399;
+  }
+  .verdict-text h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #34d399;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .verdict-text p {
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .verdict-metrics {
+    display: flex;
+    gap: 16px;
+    border-left: 1px solid var(--border);
+    padding-left: 24px;
+  }
+  .metric-item { text-align: center; }
+  .metric-val { font-size: 20px; font-weight: 700; color: #fff; }
+  .metric-lbl { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+
+  /* Sections */
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  /* Palette Grid */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .swatch-card {
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .swatch-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-1px);
+  }
+  .swatch-color {
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  }
+  .swatch-info { flex: 1; min-width: 0; }
+  .swatch-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .swatch-name {
+    font-weight: 700;
+    font-size: 13px;
+    color: #fff;
+  }
+  .swatch-idx {
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+  .swatch-values {
+    display: flex;
+    gap: 8px;
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    margin-top: 3px;
+  }
+  .swatch-role {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  /* Contrast Matrix Table */
+  .table-wrapper {
+    overflow-x: auto;
+    margin-top: 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 12.5px;
+  }
+  th {
+    background: #0d1017;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255, 255, 255, 0.02); }
+  .agent-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .agent-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+  }
+  .ratio-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .ratio-pass { background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
+  .ratio-warn { background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
+  .ratio-low  { background: rgba(239, 68, 68, 0.22); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.45); }
+
+  /* Interactive Floor Simulation */
+  .sim-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .floor-box {
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid var(--border);
+  }
+  .floor-day { background: #475069; color: #f8fafc; }
+  .floor-night { background: #1a1c29; color: #f8fafc; }
+  .floor-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 13px;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 8px;
+  }
+  .sprite-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .mini-sprite-chip {
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.35);
+  }
+
+  /* Outline Rules & Anatomy */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 16px;
+  }
+  .rule-card {
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+  }
+  .rule-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .rule-card ul {
+    list-style: none;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .rule-card li {
+    margin-bottom: 10px;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .rule-card li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* Action Checklist */
+  .checklist {
+    list-style: none;
+    margin-top: 14px;
+  }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .check-badge {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .badge-p0 { background: rgba(239, 68, 68, 0.22); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.45); }
+  .badge-p1 { background: rgba(245, 158, 11, 0.22); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.45); }
+  .badge-p2 { background: rgba(56, 189, 248, 0.22); color: #bae6fd; border: 1px solid rgba(56, 189, 248, 0.45); }
+
+  /* Footer */
+  .footer {
+    margin-top: 48px;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    color: var(--text-muted);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="header">
+    <div>
+      <div class="badge-tag">Design System v0.1 • Gate Visual Spike • Fase 0</div>
+      <h1>Office v2 Master Style Guide & Gate Visual Spike</h1>
+      <p class="subtitle">Spesifikasi Palet 32 Warna, Aturan Outline, Proporsi Karakter Chibi, dan Keputusan Arsitektural T0.4</p>
+    </div>
+    <div style="text-align: right;">
+      <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">PIC Reviewer</div>
+      <div style="font-weight: 700; color: #fff;">Muse (Principal Design Engineer)</div>
+      <div class="tabular" style="font-size: 11px; color: var(--text-secondary);">2026-10-03 • WIB</div>
+    </div>
+  </header>
+
+  <!-- Verdict Banner -->
+  <section class="verdict-banner">
+    <div class="verdict-stamp">GO DENGAN REVISI</div>
+    <div class="verdict-text">
+      <h2>Keputusan Resmi: Lanjut Pipeline Procedural Blender Headless</h2>
+      <p>
+        Pipeline render Blender 4.x headless milik Steward <strong>diterima (GO)</strong> untuk masuk Fase 1 produksi, dengan <strong>daftar revisi konkret</strong> yang wajib diterapkan.
+        Opsi <strong>FALLBACK</strong> (pembelian paket pixel-art komersial) ditolak secara tegas karena tidak mendukung 16 persona unik Hermes, animasi ibadah sholat berjamaah, prop lab orisinal, serta lisensi tertutup.
+      </p>
+    </div>
+    <div class="verdict-metrics tabular">
+      <div class="metric-item">
+        <div class="metric-val">1.48s</div>
+        <div class="metric-lbl">Render Time</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">60 FPS</div>
+        <div class="metric-lbl">PixiJS v8</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-val">32</div>
+        <div class="metric-lbl">Palet Warna</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Master 32-Color Palette Explorer -->
+  <section class="section-card">
+    <div class="section-title">Master Palette (Maks. 32 Warna)</div>
+    <p style="color: var(--text-secondary); font-size: 13px;">
+      Ditetapkan secara matematis untuk mencakup 16 identitas khas agent, warna lantai siang/malam, struktur arsitektur, anatomi kulit karakter, dan aksen pencahayaan.
+    </p>
+    
+    <div class="palette-grid tabular">
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #14141E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Outline Charcoal</span>
+            <span class="swatch-idx">#00</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#14141E</span>
+            <span style="color: var(--text-muted);">RGB(20, 20, 30)</span>
+          </div>
+          <div class="swatch-role">1px outer sprite contour & deepest occlusion shadow</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #1A1C29;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Night Void Base</span>
+            <span class="swatch-idx">#01</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#1A1C29</span>
+            <span style="color: var(--text-muted);">RGB(26, 28, 41)</span>
+          </div>
+          <div class="swatch-role">Night mode ambient floor shadow & void</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #282D3F;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Night Floor Mid</span>
+            <span class="swatch-idx">#02</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#282D3F</span>
+            <span style="color: var(--text-muted);">RGB(40, 45, 63)</span>
+          </div>
+          <div class="swatch-role">Night mode floor midtone & structural shadow</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #475069;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Day Floor Slate</span>
+            <span class="swatch-idx">#03</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#475069</span>
+            <span style="color: var(--text-muted);">RGB(71, 80, 105)</span>
+          </div>
+          <div class="swatch-role">Day mode primary office slate floor & denim base</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #687594;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Floor Light / Wall Trim</span>
+            <span class="swatch-idx">#04</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#687594</span>
+            <span style="color: var(--text-muted);">RGB(104, 117, 148)</span>
+          </div>
+          <div class="swatch-role">Day floor bevel highlight & interior partition base</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #9CA8B8;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Cool Metal Grey</span>
+            <span class="swatch-idx">#05</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#9CA8B8</span>
+            <span style="color: var(--text-muted);">RGB(156, 168, 184)</span>
+          </div>
+          <div class="swatch-role">Aluminium frames, server chassis & hardware fixtures</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #D1D8E0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Highlight Metal</span>
+            <span class="swatch-idx">#06</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#D1D8E0</span>
+            <span style="color: var(--text-muted);">RGB(209, 216, 224)</span>
+          </div>
+          <div class="swatch-role">Whiteboard frame, specular rim & metallic glint</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #FFFFFF;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Pure White</span>
+            <span class="swatch-idx">#07</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#FFFFFF</span>
+            <span style="color: var(--text-muted);">RGB(255, 255, 255)</span>
+          </div>
+          <div class="swatch-role">Pure specular glint, lab coat body & text highlight</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #8F5338;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Skin Shadow</span>
+            <span class="swatch-idx">#08</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#8F5338</span>
+            <span style="color: var(--text-muted);">RGB(143, 83, 56)</span>
+          </div>
+          <div class="swatch-role">Auburn hair, skin occlusion & facial shading</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #C9855B;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Skin Midtone</span>
+            <span class="swatch-idx">#09</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#C9855B</span>
+            <span style="color: var(--text-muted);">RGB(201, 133, 91)</span>
+          </div>
+          <div class="swatch-role">Standard warm chibi skin base tone & limbs</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #F2B896;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Skin Light</span>
+            <span class="swatch-idx">#10</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#F2B896</span>
+            <span style="color: var(--text-muted);">RGB(242, 184, 150)</span>
+          </div>
+          <div class="swatch-role">Fair skin highlight & lit facial plane</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #4A2814;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Deep Walnut</span>
+            <span class="swatch-idx">#11</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#4A2814</span>
+            <span style="color: var(--text-muted);">RGB(74, 40, 20)</span>
+          </div>
+          <div class="swatch-role">Dark wood shadow, bookshelf core & executive trim</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #A26D3F;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Warm Oak Mid</span>
+            <span class="swatch-idx">#12</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#A26D3F</span>
+            <span style="color: var(--text-muted);">RGB(162, 109, 63)</span>
+          </div>
+          <div class="swatch-role">Desk surface midtone, wooden chairs & mihrab timber</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #E0B678;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Honey Wood Light</span>
+            <span class="swatch-idx">#13</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#E0B678</span>
+            <span style="color: var(--text-muted);">RGB(224, 182, 120)</span>
+          </div>
+          <div class="swatch-role">Wood surface highlight & cafe countertop</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #00F0FF;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Cyber Cyan Glow</span>
+            <span class="swatch-idx">#14</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#00F0FF</span>
+            <span style="color: var(--text-muted);">RGB(0, 240, 255)</span>
+          </div>
+          <div class="swatch-role">Bastion helmet LED, screen glow & pool glint</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.08);">
+        <div class="swatch-color" style="background: #FEF9C3;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Warm Filament Glow</span>
+            <span class="swatch-idx">#15</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#FEF9C3</span>
+            <span style="color: var(--text-muted);">RGB(254, 249, 195)</span>
+          </div>
+          <div class="swatch-role">Incandescent desk lamp, ceiling warm glow & window light</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #1F3A68;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Jarvis Navy</span>
+            <span class="swatch-idx">#16</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#1F3A68</span>
+            <span style="color: var(--text-muted);">RGB(31, 58, 104)</span>
+          </div>
+          <div class="swatch-role">Agent Jarvis signature (Three-piece navy suit)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #2F6FB3;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Daedalus Cerulean</span>
+            <span class="swatch-idx">#17</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#2F6FB3</span>
+            <span style="color: var(--text-muted);">RGB(47, 111, 179)</span>
+          </div>
+          <div class="swatch-role">Agent Daedalus signature (Architect cerulean shirt)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #8A4FBF;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Oracle Violet</span>
+            <span class="swatch-idx">#18</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#8A4FBF</span>
+            <span style="color: var(--text-muted);">RGB(138, 79, 191)</span>
+          </div>
+          <div class="swatch-role">Agent Oracle signature (Research lab coat violet accent)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #B5652B;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Merlin Ochre</span>
+            <span class="swatch-idx">#19</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#B5652B</span>
+            <span style="color: var(--text-muted);">RGB(181, 101, 43)</span>
+          </div>
+          <div class="swatch-role">Agent Merlin signature (Warm ochre cardigan)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #E0567A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Muse Coral</span>
+            <span class="swatch-idx">#20</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#E0567A</span>
+            <span style="color: var(--text-muted);">RGB(224, 86, 122)</span>
+          </div>
+          <div class="swatch-role">Agent Muse signature (Design berry coral pink)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #2BB3C0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Prism Teal</span>
+            <span class="swatch-idx">#21</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#2BB3C0</span>
+            <span style="color: var(--text-muted);">RGB(43, 179, 192)</span>
+          </div>
+          <div class="swatch-role">Agent Prism signature (Spectrum teal-cyan stripe)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #D9622B;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Forge Terracotta</span>
+            <span class="swatch-idx">#22</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#D9622B</span>
+            <span style="color: var(--text-muted);">RGB(217, 98, 43)</span>
+          </div>
+          <div class="swatch-role">Agent Forge signature (Blacksmith terracotta leather apron)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #3FA66B;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Vector Emerald</span>
+            <span class="swatch-idx">#23</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#3FA66B</span>
+            <span style="color: var(--text-muted);">RGB(63, 166, 107)</span>
+          </div>
+          <div class="swatch-role">Agent Vector signature (Field vest data emerald)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #D23C3C;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Sentinel Crimson</span>
+            <span class="swatch-idx">#24</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#D23C3C</span>
+            <span style="color: var(--text-muted);">RGB(210, 60, 60)</span>
+          </div>
+          <div class="swatch-role">Agent Sentinel signature (QA crimson alert visor & stamp)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #6B7785;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Bastion Slate</span>
+            <span class="swatch-idx">#25</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#6B7785</span>
+            <span style="color: var(--text-muted);">RGB(107, 119, 133)</span>
+          </div>
+          <div class="swatch-role">Agent Bastion signature (SOC tactical armor slate)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #6D5BD0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Relay Indigo</span>
+            <span class="swatch-idx">#26</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#6D5BD0</span>
+            <span style="color: var(--text-muted);">RGB(109, 91, 208)</span>
+          </div>
+          <div class="swatch-role">Agent Relay signature (Courier royal indigo jacket & cap)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #8E8E3A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Warden Olive</span>
+            <span class="swatch-idx">#27</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#8E8E3A</span>
+            <span style="color: var(--text-muted);">RGB(142, 142, 58)</span>
+          </div>
+          <div class="swatch-role">Agent Warden signature (Utility brass olive vest)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #9CC23A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Steward Lime</span>
+            <span class="swatch-idx">#28</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#9CC23A</span>
+            <span style="color: var(--text-muted);">RGB(156, 194, 58)</span>
+          </div>
+          <div class="swatch-role">Agent Steward signature (Builder chartreuse lime overall)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #7A4A2E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Scribe Tweed</span>
+            <span class="swatch-idx">#29</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#7A4A2E</span>
+            <span style="color: var(--text-muted);">RGB(122, 74, 46)</span>
+          </div>
+          <div class="swatch-role">Agent Scribe signature (Library tweed sepia brown)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #F2C230;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Nova Gold</span>
+            <span class="swatch-idx">#30</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#F2C230</span>
+            <span style="color: var(--text-muted);">RGB(242, 194, 48)</span>
+          </div>
+          <div class="swatch-role">Agent Nova signature (Varsity star gold & founder crown)</div>
+        </div>
+      </div>
+
+      <div class="swatch-card" style="border-color: rgba(255,255,255,0.22);">
+        <div class="swatch-color" style="background: #F5F0E1;"></div>
+        <div class="swatch-info">
+          <div class="swatch-header">
+            <span class="swatch-name">Rifqi Cream</span>
+            <span class="swatch-idx">#31</span>
+          </div>
+          <div class="swatch-values">
+            <span style="color: #fff; font-weight: 600;">#F5F0E1</span>
+            <span style="color: var(--text-muted);">RGB(245, 240, 225)</span>
+          </div>
+          <div class="swatch-role">Founder Rifqi signature (Warm cream hoodie & parchment)</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 16 Agent Contrast Matrix -->
+  <section class="section-card">
+    <div class="section-title">16 Warna Khas Agent & Matriks Kontras Lantai</div>
+    <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 16px;">
+      Pemeriksaan kontras luminansi relatif terhadap Lantai Mode Siang (<code style="color: #fff;">#475069</code>) dan Lantai Mode Malam (<code style="color: #fff;">#1A1C29</code>).
+      Agent dengan rasio di bawah 2.0:1 wajib menggunakan aturan mitigasi visual (sel-out rim highlight dan drop shadow).
+    </p>
+
+    <div class="table-wrapper tabular">
+      <table>
+        <thead>
+          <tr>
+            <th>Agent & Identitas</th>
+            <th>Base Rig</th>
+            <th>Warna Khas</th>
+            <th>Zona Rumah</th>
+            <th>Kontras Siang (#475069)</th>
+            <th>Kontras Malam (#1A1C29)</th>
+            <th>Status Visual & Mitigasi</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #1F3A68;"></div>
+                <div>
+                  <div style="color: #fff;">Jarvis</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Jas navy 3-potong, dasi emas tipis, earpiece</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base A</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#1F3A68</span></td>
+            <td><span style="color: var(--text-secondary);">Ruang CEO</span></td>
+            <td><span class="ratio-badge ratio-low">1.41:1</span></td>
+            <td><span class="ratio-badge ratio-low">1.50:1</span></td>
+            <td><span style="color: #fca5a5; font-weight: 600;">Kritis: Wajib Rim Light + Karpet CEO (#E0B678)</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #2F6FB3;"></div>
+                <div>
+                  <div style="color: #fff;">Daedalus</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Kemeja lengan digulung, syal arsitek, tabung blueprint</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base B</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#2F6FB3</span></td>
+            <td><span style="color: var(--text-secondary);">Ruang Arsitektur</span></td>
+            <td><span class="ratio-badge ratio-low">1.54:1</span></td>
+            <td><span class="ratio-badge ratio-pass">3.26:1</span></td>
+            <td><span style="color: #fde68a; font-weight: 600;">Perhatian: Wajib Sel-Out Rim Light pada Lantai Siang</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #8A4FBF;"></div>
+                <div>
+                  <div style="color: #fff;">Oracle</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Jas lab putih aksen ungu, goggles bulat di dahi, saku tabung</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base A</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#8A4FBF</span></td>
+            <td><span style="color: var(--text-secondary);">Lab Riset</span></td>
+            <td><span class="ratio-badge ratio-low">1.51:1</span></td>
+            <td><span class="ratio-badge ratio-pass">3.18:1</span></td>
+            <td><span style="color: #fde68a; font-weight: 600;">Perhatian: Wajib Sel-Out Rim Light pada Lantai Siang</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #B5652B;"></div>
+                <div>
+                  <div style="color: #fff;">Merlin</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Kardigan warm ochre, syal motif bintang, kacamata bulat</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base A</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#B5652B</span></td>
+            <td><span style="color: var(--text-secondary);">Ruang Kelas</span></td>
+            <td><span class="ratio-badge ratio-low">1.86:1</span></td>
+            <td><span class="ratio-badge ratio-pass">3.91:1</span></td>
+            <td><span style="color: #fde68a; font-weight: 600;">Perhatian: Wajib Sel-Out Rim Light pada Lantai Siang</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #E0567A;"></div>
+                <div>
+                  <div style="color: #fff;">Muse</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Overall denim noda cat, stylus di telinga, anting swatch</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base B</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#E0567A</span></td>
+            <td><span style="color: var(--text-secondary);">Studio Desain</span></td>
+            <td><span class="ratio-badge ratio-warn">2.21:1</span></td>
+            <td><span class="ratio-badge ratio-pass">4.65:1</span></td>
+            <td><span style="color: #34d399; font-weight: 600;">Lolos Kontras Tinggi (High Separation)</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #2BB3C0;"></div>
+                <div>
+                  <div style="color: #fff;">Prism</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Hoodie gelap spektrum lengan, headphone besar</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base A</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#2BB3C0</span></td>
+            <td><span style="color: var(--text-secondary);">Dev Pod 1</span></td>
+            <td><span class="ratio-badge ratio-pass">3.17:1</span></td>
+            <td><span class="ratio-badge ratio-pass">6.69:1</span></td>
+            <td><span style="color: #34d399; font-weight: 600;">Lolos Kontras Tinggi (High Separation)</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #D9622B;"></div>
+                <div>
+                  <div style="color: #fff;">Forge</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Celemek kulit pandai besi, sarung tangan tebal, goggle las</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base C</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#D9622B</span></td>
+            <td><span style="color: var(--text-secondary);">Dev Pod 2</span></td>
+            <td><span class="ratio-badge ratio-warn">2.19:1</span></td>
+            <td><span class="ratio-badge ratio-pass">4.62:1</span></td>
+            <td><span style="color: #34d399; font-weight: 600;">Lolos Kontras Tinggi (High Separation)</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #3FA66B;"></div>
+                <div>
+                  <div style="color: #fff;">Vector</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Rompi lapangan motif panah, topi, gulungan kabel bahu</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base B</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#3FA66B</span></td>
+            <td><span style="color: var(--text-secondary);">Data Center</span></td>
+            <td><span class="ratio-badge ratio-warn">2.63:1</span></td>
+            <td><span class="ratio-badge ratio-pass">5.54:1</span></td>
+            <td><span style="color: #34d399; font-weight: 600;">Lolos Kontras Tinggi (High Separation)</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #D23C3C;"></div>
+                <div>
+                  <div style="color: #fff;">Sentinel</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Mantel panjang abu gelap, visor merah crimson</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base A</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#D23C3C</span></td>
+            <td><span style="color: var(--text-secondary);">QA Station</span></td>
+            <td><span class="ratio-badge ratio-low">1.70:1</span></td>
+            <td><span class="ratio-badge ratio-pass">3.58:1</span></td>
+            <td><span style="color: #fde68a; font-weight: 600;">Perhatian: Wajib Sel-Out Rim Light pada Lantai Siang</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #6B7785;"></div>
+                <div>
+                  <div style="color: #fff;">Bastion</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Helm taktis berlampu cyan, rompi armor, perisai kecil</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base C</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#6B7785</span></td>
+            <td><span style="color: var(--text-secondary);">SOC</span></td>
+            <td><span class="ratio-badge ratio-low">1.76:1</span></td>
+            <td><span class="ratio-badge ratio-pass">3.71:1</span></td>
+            <td><span style="color: #fde68a; font-weight: 600;">Perhatian: Wajib Sel-Out Rim Light pada Lantai Siang</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #6D5BD0;"></div>
+                <div>
+                  <div style="color: #fff;">Relay</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Jaket kurir royal indigo, topi kurir, tas selempang</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base A</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#6D5BD0</span></td>
+            <td><span style="color: var(--text-secondary);">Release Dock</span></td>
+            <td><span class="ratio-badge ratio-low">1.55:1</span></td>
+            <td><span class="ratio-badge ratio-pass">3.27:1</span></td>
+            <td><span style="color: #fde68a; font-weight: 600;">Perhatian: Wajib Sel-Out Rim Light pada Lantai Siang</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #8E8E3A;"></div>
+                <div>
+                  <div style="color: #fff;">Warden</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Rompi utilitas kantong, sabuk alat, gantungan kunci besar</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base A</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#8E8E3A</span></td>
+            <td><span style="color: var(--text-secondary);">Lobi</span></td>
+            <td><span class="ratio-badge ratio-warn">2.32:1</span></td>
+            <td><span class="ratio-badge ratio-pass">4.90:1</span></td>
+            <td><span style="color: #34d399; font-weight: 600;">Lolos Kontras Tinggi (High Separation)</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #9CC23A;"></div>
+                <div>
+                  <div style="color: #fff;">Steward</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Overall pekerja chartreuse lime, kacamata VR, sabuk tile</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base A</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#9CC23A</span></td>
+            <td><span style="color: var(--text-secondary);">Graphics Lab</span></td>
+            <td><span class="ratio-badge ratio-pass">3.89:1</span></td>
+            <td><span class="ratio-badge ratio-pass">8.21:1</span></td>
+            <td><span style="color: #34d399; font-weight: 600;">Lolos Kontras Tinggi (High Separation)</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #7A4A2E;"></div>
+                <div>
+                  <div style="color: #fff;">Scribe</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Kerudung, blazer tweed sepia, kacamata berantai</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base B</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#7A4A2E</span></td>
+            <td><span style="color: var(--text-secondary);">Perpustakaan</span></td>
+            <td><span class="ratio-badge ratio-low">1.09:1</span></td>
+            <td><span class="ratio-badge ratio-warn">2.29:1</span></td>
+            <td><span style="color: #fde68a; font-weight: 600;">Perhatian: Wajib Sel-Out Rim Light pada Lantai Siang</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #F2C230;"></div>
+                <div>
+                  <div style="color: #fff;">Nova</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Jaket varsity star gold, jepit rambut bintang, kets putih</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base B</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#F2C230</span></td>
+            <td><span style="color: var(--text-secondary);">Dev Pod 3</span></td>
+            <td><span class="ratio-badge ratio-pass">4.79:1</span></td>
+            <td><span class="ratio-badge ratio-pass">10.09:1</span></td>
+            <td><span style="color: #34d399; font-weight: 600;">Lolos Kontras Tinggi (High Separation)</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="agent-cell">
+                <div class="agent-dot" style="background: #F5F0E1;"></div>
+                <div>
+                  <div style="color: #fff;">Rifqi</div>
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">Hoodie warm cream, celana cargo, earphone, mahkota emas</div>
+                </div>
+              </div>
+            </td>
+            <td><span style="color: var(--text-secondary);">Base A</span></td>
+            <td><span style="color: #fff; font-weight: 600;">#F5F0E1</span></td>
+            <td><span style="color: var(--text-secondary);">Bebas</span></td>
+            <td><span class="ratio-badge ratio-pass">7.04:1</span></td>
+            <td><span class="ratio-badge ratio-pass">14.84:1</span></td>
+            <td><span style="color: #34d399; font-weight: 600;">Lolos Kontras Tinggi (High Separation)</span></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Interactive Floor Visual Simulation -->
+  <section class="section-card">
+    <div class="section-title">Simulasi Kontras Visual: Siang vs Malam</div>
+    <div class="sim-container">
+      
+      <!-- Day Floor Simulation -->
+      <div class="floor-box floor-day">
+        <div class="floor-header">
+          <span>MODE SIANG (05.00–15.00 WIB) • Lantai #475069</span>
+          <span class="tabular">Cahaya Hangat Netral</span>
+        </div>
+        <p style="font-size: 12px; opacity: 0.9; margin-bottom: 14px;">
+          Karakter terang (Nova, Rifqi, Steward, Prism) kontras tinggi. Karakter gelap (Jarvis, Scribe) membutuhkan outline charcoal 1px + kerah kemeja putih / dasi emas sebagai titik tumpu kontras.
+        </p>
+        <div class="sprite-row tabular">
+
+          <div class="mini-sprite-chip" style="background: #1F3A68; color: #ffffff; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Jarvis</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #2F6FB3; color: #ffffff; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Daedalus</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #8A4FBF; color: #ffffff; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Oracle</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #B5652B; color: #ffffff; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Merlin</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #E0567A; color: #ffffff; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Muse</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #2BB3C0; color: #11141e; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Prism</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #D9622B; color: #ffffff; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Forge</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #3FA66B; color: #11141e; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Vector</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #D23C3C; color: #ffffff; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Sentinel</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #6B7785; color: #ffffff; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Bastion</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #6D5BD0; color: #ffffff; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Relay</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #8E8E3A; color: #11141e; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Warden</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #9CC23A; color: #11141e; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Steward</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #7A4A2E; color: #ffffff; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Scribe</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #F2C230; color: #11141e; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Nova</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #F5F0E1; color: #11141e; border: 1px solid #14141e; box-shadow: 0 4px 6px rgba(10,12,20,0.4);">
+            <span>Rifqi</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Night Floor Simulation -->
+      <div class="floor-box floor-night">
+        <div class="floor-header">
+          <span>MODE MALAM (18.00–05.00 WIB) • Lantai #1A1C29</span>
+          <span class="tabular">Tint Biru Tua + Sprite Additive</span>
+        </div>
+        <p style="font-size: 12px; opacity: 0.9; margin-bottom: 14px;">
+          Karakter memantulkan cahaya monitor dan lampu neon arcade. Bastion mengaktifkan LED cyan (#00F0FF). Jarvis berada di Ruang CEO beralas karpet hangat dengan 6 monitor menyala.
+        </p>
+        <div class="sprite-row tabular">
+
+          <div class="mini-sprite-chip" style="background: #1F3A68; color: #ffffff; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Jarvis</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #2F6FB3; color: #ffffff; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Daedalus</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #8A4FBF; color: #ffffff; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Oracle</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #B5652B; color: #ffffff; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Merlin</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #E0567A; color: #ffffff; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Muse</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #2BB3C0; color: #11141e; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Prism</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #D9622B; color: #ffffff; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Forge</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #3FA66B; color: #11141e; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Vector</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #D23C3C; color: #ffffff; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Sentinel</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #6B7785; color: #ffffff; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Bastion</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #6D5BD0; color: #ffffff; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Relay</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #8E8E3A; color: #11141e; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Warden</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #9CC23A; color: #11141e; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Steward</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #7A4A2E; color: #ffffff; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Scribe</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #F2C230; color: #11141e; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Nova</span>
+          </div>
+
+          <div class="mini-sprite-chip" style="background: #F5F0E1; color: #11141e; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 0 8px rgba(0,240,255,0.25);">
+            <span>Rifqi</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Outline Rules & Anatomy -->
+  <section class="section-card">
+    <div class="section-title">Aturan Outline, Rendering & Proporsi Karakter</div>
+    <div class="rules-grid">
+      
+      <div class="rule-card">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent);"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>
+          Aturan Outline & Sel-Out (Anti-Blur)
+        </h3>
+        <ul>
+          <li><strong>Garis Luar 1px Charcoal (#14141E):</strong> Wajib mengelilingi seluruh siluet luar karakter dan furnitur untuk memisahkan objek dari lantai.</li>
+          <li><strong>Selective Outlining (Sel-Out):</strong> Pada faset yang menghadap cahaya kunci (atas & barat laut), garis tepi menggunakan shade highlight (#687594 / #9CA8B8 / warna lokal cerah) alih-alih hitam pekat.</li>
+          <li><strong>Zero Dithering Kasar:</strong> Karakter tinggi 48px dilarang menggunakan dithering papan catur (checkerboard) karena menimbulkan noise visual saat animasi berjalan. Gunakan tonal ramp solid 3-step.</li>
+          <li><strong>Drop Shadow Isometrik:</strong> Setiap karakter wajib memiliki elips bayangan di lantai (24×12 px, rasio 2:1, warna <code>rgba(10, 12, 20, 0.40)</code>) agar tidak tampak melayang.</li>
+        </ul>
+      </div>
+
+      <div class="rule-card">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent);"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Proporsi Karakter Chibi & Bounding Box
+        </h3>
+        <ul>
+          <li><strong>Tinggi Karakter Standar:</strong> Tepat 48 px pada skala 1x (rentang 46–50 px tergantung hiasan kepala/helm).</li>
+          <li><strong>Proporsi Chibi:</strong> Skala tulang kepala 1.6×, panjang kaki dipendekkan ~30% dari rig Quaternius standar untuk estetika pixel-art retro yang menggemaskan namun tegas.</li>
+          <li><strong>Canvas Sprite Sheet:</strong> 48×64 px per frame dengan titik jangkar (anchor point) tepat di tengah bawah (bottom-center) <code>[0.5, 1.0]</code>.</li>
+          <li><strong>Tile Footprint:</strong> 64×32 px (rasio dimetrik 2:1 isometrik, rotasi kamera Blender X=60°, Z=45°).</li>
+          <li><strong>Integer Scaling:</strong> Wajib dirender dengan nearest-neighbor interpolation pada 1x, 2x (spec default), 3x, dan 4x. Bebas artefak bilinear blur.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Concrete Actionable Checklist for Steward -->
+  <section class="section-card">
+    <div class="section-title">Daftar Revisi Konkret untuk Fase 1 (T1.6 & T1.7)</div>
+    <ul class="checklist">
+      <li class="check-item">
+        <span class="check-badge badge-p0">P0 Wajib</span>
+        <div>
+          <strong style="color: #fff;">Implementasikan Palet Master 32 Warna Final ke Skrip Render</strong>
+          <p style="color: var(--text-secondary); margin-top: 2px;">Ganti file <code>art/pipeline/palette.json</code> dan <code>palette.gpl</code> sementara dengan palet master 32 warna yang mencakup ke-16 warna khas agent.</p>
+        </div>
+      </li>
+      <li class="check-item">
+        <span class="check-badge badge-p0">P0 Wajib</span>
+        <div>
+          <strong style="color: #fff;">Tambahkan Rim-Light Pass pada Faset Kunci Karakter Gelap</strong>
+          <p style="color: var(--text-secondary); margin-top: 2px;">Untuk Jarvis (#1F3A68), Scribe (#7A4A2E), dan Bastion (#6B7785), tambahkan pencahayaan tepi (rim lighting) atas-kiri dengan shade #9CA8B8 agar siluet tidak tenggelam di lantai slate.</p>
+        </div>
+      </li>
+      <li class="check-item">
+        <span class="check-badge badge-p1">P1 High</span>
+        <div>
+          <strong style="color: #fff;">Pertegas Detail Wajah / Visor (Cluster 2-3 Pixel)</strong>
+          <p style="color: var(--text-secondary); margin-top: 2px;">Hindari helm/kepala polos tanpa fitur (seperti bola telur pada spike T0.4). Buat cluster pixel mata/kacamata/visor 2px agar karakter memiliki ekspresi wajah hidup saat idle.</p>
+        </div>
+      </li>
+      <li class="check-item">
+        <span class="check-badge badge-p1">P1 High</span>
+        <div>
+          <strong style="color: #fff;">Terapkan Elliptical Ground Contact Shadow di Engine PixiJS</strong>
+          <p style="color: var(--text-secondary); margin-top: 2px;">Tambahkan sprite bayangan elips 24×12 px di bawah kaki karakter di layer z-index bawah karakter dan atas lantai.</p>
+        </div>
+      </li>
+      <li class="check-item">
+        <span class="check-badge badge-p2">P2 Medium</span>
+        <div>
+          <strong style="color: #fff;">Desain Lantai Zona Khusus Berkontras Tinggi</strong>
+          <p style="color: var(--text-secondary); margin-top: 2px;">Pastikan Ruang CEO Jarvis beralas karpet krem/kayu hangat (#E0B678), Musholla karpet hijau (#3FA66B), dan Perpustakaan kayu oak (#A26D3F) sesuai Spec Bagian 4.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div>Agentic AI Office v2 • Anti-AI-Slop Architecture • Verified by Muse (Principal UI/UX & Design Engineer)</div>
+    <div class="tabular">Repository: Agentic_AI_Office • Branch: office-v2</div>
+  </footer>
+
+</div>
+</body>
+</html>
