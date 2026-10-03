@@ -51,14 +51,14 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
   // Room Camera Targets
   const ROOM_TARGETS: Record<string, { lookAt: [number, number, number]; zoom: number; label: string; icon: string; agentRoles?: string[] }> = {
     'all': { lookAt: [0, 0, 0], zoom: 1.0, label: 'Semua Ruangan (Penthouse Overview)', icon: '🏢' },
-    'boss': { lookAt: [9.0, 1.4, -6.5], zoom: 2.1, label: 'Ruang Bos (Executive Suite)', icon: '👑', agentRoles: ['vps-boss', 'vps-assistant'] },
-    'meeting': { lookAt: [0.0, 1.4, -6.5], zoom: 2.0, label: 'Ruang Rapat Kaca (Boardroom)', icon: '🤝', agentRoles: ['tech-mentor', 'chief-architect'] },
-    'swe': { lookAt: [-2.0, 0.5, 3.0], zoom: 1.9, label: 'Software Engineering Pods', icon: '💻', agentRoles: ['swe-backend', 'swe-frontend', 'swe-qa', 'ui-designer'] },
-    'senku': { lookAt: [-10.0, 0.5, 0.5], zoom: 2.0, label: 'Laboratorium & Perpustakaan Senku', icon: '🧪', agentRoles: ['senku', 'paperwright'] },
-    'data': { lookAt: [5.0, 0.5, 7.5], zoom: 2.0, label: 'Data Center & Lakehouse Server', icon: '🗄️', agentRoles: ['data-engineer', 'devops-engineer'] },
-    'musholla': { lookAt: [-11.0, -0.5, 7.0], zoom: 1.85, label: 'Musholla Khusus (Lower Level)', icon: '🕌', agentRoles: ['dimas-musholla'] },
-    'pool': { lookAt: [11.0, 0.0, 6.0], zoom: 1.85, label: 'Rooftop Terrace & Kolam Renang', icon: '🏊', agentRoles: ['rifqi'] },
-    'arcade': { lookAt: [-8.0, 1.4, -6.5], zoom: 2.0, label: 'Arcade & Game Lounge', icon: '🕹️' },
+    'boss': { lookAt: [9.0, 1.4, -6.5], zoom: 2.85, label: 'Ruang Bos (Executive Suite)', icon: '👑', agentRoles: ['vps-boss', 'vps-assistant'] },
+    'meeting': { lookAt: [0.0, 1.4, -6.5], zoom: 2.85, label: 'Ruang Rapat Kaca (Boardroom)', icon: '🤝', agentRoles: ['tech-mentor', 'chief-architect'] },
+    'swe': { lookAt: [-2.0, 0.5, 3.0], zoom: 2.7, label: 'Software Engineering Pods', icon: '💻', agentRoles: ['swe-backend', 'swe-frontend', 'swe-qa', 'ui-designer'] },
+    'senku': { lookAt: [-10.0, 0.5, 0.5], zoom: 2.85, label: 'Laboratorium & Perpustakaan Senku', icon: '🧪', agentRoles: ['senku', 'paperwright'] },
+    'data': { lookAt: [5.0, 0.5, 7.5], zoom: 2.85, label: 'Data Center & Lakehouse Server', icon: '🗄️', agentRoles: ['data-engineer', 'devops-engineer'] },
+    'musholla': { lookAt: [-11.0, -0.5, 7.0], zoom: 2.65, label: 'Musholla Khusus (Lower Level)', icon: '🕌', agentRoles: ['dimas-musholla'] },
+    'pool': { lookAt: [11.0, 0.0, 6.0], zoom: 2.65, label: 'Rooftop Terrace & Kolam Renang', icon: '🏊', agentRoles: ['rifqi'] },
+    'arcade': { lookAt: [-8.0, 1.4, -6.5], zoom: 2.85, label: 'Arcade & Game Lounge', icon: '🕹️' },
   }
 
   const focusRoom = useCallback((roomId: string) => {
@@ -272,6 +272,8 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
     const scene = new THREE.Scene()
     scene.background = new THREE.Color(0x0e1117)
     sceneRef.current = scene
+    ;(window as any).__scene = scene
+    ;(window as any).__camera = cameraRef
 
     // 2. Orthographic Camera (True Isometric)
     const aspect = width / height
@@ -797,17 +799,22 @@ export const ThreeOfficeCanvas: React.FC<ThreeOfficeCanvasProps> = ({ onBackToCl
             className="inspector-focus-btn"
             onClick={() => {
               if (cameraRef.current) {
+                const mesh = agentMeshesRef.current.get(inspectedAgent.id)
+                const targetX = mesh ? mesh.position.x : inspectedAgent.position.x
+                const targetY = mesh ? mesh.position.y : inspectedAgent.position.y
+                const targetZ = mesh ? mesh.position.z : inspectedAgent.position.z
+
                 gsap.killTweensOf(targetLookAtRef.current)
                 gsap.killTweensOf(cameraRef.current)
                 gsap.to(targetLookAtRef.current, {
-                  x: inspectedAgent.position.x,
-                  y: inspectedAgent.position.y + 0.5,
-                  z: inspectedAgent.position.z,
+                  x: targetX,
+                  y: targetY + 0.35,
+                  z: targetZ,
                   duration: 1.25,
                   ease: 'power2.inOut',
                 })
                 gsap.to(cameraRef.current, {
-                  zoom: 2.3,
+                  zoom: 3.1,
                   duration: 1.25,
                   ease: 'power2.inOut',
                   onUpdate: () => {

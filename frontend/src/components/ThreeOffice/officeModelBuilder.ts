@@ -134,7 +134,29 @@ export async function buildArchitecturalOfficeGLTF(): Promise<OfficeSceneBundle>
   floorCenter.receiveShadow = true
   root.add(floorCenter)
 
-  // 3. Sunken Musholla Architectural Retaining Walls
+  // 3. East Floor (Pool Deck surrounding the basin)
+  // North pool deck
+  const deckN = new THREE.Mesh(new THREE.BoxGeometry(10, 0.4, 2), matParquet)
+  deckN.position.set(11.0, -0.2, 1.0)
+  deckN.receiveShadow = true
+
+  // South pool deck
+  const deckS = new THREE.Mesh(new THREE.BoxGeometry(10, 0.4, 2), matParquet)
+  deckS.position.set(11.0, -0.2, 11.0)
+  deckS.receiveShadow = true
+
+  // East pool rim
+  const deckE = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.4, 8), matParquet)
+  deckE.position.set(15.25, -0.2, 6.0)
+  deckE.receiveShadow = true
+
+  // West pool rim (adjacent to Data Center corridor)
+  const deckW = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.4, 8), matParquet)
+  deckW.position.set(6.75, -0.2, 6.0)
+  deckW.receiveShadow = true
+  root.add(deckN, deckS, deckE, deckW)
+
+  // 4. Sunken Musholla Architectural Retaining Walls
   const matCurb = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.25 })
   const curbEast = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.8, 10), matCurb)
   curbEast.position.set(-5.85, -0.4, 7.0)
@@ -198,22 +220,15 @@ export async function buildArchitecturalOfficeGLTF(): Promise<OfficeSceneBundle>
     root.add(p)
   }
 
-  // Level D: Rooftop Terrace & Swimming Pool Deck
-  const poolDeckGeo = new THREE.BoxGeometry(10, 0.4, 12)
-  const poolDeck = new THREE.Mesh(poolDeckGeo, matParquet)
-  poolDeck.position.set(11, -0.2, 6)
-  poolDeck.receiveShadow = true
-  root.add(poolDeck)
-
-  // Pool Basin
+  // Level D: Rooftop Terrace & Swimming Pool Basin
   const poolOuterGeo = new THREE.BoxGeometry(7, 0.9, 8)
   const poolBasin = new THREE.Mesh(poolOuterGeo, matMarbleWhite)
   poolBasin.position.set(11, -0.5, 6)
   root.add(poolBasin)
 
-  const poolWaterGeo = new THREE.BoxGeometry(6.2, 0.7, 7.2)
+  const poolWaterGeo = new THREE.BoxGeometry(6.4, 0.7, 7.4)
   const poolWater = new THREE.Mesh(poolWaterGeo, matWaterTurquoise)
-  poolWater.position.set(11, -0.35, 6)
+  poolWater.position.set(11, -0.15, 6)
   root.add(poolWater)
 
   // Chrome Pool Ladder
