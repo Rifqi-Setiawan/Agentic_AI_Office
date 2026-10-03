@@ -198,7 +198,7 @@ export interface components {
              * @example working
              * @enum {string}
              */
-            work: "idle" | "working" | "blocked" | "stale" | "failed" | "done_recent";
+            work: "idle" | "working" | "blocked" | "stale" | "failed" | "done_recent" | "off_duty";
             /**
              * @description Unix timestamp detik saat status kerja saat ini dimulai.
              * @example 1791028303

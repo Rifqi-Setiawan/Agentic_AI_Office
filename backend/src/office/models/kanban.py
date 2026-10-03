@@ -39,3 +39,21 @@ class TaskRow(BaseModel):
     result: str | None = None
     last_failure_error: str | None = None
     extra: dict[str, Any] = Field(default_factory=dict)
+
+
+class TaskRef(BaseModel):
+    """Referensi tugas Kanban yang sedang atau baru saja dikerjakan agen."""
+
+    id: str
+    title: str
+    board: str
+    status: str
+    block_kind: str | None = None
+    started_at: int | None = None
+    body: str | None = None
+    summary: str | None = None
+    result: str | None = None
+    error: str | None = None
+    workspace_path: str | None = None
+    branch_name: str | None = None
+    worker_pid: int | None = None

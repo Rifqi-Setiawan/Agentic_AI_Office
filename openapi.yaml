@@ -404,7 +404,7 @@ components:
         work:
           type: string
           description: Status eksekusi kerja agen yang menentukan animasi dan penanda visual.
-          enum: [idle, working, blocked, stale, failed, done_recent]
+          enum: [idle, working, blocked, stale, failed, done_recent, off_duty]
           example: working
         since:
           type: integer
