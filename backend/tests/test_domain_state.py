@@ -715,4 +715,3 @@ class TestKanbanReaderStateEngineIntegration:
             assert len(engine.agents) >= 16
         finally:
             reader.close()
-
