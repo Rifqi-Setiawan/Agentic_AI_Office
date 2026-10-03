@@ -209,6 +209,35 @@ class StateEngine:
     def set_active_collective(self, collective: CollectiveEventState | None) -> None:
         self._active_collective = collective
 
+    @property
+    def active_collective(self) -> CollectiveEventState | None:
+        return self.get_active_collective()
+
+    def get_active_collective(self, current_time: int | None = None) -> CollectiveEventState | None:
+        """Mengambil event kolektif yang sedang aktif.
+
+        Jika waktu telah melampaui expires_at, event ditandai selesai secara otomatis
+        dan dicatat ke dalam ring buffer.
+        """
+        now_ts = int(time.time()) if current_time is None else current_time
+        if self._active_collective is not None:
+            if now_ts >= self._active_collective.expires_at:
+                exp_coll = self._active_collective
+                self._active_collective = None
+                seq = self.ring_buffer.next_seq()
+                end_ev = OfficeEvent(
+                    seq=seq,
+                    ts=now_ts,
+                    board="office-v2",
+                    kind="collective_ended",
+                    agent=None,
+                    actor="founder",
+                    message=f"Acara kolektif {exp_coll.title} selesai",
+                    task=None,
+                )
+                self.ring_buffer.append(end_ev)
+        return self._active_collective
+
     def ensure_agent(self, agent_id: str, now_ts: int) -> AgentState:
         """Memastikan agent terdaftar di state engine, membuat agent tamu jika belum ada."""
         aid = agent_id.lower().strip()
@@ -665,6 +694,10 @@ class StateEngine:
         """Menghasilkan WorldSnapshot terkini untuk klien REST / SSE sesuai proyeksi."""
         now_ts = int(time.time()) if current_time is None else current_time
         tod = get_wib_time_of_day(now_ts)
+
+        # Evaluasi event kolektif aktif (akan memancarkan collective_ended jika kedaluwarsa)
+        active_collective = self.get_active_collective(now_ts)
+
         last_seq = self.ring_buffer.current_seq - 1
 
         # Salinan snapshot agen berurutan stabil berdasarkan id
@@ -678,7 +711,7 @@ class StateEngine:
             time_of_day=tod,
             agents=agent_list,
             recent_events=recent_events,
-            active_collective=self._active_collective,
+            active_collective=active_collective,
             vitals=self._vitals,
         )
 

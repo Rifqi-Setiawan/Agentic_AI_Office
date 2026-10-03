@@ -8,12 +8,19 @@ from typing import Literal
 from fastapi import APIRouter, Path, Query, Request
 from fastapi.responses import JSONResponse
 
-from office.api.auth import is_founder_authenticated
+from office.api.auth import is_founder_authenticated, verify_office_intent
+from office.domain.collective import (
+    CollectiveActiveConflictError,
+    CollectiveManager,
+    InvalidCollectiveKindError,
+)
 from office.domain.state import StateEngine
+from office.models.auth import TriggerCollectiveRequest
 from office.models.errors import ErrorResponse
 from office.models.health import HealthResponse, ReaderHealthMap
 from office.models.kanban import TaskRef
 from office.models.profiles import AgentBio, AgentProfileDetail
+from office.models.state import CollectiveEventState
 from office.projection import (
     FounderAgentProfileDetail,
     PublicAgentProfileDetail,
@@ -36,6 +43,18 @@ def get_state_engine(request: Request) -> StateEngine:
         engine = StateEngine()
         request.app.state.engine = engine
     return engine
+
+
+def get_collective_manager(request: Request) -> CollectiveManager:
+    """Mengambil instance CollectiveManager dari app.state atau membuatnya jika belum ada."""
+    cm = getattr(request.app.state, "collective_manager", None)
+    if cm is None:
+        engine = get_state_engine(request)
+        broadcaster = getattr(request.app.state, "broadcaster", None)
+        cfg = getattr(request.app.state, "config", None)
+        cm = CollectiveManager(engine=engine, broadcaster=broadcaster, config=cfg)
+        request.app.state.collective_manager = cm
+    return cm
 
 
 def get_agent_bio(aid: str) -> AgentBio:
@@ -230,3 +249,82 @@ async def get_health_status(request: Request) -> JSONResponse:
 
     status_code = 503 if aggregate_status == "error" else 200
     return JSONResponse(status_code=status_code, content=health.model_dump(mode="json"))
+
+
+@router.post(
+    "/collective",
+    summary="Picu event kolektif kantor (Founder)",
+    description=(
+        "Memicu event interaksi kolektif manual di kantor (rapat, break, sholat) dengan durasi TTL."
+    ),
+    response_model=None,
+    responses={
+        200: {
+            "model": CollectiveEventState,
+            "description": "Event kolektif berhasil dipicu dan disiarkan.",
+        },
+        400: {"model": ErrorResponse, "description": "Parameter payload tidak valid."},
+        401: {"model": ErrorResponse, "description": "Tidak terautentikasi sebagai Founder."},
+        403: {
+            "model": ErrorResponse,
+            "description": "Header X-Office-Intent: 1 tidak ada atau tidak valid.",
+        },
+        409: {
+            "model": ErrorResponse,
+            "description": "Event kolektif lain masih berlangsung aktif.",
+        },
+    },
+)
+async def trigger_collective(
+    request: Request,
+    payload: TriggerCollectiveRequest,
+) -> JSONResponse:
+    # 1. Validasi header proteksi CSRF X-Office-Intent
+    if not verify_office_intent(request):
+        return JSONResponse(
+            status_code=403,
+            content={
+                "error": "Header X-Office-Intent: 1 wajib disertakan untuk proteksi CSRF",
+                "code": "FORBIDDEN",
+            },
+        )
+
+    # 2. Validasi autentikasi Founder
+    if not is_founder_authenticated(request):
+        return JSONResponse(
+            status_code=401,
+            content={
+                "error": "Autentikasi Founder diperlukan untuk memicu event kolektif",
+                "code": "UNAUTHORIZED",
+            },
+        )
+
+    # 3. Jalankan pembuat event kolektif
+    manager = get_collective_manager(request)
+    try:
+        coll = await manager.start_event(
+            kind=payload.kind,
+            duration_seconds=payload.duration_seconds,
+            title=payload.title,
+            participants=payload.participants,
+        )
+        return JSONResponse(
+            status_code=200,
+            content=coll.model_dump(mode="json"),
+        )
+    except InvalidCollectiveKindError as exc:
+        return JSONResponse(
+            status_code=400,
+            content={
+                "error": str(exc),
+                "code": "INVALID_COLLECTIVE_KIND",
+            },
+        )
+    except CollectiveActiveConflictError as exc:
+        return JSONResponse(
+            status_code=409,
+            content={
+                "error": str(exc),
+                "code": "COLLECTIVE_ACTIVE",
+            },
+        )

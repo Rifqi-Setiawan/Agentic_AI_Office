@@ -909,6 +909,15 @@ export interface operations {
                     "application/json": components["schemas"]["ErrorResponse"];
                 };
             };
+            /** @description Header X-Office-Intent tidak ada atau nilai tidak valid. */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
             /** @description Terlalu banyak percobaan login (maks. 5 kali per 15 menit). */
             429: {
                 headers: {
@@ -960,6 +969,15 @@ export interface operations {
                     "application/json": components["schemas"]["ErrorResponse"];
                 };
             };
+            /** @description Header X-Office-Intent tidak ada atau nilai tidak valid. */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
         };
     };
     triggerCollectiveEvent: {
@@ -998,6 +1016,15 @@ export interface operations {
             };
             /** @description Tidak terautentikasi sebagai Founder. */
             401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorResponse"];
+                };
+            };
+            /** @description Header X-Office-Intent tidak ada atau nilai tidak valid. */
+            403: {
                 headers: {
                     [name: string]: unknown;
                 };

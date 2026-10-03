@@ -1,5 +1,11 @@
 from __future__ import annotations
 
+from office.models.auth import (
+    LoginRequest,
+    LoginResponse,
+    LogoutResponse,
+    TriggerCollectiveRequest,
+)
 from office.models.errors import ErrorResponse
 from office.models.events import OfficeEvent, OfficeEventKind
 from office.models.health import HealthResponse, ReaderHealth, ReaderHealthMap
@@ -19,11 +25,15 @@ __all__ = [
     "HostVitals",
     "HostVitalsDetails",
     "KanbanEventRow",
+    "LoginRequest",
+    "LoginResponse",
+    "LogoutResponse",
     "OfficeEvent",
     "OfficeEventKind",
     "ReaderHealth",
     "ReaderHealthMap",
     "TaskRef",
     "TaskRow",
+    "TriggerCollectiveRequest",
     "WorldSnapshot",
 ]
