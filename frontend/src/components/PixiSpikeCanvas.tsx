@@ -1,14 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  Application,
-  Assets,
-  Spritesheet,
-  Container,
-  Sprite,
-  AnimatedSprite,
-  Graphics,
-  Texture,
-} from 'pixi.js';
+import type { Application, Spritesheet } from 'pixi.js';
 
 interface PixiSpikeCanvasProps {
   scaleMultiplier?: number;
@@ -39,7 +30,17 @@ export const PixiSpikeCanvas: React.FC<PixiSpikeCanvasProps> = ({
       if (!canvasHostRef.current) return;
 
       try {
-        app = new Application();
+        const {
+          Application: PixiApp,
+          Assets,
+          Container,
+          Sprite,
+          AnimatedSprite,
+          Graphics,
+          Texture,
+        } = await import('pixi.js');
+
+        app = new PixiApp();
         await app.init({
           width: canvasHostRef.current.clientWidth || 800,
           height: 520,

@@ -10,12 +10,24 @@ import { spawn } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import fs from 'node:fs';
+import net from 'node:net';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '../..');
 const frontendDir = path.resolve(rootDir, 'frontend');
 const distDir = path.resolve(__dirname, 'dist');
+
+function getFreePort() {
+  return new Promise(resolve => {
+    const srv = net.createServer();
+    srv.listen(0, () => {
+      const addr = srv.address();
+      const port = typeof addr === 'object' && addr ? addr.port : 9140;
+      srv.close(() => resolve(port));
+    });
+  });
+}
 
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
@@ -39,8 +51,8 @@ async function runVerification() {
     buildProc.on('close', code => (code === 0 ? resolve(null) : reject(new Error(`Build failed: ${code}`))));
   });
 
-  const port = 9140;
-  console.log(`Starting Vite preview server on port ${port}...`);
+  const port = await getFreePort();
+  console.log(`Starting Vite preview server on dynamic free port ${port}...`);
   const previewProc = spawn('npx', ['vite', 'preview', '--port', String(port), '--strictPort'], {
     cwd: frontendDir,
     stdio: 'inherit',
