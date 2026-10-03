@@ -46,6 +46,7 @@ pnpm-debug.log*
 # Blender & Sprites Pipeline
 art/pipeline/output/
 art/pipeline/dist/raw_sprites/
+art/pipeline/dist/raw_characters/
 !art/pipeline/dist/*.png
 !art/pipeline/dist/*.json
 

@@ -27,20 +27,25 @@ Pipeline render procedural untuk menghasilkan sprite pixel-art isometrik 2.5D da
 Skrip dapat dijalankan langsung dengan satu perintah dari root direktori proyek di laptop Rifqi:
 
 ```bash
-# Menjalankan render Blender headless + packing atlas otomatis
+# Menjalankan render Blender headless + packing atlas otomatis (Spike / Furnitur)
 python3 art/pipeline/render.py
+
+# Menjalankan render produksi 16 karakter + 1 tamu (Task T1.6)
+python3 art/pipeline/render_all_characters.py
+# Atau via flag terintegrasi:
+python3 art/pipeline/render.py --all-characters
 ```
 
 Atau dijalankan langsung di dalam Blender 4.x:
 
 ```bash
-blender -b -P art/pipeline/render.py -- --output-dir art/pipeline/dist
+blender -b -P art/pipeline/render_all_characters.py -- --output-dir art/pipeline/dist
 ```
 
-Untuk mengemas ulang atlas secara terpisah:
+Untuk mengemas ulang atlas karakter secara terpisah:
 
 ```bash
-node art/pipeline/pack.js art/pipeline/dist/raw_sprites art/pipeline/dist
+node art/pipeline/pack_characters.js art/pipeline/dist frontend/public/sprites
 ```
 
 Untuk menjalankan verifikasi E2E Playwright dan mengambil screenshot halaman uji:

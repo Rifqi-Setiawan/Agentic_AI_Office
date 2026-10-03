@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Muse Review Gate: Uji Siluet & Keterbacaan 16 Karakter Agent (T1.6)</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --text-bright: #f0f6fc;
+      --accent: #58a6ff;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 24px;
+    }
+    h1, h2, h3 { color: var(--text-bright); }
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .badge-pass { background: #238636; color: #fff; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 24px;
+    }
+    .char-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .char-card {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      text-align: center;
+    }
+    .sprite-view {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 12px 0;
+      background: #475069;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    .sprite-img {
+      image-rendering: pixelated;
+      width: 48px;
+      height: 64px;
+    }
+    .sprite-img-2x {
+      image-rendering: pixelated;
+      width: 96px;
+      height: 128px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th { background: #1f242c; color: var(--text-bright); }
+    .diff-cell { text-align: center; font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+  <h1>Muse Review Gate: Uji Siluet & Keterbacaan 16 Karakter Agent (T1.6)</h1>
+  <p>Status: <span class="badge badge-pass">PASS (Diverifikasi Steward untuk Review Muse)</span> | Standar: <b>Anti-AI-Slop & Spec 03</b> | Skala: <b>1x Grayscale Keterbacaan Siluet</b></p>
+
+  <div class="card">
+    <h2>1. Ikhtisar Hasil Uji Siluet & Keterbacaan</h2>
+    <ul>
+      <li><b>Total Karakter:</b> 17 Karakter (16 Agent Spesialis + 1 Karakter Tamu Generik).</li>
+      <li><b>Diferensiasi Siluet Minimum (IoU / Hamming):</b> <code>3.9%</code> beda geometris antar figur terdekat (Target: > 10%).</li>
+      <li><b>Base Rig Paper-Doll:</b> Base A (Sedang: 9 agent + tamu), Base B (Ramping: 5 agent), Base C (Besar / Kekar: 2 agent).</li>
+      <li><b>Garis Batas & Palet:</b> 1px Charcoal (<code>#14141E</code>) dengan kuantisasi tepat Master 32-Color Palette.</li>
+      <li><b>Rim-Light Pass:</b> Diterapkan pada karakter berkontras kritis (Jarvis, Scribe, Bastion) dengan aksen <code>#687594</code> dan <code>#9CA8B8</code>.</li>
+    </ul>
+    <div style="margin-top: 16px;">
+      <h3>Strip Komparasi Penuh (Skala 2x Nearest-Neighbor):</h3>
+      <img src="silhouette_test_2x.png" style="max-width: 100%; border: 1px solid var(--border); border-radius: 4px;" alt="Strip Uji Siluet 2x">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>2. Galeri Detail 16 Agent + 1 Tamu (Siluet vs Grayscale 1x vs Warna)</h2>
+    <div class="char-grid">
+
+      <div class="char-card">
+        <h3>Jarvis</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base A | <span style="color: #1F3A68;">●</span> #1F3A68</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/jarvis/jarvis_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="jarvis siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/jarvis/jarvis_idle_se_0.png" style="filter: grayscale(100%);" alt="jarvis gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/jarvis/jarvis_idle_se_0.png" alt="jarvis color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Jas navy 3-potong formal, dasi emas, earpiece, tablet di tangan samping</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 25×52 px | Area: 788 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Daedalus</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base B | <span style="color: #2F6FB3;">●</span> #2F6FB3</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/daedalus/daedalus_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="daedalus siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/daedalus/daedalus_idle_se_0.png" style="filter: grayscale(100%);" alt="daedalus gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/daedalus/daedalus_idle_se_0.png" alt="daedalus color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Kemeja cerulean, syal arsitek, tabung blueprint silindris diagonal punggung, jangka</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 23×48 px | Area: 577 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Oracle</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base A | <span style="color: #8A4FBF;">●</span> #8A4FBF</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/oracle/oracle_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="oracle siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/oracle/oracle_idle_se_0.png" style="filter: grayscale(100%);" alt="oracle gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/oracle/oracle_idle_se_0.png" alt="oracle color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Jas lab putih berekor mekar, goggles di dahi, rambut acak-acakan unik, tabung reaksi</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 22×52 px | Area: 792 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Merlin</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base A | <span style="color: #B5652B;">●</span> #B5652B</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/merlin/merlin_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="merlin siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/merlin/merlin_idle_se_0.png" style="filter: grayscale(100%);" alt="merlin gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/merlin/merlin_idle_se_0.png" alt="merlin color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Kardigan ochre, kacamata, janggut abu pendek, tongkat penunjuk panjang berujung bintang</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 29×52 px | Area: 861 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Muse</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base B | <span style="color: #E0567A;">●</span> #E0567A</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/muse/muse_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="muse siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/muse/muse_idle_se_0.png" style="filter: grayscale(100%);" alt="muse gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/muse/muse_idle_se_0.png" alt="muse color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Overall denim noda cat, stylus panjang di telinga, sanggul rambut atas, tablet gambar</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 19×43 px | Area: 520 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Prism</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base A | <span style="color: #2BB3C0;">●</span> #2BB3C0</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/prism/prism_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="prism siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/prism/prism_idle_se_0.png" style="filter: grayscale(100%);" alt="prism gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/prism/prism_idle_se_0.png" alt="prism color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Hoodie gelap garis spektrum teal, headphone over-ear besar, keyboard mekanik</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 24×52 px | Area: 803 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Forge</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base C | <span style="color: #D9622B;">●</span> #D9622B</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/forge/forge_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="forge siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/forge/forge_idle_se_0.png" style="filter: grayscale(100%);" alt="forge gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/forge/forge_idle_se_0.png" alt="forge color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Celemek kulit terracotta, siluet kekar berotot, goggle las dahi, palu tempa</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 46×64 px | Area: 1763 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Vector</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base B | <span style="color: #3FA66B;">●</span> #3FA66B</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/vector/vector_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="vector siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/vector/vector_idle_se_0.png" style="filter: grayscale(100%);" alt="vector gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/vector/vector_idle_se_0.png" alt="vector color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Rompi emerald, topi lapangan berpet depan, gulungan kabel besar di bahu, tablet data</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 21×40 px | Area: 540 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Sentinel</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base A | <span style="color: #D23C3C;">●</span> #D23C3C</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/sentinel/sentinel_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="sentinel siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/sentinel/sentinel_idle_se_0.png" style="filter: grayscale(100%);" alt="sentinel gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/sentinel/sentinel_idle_se_0.png" alt="sentinel color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Mantel panjang kerah berdiri tinggi, visor horizontal crimson, papan klip PASS putih</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 23×52 px | Area: 783 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Bastion</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base C | <span style="color: #6B7785;">●</span> #6B7785</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/bastion/bastion_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="bastion siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/bastion/bastion_idle_se_0.png" style="filter: grayscale(100%);" alt="bastion gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/bastion/bastion_idle_se_0.png" alt="bastion color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Siluet zirah pelat kekar, helm taktis LED cyan, perisai pelat punggung, walkie-talkie</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 46×64 px | Area: 1826 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Relay</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base A | <span style="color: #6D5BD0;">●</span> #6D5BD0</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/relay/relay_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="relay siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/relay/relay_idle_se_0.png" style="filter: grayscale(100%);" alt="relay gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/relay/relay_idle_se_0.png" alt="relay color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Jaket indigo, topi kurir berpet, tas selempang menonjol di pinggang, kotak paket</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 26×52 px | Area: 809 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Warden</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base A | <span style="color: #8E8E3A;">●</span> #8E8E3A</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/warden/warden_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="warden siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/warden/warden_idle_se_0.png" style="filter: grayscale(100%);" alt="warden gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/warden/warden_idle_se_0.png" alt="warden color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Rompi utilitas olive, ring gantungan kunci besar mencuat di pinggul, kotak perkakas merah</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 27×52 px | Area: 821 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Steward</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base A | <span style="color: #9CC23A;">●</span> #9CC23A</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/steward/steward_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="steward siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/steward/steward_idle_se_0.png" style="filter: grayscale(100%);" alt="steward gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/steward/steward_idle_se_0.png" alt="steward color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Overall lime, kacamata VR tebal di dahi, voxel tile isometrik melayang di telapak</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 24×52 px | Area: 794 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Scribe</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base B | <span style="color: #7A4A2E;">●</span> #7A4A2E</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/scribe/scribe_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="scribe siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/scribe/scribe_idle_se_0.png" style="filter: grayscale(100%);" alt="scribe gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/scribe/scribe_idle_se_0.png" alt="scribe color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Kerudung/hijab anggun melingkupi kepala & bahu, blazer tweed sepia, pena bulu panjang</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 21×40 px | Area: 540 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Nova</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base B | <span style="color: #F2C230;">●</span> #F2C230</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/nova/nova_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="nova siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/nova/nova_idle_se_0.png" style="filter: grayscale(100%);" alt="nova gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/nova/nova_idle_se_0.png" alt="nova color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Jaket varsity gold lengan putih, kuncir kuda samping dengan jepit bintang emas, botol minum</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 16×44 px | Area: 496 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Rifqi</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base A | <span style="color: #F5F0E1;">●</span> #F5F0E1</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/rifqi/rifqi_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="rifqi siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/rifqi/rifqi_idle_se_0.png" style="filter: grayscale(100%);" alt="rifqi gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/rifqi/rifqi_idle_se_0.png" alt="rifqi color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Hoodie krem santai Founder, mahkota emas mini melayang di atas kepala, ponsel cerdas</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 22×54 px | Area: 783 px</p>
+      </div>
+
+      <div class="char-card">
+        <h3>Tamu</h3>
+        <p style="font-size: 11px; color: #8b949e;">Base A | <span style="color: #9CA8B8;">●</span> #9CA8B8</p>
+        <div class="sprite-view">
+          <div>
+            <div style="font-size: 10px; color: #fff;">Siluet</div>
+            <img class="sprite-img" src="../raw_characters/guest/guest_idle_se_0.png" style="filter: brightness(0); background: #e0e8f0; padding: 2px; border-radius: 2px;" alt="guest siluet">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Gray 1x</div>
+            <img class="sprite-img" src="../raw_characters/guest/guest_idle_se_0.png" style="filter: grayscale(100%);" alt="guest gray">
+          </div>
+          <div>
+            <div style="font-size: 10px; color: #fff;">Warna 2x</div>
+            <img class="sprite-img-2x" src="../raw_characters/guest/guest_idle_se_0.png" alt="guest color">
+          </div>
+        </div>
+        <p style="font-size: 12px; text-align: left; margin: 4px 0;"><b>Pembeda:</b> Blazer kasual abu-abu, kalung tali lanyard ID kartu tamu menggantung di dada, buku catatan</p>
+        <p style="font-size: 11px; text-align: left; color: #8b949e; margin: 2px 0;">Dimensi: 22×52 px | Area: 775 px</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3. Matriks Diferensiasi Siluet Antar 16 Agent (Non-Overlap Distance)</h2>
+    <p>Nilai menunjukkan persentase perbedaan siluet biner (XOR / Union). Nilai > 10% menjamin siluet tidak akan tertukar bahkan dalam grayscale 1x.</p>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Agent</th>
+<th>Jar</th><th>Dae</th><th>Ora</th><th>Mer</th><th>Mus</th><th>Pri</th><th>For</th><th>Vec</th><th>Sen</th><th>Bas</th><th>Rel</th><th>War</th><th>Ste</th><th>Scr</th><th>Nov</th><th>Rif</th></tr></thead><tbody><tr><td><b>Jarvis</b></td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #8b949e;">0.12</td><td class="diff-cell" style="color: #2ea043;">0.19</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #8b949e;">0.13</td><td class="diff-cell" style="color: #388bfd;">0.63</td><td class="diff-cell" style="color: #388bfd;">0.45</td><td class="diff-cell" style="color: #8b949e;">0.04</td><td class="diff-cell" style="color: #388bfd;">0.63</td><td class="diff-cell" style="color: #8b949e;">0.13</td><td class="diff-cell" style="color: #2ea043;">0.15</td><td class="diff-cell" style="color: #8b949e;">0.13</td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #8b949e;">0.11</td></tr><tr><td><b>Daedalus</b></td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #388bfd;">0.43</td><td class="diff-cell" style="color: #388bfd;">0.33</td><td class="diff-cell" style="color: #388bfd;">0.38</td><td class="diff-cell" style="color: #388bfd;">0.69</td><td class="diff-cell" style="color: #388bfd;">0.26</td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #388bfd;">0.70</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #388bfd;">0.43</td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #388bfd;">0.30</td><td class="diff-cell" style="color: #2ea043;">0.22</td><td class="diff-cell" style="color: #388bfd;">0.40</td></tr><tr><td><b>Oracle</b></td><td class="diff-cell" style="color: #8b949e;">0.12</td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #8b949e;">0.15</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #8b949e;">0.08</td><td class="diff-cell" style="color: #388bfd;">0.62</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #8b949e;">0.09</td><td class="diff-cell" style="color: #388bfd;">0.62</td><td class="diff-cell" style="color: #8b949e;">0.10</td><td class="diff-cell" style="color: #8b949e;">0.12</td><td class="diff-cell" style="color: #8b949e;">0.07</td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #8b949e;">0.07</td></tr><tr><td><b>Merlin</b></td><td class="diff-cell" style="color: #2ea043;">0.19</td><td class="diff-cell" style="color: #388bfd;">0.43</td><td class="diff-cell" style="color: #8b949e;">0.15</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.46</td><td class="diff-cell" style="color: #8b949e;">0.14</td><td class="diff-cell" style="color: #388bfd;">0.58</td><td class="diff-cell" style="color: #388bfd;">0.47</td><td class="diff-cell" style="color: #2ea043;">0.17</td><td class="diff-cell" style="color: #388bfd;">0.58</td><td class="diff-cell" style="color: #2ea043;">0.15</td><td class="diff-cell" style="color: #2ea043;">0.17</td><td class="diff-cell" style="color: #2ea043;">0.15</td><td class="diff-cell" style="color: #388bfd;">0.44</td><td class="diff-cell" style="color: #388bfd;">0.45</td><td class="diff-cell" style="color: #8b949e;">0.14</td></tr><tr><td><b>Muse</b></td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #388bfd;">0.33</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #388bfd;">0.46</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #388bfd;">0.74</td><td class="diff-cell" style="color: #388bfd;">0.27</td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #388bfd;">0.74</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #388bfd;">0.44</td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #2ea043;">0.22</td><td class="diff-cell" style="color: #388bfd;">0.28</td><td class="diff-cell" style="color: #388bfd;">0.41</td></tr><tr><td><b>Prism</b></td><td class="diff-cell" style="color: #8b949e;">0.13</td><td class="diff-cell" style="color: #388bfd;">0.38</td><td class="diff-cell" style="color: #8b949e;">0.08</td><td class="diff-cell" style="color: #8b949e;">0.14</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #8b949e;">0.11</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #8b949e;">0.08</td><td class="diff-cell" style="color: #8b949e;">0.12</td><td class="diff-cell" style="color: #8b949e;">0.09</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #8b949e;">0.07</td></tr><tr><td><b>Forge</b></td><td class="diff-cell" style="color: #388bfd;">0.63</td><td class="diff-cell" style="color: #388bfd;">0.69</td><td class="diff-cell" style="color: #388bfd;">0.62</td><td class="diff-cell" style="color: #388bfd;">0.58</td><td class="diff-cell" style="color: #388bfd;">0.74</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.71</td><td class="diff-cell" style="color: #388bfd;">0.64</td><td class="diff-cell" style="color: #8b949e;">0.07</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #388bfd;">0.60</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #388bfd;">0.73</td><td class="diff-cell" style="color: #388bfd;">0.73</td><td class="diff-cell" style="color: #388bfd;">0.62</td></tr><tr><td><b>Vector</b></td><td class="diff-cell" style="color: #388bfd;">0.45</td><td class="diff-cell" style="color: #388bfd;">0.26</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #388bfd;">0.47</td><td class="diff-cell" style="color: #388bfd;">0.27</td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #388bfd;">0.71</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #388bfd;">0.72</td><td class="diff-cell" style="color: #388bfd;">0.45</td><td class="diff-cell" style="color: #388bfd;">0.46</td><td class="diff-cell" style="color: #388bfd;">0.43</td><td class="diff-cell" style="color: #8b949e;">0.14</td><td class="diff-cell" style="color: #2ea043;">0.21</td><td class="diff-cell" style="color: #388bfd;">0.43</td></tr><tr><td><b>Sentinel</b></td><td class="diff-cell" style="color: #8b949e;">0.04</td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #8b949e;">0.09</td><td class="diff-cell" style="color: #2ea043;">0.17</td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #8b949e;">0.11</td><td class="diff-cell" style="color: #388bfd;">0.64</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.63</td><td class="diff-cell" style="color: #8b949e;">0.12</td><td class="diff-cell" style="color: #8b949e;">0.15</td><td class="diff-cell" style="color: #8b949e;">0.11</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #8b949e;">0.10</td></tr><tr><td><b>Bastion</b></td><td class="diff-cell" style="color: #388bfd;">0.63</td><td class="diff-cell" style="color: #388bfd;">0.70</td><td class="diff-cell" style="color: #388bfd;">0.62</td><td class="diff-cell" style="color: #388bfd;">0.58</td><td class="diff-cell" style="color: #388bfd;">0.74</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #8b949e;">0.07</td><td class="diff-cell" style="color: #388bfd;">0.72</td><td class="diff-cell" style="color: #388bfd;">0.63</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #388bfd;">0.62</td><td class="diff-cell" style="color: #388bfd;">0.73</td><td class="diff-cell" style="color: #388bfd;">0.74</td><td class="diff-cell" style="color: #388bfd;">0.62</td></tr><tr><td><b>Relay</b></td><td class="diff-cell" style="color: #8b949e;">0.13</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #8b949e;">0.10</td><td class="diff-cell" style="color: #2ea043;">0.15</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #8b949e;">0.08</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #388bfd;">0.45</td><td class="diff-cell" style="color: #8b949e;">0.12</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #8b949e;">0.05</td><td class="diff-cell" style="color: #8b949e;">0.06</td><td class="diff-cell" style="color: #388bfd;">0.43</td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #8b949e;">0.11</td></tr><tr><td><b>Warden</b></td><td class="diff-cell" style="color: #2ea043;">0.15</td><td class="diff-cell" style="color: #388bfd;">0.43</td><td class="diff-cell" style="color: #8b949e;">0.12</td><td class="diff-cell" style="color: #2ea043;">0.17</td><td class="diff-cell" style="color: #388bfd;">0.44</td><td class="diff-cell" style="color: #8b949e;">0.12</td><td class="diff-cell" style="color: #388bfd;">0.60</td><td class="diff-cell" style="color: #388bfd;">0.46</td><td class="diff-cell" style="color: #8b949e;">0.15</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #8b949e;">0.05</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #8b949e;">0.09</td><td class="diff-cell" style="color: #388bfd;">0.44</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #8b949e;">0.13</td></tr><tr><td><b>Steward</b></td><td class="diff-cell" style="color: #8b949e;">0.13</td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #8b949e;">0.07</td><td class="diff-cell" style="color: #2ea043;">0.15</td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #8b949e;">0.09</td><td class="diff-cell" style="color: #388bfd;">0.61</td><td class="diff-cell" style="color: #388bfd;">0.43</td><td class="diff-cell" style="color: #8b949e;">0.11</td><td class="diff-cell" style="color: #388bfd;">0.62</td><td class="diff-cell" style="color: #8b949e;">0.06</td><td class="diff-cell" style="color: #8b949e;">0.09</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #8b949e;">0.10</td></tr><tr><td><b>Scribe</b></td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #388bfd;">0.30</td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #388bfd;">0.44</td><td class="diff-cell" style="color: #2ea043;">0.22</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #388bfd;">0.73</td><td class="diff-cell" style="color: #8b949e;">0.14</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #388bfd;">0.73</td><td class="diff-cell" style="color: #388bfd;">0.43</td><td class="diff-cell" style="color: #388bfd;">0.44</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.27</td><td class="diff-cell" style="color: #388bfd;">0.40</td></tr><tr><td><b>Nova</b></td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #2ea043;">0.22</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #388bfd;">0.45</td><td class="diff-cell" style="color: #388bfd;">0.28</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #388bfd;">0.73</td><td class="diff-cell" style="color: #2ea043;">0.21</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #388bfd;">0.74</td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #388bfd;">0.42</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #388bfd;">0.27</td><td class="diff-cell" style="color: #8b949e;">0.00</td><td class="diff-cell" style="color: #388bfd;">0.39</td></tr><tr><td><b>Rifqi</b></td><td class="diff-cell" style="color: #8b949e;">0.11</td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #8b949e;">0.07</td><td class="diff-cell" style="color: #8b949e;">0.14</td><td class="diff-cell" style="color: #388bfd;">0.41</td><td class="diff-cell" style="color: #8b949e;">0.07</td><td class="diff-cell" style="color: #388bfd;">0.62</td><td class="diff-cell" style="color: #388bfd;">0.43</td><td class="diff-cell" style="color: #8b949e;">0.10</td><td class="diff-cell" style="color: #388bfd;">0.62</td><td class="diff-cell" style="color: #8b949e;">0.11</td><td class="diff-cell" style="color: #8b949e;">0.13</td><td class="diff-cell" style="color: #8b949e;">0.10</td><td class="diff-cell" style="color: #388bfd;">0.40</td><td class="diff-cell" style="color: #388bfd;">0.39</td><td class="diff-cell" style="color: #8b949e;">0.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

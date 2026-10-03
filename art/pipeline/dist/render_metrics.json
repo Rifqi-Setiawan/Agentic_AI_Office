@@ -1,19 +1,19 @@
 {
   "character_model": "art/sumber/characters/figure_Casual.glb",
   "character_times_seconds": {
-    "walk_se": 0.4355771541595459,
-    "idle_se": 0.20199155807495117,
-    "walk_ne": 0.3379056453704834,
-    "idle_ne": 0.2112436294555664
+    "walk_se": 0.4498138427734375,
+    "idle_se": 0.20008468627929688,
+    "walk_ne": 0.34979724884033203,
+    "idle_ne": 0.20186328887939453
   },
-  "total_character_time_seconds": 1.1867179870605469,
+  "total_character_time_seconds": 1.201559066772461,
   "furniture_times_seconds": {
-    "desk.glb": 0.1083221435546875,
-    "chairDesk.glb": 0.09206175804138184,
-    "computerScreen.glb": 0.09543013572692871
+    "desk.glb": 0.09301352500915527,
+    "chairDesk.glb": 0.08605122566223145,
+    "computerScreen.glb": 0.08412027359008789
   },
-  "total_furniture_time_seconds": 0.29581403732299805,
-  "total_render_time_seconds": 1.482532024383545,
+  "total_furniture_time_seconds": 0.2631850242614746,
+  "total_render_time_seconds": 1.4647440910339355,
   "samples_per_pixel": 16,
-  "timestamp": "2026-10-03 18:31:51 WIB"
+  "timestamp": "2026-10-03 19:10:55 WIB"
 }

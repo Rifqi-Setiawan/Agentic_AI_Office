@@ -1,0 +1,121 @@
+[
+  {
+    "character": "bastion",
+    "file": "bastion.png",
+    "bytes": 119895,
+    "sizeKb": 117.08,
+    "passBudget": true
+  },
+  {
+    "character": "daedalus",
+    "file": "daedalus.png",
+    "bytes": 76445,
+    "sizeKb": 74.65,
+    "passBudget": true
+  },
+  {
+    "character": "forge",
+    "file": "forge.png",
+    "bytes": 134650,
+    "sizeKb": 131.49,
+    "passBudget": true
+  },
+  {
+    "character": "guest",
+    "file": "guest.png",
+    "bytes": 76681,
+    "sizeKb": 74.88,
+    "passBudget": true
+  },
+  {
+    "character": "jarvis",
+    "file": "jarvis.png",
+    "bytes": 77357,
+    "sizeKb": 75.54,
+    "passBudget": true
+  },
+  {
+    "character": "merlin",
+    "file": "merlin.png",
+    "bytes": 83411,
+    "sizeKb": 81.46,
+    "passBudget": true
+  },
+  {
+    "character": "muse",
+    "file": "muse.png",
+    "bytes": 63407,
+    "sizeKb": 61.92,
+    "passBudget": true
+  },
+  {
+    "character": "nova",
+    "file": "nova.png",
+    "bytes": 62719,
+    "sizeKb": 61.25,
+    "passBudget": true
+  },
+  {
+    "character": "oracle",
+    "file": "oracle.png",
+    "bytes": 83575,
+    "sizeKb": 81.62,
+    "passBudget": true
+  },
+  {
+    "character": "prism",
+    "file": "prism.png",
+    "bytes": 78989,
+    "sizeKb": 77.14,
+    "passBudget": true
+  },
+  {
+    "character": "relay",
+    "file": "relay.png",
+    "bytes": 89261,
+    "sizeKb": 87.17,
+    "passBudget": true
+  },
+  {
+    "character": "rifqi",
+    "file": "rifqi.png",
+    "bytes": 76440,
+    "sizeKb": 74.65,
+    "passBudget": true
+  },
+  {
+    "character": "scribe",
+    "file": "scribe.png",
+    "bytes": 52441,
+    "sizeKb": 51.21,
+    "passBudget": true
+  },
+  {
+    "character": "sentinel",
+    "file": "sentinel.png",
+    "bytes": 72058,
+    "sizeKb": 70.37,
+    "passBudget": true
+  },
+  {
+    "character": "steward",
+    "file": "steward.png",
+    "bytes": 95276,
+    "sizeKb": 93.04,
+    "passBudget": true
+  },
+  {
+    "character": "vector",
+    "file": "vector.png",
+    "bytes": 56626,
+    "sizeKb": 55.3,
+    "passBudget": true
+  },
+  {
+    "character": "warden",
+    "file": "warden.png",
+    "bytes": 99856,
+    "sizeKb": 97.52,
+    "passBudget": true
+  }
+]

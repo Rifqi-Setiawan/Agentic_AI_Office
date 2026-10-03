@@ -77,6 +77,11 @@ def parse_args() -> argparse.Namespace:
         default=16,
         help="Cycles render samples per pixel (deterministic)",
     )
+    parser.add_argument(
+        "--all-characters",
+        action="store_true",
+        help="Render all 17 characters in production mode (Task T1.6)",
+    )
     return parser.parse_args(custom_args)
 
 
@@ -571,6 +576,11 @@ def run_blender_pipeline(args: argparse.Namespace) -> None:
 def main() -> None:
     """Main CLI entry point."""
     args = parse_args()
+
+    if args.all_characters:
+        render_all_script = Path(__file__).resolve().parent / "render_all_characters.py"
+        subprocess.run([sys.executable, str(render_all_script)], check=True)
+        return
 
     if bpy is not None:
         # Running inside Blender
