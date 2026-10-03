@@ -1,0 +1,1086 @@
+openapi: 3.1.0
+info:
+  title: Office v2 Real-Time Telemetry & Control API
+  version: 1.0.0
+  description: |
+    Kontrak API v1 untuk Office v2: Dunia isometrik 2.5D pixel-art kantor agen virtual Hermes.
+    Backend menyajikan status kerja, aktivitas real-time, dan telemetri sistem secara 100% read-only
+    terhadap runtime Hermes. Akses publik disanitasi menggunakan strict whitelist dual-projection,
+    sedangkan kontrol operasional dan event kolektif dilindungi oleh autentikasi Founder.
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://office.rifqisetiawan.my.id
+    description: Production Server (Caddy Reverse Proxy)
+  - url: https://office-staging.rifqisetiawan.my.id
+    description: Staging Environment
+
+security:
+  - {}
+
+paths:
+  /api/v1/snapshot:
+    get:
+      summary: Ambil snapshot kondisi dunia kantor saat ini
+      description: |
+        Mengembalikan kondisi dunia kantor saat ini (WorldSnapshot), mencakup seluruh status
+        agen (16 agen), linimasa aktivitas terkini (hingga 500 event dari ring buffer), status
+        event kolektif yang sedang aktif, dan telemetri sumber daya host.
+        Secara default mengembalikan proyeksi publik (projection=public) yang telah diredaksi
+        secara ketat. Jika projection=founder diminta, request wajib menyertakan cookie sesi
+        Founder yang valid.
+      operationId: getWorldSnapshot
+      security:
+        - {}
+        - CookieAuth: []
+      parameters:
+        - name: projection
+          in: query
+          required: false
+          description: Proyeksi data yang diminta (public atau founder).
+          schema:
+            type: string
+            enum: [public, founder]
+            default: public
+      responses:
+        '200':
+          description: Snapshot dunia kantor berhasil diambil.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorldSnapshot'
+        '401':
+          description: Tidak terautentikasi untuk meminta proyeksi founder.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/stream:
+    get:
+      summary: Stream Server-Sent Events (SSE) real-time
+      description: |
+        Membuka koneksi satu arah Server-Sent Events (SSE) persisten dari server ke browser.
+        Saat pertama kali terhubung, server mengirimkan event snapshot lengkap.
+        Selanjutnya, server menyiarkan delta pembaruan status agen (agent), event linimasa baru (event),
+        telemetri host periodik (vitals), dan status event kolektif (collective).
+        Komentar keep-alive (: ping\n\n) dikirimkan setiap 15 detik.
+        Klien dapat melakukan resume koneksi yang terputus dengan menyertakan header Last-Event-ID.
+      operationId: streamEvents
+      security:
+        - {}
+      parameters:
+        - name: Last-Event-ID
+          in: header
+          required: false
+          description: Nomor urut sequence (seq) terakhir yang diterima klien untuk resume delta dari ring buffer.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Stream event SSE aktif.
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: text/event-stream
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            X-Accel-Buffering:
+              schema:
+                type: string
+                example: 'no'
+          content:
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/SSEPayload'
+        '400':
+          description: Format header Last-Event-ID tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/agents/{id}:
+    get:
+      summary: Ambil profil dan status detail satu agen
+      description: |
+        Mengembalikan profil lengkap agen tertentu, status kerja saat ini, dan 5 riwayat task
+        terakhir yang dikerjakan. Pada proyeksi publik, judul task disamarkan berdasarkan peran agen
+        dan field teks internal ditiadakan.
+      operationId: getAgentDetail
+      security:
+        - {}
+        - CookieAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Identifier unik profil agen.
+          schema:
+            type: string
+            enum:
+              - jarvis
+              - daedalus
+              - oracle
+              - forge
+              - prism
+              - sentinel
+              - muse
+              - bastion
+              - relay
+              - vector
+              - nova
+              - steward
+              - scribe
+              - merlin
+              - warden
+              - rifqi
+      responses:
+        '200':
+          description: Detail profil agen berhasil ditemukan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentProfileDetail'
+        '404':
+          description: Agen dengan ID tersebut tidak ditemukan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/auth/login:
+    post:
+      summary: Login Founder
+      description: |
+        Mengautentikasi Founder menggunakan verifikasi hash Argon2. Jika kredensial valid,
+        server mengembalikan cookie sesi office_session dengan atribut HttpOnly, Secure,
+        dan SameSite=Strict.
+        Wajib menyertakan header X-Office-Intent: 1 sebagai perlindungan mitigasi CSRF.
+        Dibatasi maksimal 5 percobaan per 15 menit per alamat IP.
+      operationId: loginFounder
+      security:
+        - IntentHeader: []
+      parameters:
+        - name: X-Office-Intent
+          in: header
+          required: true
+          description: Header proteksi CSRF. Nilai harus bernilai "1".
+          schema:
+            type: string
+            enum: ['1']
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Login berhasil, cookie sesi diterbitkan.
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+                example: office_session=eyJhbGciOi...; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=604800
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '400':
+          description: Header X-Office-Intent tidak ada atau format payload salah.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Password Founder salah.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Terlalu banyak percobaan login (maks. 5 kali per 15 menit).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/auth/logout:
+    post:
+      summary: Logout Founder
+      description: |
+        Menghapus cookie sesi Founder dan mengakhiri sesi administratif.
+        Wajib menyertakan header X-Office-Intent: 1.
+      operationId: logoutFounder
+      security:
+        - CookieAuth: []
+          IntentHeader: []
+      parameters:
+        - name: X-Office-Intent
+          in: header
+          required: true
+          description: Header proteksi CSRF. Nilai harus bernilai "1".
+          schema:
+            type: string
+            enum: ['1']
+      responses:
+        '200':
+          description: Logout berhasil, cookie sesi direset.
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+                example: office_session=; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogoutResponse'
+        '400':
+          description: Header X-Office-Intent tidak ada.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Sesi tidak valid atau telah berakhir.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/collective:
+    post:
+      summary: Picu event kolektif kantor (Founder)
+      description: |
+        Memicu event kolektif manual di kantor (Rapat Mendadak, Break Time, atau Sholat Berjamaah).
+        Hanya dapat dipanggil oleh Founder yang telah terautentikasi dan wajib membawa header
+        X-Office-Intent: 1. Event disimpan di memori state engine dengan durasi TTL tertentu,
+        lalu otomatis berakhir. Task nyata agen tetap memiliki prioritas tertinggi.
+      operationId: triggerCollectiveEvent
+      security:
+        - CookieAuth: []
+          IntentHeader: []
+      parameters:
+        - name: X-Office-Intent
+          in: header
+          required: true
+          description: Header proteksi CSRF. Nilai harus bernilai "1".
+          schema:
+            type: string
+            enum: ['1']
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TriggerCollectiveRequest'
+      responses:
+        '200':
+          description: Event kolektif berhasil dipicu dan disiarkan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectiveEventState'
+        '400':
+          description: Header X-Office-Intent tidak ada atau parameter kind tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Tidak terautentikasi sebagai Founder.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Event kolektif lain masih berlangsung aktif.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/healthz:
+    get:
+      summary: Health check dan status konektivitas reader
+      description: |
+        Memeriksa kesiapan layanan backend FastAPI, uptime proses, konsumsi memori RSS Uvicorn,
+        dan kesehatan konektivitas ke seluruh sumber data Hermes (kanban, gateway, profiles, host).
+      operationId: getHealthStatus
+      security:
+        - {}
+      responses:
+        '200':
+          description: Status operasional backend dan reader data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '400':
+          description: Request tidak valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Layanan mengalami degradasi atau satu atau lebih reader sumber error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
+components:
+  securitySchemes:
+    CookieAuth:
+      type: apiKey
+      in: cookie
+      name: office_session
+      description: Signed session cookie untuk autentikasi Founder.
+    IntentHeader:
+      type: apiKey
+      in: header
+      name: X-Office-Intent
+      description: Header anti-CSRF wajib bernilai "1" untuk seluruh mutasi POST.
+
+  schemas:
+    AgentState:
+      type: object
+      description: Kondisi operasional dan visual seorang agen di kantor virtual.
+      required:
+        - id
+        - name
+        - role
+        - presence
+        - work
+        - since
+        - done_today
+        - zone
+        - action
+      properties:
+        id:
+          type: string
+          description: Identifier unik agen.
+          enum:
+            - jarvis
+            - daedalus
+            - oracle
+            - forge
+            - prism
+            - sentinel
+            - muse
+            - bastion
+            - relay
+            - vector
+            - nova
+            - steward
+            - scribe
+            - merlin
+            - warden
+            - rifqi
+          example: forge
+        name:
+          type: string
+          description: Nama tampilan agen.
+          example: Forge
+        role:
+          type: string
+          description: Peran atau spesialisasi rekayasa agen.
+          example: Backend Specialist
+        presence:
+          type: string
+          description: Status kehadiran agen di kantor.
+          enum: [on_duty, off_duty]
+          example: on_duty
+        work:
+          type: string
+          description: Status eksekusi kerja agen yang menentukan animasi dan penanda visual.
+          enum: [idle, working, blocked, stale, failed, done_recent]
+          example: working
+        since:
+          type: integer
+          description: Unix timestamp detik saat status kerja saat ini dimulai.
+          example: 1791028303
+        done_today:
+          type: integer
+          description: Jumlah tugas yang berhasil diselesaikan hari ini (sejak 00:00:00 Asia/Jakarta).
+          example: 4
+        zone:
+          type: string
+          description: Zona ruangan tempat agen saat ini berada.
+          example: backend_den
+        action:
+          type: string
+          description: Deskripsi aksi visual mikro agen saat ini.
+          example: Menulis kode endpoint database
+        grid_x:
+          type: integer
+          description: Koordinat kolom grid isometrik (0-43).
+          example: 18
+        grid_y:
+          type: integer
+          description: Koordinat baris grid isometrik (0-31).
+          example: 12
+        direction:
+          type: string
+          description: Orientasi hadap karakter.
+          enum: [SE, NE, SW, NW]
+          example: SE
+        task:
+          oneOf:
+            - $ref: '#/components/schemas/TaskRef'
+            - type: "null"
+
+    TaskRef:
+      type: object
+      description: |
+        Referensi tugas Kanban yang sedang atau baru saja dikerjakan agen.
+        Pada proyeksi publik, judul disamarkan dan field internal bernilai null.
+        Pada proyeksi founder, seluruh atribut ditampilkan (teks dipotong maks 500 karakter).
+      required:
+        - id
+        - title
+        - board
+        - status
+      properties:
+        id:
+          type: string
+          description: Identifier unik tugas Kanban.
+          example: t_f857a584
+        title:
+          type: string
+          description: Judul tugas (tersanitasi/disamarkan pada publik, asli pada founder).
+          example: Pengembangan modul backend dan database
+        board:
+          type: string
+          description: Nama board Kanban (nama asli jika allowlisted, atau Proyek internal).
+          example: office-v2
+        status:
+          type: string
+          description: Status tugas di Kanban.
+          enum: [todo, ready, running, blocked, done, failed]
+          example: running
+        block_kind:
+          type: [string, "null"]
+          description: Alasan pemblokiran tugas jika berstatus blocked.
+          enum: [needs_input, dependency, capability, transient, null]
+          example: null
+        started_at:
+          type: [integer, "null"]
+          description: Unix timestamp detik saat tugas mulai dijalankan.
+          example: 1791027159
+        body:
+          type: [string, "null"]
+          description: Deskripsi lengkap tugas (hanya muncul di proyeksi Founder, dipotong maks. 500 karakter).
+          example: null
+        summary:
+          type: [string, "null"]
+          description: Ringkasan hasil eksekusi tugas (hanya muncul di proyeksi Founder).
+          example: null
+        result:
+          type: [string, "null"]
+          description: Hasil eksekusi singkat (hanya muncul di proyeksi Founder).
+          example: null
+        error:
+          type: [string, "null"]
+          description: Pesan kegagalan atau error run (hanya muncul di proyeksi Founder).
+          example: null
+        workspace_path:
+          type: [string, "null"]
+          description: Path absolut workspace run di server (hanya muncul di proyeksi Founder).
+          example: null
+        branch_name:
+          type: [string, "null"]
+          description: Nama branch git pengerjaan tugas (hanya muncul di proyeksi Founder).
+          example: null
+        worker_pid:
+          type: [integer, "null"]
+          description: Process ID worker agent di OS Linux (hanya muncul di proyeksi Founder).
+          example: null
+
+    OfficeEvent:
+      type: object
+      description: Representasi peristiwa atau aktivitas di kantor virtual untuk umpan linimasa (feed).
+      required:
+        - seq
+        - ts
+        - board
+        - kind
+        - message
+      properties:
+        seq:
+          type: integer
+          description: Nomor urut sequence global yang monoton bertambah, digunakan untuk resume SSE.
+          example: 142
+        ts:
+          type: integer
+          description: Unix timestamp detik terjadinya peristiwa.
+          example: 1791028303
+        board:
+          type: string
+          description: Board sumber peristiwa (nama asli jika allowlisted, atau Proyek internal).
+          example: office-v2
+        kind:
+          type: string
+          description: Jenis peristiwa kantor.
+          enum:
+            - task_created
+            - task_started
+            - task_commented
+            - task_blocked
+            - task_done
+            - task_failed
+            - task_stale
+            - agent_online
+            - agent_offline
+            - collective_started
+            - collective_ended
+            - vitals_alert
+          example: task_started
+        agent:
+          type: [string, "null"]
+          description: ID agen yang terdampak atau menjadi pelaku utama.
+          example: forge
+        actor:
+          type: [string, "null"]
+          description: ID agen aktor yang memicu aksi (misal penulis komentar).
+          example: jarvis
+        message:
+          type: string
+          description: Pesan ramah pengguna yang ditampilkan pada linimasa feed.
+          example: Forge mulai mengerjakan tugas pengembangan modul backend
+        task:
+          oneOf:
+            - $ref: '#/components/schemas/TaskRef'
+            - type: "null"
+
+    WorldSnapshot:
+      type: object
+      description: Snapshot menyeluruh kondisi dunia kantor pada suatu waktu.
+      required:
+        - generated_at
+        - seq
+        - projection
+        - time_of_day
+        - agents
+        - recent_events
+        - vitals
+      properties:
+        generated_at:
+          type: integer
+          description: Unix timestamp detik saat snapshot ini digenerate oleh server.
+          example: 1791028310
+        seq:
+          type: integer
+          description: Nomor sequence event terakhir yang tercakup dalam snapshot ini.
+          example: 142
+        projection:
+          type: string
+          description: Tingkat proyeksi data dari snapshot ini.
+          enum: [public, founder]
+          example: public
+        time_of_day:
+          type: string
+          description: Waktu pencahayaan atmosfer saat ini berdasarkan jam lokal Asia/Jakarta (WIB).
+          enum: [dawn, day, dusk, night]
+          example: day
+        agents:
+          type: array
+          description: Daftar kondisi terkini dari seluruh 16 agen kantor.
+          items:
+            $ref: '#/components/schemas/AgentState'
+        recent_events:
+          type: array
+          description: Daftar hingga 500 peristiwa kantor terbaru dari ring buffer di memori.
+          items:
+            $ref: '#/components/schemas/OfficeEvent'
+        active_collective:
+          oneOf:
+            - $ref: '#/components/schemas/CollectiveEventState'
+            - type: "null"
+        vitals:
+          $ref: '#/components/schemas/HostVitals'
+
+    CollectiveEventState:
+      type: object
+      description: Kondisi event interaksi kolektif yang melibatkan banyak agen.
+      required:
+        - id
+        - kind
+        - title
+        - started_at
+        - expires_at
+        - participants
+        - active
+      properties:
+        id:
+          type: string
+          description: Identifier unik instans event kolektif.
+          example: coll_98f12a
+        kind:
+          type: string
+          description: Jenis aktivitas kolektif.
+          enum: [rapat, break, sholat]
+          example: rapat
+        title:
+          type: string
+          description: Judul atau tema event kolektif.
+          example: Rapat Koordinasi Arsitektur
+        started_at:
+          type: integer
+          description: Unix timestamp detik saat event dimulai.
+          example: 1791028000
+        expires_at:
+          type: integer
+          description: Unix timestamp detik saat event akan kedaluwarsa secara otomatis.
+          example: 1791028300
+        participants:
+          type: array
+          description: Daftar ID agen yang mengikuti event kolektif ini.
+          items:
+            type: string
+          example: [jarvis, daedalus, forge, prism]
+        active:
+          type: boolean
+          description: Menandakan apakah event masih aktif berlangsung.
+          example: true
+
+    HostVitals:
+      type: object
+      description: Metrik sumber daya server VPS tempat sistem beroperasi.
+      required:
+        - cpu_percent
+        - memory_percent
+        - disk_percent
+        - status
+      properties:
+        cpu_percent:
+          type: number
+          format: float
+          description: Persentase penggunaan CPU (dibulatkan ke bilangan bulat pada mode publik).
+          example: 14.0
+        memory_percent:
+          type: number
+          format: float
+          description: Persentase penggunaan memori RAM (dibulatkan ke bilangan bulat pada mode publik).
+          example: 38.0
+        disk_percent:
+          type: number
+          format: float
+          description: Persentase penggunaan partisi penyimpanan disk (dibulatkan pada mode publik).
+          example: 62.0
+        status:
+          type: string
+          description: Status umum kesehatan infrastruktur host.
+          enum: [healthy, warning, critical]
+          example: healthy
+        details:
+          oneOf:
+            - $ref: '#/components/schemas/HostVitalsDetails'
+            - type: "null"
+
+    HostVitalsDetails:
+      type: object
+      description: Rincian telemetri perangkat keras dan proses server (hanya tersedia di proyeksi Founder).
+      required:
+        - cpu_cores
+        - load_1m
+        - load_5m
+        - load_15m
+        - memory_total_mb
+        - memory_used_mb
+        - memory_available_mb
+        - disk_total_gb
+        - disk_used_gb
+        - uptime_seconds
+      properties:
+        cpu_cores:
+          type: integer
+          description: Jumlah core CPU fisik/virtual host.
+          example: 8
+        load_1m:
+          type: number
+          format: float
+          description: Load average server 1 menit terakhir.
+          example: 0.85
+        load_5m:
+          type: number
+          format: float
+          description: Load average server 5 menit terakhir.
+          example: 0.92
+        load_15m:
+          type: number
+          format: float
+          description: Load average server 15 menit terakhir.
+          example: 0.78
+        memory_total_mb:
+          type: number
+          format: float
+          description: Total kapasitas RAM fisik dalam megabyte.
+          example: 16384.0
+        memory_used_mb:
+          type: number
+          format: float
+          description: Penggunaan RAM aktif saat ini dalam megabyte.
+          example: 6225.0
+        memory_available_mb:
+          type: number
+          format: float
+          description: Sisa RAM yang tersedia dalam megabyte.
+          example: 10159.0
+        disk_total_gb:
+          type: number
+          format: float
+          description: Total kapasitas penyimpanan root disk dalam gigabyte.
+          example: 120.0
+        disk_used_gb:
+          type: number
+          format: float
+          description: Penggunaan ruang disk saat ini dalam gigabyte.
+          example: 74.4
+        uptime_seconds:
+          type: number
+          format: float
+          description: Total waktu aktif server host sejak boot dalam detik.
+          example: 864200.0
+
+    AgentProfileDetail:
+      type: object
+      description: Informasi profil mendalam seorang agen beserta riwayat tugas terakhir.
+      required:
+        - agent
+        - bio
+        - recent_tasks
+      properties:
+        agent:
+          $ref: '#/components/schemas/AgentState'
+        bio:
+          $ref: '#/components/schemas/AgentBio'
+        recent_tasks:
+          type: array
+          description: Daftar 5 tugas terakhir yang dikerjakan oleh agen (disanitasi per proyeksi).
+          items:
+            $ref: '#/components/schemas/TaskRef'
+
+    AgentBio:
+      type: object
+      description: Data profil persona, peran, dan preferensi kerja seorang agen.
+      required:
+        - id
+        - name
+        - role
+        - department
+        - personality
+        - specialties
+        - primary_color
+        - desk_zone
+      properties:
+        id:
+          type: string
+          example: forge
+        name:
+          type: string
+          example: Forge
+        alias:
+          type: [string, "null"]
+          example: The Blacksmith
+        role:
+          type: string
+          example: Backend Specialist
+        department:
+          type: string
+          example: Core Engineering
+        personality:
+          type: string
+          example: Pekerja keras, teliti, pragmatis, sangat menyukai optimasi database
+        specialties:
+          type: array
+          items:
+            type: string
+          example: [Python, FastAPI, SQLite WAL, AsyncIO]
+        primary_color:
+          type: string
+          pattern: '^#[0-9A-Fa-f]{6}$'
+          example: '#3B82F6'
+        desk_zone:
+          type: string
+          example: backend_den
+
+    LoginRequest:
+      type: object
+      description: Kredensial autentikasi Founder.
+      required:
+        - password
+      properties:
+        password:
+          type: string
+          format: password
+          description: Kata sandi Founder.
+          example: SuperSecretFounderPassphrase2026!
+
+    LoginResponse:
+      type: object
+      description: Respons keberhasilan autentikasi Founder.
+      required:
+        - success
+        - role
+        - expires_at
+      properties:
+        success:
+          type: boolean
+          example: true
+        role:
+          type: string
+          example: founder
+        expires_at:
+          type: integer
+          description: Unix timestamp detik berakhirnya masa aktif sesi.
+          example: 1791633103
+
+    LogoutResponse:
+      type: object
+      description: Respons pengakhiran sesi Founder.
+      required:
+        - success
+      properties:
+        success:
+          type: boolean
+          example: true
+
+    TriggerCollectiveRequest:
+      type: object
+      description: Parameter untuk memicu event interaksi kolektif.
+      required:
+        - kind
+      properties:
+        kind:
+          type: string
+          description: Jenis event yang ingin dipicu.
+          enum: [rapat, break, sholat]
+          example: rapat
+        duration_seconds:
+          type: integer
+          description: Durasi berlangsungnya event dalam detik (default 300 detik / 5 menit).
+          default: 300
+          minimum: 30
+          maximum: 1800
+          example: 300
+        participants:
+          type: array
+          description: Daftar ID agen yang diundang. Jika kosong, mengikutsertakan seluruh agen idle.
+          items:
+            type: string
+          example: [jarvis, daedalus, forge, prism]
+        title:
+          type: string
+          description: Judul kustom untuk event kolektif.
+          example: Rapat Koordinasi Arsitektur
+
+    ReaderHealth:
+      type: object
+      description: Kondisi kesehatan modul pembaca data sumber.
+      required:
+        - status
+        - last_poll
+      properties:
+        status:
+          type: string
+          enum: [ok, degraded, error]
+          example: ok
+        last_poll:
+          type: integer
+          description: Unix timestamp detik pembacaan terakhir.
+          example: 1791028303
+        error:
+          type: [string, "null"]
+          description: Pesan error terakhir jika status error atau degraded.
+          example: null
+        details:
+          type: [object, "null"]
+          description: Informasi spesifik tambahan (misal daftar board yang ditemukan).
+          additionalProperties: true
+
+    HealthResponse:
+      type: object
+      description: Laporan komprehensif kesehatan layanan backend.
+      required:
+        - status
+        - timestamp
+        - uptime_seconds
+        - memory_rss_mb
+        - readers
+        - version
+      properties:
+        status:
+          type: string
+          description: Status operasional agregat layanan backend.
+          enum: [ok, degraded, error]
+          example: ok
+        timestamp:
+          type: integer
+          description: Unix timestamp detik pemeriksaan.
+          example: 1791028310
+        uptime_seconds:
+          type: number
+          format: float
+          description: Total waktu aktif proses FastAPI dalam detik.
+          example: 3600.5
+        memory_rss_mb:
+          type: number
+          format: float
+          description: Konsumsi memori Resident Set Size (RSS) proses Uvicorn dalam MB (harus < 150 MB).
+          example: 48.2
+        version:
+          type: string
+          description: Versi aplikasi backend office.
+          example: 2.0.0
+        readers:
+          type: object
+          description: Status kesehatan masing-masing komponen modul pembaca data sumber.
+          required:
+            - kanban
+            - gateway
+            - profiles
+            - host
+          properties:
+            kanban:
+              $ref: '#/components/schemas/ReaderHealth'
+            gateway:
+              $ref: '#/components/schemas/ReaderHealth'
+            profiles:
+              $ref: '#/components/schemas/ReaderHealth'
+            host:
+              $ref: '#/components/schemas/ReaderHealth'
+
+    ErrorResponse:
+      type: object
+      description: Format standar representasi kesalahan API.
+      required:
+        - error
+        - code
+      properties:
+        error:
+          type: string
+          description: Pesan deskripsi kesalahan yang mudah dipahami.
+          example: Autentikasi Founder diperlukan untuk mengakses resource ini
+        code:
+          type: string
+          description: Kode klasifikasi error mesin.
+          example: UNAUTHORIZED
+        details:
+          type: [object, "null"]
+          description: Detail konteks tambahan atas error jika ada.
+          additionalProperties: true
+
+    # SSE Event Payloads
+    SSEPayload:
+      type: object
+      description: |
+        Polimorfik payload data yang dikirimkan melalui format Server-Sent Events text/event-stream.
+        Format transmisi di wire:
+        ```
+        event: <event_name>
+        id: <seq>
+        data: <JSON_string>
+        ```
+      oneOf:
+        - $ref: '#/components/schemas/SSESnapshotEvent'
+        - $ref: '#/components/schemas/SSEAgentDeltaEvent'
+        - $ref: '#/components/schemas/SSEOfficeFeedEvent'
+        - $ref: '#/components/schemas/SSEVitalsEvent'
+        - $ref: '#/components/schemas/SSECollectiveEvent'
+
+    SSESnapshotEvent:
+      type: object
+      description: "Event snapshot: Dikirimkan segera saat koneksi baru terbentuk atau saat reconnect gap melebihi batas buffer."
+      required:
+        - event
+        - data
+      properties:
+        event:
+          type: string
+          enum: [snapshot]
+          example: snapshot
+        id:
+          type: string
+          description: Sequence ID terakhir.
+          example: '142'
+        data:
+          $ref: '#/components/schemas/WorldSnapshot'
+
+    SSEAgentDeltaEvent:
+      type: object
+      description: "Event agent: Dikirimkan ketika terdapat perubahan status atau aksi pada satu agen."
+      required:
+        - event
+        - data
+      properties:
+        event:
+          type: string
+          enum: [agent]
+          example: agent
+        id:
+          type: string
+          description: Sequence ID event pemicu perubahan.
+          example: '143'
+        data:
+          $ref: '#/components/schemas/AgentState'
+
+    SSEOfficeFeedEvent:
+      type: object
+      description: "Event event: Dikirimkan ketika ada peristiwa linimasa baru (task mulai, selesai, terblokir, dll.)."
+      required:
+        - event
+        - data
+      properties:
+        event:
+          type: string
+          enum: [event]
+          example: event
+        id:
+          type: string
+          description: Sequence ID event.
+          example: '144'
+        data:
+          $ref: '#/components/schemas/OfficeEvent'
+
+    SSEVitalsEvent:
+      type: object
+      description: "Event vitals: Dikirimkan secara periodik (setiap 5 detik) untuk memperbarui indikator sumber daya server."
+      required:
+        - event
+        - data
+      properties:
+        event:
+          type: string
+          enum: [vitals]
+          example: vitals
+        data:
+          $ref: '#/components/schemas/HostVitals'
+
+    SSECollectiveEvent:
+      type: object
+      description: "Event collective: Dikirimkan saat event kolektif dimulai, diperbarui, atau selesai."
+      required:
+        - event
+      properties:
+        event:
+          type: string
+          enum: [collective]
+          example: collective
+        id:
+          type: string
+          example: '145'
+        data:
+          oneOf:
+            - $ref: '#/components/schemas/CollectiveEventState'
+            - type: "null"
