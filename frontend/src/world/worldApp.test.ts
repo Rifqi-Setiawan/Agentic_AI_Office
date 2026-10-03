@@ -1,3 +1,8 @@
+if (typeof globalThis.navigator === 'undefined') {
+  // @ts-expect-error polyfill for Node test environment
+  globalThis.navigator = { userAgent: 'node' };
+}
+
 import { describe, expect, it } from 'vitest';
 import { WorldApp, worldApp } from './WorldApp';
 import { officeStore } from '../store/officeStore';
