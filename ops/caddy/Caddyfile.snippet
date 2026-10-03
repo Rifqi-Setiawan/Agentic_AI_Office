@@ -1,5 +1,28 @@
 # Caddy staging block for Agentic AI Office v2 (port 8092)
-office.rifqisetiawan.my.id {
+# Hardening: Strict CSP (tanpa unsafe-inline untuk script), HSTS, Rate Limit Login, dan Access Log Redaction
+
+office.rifqisetiawan.my.id, staging.office.rifqisetiawan.my.id, office-staging.rifqisetiawan.my.id {
+    import security_headers
+    encode gzip zstd
+
+    # Strict Content Security Policy (tanpa unsafe-inline untuk script)
+    header {
+        Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
+    }
+
+    # Rate limit Caddy untuk login Founder (5 percobaan / 1 menit / IP)
+    @login_founder {
+        path /api/v1/auth/login
+        method POST
+    }
+    rate_limit @login_founder {
+        zone office_login {
+            key {remote_host}
+            events 5
+            window 1m
+        }
+    }
+
     # Backend REST API and SSE Streaming proxy with disabled buffering
     handle /api/* {
         reverse_proxy 127.0.0.1:8092 {
@@ -9,8 +32,22 @@ office.rifqisetiawan.my.id {
 
     # Static frontend single-page application
     handle {
-        root * /srv/hermes-control/services/office-v2/frontend/dist
+        root * /srv/html/office-v2
         try_files {path} /index.html
         file_server
+    }
+
+    # Log akses terstruktur tanpa mencatat query string
+    log {
+        output file /var/log/caddy/office_staging_access.log {
+            roll_size 10mb
+            roll_keep 5
+        }
+        format filter {
+            wrap json
+            fields {
+                request>uri regexp \?.* ""
+            }
+        }
     }
 }

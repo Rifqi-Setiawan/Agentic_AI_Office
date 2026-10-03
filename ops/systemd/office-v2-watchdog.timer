@@ -1,0 +1,12 @@
+[Unit]
+Description=Periodic Healthz Check for Agentic AI Office v2
+After=network.target
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=30s
+AccuracySec=5s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Agentic AI Office v2 - Healthz Watchdog Monitor
+After=network.target office-v2.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/hermes-control/services/office-v2
+ExecStart=/srv/hermes-control/services/office-v2/backend/.venv/bin/python /srv/hermes-control/services/office-v2/ops/scripts/healthz_watchdog.py
+StandardOutput=journal
+StandardError=journal
