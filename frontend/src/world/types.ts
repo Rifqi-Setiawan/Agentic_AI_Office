@@ -1,4 +1,5 @@
 import { Container } from 'pixi.js';
+import type { FacingDirection } from '../navigation/types';
 
 export interface TiledProperty {
   name: string;
@@ -84,9 +85,10 @@ export interface OfficeZone {
 
 export interface InteractionSlot {
   id: string;
+  name?: string;
   type: string;
   capacity: number;
-  facing: string;
+  facing: FacingDirection | string;
   anim: string;
   y_offset: number;
   zone: string;

@@ -3,6 +3,7 @@ import { TopBar } from './TopBar';
 import { AgentStatusBar } from './AgentStatusBar';
 import { ActivityFeed } from './ActivityFeed';
 import { SnapshotInspector } from './SnapshotInspector';
+import { AgentInspector } from './AgentInspector';
 
 /**
  * Root komponen HUD terpisah.
@@ -18,6 +19,9 @@ export const HudRoot: React.FC = () => {
         <TopBar />
         <AgentStatusBar />
       </div>
+
+      {/* Panel Inspector Agen Terpilih */}
+      <AgentInspector />
 
       {/* Bagian Bawah: ActivityFeed & SnapshotInspector */}
       <div className="w-full relative z-10">

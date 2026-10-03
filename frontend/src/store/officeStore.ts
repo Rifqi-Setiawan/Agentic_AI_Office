@@ -28,6 +28,10 @@ export interface OfficeState {
   vitals: HostVitals | null;
   activeCollective: CollectiveEventState | null;
 
+  // Interaktivitas HUD dan Agen
+  selectedAgentId: string | null;
+  hoveredAgentId: string | null;
+
   // Actions
   setConnectionStatus: (status: ConnectionStatus) => void;
   setError: (error: string | null) => void;
@@ -36,6 +40,8 @@ export interface OfficeState {
   appendOfficeEvent: (event: OfficeEvent, seq?: number) => void;
   updateVitals: (vitals: HostVitals) => void;
   updateCollective: (collective: CollectiveEventState | null, seq?: number) => void;
+  selectAgent: (agentId: string | null) => void;
+  hoverAgent: (agentId: string | null) => void;
   reset: () => void;
 }
 
@@ -54,6 +60,8 @@ const createInitialState = () => ({
   recentEvents: [] as OfficeEvent[],
   vitals: null as HostVitals | null,
   activeCollective: null as CollectiveEventState | null,
+  selectedAgentId: null as string | null,
+  hoveredAgentId: null as string | null,
 });
 
 /**
@@ -145,6 +153,14 @@ export const officeStore = createStore<OfficeState>((set, get) => ({
       lastSeq: seq !== undefined ? Math.max(get().lastSeq, seq) : get().lastSeq,
       lastUpdateTs: Math.floor(Date.now() / 1000),
     });
+  },
+
+  selectAgent: (selectedAgentId) => {
+    set({ selectedAgentId });
+  },
+
+  hoverAgent: (hoveredAgentId) => {
+    set({ hoveredAgentId });
   },
 
   reset: () => {

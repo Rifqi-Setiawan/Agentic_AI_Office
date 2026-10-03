@@ -1,10 +1,11 @@
 import { Application, Assets, Container, Graphics, Spritesheet, Texture } from 'pixi.js';
 import { Viewport } from 'pixi-viewport';
-import { officeStore } from '../store/officeStore';
 import { CameraManager } from './camera';
 import { LoadedOfficeMap, OfficeMapLoader } from './mapLoader';
 import { TiledMapDoc } from './types';
 import { WORLD_HEIGHT, WORLD_ORIGIN_X, WORLD_ORIGIN_Y, WORLD_WIDTH } from './projection';
+import { CharacterManager } from './CharacterManager';
+import type { Character } from './Character';
 
 /**
  * WorldApp mengelola satu-satunya instans `PIXI.Application` untuk render dunia isometrik.
@@ -16,6 +17,7 @@ export class WorldApp {
   private camera: CameraManager | null = null;
   private worldContainer: Container | null = null;
   private loadedMap: LoadedOfficeMap | null = null;
+  private characterManager: CharacterManager | null = null;
   private gridGraphics: Graphics | null = null;
   private spritesheet: Spritesheet | null = null;
   private isInitialized = false;
@@ -132,6 +134,16 @@ export class WorldApp {
 
       this.worldContainer.addChild(this.loadedMap.worldRoot);
 
+      // Inisialisasi CharacterManager dan spawn seluruh agen di meja/posisi asal
+      this.characterManager = new CharacterManager(this.loadedMap);
+      this.characterManager.spawnAllAgents();
+
+      if (typeof window !== 'undefined') {
+        this.characterManager.loadAllCharacterSpritesheets().catch((err) => {
+          console.warn('[WorldApp] Gagal memuat spritesheet karakter:', err);
+        });
+      }
+
       // Jalankan culling awal
       this.updateCulling();
     } else {
@@ -210,15 +222,15 @@ export class WorldApp {
    * TIDAK PERNAH memanggil setState React atau memicu re-render pada HUD.
    */
   public update(deltaTime?: number): void {
-    void deltaTime;
     if (!this.isInitialized) return;
 
-    // Akses vanilla store tanpa melalui React runtime
-    const state = officeStore.getState();
+    // Konversi deltaTime ticker ke detik (standar 60fps = 1/60 detik per delta frame)
+    const dtSec = (deltaTime ?? 1.0) / 60;
 
-    // Hook untuk downstream FSM gerak karakter (Steward T1.13) dan atmosfer (Warden T1.18):
-    if (this.loadedMap && state.agents) {
-      // Sort entitas dinamis di container entities
+    // Pembaruan FSM gerak dan rendering entitas karakter (T1.13)
+    if (this.characterManager) {
+      this.characterManager.update(dtSec);
+    } else if (this.loadedMap) {
       const entitiesContainer = this.loadedMap.containers.entities;
       if (entitiesContainer.sortableChildren) {
         entitiesContainer.sortChildren();
@@ -271,6 +283,14 @@ export class WorldApp {
     return this.loadedMap;
   }
 
+  public getCharacterManager(): CharacterManager | null {
+    return this.characterManager;
+  }
+
+  public getCharacter(id: string): Character | undefined {
+    return this.characterManager?.getCharacter(id);
+  }
+
   public isReady(): boolean {
     return this.isInitialized && this.app !== null;
   }
@@ -279,6 +299,10 @@ export class WorldApp {
     if (this.camera) {
       this.camera.destroy();
       this.camera = null;
+    }
+    if (this.characterManager) {
+      this.characterManager.destroy();
+      this.characterManager = null;
     }
     if (this.app) {
       this.app.destroy(true, { children: true, texture: true });
