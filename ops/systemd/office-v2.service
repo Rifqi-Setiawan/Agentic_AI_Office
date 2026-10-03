@@ -1,0 +1,19 @@
+[Unit]
+Description=Agentic AI Office v2 - Staging API Service (FastAPI)
+After=network.target
+
+[Service]
+Type=simple
+User=office
+Group=office
+WorkingDirectory=/srv/hermes-control/services/office-v2/backend
+Environment="PATH=/srv/hermes-control/services/office-v2/backend/.venv/bin:/usr/local/bin:/usr/bin"
+Environment="PORT=8092"
+Environment="HOST=127.0.0.1"
+ExecStart=/srv/hermes-control/services/office-v2/backend/.venv/bin/uvicorn office.main:app --host 127.0.0.1 --port 8092 --workers 1
+Restart=on-failure
+RestartSec=5s
+LimitNOFILE=65535
+
+[Install]
+WantedBy=default.target

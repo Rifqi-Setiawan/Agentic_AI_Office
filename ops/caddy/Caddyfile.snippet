@@ -1,0 +1,16 @@
+# Caddy staging block for Agentic AI Office v2 (port 8092)
+office.rifqisetiawan.my.id {
+    # Backend REST API and SSE Streaming proxy with disabled buffering
+    handle /api/* {
+        reverse_proxy 127.0.0.1:8092 {
+            flush_interval -1
+        }
+    }
+
+    # Static frontend single-page application
+    handle {
+        root * /srv/hermes-control/services/office-v2/frontend/dist
+        try_files {path} /index.html
+        file_server
+    }
+}

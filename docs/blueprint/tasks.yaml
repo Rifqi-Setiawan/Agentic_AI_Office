@@ -1,0 +1,710 @@
+# Office v2 — Task Decomposition (sumber utama)
+# Format siap diubah jadi kartu Hermes Kanban:
+#   title -> tasks.title, body + acceptance -> tasks.body (Markdown),
+#   assignee -> tasks.assignee, depends_on -> task_links (parent = dependensi, child = task ini).
+# priority: semakin besar semakin mendesak — sesuaikan dengan konvensi Hermes bila berbeda.
+# size: S = <= 1 hari kerja agent, M = 2–4 hari, L = >= 5 hari.
+# Aturan umum untuk SEMUA task:
+#   - Spec acuan: folder docs/blueprint/ (file 01–08 dalam zip ini).
+#   - Tidak ada write ke /srv/apps/hermes/** dari kode office. Sama sekali.
+#   - PIC tidak boleh meng-approve hasilnya sendiri; gate fase diverifikasi Sentinel.
+#   - Bahasa UI dan dialog: Bahasa Indonesia.
+
+version: 1
+board: office-v2
+tasks:
+
+  # ───────────────────────── FASE 0 — Fondasi & spike ─────────────────────────
+  - id: T0.1
+    title: Siapkan repo v2 (tag v1-final, branch office-v2, scaffold monorepo, CI)
+    assignee: relay
+    priority: 9
+    phase: 0
+    size: S
+    features: [F18]
+    depends_on: []
+    body: |
+      Tag commit 45af7ee sebagai `v1-final`. Buat branch `office-v2` dengan tree baru:
+      `backend/`, `frontend/`, `art/` (pipeline + sumber), `docs/blueprint/` (isi zip ini), `ops/`.
+      Tambahkan GitHub Actions: lint (ruff, eslint), typecheck (mypy, tsc), test (pytest, vitest).
+      Tambahkan `LICENSES.md` yang mendaftar semua aset pihak ketiga beserta lisensinya.
+    acceptance:
+      - 'Tag `v1-final` ada di remote dan menunjuk ke 45af7ee'
+      - 'CI hijau pada commit scaffold kosong'
+      - 'Semua commit teratribusi ke Rifqi-Setiawan sesuai kebijakan Relay'
+
+  - id: T0.2
+    title: Spike pembacaan SQLite Kanban read-only saat Hermes aktif
+    assignee: forge
+    priority: 9
+    phase: 0
+    size: S
+    features: [F01]
+    depends_on: [T0.1, T0.3]
+    body: |
+      Sebagai user `office`, buka `/srv/apps/hermes/kanban.db` dan satu board di `kanban/boards/*/`
+      dengan `file:<path>?mode=ro` (URI) + `PRAGMA query_only=ON` + `busy_timeout=2000`.
+      Jalankan poll `task_events WHERE id > ? ORDER BY id LIMIT 500` tiap 1 dtk selama 1 jam saat Hermes bekerja.
+      Catat: `PRAGMA journal_mode`, kebutuhan izin pada file `-wal`/`-shm`, latensi query p95,
+      jumlah SQLITE_BUSY di sisi office DAN di log Hermes. Jangan pernah memakai `immutable=1`.
+    acceptance:
+      - 'Laporan `docs/spikes/sqlite-readonly.md` berisi angka-angka di atas'
+      - 'Nol error lock di gateway.log Hermes selama uji'
+      - 'Rekomendasi izin file final (grup, mode) diserahkan ke Bastion'
+
+  - id: T0.3
+    title: Siapkan user office, izin baca Hermes, service staging port 8092
+    assignee: bastion
+    priority: 9
+    phase: 0
+    size: S
+    features: [F18]
+    depends_on: [T0.1]
+    body: |
+      Buat user sistem `office` dengan akses baca saja ke `/srv/apps/hermes/` lewat grup (tanpa write).
+      Buat `office-v2.service` (systemd user service) di port 8092 dan blok Caddy staging
+      dengan `reverse_proxy ... { flush_interval -1 }` untuk `/api/*` dan `file_server` untuk frontend.
+      Jangan mengubah service v1 di port 8091.
+    acceptance:
+      - '`sudo -u office touch /srv/apps/hermes/x` gagal; `sudo -u office cat .../gateway_state.json` berhasil'
+      - 'Halaman placeholder staging bisa diakses lewat HTTPS'
+      - 'Office v1 tetap jalan tanpa gangguan'
+
+  - id: T0.4
+    title: Spike pipeline sprite Blender → pixel-art isometrik
+    assignee: steward
+    priority: 9
+    phase: 0
+    size: M
+    features: [F07, F08]
+    depends_on: [T0.1]
+    body: |
+      Skrip Blender headless (`art/pipeline/render.py`) yang:
+      1. memuat satu karakter Quaternius, menskala tulang kepala 1,6x dan memendekkan kaki (chibi);
+      2. memasang satu aksesori (helm Bastion) + material swap warna khas;
+      3. merender dengan kamera ortografik rot X=60°, Z=45° ke kanvas 48x64, arah SE dan NE, animasi idle + walk;
+      4. merender 3 furnitur Kenney (meja, kursi, monitor) dengan sudut yang sama;
+      5. pixelate + kuantisasi ke palet master sementara (32 warna) + outline 1 px;
+      6. mengemas atlas (free-tex-packer-core) dan menampilkannya di halaman uji PixiJS pada skala 2x.
+      Jalankan di laptop Rifqi (bukan VPS). Catat waktu render per karakter.
+    acceptance:
+      - 'Halaman uji menampilkan karakter berjalan di atas 3 furnitur tanpa artefak blur'
+      - 'Skrip bisa diulang dengan satu perintah dan hasilnya deterministik'
+      - 'Screenshot + waktu render dilampirkan untuk review Muse'
+
+  - id: T0.5
+    title: Style guide v0 dan gate visual spike
+    assignee: muse
+    priority: 9
+    phase: 0
+    size: M
+    features: [F07, F08]
+    depends_on: [T0.4]
+    body: |
+      Tetapkan palet master (maks. 32 warna), aturan outline, ukuran karakter, dan 16 warna khas agent
+      (spec bagian 3) dengan cek kontras terhadap lantai mode siang dan mode malam.
+      Review hasil T0.4 dan beri keputusan: GO, REVISI (dengan daftar konkret), atau FALLBACK
+      (beli paket pixel-art isometrik berlisensi komersial yang jelas untuk situs publik).
+    acceptance:
+      - '`docs/style-guide.md` + file palet `.gpl`/`.json`'
+      - 'Keputusan tertulis GO/REVISI/FALLBACK beserta alasan'
+      - 'Rifqi menyetujui arah visual (komentar di dokumen atau chat)'
+
+  - id: T0.6
+    title: ADR-001..004 dan draf kontrak OpenAPI v1
+    assignee: daedalus
+    priority: 8
+    phase: 0
+    size: S
+    features: [F01, F04, F05]
+    depends_on: [T0.2]
+    body: |
+      Tulis ADR: (1) PixiJS + sprite pre-render menggantikan Three.js, (2) polling SQLite read-only,
+      (3) redaksi whitelist dengan dua proyeksi, (4) office stateless (tanpa DB sendiri).
+      Draf `openapi.yaml` untuk endpoint di spec bagian 1, termasuk skema `AgentState`, `OfficeEvent`,
+      `WorldSnapshot`, dan tipe event SSE.
+    acceptance:
+      - '4 file ADR di `docs/adr/`'
+      - '`openapi.yaml` valid (lolos validator) dan disetujui Jarvis'
+
+  - id: T0.7
+    title: Fixture kanban.db dan gate Fase 0
+    assignee: sentinel
+    priority: 8
+    phase: 0
+    size: S
+    features: [F01]
+    depends_on: [T0.2, T0.5, T0.6]
+    body: |
+      Buat `backend/tests/fixtures/kanban_fixture.db` dari skema asli (tasks, task_runs, task_events,
+      task_comments, task_links) dengan data sintetis yang mencakup: running, blocked (needs_input dan
+      dependency), done, crashed, timed_out, heartbeat basi, komentar Jarvis, dan dua board.
+      Isi body/summary/comment dengan string penanda unik (mis. `LEAK-CANARY-<n>`) untuk tes anti-bocor.
+      Verifikasi independen bahwa syarat gate G0 terpenuhi.
+    acceptance:
+      - 'Fixture + skrip generator-nya ada di repo'
+      - 'Laporan gate G0: PASS/FAIL per kriteria'
+
+  # ───────────────────────── FASE 1 — MVP ─────────────────────────
+  - id: T1.1
+    title: Reader sumber (Kanban multi-board, gateway, profil, vitals host)
+    assignee: forge
+    priority: 7
+    phase: 1
+    size: M
+    features: [F01, F02]
+    depends_on: [T0.6, T0.7]
+    body: |
+      Implementasi `sources/kanban.py`, `gateway.py`, `profiles.py`, `host.py` sesuai interval di spec bagian 1.
+      Cursor per board di memori; saat start, cursor = MAX(id) supaya tidak memutar ulang riwayat.
+      Cek skema saat boot (`PRAGMA table_info`) dan masuk mode degradasi jika kolom wajib hilang.
+    acceptance:
+      - 'Unit test terhadap fixture: event baru terbaca sekali, tanpa duplikat, lintas 2 board'
+      - 'Board baru di `boards/` terdeteksi <= 30 dtk'
+      - 'Mode degradasi teruji (kolom dihapus di salinan fixture)'
+
+  - id: T1.2
+    title: Normalizer dan state engine
+    assignee: forge
+    priority: 7
+    phase: 1
+    size: M
+    features: [F03]
+    depends_on: [T1.1]
+    body: |
+      Ubah row menjadi `OfficeEvent` dan turunkan `AgentState` sesuai tabel status di spec bagian 1
+      (working, stale >= 120 dtk, blocked, failed 60 dtk, done_recent 45 dtk, idle, off_duty).
+      Rekonsiliasi tiap 10 dtk dari tabel `tasks`. `done_today` dihitung dari 00:00 Asia/Jakarta.
+      Event `heartbeat` tidak disiarkan.
+    acceptance:
+      - 'Tabel status di spec tercakup oleh test, satu kasus per baris'
+      - 'Pergantian hari WIB diuji (23:59 → 00:00)'
+
+  - id: T1.3
+    title: Proyeksi publik/Founder dan tes anti-bocor
+    assignee: forge
+    priority: 7
+    phase: 1
+    size: M
+    features: [F04]
+    depends_on: [T1.2]
+    body: |
+      Implementasi `projection/public.py` dan `projection/founder.py` dengan whitelist field sesuai tabel redaksi.
+      Konfigurasi `office.yaml`: `public_boards` (allowlist) dan peta kategori task per peran agent.
+    acceptance:
+      - 'Tes properti (hypothesis): tidak ada substring `LEAK-CANARY` di JSON proyeksi publik untuk input acak'
+      - 'Path, PID, dan nama branch tidak pernah muncul di proyeksi publik'
+
+  - id: T1.4
+    title: REST + SSE (snapshot, delta, resume, keep-alive, batas koneksi)
+    assignee: forge
+    priority: 7
+    phase: 1
+    size: M
+    features: [F05]
+    depends_on: [T1.3]
+    body: |
+      Endpoint sesuai kontrak API v1. SSE: snapshot saat connect, lalu delta; `id:` = seq;
+      resume via `Last-Event-ID` dari ring buffer 500; keep-alive 15 dtk; header `Cache-Control: no-cache`
+      dan `X-Accel-Buffering: no`; batas 3 koneksi per IP, 200 total. Ekspor OpenAPI ke `frontend/src/data/api.d.ts`.
+    acceptance:
+      - 'Lag event fixture → klien test <= 2 dtk'
+      - 'Reconnect dengan Last-Event-ID tidak kehilangan dan tidak menggandakan event'
+      - 'Koneksi ke-4 dari IP yang sama ditolak 429'
+
+  - id: T1.5
+    title: Login Founder dan endpoint event kolektif
+    assignee: forge
+    priority: 6
+    phase: 1
+    size: S
+    features: [F06, F15]
+    depends_on: [T1.4]
+    body: |
+      Login password (hash argon2 dari env `OFFICE_FOUNDER_HASH`), cookie sesi itsdangerous 7 hari,
+      rate limit 5 percobaan/15 menit/IP. Semua POST wajib header `X-Office-Intent: 1`.
+      `POST /api/v1/collective` untuk `rapat`, `break`, `sholat` dengan TTL (rapat 10 mnt, break 10 mnt, sholat 5 mnt),
+      disiarkan ke semua viewer (publik juga melihat event-nya).
+    acceptance:
+      - 'POST tanpa cookie atau tanpa header → 401/403'
+      - 'Percobaan login ke-6 → 429'
+      - 'Event kolektif berakhir otomatis setelah TTL'
+
+  - id: T1.6
+    title: Produksi sprite 16 karakter (paper-doll) dengan animasi V1
+    assignee: steward
+    priority: 7
+    phase: 1
+    size: L
+    features: [F07]
+    depends_on: [T0.5]
+    body: |
+      Pakai pipeline T0.4. Buat Base A/B/C, lalu kostum + aksesori + prop per karakter sesuai tabel
+      "Visual dan zona" di spec bagian 3. Animasi: idle, walk (6 frame), sit_type, stand_talk, celebrate,
+      pray (berdiri, rukuk, sujud, duduk), drink — arah SE dan NE (SW/NW lewat mirror).
+      Oracle memakai desain orisinal; jangan meniru karakter dari franchise mana pun.
+      Tambahkan satu karakter tamu generik untuk profil di luar 15 agent.
+    acceptance:
+      - '17 sprite sheet (16 + tamu) dalam atlas, masing-masing <= 256 KB'
+      - 'Uji siluet: 16 karakter dalam grayscale pada skala 1x bisa dibedakan (direview Muse)'
+
+  - id: T1.7
+    title: Sprite tile dan furnitur untuk 17 zona
+    assignee: steward
+    priority: 7
+    phase: 1
+    size: L
+    features: [F08]
+    depends_on: [T0.5]
+    body: |
+      Furnitur generik dari Kenney Furniture Kit; furnitur khusus sebagai model low-poly kustom
+      (rak server, kabinet arcade, perlengkapan lab, meja blueprint, kolam + coping, mihrab, sajadah bergaris shaf,
+      whiteboard, konveyor). Tile lantai per zona, dinding belakang setinggi penuh, dinding depan cutaway 8 px.
+      Varian malam untuk sprite yang memancarkan cahaya (monitor, jendela, neon).
+    acceptance:
+      - 'Semua furnitur di tabel zona spec bagian 4 tersedia di atlas'
+      - 'Total atlas lingkungan <= 2,5 MB (WebP)'
+
+  - id: T1.8
+    title: Review art dan checklist anti-slop
+    assignee: muse
+    priority: 6
+    phase: 1
+    size: M
+    features: [F07, F08]
+    depends_on: [T1.6, T1.7]
+    body: |
+      Review karakter dan zona terhadap style guide. Hasilkan daftar revisi konkret per sprite.
+      Checklist: konsistensi sudut, palet, outline, keterbacaan siluet, tidak ada gradien/bayangan generik.
+    acceptance:
+      - 'Laporan review dengan status per aset (OK/REVISI)'
+      - 'Semua item REVISI ditutup sebelum T1.20 dimulai'
+
+  - id: T1.9
+    title: Peta Tiled 44x32 dengan 17 zona dan layer slot
+    assignee: daedalus
+    priority: 7
+    phase: 1
+    size: M
+    features: [F09]
+    depends_on: [T1.7]
+    body: |
+      Bangun `frontend/public/maps/floor1.tmj` sesuai tabel zona spec bagian 4.
+      Layer: floor, walls_back, walls_front, furniture, collision, slots (objek dengan properti type, capacity,
+      facing, anim, y_offset), doors, zones (polygon + nama). Jalur produksi Dev Pods → QA → Release → Data Center.
+    acceptance:
+      - 'Semua slot di tabel zona ada dengan kapasitas yang sesuai'
+      - 'Setiap zona tercapai dari Lobi lewat pathfinding (diverifikasi oleh test T1.12)'
+
+  - id: T1.10
+    title: Scaffold frontend (Vite, Pixi, HUD React terpisah, store, klien SSE)
+    assignee: prism
+    priority: 7
+    phase: 1
+    size: M
+    features: [F10, F14]
+    depends_on: [T0.6]
+    body: |
+      Vite 5 + TS strict. Satu `PIXI.Application` untuk world dan root React terpisah untuk HUD.
+      Zustand vanilla store sebagai satu-satunya jembatan; loop render tidak pernah memanggil setState React.
+      Klien SSE dengan backoff eksponensial (1 dtk → 30 dtk) dan fallback polling `/snapshot` tiap 5 dtk.
+      Tipe dari `openapi-typescript`. Mock server SSE untuk dev memakai fixture.
+    acceptance:
+      - '`npm run dev` menampilkan kanvas kosong + HUD yang menerima snapshot dari mock'
+      - 'Bundle JS awal <= 400 KB gzip'
+
+  - id: T1.11
+    title: Renderer isometrik, depth sort, kamera, dan flight antar zona
+    assignee: steward
+    priority: 7
+    phase: 1
+    size: M
+    features: [F10]
+    depends_on: [T1.10, T1.9]
+    body: |
+      Loader Tiled → container Pixi per layer. Proyeksi 2:1 (spec bagian 2). Depth sort entitas dinamis
+      dengan zIndex dari titik kaki; furnitur rendah di-bake ke layer lantai. pixi-viewport untuk drag/zoom
+      (skala integer 1x–3x). Flight GSAP `power2.inOut` 1,25 dtk ke zona; tween dihentikan saat user drag.
+      Culling sprite di luar layar.
+    acceptance:
+      - 'Karakter uji yang berjalan memutari meja tidak pernah tergambar di urutan yang salah'
+      - '< 30 draw call di seluruh peta pada zoom 1x'
+
+  - id: T1.12
+    title: Pathfinding A* dan reservasi slot
+    assignee: nova
+    priority: 7
+    phase: 1
+    size: M
+    features: [F11]
+    depends_on: [T1.10, T1.9]
+    body: |
+      A* 8 arah di grid dari layer collision dan doors. Sistem reservasi slot (satu agent per slot, antre bila penuh).
+      Penghindaran sederhana: agent yang berpapasan bergeser satu tile.
+    acceptance:
+      - 'Test: semua slot terjangkau dari Lobi'
+      - 'Pencarian jalur terpanjang < 1 ms (benchmark Vitest)'
+
+  - id: T1.13
+    title: Entitas karakter dan FSM gerak
+    assignee: steward
+    priority: 7
+    phase: 1
+    size: M
+    features: [F12]
+    depends_on: [T1.6, T1.11]
+    body: |
+      `Character` = AnimatedSprite 4 arah (mirror) + FSM: idle → walk(path) → arrive → act(anim slot) → leave.
+      `y_offset` dari slot saat duduk. Kecepatan jalan 2,5 tile/dtk. Badge task nyata di atas kepala.
+      Klik/hover karakter → event ke HUD (inspector, nama).
+    acceptance:
+      - '16 karakter berjalan bersamaan tanpa penurunan FPS di bawah 60'
+      - 'Klik karakter membuka inspector yang benar'
+
+  - id: T1.14
+    title: Choreographer (task nyata + ambient + event kolektif)
+    assignee: nova
+    priority: 7
+    phase: 1
+    size: L
+    features: [F12, F15]
+    depends_on: [T1.12, T1.13]
+    body: |
+      Lapisan prioritas: (1) task nyata dari AgentState, (2) event kolektif, (3) ambient scheduler.
+      Ambient memakai bobot persona (spec bagian 3), durasi aktivitas 30–120 dtk, dan tidak memilih aktivitas
+      yang sama dua kali berturut-turut. Peta status → perilaku sesuai tabel status di spec bagian 1.
+      Penanda badge hanya untuk task nyata. Event kolektif V1: rapat, break, sholat (imam Jarvis/Merlin acak,
+      shaf diisi berurutan, agent yang sedang kerja mengirim bubble "Nyusul setelah task ini").
+    acceptance:
+      - 'Task fixture `running` untuk forge → Forge di `desk:forge` dalam <= 10 dtk sejak event diterima'
+      - 'Saat sholat, tidak ada agent `working` yang meninggalkan mejanya'
+      - 'Simulasi 1 jam headless tanpa agent macet di satu tempat > 5 menit (kecuali sedang kerja)'
+
+  - id: T1.15
+    title: Bubble manager
+    assignee: prism
+    priority: 6
+    phase: 1
+    size: M
+    features: [F13]
+    depends_on: [T1.14, T1.16]
+    body: |
+      Pool elemen DOM overlay yang posisinya diperbarui langsung per frame (tanpa React).
+      Maksimal 3 bubble, masing-masing 4 dtk, cooldown 20 dtk per agent, prioritas sesuai spec bagian 3.
+      Template dialog dengan placeholder dari data publik/founder sesuai mode.
+    acceptance:
+      - 'Tidak pernah ada lebih dari 3 bubble tampil (test)'
+      - 'Placeholder kosong tidak pernah tampil mentah (`{proyek}`)'
+
+  - id: T1.16
+    title: Dialog bank V1 (Bahasa Indonesia)
+    assignee: merlin
+    priority: 6
+    phase: 1
+    size: S
+    features: [F13]
+    depends_on: []
+    body: |
+      `frontend/src/content/dialog.id.json`: untuk 16 karakter, minimal 6 baris per state
+      (working, done, blocked, failed, ambient, collective). Ikuti persona dan contoh di spec bagian 3.
+      Hanya placeholder aman: {proyek}, {n}, {durasi}, {agent}.
+    acceptance:
+      - 'Lolos skema JSON; setiap baris <= 80 karakter'
+      - 'Review gaya oleh Muse (tidak generik, sesuai persona)'
+
+  - id: T1.17
+    title: HUD (top bar, feed, inspector, daftar agent, panel Founder)
+    assignee: prism
+    priority: 6
+    phase: 1
+    size: L
+    features: [F14, F06, F15]
+    depends_on: [T1.10, T1.4]
+    body: |
+      Top bar: jam WIB, chip CPU/RAM/disk, mode atmosfer. Feed aktivitas (maks. 50 item di DOM).
+      Inspector drawer: profil, model AI, status, task (versi publik atau Founder), task selesai hari ini.
+      Daftar agent di sidebar yang bisa dinavigasi keyboard sebagai alternatif klik di kanvas.
+      Login Founder + panel trigger event kolektif + override atmosfer. Hormati `prefers-reduced-motion`.
+    acceptance:
+      - 'Semua kontrol bisa dioperasikan dengan keyboard; label ARIA lengkap'
+      - 'Proyeksi publik tidak pernah menampilkan field Founder (dicek E2E)'
+
+  - id: T1.18
+    title: Atmosfer otomatis WIB dan pencahayaan malam
+    assignee: warden
+    priority: 5
+    phase: 1
+    size: M
+    features: [F16]
+    depends_on: [T1.11]
+    body: |
+      Siang 05–15, senja 15–18, malam 18–05 WIB; transisi GSAP 3 dtk. ColorMatrixFilter untuk tint,
+      sprite cahaya additive untuk monitor, jendela, dan neon di malam hari. Override dari Founder.
+    acceptance:
+      - 'Transisi tidak menjatuhkan FPS di bawah 55'
+      - 'Override Founder kembali ke mode otomatis setelah 1 jam'
+
+  - id: T1.19
+    title: Rifqi klik-untuk-jalan (mode Founder)
+    assignee: prism
+    priority: 5
+    phase: 1
+    size: S
+    features: [F17]
+    depends_on: [T1.14, T1.17]
+    body: |
+      Di mode Founder, klik lantai → Rifqi berjalan ke sana; klik agent → Rifqi menghampiri, agent menoleh,
+      inspector terbuka. Di mode publik, Rifqi dikendalikan ambient scheduler.
+    acceptance:
+      - 'Klik di area tak terjangkau tidak membuat Rifqi macet'
+      - 'Mode publik tidak bisa mengendalikan Rifqi'
+
+  - id: T1.20
+    title: E2E Playwright dengan rekaman SSE
+    assignee: sentinel
+    priority: 6
+    phase: 1
+    size: M
+    features: [F04, F12, F14]
+    depends_on: [T1.15, T1.17, T1.19, T1.8]
+    body: |
+      Skenario: task mulai, selesai, blocked needs_input, crashed, stale, rapat, sholat, login Founder,
+      reconnect SSE, dan pemeriksaan redaksi publik (cari `LEAK-CANARY` di DOM dan network).
+      Screenshot scene deterministik (seed ambient tetap) sebagai baseline regresi visual.
+    acceptance:
+      - '10 skenario lulus di CI'
+      - 'Baseline screenshot tersimpan di repo'
+
+  - id: T1.21
+    title: Benchmark performa dan ukuran
+    assignee: sentinel
+    priority: 6
+    phase: 1
+    size: S
+    features: [F10]
+    depends_on: [T1.20]
+    body: |
+      Ukur FPS p95 (skenario 5 menit, 16 agent bergerak), draw call, initial load gzip, memori tab setelah 30 menit,
+      dan lag status. Bandingkan dengan budget di spec bagian 2.
+    acceptance:
+      - 'Laporan dengan PASS/FAIL per metrik; semua PASS untuk lanjut cutover'
+
+  - id: T1.22
+    title: Deploy staging dan hardening
+    assignee: bastion
+    priority: 6
+    phase: 1
+    size: S
+    features: [F18]
+    depends_on: [T1.5, T0.3]
+    body: |
+      Deploy ke 8092. Header keamanan (CSP ketat, HSTS, X-Content-Type-Options), rate limit Caddy untuk login,
+      log akses tanpa query string, alert jika `healthz` merah > 5 menit.
+    acceptance:
+      - 'Pemindaian header lulus; CSP tanpa `unsafe-inline` untuk script'
+      - 'Service hidup kembali otomatis setelah kill'
+
+  - id: T1.23
+    title: Rilis v2.0.0 dan cutover domain
+    assignee: relay
+    priority: 6
+    phase: 1
+    size: S
+    features: [F18]
+    depends_on: [T1.21, T1.22]
+    body: |
+      Changelog, tag `v2.0.0`. Alihkan `office.rifqisetiawan.my.id` ke 8092 setelah persetujuan Rifqi.
+      v1 tetap bisa dinyalakan dari `v1-final` selama 14 hari. Tulis runbook rollback 1 perintah.
+    acceptance:
+      - 'Rollback diuji di staging dan selesai < 2 menit'
+      - 'Laporan Fase 1 dikirim Jarvis ke Rifqi'
+
+  # ───────────────────────── FASE 2 — Kepribadian & gimmick ─────────────────────────
+  - id: T2.1
+    title: Animasi aktivitas lengkap dan kerja khas per karakter
+    assignee: steward
+    priority: 4
+    phase: 2
+    size: L
+    features: [F19]
+    depends_on: [T1.23]
+    body: |
+      swim, game, whiteboard, plus satu animasi kerja khas per karakter (kolom "Gerak khas" di spec bagian 3).
+    acceptance:
+      - 'Semua aktivitas di brief asli terlihat (berjalan, diskusi, rapat, coding, riset, istirahat, renang, sholat, gaming, menulis, monitoring, testing)'
+
+  - id: T2.2
+    title: Reaksi berbasis event
+    assignee: nova
+    priority: 4
+    phase: 2
+    size: M
+    features: [F20]
+    depends_on: [T1.23]
+    body: |
+      task_commented oleh jarvis → Jarvis berjalan ke meja assignee dan stand_talk. task_blocked setelah run Sentinel
+      → stempel merah FAIL. task_done dengan branch_name → Relay membawa paket ke konveyor. task_failed → Bastion mengecek.
+    acceptance:
+      - 'Setiap reaksi tercakup oleh E2E dengan fixture'
+
+  - id: T2.3
+    title: Notifikasi visual dan toggle Mode Jujur
+    assignee: prism
+    priority: 4
+    phase: 2
+    size: S
+    features: [F21, F22]
+    depends_on: [T1.23]
+    body: |
+      Toast kecil + ikon yang terbang dari agent ke feed saat task mulai/selesai. Toggle "Mode Jujur"
+      mematikan ambient: agent idle diam di zonanya.
+    acceptance:
+      - 'Toggle tersimpan per viewer (localStorage, dengan try/catch)'
+
+  - id: T2.4
+    title: Vitals → perubahan lingkungan
+    assignee: warden
+    priority: 4
+    phase: 2
+    size: M
+    features: [F23]
+    depends_on: [T1.23]
+    body: |
+      Implementasi tabel "Telemetri yang tampil di lingkungan" di spec bagian 4 (CPU, RAM, disk).
+    acceptance:
+      - 'Setiap ambang diuji dengan vitals fixture'
+
+  - id: T2.5
+    title: Audio ambient dan SFX
+    assignee: prism
+    priority: 3
+    phase: 2
+    size: S
+    features: [F24]
+    depends_on: [T1.23]
+    body: |
+      Howler.js; loop per atmosfer + SFX (selesai, gagal, stempel, adzan pendek saat sholat). Mati secara default,
+      tombol volume di top bar. Semua audio CC0, dicatat di LICENSES.md.
+    acceptance:
+      - 'Total audio <= 1,5 MB, dimuat malas setelah user menyalakan suara'
+
+  - id: T2.6
+    title: Event kolektif tambahan (Pool Party, Fire Drill, Town Hall)
+    assignee: nova
+    priority: 3
+    phase: 2
+    size: M
+    features: [F25]
+    depends_on: [T2.1]
+    body: |
+      Sesuai tabel event kolektif di spec bagian 5, termasuk endpoint kind baru di backend (koordinasi dengan Forge).
+    acceptance:
+      - 'Ketiga event bisa dipicu Founder dan berakhir otomatis'
+
+  - id: T2.7
+    title: Easter egg
+    assignee: nova
+    priority: 2
+    phase: 2
+    size: S
+    features: [F26]
+    depends_on: [T2.1]
+    body: |
+      Daftar easter egg di spec bagian 5.
+    acceptance:
+      - 'Tidak ada easter egg yang menutupi status task nyata'
+
+  - id: T2.8
+    title: Dialog bank V2 dan obrolan dua arah
+    assignee: merlin
+    priority: 2
+    phase: 2
+    size: M
+    features: [F27]
+    depends_on: [T1.23]
+    body: |
+      Minimal 12 baris per state, plus 20 pasangan percakapan dua arah antar agent (mis. Prism–Muse soal spacing,
+      Forge–Vector soal skema, Sentinel–Nova soal tes).
+    acceptance:
+      - 'Review gaya oleh Muse'
+
+  - id: T2.9
+    title: Regresi visual, performa ulang, dan rilis v2.1.0
+    assignee: sentinel
+    priority: 3
+    phase: 2
+    size: S
+    features: [F19, F23]
+    depends_on: [T2.1, T2.2, T2.3, T2.4, T2.5, T2.6, T2.7, T2.8]
+    body: |
+      Ulang benchmark T1.21 dan regresi visual. Setelah PASS, Relay merilis v2.1.0.
+    acceptance:
+      - 'Semua metrik budget tetap PASS'
+
+  # ───────────────────────── FASE 3 — Ekspansi ─────────────────────────
+  - id: T3.1
+    title: Chat persona Founder via 9Router
+    assignee: forge
+    priority: 2
+    phase: 3
+    size: M
+    features: [F28]
+    depends_on: [T2.9]
+    body: |
+      `POST /api/v1/founder/chat/{agent}` → 9Router (port 20128, OpenAI-compatible), streaming.
+      Prompt persona dari spec bagian 3 + konteks task Founder yang sudah diringkas. Batas 100 pesan/hari.
+      Tidak ada tool call, tidak ada akses ke Hermes.
+    acceptance:
+      - 'Hanya bisa diakses Founder; batas harian teruji'
+
+  - id: T3.2
+    title: Service health di dinding SOC
+    assignee: bastion
+    priority: 2
+    phase: 3
+    size: S
+    features: [F29]
+    depends_on: [T2.9]
+    body: |
+      Baca `systemctl --user` untuk daftar unit yang di-whitelist. Proyeksi publik hanya menampilkan hijau/merah per kategori.
+    acceptance:
+      - 'Nama unit tidak tampil di proyeksi publik'
+
+  - id: T3.3
+    title: Feed aktivitas git di Release Dock
+    assignee: relay
+    priority: 1
+    phase: 3
+    size: S
+    features: [F30]
+    depends_on: [T2.9]
+    body: |
+      `git log --since` per proyek di whitelist; publik hanya melihat jumlah commit per proyek publik.
+    acceptance:
+      - 'Pesan commit tidak tampil di proyeksi publik'
+
+  - id: T3.4
+    title: Lantai 2 dan rooftop
+    assignee: steward
+    priority: 1
+    phase: 3
+    size: L
+    features: [F31]
+    depends_on: [T2.9]
+    body: |
+      Peta lantai 2 + rooftop pool; tangga/lift sebagai portal pathfinding antar lantai; kamera pindah lantai.
+    acceptance:
+      - 'Budget performa tetap PASS dengan dua lantai'
+
+  - id: T3.5
+    title: Panel relasi task (task_links)
+    assignee: prism
+    priority: 1
+    phase: 3
+    size: M
+    features: [F32]
+    depends_on: [T2.9]
+    body: |
+      Panel Founder yang menampilkan pohon parent/child task aktif; klik node → kamera terbang ke agent.
+    acceptance:
+      - 'Hanya tampil di mode Founder'

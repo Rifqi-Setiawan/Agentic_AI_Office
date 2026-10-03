@@ -1,82 +1,31 @@
 {
-  "name": "agent-office",
-  "version": "1.0.0",
-  "description": "Pixel art office visualization for AI agents powered by Claude Code hooks",
-  "author": "W17ANT",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/W17ANT/agent-office.git"
-  },
-  "homepage": "https://github.com/W17ANT/agent-office",
-  "bugs": "https://github.com/W17ANT/agent-office/issues",
+  "name": "office-v2-frontend",
+  "private": true,
+  "version": "2.0.0",
   "type": "module",
-  "main": "electron/main.cjs",
   "scripts": {
     "dev": "vite",
-    "dev:electron": "concurrently \"vite\" \"sleep 2 && electron .\"",
-    "dev:all": "concurrently \"node server/index.js\" \"vite\"",
     "build": "tsc && vite build",
-    "build:electron": "vite build && electron-builder",
-    "pack": "vite build && electron-builder --dir",
-    "electron": "electron .",
-    "start": "npm run dev:electron",
-    "server": "node server/index.js",
-    "install-hooks": "bash hooks/install-hooks.sh"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "dependencies": {
-    "@types/three": "^0.186.0",
-    "@xyflow/react": "^12.12.0",
-    "better-sqlite3": "^12.8.0",
-    "concurrently": "^8.2.2",
-    "express": "^4.19.2",
-    "gsap": "^3.15.0",
-    "lucide-react": "^1.48.0",
-    "phaser": "^4.2.1",
+    "pixi.js": "^8.5.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "three": "^0.186.1",
-    "ws": "^8.18.0"
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/react": "^18.3.3",
+    "@eslint/js": "^9.11.1",
+    "@types/node": "^22.7.4",
+    "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
-    "@types/ws": "^8.5.12",
-    "@vitejs/plugin-react": "^4.3.1",
-    "electron": "^33.0.0",
-    "electron-builder": "^24.13.3",
-    "typescript": "^5.5.3",
-    "vite": "^5.4.0"
-  },
-  "build": {
-    "appId": "com.agentoffice.app",
-    "productName": "Agent Office",
-    "directories": {
-      "output": "release"
-    },
-    "files": [
-      "dist/**",
-      "electron/**",
-      "server/**",
-      "public/**",
-      "node_modules/**"
-    ],
-    "mac": {
-      "category": "public.app-category.developer-tools",
-      "target": [
-        "dmg"
-      ]
-    },
-    "extraResources": [
-      {
-        "from": "server",
-        "to": "server"
-      },
-      {
-        "from": "public",
-        "to": "public"
-      }
-    ]
+    "@vitejs/plugin-react": "^4.3.2",
+    "eslint": "^9.11.1",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0",
+    "vite": "^5.4.8",
+    "vitest": "^2.1.2"
   }
 }
