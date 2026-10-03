@@ -89,3 +89,45 @@ Total eksekusi keseluruhan: **2.22 dtk**.
   - File screenshot detail canvas: `art/pipeline/dist/screenshot_spike_detail.png`
   - File metrik lengkap: `art/pipeline/dist/render_metrics.json`
   - File palet master 32 warna: `art/pipeline/palette.json` & `art/pipeline/palette.gpl` (siap untuk Task T0.5).
+
+---
+
+## 5. Pipeline Sprite Tile & Furnitur Lingkungan 17 Zona (Task T1.7)
+
+Pipeline render headless Blender untuk menghasilkan seluruh aset visual lingkungan (17 zona kantor, dinding, dan furnitur) sesuai cetak biru `docs/blueprint/04-environment-room-spec.md`.
+
+### 5.1. Perintah Eksekusi Pipeline
+
+```bash
+# Render 122 sprite lingkungan (furnitur, tile, dinding, varian malam) dan kemas atlas WebP & PNG
+python3 art/pipeline/render_environment.py
+
+# Kemas ulang atlas secara terpisah (opsional)
+node art/pipeline/pack_environment.js art/pipeline/dist/raw_environment art/pipeline/dist
+
+# Generate visual inspection HTML & screenshot resolusi tinggi
+python3 scripts/generate_environment_preview.py
+```
+
+### 5.2. Spesifikasi Atlas Lingkungan & Verifikasi Kriteria Penerimaan
+
+| Kriteria / Metrik | Target Spesifikasi | Hasil Aktual | Status |
+| :--- | :--- | :--- | :---: |
+| **Kelengkapan Furnitur Zona** | Seluruh tabel zona Blueprint Bagian 4 | **100% (122 sprite)** di atlas | **PASS** |
+| **Ukuran Total Atlas Lingkungan** | $\le 2,5\text{ MB}$ (WebP) | **70,25 KB (0,069 MB)** | **PASS** |
+| **Varian Malam (Night Glow)** | Sprite pemancar cahaya (monitor, neon, LED, jendela) | **18 varian malam** tersedia di atlas | **PASS** |
+| **Dinding Arsitektural** | Dinding belakang penuh, dinding depan cutaway 8 px | **10 varian dinding** (SW, SE, NW, NE, jendela, pintu) | **PASS** |
+| **Tile Lantai Per Zona** | 17 zona + koridor + air kolam + varian malam | **21 varian tile** (dimetrik 2:1, $64 \times 32$ px) | **PASS** |
+| **Kuantisasi Palet Warna** | Master 32-Color Palette (`palette.json`) | **100% kuantisasi** berbobot Euclidean | **PASS** |
+| **Kontur Luar (Outline)** | 1 px Charcoal (`#14141E`) via ekspansi morfologi 4-arah | **100% konsisten** di seluruh furnitur & dinding | **PASS** |
+| **Durasi Render Headless** | Waktu eksekusi cepat di mesin lokal | **12,56 detik** untuk 122 sprite | **PASS** |
+
+### 5.3. Lokasi Berkas Deliverable
+- Atlas WebP: `frontend/public/sprites/environment.webp` & `art/pipeline/dist/environment.webp`
+- Manifest PixiJS: `frontend/public/sprites/environment.json` & `art/pipeline/dist/environment.json`
+- Atlas PNG Companion: `frontend/public/sprites/environment.png` & `art/pipeline/dist/environment.png`
+- Laporan Metrik Render: `art/pipeline/dist/environment_render_metrics.json`
+- Halaman Inspeksi Visual: `docs/preview_environment.html`
+- Tangkapan Layar Review: `docs/preview_environment.png`
+- Rangkaian Pengujian Otomatis: `frontend/src/environment.test.ts`
+
