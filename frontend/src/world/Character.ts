@@ -474,6 +474,8 @@ export class Character extends Container {
    * Memulai transisi FSM ke status 'walk' dengan jalur koordinat grid (A* path).
    */
   public walk(path: GridPoint[], targetSlot?: InteractionSlot): void {
+    this.targetSlot = targetSlot;
+
     if (!path || path.length === 0) {
       if (targetSlot) {
         this.arrive();
@@ -486,7 +488,6 @@ export class Character extends Container {
     const prevFsm = this.fsmState;
     this.fsmState = 'walk';
     this.currentPath = [...path];
-    this.targetSlot = targetSlot;
 
     // Reset slotYOffset saat mulai berjalan
     this.slotYOffset = 0;

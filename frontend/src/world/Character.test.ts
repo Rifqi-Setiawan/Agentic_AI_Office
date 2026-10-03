@@ -154,6 +154,35 @@ describe('T1.13 Character Entity & Motion FSM', () => {
       expect(char.facing).toBe('SW');
       expect(char.spriteWrapper.scale.x).toBe(-1); // SW mirrored
     });
+
+    it('immediately transitions to act when targetSlot is supplied with empty path (agent already at target)', () => {
+      const char = new Character({
+        id: 'steward',
+        name: 'Steward',
+        initialGx: 25,
+        initialGy: 12,
+      });
+
+      const targetSlot: InteractionSlot = {
+        id: 'slot_z09_desk_steward',
+        type: 'desk:steward',
+        capacity: 1,
+        facing: 'SE',
+        anim: 'sit_type',
+        y_offset: -6,
+        zone: 'Z09',
+        gx: 25,
+        gy: 12,
+        worldPos: { x: 100, y: 100 },
+      };
+
+      char.walk([], targetSlot);
+      expect(char.fsmState).toBe('act');
+      expect(char.getCurrentSlot()?.id).toBe('slot_z09_desk_steward');
+      expect(char.slotYOffset).toBe(-6);
+      expect(char.spriteWrapper.y).toBe(-6);
+      expect(char.facing).toBe('SE');
+    });
   });
 
   describe('Kecepatan Jalan 2,5 tile/dtk', () => {
