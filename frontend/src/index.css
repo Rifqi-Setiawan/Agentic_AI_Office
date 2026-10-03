@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #14141e;
+  color: #f5f0e1;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Anti-AI-slop standard: tabular-nums on all financial, metric, timestamp, and quantity numbers */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Anti-AI-slop standard: negative letter-spacing on display headings */
+.tracking-display {
+  letter-spacing: -0.03em;
+}
+
+/* Pixel art rendering canvas rules */
+canvas.pixelated {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
