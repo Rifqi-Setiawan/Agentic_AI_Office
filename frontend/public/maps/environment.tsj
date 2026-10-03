@@ -1,0 +1,2348 @@
+{
+  "name": "environment",
+  "tilewidth": 64,
+  "tileheight": 64,
+  "tilecount": 123,
+  "columns": 1,
+  "image": "../sprites/environment.png",
+  "imagewidth": 2040,
+  "imageheight": 2040,
+  "margin": 0,
+  "spacing": 0,
+  "tiles": [
+    {
+      "id": 0,
+      "type": "furniture_achievement_board",
+      "image": "furniture_achievement_board.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_achievement_board.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "type": "furniture_alert_console",
+      "image": "furniture_alert_console.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_alert_console.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "furniture_alert_console_night",
+      "image": "furniture_alert_console_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_alert_console_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "furniture_arcade_cabinet",
+      "image": "furniture_arcade_cabinet.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_arcade_cabinet.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "furniture_arcade_cabinet_night",
+      "image": "furniture_arcade_cabinet_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_arcade_cabinet_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "furniture_attendance_board",
+      "image": "furniture_attendance_board.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_attendance_board.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "furniture_beanbag",
+      "image": "furniture_beanbag.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_beanbag.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "furniture_billiard_table",
+      "image": "furniture_billiard_table.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_billiard_table.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "furniture_blueprint_rack",
+      "image": "furniture_blueprint_rack.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_blueprint_rack.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "type": "furniture_blueprint_table",
+      "image": "furniture_blueprint_table.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_blueprint_table.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "type": "furniture_boardroom_table",
+      "image": "furniture_boardroom_table.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_boardroom_table.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "type": "furniture_bookcase_low",
+      "image": "furniture_bookcase_low.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_bookcase_low.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "type": "furniture_bookcase_tall",
+      "image": "furniture_bookcase_tall.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_bookcase_tall.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "type": "furniture_cardboard_box",
+      "image": "furniture_cardboard_box.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_cardboard_box.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "type": "furniture_chair",
+      "image": "furniture_chair.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_chair.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "type": "furniture_chair_cushion",
+      "image": "furniture_chair_cushion.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_chair_cushion.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "type": "furniture_chair_rounded",
+      "image": "furniture_chair_rounded.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_chair_rounded.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "type": "furniture_changelog_board",
+      "image": "furniture_changelog_board.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_changelog_board.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "type": "furniture_conveyor",
+      "image": "furniture_conveyor.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_conveyor.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "type": "furniture_desk",
+      "image": "furniture_desk.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_desk.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "type": "furniture_desk_executive",
+      "image": "furniture_desk_executive.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_desk_executive.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "type": "furniture_drawing_desk_tablet",
+      "image": "furniture_drawing_desk_tablet.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_drawing_desk_tablet.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "type": "furniture_drawing_desk_tablet_night",
+      "image": "furniture_drawing_desk_tablet_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_drawing_desk_tablet_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "type": "furniture_entrance_door",
+      "image": "furniture_entrance_door.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_entrance_door.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "type": "furniture_espresso_machine",
+      "image": "furniture_espresso_machine.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_espresso_machine.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "type": "furniture_glass_partition",
+      "image": "furniture_glass_partition.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_glass_partition.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "type": "furniture_glass_partition_night",
+      "image": "furniture_glass_partition_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_glass_partition_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "type": "furniture_green_reading_lamp",
+      "image": "furniture_green_reading_lamp.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_green_reading_lamp.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "type": "furniture_green_reading_lamp_night",
+      "image": "furniture_green_reading_lamp_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_green_reading_lamp_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "type": "furniture_journal_shelf",
+      "image": "furniture_journal_shelf.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_journal_shelf.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "type": "furniture_kitchen_fridge",
+      "image": "furniture_kitchen_fridge.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_kitchen_fridge.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "type": "furniture_lab_bench",
+      "image": "furniture_lab_bench.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_lab_bench.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "type": "furniture_lamp_floor",
+      "image": "furniture_lamp_floor.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_lamp_floor.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "type": "furniture_lamp_floor_night",
+      "image": "furniture_lamp_floor_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_lamp_floor_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "type": "furniture_lamp_pass_fail",
+      "image": "furniture_lamp_pass_fail.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_lamp_pass_fail.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "type": "furniture_lamp_pass_fail_night",
+      "image": "furniture_lamp_pass_fail_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_lamp_pass_fail_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "type": "furniture_large_monitor_preview",
+      "image": "furniture_large_monitor_preview.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_large_monitor_preview.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "type": "furniture_large_monitor_preview_night",
+      "image": "furniture_large_monitor_preview_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_large_monitor_preview_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "type": "furniture_lounge_chair",
+      "image": "furniture_lounge_chair.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_lounge_chair.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "type": "furniture_lounge_sofa",
+      "image": "furniture_lounge_sofa.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_lounge_sofa.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "type": "furniture_lounge_sofa_corner",
+      "image": "furniture_lounge_sofa_corner.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_lounge_sofa_corner.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "type": "furniture_marble_counter",
+      "image": "furniture_marble_counter.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_marble_counter.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "type": "furniture_microscope",
+      "image": "furniture_microscope.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_microscope.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "type": "furniture_mihrab",
+      "image": "furniture_mihrab.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_mihrab.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "type": "furniture_moodboard",
+      "image": "furniture_moodboard.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_moodboard.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "type": "furniture_neon_sign",
+      "image": "furniture_neon_sign.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_neon_sign.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "type": "furniture_neon_sign_night",
+      "image": "furniture_neon_sign_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_neon_sign_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "type": "furniture_pair_standing_desk",
+      "image": "furniture_pair_standing_desk.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_pair_standing_desk.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "type": "furniture_parcel_rack",
+      "image": "furniture_parcel_rack.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_parcel_rack.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "type": "furniture_plant_small",
+      "image": "furniture_plant_small.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_plant_small.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "type": "furniture_pool_basin",
+      "image": "furniture_pool_basin.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_pool_basin.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "type": "furniture_pool_coping",
+      "image": "furniture_pool_coping.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_pool_coping.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "type": "furniture_pool_lounger",
+      "image": "furniture_pool_lounger.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_pool_lounger.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "type": "furniture_pool_umbrella",
+      "image": "furniture_pool_umbrella.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_pool_umbrella.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "type": "furniture_pool_water",
+      "image": "furniture_pool_water.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_pool_water.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "type": "furniture_potted_plant",
+      "image": "furniture_potted_plant.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_potted_plant.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "type": "furniture_prayer_rug_shaf",
+      "image": "furniture_prayer_rug_shaf.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_prayer_rug_shaf.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "type": "furniture_presentation_screen",
+      "image": "furniture_presentation_screen.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_presentation_screen.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "type": "furniture_presentation_screen_night",
+      "image": "furniture_presentation_screen_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_presentation_screen_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "type": "furniture_printing_press",
+      "image": "furniture_printing_press.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_printing_press.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "type": "furniture_qa_screens",
+      "image": "furniture_qa_screens.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_qa_screens.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "type": "furniture_qa_screens_night",
+      "image": "furniture_qa_screens_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_qa_screens_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "type": "furniture_quran_shelf",
+      "image": "furniture_quran_shelf.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_quran_shelf.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "type": "furniture_reception_desk",
+      "image": "furniture_reception_desk.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_reception_desk.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "type": "furniture_screen",
+      "image": "furniture_screen.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_screen.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "type": "furniture_screen_night",
+      "image": "furniture_screen_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_screen_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "type": "furniture_server_rack",
+      "image": "furniture_server_rack.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_server_rack.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "type": "furniture_server_rack_night",
+      "image": "furniture_server_rack_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_server_rack_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "type": "furniture_shaf_partition",
+      "image": "furniture_shaf_partition.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_shaf_partition.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "type": "furniture_soc_map_wall",
+      "image": "furniture_soc_map_wall.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_soc_map_wall.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "type": "furniture_soc_map_wall_night",
+      "image": "furniture_soc_map_wall_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_soc_map_wall_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "type": "furniture_sofa_leather",
+      "image": "furniture_sofa_leather.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_sofa_leather.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "type": "furniture_spare_tiles_pile",
+      "image": "furniture_spare_tiles_pile.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_spare_tiles_pile.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "type": "furniture_stamp_desk",
+      "image": "furniture_stamp_desk.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_stamp_desk.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "type": "furniture_swatch_wall",
+      "image": "furniture_swatch_wall.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_swatch_wall.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "type": "furniture_system_model_mini",
+      "image": "furniture_system_model_mini.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_system_model_mini.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "type": "furniture_table_coffee",
+      "image": "furniture_table_coffee.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_table_coffee.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "type": "furniture_table_round",
+      "image": "furniture_table_round.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_table_round.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "type": "furniture_test_tube_rack",
+      "image": "furniture_test_tube_rack.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_test_tube_rack.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "type": "furniture_trashcan",
+      "image": "furniture_trashcan.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_trashcan.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "type": "furniture_trophy_shelf",
+      "image": "furniture_trophy_shelf.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_trophy_shelf.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "type": "furniture_tropical_plant",
+      "image": "furniture_tropical_plant.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_tropical_plant.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "type": "furniture_wall_monitors_ceo",
+      "image": "furniture_wall_monitors_ceo.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_wall_monitors_ceo.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "type": "furniture_wall_monitors_ceo_night",
+      "image": "furniture_wall_monitors_ceo_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_wall_monitors_ceo_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "type": "furniture_whiteboard",
+      "image": "furniture_whiteboard.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_whiteboard.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "type": "furniture_whiteboard_formula",
+      "image": "furniture_whiteboard_formula.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_whiteboard_formula.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "type": "furniture_workstation_dev",
+      "image": "furniture_workstation_dev.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_workstation_dev.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "type": "furniture_workstation_dev_night",
+      "image": "furniture_workstation_dev_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_workstation_dev_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "type": "furniture_workstation_guest",
+      "image": "furniture_workstation_guest.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_workstation_guest.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "type": "furniture_workstation_guest_night",
+      "image": "furniture_workstation_guest_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_workstation_guest_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "type": "furniture_wudhu_station",
+      "image": "furniture_wudhu_station.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "furniture_wudhu_station.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "furniture"
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "type": "tile_floor_corridor",
+      "image": "tile_floor_corridor.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_corridor.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "type": "tile_floor_night_corridor",
+      "image": "tile_floor_night_corridor.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_night_corridor.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "type": "tile_floor_night_datacenter",
+      "image": "tile_floor_night_datacenter.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_night_datacenter.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "type": "tile_floor_pool_water",
+      "image": "tile_floor_pool_water.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_pool_water.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "type": "tile_floor_z01_ceo",
+      "image": "tile_floor_z01_ceo.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z01_ceo.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "type": "tile_floor_z02_boardroom",
+      "image": "tile_floor_z02_boardroom.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z02_boardroom.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "type": "tile_floor_z03_architecture",
+      "image": "tile_floor_z03_architecture.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z03_architecture.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "type": "tile_floor_z04_classroom",
+      "image": "tile_floor_z04_classroom.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z04_classroom.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "type": "tile_floor_z05_library",
+      "image": "tile_floor_z05_library.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z05_library.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "type": "tile_floor_z06_lab",
+      "image": "tile_floor_z06_lab.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z06_lab.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "type": "tile_floor_z07_design",
+      "image": "tile_floor_z07_design.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z07_design.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "type": "tile_floor_z08_dev_pods",
+      "image": "tile_floor_z08_dev_pods.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z08_dev_pods.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "type": "tile_floor_z09_graphics_lab",
+      "image": "tile_floor_z09_graphics_lab.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z09_graphics_lab.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "type": "tile_floor_z10_qa_station",
+      "image": "tile_floor_z10_qa_station.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z10_qa_station.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "type": "tile_floor_z11_release_dock",
+      "image": "tile_floor_z11_release_dock.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z11_release_dock.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "type": "tile_floor_z12_datacenter",
+      "image": "tile_floor_z12_datacenter.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z12_datacenter.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "type": "tile_floor_z13_lobby",
+      "image": "tile_floor_z13_lobby.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z13_lobby.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "type": "tile_floor_z14_cafeteria",
+      "image": "tile_floor_z14_cafeteria.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z14_cafeteria.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "type": "tile_floor_z15_arcade",
+      "image": "tile_floor_z15_arcade.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z15_arcade.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "type": "tile_floor_z16_musholla",
+      "image": "tile_floor_z16_musholla.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z16_musholla.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 111,
+      "type": "tile_floor_z17_pool_deck",
+      "image": "tile_floor_z17_pool_deck.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "tile_floor_z17_pool_deck.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "tile"
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "type": "wall_back_corner_n",
+      "image": "wall_back_corner_n.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "wall_back_corner_n.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "wall"
+        }
+      ]
+    },
+    {
+      "id": 113,
+      "type": "wall_back_doorway",
+      "image": "wall_back_doorway.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "wall_back_doorway.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "wall"
+        }
+      ]
+    },
+    {
+      "id": 114,
+      "type": "wall_back_ne",
+      "image": "wall_back_ne.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "wall_back_ne.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "wall"
+        }
+      ]
+    },
+    {
+      "id": 115,
+      "type": "wall_back_nw",
+      "image": "wall_back_nw.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "wall_back_nw.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "wall"
+        }
+      ]
+    },
+    {
+      "id": 116,
+      "type": "wall_back_window_day",
+      "image": "wall_back_window_day.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "wall_back_window_day.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "wall"
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "type": "wall_back_window_night",
+      "image": "wall_back_window_night.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "wall_back_window_night.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "wall"
+        }
+      ]
+    },
+    {
+      "id": 118,
+      "type": "wall_front_cutaway_corner_s",
+      "image": "wall_front_cutaway_corner_s.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "wall_front_cutaway_corner_s.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "wall"
+        }
+      ]
+    },
+    {
+      "id": 119,
+      "type": "wall_front_cutaway_doorway",
+      "image": "wall_front_cutaway_doorway.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "wall_front_cutaway_doorway.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "wall"
+        }
+      ]
+    },
+    {
+      "id": 120,
+      "type": "wall_front_cutaway_se",
+      "image": "wall_front_cutaway_se.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "wall_front_cutaway_se.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "wall"
+        }
+      ]
+    },
+    {
+      "id": 121,
+      "type": "wall_front_cutaway_sw",
+      "image": "wall_front_cutaway_sw.png",
+      "imagewidth": 64,
+      "imageheight": 64,
+      "properties": [
+        {
+          "name": "sprite",
+          "type": "string",
+          "value": "wall_front_cutaway_sw.png"
+        },
+        {
+          "name": "category",
+          "type": "string",
+          "value": "wall"
+        }
+      ]
+    },
+    {
+      "id": 122,
+      "type": "collision",
+      "imagewidth": 64,
+      "imageheight": 32,
+      "properties": [
+        {
+          "name": "solid",
+          "type": "bool",
+          "value": true
+        }
+      ]
+    }
+  ],
+  "type": "tileset",
+  "version": "1.10",
+  "tiledversion": "1.10.2"
+}
