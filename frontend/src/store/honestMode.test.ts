@@ -28,10 +28,10 @@ describe('T2.3: Storage Preferensi Mode Jujur (Acceptance Criteria)', () => {
   });
 
   it('menangani exception localStorage (SecurityError / QuotaExceededError) dengan try/catch tanpa crash', () => {
-    const getItemSpy = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+    const getItemSpy = vi.spyOn(localStorage, 'getItem').mockImplementation(() => {
       throw new Error('SecurityError: The operation is insecure.');
     });
-    const setItemSpy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+    const setItemSpy = vi.spyOn(localStorage, 'setItem').mockImplementation(() => {
       throw new Error('QuotaExceededError: Storage quota exceeded.');
     });
 

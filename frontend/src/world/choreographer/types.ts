@@ -27,7 +27,8 @@ export interface ChoreographerBubbleEvent {
   agentId: string;
   text: string;
   timestamp: number;
-  kind?: 'task' | 'collective' | 'ambient';
+  kind?: 'task' | 'collective' | 'ambient' | 'stamp';
+  isStamp?: boolean;
 }
 
 export interface AgentChoreographyState {

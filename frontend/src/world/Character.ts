@@ -91,6 +91,11 @@ export class Character extends Container {
   private targetSlot?: InteractionSlot;
   private textures: CharacterTextures = {};
   private currentAnimation = 'idle';
+  private workGestureTime = 0;
+
+  public getCurrentAnimation(): string {
+    return this.currentAnimation;
+  }
 
   // State telemetri / status
   public workStatus: AgentWork = 'idle';
@@ -101,6 +106,21 @@ export class Character extends Container {
   // Timer animasi procedural (pulse badge & floating crown)
   private pulseTime = 0;
   private crownTime = 0;
+
+  // State stempel merah FAIL (Sentinel T2.2 / F20)
+  public isShowingFailStamp = false;
+  private failStampRemaining = 0;
+  public stampContainer: Container | null = null;
+  public stampGfx: Graphics | null = null;
+  public stampText: Text | null = null;
+
+  // State membawa paket (Relay T2.2 / F20)
+  public isCarryingParcel = false;
+  public parcelContainer: Container | null = null;
+
+  // State reaksi inspeksi dan komentar (Bastion & Jarvis T2.2 / F20)
+  public isInspecting = false;
+  public isCommenting = false;
 
   // Callbacks
   public onStateChange?: (from: CharacterFsmState, to: CharacterFsmState) => void;
@@ -328,6 +348,84 @@ export class Character extends Container {
   }
 
   /**
+   * Menampilkan stempel merah FAIL untuk Sentinel (T2.2 / F20).
+   * @param duration Durasi tampilan dalam detik (default: 5.0).
+   */
+  public showFailStamp(duration = 5.0): void {
+    this.isShowingFailStamp = true;
+    this.failStampRemaining = duration;
+
+    if (!this.stampContainer) {
+      this.stampContainer = new Container();
+      this.stampContainer.label = `FailStamp_${this.id}`;
+      this.stampContainer.y = -52;
+      this.stampContainer.rotation = -0.15; // Kemiringan stempel karet ~8.5°
+
+      this.stampGfx = new Graphics();
+      this.stampGfx.roundRect(-20, -10, 40, 20, 3);
+      this.stampGfx.fill({ color: 0x991b1b, alpha: 0.92 }); // Crimson red
+      this.stampGfx.stroke({ width: 2, color: 0xef4444, alpha: 1.0 });
+
+      this.stampText = new Text({
+        text: 'FAIL',
+        style: {
+          fontFamily: 'Impact, Inter, system-ui, sans-serif',
+          fontSize: 12,
+          fontWeight: '900',
+          fill: 0xffffff,
+          letterSpacing: 2,
+        },
+      });
+      this.stampText.anchor.set(0.5, 0.5);
+
+      this.stampContainer.addChild(this.stampGfx);
+      this.stampContainer.addChild(this.stampText);
+      this.addChild(this.stampContainer);
+    }
+
+    this.stampContainer.visible = true;
+  }
+
+  /**
+   * Mengatur status membawa paket rilis untuk Relay (T2.2 / F20).
+   * @param carrying Menandai apakah agen sedang memegang paket.
+   */
+  public setCarryingParcel(carrying: boolean): void {
+    this.isCarryingParcel = carrying;
+
+    if (carrying) {
+      if (!this.parcelContainer) {
+        this.parcelContainer = new Container();
+        this.parcelContainer.label = `Parcel_${this.id}`;
+        this.parcelContainer.x = 8;
+        this.parcelContainer.y = -14;
+
+        const parcelGfx = new Graphics();
+        // Boks paket kardus
+        parcelGfx.roundRect(-8, -7, 16, 14, 2);
+        parcelGfx.fill({ color: 0xd97706, alpha: 1.0 }); // Warna kraft cokelat
+        parcelGfx.stroke({ width: 1, color: 0x92400e, alpha: 0.95 });
+
+        // Lakban segel paket
+        parcelGfx.rect(-8, -1.5, 16, 3);
+        parcelGfx.fill({ color: 0x78350f, alpha: 0.85 });
+
+        // Label pengiriman putih
+        parcelGfx.rect(-5, -5, 5, 4);
+        parcelGfx.fill({ color: 0xffffff, alpha: 0.95 });
+
+        this.parcelContainer.addChild(parcelGfx);
+        this.addChild(this.parcelContainer);
+      }
+      this.parcelContainer.visible = true;
+    } else {
+      if (this.parcelContainer) {
+        this.parcelContainer.visible = false;
+      }
+    }
+  }
+
+  /**
    * Menetapkan tekstur karakter dari atlas yang dimuat secara eksternal.
    */
   public setTextures(textures: CharacterTextures): void {
@@ -366,6 +464,14 @@ export class Character extends Container {
     // Kecepatan frame disesuaikan dengan jenis animasi
     if (animName === 'walk') {
       this.animatedSprite.animationSpeed = 0.14; // ~8.4 frame/dtk pada 60fps ticker
+    } else if (animName === 'swim') {
+      this.animatedSprite.animationSpeed = 0.08;
+    } else if (animName === 'game') {
+      this.animatedSprite.animationSpeed = 0.12;
+    } else if (animName === 'whiteboard') {
+      this.animatedSprite.animationSpeed = 0.09;
+    } else if (animName === 'special') {
+      this.animatedSprite.animationSpeed = 0.10;
     } else if (animName === 'sit_type') {
       this.animatedSprite.animationSpeed = 0.10;
     } else if (animName === 'idle') {
@@ -424,6 +530,10 @@ export class Character extends Container {
       'pray_sujud',
       'pray_duduk',
       'drink',
+      'swim',
+      'game',
+      'whiteboard',
+      'special',
     ];
 
     for (const a of anims) {
@@ -440,11 +550,34 @@ export class Character extends Container {
    * Sinkronisasi status kerja dan task dari data telemetri nyata.
    */
   public setWorkStatus(status: AgentWork, task?: TaskRef | null): void {
+    if (status !== this.workStatus || task?.id !== this.currentTask?.id) {
+      this.workGestureTime = 0;
+    }
     this.workStatus = status;
     this.currentTask = task ?? null;
 
     // Badge task nyata hanya muncul saat work = working
-    this.badgeContainer.visible = status === 'working';
+    this.badgeContainer.visible = status === 'working' && this.currentTask !== null;
+    this.updateWorkGesture(0);
+  }
+
+  /** Gerak khas hanya saat task nyata aktif di meja sendiri; bukan bukti tool call. */
+  private updateWorkGesture(dt: number): void {
+    if (this.isShowingFailStamp || this.isCommenting || this.isInspecting || this.isCarryingParcel) {
+      return;
+    }
+    const ownStation = this.currentSlot?.type === `desk:${this.id}` ||
+      (this.id === 'merlin' && this.currentSlot?.id === 'slot_z04_whiteboard');
+    if (this.fsmState !== 'act' || !ownStation || !this.currentSlot) return;
+    if (this.workStatus === 'working' && this.currentTask) {
+      this.workGestureTime += dt;
+      // Pertahankan animasi mengetik, diselingi gerak khas selama dua detik.
+      const animation = this.workGestureTime % 8 < 2 ? 'special' : this.currentSlot.anim;
+      if (this.currentAnimation !== animation) this.playAnimation(animation);
+    } else if (['stale', 'blocked', 'failed', 'off_duty', 'working'].includes(this.workStatus) || this.currentAnimation === 'special') {
+      const animation = this.workStatus === 'idle' ? this.currentSlot.anim : 'idle';
+      if (this.currentAnimation !== animation) this.playAnimation(animation);
+    }
   }
 
   /**
@@ -528,15 +661,16 @@ export class Character extends Container {
     this.currentPathIndex = 0;
 
     this.onStateChange?.(prevFsm, 'arrive');
-    this.onArrive?.(this.targetSlot);
 
     // Jika ada target slot yang dituju, otomatis masuk ke mode 'act'
     if (this.targetSlot) {
       const slot = this.targetSlot;
       this.targetSlot = undefined;
+      this.onArrive?.(slot);
       this.act(slot);
     } else {
       this.idle();
+      this.onArrive?.();
     }
   }
 
@@ -562,6 +696,8 @@ export class Character extends Container {
 
     const animToPlay = slot.anim || 'sit_type';
     this.playAnimation(animToPlay);
+    this.workGestureTime = 0;
+    this.updateWorkGesture(0);
 
     this.onStateChange?.(prevFsm, 'act');
     this.onAct?.(slot);
@@ -604,6 +740,7 @@ export class Character extends Container {
    * @param dt Delta waktu dalam detik (misal: 1/60 = ~0.01667)
    */
   public update(dt: number): void {
+    this.updateWorkGesture(dt);
     // 1. Update pulse badge task nyata jika sedang bekerja
     if (this.workStatus === 'working' && this.badgeContainer.visible) {
       this.pulseTime += dt;
@@ -617,7 +754,18 @@ export class Character extends Container {
       this.crownContainer.y = -52 + Math.sin(this.crownTime * 3) * 2.5;
     }
 
-    // 3. Update FSM gerak jika dalam status 'walk'
+    // 3. Update stempel merah FAIL (Sentinel T2.2 / F20)
+    if (this.isShowingFailStamp) {
+      this.failStampRemaining -= dt;
+      if (this.failStampRemaining <= 0) {
+        this.isShowingFailStamp = false;
+        if (this.stampContainer) {
+          this.stampContainer.visible = false;
+        }
+      }
+    }
+
+    // 4. Update FSM gerak jika dalam status 'walk'
     if (this.fsmState === 'walk' && this.currentPath.length > 0) {
       this.updateMovement(dt);
     }

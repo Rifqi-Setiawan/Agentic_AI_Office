@@ -17,23 +17,34 @@ if (typeof globalThis.cancelAnimationFrame === 'undefined') {
 
 // Always install in-memory mock for Node test environment
 {
-  let store: Record<string, string> = {};
-  const mockStorage = {
-    getItem: (key: string): string | null => (Object.prototype.hasOwnProperty.call(store, key) ? store[key] : null),
-    setItem: (key: string, value: string): void => {
-      store[key] = String(value);
-    },
-    removeItem: (key: string): void => {
-      delete store[key];
-    },
-    clear: (): void => {
-      store = {};
-    },
-    key: (index: number): string | null => Object.keys(store)[index] ?? null,
-    get length(): number {
-      return Object.keys(store).length;
-    },
-  };
+  class MockStorage implements Storage {
+    private store: Record<string, string> = {};
+    public getItem(key: string): string | null {
+      return Object.prototype.hasOwnProperty.call(this.store, key) ? this.store[key] : null;
+    }
+    public setItem(key: string, value: string): void {
+      this.store[key] = String(value);
+    }
+    public removeItem(key: string): void {
+      delete this.store[key];
+    }
+    public clear(): void {
+      this.store = {};
+    }
+    public key(index: number): string | null {
+      return Object.keys(this.store)[index] ?? null;
+    }
+    public get length(): number {
+      return Object.keys(this.store).length;
+    }
+  }
+
+  if (typeof globalThis.Storage === 'undefined') {
+    // @ts-expect-error polyfill class
+    globalThis.Storage = MockStorage;
+  }
+
+  const mockStorage = new MockStorage();
   Object.defineProperty(globalThis, 'localStorage', {
     value: mockStorage,
     writable: true,
