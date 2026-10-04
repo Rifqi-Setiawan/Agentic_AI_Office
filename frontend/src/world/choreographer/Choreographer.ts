@@ -513,6 +513,14 @@ export class Choreographer {
         continue;
       }
 
+      // 3c. Update mondar-mandir Vector saat alert RAM (T2.4 / F23)
+      if (state.currentActivityKey === 'vector_ram_pacing') {
+        if (char.fsmState !== 'walk') {
+          this.stepVectorPacing(char);
+        }
+        continue;
+      }
+
       // 4. Jika agen sedang 'working', 'stale', atau 'blocked', mereka berada di bawah kendali Lapisan 1
       if (state.currentLayer === 'task') {
         continue;
@@ -1120,6 +1128,70 @@ export class Choreographer {
 
   public getAmbientScheduler(): AmbientScheduler {
     return this.ambientScheduler;
+  }
+
+  public isVectorRamPacingActive = false;
+
+  /**
+   * Mengaktifkan/menonaktifkan mondar-mandir Vector di Data Center Z12 saat RAM > 85% (T2.4 / F23).
+   */
+  public setVectorRamPacing(active: boolean): void {
+    if (this.isVectorRamPacingActive === active) return;
+    this.isVectorRamPacingActive = active;
+
+    const vectorChar = this.characterManager.getCharacter('vector');
+    const vectorState = this.agentStates.get('vector');
+    if (!vectorChar || !vectorState) return;
+
+    if (active) {
+      vectorState.currentLayer = 'task';
+      vectorState.currentActivityKey = 'vector_ram_pacing';
+      vectorState.targetSlotId = null;
+      this.slotManager.releaseAllForAgent('vector');
+      this.emitBubble('vector', 'RAM di atas 85%! Server butuh optimasi...', 'task');
+      this.stepVectorPacing(vectorChar);
+    } else {
+      if (vectorState.currentActivityKey === 'vector_ram_pacing') {
+        vectorState.currentLayer = 'ambient';
+        vectorState.currentActivityKey = 'ambient_idle';
+        this.sendAgentToDesk('vector', vectorState, vectorChar, false);
+      }
+    }
+  }
+
+  /**
+   * Mengarahkan Vector mondar-mandir di antara lorong rak server Data Center Z12.
+   */
+  private stepVectorPacing(char: Character): void {
+    if (!this.isVectorRamPacingActive) return;
+
+    // Titik mondar-mandir di lorong Data Center Z12
+    const waypointA = { gx: 38, gy: 14 };
+    const waypointB = { gx: 38, gy: 18 };
+
+    const distA = Math.hypot(char.gx - waypointA.gx, char.gy - waypointA.gy);
+    const distB = Math.hypot(char.gx - waypointB.gx, char.gy - waypointB.gy);
+
+    const target = distA < distB ? waypointB : waypointA;
+
+    const path = this.pathfinder.findPath(
+      { gx: char.gx, gy: char.gy },
+      { gx: target.gx, gy: target.gy },
+    );
+    if (path && path.length > 0) {
+      char.speed = DEFAULT_WALK_SPEED;
+      char.walk(path);
+    } else {
+      const altTarget = target === waypointB ? waypointA : waypointB;
+      const altPath = this.pathfinder.findPath(
+        { gx: char.gx, gy: char.gy },
+        { gx: altTarget.gx, gy: altTarget.gy },
+      );
+      if (altPath && altPath.length > 0) {
+        char.speed = DEFAULT_WALK_SPEED;
+        char.walk(altPath);
+      }
+    }
   }
 
   public destroy(): void {

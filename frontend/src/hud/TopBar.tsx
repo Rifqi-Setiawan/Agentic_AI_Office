@@ -132,6 +132,7 @@ export const TopBar: React.FC = () => {
 
   return (
     <header
+      id="top-bar"
       className="pointer-events-auto w-full px-3 py-2 bg-[#14141e]/95 backdrop-blur-md border-b border-[#282d3f] flex flex-wrap items-center justify-between shadow-lg select-none gap-2 text-xs"
       role="banner"
     >

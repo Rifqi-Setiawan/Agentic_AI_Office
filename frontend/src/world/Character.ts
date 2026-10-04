@@ -122,6 +122,12 @@ export class Character extends Container {
   public isInspecting = false;
   public isCommenting = false;
 
+  // State berkeringat saat CPU vitals alert (T2.4 / F23)
+  public isSweating = false;
+  public sweatContainer: Container | null = null;
+  public sweatGfx: Graphics | null = null;
+  private sweatAnimTime = 0;
+
   // Callbacks
   public onStateChange?: (from: CharacterFsmState, to: CharacterFsmState) => void;
   public onArrive?: (slot?: InteractionSlot) => void;
@@ -423,6 +429,68 @@ export class Character extends Container {
         this.parcelContainer.visible = false;
       }
     }
+  }
+
+  /**
+   * Mengatur efek visual berkeringat saat beban kerja/CPU tinggi (T2.4 / F23).
+   * Menampilkan butiran keringat prosedural di samping pelipis/kepala karakter.
+   */
+  public setSweating(sweating: boolean): void {
+    this.isSweating = sweating;
+
+    if (sweating) {
+      if (!this.sweatContainer) {
+        this.sweatContainer = new Container();
+        this.sweatContainer.label = `Sweat_${this.id}`;
+        this.sweatContainer.x = 10;
+        this.sweatContainer.y = -42; // Di dekat pelipis kepala karakter
+
+        this.sweatGfx = new Graphics();
+        this.sweatContainer.addChild(this.sweatGfx);
+        this.addChild(this.sweatContainer);
+      }
+      this.sweatContainer.visible = true;
+    } else {
+      if (this.sweatContainer) {
+        this.sweatContainer.visible = false;
+      }
+    }
+  }
+
+  /**
+   * Animasi prosedural butir keringat menetes dan berdenyut halus.
+   */
+  private updateSweatAnimation(dt: number): void {
+    if (!this.sweatGfx) return;
+
+    this.sweatAnimTime += dt * 3.5;
+    const cycle = this.sweatAnimTime % 1; // 0..1
+    const dropY = cycle * 6;
+    const alpha = Math.sin(cycle * Math.PI);
+
+    this.sweatGfx.clear();
+
+    // Butir keringat utama (cyan berkilau)
+    this.sweatGfx.poly([
+      0, -3 + dropY,
+      2.5, 0 + dropY,
+      0, 3.5 + dropY,
+      -2.5, 0 + dropY,
+    ]);
+    this.sweatGfx.fill({ color: 0x38bdf8, alpha: Math.max(0.2, alpha * 0.95) });
+    this.sweatGfx.stroke({ width: 1, color: 0x0284c7, alpha });
+
+    // Butir keringat sekunder kecil
+    const cycle2 = (this.sweatAnimTime + 0.45) % 1;
+    const dropY2 = cycle2 * 4.5;
+    const alpha2 = Math.sin(cycle2 * Math.PI);
+    this.sweatGfx.poly([
+      -5, -7 + dropY2,
+      -3.5, -5 + dropY2,
+      -5, -3 + dropY2,
+      -6.5, -5 + dropY2,
+    ]);
+    this.sweatGfx.fill({ color: 0x38bdf8, alpha: Math.max(0.15, alpha2 * 0.85) });
   }
 
   /**
@@ -763,6 +831,11 @@ export class Character extends Container {
           this.stampContainer.visible = false;
         }
       }
+    }
+
+    // 3b. Update efek berkeringat (T2.4 / F23: Vitals CPU alert)
+    if (this.isSweating) {
+      this.updateSweatAnimation(dt);
     }
 
     // 4. Update FSM gerak jika dalam status 'walk'

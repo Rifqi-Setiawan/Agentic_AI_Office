@@ -8,6 +8,8 @@ import { CharacterManager } from './CharacterManager';
 import { Character } from './Character';
 import { Choreographer } from './Choreographer';
 import { BubbleManager } from './bubble';
+import { VitalsEnvironmentManager } from './VitalsEnvironmentManager';
+import { officeStore } from '../store/officeStore';
 import { GridMap, type RawTiledMap } from '../navigation/GridMap';
 import { AStarPathfinder } from '../navigation/AStarPathfinder';
 import { SlotReservationManager } from '../navigation/SlotReservationManager';
@@ -25,6 +27,7 @@ export class WorldApp {
   private characterManager: CharacterManager | null = null;
   private choreographer: Choreographer | null = null;
   private bubbleManager: BubbleManager | null = null;
+  private vitalsEnvironmentManager: VitalsEnvironmentManager | null = null;
   private gridMap: GridMap | null = null;
   private pathfinder: AStarPathfinder | null = null;
   private slotReservationManager: SlotReservationManager | null = null;
@@ -206,6 +209,14 @@ export class WorldApp {
         this.bubbleManager?.handleChoreographerBubble(event);
       });
 
+      // Inisialisasi VitalsEnvironmentManager (T2.4 / F23: telemetri vitals -> perubahan lingkungan)
+      this.vitalsEnvironmentManager = new VitalsEnvironmentManager({
+        loadedMap: this.loadedMap,
+        characterManager: this.characterManager,
+        choreographer: this.choreographer,
+        textureProvider,
+      });
+
       if (typeof window !== 'undefined') {
         this.characterManager.loadAllCharacterSpritesheets().catch((err) => {
           console.warn('[WorldApp] Gagal memuat spritesheet karakter:', err);
@@ -305,6 +316,12 @@ export class WorldApp {
       this.bubbleManager.update(dtSec);
     }
 
+    // Pembaruan VitalsEnvironmentManager (T2.4 / F23: telemetri vitals -> perubahan lingkungan)
+    if (this.vitalsEnvironmentManager) {
+      const currentVitals = officeStore.getState().vitals;
+      this.vitalsEnvironmentManager.update(dtSec, currentVitals);
+    }
+
     // Pembaruan FSM gerak dan rendering entitas karakter (T1.13)
     if (this.characterManager) {
       this.characterManager.update(dtSec);
@@ -371,6 +388,10 @@ export class WorldApp {
 
   public getBubbleManager(): BubbleManager | null {
     return this.bubbleManager;
+  }
+
+  public getVitalsEnvironmentManager(): VitalsEnvironmentManager | null {
+    return this.vitalsEnvironmentManager;
   }
 
   public getGridMap(): GridMap | null {
@@ -474,6 +495,10 @@ export class WorldApp {
     if (this.bubbleManager) {
       this.bubbleManager.destroy();
       this.bubbleManager = null;
+    }
+    if (this.vitalsEnvironmentManager) {
+      this.vitalsEnvironmentManager.destroy();
+      this.vitalsEnvironmentManager = null;
     }
     if (this.characterManager) {
       this.characterManager.destroy();
