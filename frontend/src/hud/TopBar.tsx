@@ -16,6 +16,8 @@ export const TopBar: React.FC = () => {
   const isFounderAuthenticated = useOfficeStore((s) => s.isFounderAuthenticated);
   const agentList = useOfficeStore((s) => s.agentList);
   const activeCollective = useOfficeStore((s) => s.activeCollective);
+  const isHonestMode = useOfficeStore((s) => s.isHonestMode);
+  const setHonestMode = useOfficeStore((s) => s.setHonestMode);
 
   // Jam waktu nyata Asia/Jakarta (WIB)
   const [wibTime, setWibTime] = useState<string>('');
@@ -242,6 +244,35 @@ export const TopBar: React.FC = () => {
 
       {/* Right: Founder Auth & Host Vitals Chip */}
       <div className="flex items-center gap-2">
+        {/* Toggle Mode Jujur (F22) */}
+        <button
+          type="button"
+          role="switch"
+          aria-checked={isHonestMode}
+          aria-label="Mode Jujur (matikan simulasi ambient)"
+          onClick={() => setHonestMode(!isHonestMode)}
+          className={`flex items-center gap-1.5 px-2.5 py-1 rounded border text-xs font-medium transition-colors focus-visible:ring-2 focus-visible:ring-[#2bb3c0] focus-visible:outline-none ${
+            isHonestMode
+              ? 'bg-amber-500/20 text-amber-300 border-amber-500/70 shadow-[0_0_8px_rgba(245,158,11,0.25)] font-semibold'
+              : 'bg-[#1a1c29] border-[#282d3f] text-[#9ca8b8] hover:text-[#f5f0e1] hover:bg-[#282d3f]'
+          }`}
+          title="Mode Jujur: Matikan simulasi ambient, agen idle tetap diam di zonanya"
+        >
+          <span
+            className={`w-2 h-2 rounded-full transition-colors ${
+              isHonestMode ? 'bg-amber-400 motion-safe:animate-pulse' : 'bg-[#687594]'
+            }`}
+          />
+          <span>Mode Jujur</span>
+          <span
+            className={`text-[10px] font-mono px-1 py-0.2 rounded ${
+              isHonestMode ? 'bg-amber-400/30 text-amber-200' : 'bg-black/20 text-[#687594]'
+            }`}
+          >
+            {isHonestMode ? 'Aktif' : 'Off'}
+          </span>
+        </button>
+
         {/* Founder Controls */}
         {!isFounderAuthenticated ? (
           <button

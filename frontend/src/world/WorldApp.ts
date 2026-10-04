@@ -390,6 +390,27 @@ export class WorldApp {
   }
 
   /**
+   * Mengembalikan posisi koordinat layar (screenX, screenY) karakter untuk
+   * keperluan bubble DOM dan flying icon notifikasi (F21).
+   */
+  public getCharacterScreenPosition(id: string): { x: number; y: number } | null {
+    const char = this.getCharacter(id);
+    if (!char) return null;
+    if (this.bubbleManager) {
+      return this.bubbleManager.getCharacterScreenPosition(char);
+    }
+    const headOffset = 56;
+    const worldX = char.x;
+    const worldY = char.y - headOffset;
+    const viewport = this.camera?.getViewport();
+    if (viewport && typeof viewport.toScreen === 'function') {
+      const pt = viewport.toScreen(worldX, worldY);
+      return { x: pt.x, y: pt.y };
+    }
+    return { x: worldX, y: worldY };
+  }
+
+  /**
    * Mengecek apakah display object target merupakan bagian dari entitas karakter.
    */
   public isCharacterTarget(target?: { label?: string; parent?: unknown } | null): boolean {

@@ -14,3 +14,36 @@ if (typeof globalThis.cancelAnimationFrame === 'undefined') {
     clearTimeout(id);
   };
 }
+
+// Always install in-memory mock for Node test environment
+{
+  let store: Record<string, string> = {};
+  const mockStorage = {
+    getItem: (key: string): string | null => (Object.prototype.hasOwnProperty.call(store, key) ? store[key] : null),
+    setItem: (key: string, value: string): void => {
+      store[key] = String(value);
+    },
+    removeItem: (key: string): void => {
+      delete store[key];
+    },
+    clear: (): void => {
+      store = {};
+    },
+    key: (index: number): string | null => Object.keys(store)[index] ?? null,
+    get length(): number {
+      return Object.keys(store).length;
+    },
+  };
+  Object.defineProperty(globalThis, 'localStorage', {
+    value: mockStorage,
+    writable: true,
+    configurable: true,
+  });
+  if (typeof window !== 'undefined') {
+    Object.defineProperty(window, 'localStorage', {
+      value: mockStorage,
+      writable: true,
+      configurable: true,
+    });
+  }
+}

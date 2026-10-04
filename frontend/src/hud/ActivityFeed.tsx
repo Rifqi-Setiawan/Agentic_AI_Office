@@ -40,6 +40,7 @@ export const ActivityFeed: React.FC = () => {
 
   return (
     <aside
+      id="activity-feed"
       className="pointer-events-auto fixed bottom-4 right-4 z-20 w-80 sm:w-96 flex flex-col bg-[#14141e]/95 backdrop-blur-md border border-[#282d3f] rounded-lg shadow-2xl overflow-hidden transition-all duration-200"
       aria-label="Linimasa Aktivitas Kantor"
     >

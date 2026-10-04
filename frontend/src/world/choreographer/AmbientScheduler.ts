@@ -9,6 +9,7 @@ import type {
   AmbientActivityDef,
 } from './types';
 import { PERSONA_AMBIENT_CONFIGS } from './personaData';
+import { officeStore } from '../../store/officeStore';
 
 export class AmbientScheduler {
   private gridMap: GridMap;
@@ -39,6 +40,11 @@ export class AmbientScheduler {
     state: AgentChoreographyState,
     char: Character,
   ): boolean {
+    // Fitur F22: Mode Jujur mematikan ambient — agen idle diam di mejanya/zonanya
+    if (officeStore.getState().isHonestMode) {
+      return this.fallbackToDesk(agentId, state, char);
+    }
+
     const config = PERSONA_AMBIENT_CONFIGS[agentId];
     if (!config || config.activities.length === 0) {
       return this.fallbackToDesk(agentId, state, char);
@@ -126,6 +132,9 @@ export class AmbientScheduler {
             candidateSlots.push(s);
           }
         }
+        // Urutan jenis slot menyatakan pilihan utama lalu fallback (mis. renang
+        // sebelum kursi kolam); jarak dipakai di dalam jenis yang dipilih.
+        if (candidateSlots.length > 0) break;
       }
     }
 
@@ -172,6 +181,14 @@ export class AmbientScheduler {
     state.activityRemaining = duration;
     state.targetSlotId = slot.id;
 
+    // Slot khusus menentukan pose yang cocok dengan furniturnya. Slot generik
+    // mengikuti aktivitas persona, mis. minum teh di kursi kafe.
+    const slotAnimationTypes = ['pool_swim', 'pool_lounger', 'arcade', 'billiard', 'beanbag', 'whiteboard'];
+    const activitySlot = {
+      ...slot,
+      anim: slotAnimationTypes.includes(slot.type) ? slot.anim : (activity.anim ?? slot.anim),
+    };
+
     // Reset kecepatan ke default (2.5 tile/detik)
     char.speed = 2.5;
 
@@ -181,11 +198,11 @@ export class AmbientScheduler {
     );
 
     if (path) {
-      char.walk(path, slot as unknown as WorldInteractionSlot);
+      char.walk(path, activitySlot as unknown as WorldInteractionSlot);
     } else {
       // Jika jalur tak terduga tidak ditemukan, tempatkan di slot
       char.setGridPosition(slot.gx, slot.gy);
-      char.act(slot as unknown as WorldInteractionSlot);
+      char.act(activitySlot as unknown as WorldInteractionSlot);
     }
 
     return true;
@@ -201,6 +218,13 @@ export class AmbientScheduler {
   ): boolean {
     const deskSlot = this.gridMap.getSlot(state.deskSlotId);
     if (!deskSlot) return false;
+
+    // Jika sudah di meja dan sedang beraktivitas (act), cukup perpanjang durasi
+    const currSlot = char.getCurrentSlot();
+    if (currSlot && currSlot.id === deskSlot.id && char.fsmState === 'act') {
+      state.activityRemaining = 30 + this.randomFn() * 30;
+      return true;
+    }
 
     this.slotManager.releaseAllForAgent(agentId);
     this.slotManager.reserveSlot(deskSlot.id, agentId, { releasePrevious: true });

@@ -6,7 +6,7 @@ import type { InteractionSlot as WorldInteractionSlot } from '../types';
 import { Character, DEFAULT_WALK_SPEED } from '../Character';
 import { CharacterManager, AGENT_SPAWN_DEFS } from '../CharacterManager';
 import { officeStore, type OfficeState } from '../../store/officeStore';
-import type { AgentState, CollectiveEventState } from '../../types/office';
+import type { AgentState, CollectiveEventState, OfficeEvent } from '../../types/office';
 import type {
   AgentChoreographyState,
   ChoreographerBubbleEvent,
@@ -28,6 +28,7 @@ export class Choreographer {
   private agentStates = new Map<string, AgentChoreographyState>();
   private bubbleListeners = new Set<(event: ChoreographerBubbleEvent) => void>();
   private recentBubbles: ChoreographerBubbleEvent[] = [];
+  private processedEventSeqs = new Set<number>();
 
   private storeUnsubscribe: (() => void) | null = null;
   private isInitialized = false;
@@ -117,6 +118,11 @@ export class Choreographer {
       }
     }
 
+    // Cadangkan event awal agar tidak diproses ulang saat inisialisasi
+    for (const ev of officeStore.getState().recentEvents) {
+      this.processedEventSeqs.add(ev.seq);
+    }
+
     // Sambungkan ke store
     this.subscribeToStore();
     this.isInitialized = true;
@@ -147,6 +153,26 @@ export class Choreographer {
             this.onAgentStateChanged(id, agentData);
           }
         }
+      }
+
+      // 3. Cek penambahan event kantor (T2.2 / F20: Reaksi berbasis event)
+      if (state.recentEvents !== prevState.recentEvents) {
+        for (let i = state.recentEvents.length - 1; i >= 0; i--) {
+          const ev = state.recentEvents[i];
+          if (!this.processedEventSeqs.has(ev.seq)) {
+            this.processedEventSeqs.add(ev.seq);
+            this.handleOfficeEvent(ev);
+          }
+        }
+        if (this.processedEventSeqs.size > 1000) {
+          const seqs = Array.from(this.processedEventSeqs).slice(-500);
+          this.processedEventSeqs = new Set(seqs);
+        }
+      }
+
+      // 4. Cek perubahan status Mode Jujur (F22)
+      if (state.isHonestMode !== prevState.isHonestMode) {
+        this.onHonestModeChanged(state.isHonestMode);
       }
     });
 
@@ -255,6 +281,32 @@ export class Choreographer {
   }
 
   /**
+   * Menangani perubahan status Mode Jujur (F22).
+   * Saat aktif: matikan simulasi ambient, agen ambient/idle segera kembali ke meja zonanya.
+   */
+  public onHonestModeChanged(isHonestMode: boolean): void {
+    if (!isHonestMode) return;
+
+    for (const [agentId, state] of this.agentStates) {
+      if (state.currentLayer === 'ambient' && state.workStatus === 'idle') {
+        const char = this.characterManager.getCharacter(agentId);
+        if (!char) continue;
+
+        const deskSlot = this.gridMap.getSlot(state.deskSlotId);
+        if (!deskSlot) continue;
+
+        const currSlot = char.getCurrentSlot();
+        if (currSlot?.id === deskSlot.id && char.fsmState === 'act') {
+          continue;
+        }
+
+        // Kembalikan agen ke mejanya
+        this.sendAgentToDesk(agentId, state, char, false);
+      }
+    }
+  }
+
+  /**
    * Mengirim agen kembali ke mejanya untuk mengerjakan task.
    * Untuk kriteria penerimaan: Forge harus tiba di mejanya dalam <= 10 dtk.
    */
@@ -355,30 +407,14 @@ export class Choreographer {
    * Jika ada task failed, Bastion (jika idle) datang mengecek.
    */
   private triggerBastionInspectionIfAvailable(failedAgentId: string): void {
-    if (failedAgentId === 'bastion') return;
-    const bastionState = this.agentStates.get('bastion');
-    const bastionChar = this.characterManager.getCharacter('bastion');
-    if (!bastionState || !bastionChar) return;
-
-    if (bastionState.workStatus === 'idle' && bastionState.currentLayer === 'ambient') {
-      const failedState = this.agentStates.get(failedAgentId);
-      if (!failedState) return;
-
-      const failedSlot = this.gridMap.getSlot(failedState.deskSlotId);
-      if (!failedSlot) return;
-
-      // Bastion jalan ke dekat meja agen yang gagal
-      const path = this.pathfinder.findPath(
-        { gx: bastionChar.gx, gy: bastionChar.gy },
-        { gx: failedSlot.gx, gy: failedSlot.gy },
-      );
-
-      if (path && path.length > 1) {
-        // Berhenti 1 langkah sebelum meja agar tidak menimpa slot
-        const approachPath = path.slice(0, Math.max(1, path.length - 1));
-        bastionChar.walk(approachPath);
-      }
-    }
+    this.handleTaskFailedReaction({
+      seq: 0,
+      ts: Math.floor(Date.now() / 1000),
+      board: 'office-v2',
+      kind: 'task_failed',
+      agent: failedAgentId,
+      message: `Eksekusi task pada agen ${failedAgentId} gagal`,
+    });
   }
 
   /**
@@ -427,6 +463,56 @@ export class Choreographer {
         continue;
       }
 
+      // 3b. Update reaksi event khusus (T2.2 / F20: Reaksi berbasis event)
+      if (state.currentActivityKey === 'jarvis_comment_talk') {
+        if (char.fsmState !== 'walk') {
+          state.activityRemaining -= dt;
+          if (state.activityRemaining <= 0) {
+            char.isCommenting = false;
+            state.currentLayer = 'ambient';
+            state.currentActivityKey = 'ambient_idle';
+            this.sendAgentToDesk('jarvis', state, char, false);
+          }
+        }
+        continue;
+      }
+
+      if (state.currentActivityKey === 'sentinel_fail_stamp') {
+        state.activityRemaining -= dt;
+        if (state.activityRemaining <= 0) {
+          state.currentLayer = 'ambient';
+          state.currentActivityKey = 'ambient_idle';
+          char.playAnimation('idle');
+        }
+        continue;
+      }
+
+      if (state.currentActivityKey === 'relay_delivery') {
+        if (char.fsmState !== 'walk') {
+          state.activityRemaining -= dt;
+          if (state.activityRemaining <= 0) {
+            char.setCarryingParcel(false);
+            state.currentLayer = 'ambient';
+            state.currentActivityKey = 'ambient_idle';
+            this.sendAgentToDesk('relay', state, char, false);
+          }
+        }
+        continue;
+      }
+
+      if (state.currentActivityKey === 'bastion_inspect_failed') {
+        if (char.fsmState !== 'walk') {
+          state.activityRemaining -= dt;
+          if (state.activityRemaining <= 0) {
+            char.isInspecting = false;
+            state.currentLayer = 'ambient';
+            state.currentActivityKey = 'ambient_idle';
+            this.sendAgentToDesk('bastion', state, char, false);
+          }
+        }
+        continue;
+      }
+
       // 4. Jika agen sedang 'working', 'stale', atau 'blocked', mereka berada di bawah kendali Lapisan 1
       if (state.currentLayer === 'task') {
         continue;
@@ -454,6 +540,22 @@ export class Choreographer {
       // ==========================================
       // LAPISAN PRIORITAS 3: AMBIENT SCHEDULER
       // ==========================================
+      if (officeStore.getState().isHonestMode) {
+        // Mode Jujur aktif: matikan ambient, agen idle tetap diam di mejanya/zonanya
+        const deskSlot = this.gridMap.getSlot(state.deskSlotId);
+        const currSlot = char.getCurrentSlot();
+        if (deskSlot && (!currSlot || currSlot.id !== deskSlot.id)) {
+          if (char.fsmState !== 'walk') {
+            this.sendAgentToDesk(agentId, state, char, false);
+          }
+        } else if (char.fsmState === 'idle') {
+          if (deskSlot && deskSlot.anim) {
+            char.act(deskSlot as unknown as WorldInteractionSlot);
+          }
+        }
+        continue;
+      }
+
       if (char.fsmState === 'act') {
         state.activityRemaining -= dt;
         if (state.activityRemaining <= 0) {
@@ -689,13 +791,15 @@ export class Choreographer {
   public emitBubble(
     agentId: string,
     text: string,
-    kind: 'collective' | 'task' | 'ambient' = 'task',
+    kind: 'collective' | 'task' | 'ambient' | 'stamp' = 'task',
+    isStamp?: boolean,
   ): void {
     const event: ChoreographerBubbleEvent = {
       agentId,
       text,
       timestamp: Date.now(),
       kind,
+      isStamp: isStamp ?? (kind === 'stamp'),
     };
     this.recentBubbles.push(event);
     if (this.recentBubbles.length > 100) {
@@ -721,6 +825,287 @@ export class Choreographer {
     return [...this.recentBubbles];
   }
 
+  /**
+   * Menangani event linimasa kantor dan memicu reaksi karakter (T2.2 / F20).
+   */
+  public handleOfficeEvent(event: OfficeEvent): void {
+    if (!event || !event.kind) return;
+
+    switch (event.kind) {
+      case 'task_commented': {
+        this.handleTaskCommentedReaction(event);
+        break;
+      }
+      case 'task_blocked': {
+        this.handleTaskBlockedReaction(event);
+        break;
+      }
+      case 'task_done': {
+        this.handleTaskDoneReaction(event);
+        break;
+      }
+      case 'task_failed': {
+        this.handleTaskFailedReaction(event);
+        break;
+      }
+      default:
+        break;
+    }
+  }
+
+  /**
+   * Reaksi 1: task_commented oleh jarvis -> Jarvis berjalan ke meja assignee dan stand_talk.
+   */
+  public handleTaskCommentedReaction(event: OfficeEvent): void {
+    const actor = event.actor?.toLowerCase();
+    const isJarvisActor = actor === 'jarvis' || (!actor && event.message?.toLowerCase().includes('jarvis'));
+    if (!isJarvisActor) return;
+
+    const assigneeId = event.agent || (event.task as { assignee?: string } | undefined)?.assignee;
+    if (!assigneeId || assigneeId.toLowerCase() === 'jarvis') return;
+
+    const jarvisChar = this.characterManager.getCharacter('jarvis');
+    const jarvisState = this.agentStates.get('jarvis');
+    if (!jarvisChar || !jarvisState) return;
+
+    const assigneeState = this.agentStates.get(assigneeId);
+    const deskSlotId = assigneeState?.deskSlotId || this.slotManager.findDeskForAgent(assigneeId)?.id;
+    const deskSlot = deskSlotId ? this.gridMap.getSlot(deskSlotId) : undefined;
+    if (!deskSlot) return;
+
+    // Cari kandidat tile adjacent yang walkable di sekitar meja assignee
+    const offsets: Array<[number, number]> = [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+      [1, 1],
+      [-1, -1],
+      [1, -1],
+      [-1, 1],
+    ];
+
+    const candidates = offsets
+      .map(([ox, oy]) => ({ gx: deskSlot.gx + ox, gy: deskSlot.gy + oy }))
+      .filter((p) => this.gridMap.isWalkable(p.gx, p.gy));
+
+    if (candidates.length === 0) return;
+
+    candidates.sort(
+      (a, b) =>
+        Math.hypot(a.gx - jarvisChar.gx, a.gy - jarvisChar.gy) -
+        Math.hypot(b.gx - jarvisChar.gx, b.gy - jarvisChar.gy),
+    );
+
+    const currGx = Math.round(jarvisChar.gx);
+    const currGy = Math.round(jarvisChar.gy);
+    const isAlreadyAdjacent = candidates.some((c) => c.gx === currGx && c.gy === currGy);
+
+    jarvisState.currentLayer = 'task';
+    jarvisState.currentActivityKey = 'jarvis_comment_talk';
+    jarvisState.targetSlotId = null;
+    this.slotManager.releaseAllForAgent('jarvis');
+
+    const onArriveAtAssignee = () => {
+      jarvisChar.setFacing(vectorToFacing(deskSlot.gx - jarvisChar.gx, deskSlot.gy - jarvisChar.gy));
+      jarvisChar.playAnimation('stand_talk');
+      jarvisChar.isCommenting = true;
+      jarvisState.activityRemaining = 8;
+      this.emitBubble('jarvis', `Catatan koordinasi untuk @${assigneeId}: Pastikan acceptance criteria terpenuhi.`, 'task');
+    };
+
+    if (isAlreadyAdjacent) {
+      onArriveAtAssignee();
+      return;
+    }
+
+    let chosenPath: PathNode[] | null = null;
+    for (const cand of candidates) {
+      const path = this.pathfinder.findPath(
+        { gx: currGx, gy: currGy },
+        cand,
+        { ignoredTiles: [{ gx: currGx, gy: currGy }] },
+      );
+      if (path && path.length > 0) {
+        if (!chosenPath || path.length < chosenPath.length) {
+          chosenPath = path;
+        }
+      }
+    }
+
+    if (chosenPath) {
+      jarvisChar.speed = Math.max(3.5, chosenPath.length / 5.0);
+      jarvisChar.onArrive = () => {
+        jarvisChar.speed = DEFAULT_WALK_SPEED;
+        onArriveAtAssignee();
+      };
+      jarvisChar.walk(chosenPath);
+    } else {
+      onArriveAtAssignee();
+    }
+  }
+
+  /**
+   * Reaksi 2: task_blocked setelah run Sentinel -> stempel merah FAIL.
+   */
+  public handleTaskBlockedReaction(event: OfficeEvent): void {
+    const eventAny = event as unknown as Record<string, unknown>;
+    const taskObj = (event.task || {}) as Record<string, unknown>;
+    const isSentinelRun =
+      String(event.actor || '').toLowerCase() === 'sentinel' ||
+      String(event.agent || '').toLowerCase() === 'sentinel' ||
+      String(event.message || '').toLowerCase().includes('sentinel') ||
+      String(eventAny.reviewer || '').toLowerCase() === 'sentinel' ||
+      String(taskObj.reviewer || '').toLowerCase() === 'sentinel' ||
+      String(taskObj.last_run_profile || '').toLowerCase() === 'sentinel';
+
+    if (!isSentinelRun) return;
+
+    const sentinelChar = this.characterManager.getCharacter('sentinel');
+    const sentinelState = this.agentStates.get('sentinel');
+    if (!sentinelChar || !sentinelState) return;
+
+    sentinelState.currentLayer = 'task';
+    sentinelState.currentActivityKey = 'sentinel_fail_stamp';
+    sentinelState.activityRemaining = 6;
+
+    sentinelChar.showFailStamp(6.0);
+    sentinelChar.playAnimation('stand_talk');
+    this.emitBubble('sentinel', 'FAIL. Kembalikan ke pembuatnya.', 'stamp');
+  }
+
+  /**
+   * Reaksi 3: task_done dengan branch_name -> Relay membawa paket ke konveyor.
+   */
+  public handleTaskDoneReaction(event: OfficeEvent): void {
+    const branchName = event.task?.branch_name || (event as { branch_name?: string }).branch_name;
+    if (!branchName) return;
+
+    const relayChar = this.characterManager.getCharacter('relay');
+    const relayState = this.agentStates.get('relay');
+    if (!relayChar || !relayState) return;
+
+    relayChar.setCarryingParcel(true);
+    relayState.currentLayer = 'task';
+    relayState.currentActivityKey = 'relay_delivery';
+    relayState.targetSlotId = null;
+    this.slotManager.releaseAllForAgent('relay');
+
+    // Tile persis di depan konveyor Release Dock Z11 (gx: 33, gy: 15)
+    const conveyorGx = 33;
+    const conveyorGy = 15;
+
+    const onArriveAtConveyor = () => {
+      relayChar.setFacing('SE'); // Menghadap ke arah konveyor di gx: 34
+      relayChar.playAnimation('stand_talk');
+      relayState.activityRemaining = 5;
+      this.emitBubble('relay', 'Siap kirim. Paket berangkat.', 'task');
+    };
+
+    if (Math.round(relayChar.gx) === conveyorGx && Math.round(relayChar.gy) === conveyorGy) {
+      onArriveAtConveyor();
+      return;
+    }
+
+    const path = this.pathfinder.findPath(
+      { gx: Math.round(relayChar.gx), gy: Math.round(relayChar.gy) },
+      { gx: conveyorGx, gy: conveyorGy },
+    );
+
+    if (path) {
+      relayChar.speed = DEFAULT_WALK_SPEED;
+      relayChar.onArrive = onArriveAtConveyor;
+      relayChar.walk(path);
+    } else {
+      relayChar.setGridPosition(conveyorGx, conveyorGy);
+      onArriveAtConveyor();
+    }
+  }
+
+  /**
+   * Reaksi 4: task_failed -> Bastion mengecek.
+   */
+  public handleTaskFailedReaction(event: OfficeEvent): void {
+    const failedAgentId = event.agent || (event.task as { assignee?: string } | undefined)?.assignee;
+    if (!failedAgentId || failedAgentId.toLowerCase() === 'bastion') return;
+
+    const bastionChar = this.characterManager.getCharacter('bastion');
+    const bastionState = this.agentStates.get('bastion');
+    if (!bastionChar || !bastionState) return;
+
+    const failedState = this.agentStates.get(failedAgentId);
+    const deskSlotId = failedState?.deskSlotId || this.slotManager.findDeskForAgent(failedAgentId)?.id;
+    const deskSlot = deskSlotId ? this.gridMap.getSlot(deskSlotId) : undefined;
+    if (!deskSlot) return;
+
+    const offsets: Array<[number, number]> = [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+      [1, 1],
+      [-1, -1],
+      [1, -1],
+      [-1, 1],
+    ];
+
+    const candidates = offsets
+      .map(([ox, oy]) => ({ gx: deskSlot.gx + ox, gy: deskSlot.gy + oy }))
+      .filter((p) => this.gridMap.isWalkable(p.gx, p.gy));
+
+    if (candidates.length === 0) return;
+
+    candidates.sort(
+      (a, b) =>
+        Math.hypot(a.gx - bastionChar.gx, a.gy - bastionChar.gy) -
+        Math.hypot(b.gx - bastionChar.gx, b.gy - bastionChar.gy),
+    );
+
+    const currGx = Math.round(bastionChar.gx);
+    const currGy = Math.round(bastionChar.gy);
+    const isAlreadyAdjacent = candidates.some((c) => c.gx === currGx && c.gy === currGy);
+
+    bastionState.currentLayer = 'task';
+    bastionState.currentActivityKey = 'bastion_inspect_failed';
+    bastionState.targetSlotId = null;
+    this.slotManager.releaseAllForAgent('bastion');
+    bastionChar.isInspecting = true;
+    this.emitBubble('bastion', 'Ada yang jatuh. Saya ke sana.', 'task');
+
+    const onArriveAtFailed = () => {
+      bastionChar.setFacing(vectorToFacing(deskSlot.gx - bastionChar.gx, deskSlot.gy - bastionChar.gy));
+      bastionChar.playAnimation('stand_talk');
+      bastionState.activityRemaining = 6;
+    };
+
+    if (isAlreadyAdjacent) {
+      onArriveAtFailed();
+      return;
+    }
+
+    let chosenPath: PathNode[] | null = null;
+    for (const cand of candidates) {
+      const path = this.pathfinder.findPath(
+        { gx: currGx, gy: currGy },
+        cand,
+        { ignoredTiles: [{ gx: currGx, gy: currGy }] },
+      );
+      if (path && path.length > 0) {
+        if (!chosenPath || path.length < chosenPath.length) {
+          chosenPath = path;
+        }
+      }
+    }
+
+    if (chosenPath) {
+      bastionChar.speed = DEFAULT_WALK_SPEED;
+      bastionChar.onArrive = onArriveAtFailed;
+      bastionChar.walk(chosenPath);
+    } else {
+      onArriveAtFailed();
+    }
+  }
+
   public getAgentState(agentId: string): AgentChoreographyState | undefined {
     return this.agentStates.get(agentId);
   }
@@ -742,6 +1127,7 @@ export class Choreographer {
       this.storeUnsubscribe();
       this.storeUnsubscribe = null;
     }
+    this.processedEventSeqs.clear();
     this.bubbleListeners.clear();
     this.agentStates.clear();
     this.isInitialized = false;

@@ -7,6 +7,8 @@ import { AgentInspector } from './AgentInspector';
 import { AgentSidebar } from './AgentSidebar';
 import { FounderPanel } from './FounderPanel';
 import { LoginModal } from './LoginModal';
+import { ToastContainer } from './ToastContainer';
+import { FlyingIconLayer } from './FlyingIconLayer';
 
 /**
  * Root komponen HUD terpisah.
@@ -34,6 +36,10 @@ export const HudRoot: React.FC = () => {
 
       {/* Modal Autentikasi Founder */}
       <LoginModal />
+
+      {/* Layer Notifikasi Visual: Toast & Flying Icon (F21) */}
+      <ToastContainer />
+      <FlyingIconLayer />
 
       {/* Bagian Bawah: ActivityFeed & SnapshotInspector */}
       <div className="w-full relative z-10">
