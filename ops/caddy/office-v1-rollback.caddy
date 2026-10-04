@@ -1,0 +1,60 @@
+# ==============================================================================
+# Agentic AI Office - Rollback Configuration (Port 8091 Active)
+# Managed by: relay
+# ==============================================================================
+
+office.rifqisetiawan.my.id, cockpit.rifqisetiawan.my.id {
+    import security_headers
+    encode gzip zstd
+
+    @hermes_execution path /api/v1/execution/*
+    handle @hermes_execution {
+        reverse_proxy 127.0.0.1:8091 {
+            header_up Host {host}
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+            header_up X-Hermes-Read-Token 6sfR4bBN_gT978heHoxGMyV3Yyl8McrMNF5kIvy5paIH7vXSvJ-7tmqDSl59pdf-
+            flush_interval -1
+        }
+    }
+
+    handle {
+        reverse_proxy 127.0.0.1:8091 {
+            header_up Host {host}
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+            flush_interval -1
+        }
+    }
+
+    log {
+        output file /var/log/caddy/office_rollback_v1_access.log {
+            roll_size 10mb
+            roll_keep 5
+        }
+        format json
+    }
+}
+
+staging.office.rifqisetiawan.my.id, office-staging.rifqisetiawan.my.id {
+    import security_headers
+    encode gzip zstd
+
+    header {
+        Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
+    }
+
+    handle /api/* {
+        reverse_proxy 127.0.0.1:8092 {
+            flush_interval -1
+        }
+    }
+
+    handle {
+        root * /srv/html/office-v2
+        try_files {path} /index.html
+        file_server
+    }
+}

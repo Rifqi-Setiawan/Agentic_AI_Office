@@ -1,0 +1,90 @@
+# ==============================================================================
+# Agentic AI Office v2 (Production Active) & Sovereign Cockpit v1 Fallback
+# Managed by: relay
+# ==============================================================================
+
+office.rifqisetiawan.my.id, staging.office.rifqisetiawan.my.id, office-staging.rifqisetiawan.my.id {
+    import security_headers
+    encode gzip zstd
+
+    # Strict Content Security Policy (tanpa unsafe-inline untuk script)
+    header {
+        Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
+    }
+
+    # Rate limit Caddy untuk login Founder (5 percobaan / 1 menit / IP)
+    @login_founder {
+        path /api/v1/auth/login
+        method POST
+    }
+    rate_limit @login_founder {
+        zone office_login {
+            key {remote_host}
+            events 5
+            window 1m
+        }
+    }
+
+    # Backend REST API and SSE Streaming proxy with disabled buffering
+    handle /api/* {
+        reverse_proxy 127.0.0.1:8092 {
+            flush_interval -1
+        }
+    }
+
+    # Static frontend single-page application
+    handle {
+        root * /srv/html/office-v2
+        try_files {path} /index.html
+        file_server
+    }
+
+    # Log akses terstruktur tanpa mencatat query string
+    log {
+        output file /var/log/caddy/office_access.log {
+            roll_size 10mb
+            roll_keep 5
+        }
+        format filter {
+            wrap json
+            fields {
+                request>uri regexp \?.* ""
+            }
+        }
+    }
+}
+
+cockpit.rifqisetiawan.my.id {
+    import security_headers
+    encode gzip zstd
+
+    @hermes_execution path /api/v1/execution/*
+    handle @hermes_execution {
+        reverse_proxy 127.0.0.1:8091 {
+            header_up Host {host}
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+            header_up X-Hermes-Read-Token 6sfR4bBN_gT978heHoxGMyV3Yyl8McrMNF5kIvy5paIH7vXSvJ-7tmqDSl59pdf-
+            flush_interval -1
+        }
+    }
+
+    handle {
+        reverse_proxy 127.0.0.1:8091 {
+            header_up Host {host}
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+            header_up X-Forwarded-Proto {scheme}
+            flush_interval -1
+        }
+    }
+
+    log {
+        output file /var/log/caddy/cockpit_v1_access.log {
+            roll_size 10mb
+            roll_keep 5
+        }
+        format json
+    }
+}
