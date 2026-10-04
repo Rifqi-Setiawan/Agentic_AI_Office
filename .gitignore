@@ -38,6 +38,10 @@ frontend/node_modules
 /dist/
 frontend/dist/
 .eslintcache
+test-results/
+playwright-report/
+frontend/test-results/
+frontend/playwright-report/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

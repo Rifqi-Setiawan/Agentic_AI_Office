@@ -494,3 +494,88 @@ export const mockSnapshotFixture: WorldSnapshot = {
 export function getFreshMockSnapshot(): WorldSnapshot {
   return JSON.parse(JSON.stringify(mockSnapshotFixture));
 }
+
+export function getFounderMockSnapshot(): WorldSnapshot {
+  const snapshot = getFreshMockSnapshot();
+  snapshot.projection = 'founder';
+  for (const agent of snapshot.agents) {
+    if (agent.task) {
+      agent.task.body = `Internal task spec for ${agent.task.id}: [LEAK-CANARY-FOUNDER-TASK-BODY]`;
+      agent.task.summary = `Internal summary for ${agent.task.id}`;
+      agent.task.workspace_path = `/srv/apps/hermes/workspaces/${agent.task.id}`;
+      agent.task.branch_name = 'office-v2/founder-branch';
+      agent.task.worker_pid = 245100;
+    }
+  }
+  return snapshot;
+}
+
+export function getAgentDetailFixture(agentId: string, isFounder: boolean) {
+  const normId = agentId.toLowerCase();
+  const agent = mockSnapshotFixture.agents.find((a) => a.id.toLowerCase() === normId) || {
+    id: normId,
+    name: normId.toUpperCase(),
+    role: 'Agent Specialist',
+    presence: 'on_duty' as const,
+    work: 'idle' as const,
+    since: 1791028300,
+    done_today: 3,
+    zone: 'war_room',
+    action: 'Siaga di meja kerja',
+    grid_x: 6,
+    grid_y: 6,
+    direction: 'SE' as const,
+    task: null,
+  };
+
+  const bio = {
+    id: agent.id,
+    name: agent.name,
+    role: agent.role,
+    department: 'Engineering',
+    signature_color: '#2BB3C0',
+    model: 'ag/gemini-3.8-flash-high',
+  };
+
+  const recent_tasks = isFounder
+    ? [
+        {
+          id: `t_${agent.id}_01`,
+          title: `Tugas internal ${agent.name}`,
+          board: 'office-v2',
+          status: 'done',
+          block_kind: null,
+          started_at: 1791028300,
+          body: `Spesifikasi internal: Validasi token LEAK-CANARY-AGENT-${agent.id.toUpperCase()}`,
+          summary: `Tugas ${agent.name} tuntas diverifikasi tanpa kendala.`,
+          result: 'PASS',
+          error: null,
+          workspace_path: `/srv/apps/hermes/workspaces/t_${agent.id}_01`,
+          branch_name: 'office-v2',
+          worker_pid: 245101,
+        },
+      ]
+    : [
+        {
+          id: `t_${agent.id}_01`,
+          title: 'Menulis endpoint API',
+          board: 'office-v2',
+          status: 'done',
+          block_kind: null,
+          started_at: 1791028300,
+          body: null,
+          summary: null,
+          result: null,
+          error: null,
+          workspace_path: null,
+          branch_name: null,
+          worker_pid: null,
+        },
+      ];
+
+  return {
+    agent,
+    bio,
+    recent_tasks,
+  };
+}

@@ -15,6 +15,7 @@ export const TopBar: React.FC = () => {
   const setLoginModalOpen = useOfficeStore((s) => s.setLoginModalOpen);
   const isFounderAuthenticated = useOfficeStore((s) => s.isFounderAuthenticated);
   const agentList = useOfficeStore((s) => s.agentList);
+  const activeCollective = useOfficeStore((s) => s.activeCollective);
 
   // Jam waktu nyata Asia/Jakarta (WIB)
   const [wibTime, setWibTime] = useState<string>('');
@@ -142,6 +143,20 @@ export const TopBar: React.FC = () => {
         </div>
         <span className="text-[#687594] text-xs">•</span>
         {getConnectionBadge()}
+
+        {/* Indikator Event Kolektif Aktif (Rapat / Sholat / Break) */}
+        {activeCollective?.active && (
+          <div
+            data-testid="collective-event-badge"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-indigo-950/80 border border-indigo-700/80 text-indigo-200 text-xs font-medium animate-pulse"
+            role="status"
+            aria-label={`Event Kolektif Aktif: ${activeCollective.title}`}
+          >
+            <span aria-hidden="true">{activeCollective.kind === 'sholat' ? '🕌' : '📢'}</span>
+            <span className="font-semibold">{activeCollective.title}</span>
+            <span className="text-[10px] text-indigo-400 capitalize">({activeCollective.kind})</span>
+          </div>
+        )}
 
         {/* Tombol Toggle Daftar Agen */}
         <button

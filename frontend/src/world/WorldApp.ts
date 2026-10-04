@@ -162,11 +162,31 @@ export class WorldApp {
       this.pathfinder = new AStarPathfinder(this.gridMap);
       this.slotReservationManager = new SlotReservationManager(this.gridMap);
 
+      // Inisialisasi PRNG deterministik jika seed ambient ditentukan (mis. untuk screenshot regresi & tes E2E)
+      let randomFn: (() => number) | undefined = undefined;
+      if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search);
+        const seedStr = urlParams.get('seed') ?? (window as unknown as { __OFFICE_SEED__?: string | number }).__OFFICE_SEED__;
+        if (seedStr !== null && seedStr !== undefined) {
+          const seedNum = parseInt(String(seedStr), 10);
+          if (!isNaN(seedNum)) {
+            let s = seedNum | 0;
+            randomFn = () => {
+              s = (s + 0x6d2b79f5) | 0;
+              let t = Math.imul(s ^ (s >>> 15), 1 | s);
+              t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+              return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+            };
+          }
+        }
+      }
+
       this.choreographer = new Choreographer({
         characterManager: this.characterManager,
         gridMap: this.gridMap,
         pathfinder: this.pathfinder,
         slotManager: this.slotReservationManager,
+        randomFn,
       });
       this.choreographer.init();
 
