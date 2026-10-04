@@ -1,8 +1,7 @@
-import type { Application } from 'pixi.js';
-import type { CameraManager } from '../camera';
-import type { CharacterManager } from '../CharacterManager';
-import type { Character } from '../Character';
-import { AGENT_SPAWN_DEFS } from '../CharacterManager';
+import type { BubbleCamera as CameraManager, BubbleScreen as Application } from '../simulation/BubblePorts';
+import type { CharacterRegistry as CharacterManager } from '../simulation/CharacterRegistry';
+import type { CharacterController as Character } from '../simulation/CharacterModel';
+import { AGENT_SPAWN_DEFS } from '../simulation/roster';
 import { officeStore } from '../../store/officeStore';
 import type { AgentState } from '../../types/office';
 import {

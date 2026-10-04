@@ -3,8 +3,9 @@ import { type AStarPathfinder, vectorToFacing } from '../../navigation/AStarPath
 import type { SlotReservationManager } from '../../navigation/SlotReservationManager';
 import type { InteractionSlot, PathNode } from '../../navigation/types';
 import type { InteractionSlot as WorldInteractionSlot } from '../types';
-import { Character, DEFAULT_WALK_SPEED } from '../Character';
-import { CharacterManager, AGENT_SPAWN_DEFS } from '../CharacterManager';
+import { DEFAULT_WALK_SPEED, type CharacterController as Character } from '../simulation/CharacterModel';
+import type { CharacterRegistry as CharacterManager } from '../simulation/CharacterRegistry';
+import { AGENT_SPAWN_DEFS } from '../simulation/roster';
 import { officeStore, type OfficeState } from '../../store/officeStore';
 import type { AgentState, CollectiveEventState, OfficeEvent } from '../../types/office';
 import type {

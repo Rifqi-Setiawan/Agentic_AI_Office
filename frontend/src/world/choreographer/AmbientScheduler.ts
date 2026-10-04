@@ -2,7 +2,7 @@ import type { GridMap } from '../../navigation/GridMap';
 import type { AStarPathfinder } from '../../navigation/AStarPathfinder';
 import type { SlotReservationManager } from '../../navigation/SlotReservationManager';
 import type { InteractionSlot } from '../../navigation/types';
-import type { Character } from '../Character';
+import type { CharacterController as Character } from '../simulation/CharacterModel';
 import type { InteractionSlot as WorldInteractionSlot } from '../types';
 import type {
   AgentChoreographyState,

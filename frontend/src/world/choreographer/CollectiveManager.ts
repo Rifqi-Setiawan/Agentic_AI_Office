@@ -9,7 +9,7 @@ import type {
   ChoreographerBubbleEvent,
   CollectiveSlotAssignment,
 } from './types';
-import type { Character } from '../Character';
+import type { CharacterController as Character } from '../simulation/CharacterModel';
 import type { InteractionSlot as WorldInteractionSlot } from '../types';
 
 export class CollectiveManager {

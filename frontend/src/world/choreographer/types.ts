@@ -1,4 +1,4 @@
-import type { CharacterManager } from '../CharacterManager';
+import type { CharacterRegistry as CharacterManager } from '../simulation/CharacterRegistry';
 import type { GridMap } from '../../navigation/GridMap';
 import type { AStarPathfinder } from '../../navigation/AStarPathfinder';
 import type { SlotReservationManager } from '../../navigation/SlotReservationManager';

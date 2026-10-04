@@ -1,6 +1,5 @@
-import type { Application } from 'pixi.js';
-import type { CameraManager } from '../camera';
-import type { CharacterManager } from '../CharacterManager';
+import type { BubbleCamera as CameraManager, BubbleScreen as Application } from '../simulation/BubblePorts';
+import type { CharacterRegistry as CharacterManager } from '../simulation/CharacterRegistry';
 import type { TaskRef } from '../../types/office';
 
 /**
