@@ -20,12 +20,18 @@ DEFAULT_COLLECTIVE_TTL: dict[str, int] = {
     "rapat": 10 * 60,
     "break": 10 * 60,
     "sholat": 5 * 60,
+    "pool_party": 10 * 60,
+    "fire_drill": 5 * 60,
+    "town_hall": 10 * 60,
 }
 
 DEFAULT_COLLECTIVE_TITLES: dict[str, str] = {
     "rapat": "Rapat Mendadak",
     "break": "Break Time",
     "sholat": "Sholat Berjamaah",
+    "pool_party": "Pesta Kolam",
+    "fire_drill": "Simulasi Evakuasi",
+    "town_hall": "Pertemuan Kantor",
 }
 
 
@@ -58,6 +64,7 @@ class CollectiveManager:
         self.broadcaster = broadcaster
         self.config = config
         self._timer_task: asyncio.Task[None] | None = None
+        self._scheduled_event: CollectiveEventState | None = None
 
     def get_active(self, current_time: int | None = None) -> CollectiveEventState | None:
         """Mengambil event kolektif yang sedang aktif saat ini."""
@@ -65,7 +72,7 @@ class CollectiveManager:
 
     async def start_event(
         self,
-        kind: Literal["rapat", "break", "sholat"] | str,
+        kind: Literal["rapat", "break", "sholat", "pool_party", "fire_drill", "town_hall"] | str,
         duration_seconds: int | None = None,
         title: str | None = None,
         participants: list[str] | None = None,
@@ -107,7 +114,8 @@ class CollectiveManager:
             part_list = [
                 aid
                 for aid, a in sorted(self.engine.agents.items())
-                if a.presence == "on_duty" and a.work == "idle"
+                if a.presence == "on_duty"
+                and (kind in {"fire_drill", "town_hall"} or a.work == "idle")
             ]
 
         coll_id = f"coll_{now_ts}_{kind}"
@@ -148,6 +156,7 @@ class CollectiveManager:
 
         # Jadwalkan timer otomatis pengakhiran event
         self.schedule_expiry_timer(coll_id, float(ttl))
+        self._scheduled_event = collective
 
         return collective
 
@@ -159,6 +168,14 @@ class CollectiveManager:
         """Mengakhiri event kolektif yang sedang aktif dan menyiarkan pembaruan."""
         current_coll = self.engine._active_collective
         if current_coll is None:
+            # Snapshot can expire the engine first; the timer must still clear SSE viewers.
+            scheduled = self._scheduled_event
+            if scheduled is not None and scheduled.id == event_id:
+                self._scheduled_event = None
+                if self.broadcaster is not None:
+                    self.broadcaster.broadcast_collective(
+                        None, self.engine.ring_buffer.current_seq - 1
+                    )
             return None
 
         if event_id is not None and current_coll.id != event_id:
@@ -167,6 +184,7 @@ class CollectiveManager:
         now_ts = int(time.time()) if current_time is None else current_time
         self.cancel_expiry_timer()
         self.engine.set_active_collective(None)
+        self._scheduled_event = None
 
         seq = self.engine.ring_buffer.next_seq()
         end_ev = OfficeEvent(

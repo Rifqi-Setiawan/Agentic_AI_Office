@@ -33,7 +33,7 @@ class CollectiveEventState(BaseModel):
     """Kondisi event interaksi kolektif yang melibatkan banyak agen."""
 
     id: str
-    kind: Literal["rapat", "break", "sholat"]
+    kind: Literal["rapat", "break", "sholat", "pool_party", "fire_drill", "town_hall"]
     title: str
     started_at: int
     expires_at: int

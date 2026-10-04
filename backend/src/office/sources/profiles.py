@@ -218,7 +218,7 @@ class ProfilesReader:
                 if isinstance(parsed, dict) and "agents" in parsed:
                     for item in parsed["agents"]:
                         if isinstance(item, dict) and "name" in item:
-                            raw_agents[item["name"]] = item
+                            raw_agents[Path(item.get("profile") or item["name"]).name] = item
             except Exception as exc:
                 issues.append(f"Gagal membaca agents.yaml ({self.agents_file}): {exc}")
         elif self.agents_file:
@@ -230,14 +230,14 @@ class ProfilesReader:
             for prof_path in self.profiles_dir.iterdir():
                 if prof_path.is_dir():
                     cfg_file = prof_path / "config.yaml"
-                    if cfg_file.is_file():
-                        try:
+                    try:
+                        if cfg_file.is_file():
                             cfg_content = cfg_file.read_text(encoding="utf-8")
                             cfg_parsed = yaml.safe_load(cfg_content)
                             if isinstance(cfg_parsed, dict):
                                 profile_configs[prof_path.name] = cfg_parsed
-                        except Exception as exc:
-                            issues.append(f"Gagal membaca {cfg_file}: {exc}")
+                    except Exception as exc:
+                        issues.append(f"Gagal membaca {cfg_file}: {exc}")
         else:
             issues.append(f"Direktori profiles tidak ditemukan: {self.profiles_dir}")
 
@@ -251,6 +251,20 @@ class ProfilesReader:
             static_meta = STATIC_AGENT_METADATA.get(aid, {})
             agent_record = raw_agents.get(aid, {})
             prof_config = profile_configs.get(aid, {})
+            # Registry YAML accepts plain descriptions and keyed descriptions.
+            # Keep the public/static bio separate from these internal records.
+            responsibilities: list[str] = []
+            for entry in agent_record.get("responsibilities") or []:
+                if isinstance(entry, str):
+                    responsibilities.append(entry)
+                elif isinstance(entry, dict):
+                    for heading, description in entry.items():
+                        if isinstance(heading, str):
+                            responsibilities.append(
+                                f"{heading}: {description}"
+                                if isinstance(description, str)
+                                else heading
+                            )
 
             # Bangun bio
             raw_rec_name = agent_record.get("name")
@@ -269,11 +283,7 @@ class ProfilesReader:
             personality = (
                 static_meta.get("personality") or "Pekerja keras dan responsif terhadap tugas"
             )
-            specialties = (
-                static_meta.get("specialties")
-                or agent_record.get("responsibilities")
-                or ["Multitasking"]
-            )
+            specialties = static_meta.get("specialties") or responsibilities or ["Multitasking"]
             primary_color = static_meta.get("primary_color") or "#4A5568"
             desk_zone = static_meta.get("desk_zone") or "dev_pod_1"
             alias = static_meta.get("alias")
@@ -306,7 +316,6 @@ class ProfilesReader:
                 provider = agent_record["provider"]
 
             status = agent_record.get("status") or ("configured" if prof_config else "default")
-            responsibilities = agent_record.get("responsibilities") or []
 
             merged_profiles[aid] = AgentProfile(
                 bio=bio,

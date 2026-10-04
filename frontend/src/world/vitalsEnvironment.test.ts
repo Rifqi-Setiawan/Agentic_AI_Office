@@ -275,4 +275,105 @@ describe('T2.4 Vitals → Perubahan Lingkungan (F23)', () => {
       expect(vitalsManager.isVectorPacing()).toBe(true);
     });
   });
+
+  describe('Fokus Kontrol Unit & True Monotonic Elapsed Time (T2.9-R1)', () => {
+    it('mengakumulasi durasi CPU kontinu menggunakan true monotonic clock saat mode monotonic aktif', () => {
+      let mockTime = 1000.0;
+      vitalsManager.setMonotonicClock(() => mockTime);
+
+      // Frame 1: CPU tinggi mulai terdeteksi
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.cpuHigh);
+      expect(vitalsManager.getStatus().cpuHighDuration).toBe(0);
+      expect(vitalsManager.isCpuAlertActive()).toBe(false);
+
+      // 30 detik kemudian: durasi kontinu bertambah 30 dtk, belum memicu alert (< 60 dtk)
+      mockTime = 1030.0;
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.cpuHigh);
+      expect(vitalsManager.getStatus().cpuHighDuration).toBe(30.0);
+      expect(vitalsManager.isCpuAlertActive()).toBe(false);
+
+      // 60.5 detik kemudian: durasi kontinu mencapai >= 60 dtk, alert aktif penuh
+      mockTime = 1060.5;
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.cpuHigh);
+      expect(vitalsManager.getStatus().cpuHighDuration).toBe(60.5);
+      expect(vitalsManager.isCpuAlertActive()).toBe(true);
+      expect(vitalsManager.isLedBlinkingFast()).toBe(true);
+      expect(vitalsManager.isAcFanSpinning()).toBe(true);
+      expect(vitalsManager.isBastionSweating()).toBe(true);
+    });
+
+    it('mereset durasi kontinu dan mematikan alert seketika jika telemetri vitals hilang (null/missing)', () => {
+      let mockTime = 1000.0;
+      vitalsManager.setMonotonicClock(() => mockTime);
+
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.cpuHigh);
+      mockTime = 1065.0;
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.cpuHigh);
+      expect(vitalsManager.isCpuAlertActive()).toBe(true);
+
+      // Telemetri terputus/hilang (null)
+      vitalsManager.update(1 / 60, null);
+      expect(vitalsManager.getStatus().cpuHighDuration).toBe(0);
+      expect(vitalsManager.isCpuAlertActive()).toBe(false);
+      expect(vitalsManager.isBastionSweating()).toBe(false);
+      expect(vitalsManager.isLedBlinkingFast()).toBe(false);
+      expect(vitalsManager.isAcFanSpinning()).toBe(false);
+    });
+
+    it('mereset durasi kontinu dan mematikan alert seketika jika telemetri vitals stale', () => {
+      let mockTime = 1000.0;
+      vitalsManager.setMonotonicClock(() => mockTime);
+
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.cpuHigh);
+      mockTime = 1065.0;
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.cpuHigh);
+      expect(vitalsManager.isCpuAlertActive()).toBe(true);
+
+      // Kirim vitals dengan penanda status stale
+      const staleVitals = { ...VITALS_FIXTURES.cpuHigh, stale: true };
+      vitalsManager.update(1 / 60, staleVitals);
+      expect(vitalsManager.getStatus().cpuHighDuration).toBe(0);
+      expect(vitalsManager.isCpuAlertActive()).toBe(false);
+
+      // Uji focused unit control markStale
+      vitalsManager.markStale(true);
+      expect(vitalsManager.isStaleVitals()).toBe(true);
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.cpuHigh);
+      expect(vitalsManager.getStatus().cpuHighDuration).toBe(0);
+      expect(vitalsManager.isCpuAlertActive()).toBe(false);
+    });
+
+    it('mereset durasi kontinu seketika jika CPU turun ke <= 80% (low vitals)', () => {
+      let mockTime = 1000.0;
+      vitalsManager.setMonotonicClock(() => mockTime);
+
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.cpuHigh);
+      mockTime = 1065.0;
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.cpuHigh);
+      expect(vitalsManager.isCpuAlertActive()).toBe(true);
+
+      // Kirim vitals normal (CPU 24.5%)
+      mockTime = 1066.0;
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.normal);
+      expect(vitalsManager.getStatus().cpuHighDuration).toBe(0);
+      expect(vitalsManager.isCpuAlertActive()).toBe(false);
+      expect(vitalsManager.isBastionSweating()).toBe(false);
+    });
+
+    it('menjaga pemisahan safe animation delta (dtSec) dari akumulasi waktu CPU kontinu', () => {
+      let mockTime = 1000.0;
+      vitalsManager.setMonotonicClock(() => mockTime);
+
+      vitalsManager.update(1 / 60, VITALS_FIXTURES.cpuHigh);
+      mockTime = 1065.0;
+
+      // Teruskan safe animation delta kecil (mis. 0.016 detik frame delta)
+      const safeDtSec = 1 / 60;
+      vitalsManager.update(safeDtSec, VITALS_FIXTURES.cpuHigh);
+
+      // Waktu CPU terakumulasi secara monotonic independen dari frame delta
+      expect(vitalsManager.getStatus().cpuHighDuration).toBe(65.0);
+      expect(vitalsManager.isCpuAlertActive()).toBe(true);
+    });
+  });
 });

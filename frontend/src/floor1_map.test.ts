@@ -169,7 +169,7 @@ describe('T1.9 Peta Tiled 44x32 dengan 17 zona dan layer slot', () => {
     }
 
     // Total slots count
-    expect(slotsLayer.objects.length).toBe(116);
+    expect(slotsLayer.objects.length).toBe(133);
   });
 
   it('enforces Acceptance Criterion 2: Setiap zona dan slot tercapai dari Lobi lewat pathfinding (diverifikasi oleh test T1.12)', () => {
@@ -275,7 +275,7 @@ describe('T1.9 Peta Tiled 44x32 dengan 17 zona dan layer slot', () => {
       expect(p!.length).toBeGreaterThan(0);
     }
 
-    // 2. Verify all 116 interaction slots are reachable
+    // 2. Verify all 133 interaction slots are reachable
     let longestPathLen = 0;
     let longestPathTarget: [number, number] = [0, 0];
 

@@ -17,7 +17,7 @@ from office.domain.collective import (
 from office.domain.state import StateEngine
 from office.models.auth import TriggerCollectiveRequest
 from office.models.errors import ErrorResponse
-from office.models.health import HealthResponse, ReaderHealthMap
+from office.models.health import HealthResponse, ReaderHealth, ReaderHealthMap
 from office.models.kanban import TaskRef
 from office.models.profiles import AgentBio, AgentProfileDetail
 from office.models.state import CollectiveEventState
@@ -223,6 +223,18 @@ async def get_health_status(request: Request) -> JSONResponse:
         readers_map = ReaderHealthMap(**readers_dict)
     else:
         readers_map = ReaderHealthMap()
+
+    # Public health uses a whitelist; errors and details may contain private runtime data.
+    readers_map = ReaderHealthMap(
+        **{
+            name: ReaderHealth(
+                status=reader.status,
+                last_poll=reader.last_poll,
+                error="Telemetri tidak tersedia" if reader.status != "ok" else None,
+            )
+            for name, reader in readers_map
+        }
+    )
 
     # Evaluasi status agregat
     reader_statuses = [

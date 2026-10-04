@@ -461,9 +461,17 @@ def project_collective_event_public(
         active = collective.active
 
     if kind == "break":
-        kind_val: Literal["rapat", "break", "sholat"] = "break"
+        kind_val: Literal["rapat", "break", "sholat", "pool_party", "fire_drill", "town_hall"] = (
+            "break"
+        )
     elif kind == "sholat":
         kind_val = "sholat"
+    elif kind == "pool_party":
+        kind_val = "pool_party"
+    elif kind == "fire_drill":
+        kind_val = "fire_drill"
+    elif kind == "town_hall":
+        kind_val = "town_hall"
     else:
         kind_val = "rapat"
 
@@ -471,6 +479,9 @@ def project_collective_event_public(
         "rapat": "Rapat Koordinasi Bersama",
         "break": "Waktu Istirahat Bersama",
         "sholat": "Waktu Sholat Bersama",
+        "pool_party": "Pesta Kolam",
+        "fire_drill": "Simulasi Evakuasi",
+        "town_hall": "Pertemuan Kantor",
     }
     clean_title = kind_titles.get(kind_val, "Kegiatan Bersama")
 

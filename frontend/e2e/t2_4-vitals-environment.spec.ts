@@ -62,19 +62,16 @@ test.describe('T2.4 Vitals → Perubahan Lingkungan (F23)', () => {
     expect(beforeSixty.isCpuAlert).toBe(false);
     expect(beforeSixty.isBastionSweating).toBe(false);
 
-    // 3. Majukan durasi CPU > 80% hingga 60 detik
-    await page.evaluate(() => {
-      const vm = (
-        window as unknown as {
-          __WORLD_APP__?: {
-            getVitalsEnvironmentManager: () => {
-              advanceCpuDuration: (sec: number) => void;
-            };
-          };
-        }
-      ).__WORLD_APP__?.getVitalsEnvironmentManager();
-      vm?.advanceCpuDuration(60.0);
-    });
+    // 3. Tunggu 65 detik nyata; jangan majukan clock manajer.
+    test.setTimeout(110000);
+    const started = await page.evaluate(() => performance.now());
+    await page.waitForTimeout(65000);
+    const elapsed = await page.evaluate(() => performance.now()) - started;
+    console.log(JSON.stringify({ check: 'CPU 60 detik nyata', elapsed_ms: elapsed }));
+    expect(elapsed).toBeGreaterThanOrEqual(65000);
+    await expect.poll(() => page.evaluate(() =>
+      (window as unknown as { __WORLD_APP__: { getVitalsEnvironmentManager: () => { isCpuAlertActive: () => boolean } } })
+        .__WORLD_APP__.getVitalsEnvironmentManager().isCpuAlertActive())).toBe(true);
 
     // 4. Verifikasi seluruh 3 efek CPU aktif
     await expect
@@ -256,18 +253,15 @@ test.describe('T2.4 Vitals → Perubahan Lingkungan (F23)', () => {
         data: VITALS_FIXTURES.allHigh,
       },
     });
-    await page.evaluate(() => {
-      const vm = (
-        window as unknown as {
-          __WORLD_APP__?: {
-            getVitalsEnvironmentManager: () => {
-              advanceCpuDuration: (sec: number) => void;
-            };
-          };
-        }
-      ).__WORLD_APP__?.getVitalsEnvironmentManager();
-      vm?.advanceCpuDuration(60.0);
-    });
+    test.setTimeout(110000);
+    const started = await page.evaluate(() => performance.now());
+    await page.waitForTimeout(65000);
+    const elapsed = await page.evaluate(() => performance.now()) - started;
+    console.log(JSON.stringify({ check: 'CPU 60 detik nyata', elapsed_ms: elapsed }));
+    expect(elapsed).toBeGreaterThanOrEqual(65000);
+    await expect.poll(() => page.evaluate(() =>
+      (window as unknown as { __WORLD_APP__: { getVitalsEnvironmentManager: () => { isCpuAlertActive: () => boolean } } })
+        .__WORLD_APP__.getVitalsEnvironmentManager().isCpuAlertActive())).toBe(true);
 
     // 2. Sekarang kirim sinyal pemulihan (recovery)
     const emitRecovery = await request.post('/api/v1/test/emit-event', {

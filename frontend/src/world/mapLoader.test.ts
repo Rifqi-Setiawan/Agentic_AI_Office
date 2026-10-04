@@ -80,10 +80,10 @@ describe('Tiled Map Loader & Layer Containers (Spec F10)', () => {
     }
   });
 
-  it('extracts all 116 interaction slots with valid world coordinates', () => {
+  it('extracts all 133 interaction slots with valid world coordinates', () => {
     const loaded = OfficeMapLoader.loadFromDoc(mapDoc);
 
-    expect(loaded.slots.length).toBe(116);
+    expect(loaded.slots.length).toBe(133);
     for (const slot of loaded.slots) {
       expect(slot.id).toBeDefined();
       expect(slot.worldPos.x).toBeGreaterThan(0);

@@ -2,6 +2,8 @@ import { test, expect } from '@playwright/test';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { RECORDED_EVENTS_FLOW } from './fixtures/recorded_events';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -336,15 +338,61 @@ test.describe('E2E Playwright dengan rekaman SSE (T1.20)', () => {
     // Beri waktu 2 detik untuk inisialisasi render dan font stabil
     await page.waitForTimeout(2000);
 
-    const screenshotDir = path.resolve(__dirname, 'screenshots');
-    const screenshotPath = path.resolve(screenshotDir, 'baseline_scene.png');
-
-    fs.mkdirSync(screenshotDir, { recursive: true });
+    const evidence = process.env.OFFICE_VISUAL_EVIDENCE;
+    if (!evidence) throw new Error('OFFICE_VISUAL_EVIDENCE wajib diisi');
+    const baseline = path.resolve(__dirname, 'screenshots/baseline_scene.png');
+    const hash = () => createHash('sha256').update(fs.readFileSync(baseline)).digest('hex');
+    const before = hash();
+    // Freeze only after assets load. The world remains fully visible and unmasked.
+    await page.waitForFunction(() => {
+      const world = (window as unknown as { __WORLD_APP__: { getCharacterManager: () => { getAllCharacters: () => { animatedSprite: { texture: { source: { width: number } } } }[] } | null } }).__WORLD_APP__;
+      return world.getCharacterManager()?.getAllCharacters().every(c => c.animatedSprite.texture.source.width > 1);
+    });
+    await page.evaluate(async () => {
+      const diagnostics = window as unknown as {
+        __WORLD_APP__: typeof import('../src/world/WorldApp').worldApp;
+        __OFFICE_STORE__: typeof import('../src/store/officeStore').officeStore;
+        __SSE_CLIENT__: typeof import('../src/services/sseClient').sseClient;
+      };
+      const world = diagnostics.__WORLD_APP__;
+      world.getApp()!.stop();
+      // Recreate the initial scene at animation phase zero, using the actual map and atlases.
+      const manager = world.getCharacterManager()!;
+      for (const character of manager.getAllCharacters()) {
+        manager.removeCharacter(character.id);
+        character.destroy({ children: true });
+      }
+      manager.spawnAllAgents();
+      await manager.loadAllCharacterSpritesheets();
+      manager.update(0);
+      manager.getAllCharacters().forEach(character => character.animatedSprite.gotoAndStop(0));
+      world.updateCulling();
+      await document.fonts.ready;
+      world.getApp()!.renderer.render(world.getApp()!.stage);
+    });
+    const masks = [];
+    // Justified volatile HUD only: wall clock and live host percentages.
+    for (const selector of ['time[aria-label="Waktu WIB Saat Ini"]', '[aria-label="Telemetri Host VPS"]']) {
+      const box = await page.locator(selector).boundingBox();
+      if (box) masks.push(box);
+    }
+    const screenshotPath = path.join(evidence, 'candidate_scene.png');
     await page.screenshot({ path: screenshotPath, fullPage: true });
-
-    // Verifikasi berkas tangkapan layar tersimpan dan memiliki ukuran valid (> 100 KB)
     expect(fs.existsSync(screenshotPath)).toBe(true);
-    const stats = fs.statSync(screenshotPath);
-    expect(stats.size).toBeGreaterThan(100 * 1024);
+    expect(fs.statSync(screenshotPath).size).toBeGreaterThan(100 * 1024);
+    const masksPath = path.join(evidence, 'masks.json');
+    fs.writeFileSync(masksPath, JSON.stringify(masks));
+    const repeatPath = path.join(evidence, 'candidate_scene_repeat.png');
+    await page.screenshot({ path: repeatPath, fullPage: true });
+    const determinismDir = path.join(evidence, 'determinism');
+    fs.mkdirSync(determinismDir, { recursive: true });
+    console.log(execFileSync(process.env.OFFICE_VISUAL_PYTHON ?? 'python3',
+      ['../scripts/compare_scene.py', screenshotPath, repeatPath, masksPath, determinismDir], { encoding: 'utf8' }));
+    try {
+      console.log(execFileSync(process.env.OFFICE_VISUAL_PYTHON ?? 'python3',
+        ['../scripts/compare_scene.py', baseline, screenshotPath, masksPath, evidence], { encoding: 'utf8' }));
+    } finally {
+      expect(hash()).toBe(before);
+    }
   });
 });

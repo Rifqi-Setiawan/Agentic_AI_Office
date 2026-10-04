@@ -2,120 +2,120 @@
   {
     "character": "bastion",
     "file": "bastion.png",
-    "bytes": 119895,
-    "sizeKb": 117.08,
+    "bytes": 134206,
+    "sizeKb": 131.06,
     "passBudget": true
   },
   {
     "character": "daedalus",
     "file": "daedalus.png",
-    "bytes": 76445,
-    "sizeKb": 74.65,
+    "bytes": 88998,
+    "sizeKb": 86.91,
     "passBudget": true
   },
   {
     "character": "forge",
     "file": "forge.png",
-    "bytes": 134650,
-    "sizeKb": 131.49,
+    "bytes": 148765,
+    "sizeKb": 145.28,
     "passBudget": true
   },
   {
     "character": "guest",
     "file": "guest.png",
-    "bytes": 76681,
-    "sizeKb": 74.88,
+    "bytes": 88044,
+    "sizeKb": 85.98,
     "passBudget": true
   },
   {
     "character": "jarvis",
     "file": "jarvis.png",
-    "bytes": 77357,
-    "sizeKb": 75.54,
+    "bytes": 90971,
+    "sizeKb": 88.84,
     "passBudget": true
   },
   {
     "character": "merlin",
     "file": "merlin.png",
-    "bytes": 83411,
-    "sizeKb": 81.46,
+    "bytes": 96970,
+    "sizeKb": 94.7,
     "passBudget": true
   },
   {
     "character": "muse",
     "file": "muse.png",
-    "bytes": 63407,
-    "sizeKb": 61.92,
+    "bytes": 76732,
+    "sizeKb": 74.93,
     "passBudget": true
   },
   {
     "character": "nova",
     "file": "nova.png",
-    "bytes": 62719,
-    "sizeKb": 61.25,
+    "bytes": 73750,
+    "sizeKb": 72.02,
     "passBudget": true
   },
   {
     "character": "oracle",
     "file": "oracle.png",
-    "bytes": 83575,
-    "sizeKb": 81.62,
+    "bytes": 93424,
+    "sizeKb": 91.23,
     "passBudget": true
   },
   {
     "character": "prism",
     "file": "prism.png",
-    "bytes": 78989,
-    "sizeKb": 77.14,
+    "bytes": 89620,
+    "sizeKb": 87.52,
     "passBudget": true
   },
   {
     "character": "relay",
     "file": "relay.png",
-    "bytes": 89261,
-    "sizeKb": 87.17,
+    "bytes": 105205,
+    "sizeKb": 102.74,
     "passBudget": true
   },
   {
     "character": "rifqi",
     "file": "rifqi.png",
-    "bytes": 76440,
-    "sizeKb": 74.65,
+    "bytes": 86679,
+    "sizeKb": 84.65,
     "passBudget": true
   },
   {
     "character": "scribe",
     "file": "scribe.png",
-    "bytes": 52441,
-    "sizeKb": 51.21,
+    "bytes": 61756,
+    "sizeKb": 60.31,
     "passBudget": true
   },
   {
     "character": "sentinel",
     "file": "sentinel.png",
-    "bytes": 72058,
-    "sizeKb": 70.37,
+    "bytes": 81152,
+    "sizeKb": 79.25,
     "passBudget": true
   },
   {
     "character": "steward",
     "file": "steward.png",
-    "bytes": 95276,
-    "sizeKb": 93.04,
+    "bytes": 108580,
+    "sizeKb": 106.04,
     "passBudget": true
   },
   {
     "character": "vector",
     "file": "vector.png",
-    "bytes": 56626,
-    "sizeKb": 55.3,
+    "bytes": 66140,
+    "sizeKb": 64.59,
     "passBudget": true
   },
   {
     "character": "warden",
     "file": "warden.png",
-    "bytes": 99856,
-    "sizeKb": 97.52,
+    "bytes": 113126,
+    "sizeKb": 110.47,
     "passBudget": true
   }
 ]

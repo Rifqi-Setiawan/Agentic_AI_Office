@@ -55,7 +55,7 @@ const feCharsDir = path.join(frontendDir, 'characters');
 fs.mkdirSync(outCharsDir, { recursive: true });
 fs.mkdirSync(feCharsDir, { recursive: true });
 
-async function packImages(images, textureName, width = 512, height = 512) {
+async function packImages(images, textureName, width = 512, height = 1024) {
   return new Promise((resolve, reject) => {
     const options = {
       textureName,
@@ -109,7 +109,7 @@ async function main() {
       allMasterImages.push(img);
     }
 
-    const packed = await packImages(images, cid, 512, 512);
+    const packed = await packImages(images, cid, 512, 1024);
     for (const item of packed) {
       const outPath = path.join(outCharsDir, item.name);
       fs.writeFileSync(outPath, item.buffer);

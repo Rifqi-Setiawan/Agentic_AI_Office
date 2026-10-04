@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useOfficeStore } from '../store/officeStore';
+import { AudioControl } from './AudioControl';
 import { worldApp } from '../world/WorldApp';
 
 export const TopBar: React.FC = () => {
@@ -157,7 +158,9 @@ export const TopBar: React.FC = () => {
           >
             <span aria-hidden="true">{activeCollective.kind === 'sholat' ? '🕌' : '📢'}</span>
             <span className="font-semibold">{activeCollective.title}</span>
-            <span className="text-[10px] text-indigo-400 capitalize">({activeCollective.kind})</span>
+            <span className="text-[10px] text-indigo-400">
+              ({activeCollective.kind}) • <span className="tabular-nums font-mono">{activeCollective.participants?.length ?? 0}</span> undangan
+            </span>
           </div>
         )}
 
@@ -181,6 +184,8 @@ export const TopBar: React.FC = () => {
           </span>
         </button>
       </div>
+
+      <AudioControl />
 
       {/* Center: Live WIB Digital Clock & Atmosphere + Camera Controls */}
       <div className="flex items-center gap-2 text-xs text-[#9ca8b8] flex-wrap">

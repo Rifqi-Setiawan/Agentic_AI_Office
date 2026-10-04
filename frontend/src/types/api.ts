@@ -394,7 +394,7 @@ export interface components {
              * @example rapat
              * @enum {string}
              */
-            kind: "rapat" | "break" | "sholat";
+            kind: "rapat" | "break" | "sholat" | "pool_party" | "fire_drill" | "town_hall";
             /**
              * @description Judul atau tema event kolektif.
              * @example Rapat Koordinasi Arsitektur
@@ -584,7 +584,7 @@ export interface components {
              * @example rapat
              * @enum {string}
              */
-            kind: "rapat" | "break" | "sholat";
+            kind: "rapat" | "break" | "sholat" | "pool_party" | "fire_drill" | "town_hall";
             /**
              * @description Durasi berlangsungnya event dalam detik (default 300 detik / 5 menit).
              * @default 300

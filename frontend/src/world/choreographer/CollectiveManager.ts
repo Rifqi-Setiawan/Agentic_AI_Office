@@ -1,3 +1,4 @@
+import { officeStore } from '../../store/officeStore';
 import type { GridMap } from '../../navigation/GridMap';
 import type { AStarPathfinder } from '../../navigation/AStarPathfinder';
 import type { SlotReservationManager } from '../../navigation/SlotReservationManager';
@@ -42,7 +43,7 @@ export class CollectiveManager {
     if (!this.activeCollective) return false;
     if (this.activeCollective.active === false) return false;
     const now = Math.floor(Date.now() / 1000);
-    if (this.activeCollective.expires_at && now > this.activeCollective.expires_at) {
+    if (this.activeCollective.expires_at && now >= this.activeCollective.expires_at) {
       return false;
     }
     return true;
@@ -56,7 +57,7 @@ export class CollectiveManager {
     agentStates: Map<string, AgentChoreographyState>,
     getCharacter: (id: string) => Character | undefined,
   ): void {
-    const prevKind = this.activeCollective?.kind;
+    const prevId = this.activeCollective?.id;
     const isNewActive = collective && collective.active !== false;
 
     if (!isNewActive) {
@@ -73,7 +74,7 @@ export class CollectiveManager {
     }
 
     this.activeCollective = collective;
-    this.planAndDispatchCollective(collective, agentStates, getCharacter, prevKind !== collective.kind);
+    this.planAndDispatchCollective(collective, agentStates, getCharacter, prevId !== collective.id);
   }
 
   /**
@@ -93,9 +94,7 @@ export class CollectiveManager {
       }
 
       const char = getCharacter(agentId);
-      if (char && char.fsmState === 'act') {
-        char.leave();
-      }
+      if (char && state?.currentLayer === 'ambient') char.idle();
     }
 
     this.collectiveAssignments.clear();
@@ -111,6 +110,11 @@ export class CollectiveManager {
     isInitialStart: boolean,
   ): void {
     switch (collective.kind) {
+      case 'pool_party':
+      case 'fire_drill':
+      case 'town_hall':
+        this.dispatchAdditional(collective, agentStates, getCharacter, isInitialStart);
+        break;
       case 'sholat':
         this.dispatchSholat(collective, agentStates, getCharacter, isInitialStart);
         break;
@@ -123,12 +127,84 @@ export class CollectiveManager {
     }
   }
 
-  /**
-   * Event Kolektif V1: Sholat Berjamaah
-   * - Imam dipilih acak antara Jarvis dan Merlin (yang sedang tidak working).
-   * - Shaf diisi berurutan (shaf 1 lalu shaf 2).
-   * - Agen yang sedang 'working' TETAP di mejanya dan mengirim bubble "Nyusul setelah task ini".
-   */
+  /** Bersihkan TTL dengan jam aktual, lalu hitung peserta yang sudah tiba. */
+  public update(
+    agentStates: Map<string, AgentChoreographyState>,
+    getCharacter: (id: string) => Character | undefined,
+  ): void {
+    if (this.activeCollective && !this.isCollectiveActive()) {
+      const expiredId = this.activeCollective.id;
+      this.setCollectiveEvent(null, agentStates, getCharacter);
+      if (officeStore.getState().activeCollective?.id === expiredId) {
+        officeStore.getState().updateCollective(null);
+      }
+    }
+    const kind = this.activeCollective?.kind;
+    if ((kind !== 'fire_drill' && kind !== 'town_hall') || this.announcementMade) return;
+    const assignments = [...this.collectiveAssignments.values()];
+    if (!assignments.length || assignments.some(a => getCharacter(a.agentId)?.fsmState === 'walk')) return;
+    const leaderId = kind === 'town_hall' ? 'jarvis' : 'bastion';
+    const leader = assignments.find(a => a.agentId === leaderId);
+    if (leader) {
+      if (kind === 'town_hall') {
+        this.announceTownHall();
+      } else {
+        const invited = this.activeCollective!.participants.length;
+        this.emitBubble('bastion', `Hitung kepala: ${assignments.length} dari ${invited} peserta hadir. Tugas nyata tetap diprioritaskan.`, 'collective');
+      }
+      this.announcementMade = true;
+    }
+  }
+
+  private announcementMade = false;
+
+  private announceTownHall(): void {
+    const agents = Object.values(officeStore.getState().agents);
+    const total = agents.reduce((sum, a) => sum + a.done_today, 0);
+    const best = agents.slice().sort((a, b) => b.done_today - a.done_today || a.id.localeCompare(b.id))[0];
+    this.emitBubble('jarvis', `Ringkasan hari ini (WIB): ${total} tugas selesai. ${best && best.done_today > 0 ? `Agen terproduktif: ${best.id} (${best.done_today} tugas).` : 'Belum ada tugas selesai.'}`, 'collective');
+  }
+
+  private dispatchAdditional(
+    collective: CollectiveEventState,
+    agentStates: Map<string, AgentChoreographyState>,
+    getCharacter: (id: string) => Character | undefined,
+    initial: boolean,
+  ): void {
+    if (initial) this.announcementMade = false;
+    const eligible = [...agentStates.entries()].filter(([id, state]) =>
+      state.workStatus === 'idle' && getCharacter(id)?.visible !== false &&
+      (!collective.participants.length || collective.participants.includes(id)),
+    ).map(([id]) => id);
+    if (initial) {
+      for (const id of eligible) this.slotManager.releaseAllForAgent(id);
+    }
+    const town = collective.kind === 'town_hall';
+    const leader = town ? 'jarvis' : 'bastion';
+    const leaderSlot = this.gridMap.getSlotsByType(town ? 'town_presenter' : 'pool_assembly')[0];
+    if (eligible.includes(leader) && leaderSlot) {
+      this.assignAgentToSlot(leader, leaderSlot, 'presenter', agentStates, getCharacter);
+      if (initial) {
+        if (!town) {
+          this.emitBubble(leader, collective.kind === 'pool_party' ? 'Saya berjaga di tepi kolam. Selamat bersantai!' : 'Ikuti saya ke titik kumpul kolam. Kita hitung kepala setelah tiba.', 'collective');
+        }
+      }
+    }
+    const slots = town ? [
+      ...this.gridMap.getSlotsByType('cafe_seat'),
+      ...this.gridMap.getSlotsByType('counter_queue'),
+      ...this.gridMap.getSlotsByType('lounge_sofa'),
+    ] : [
+      ...(collective.kind === 'pool_party' ? this.gridMap.getSlotsByType('pool_swim') : []),
+      ...this.gridMap.getSlotsByType('pool_assembly').slice(1),
+    ];
+    for (const id of eligible.filter(id => id !== leader)) {
+      if (this.collectiveAssignments.has(id)) continue;
+      const slot = slots.find(s => this.slotManager.isAvailable(s.id));
+      if (slot) this.assignAgentToSlot(id, slot, 'participant', agentStates, getCharacter);
+    }
+  }
+
   private dispatchSholat(
     collective: CollectiveEventState,
     agentStates: Map<string, AgentChoreographyState>,
@@ -310,6 +386,7 @@ export class CollectiveManager {
     this.collectiveAssignments.set(agentId, { agentId, slot, role });
 
     state.currentLayer = 'collective';
+    state.currentActivityKey = `collective_${this.activeCollective?.kind}`;
     state.targetSlotId = slot.id;
 
     // Cari jalur A*

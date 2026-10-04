@@ -128,7 +128,7 @@ SLOTS_DEF = [
     {"id": "slot_z03_bp_2", "zone": "Z03", "type": "blueprint_table", "capacity": 1, "gx": 25, "gy": 5, "facing": "NW", "anim": "sit_type", "y_offset": -4},
 
     # Z04 Ruang Kelas (28..34, 0..7) - Merlin
-    {"id": "slot_z04_whiteboard", "zone": "Z04", "type": "whiteboard", "capacity": 1, "gx": 31, "gy": 2, "facing": "SW", "anim": "stand_talk", "y_offset": 0},
+    {"id": "slot_z04_whiteboard", "zone": "Z04", "type": "whiteboard", "capacity": 1, "gx": 31, "gy": 2, "facing": "SW", "anim": "whiteboard", "y_offset": 0},
     {"id": "slot_z04_seat_1", "zone": "Z04", "type": "class_seat", "capacity": 1, "gx": 29, "gy": 4, "facing": "NE", "anim": "sit_type", "y_offset": -4},
     {"id": "slot_z04_seat_2", "zone": "Z04", "type": "class_seat", "capacity": 1, "gx": 31, "gy": 4, "facing": "NE", "anim": "sit_type", "y_offset": -4},
     {"id": "slot_z04_seat_3", "zone": "Z04", "type": "class_seat", "capacity": 1, "gx": 33, "gy": 4, "facing": "NE", "anim": "sit_type", "y_offset": -4},
@@ -148,7 +148,7 @@ SLOTS_DEF = [
     {"id": "slot_z06_desk_oracle", "zone": "Z06", "type": "desk:oracle", "capacity": 1, "gx": 6, "gy": 13, "facing": "SE", "anim": "sit_type", "y_offset": -6},
     {"id": "slot_z06_bench_1", "zone": "Z06", "type": "lab_bench", "capacity": 1, "gx": 2, "gy": 13, "facing": "NW", "anim": "stand_talk", "y_offset": 0},
     {"id": "slot_z06_bench_2", "zone": "Z06", "type": "lab_bench", "capacity": 1, "gx": 2, "gy": 17, "facing": "NW", "anim": "stand_talk", "y_offset": 0},
-    {"id": "slot_z06_whiteboard", "zone": "Z06", "type": "whiteboard", "capacity": 1, "gx": 2, "gy": 15, "facing": "NW", "anim": "stand_talk", "y_offset": 0},
+    {"id": "slot_z06_whiteboard", "zone": "Z06", "type": "whiteboard", "capacity": 1, "gx": 2, "gy": 15, "facing": "NW", "anim": "whiteboard", "y_offset": 0},
 
     # Z07 Studio Desain (9..15, 10..19) - Muse
     {"id": "slot_z07_desk_muse", "zone": "Z07", "type": "desk:muse", "capacity": 1, "gx": 10, "gy": 13, "facing": "SE", "anim": "sit_type", "y_offset": -6},
@@ -206,11 +206,11 @@ SLOTS_DEF = [
     {"id": "slot_z14_sofa_4", "zone": "Z14", "type": "lounge_sofa", "capacity": 1, "gx": 20, "gy": 24, "facing": "SE", "anim": "sit_type", "y_offset": -4},
 
     # Z15 Arcade (22..29, 22..31) - Semua
-    {"id": "slot_z15_arcade_1", "zone": "Z15", "type": "arcade", "capacity": 1, "gx": 23, "gy": 24, "facing": "NW", "anim": "stand_talk", "y_offset": 0},
-    {"id": "slot_z15_arcade_2", "zone": "Z15", "type": "arcade", "capacity": 1, "gx": 24, "gy": 24, "facing": "NW", "anim": "stand_talk", "y_offset": 0},
-    {"id": "slot_z15_arcade_3", "zone": "Z15", "type": "arcade", "capacity": 1, "gx": 25, "gy": 24, "facing": "NW", "anim": "stand_talk", "y_offset": 0},
-    {"id": "slot_z15_billiard_1", "zone": "Z15", "type": "billiard", "capacity": 1, "gx": 26, "gy": 25, "facing": "SE", "anim": "stand_talk", "y_offset": 0},
-    {"id": "slot_z15_billiard_2", "zone": "Z15", "type": "billiard", "capacity": 1, "gx": 29, "gy": 26, "facing": "NW", "anim": "stand_talk", "y_offset": 0},
+    {"id": "slot_z15_arcade_1", "zone": "Z15", "type": "arcade", "capacity": 1, "gx": 23, "gy": 24, "facing": "NW", "anim": "game", "y_offset": 0},
+    {"id": "slot_z15_arcade_2", "zone": "Z15", "type": "arcade", "capacity": 1, "gx": 24, "gy": 24, "facing": "NW", "anim": "game", "y_offset": 0},
+    {"id": "slot_z15_arcade_3", "zone": "Z15", "type": "arcade", "capacity": 1, "gx": 25, "gy": 24, "facing": "NW", "anim": "game", "y_offset": 0},
+    {"id": "slot_z15_billiard_1", "zone": "Z15", "type": "billiard", "capacity": 1, "gx": 26, "gy": 25, "facing": "SE", "anim": "game", "y_offset": 0},
+    {"id": "slot_z15_billiard_2", "zone": "Z15", "type": "billiard", "capacity": 1, "gx": 29, "gy": 26, "facing": "NW", "anim": "game", "y_offset": 0},
     {"id": "slot_z15_beanbag_1", "zone": "Z15", "type": "beanbag", "capacity": 1, "gx": 24, "gy": 28, "facing": "SE", "anim": "sit_type", "y_offset": -4},
     {"id": "slot_z15_beanbag_2", "zone": "Z15", "type": "beanbag", "capacity": 1, "gx": 26, "gy": 28, "facing": "SE", "anim": "sit_type", "y_offset": -4},
     {"id": "slot_z15_beanbag_3", "zone": "Z15", "type": "beanbag", "capacity": 1, "gx": 28, "gy": 28, "facing": "SE", "anim": "sit_type", "y_offset": -4},
@@ -242,16 +242,31 @@ SLOTS_DEF = [
     {"id": "slot_z16_wudhu_4", "zone": "Z16", "type": "wudhu", "capacity": 1, "gx": 35, "gy": 24, "facing": "SW", "anim": "idle", "y_offset": 0},
 
     # Z17 Kolam luar (37..43, 22..31) - Semua
-    {"id": "slot_z17_swim_1", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 39, "gy": 26, "facing": "SE", "anim": "idle", "y_offset": 0},
-    {"id": "slot_z17_swim_2", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 41, "gy": 26, "facing": "SW", "anim": "idle", "y_offset": 0},
-    {"id": "slot_z17_swim_3", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 41, "gy": 27, "facing": "NW", "anim": "idle", "y_offset": 0},
-    {"id": "slot_z17_swim_4", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 41, "gy": 28, "facing": "NW", "anim": "idle", "y_offset": 0},
-    {"id": "slot_z17_swim_5", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 39, "gy": 28, "facing": "NE", "anim": "idle", "y_offset": 0},
-    {"id": "slot_z17_swim_6", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 39, "gy": 27, "facing": "SE", "anim": "idle", "y_offset": 0},
+    {"id": "slot_z17_swim_1", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 39, "gy": 26, "facing": "SE", "anim": "swim", "y_offset": 0},
+    {"id": "slot_z17_swim_2", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 41, "gy": 26, "facing": "SW", "anim": "swim", "y_offset": 0},
+    {"id": "slot_z17_swim_3", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 41, "gy": 27, "facing": "NW", "anim": "swim", "y_offset": 0},
+    {"id": "slot_z17_swim_4", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 41, "gy": 28, "facing": "NW", "anim": "swim", "y_offset": 0},
+    {"id": "slot_z17_swim_5", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 39, "gy": 28, "facing": "NE", "anim": "swim", "y_offset": 0},
+    {"id": "slot_z17_swim_6", "zone": "Z17", "type": "pool_swim", "capacity": 1, "gx": 39, "gy": 27, "facing": "SE", "anim": "swim", "y_offset": 0},
     {"id": "slot_z17_lounger_1", "zone": "Z17", "type": "pool_lounger", "capacity": 1, "gx": 37, "gy": 24, "facing": "SE", "anim": "sit_type", "y_offset": -4},
     {"id": "slot_z17_lounger_2", "zone": "Z17", "type": "pool_lounger", "capacity": 1, "gx": 37, "gy": 26, "facing": "SE", "anim": "sit_type", "y_offset": -4},
     {"id": "slot_z17_lounger_3", "zone": "Z17", "type": "pool_lounger", "capacity": 1, "gx": 37, "gy": 28, "facing": "SE", "anim": "sit_type", "y_offset": -4},
 ]
+# Collective gatherings use deck slots rather than overlapping swimmers.
+assembly_points = [(43, gy) for gy in range(23, 32)]
+assembly_points += [(gx, 30) for gx in range(37, 43)] + [(37, 31)]
+for index, (gx, gy) in enumerate(assembly_points, start=1):
+    SLOTS_DEF.append({
+        "id": f"slot_z17_assembly_{index}", "zone": "Z17",
+        "type": "pool_assembly", "capacity": 1, "gx": gx, "gy": gy,
+        "facing": "NW", "anim": "stand_talk", "y_offset": 0,
+    })
+SLOTS_DEF.append({
+    "id": "slot_z14_town_presenter", "zone": "Z14", "type": "town_presenter",
+    "capacity": 1, "gx": 16, "gy": 25, "facing": "SE",
+    "anim": "stand_talk", "y_offset": 0,
+})
+
 
 def build_floor_layer() -> list[int]:
     """Generates 44x32 GIDs for the floor layer."""

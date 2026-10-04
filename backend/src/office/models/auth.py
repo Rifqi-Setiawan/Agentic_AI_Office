@@ -30,7 +30,7 @@ class LogoutResponse(BaseModel):
 class TriggerCollectiveRequest(BaseModel):
     """Parameter permintaan untuk memicu event interaksi kolektif kantor."""
 
-    kind: Literal["rapat", "break", "sholat"] = Field(
+    kind: Literal["rapat", "break", "sholat", "pool_party", "fire_drill", "town_hall"] = Field(
         ..., description="Jenis kegiatan kolektif (rapat, break, sholat)."
     )
     duration_seconds: int | None = Field(

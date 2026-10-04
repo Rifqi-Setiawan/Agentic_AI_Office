@@ -600,6 +600,9 @@ class StateEngine:
             )
             current_primary_tasks[aid] = task_list[0]
 
+        for aid in current_primary_tasks:
+            self.ensure_agent(aid, now_ts)
+
         # Simpan state task aktif baru
         self._agent_active_tasks = current_primary_tasks
 

@@ -5,6 +5,7 @@ import { mockOfficeApiPlugin } from './src/mocks/mockServerPlugin';
 
 export default defineConfig({
   plugins: [react(), mockOfficeApiPlugin()],
+  optimizeDeps: { include: ['pixi.js', 'pixi-viewport', 'gsap', 'howler'] },
   server: {
     port: 5173,
     host: true,

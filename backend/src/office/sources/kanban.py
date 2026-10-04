@@ -106,7 +106,7 @@ class KanbanReader:
         """Membuka koneksi SQLite read-only aman sesuai ADR-002."""
         resolved = path.resolve()
         conn = sqlite3.connect(
-            f"file:{resolved}?mode=ro",
+            f"{resolved.as_uri()}?mode=ro",
             uri=True,
             check_same_thread=False,
             timeout=2.0,
@@ -274,12 +274,21 @@ class KanbanReader:
         # Check board discovery periodically
         self.discover_boards(force=False)
 
+        self._degraded_reasons = []
+        if not self._board_paths:
+            self._degraded_reasons.append("Tidak ada database Kanban yang ditemukan")
         all_events: list[KanbanEventRow] = []
 
         for board_name in list(self._board_paths.keys()):
             current_cursor = self._cursors.get(board_name, 0)
             try:
                 conn = self._get_connection(board_name)
+                issues = self._check_schema_for_db(conn, board_name)
+                if issues:
+                    self._degraded_reasons.extend(issues)
+                    continue
+                run_cols = {r[1] for r in conn.execute("PRAGMA table_info(task_runs)")}
+                has_runs = {"id", "profile"} <= run_cols
                 cur = conn.cursor()
                 cur.execute(
                     """
@@ -307,6 +316,14 @@ class KanbanReader:
                         except (json.JSONDecodeError, TypeError):
                             payload = payload_raw
 
+                    # Run profile is authoritative, even when payload names another assignee.
+                    if has_runs and row["run_id"] is not None:
+                        run = conn.execute(
+                            "SELECT profile FROM task_runs WHERE id = ?", (row["run_id"],)
+                        ).fetchone()
+                        if run and run[0]:
+                            payload = dict(payload) if isinstance(payload, dict) else {}
+                            payload["profile"] = run[0]
                     all_events.append(
                         KanbanEventRow(
                             id=event_id,
@@ -327,6 +344,7 @@ class KanbanReader:
         # Sort all events chronologically (created_at, then id)
         all_events.sort(key=lambda ev: (ev.created_at, ev.id))
 
+        self._is_degraded = bool(self._degraded_reasons)
         status: Any = "degraded" if self._is_degraded else "ok"
         err_msg = "; ".join(self._degraded_reasons) if self._degraded_reasons else None
         self._health = ReaderHealth(
@@ -345,19 +363,33 @@ class KanbanReader:
         """Ambil snapshot seluruh task dari semua board untuk rekonsiliasi state."""
         self.discover_boards(force=False)
         tasks: list[TaskRow] = []
+        issues_all: list[str] = []
+        if not self._board_paths:
+            issues_all.append("Tidak ada database Kanban yang ditemukan")
 
         for board_name in list(self._board_paths.keys()):
             try:
                 conn = self._get_connection(board_name)
-                cur = conn.cursor()
-                cur.execute(
-                    """
-                    SELECT id, title, body, assignee, status, priority, created_at,
-                           started_at, completed_at, block_kind, last_heartbeat_at,
-                           current_run_id, workspace_path, branch_name, worker_pid,
-                           result, last_failure_error
-                    FROM tasks;
-                    """
+                issues = self._check_schema_for_db(conn, board_name)
+                if issues:
+                    issues_all.extend(issues)
+                    continue
+                columns = {r[1] for r in conn.execute("PRAGMA table_info(tasks)")}
+                optional = ", ".join(
+                    f't."{name}"' if name in columns else f'NULL AS "{name}"'
+                    for name in ("workspace_path", "branch_name", "worker_pid")
+                )
+                run_cols = {r[1] for r in conn.execute("PRAGMA table_info(task_runs)")}
+                has_runs = {"id", "profile"} <= run_cols
+                assignee = (
+                    "COALESCE(NULLIF(r.profile, ''), t.assignee)" if has_runs else "t.assignee"
+                )
+                join = "LEFT JOIN task_runs r ON r.id = t.current_run_id" if has_runs else ""
+                cur = conn.execute(
+                    f"""SELECT t.id, t.title, t.body, {assignee} AS assignee,
+                        t.status, t.priority, t.created_at, t.started_at, t.completed_at,
+                        t.block_kind, t.last_heartbeat_at, t.current_run_id,
+                        {optional}, t.result, t.last_failure_error FROM tasks t {join};"""
                 )
                 for row in cur.fetchall():
                     tasks.append(
@@ -388,7 +420,15 @@ class KanbanReader:
                     )
             except Exception as exc:
                 logger.error("Error fetching tasks snapshot for board '%s': %s", board_name, exc)
+                issues_all.append(f"Snapshot error board '{board_name}': {exc}")
 
+        self._degraded_reasons = issues_all
+        self._is_degraded = bool(issues_all)
+        self._health = ReaderHealth(
+            status="degraded" if issues_all else "ok",
+            last_poll=int(time.time()),
+            error="; ".join(issues_all) if issues_all else None,
+        )
         return tasks
 
     async def get_tasks_snapshot(self) -> list[TaskRow]:

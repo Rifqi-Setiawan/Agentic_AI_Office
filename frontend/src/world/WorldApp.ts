@@ -1,5 +1,7 @@
+import 'pixi.js/unsafe-eval';
 import { Application, Assets, Container, Graphics, Spritesheet, Texture } from 'pixi.js';
 import { Viewport } from 'pixi-viewport';
+import { AtmosphereManager } from './AtmosphereManager';
 import { CameraManager } from './camera';
 import { LoadedOfficeMap, OfficeMapLoader } from './mapLoader';
 import { TiledMapDoc } from './types';
@@ -36,6 +38,7 @@ export class WorldApp {
   private gridGraphics: Graphics | null = null;
   private spritesheet: Spritesheet | null = null;
   private isInitialized = false;
+  private atmosphereManager: AtmosphereManager | null = null;
 
   public async init(
     container: HTMLElement,
@@ -87,6 +90,9 @@ export class WorldApp {
     // Muat peta Tiled dan atlas jika tersedia
     await this.initMap(mapDocOverride);
 
+    this.atmosphereManager = new AtmosphereManager(this.worldContainer, this.loadedMap?.containers.furniture,
+      name => this.spritesheet?.textures[name] ?? null);
+
     // Pasang culling otomatis saat viewport digeser atau di-zoom
     viewport.on('moved', () => {
       this.updateCulling();
@@ -103,7 +109,8 @@ export class WorldApp {
 
     // Loop ticker Pixi: membaca store vanilla tiap frame
     app.ticker.add((time) => {
-      this.update(time.deltaTime);
+      // elapsedMS preserves real movement time when rendering drops below the ticker cap.
+      this.update(Math.min(time.elapsedMS, 1000) * 60 / 1000);
     });
 
     this.isInitialized = true;
@@ -217,6 +224,7 @@ export class WorldApp {
         characterManager: this.characterManager,
         choreographer: this.choreographer,
         textureProvider,
+        useMonotonicClock: true,
       });
 
       // Inisialisasi EasterEggManager (F26 / T2.7: Easter egg)
@@ -316,6 +324,7 @@ export class WorldApp {
 
     // Konversi deltaTime ticker ke detik (standar 60fps = 1/60 detik per delta frame)
     const dtSec = (deltaTime ?? 1.0) / 60;
+    this.atmosphereManager?.update(dtSec, officeStore.getState().timeOfDay);
 
     // Pembaruan Choreographer (T1.14: task nyata, ambient, event kolektif)
     if (this.choreographer) {
@@ -511,6 +520,8 @@ export class WorldApp {
   }
 
   public destroy(): void {
+    this.atmosphereManager?.destroy();
+    this.atmosphereManager = null;
     if (this.camera) {
       this.camera.destroy();
       this.camera = null;

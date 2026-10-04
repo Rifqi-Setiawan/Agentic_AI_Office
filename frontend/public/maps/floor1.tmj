@@ -11,7 +11,7 @@
   "version": "1.10",
   "tiledversion": "1.10.2",
   "nextlayerid": 9,
-  "nextobjectid": 160,
+  "nextobjectid": 177,
   "properties": [
     {
       "name": "description",
@@ -31,7 +31,7 @@
     {
       "name": "slots_count",
       "type": "int",
-      "value": 116
+      "value": 133
     },
     {
       "name": "doors_count",
@@ -9172,7 +9172,7 @@
         0,
         0,
         0,
-        125,
+        0,
         125,
         0,
         0,
@@ -9216,7 +9216,7 @@
         0,
         0,
         0,
-        125,
+        0,
         125,
         0,
         0,
@@ -9260,7 +9260,7 @@
         0,
         0,
         0,
-        125,
+        0,
         125,
         0,
         0,
@@ -9304,7 +9304,7 @@
         0,
         0,
         0,
-        125,
+        0,
         125,
         0,
         0,
@@ -9348,7 +9348,7 @@
         0,
         0,
         0,
-        125,
+        0,
         125,
         125,
         0,
@@ -9392,7 +9392,7 @@
         0,
         0,
         0,
-        125,
+        0,
         125,
         0,
         0,
@@ -9436,7 +9436,7 @@
         0,
         0,
         0,
-        125,
+        0,
         125,
         0,
         0,
@@ -9480,7 +9480,7 @@
         0,
         0,
         0,
-        125,
+        0,
         125,
         125,
         125,
@@ -9518,13 +9518,13 @@
         125,
         125,
         125,
-        125,
+        0,
         125,
         125,
         125,
         125,
         125,
-        125
+        0
       ],
       "visible": false,
       "opacity": 0.5,
@@ -10731,7 +10731,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "stand_talk"
+              "value": "whiteboard"
             },
             {
               "name": "y_offset",
@@ -11579,7 +11579,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "stand_talk"
+              "value": "whiteboard"
             },
             {
               "name": "y_offset",
@@ -13699,7 +13699,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "stand_talk"
+              "value": "game"
             },
             {
               "name": "y_offset",
@@ -13752,7 +13752,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "stand_talk"
+              "value": "game"
             },
             {
               "name": "y_offset",
@@ -13805,7 +13805,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "stand_talk"
+              "value": "game"
             },
             {
               "name": "y_offset",
@@ -13858,7 +13858,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "stand_talk"
+              "value": "game"
             },
             {
               "name": "y_offset",
@@ -13911,7 +13911,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "stand_talk"
+              "value": "game"
             },
             {
               "name": "y_offset",
@@ -15236,7 +15236,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "idle"
+              "value": "swim"
             },
             {
               "name": "y_offset",
@@ -15289,7 +15289,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "idle"
+              "value": "swim"
             },
             {
               "name": "y_offset",
@@ -15342,7 +15342,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "idle"
+              "value": "swim"
             },
             {
               "name": "y_offset",
@@ -15395,7 +15395,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "idle"
+              "value": "swim"
             },
             {
               "name": "y_offset",
@@ -15448,7 +15448,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "idle"
+              "value": "swim"
             },
             {
               "name": "y_offset",
@@ -15501,7 +15501,7 @@
             {
               "name": "anim",
               "type": "string",
-              "value": "idle"
+              "value": "swim"
             },
             {
               "name": "y_offset",
@@ -15683,6 +15683,907 @@
               "value": 28
             }
           ]
+        },
+        {
+          "id": 117,
+          "name": "slot_z17_assembly_1",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1392,
+          "y": 752,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 43
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 23
+            }
+          ]
+        },
+        {
+          "id": 118,
+          "name": "slot_z17_assembly_2",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1392,
+          "y": 784,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 43
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 24
+            }
+          ]
+        },
+        {
+          "id": 119,
+          "name": "slot_z17_assembly_3",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1392,
+          "y": 816,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 43
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 25
+            }
+          ]
+        },
+        {
+          "id": 120,
+          "name": "slot_z17_assembly_4",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1392,
+          "y": 848,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 43
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 26
+            }
+          ]
+        },
+        {
+          "id": 121,
+          "name": "slot_z17_assembly_5",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1392,
+          "y": 880,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 43
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 27
+            }
+          ]
+        },
+        {
+          "id": 122,
+          "name": "slot_z17_assembly_6",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1392,
+          "y": 912,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 43
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 28
+            }
+          ]
+        },
+        {
+          "id": 123,
+          "name": "slot_z17_assembly_7",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1392,
+          "y": 944,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 43
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 29
+            }
+          ]
+        },
+        {
+          "id": 124,
+          "name": "slot_z17_assembly_8",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1392,
+          "y": 976,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 43
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 30
+            }
+          ]
+        },
+        {
+          "id": 125,
+          "name": "slot_z17_assembly_9",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1392,
+          "y": 1008,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 43
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 31
+            }
+          ]
+        },
+        {
+          "id": 126,
+          "name": "slot_z17_assembly_10",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1200,
+          "y": 976,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 37
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 30
+            }
+          ]
+        },
+        {
+          "id": 127,
+          "name": "slot_z17_assembly_11",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1232,
+          "y": 976,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 38
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 30
+            }
+          ]
+        },
+        {
+          "id": 128,
+          "name": "slot_z17_assembly_12",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1264,
+          "y": 976,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 39
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 30
+            }
+          ]
+        },
+        {
+          "id": 129,
+          "name": "slot_z17_assembly_13",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1296,
+          "y": 976,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 40
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 30
+            }
+          ]
+        },
+        {
+          "id": 130,
+          "name": "slot_z17_assembly_14",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1328,
+          "y": 976,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 41
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 30
+            }
+          ]
+        },
+        {
+          "id": 131,
+          "name": "slot_z17_assembly_15",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1360,
+          "y": 976,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 42
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 30
+            }
+          ]
+        },
+        {
+          "id": 132,
+          "name": "slot_z17_assembly_16",
+          "type": "pool_assembly",
+          "point": true,
+          "x": 1200,
+          "y": 1008,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "pool_assembly"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "NW"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z17"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 37
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 31
+            }
+          ]
+        },
+        {
+          "id": 133,
+          "name": "slot_z14_town_presenter",
+          "type": "town_presenter",
+          "point": true,
+          "x": 528,
+          "y": 816,
+          "width": 0,
+          "height": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "type",
+              "type": "string",
+              "value": "town_presenter"
+            },
+            {
+              "name": "capacity",
+              "type": "int",
+              "value": 1
+            },
+            {
+              "name": "facing",
+              "type": "string",
+              "value": "SE"
+            },
+            {
+              "name": "anim",
+              "type": "string",
+              "value": "stand_talk"
+            },
+            {
+              "name": "y_offset",
+              "type": "int",
+              "value": 0
+            },
+            {
+              "name": "zone",
+              "type": "string",
+              "value": "Z14"
+            },
+            {
+              "name": "gx",
+              "type": "int",
+              "value": 16
+            },
+            {
+              "name": "gy",
+              "type": "int",
+              "value": 25
+            }
+          ]
         }
       ],
       "visible": true,
@@ -15697,7 +16598,7 @@
       "type": "objectgroup",
       "objects": [
         {
-          "id": 117,
+          "id": 134,
           "name": "door_z01",
           "type": "door",
           "point": true,
@@ -15730,7 +16631,7 @@
           ]
         },
         {
-          "id": 118,
+          "id": 135,
           "name": "door_z02",
           "type": "door",
           "point": true,
@@ -15763,7 +16664,7 @@
           ]
         },
         {
-          "id": 119,
+          "id": 136,
           "name": "door_z03",
           "type": "door",
           "point": true,
@@ -15796,7 +16697,7 @@
           ]
         },
         {
-          "id": 120,
+          "id": 137,
           "name": "door_z04",
           "type": "door",
           "point": true,
@@ -15829,7 +16730,7 @@
           ]
         },
         {
-          "id": 121,
+          "id": 138,
           "name": "door_z05",
           "type": "door",
           "point": true,
@@ -15862,7 +16763,7 @@
           ]
         },
         {
-          "id": 122,
+          "id": 139,
           "name": "door_z06_north",
           "type": "door",
           "point": true,
@@ -15895,7 +16796,7 @@
           ]
         },
         {
-          "id": 123,
+          "id": 140,
           "name": "door_z07_north",
           "type": "door",
           "point": true,
@@ -15928,7 +16829,7 @@
           ]
         },
         {
-          "id": 124,
+          "id": 141,
           "name": "door_z08_north",
           "type": "door",
           "point": true,
@@ -15961,7 +16862,7 @@
           ]
         },
         {
-          "id": 125,
+          "id": 142,
           "name": "door_z09_north",
           "type": "door",
           "point": true,
@@ -15994,7 +16895,7 @@
           ]
         },
         {
-          "id": 126,
+          "id": 143,
           "name": "door_z10_north",
           "type": "door",
           "point": true,
@@ -16027,7 +16928,7 @@
           ]
         },
         {
-          "id": 127,
+          "id": 144,
           "name": "door_z11_north",
           "type": "door",
           "point": true,
@@ -16060,7 +16961,7 @@
           ]
         },
         {
-          "id": 128,
+          "id": 145,
           "name": "door_z12_north",
           "type": "door",
           "point": true,
@@ -16093,7 +16994,7 @@
           ]
         },
         {
-          "id": 129,
+          "id": 146,
           "name": "door_z06_south",
           "type": "door",
           "point": true,
@@ -16126,7 +17027,7 @@
           ]
         },
         {
-          "id": 130,
+          "id": 147,
           "name": "door_z07_south",
           "type": "door",
           "point": true,
@@ -16159,7 +17060,7 @@
           ]
         },
         {
-          "id": 131,
+          "id": 148,
           "name": "door_z08_south",
           "type": "door",
           "point": true,
@@ -16192,7 +17093,7 @@
           ]
         },
         {
-          "id": 132,
+          "id": 149,
           "name": "door_z09_south",
           "type": "door",
           "point": true,
@@ -16225,7 +17126,7 @@
           ]
         },
         {
-          "id": 133,
+          "id": 150,
           "name": "door_z10_south",
           "type": "door",
           "point": true,
@@ -16258,7 +17159,7 @@
           ]
         },
         {
-          "id": 134,
+          "id": 151,
           "name": "door_z11_south",
           "type": "door",
           "point": true,
@@ -16291,7 +17192,7 @@
           ]
         },
         {
-          "id": 135,
+          "id": 152,
           "name": "door_z12_south",
           "type": "door",
           "point": true,
@@ -16324,7 +17225,7 @@
           ]
         },
         {
-          "id": 136,
+          "id": 153,
           "name": "door_prod_z08_z09",
           "type": "door",
           "point": true,
@@ -16357,7 +17258,7 @@
           ]
         },
         {
-          "id": 137,
+          "id": 154,
           "name": "door_prod_z09_z10",
           "type": "door",
           "point": true,
@@ -16390,7 +17291,7 @@
           ]
         },
         {
-          "id": 138,
+          "id": 155,
           "name": "door_prod_z10_z11",
           "type": "door",
           "point": true,
@@ -16423,7 +17324,7 @@
           ]
         },
         {
-          "id": 139,
+          "id": 156,
           "name": "door_prod_z11_z12",
           "type": "door",
           "point": true,
@@ -16456,7 +17357,7 @@
           ]
         },
         {
-          "id": 140,
+          "id": 157,
           "name": "door_z16_north",
           "type": "door",
           "point": true,
@@ -16489,7 +17390,7 @@
           ]
         },
         {
-          "id": 141,
+          "id": 158,
           "name": "door_z17_north",
           "type": "door",
           "point": true,
@@ -16522,7 +17423,7 @@
           ]
         },
         {
-          "id": 142,
+          "id": 159,
           "name": "door_lobby_entrance",
           "type": "door",
           "point": true,
@@ -16567,7 +17468,7 @@
       "type": "objectgroup",
       "objects": [
         {
-          "id": 143,
+          "id": 160,
           "name": "Z01 Ruang CEO",
           "type": "zone",
           "x": 0,
@@ -16632,7 +17533,7 @@
           ]
         },
         {
-          "id": 144,
+          "id": 161,
           "name": "Z02 Boardroom",
           "type": "zone",
           "x": 320,
@@ -16697,7 +17598,7 @@
           ]
         },
         {
-          "id": 145,
+          "id": 162,
           "name": "Z03 Ruang Arsitektur",
           "type": "zone",
           "x": 640,
@@ -16762,7 +17663,7 @@
           ]
         },
         {
-          "id": 146,
+          "id": 163,
           "name": "Z04 Ruang Kelas",
           "type": "zone",
           "x": 896,
@@ -16827,7 +17728,7 @@
           ]
         },
         {
-          "id": 147,
+          "id": 164,
           "name": "Z05 Perpustakaan",
           "type": "zone",
           "x": 1120,
@@ -16892,7 +17793,7 @@
           ]
         },
         {
-          "id": 148,
+          "id": 165,
           "name": "Z06 Lab Riset",
           "type": "zone",
           "x": 0,
@@ -16957,7 +17858,7 @@
           ]
         },
         {
-          "id": 149,
+          "id": 166,
           "name": "Z07 Studio Desain",
           "type": "zone",
           "x": 288,
@@ -17022,7 +17923,7 @@
           ]
         },
         {
-          "id": 150,
+          "id": 167,
           "name": "Z08 Dev Pods",
           "type": "zone",
           "x": 512,
@@ -17087,7 +17988,7 @@
           ]
         },
         {
-          "id": 151,
+          "id": 168,
           "name": "Z09 Graphics Lab",
           "type": "zone",
           "x": 768,
@@ -17152,7 +18053,7 @@
           ]
         },
         {
-          "id": 152,
+          "id": 169,
           "name": "Z10 QA Station",
           "type": "zone",
           "x": 896,
@@ -17217,7 +18118,7 @@
           ]
         },
         {
-          "id": 153,
+          "id": 170,
           "name": "Z11 Release Dock",
           "type": "zone",
           "x": 1024,
@@ -17282,7 +18183,7 @@
           ]
         },
         {
-          "id": 154,
+          "id": 171,
           "name": "Z12 Data Center & SOC",
           "type": "zone",
           "x": 1152,
@@ -17347,7 +18248,7 @@
           ]
         },
         {
-          "id": 155,
+          "id": 172,
           "name": "Z13 Lobi",
           "type": "zone",
           "x": 0,
@@ -17412,7 +18313,7 @@
           ]
         },
         {
-          "id": 156,
+          "id": 173,
           "name": "Z14 Kafetaria & Lounge",
           "type": "zone",
           "x": 320,
@@ -17477,7 +18378,7 @@
           ]
         },
         {
-          "id": 157,
+          "id": 174,
           "name": "Z15 Arcade",
           "type": "zone",
           "x": 704,
@@ -17542,7 +18443,7 @@
           ]
         },
         {
-          "id": 158,
+          "id": 175,
           "name": "Z16 Musholla",
           "type": "zone",
           "x": 960,
@@ -17607,7 +18508,7 @@
           ]
         },
         {
-          "id": 159,
+          "id": 176,
           "name": "Z17 Kolam luar",
           "type": "zone",
           "x": 1184,

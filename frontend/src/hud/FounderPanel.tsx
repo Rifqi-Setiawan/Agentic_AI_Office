@@ -79,7 +79,7 @@ export const FounderPanel: React.FC = () => {
         credentials: 'include',
         body: JSON.stringify({
           kind,
-          duration_seconds: kind === 'sholat' ? 300 : 600,
+          duration_seconds: kind === 'sholat' || kind === 'fire_drill' ? 300 : 600,
         }),
       });
 
@@ -87,7 +87,7 @@ export const FounderPanel: React.FC = () => {
         const data = await res.json();
         updateCollective(data);
         setFeedbackMessage({
-          text: `Event "${title}" berhasil dipicu! Seluruh agen idle menuju lokasi.`,
+          text: `Event "${title}" berhasil dipicu! Peserta menuju lokasi; tugas nyata tetap diprioritaskan.`,
           isError: false,
         });
       } else if (res.status === 409) {
@@ -201,6 +201,19 @@ export const FounderPanel: React.FC = () => {
           </p>
 
           <div className="grid grid-cols-1 gap-2 pt-1">
+            {([
+              ['pool_party', 'Pesta Kolam', 'Kolam · Bastion berjaga · 10 menit'],
+              ['fire_drill', 'Simulasi Evakuasi', 'Kolam · Bastion memimpin hitung kepala · 5 menit'],
+              ['town_hall', 'Pertemuan Kantor', 'Kafetaria · Ringkasan harian Jarvis · 10 menit'],
+            ] as const).map(([kind, title, description]) => (
+              <button key={kind} type="button" aria-label={`Picu event ${title}`}
+                disabled={collectiveLoading !== null || !!activeCollective?.active}
+                onClick={() => handleTriggerCollective(kind, title)}
+                className="p-2.5 rounded bg-[#1a1c29] border border-[#282d3f] text-left hover:border-[#2bb3c0] focus-visible:ring-2 focus-visible:ring-[#2bb3c0] disabled:opacity-50">
+                <strong className="block text-[#f5f0e1]">{title}</strong>
+                <span className="text-[#9ca8b8]">{description}</span>
+              </button>
+            ))}
             {/* Rapat Mendadak */}
             <button
               type="button"

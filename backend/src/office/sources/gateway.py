@@ -23,7 +23,7 @@ class GatewayReader:
 
     def __init__(
         self,
-        gateway_state_path: Path | str = "/srv/apps/hermes/gateway_state.json",
+        gateway_state_path: Path | str = "/srv/apps/hermes/profiles/jarvis/gateway_state.json",
     ) -> None:
         self.gateway_state_path = Path(gateway_state_path)
         self._last_mtime: float | None = None
@@ -47,22 +47,16 @@ class GatewayReader:
         """Pemeriksaan mtime dan parsing berkas gateway_state.json jika ada mutasi."""
         now_ts = int(time.time())
 
-        if not self.gateway_state_path.is_file():
-            self._is_degraded = True
-            err_msg = f"Berkas gateway state tidak ditemukan: {self.gateway_state_path}"
-            self._health = ReaderHealth(
-                status="degraded",
-                last_poll=now_ts,
-                error=err_msg,
-                details={"path": str(self.gateway_state_path)},
-            )
-            return self._cached_data
-
         try:
+            if not self.gateway_state_path.is_file():
+                raise FileNotFoundError(
+                    f"Berkas gateway state tidak ditemukan: {self.gateway_state_path}"
+                )
             current_mtime = self.gateway_state_path.stat().st_mtime
             if self._last_mtime is not None and current_mtime == self._last_mtime:
                 # File belum termutasi, kembalikan salinan cache tanpa re-parse
-                self._health.last_poll = now_ts
+                self._is_degraded = False
+                self._health = ReaderHealth(status="ok", last_poll=now_ts)
                 return self._cached_data
 
             # mtime berbeda atau initial read, baca dan parse

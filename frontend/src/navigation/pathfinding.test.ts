@@ -21,9 +21,9 @@ describe('T1.12 Pathfinding A* dan Reservasi Slot', () => {
   const lobiSpawn: GridPoint = { gx: 4, gy: 30 };
 
   describe('Kriteria Penerimaan 1: Semua slot terjangkau dari Lobi', () => {
-    it('memverifikasi seluruh 116 slot interaksi dapat dicapai dari Lobi via pathfinding A*', () => {
+    it('memverifikasi seluruh 133 slot interaksi dapat dicapai dari Lobi via pathfinding A*', () => {
       const allSlots = gridMap.getAllSlots();
-      expect(allSlots.length).toBe(116);
+      expect(allSlots.length).toBe(133);
 
       const unreachableSlots: string[] = [];
 
@@ -326,9 +326,9 @@ describe('T1.12 Pathfinding A* dan Reservasi Slot', () => {
       mgr.reserveSlot('slot_z01_desk_jarvis', 'merlin'); // antre
 
       const stats = mgr.getStats();
-      expect(stats.totalSlots).toBe(116);
+      expect(stats.totalSlots).toBe(133);
       expect(stats.occupiedSlots).toBe(1);
-      expect(stats.availableSlots).toBe(115);
+      expect(stats.availableSlots).toBe(132);
       expect(stats.queuedAgentsCount).toBe(1);
     });
   });

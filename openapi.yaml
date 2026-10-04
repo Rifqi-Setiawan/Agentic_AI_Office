@@ -647,7 +647,7 @@ components:
         kind:
           type: string
           description: Jenis aktivitas kolektif.
-          enum: [rapat, break, sholat]
+          enum: [rapat, break, sholat, pool_party, fire_drill, town_hall]
           example: rapat
         title:
           type: string
@@ -883,7 +883,7 @@ components:
         kind:
           type: string
           description: Jenis event yang ingin dipicu.
-          enum: [rapat, break, sholat]
+          enum: [rapat, break, sholat, pool_party, fire_drill, town_hall]
           example: rapat
         duration_seconds:
           type: integer

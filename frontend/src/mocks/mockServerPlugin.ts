@@ -311,7 +311,17 @@ export function mockOfficeApiPlugin(): Plugin {
         try {
           const parsed = JSON.parse(body);
           const eventName = parsed.event || 'event';
-          const eventData = parsed.data || {};
+          let eventData = parsed.data || {};
+          // Rekaman historis mempertahankan TTL saat diputar dalam server uji.
+          // Endpoint ini hanya milik mock Vite, tidak ada di backend produksi.
+          if (eventName === 'collective' && eventData.active &&
+              Number.isFinite(eventData.started_at) && Number.isFinite(eventData.expires_at)) {
+            const now = Math.floor(Date.now() / 1000);
+            if (eventData.expires_at < now && eventData.expires_at > eventData.started_at) {
+              eventData = { ...eventData, started_at: now,
+                expires_at: now + (eventData.expires_at - eventData.started_at) };
+            }
+          }
           const seq = parsed.id ? parseInt(parsed.id, 10) : undefined;
           const assignedSeq = broadcastEvent(eventName, eventData, seq);
 

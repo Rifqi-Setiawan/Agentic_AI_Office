@@ -9,9 +9,11 @@ export interface VitalsEnvironmentManagerOptions {
   loadedMap: LoadedOfficeMap;
   characterManager: CharacterManager;
   choreographer?: Choreographer | null;
-  textureProvider?: (frameName: string) => Texture | null;
+  textureProvider?: ((frameName: string) => Texture | null) | null;
   originX?: number;
   originY?: number;
+  useMonotonicClock?: boolean;
+  clock?: () => number;
 }
 
 export interface VitalsThresholdStatus {
@@ -22,6 +24,7 @@ export interface VitalsThresholdStatus {
   isCpuAlert: boolean;
   isRamAlert: boolean;
   isDiskAlert: boolean;
+  isStale?: boolean;
 }
 
 interface RackVisualEffect {
@@ -68,10 +71,15 @@ export class VitalsEnvironmentManager {
   private originY: number;
 
   // State durasi dan ambang batas
-  private cpuHighDuration = 0;
+  public cpuHighDuration = 0;
   private isCpuAlert = false;
   private isRamAlert = false;
   private isDiskAlert = false;
+  private isStale = false;
+
+  private useMonotonicClock = false;
+  private clock: () => number;
+  private cpuHighStartTime: number | null = null;
 
   private lastVitals: HostVitals | null = null;
   private animTime = 0;
@@ -91,6 +99,13 @@ export class VitalsEnvironmentManager {
     this.textureProvider = options.textureProvider || null;
     this.originX = options.originX ?? WORLD_ORIGIN_X;
     this.originY = options.originY ?? WORLD_ORIGIN_Y;
+    this.useMonotonicClock = options.useMonotonicClock ?? false;
+    this.clock =
+      options.clock ??
+      (() =>
+        typeof performance !== 'undefined' && typeof performance.now === 'function'
+          ? performance.now() / 1000
+          : Date.now() / 1000);
 
     this.initRackEffects();
     this.initAcUnit();
@@ -235,27 +250,78 @@ export class VitalsEnvironmentManager {
 
   /**
    * Pembaruan telemetri vitals dan evaluasi ambang batas per frame.
+   * `dtSec` adalah safe animation delta untuk animasi prosedural visual (kipas AC, kedip LED).
+   * Durasi CPU kontinu menggunakan true monotonic elapsed time saat `useMonotonicClock` aktif
+   * atau `realElapsedSec` diberikan, agar terpisah dari batasan render ticker.
    */
-  public update(dtSec: number, vitals: HostVitals | null): void {
-    if (!vitals) return;
+  public update(dtSec: number, vitals: HostVitals | null, realElapsedSec?: number): void {
+    // 1. Missing vitals: reset semua status peringatan dan durasi
+    if (!vitals) {
+      this.resetCpuThreshold();
+      if (this.isRamAlert) {
+        this.isRamAlert = false;
+        this.applyRamAlert(false);
+      }
+      if (this.isDiskAlert) {
+        this.isDiskAlert = false;
+        this.applyDiskAlert(false);
+      }
+      this.lastVitals = null;
+      this.updateAnimations(dtSec);
+      return;
+    }
 
     this.lastVitals = vitals;
+    const isStale =
+      this.isStale ||
+      Boolean((vitals as { stale?: boolean }).stale) ||
+      Boolean((vitals as { is_stale?: boolean }).is_stale) ||
+      (vitals as { status: string }).status === 'stale';
+
+    // 2. Stale vitals: reset durasi kontinu dan matikan alert
+    if (isStale) {
+      this.resetCpuThreshold();
+      if (this.isRamAlert) {
+        this.isRamAlert = false;
+        this.applyRamAlert(false);
+      }
+      if (this.isDiskAlert) {
+        this.isDiskAlert = false;
+        this.applyDiskAlert(false);
+      }
+      this.updateAnimations(dtSec);
+      return;
+    }
+
     const prevCpuAlert = this.isCpuAlert;
     const prevRamAlert = this.isRamAlert;
     const prevDiskAlert = this.isDiskAlert;
 
-    // 1. Ambang CPU: > 80% selama 60 detik kumulatif kontinu
+    // 3. Ambang CPU: > 80% selama 60 detik kontinu
+    // Low vitals (<= 80%) seketika mereset durasi kontinu
     if (vitals.cpu_percent > 80) {
-      this.cpuHighDuration += dtSec;
+      if (realElapsedSec !== undefined) {
+        this.cpuHighDuration += realElapsedSec;
+      } else if (this.useMonotonicClock) {
+        const now = this.clock();
+        if (this.cpuHighStartTime === null) {
+          this.cpuHighStartTime = now;
+          this.cpuHighDuration = 0;
+        } else {
+          this.cpuHighDuration = Math.max(0, now - this.cpuHighStartTime);
+        }
+      } else {
+        this.cpuHighDuration += dtSec;
+      }
     } else {
-      this.cpuHighDuration = 0;
+      this.resetCpuThreshold();
     }
     const newCpuAlert = this.cpuHighDuration >= 60;
 
-    // 2. Ambang RAM: > 85%
+    // 4. Ambang RAM: > 85%
     const newRamAlert = vitals.memory_percent > 85;
 
-    // 3. Ambang Disk: > 85%
+    // 5. Ambang Disk: > 85%
     const newDiskAlert = vitals.disk_percent > 85;
 
     // Terapkan perubahan state jika ada transisi
@@ -288,7 +354,7 @@ export class VitalsEnvironmentManager {
       }
     }
 
-    // Update animasi prosedural (LED berkedip, rotasi kipas, kilau oranye)
+    // Update animasi prosedural (LED berkedip, rotasi kipas, kilau oranye) dengan safe animation delta
     this.updateAnimations(dtSec);
   }
 
@@ -395,8 +461,16 @@ export class VitalsEnvironmentManager {
    * Majukan waktu durasi CPU tinggi secara manual (sangat berguna untuk pengujian terisolasi).
    */
   public advanceCpuDuration(seconds: number): void {
-    if (this.lastVitals && this.lastVitals.cpu_percent > 80) {
+    if (
+      this.lastVitals &&
+      this.lastVitals.cpu_percent > 80 &&
+      !this.isStale &&
+      (this.lastVitals as { status: string }).status !== 'stale'
+    ) {
       this.cpuHighDuration += seconds;
+      if (this.useMonotonicClock && this.cpuHighStartTime !== null) {
+        this.cpuHighStartTime -= seconds;
+      }
       const newCpuAlert = this.cpuHighDuration >= 60;
       if (newCpuAlert !== this.isCpuAlert) {
         this.isCpuAlert = newCpuAlert;
@@ -410,10 +484,67 @@ export class VitalsEnvironmentManager {
    */
   public setCpuHighDuration(seconds: number): void {
     this.cpuHighDuration = seconds;
+    if (this.useMonotonicClock) {
+      this.cpuHighStartTime = this.clock() - seconds;
+    }
     const newCpuAlert = this.cpuHighDuration >= 60;
     if (newCpuAlert !== this.isCpuAlert) {
       this.isCpuAlert = newCpuAlert;
       this.applyCpuAlert(newCpuAlert);
+    }
+  }
+
+  /**
+   * Mengatur implementasi monotonic clock kustom (fokus kontrol unit test).
+   */
+  public setMonotonicClock(clock: () => number): void {
+    this.clock = clock;
+    this.useMonotonicClock = true;
+  }
+
+  /**
+   * Mengaktifkan/menonaktifkan mode monotonic clock (fokus kontrol unit test).
+   */
+  public setMonotonicClockEnabled(enabled: boolean): void {
+    this.useMonotonicClock = enabled;
+    if (!enabled) {
+      this.cpuHighStartTime = null;
+    }
+  }
+
+  /**
+   * Menandai status vitals sebagai basi (stale) atau segar (fokus kontrol unit test).
+   */
+  public markStale(stale: boolean = true): void {
+    this.isStale = stale;
+    if (stale) {
+      this.resetCpuThreshold();
+      if (this.isRamAlert) {
+        this.isRamAlert = false;
+        this.applyRamAlert(false);
+      }
+      if (this.isDiskAlert) {
+        this.isDiskAlert = false;
+        this.applyDiskAlert(false);
+      }
+    }
+  }
+
+  public isStaleVitals(): boolean {
+    return (
+      this.isStale ||
+      Boolean((this.lastVitals as { stale?: boolean })?.stale) ||
+      Boolean((this.lastVitals as { is_stale?: boolean })?.is_stale) ||
+      (this.lastVitals as { status?: string } | null)?.status === 'stale'
+    );
+  }
+
+  public resetCpuThreshold(): void {
+    this.cpuHighDuration = 0;
+    this.cpuHighStartTime = null;
+    if (this.isCpuAlert) {
+      this.isCpuAlert = false;
+      this.applyCpuAlert(false);
     }
   }
 
@@ -426,6 +557,7 @@ export class VitalsEnvironmentManager {
       isCpuAlert: this.isCpuAlert,
       isRamAlert: this.isRamAlert,
       isDiskAlert: this.isDiskAlert,
+      isStale: this.isStaleVitals(),
     };
   }
 

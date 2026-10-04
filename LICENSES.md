@@ -26,7 +26,8 @@ Dokumen ini memuat daftar seluruh aset pihak ketiga, pustaka perangkat lunak, da
 
 ## 2. Audio & SFX Assets
 
-- **Efek Suara & Atmosfer**: Seluruh aset audio yang akan digunakan pada Fase 1 dan Fase 2 bersumber dari domain publik / CC0 (Freesound CC0 / Kenney Audio) dan dicatat pada saat penambahan.
+- `frontend/public/audio/{dawn,day,dusk,night,done,failed,stamp}.wav`: karya prosedural orisinal Office, dibuat melalui `scripts/audio/generate.py`, didedikasikan ke domain publik melalui [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Empat loop dengung kantor dan tiga efek selesai/gagal/stempel; tanpa sampel pihak ketiga.
+- `frontend/public/audio/adzan.mp3`: cuplikan 12 detik pertama **azan.wav**, panda_bookclub, 29 Agustus 2022, [Freesound #648427](https://freesound.org/people/panda_bookclub/sounds/648427/), **CC0 1.0**. Sumber unduhan: `https://cdn.freesound.org/previews/648/648427_14174854-hq.mp3`. Rekaman adzan dari kamar di Mashhad, Iran; diubah menjadi mono 22050 Hz MP3 48 kbps dengan fade masuk/keluar. Tidak ada unduhan audio dari layanan eksternal saat aplikasi berjalan.
 - Audio diatur melalui pustaka Howler.js dengan status mute default sampai interaksi pertama user.
 
 ---
