@@ -9,6 +9,7 @@ import { Character } from './Character';
 import { Choreographer } from './Choreographer';
 import { BubbleManager } from './bubble';
 import { VitalsEnvironmentManager } from './VitalsEnvironmentManager';
+import { EasterEggManager } from './easterEgg';
 import { officeStore } from '../store/officeStore';
 import { GridMap, type RawTiledMap } from '../navigation/GridMap';
 import { AStarPathfinder } from '../navigation/AStarPathfinder';
@@ -28,6 +29,7 @@ export class WorldApp {
   private choreographer: Choreographer | null = null;
   private bubbleManager: BubbleManager | null = null;
   private vitalsEnvironmentManager: VitalsEnvironmentManager | null = null;
+  private easterEggManager: EasterEggManager | null = null;
   private gridMap: GridMap | null = null;
   private pathfinder: AStarPathfinder | null = null;
   private slotReservationManager: SlotReservationManager | null = null;
@@ -217,6 +219,15 @@ export class WorldApp {
         textureProvider,
       });
 
+      // Inisialisasi EasterEggManager (F26 / T2.7: Easter egg)
+      this.easterEggManager = new EasterEggManager({
+        characterManager: this.characterManager,
+        choreographer: this.choreographer,
+        bubbleManager: this.bubbleManager,
+        loadedMap: this.loadedMap,
+        worldContainer: this.worldContainer,
+      });
+
       if (typeof window !== 'undefined') {
         this.characterManager.loadAllCharacterSpritesheets().catch((err) => {
           console.warn('[WorldApp] Gagal memuat spritesheet karakter:', err);
@@ -320,6 +331,11 @@ export class WorldApp {
     if (this.vitalsEnvironmentManager) {
       const currentVitals = officeStore.getState().vitals;
       this.vitalsEnvironmentManager.update(dtSec, currentVitals);
+    }
+
+    // Pembaruan EasterEggManager (F26 / T2.7: Easter egg)
+    if (this.easterEggManager) {
+      this.easterEggManager.update(dtSec);
     }
 
     // Pembaruan FSM gerak dan rendering entitas karakter (T1.13)
@@ -467,6 +483,10 @@ export class WorldApp {
    * Menangani klik lantai berdasarkan koordinat grid integer (gx, gy).
    */
   public handleGridClick(gx: number, gy: number): boolean {
+    // 1. Cek interaksi easter egg (misal: klik mesin espresso di gx: 13, gy: 23)
+    if (this.easterEggManager?.handleGridClick(gx, gy)) {
+      return true;
+    }
     if (!this.choreographer) return false;
     return this.choreographer.handleFloorClick(gx, gy);
   }
@@ -475,8 +495,15 @@ export class WorldApp {
    * Menangani klik agent (membuka inspector + di mode Founder menghampiri & agent menoleh).
    */
   public handleAgentClick(agentId: string): boolean {
+    // Cek easter egg klik agent (misal: klik Oracle 10x)
+    this.easterEggManager?.handleAgentClick(agentId);
+
     if (!this.choreographer) return false;
     return this.choreographer.handleAgentClick(agentId);
+  }
+
+  public getEasterEggManager(): EasterEggManager | null {
+    return this.easterEggManager;
   }
 
   public isReady(): boolean {
@@ -499,6 +526,10 @@ export class WorldApp {
     if (this.vitalsEnvironmentManager) {
       this.vitalsEnvironmentManager.destroy();
       this.vitalsEnvironmentManager = null;
+    }
+    if (this.easterEggManager) {
+      this.easterEggManager.destroy();
+      this.easterEggManager = null;
     }
     if (this.characterManager) {
       this.characterManager.destroy();

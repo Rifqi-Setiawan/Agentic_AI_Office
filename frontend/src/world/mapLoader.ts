@@ -283,6 +283,11 @@ export class OfficeMapLoader {
             sprite.x = pos.x;
             sprite.y = pos.y;
             sprite.zIndex = calculateZIndex(gx, gy, LAYER_OFFSETS.FURNITURE);
+            if (frameName.includes('espresso')) {
+              sprite.label = 'furniture_espresso_machine';
+              sprite.eventMode = 'static';
+              sprite.cursor = 'pointer';
+            }
             containers.furniture.addChild(sprite);
             cullingManager.register(sprite);
           }

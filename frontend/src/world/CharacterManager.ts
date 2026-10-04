@@ -391,6 +391,11 @@ export class CharacterManager {
       'pray_sujud',
       'pray_duduk',
       'drink',
+      'swim',
+      'game',
+      'whiteboard',
+      'special',
+      'eureka',
     ];
     const dirs: Array<'se' | 'ne'> = ['se', 'ne'];
 
