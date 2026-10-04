@@ -111,7 +111,7 @@ export class BubblePool {
    */
   public setContent(
     el: HTMLElement,
-    data: { agentName: string; text: string; signatureColor?: string },
+    data: { agentName: string; text: string; signatureColor?: string; isStamp?: boolean },
   ): void {
     const nameEl = el.querySelector<HTMLElement>('.agent-bubble-name');
     const dotEl = el.querySelector<HTMLElement>('.agent-bubble-dot');
@@ -120,10 +120,27 @@ export class BubblePool {
 
     if (nameEl) nameEl.textContent = data.agentName;
     if (dotEl && data.signatureColor) dotEl.style.backgroundColor = data.signatureColor;
-    if (textEl) textEl.textContent = data.text;
-    if (boxEl && data.signatureColor) {
-      // Aksen border halus sesuai signature color
-      boxEl.style.borderColor = `${data.signatureColor}66`;
+    if (textEl) {
+      if (data.isStamp) {
+        textEl.innerHTML = `<span data-testid="sentinel-fail-stamp-badge" class="inline-block bg-[#D23C3C] text-white font-extrabold text-[10px] px-1.5 py-0.5 rounded border border-red-400 rotate-[-6deg] mr-1.5 shadow-sm">FAIL</span>${data.text}`;
+      } else {
+        textEl.textContent = data.text;
+      }
+    }
+    if (boxEl) {
+      if (data.isStamp) {
+        boxEl.style.borderColor = '#D23C3C';
+        if (typeof boxEl.setAttribute === 'function') {
+          boxEl.setAttribute('data-testid', 'sentinel-fail-stamp');
+        }
+      } else {
+        if (typeof boxEl.removeAttribute === 'function') {
+          boxEl.removeAttribute('data-testid');
+        }
+        if (data.signatureColor) {
+          boxEl.style.borderColor = `${data.signatureColor}66`;
+        }
+      }
     }
   }
 

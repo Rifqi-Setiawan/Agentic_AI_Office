@@ -280,6 +280,7 @@ export class BubbleManager {
       agentName,
       text: finalText,
       signatureColor,
+      isStamp: request.isStamp,
     });
 
     const duration = request.duration ?? this.defaultDuration;
@@ -294,6 +295,7 @@ export class BubbleManager {
       duration,
       remaining: duration,
       element,
+      isStamp: request.isStamp,
     };
 
     // 9. Posisikan Segera di Layar
@@ -339,20 +341,25 @@ export class BubbleManager {
   public handleChoreographerBubble(event: {
     agentId: string;
     text: string;
-    kind?: 'task' | 'collective' | 'ambient';
+    kind?: 'task' | 'collective' | 'ambient' | 'stamp';
+    isStamp?: boolean;
   }): boolean {
     const kindMap: Record<string, BubbleKind> = {
       task: 'working',
       collective: 'collective',
       ambient: 'ambient',
+      stamp: 'failed',
     };
     const kind = kindMap[event.kind || 'task'] || 'working';
+    const isStamp = Boolean(event.isStamp || event.kind === 'stamp' || event.text.startsWith('FAIL'));
 
     return this.requestBubble({
       agentId: event.agentId,
       text: event.text,
       kind,
-      priority: BUBBLE_PRIORITY_MAP[kind],
+      priority: isStamp ? BubblePriority.FAILED : BUBBLE_PRIORITY_MAP[kind],
+      isStamp,
+      force: isStamp || event.kind === 'task' || event.kind === 'stamp',
     });
   }
 

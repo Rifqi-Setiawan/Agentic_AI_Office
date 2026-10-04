@@ -40,8 +40,7 @@ if (typeof globalThis.cancelAnimationFrame === 'undefined') {
   }
 
   if (typeof globalThis.Storage === 'undefined') {
-    // @ts-expect-error polyfill class
-    globalThis.Storage = MockStorage;
+    (globalThis as unknown as { Storage: unknown }).Storage = MockStorage;
   }
 
   const mockStorage = new MockStorage();

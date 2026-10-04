@@ -62,6 +62,7 @@ export interface BubbleItem {
   duration: number;
   remaining: number;
   element: HTMLElement;
+  isStamp?: boolean;
 }
 
 export interface BubbleRequest {
@@ -73,6 +74,7 @@ export interface BubbleRequest {
   duration?: number;
   context?: PlaceholderContext;
   force?: boolean; // Bypass cooldown dan kamera check jika diperlukan (misal event Founder darurat)
+  isStamp?: boolean;
 }
 
 export interface BubbleManagerConfig {

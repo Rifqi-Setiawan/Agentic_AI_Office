@@ -42,6 +42,12 @@ export class MockElement {
     if (name === 'class') this.className = value;
   }
 
+  removeAttribute(name: string): void {
+    delete this.attributes[name];
+    if (name === 'id') this.id = '';
+    if (name === 'class') this.className = '';
+  }
+
   getAttribute(name: string): string | null {
     if (name === 'id') return this.id || null;
     if (name === 'class') return this.className || null;
