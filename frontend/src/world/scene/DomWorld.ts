@@ -33,6 +33,7 @@ export class DomWorld implements WorldController {
   private frameDurations: number[] = [];
   private rgb = [1, 1, 1];
   private paintedFrames = 0;
+  private fanAngle = 0;
   private down: { x: number; y: number; lastX: number; lastY: number; moved: boolean; id: number } | null = null;
 
   constructor(readonly viewport: HTMLElement, readonly world: HTMLElement, readonly camera: SceneCamera,
@@ -88,6 +89,7 @@ export class DomWorld implements WorldController {
     this.choreographer.update(dt);
     this.bubbles.update(dt);
     this.vitals.update(dt, officeStore.getState().vitals);
+    if (!this.reduced.matches) this.fanAngle += (this.vitals.isCpuAlertActive() ? 25 : .5) * dt;
     this.easterEggs.update(dt);
     this.registry.update(dt);
     this.paint();
@@ -111,7 +113,15 @@ export class DomWorld implements WorldController {
         applyAtlasFrame(el, this.environment, sprite, '/sprites/environment.png');
         el.dataset.frame = sprite;
       }
-      if (prop.sprite.includes('server_rack')) el.classList.toggle('ram-alert', this.vitals.isRamAlertActive());
+      if (prop.sprite.includes('server_rack')) {
+        el.classList.toggle('ram-alert', this.vitals.isRamAlertActive());
+        const cpu = this.vitals.isCpuAlertActive();
+        const lit = this.reduced.matches || Math.sin(this.time * (cpu ? 32 : 4)) > 0;
+        const color = cpu ? (lit ? '#ef4444' : '#facc15') : (lit ? '#22c55e' : '#06b6d4');
+        if (el.style.getPropertyValue('--rack-led-color') !== color) el.style.setProperty('--rack-led-color', color);
+        const opacity = lit ? '1' : '.4';
+        if (el.style.getPropertyValue('--rack-led-opacity') !== opacity) el.style.setProperty('--rack-led-opacity', opacity);
+      }
     }
     for (const char of this.registry.getAllCharacters()) {
       const nodes = this.actorElements.get(char.id);
@@ -175,11 +185,12 @@ export class DomWorld implements WorldController {
     this.toggle(this.world, '[data-effect="glitch"]', eggs.isGlitchTileActive);
     this.world.querySelectorAll<HTMLElement>('[data-effect="boxes"]').forEach(el => {el.hidden = !this.vitals.isDiskAlertActive();});
     const fan = this.world.querySelector<HTMLElement>('[data-effect="fan"]');
-    if (fan) { fan.style.transform = `rotate(${this.time * (this.vitals.isCpuAlertActive() ? 1400 : 28)}deg)`; }
+    if (fan) { fan.style.transform = `rotate(${this.reduced.matches ? 0 : this.fanAngle}rad)`; }
+    this.toggle(this.world, '[data-effect="airflow"]', this.vitals.isCpuAlertActive());
     const particles = this.world.querySelectorAll<HTMLElement>('[data-confetti]');
     particles.forEach((el, index) => {
       const p = this.easterEggs.confetti[index];
-      el.style.display = p ? '' : 'none';
+      el.style.display = p && !this.reduced.matches ? '' : 'none';
       if (p) { el.style.transform = `translate(${p.x}px,${p.y}px)`; el.style.background = p.color; el.style.opacity = String(p.remaining / 2.2); }
     });
     const target = ({ day: [1, 1, 1], dawn: [.92, .84, .78], dusk: [1, .78, .60], night: [.52, .60, .82] })[state.timeOfDay];

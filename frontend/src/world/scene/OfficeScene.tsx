@@ -74,7 +74,7 @@ export const OfficeScene: React.FC = () => {
           {grid?.doors.map(door => {const p=gridToScreen(door.gx,door.gy);return <span key={door.id} className="debug-door" title={`${door.name}: ${door.from} → ${door.to}`} style={{left:p.x,top:p.y}}>◇</span>;})}
           <div className="world-effect friday-sticker" data-effect="friday" hidden style={{left:gridToScreen(34,12).x-45,top:gridToScreen(34,12).y-35}}>No Deploy Friday</div>
           <div className="world-effect glitch-tile" data-effect="glitch" hidden style={{left:gridToScreen(25,16).x-32,top:gridToScreen(25,16).y-16}}/>
-          <div className="world-effect ac-unit" style={{left:gridToScreen(38,11).x-24,top:gridToScreen(38,11).y-36}}>AC <span data-effect="fan">✣</span></div>
+          <div className="world-effect ac-unit" style={{left:gridToScreen(38,11).x-24,top:gridToScreen(38,11).y-36}}>AC <span data-effect="fan">✣</span><i className="ac-airflow" data-effect="airflow" hidden/></div>
           {BOX_SPAWN_POINTS.map((point,index) => {const p=gridToScreen(point.gx,point.gy);return <div key={`box-${index}`} className="depth-prop" data-effect="boxes" hidden ref={el => {if(el) applyAtlasFrame(el,data.environment,'furniture_cardboard_box.png','/sprites/environment.png');}} style={{left:p.x-32,top:p.y+point.offsetY-32,zIndex:calculateZIndex(point.gx,point.gy,LAYER_OFFSETS.FURNITURE+(point.offsetY<0?2:1))}}/>;})}
           {Array.from({length:24},(_,index) => <i key={index} className="world-effect confetti" data-confetti={index}/>)}
         </>}

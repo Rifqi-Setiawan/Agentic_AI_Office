@@ -28,6 +28,24 @@ describe('DOM projection and sprite contracts', () => {
     camera.focus({id:'Z01',name:'CEO',resident:'jarvis',gx_min:0,gx_max:7,gy_min:0,gy_max:7},false,()=>done++);
     camera.pan(10,10);camera.update(2);expect(done).toBe(1);
   });
+  it('refits a room when the viewport shrinks during flight, without moving the current world center', () => {
+    let rect = {left:202,top:145,width:1238,height:755};
+    const viewport = {getBoundingClientRect:()=>rect} as HTMLElement;
+    const world = {style:{transform:''}} as unknown as HTMLElement;
+    const camera = new SceneCamera(viewport,world);
+    const zone = {id:'Z08',name:'Dev Pods',resident:'prism',gx_min:15,gx_max:23,gy_min:10,gy_max:19};
+    camera.resize();let done=0;
+    camera.focus(zone,false,()=>done++);camera.update(.5);
+    const center = camera.toWorld(rect.width/2,rect.height/2);
+    rect = {left:0,top:255,width:390,height:589};camera.resize();
+    expect(camera.toWorld(rect.width/2,rect.height/2)).toEqual(center);
+    camera.update(.75);expect(done).toBe(1);
+    const expected = new SceneCamera(viewport,{style:{transform:''}} as unknown as HTMLElement);
+    expected.resize();expected.focus(zone,true);
+    expect(camera.panX).toBeCloseTo(expected.panX,10);
+    expect(camera.panY).toBeCloseTo(expected.panY,10);
+    expect(camera.zoom).toBeCloseTo(expected.zoom,10);
+  });
   it('honors atlas crop and export scale; rejects rotated or missing frames', () => {
     const atlas: SpriteAtlas={frames:{sample:{frame:{x:40,y:60,w:80,h:100},sourceSize:{w:96,h:128},spriteSourceSize:{x:8,y:4,w:80,h:100},trimmed:true,rotated:false}},meta:{image:'test.png',size:{w:512,h:512},exportScale:2}};
     const el={style:{}} as HTMLElement;

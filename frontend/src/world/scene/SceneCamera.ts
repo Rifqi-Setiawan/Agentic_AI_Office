@@ -6,14 +6,23 @@ export class SceneCamera {
   panX = 0; panY = 0; zoom = 1;
   private width = 1; private height = 1;
   private initialized = false;
-  private flight: { elapsed: number; from: number[]; to: number[]; done?: () => void } | null = null;
+  private flight: { elapsed: number; duration: number; zone: ZoneDef; from: number[]; to: number[]; done?: () => void } | null = null;
   constructor(private viewport: HTMLElement, private world: HTMLElement) {}
   resize() {
     const bounds = this.viewport.getBoundingClientRect();
     const center = this.toWorld(this.width / 2, this.height / 2);
     this.width = bounds.width; this.height = bounds.height;
     if (!this.initialized) { this.initialized = true; this.overview(); }
-    else this.centerOn(center.x, center.y);
+    else {
+      this.centerOn(center.x, center.y);
+      if (this.flight) {
+        // Continue from the current world center, but fit the destination to the new viewport.
+        this.flight.duration -= this.flight.elapsed;
+        this.flight.elapsed = 0;
+        this.flight.from = [this.panX, this.panY, this.zoom];
+        this.flight.to = this.focusTransform(this.flight.zone);
+      }
+    }
   }
   overview() {
     this.cancelFlight();
@@ -34,23 +43,26 @@ export class SceneCamera {
     this.panX = x - this.zoom * w.x; this.panY = y - this.zoom * w.y;
     this.paint();
   }
-  focus(zone: ZoneDef, immediate = false, done?: () => void) {
+  private focusTransform(zone: ZoneDef) {
     const points = [gridToScreen(zone.gx_min, zone.gy_min), gridToScreen(zone.gx_max + 1, zone.gy_min),
       gridToScreen(zone.gx_min, zone.gy_max + 1), gridToScreen(zone.gx_max + 1, zone.gy_max + 1)];
     const w = Math.max(...points.map(p => p.x)) - Math.min(...points.map(p => p.x));
     const h = Math.max(...points.map(p => p.y)) - Math.min(...points.map(p => p.y)) + 100;
     const zoom = Math.max(.3, Math.min(2, (this.width - 90) / w, (this.height - 80) / h));
     const p = gridToScreen((zone.gx_min + zone.gx_max) / 2, (zone.gy_min + zone.gy_max) / 2);
-    const to = [this.width / 2 - zoom * p.x, this.height / 2 - zoom * (p.y - 20), zoom];
+    return [this.width / 2 - zoom * p.x, this.height / 2 - zoom * (p.y - 20), zoom];
+  }
+  focus(zone: ZoneDef, immediate = false, done?: () => void) {
+    const to = this.focusTransform(zone);
     if (immediate) { this.flight = null; [this.panX, this.panY, this.zoom] = to; this.paint(); done?.(); }
-    else this.flight = { elapsed: 0, from: [this.panX, this.panY, this.zoom], to, done };
+    else this.flight = { elapsed: 0, duration: 1.25, zone, from: [this.panX, this.panY, this.zoom], to, done };
   }
   /** Baseline 1.25s power2.inOut, advanced by the simulation's rAF, no second timer. */
   update(dt: number) {
     const flight = this.flight;
     if (!flight) return;
-    flight.elapsed = Math.min(1.25, flight.elapsed + dt);
-    const t = flight.elapsed / 1.25;
+    flight.elapsed = Math.min(flight.duration, flight.elapsed + dt);
+    const t = flight.elapsed / flight.duration;
     const eased = t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     [this.panX, this.panY, this.zoom] = flight.from.map((v, i) => v + (flight.to[i] - v) * eased);
     this.paint();

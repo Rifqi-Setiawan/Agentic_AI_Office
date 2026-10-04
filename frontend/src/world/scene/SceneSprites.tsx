@@ -11,7 +11,9 @@ export const SceneProp=memo(({prop,atlas}:{prop:DepthProp;atlas:SpriteAtlas})=>{
     if(el) applyAtlasFrame(el,atlas,prop.sprite,'/sprites/environment.png');
   },[atlas,prop]);
   return <div ref={bind} data-prop-id={prop.id} data-frame={prop.sprite}
-    className="depth-prop" style={{left:prop.bounds.x,top:prop.bounds.y,zIndex:prop.z}} aria-hidden="true"/>;
+    className="depth-prop" style={{left:prop.bounds.x,top:prop.bounds.y,zIndex:prop.z}} aria-hidden="true">
+    {prop.sprite.includes('server_rack')&&<span className="rack-led" style={{left:prop.x-prop.bounds.x-6,top:prop.y-prop.bounds.y-14}}/>}
+  </div>;
 });
 SceneProp.displayName='SceneProp';
 
