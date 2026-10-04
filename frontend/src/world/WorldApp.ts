@@ -3,9 +3,9 @@ import { Viewport } from 'pixi-viewport';
 import { CameraManager } from './camera';
 import { LoadedOfficeMap, OfficeMapLoader } from './mapLoader';
 import { TiledMapDoc } from './types';
-import { WORLD_HEIGHT, WORLD_ORIGIN_X, WORLD_ORIGIN_Y, WORLD_WIDTH } from './projection';
+import { screenToGrid, WORLD_HEIGHT, WORLD_ORIGIN_X, WORLD_ORIGIN_Y, WORLD_WIDTH } from './projection';
 import { CharacterManager } from './CharacterManager';
-import type { Character } from './Character';
+import { Character } from './Character';
 import { Choreographer } from './Choreographer';
 import { BubbleManager } from './bubble';
 import { GridMap, type RawTiledMap } from '../navigation/GridMap';
@@ -87,6 +87,15 @@ export class WorldApp {
       this.updateCulling();
     });
 
+    // Menangani klik pada lantai kanvas viewport untuk avatar Rifqi (mode Founder F17 / T1.19)
+    viewport.on('clicked', (data) => {
+      const target = (data.event as unknown as { target?: { label?: string; parent?: unknown } })?.target;
+      if (this.isCharacterTarget(target)) {
+        return;
+      }
+      this.handleFloorClick(data.world.x, data.world.y);
+    });
+
     // Loop ticker Pixi: membaca store vanilla tiap frame
     app.ticker.add((time) => {
       this.update(time.deltaTime);
@@ -160,6 +169,11 @@ export class WorldApp {
         slotManager: this.slotReservationManager,
       });
       this.choreographer.init();
+
+      // Sambungkan klik agen ke Choreographer (mode Founder F17 / T1.19)
+      this.characterManager.setOnCharacterClick((char) => {
+        this.handleAgentClick(char.id);
+      });
 
       // Inisialisasi BubbleManager (T1.15: DOM overlay pool tanpa React)
       this.bubbleManager = new BubbleManager({
@@ -353,6 +367,54 @@ export class WorldApp {
 
   public getCharacter(id: string): Character | undefined {
     return this.characterManager?.getCharacter(id);
+  }
+
+  /**
+   * Mengecek apakah display object target merupakan bagian dari entitas karakter.
+   */
+  public isCharacterTarget(target?: { label?: string; parent?: unknown } | null): boolean {
+    let curr: unknown = target;
+    while (curr) {
+      if (curr instanceof Character) return true;
+      const label = (curr as { label?: string }).label;
+      if (
+        typeof label === 'string' &&
+        (label.startsWith('Character_') ||
+          label.startsWith('SpriteWrapper_') ||
+          label.startsWith('AnimSprite_') ||
+          label.startsWith('TaskBadge_') ||
+          label.startsWith('NameTag_') ||
+          label.startsWith('RifqiGoldenCrown'))
+      ) {
+        return true;
+      }
+      curr = (curr as { parent?: unknown }).parent;
+    }
+    return false;
+  }
+
+  /**
+   * Menangani klik lantai berdasarkan koordinat dunia pixel isometrik (F17 / T1.19).
+   */
+  public handleFloorClick(worldX: number, worldY: number): boolean {
+    const { gx, gy } = screenToGrid(worldX, worldY, WORLD_ORIGIN_X, WORLD_ORIGIN_Y);
+    return this.handleGridClick(Math.round(gx), Math.round(gy));
+  }
+
+  /**
+   * Menangani klik lantai berdasarkan koordinat grid integer (gx, gy).
+   */
+  public handleGridClick(gx: number, gy: number): boolean {
+    if (!this.choreographer) return false;
+    return this.choreographer.handleFloorClick(gx, gy);
+  }
+
+  /**
+   * Menangani klik agent (membuka inspector + di mode Founder menghampiri & agent menoleh).
+   */
+  public handleAgentClick(agentId: string): boolean {
+    if (!this.choreographer) return false;
+    return this.choreographer.handleAgentClick(agentId);
   }
 
   public isReady(): boolean {

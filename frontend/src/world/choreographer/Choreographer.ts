@@ -1,7 +1,7 @@
 import type { GridMap } from '../../navigation/GridMap';
-import type { AStarPathfinder } from '../../navigation/AStarPathfinder';
+import { type AStarPathfinder, vectorToFacing } from '../../navigation/AStarPathfinder';
 import type { SlotReservationManager } from '../../navigation/SlotReservationManager';
-import type { InteractionSlot } from '../../navigation/types';
+import type { InteractionSlot, PathNode } from '../../navigation/types';
 import type { InteractionSlot as WorldInteractionSlot } from '../types';
 import { Character, DEFAULT_WALK_SPEED } from '../Character';
 import { CharacterManager, AGENT_SPAWN_DEFS } from '../CharacterManager';
@@ -445,6 +445,12 @@ export class Choreographer {
         continue;
       }
 
+      // Khusus avatar Rifqi: di mode Founder dikendalikan manual (klik-untuk-jalan);
+      // di mode publik, Rifqi dikendalikan oleh ambient scheduler seperti agen biasa.
+      if (agentId === 'rifqi' && this.isFounderMode()) {
+        continue;
+      }
+
       // ==========================================
       // LAPISAN PRIORITAS 3: AMBIENT SCHEDULER
       // ==========================================
@@ -470,6 +476,199 @@ export class Choreographer {
         this.ambientScheduler.scheduleNextAmbientActivity(agentId, state, char);
       }
     }
+  }
+
+  /**
+   * Mengecek apakah mode Founder saat ini aktif (terautentikasi dan proyeksi founder).
+   */
+  public isFounderMode(): boolean {
+    const store = officeStore.getState();
+    return Boolean(store.isFounderAuthenticated && store.projection === 'founder');
+  }
+
+  /**
+   * Menangani klik lantai untuk avatar Rifqi pada mode Founder (F17 / T1.19).
+   * Pada mode publik, klik lantai ditolak dan Rifqi tidak dapat dikendalikan.
+   * Pada klik area tak terjangkau, Rifqi tidak macet dan perintah diabaikan dengan aman.
+   */
+  public handleFloorClick(gx: number, gy: number): boolean {
+    if (!this.isFounderMode()) {
+      return false;
+    }
+
+    const rifqi = this.characterManager.getCharacter('rifqi');
+    if (!rifqi) return false;
+
+    // Pastikan koordinat bulat
+    const targetGx = Math.round(gx);
+    const targetGy = Math.round(gy);
+
+    // Kriteria Penerimaan 1: Area tak terjangkau tidak membuat Rifqi macet
+    if (!this.gridMap.isWalkable(targetGx, targetGy)) {
+      return false;
+    }
+
+    const startGx = Math.round(rifqi.gx);
+    const startGy = Math.round(rifqi.gy);
+
+    const path = this.pathfinder.findPath(
+      { gx: startGx, gy: startGy },
+      { gx: targetGx, gy: targetGy },
+      { ignoredTiles: [{ gx: startGx, gy: startGy }] },
+    );
+
+    if (!path || path.length === 0) {
+      return false;
+    }
+
+    // Lepaskan slot sebelumnya (misal lounge/sofa)
+    this.slotManager.releaseAllForAgent('rifqi');
+
+    const rifqiState = this.agentStates.get('rifqi');
+    if (rifqiState) {
+      rifqiState.currentLayer = 'task'; // Melindungi dari gangguan ambient scheduler
+      rifqiState.currentActivityKey = 'founder_walk';
+      rifqiState.targetSlotId = null;
+    }
+
+    rifqi.speed = DEFAULT_WALK_SPEED;
+    rifqi.onArrive = () => {
+      rifqi.idle();
+    };
+
+    rifqi.walk(path);
+    return true;
+  }
+
+  /**
+   * Menangani klik agent (F17 / T1.19):
+   * 1. Selalu membuka inspector di HUD untuk agen yang diklik (baik mode publik maupun Founder).
+   * 2. Di mode Founder:
+   *    - Agen menoleh ke arah Rifqi ("agent menoleh")
+   *    - Rifqi berjalan menghampiri agen ke tile adjacent walkable ("Rifqi menghampiri")
+   *    - Keduanya saling berhadapan saat Rifqi tiba.
+   * 3. Di mode publik:
+   *    - Mengembalikan false (Rifqi tidak digerakkan, agen tidak dipaksa menoleh).
+   * 4. Jika agen di area tak terjangkau:
+   *    - Rifqi tidak macet, inspector tetap terbuka.
+   */
+  public handleAgentClick(agentId: string): boolean {
+    // 1. Selalu buka inspector di HUD
+    officeStore.getState().selectAgent(agentId);
+
+    // 2. Kriteria Penerimaan 2: Mode publik tidak bisa mengendalikan Rifqi
+    if (!this.isFounderMode()) {
+      return false;
+    }
+
+    // Klik Rifqi sendiri hanya membuka inspector tanpa gerak
+    if (agentId === 'rifqi') {
+      return true;
+    }
+
+    const rifqi = this.characterManager.getCharacter('rifqi');
+    const targetAgent = this.characterManager.getCharacter(agentId);
+    if (!rifqi || !targetAgent) {
+      return false;
+    }
+
+    // 3. Agen menoleh ke arah posisi Rifqi saat ini
+    const dxToRifqi = rifqi.gx - targetAgent.gx;
+    const dyToRifqi = rifqi.gy - targetAgent.gy;
+    if (Math.abs(dxToRifqi) > 0.01 || Math.abs(dyToRifqi) > 0.01) {
+      targetAgent.setFacing(vectorToFacing(dxToRifqi, dyToRifqi));
+    }
+
+    // 4. Cari kandidat tile adjacent di sekitar target agent yang walkable
+    const targetGx = Math.round(targetAgent.gx);
+    const targetGy = Math.round(targetAgent.gy);
+
+    const offsets: Array<[number, number]> = [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+      [1, 1],
+      [-1, -1],
+      [1, -1],
+      [-1, 1],
+    ];
+
+    const candidates = offsets
+      .map(([ox, oy]) => ({ gx: targetGx + ox, gy: targetGy + oy }))
+      .filter((p) => this.gridMap.isWalkable(p.gx, p.gy));
+
+    // Cek apakah Rifqi sudah berada di salah satu tile adjacent
+    const currRifqiGx = Math.round(rifqi.gx);
+    const currRifqiGy = Math.round(rifqi.gy);
+    const isAlreadyAdjacent = candidates.some(
+      (c) => c.gx === currRifqiGx && c.gy === currRifqiGy,
+    );
+
+    if (isAlreadyAdjacent) {
+      rifqi.idle();
+      rifqi.setFacing(vectorToFacing(targetAgent.gx - rifqi.gx, targetAgent.gy - rifqi.gy));
+      return true;
+    }
+
+    if (candidates.length === 0) {
+      // Tidak ada tile adjacent yang walkable (area tak terjangkau)
+      // Rifqi tidak macet
+      return false;
+    }
+
+    // Urutkan kandidat berdasar jarak terdekat dari Rifqi
+    candidates.sort(
+      (a, b) =>
+        Math.hypot(a.gx - rifqi.gx, a.gy - rifqi.gy) -
+        Math.hypot(b.gx - rifqi.gx, b.gy - rifqi.gy),
+    );
+
+    const startGx = currRifqiGx;
+    const startGy = currRifqiGy;
+    let chosenPath: PathNode[] | null = null;
+
+    for (const cand of candidates) {
+      const path = this.pathfinder.findPath(
+        { gx: startGx, gy: startGy },
+        cand,
+        { ignoredTiles: [{ gx: startGx, gy: startGy }] },
+      );
+      if (path && path.length > 0) {
+        if (!chosenPath || path.length < chosenPath.length) {
+          chosenPath = path;
+        }
+      }
+    }
+
+    if (!chosenPath || chosenPath.length === 0) {
+      // Kriteria Penerimaan 1: Agen di area tak terjangkau tidak membuat Rifqi macet
+      return false;
+    }
+
+    this.slotManager.releaseAllForAgent('rifqi');
+
+    const rifqiState = this.agentStates.get('rifqi');
+    if (rifqiState) {
+      rifqiState.currentLayer = 'task';
+      rifqiState.currentActivityKey = 'founder_approach';
+      rifqiState.targetSlotId = null;
+    }
+
+    rifqi.speed = DEFAULT_WALK_SPEED;
+    rifqi.onArrive = () => {
+      rifqi.idle();
+      // Keduanya saling menatap saat Rifqi tiba
+      const dGx = targetAgent.gx - rifqi.gx;
+      const dGy = targetAgent.gy - rifqi.gy;
+      if (Math.abs(dGx) > 0.01 || Math.abs(dGy) > 0.01) {
+        rifqi.setFacing(vectorToFacing(dGx, dGy));
+        targetAgent.setFacing(vectorToFacing(-dGx, -dGy));
+      }
+    };
+
+    rifqi.walk(chosenPath);
+    return true;
   }
 
   /**

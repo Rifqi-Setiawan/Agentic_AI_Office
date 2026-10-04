@@ -202,6 +202,7 @@ export class CharacterManager {
   private characters = new Map<string, Character>();
   private entitiesContainer: Container | null = null;
   private isLoaded = false;
+  public onCharacterClick?: (char: Character) => void;
 
   constructor(loadedMap?: LoadedOfficeMap) {
     if (loadedMap) {
@@ -271,10 +272,23 @@ export class CharacterManager {
   }
 
   /**
+   * Mendaftarkan callback saat ada karakter yang diklik.
+   */
+  public setOnCharacterClick(callback: (char: Character) => void): void {
+    this.onCharacterClick = callback;
+    for (const char of this.characters.values()) {
+      char.onClickCallback = (c) => this.onCharacterClick?.(c);
+    }
+  }
+
+  /**
    * Mendaftarkan satu karakter ke dalam manager dan kontainer entitas.
    */
   public addCharacter(character: Character): void {
     this.characters.set(character.id, character);
+    character.onClickCallback = (char) => {
+      this.onCharacterClick?.(char);
+    };
 
     if (this.entitiesContainer) {
       this.entitiesContainer.addChild(character);

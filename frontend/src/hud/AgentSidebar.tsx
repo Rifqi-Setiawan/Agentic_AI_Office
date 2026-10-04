@@ -104,6 +104,7 @@ export const AgentSidebar: React.FC = () => {
     if (agent.zone) {
       worldApp.flyToZone(agent.zone);
     }
+    worldApp.handleAgentClick(agent.id);
   };
 
   if (!isOpen) {
