@@ -1,0 +1,14 @@
+
+> office-v2-frontend@2.0.0 test
+> vitest run src/world/simulation/modelParity.test.ts --maxWorkers=1 --minWorkers=1
+
+
+ RUN  v2.1.9 C:/Users/Rifqi/Documents/ChatGPT/audit vps/visual-migration-work/Agentic_AI_Office/frontend
+
+ ✓ src/world/simulation/modelParity.test.ts (11 tests) 303ms
+
+ Test Files  1 passed (1)
+      Tests  11 passed (11)
+   Start at  00:19:27
+   Duration  3.90s (transform 484ms, setup 50ms, collect 2.14s, tests 303ms, environment 0ms, prepare 950ms)
+

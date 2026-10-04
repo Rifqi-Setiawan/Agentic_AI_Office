@@ -1,0 +1,202 @@
+
+> office-v2-frontend@2.0.0 test
+> vitest run
+
+
+ RUN  v2.1.9 C:/Users/Rifqi/Documents/ChatGPT/audit vps/visual-migration-work/Agentic_AI_Office/frontend
+
+ ✓ src/environment.test.ts (8 tests) 192ms
+ ✓ src/character_sprites.test.ts (5 tests) 679ms
+   ✓ T1.6 16-Character Sprite Production & Paper-Doll Atlas Verification > contains exactly 17 sprite sheets (16 agents + 1 guest) in atlas format 328ms
+   ✓ T1.6 16-Character Sprite Production & Paper-Doll Atlas Verification > verifies all required V1 animation states and directions for every character 310ms
+stderr | src/store/honestMode.test.ts > T2.3: Storage Preferensi Mode Jujur (Acceptance Criteria) > menangani exception localStorage (SecurityError / QuotaExceededError) dengan try/catch tanpa crash
+[ModeJujur] Gagal membaca preferensi dari localStorage: Error: SecurityError: The operation is insecure.
+    at MockStorage.<anonymous> (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:32:13)
+    at MockStorage.mockCall (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/spy/dist/index.js:61:17)
+    at MockStorage.getItem (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/tinyspy/dist/index.js:45:80)
+    at Module.getSavedHonestMode (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestModeStorage.ts:32:27)
+    at C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:39:18
+    at Proxy.assertThrows (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:2767:5)
+    at Proxy.methodWrapper (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:1686:25)
+    at Proxy.<anonymous> (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/expect/dist/index.js:1029:16)
+    at Proxy.overwritingMethodWrapper (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:1735:33)
+    at Proxy.<anonymous> (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/expect/dist/index.js:1509:21)
+[ModeJujur] Gagal membaca preferensi dari localStorage: Error: SecurityError: The operation is insecure.
+    at MockStorage.<anonymous> (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:32:13)
+    at MockStorage.mockCall (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/spy/dist/index.js:61:17)
+    at MockStorage.getItem (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/tinyspy/dist/index.js:45:80)
+    at Module.getSavedHonestMode (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestModeStorage.ts:32:27)
+    at C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:40:12
+    at file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/runner/dist/index.js:146:14
+    at file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/runner/dist/index.js:533:11
+    at runWithTimeout (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/runner/dist/index.js:39:7)
+    at runTest (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/runner/dist/index.js:1056:17)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+[ModeJujur] Gagal menyimpan preferensi ke localStorage: Error: QuotaExceededError: Storage quota exceeded.
+    at MockStorage.<anonymous> (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:35:13)
+    at MockStorage.mockCall (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/spy/dist/index.js:61:17)
+    at MockStorage.setItem (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/tinyspy/dist/index.js:45:80)
+    at Module.saveHonestMode (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestModeStorage.ts:48:15)
+    at C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:43:18
+    at Proxy.assertThrows (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:2767:5)
+    at Proxy.methodWrapper (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:1686:25)
+    at Proxy.<anonymous> (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/expect/dist/index.js:1029:16)
+    at Proxy.overwritingMethodWrapper (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:1735:33)
+    at Proxy.<anonymous> (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/expect/dist/index.js:1509:21)
+
+ ✓ src/store/honestMode.test.ts (10 tests) 231ms
+stdout | src/audio/OfficeAudio.test.ts > Office audio acceptance > all shipped audio fits the 1.5 MB budget
+Audio assets: 8; actual total bytes: 826172; limit: 1500000
+
+ ✓ src/audio/OfficeAudio.test.ts (7 tests) 329ms
+ ❯ src/floor1_map.test.ts (6 tests | 1 failed) 3538ms
+   × T1.9 Peta Tiled 44x32 dengan 17 zona dan layer slot > enforces Acceptance Criterion 2: Setiap zona dan slot tercapai dari Lobi lewat pathfinding (diverifikasi oleh test T1.12) 3100ms
+     → expected 30.468830000000015 to be less than 10
+stdout | src/navigation/pathfinding.test.ts > T1.12 Pathfinding A* dan Reservasi Slot > Kriteria Penerimaan 2: Benchmark pencarian jalur terpanjang < 1 ms > mencapai pencarian jalur terpanjang < 1 ms per query (benchmark Vitest)
+[Benchmark Vitest] Jalur terpanjang (slot_z05_browse_1, 50 langkah): rata-rata 1.3550 ms per pencarian (100 iterasi, total 135.50 ms)
+
+ ❯ src/navigation/pathfinding.test.ts (20 tests | 1 failed) 949ms
+   ✓ T1.12 Pathfinding A* dan Reservasi Slot > Kriteria Penerimaan 1: Semua slot terjangkau dari Lobi > memverifikasi seluruh 133 slot interaksi dapat dicapai dari Lobi via pathfinding A* 359ms
+   × T1.12 Pathfinding A* dan Reservasi Slot > Kriteria Penerimaan 2: Benchmark pencarian jalur terpanjang < 1 ms > mencapai pencarian jalur terpanjang < 1 ms per query (benchmark Vitest) 349ms
+     → expected 1.3550310000000172 to be less than 1
+ ✓ src/services/sseClient.test.ts (5 tests) 1531ms
+   ✓ OfficeSSEClient (Backoff & Fallback Polling) > performs exponential backoff on disconnect up to 30000 ms 1306ms
+stderr | src/services/sseClient.test.ts
+[SSE] Fallback polling snapshot gagal: [TypeError: fetch failed] {
+  [cause]: AggregateError: 
+      at internalConnectMultiple (node:net:1339:18)
+      at afterConnectMultiple (node:net:1942:7) {
+    code: 'ECONNREFUSED',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+
+stderr | src/services/sseClient.test.ts
+[SSE] Fallback polling snapshot gagal: [TypeError: fetch failed] {
+  [cause]: AggregateError: 
+      at internalConnectMultiple (node:net:1339:18)
+      at afterConnectMultiple (node:net:1942:7) {
+    code: 'ECONNREFUSED',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+
+ ✓ src/store/officeStore.test.ts (6 tests) 120ms
+ ✓ src/world/projection.test.ts (5 tests) 92ms
+stdout | src/world/drawCalls.test.ts > Draw Calls & Acceptance Criterion 2 (< 30 draw call pada zoom 1x) > enforces Acceptance Criterion 2: < 30 draw call di seluruh peta pada zoom 1x
+[DrawCallTest] Total draw call terhitung di seluruh peta pada zoom 1x: 2 (Batas kriteria: < 30)
+
+ ✓ src/world/drawCalls.test.ts (2 tests) 226ms
+ ✓ src/world/Character.test.ts (12 tests) 860ms
+ ✓ src/world/depthSort.test.ts (2 tests) 56ms
+stdout | src/world/qa_sentinel_t1_13.test.tsx > SENTINEL INDEPENDENT QA: T1.13 Entitas Karakter dan FSM Gerak > 5. Acceptance Criterion 1: 16 Karakter Berjalan Bersamaan Tanpa Penurunan FPS di Bawah 60 > verifies 16 characters simultaneous walking benchmark maintains > 60 FPS (frame budget < 16.67ms)
+[Sentinel QA Benchmark] 16 Agents Walking: avg 0.7095 ms/frame -> 1409.5 FPS
+
+ ✓ src/world/qa_sentinel_t1_13.test.tsx (12 tests) 1442ms
+   ✓ SENTINEL INDEPENDENT QA: T1.13 Entitas Karakter dan FSM Gerak > 5. Acceptance Criterion 1: 16 Karakter Berjalan Bersamaan Tanpa Penurunan FPS di Bawah 60 > verifies 16 characters simultaneous walking benchmark maintains > 60 FPS (frame budget < 16.67ms) 608ms
+   ✓ SENTINEL INDEPENDENT QA: T1.13 Entitas Karakter dan FSM Gerak > 6. Acceptance Criterion 2: Klik Karakter Membuka Inspector yang Benar > verifies clicking every agent opens the exact inspector with verified attributes and Indonesian locale 525ms
+ ✓ src/world/eventReactions.test.ts (9 tests) 1206ms
+   ✓ T2.2 Reaksi Berbasis Event (F20) > Reaksi 1: task_commented oleh Jarvis → Jarvis berjalan ke meja assignee dan stand_talk > menggerakkan Jarvis ke meja assignee dan menjalankan animasi stand_talk saat tiba 469ms
+ ✓ src/spike.test.ts (3 tests) 332ms
+ ✓ src/world/easterEgg/easterEgg.test.ts (17 tests) 2224ms
+   ✓ T2.7 Easter Egg (F26) & Invariant Penegakan Task Nyata > Easter Egg 1: Kode Konami > memicu tarian semua agent selama 5 detik saat sequence Konami lengkap dimasukkan 440ms
+ ✓ src/world/conversationBank.test.ts (13 tests) 690ms
+stdout | src/world/characterBenchmark.test.ts > T1.13 Acceptance Criterion 1: 16 Karakter Berjalan Bersamaan >= 60 FPS > enforces Acceptance Criterion 1: 16 karakter berjalan bersamaan tanpa penurunan FPS di bawah 60
+[Benchmark T1.13] 16 Karakter Berjalan Simultan: Rata-rata 1.5237 ms/frame (120 frame dieksekusi dalam 182.85 ms) -> Ekuivalen FPS: 656.3 FPS (Batas anggaran frame 60 FPS: <= 16.67 ms)
+
+ ✓ src/world/characterBenchmark.test.ts (2 tests) 1830ms
+   ✓ T1.13 Acceptance Criterion 1: 16 Karakter Berjalan Bersamaan >= 60 FPS > spawns all 16 agents (+ Rifqi & Guest) into entities container 909ms
+   ✓ T1.13 Acceptance Criterion 1: 16 Karakter Berjalan Bersamaan >= 60 FPS > enforces Acceptance Criterion 1: 16 karakter berjalan bersamaan tanpa penurunan FPS di bawah 60 868ms
+ ✓ src/world/bubble.test.ts (16 tests) 3032ms
+   ✓ T1.15 Bubble Manager & Dialog Bank (Fitur F13) > Kriteria Penerimaan 2: Placeholder kosong tidak pernah tampil mentah ({proyek}) > mengaudit seluruh 1.152 baris dialog di dialog.id.json: minimal 12 baris per state, <= 80 karakter, zero placeholder mentah 2469ms
+ ✓ src/world/vitalsEnvironment.test.ts (15 tests) 4870ms
+   ✓ T2.4 Vitals → Perubahan Lingkungan (F23) > Kondisi Baseline / Normal (VITALS_FIXTURES.normal) > memastikan tidak ada ambang batas alert yang aktif saat telemetri normal 642ms
+   ✓ T2.4 Vitals → Perubahan Lingkungan (F23) > Ambang CPU: > 80% selama 60 dtk (VITALS_FIXTURES.cpuHigh) > tidak memicu CPU alert jika CPU > 80% tetapi durasi kumulatif < 60 detik 475ms
+   ✓ T2.4 Vitals → Perubahan Lingkungan (F23) > Ambang CPU: > 80% selama 60 dtk (VITALS_FIXTURES.cpuHigh) > memicu CPU alert tepat saat durasi kumulatif mencapai >= 60 detik (LED cepat, AC berputar, Bastion berkeringat) 404ms
+   ✓ T2.4 Vitals → Perubahan Lingkungan (F23) > Ambang CPU: > 80% selama 60 dtk (VITALS_FIXTURES.cpuHigh) > mereset durasi kumulatif dan mematikan alert seketika jika CPU turun kembali ke <= 80% 374ms
+   ✓ T2.4 Vitals → Perubahan Lingkungan (F23) > Ambang RAM: > 85% (VITALS_FIXTURES.ramHigh) > langsung memicu alert RAM saat memori > 85% (rak menyala oranye & Vector mondar-mandir) 452ms
+   ✓ T2.4 Vitals → Perubahan Lingkungan (F23) > Ambang Disk: > 85% (VITALS_FIXTURES.diskHigh) > membersihkan tumpukan kardus di Data Center saat penggunaan disk kembali normal <= 85% 461ms
+   ✓ T2.4 Vitals → Perubahan Lingkungan (F23) > Kondisi Beban Puncak Seluruh Ambang (VITALS_FIXTURES.allHigh) > mengaktifkan seluruh perubahan lingkungan secara simultan saat semua ambang terlampaui 300ms
+   ✓ T2.4 Vitals → Perubahan Lingkungan (F23) > Integrasi Store Vanilla & WorldApp > membaca vitals secara mulus dari updateVitals officeStore 387ms
+   ✓ T2.4 Vitals → Perubahan Lingkungan (F23) > Fokus Kontrol Unit & True Monotonic Elapsed Time (T2.9-R1) > mengakumulasi durasi CPU kontinu menggunakan true monotonic clock saat mode monotonic aktif 491ms
+ ✓ src/world/honestModeChoreographer.test.ts (3 tests) 224ms
+ ✓ src/world/mapLoader.test.ts (5 tests) 1024ms
+   ✓ Tiled Map Loader & Layer Containers (Spec F10) > extracts all 133 interaction slots with valid world coordinates 351ms
+ ✓ src/world/choreographer.test.ts (13 tests) 12124ms
+   ✓ T1.14 Choreographer (Task Nyata, Ambient, Event Kolektif) > Kriteria Penerimaan 1: Task running untuk Forge -> desk:forge <= 10 dtk > memverifikasi Forge di kafe tiba di desk:forge dalam <= 10 detik sejak event diterima 447ms
+   ✓ T1.14 Choreographer (Task Nyata, Ambient, Event Kolektif) > Kriteria Penerimaan 2: Sholat berjamaah & perlindungan agen working > memverifikasi agen working TIDAK meninggalkan mejanya saat sholat dan mengirim bubble 442ms
+   ✓ T1.14 Choreographer (Task Nyata, Ambient, Event Kolektif) > Kriteria Penerimaan 3: Simulasi 1 jam headless (3.600 dtk) tanpa macet > 5 mnt > memverifikasi tidak ada agen idle/ambient yang berada di 1 tile > 5 menit (300 dtk) 10404ms
+ ✓ src/world/activityAnimations.test.ts (4 tests) 156ms
+ ✓ src/world/additionalCollective.test.ts (6 tests) 847ms
+   ✓ T2.6 collective roles, capacity, cleanup and task priority > pool_party assigns all selected idle agents once and cleans up 334ms
+ ✓ src/world/camera.test.ts (3 tests) 213ms
+ ✓ src/world/rifqiControl.test.ts (14 tests) 1168ms
+   ✓ T1.19 Rifqi Klik-Untuk-Jalan (Mode Founder & Proteksi Publik) > Mode Founder: Klik lantai -> Rifqi berjalan ke sana > membuat Rifqi berjalan ke koordinat lantai yang diklik dan tiba dalam status idle 447ms
+ ✓ src/world/ambientActivities.test.ts (5 tests) 471ms
+ ✓ src/hud/t2_3_visual_notifications_honest_mode.test.tsx (10 tests) 514ms
+ ✓ src/hud/t1_17_hud.test.tsx (15 tests) 702ms
+ ✓ src/world/culling.test.ts (3 tests) 86ms
+ ✓ src/world/atmosphere.test.ts (1 test) 76ms
+ ✓ src/hud/agentInspector.test.tsx (5 tests) 310ms
+ ✓ src/hud/hud.test.tsx (5 tests) 156ms
+ ✓ src/world/worldApp.test.ts (2 tests) 21ms
+ ✓ src/scaffold.test.ts (2 tests) 29ms
+stdout | src/bundle.test.ts > Bundle Size Acceptance Criterion > ensures initial JS bundle size <= 400 KB gzip
+Bundle JS Breakdown (gzip): [
+  { file: 'browserAll-BzYVjNDq.js', rawKb: 0.21, gzipKb: 0.16 },
+  { file: 'howler-jfbzvID8.js', rawKb: 35.98, gzipKb: 9.82 },
+  { file: 'index-BVNrgrQC.js', rawKb: 340.74, gzipKb: 84.4 },
+  { file: 'vendor-gsap-SFc2wnMY.js', rawKb: 68.79, gzipKb: 27.05 },
+  { file: 'vendor-pixi-mbemHpHy.js', rawKb: 651.37, gzipKb: 185.48 },
+  { file: 'vendor-react-ByeLCU0c.js', rawKb: 310.53, gzipKb: 95.48 },
+  { file: 'webworkerAll-sQ8f1QCc.js', rawKb: 0.12, gzipKb: 0.11 }
+]
+Total initial JS raw: 1407.75 KB, gzip: 402.51 KB (Target: <= 400 KB)
+
+ ❯ src/bundle.test.ts (1 test | 1 failed) 76812ms
+   × Bundle Size Acceptance Criterion > ensures initial JS bundle size <= 400 KB gzip 76787ms
+     → Total ukuran bundle JS gzip (402.51 KB) melebihi batas 400 KB: expected 402.509765625 to be less than or equal to 400
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/bundle.test.ts > Bundle Size Acceptance Criterion > ensures initial JS bundle size <= 400 KB gzip
+AssertionError: Total ukuran bundle JS gzip (402.51 KB) melebihi batas 400 KB: expected 402.509765625 to be less than or equal to 400
+ ❯ src/bundle.test.ts:55:7
+     53|       totalGzipKb,
+     54|       `Total ukuran bundle JS gzip (${totalGzipKb.toFixed(2)} KB) mele…
+     55|     ).toBeLessThanOrEqual(maxAllowedGzipKb);
+       |       ^
+     56|   });
+     57| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/floor1_map.test.ts > T1.9 Peta Tiled 44x32 dengan 17 zona dan layer slot > enforces Acceptance Criterion 2: Setiap zona dan slot tercapai dari Lobi lewat pathfinding (diverifikasi oleh test T1.12)
+AssertionError: expected 30.468830000000015 to be less than 10
+ ❯ src/floor1_map.test.ts:315:27
+    313| 
+    314|     // Vitest test environment running in Node.js (tolerant of shared …
+    315|     expect(avgDurationMs).toBeLessThan(10.0);
+       |                           ^
+    316|   });
+    317| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/navigation/pathfinding.test.ts > T1.12 Pathfinding A* dan Reservasi Slot > Kriteria Penerimaan 2: Benchmark pencarian jalur terpanjang < 1 ms > mencapai pencarian jalur terpanjang < 1 ms per query (benchmark Vitest)
+AssertionError: expected 1.3550310000000172 to be less than 1
+ ❯ src/navigation/pathfinding.test.ts:113:29
+    111| 
+    112|       // Kriteria penerimaan: harus lebih kecil dari 1.0 ms
+    113|       expect(avgDurationMs).toBeLessThan(1.0);
+       |                             ^
+    114|     });
+    115|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+ Test Files  3 failed | 34 passed (37)
+      Tests  3 failed | 269 passed (272)
+   Start at  22:45:35
+   Duration  126.11s (transform 41.24s, setup 4.70s, collect 929.95s, tests 119.36s, environment 177ms, prepare 119.35s)
+

@@ -1,0 +1,10 @@
+
+> office-v2-frontend@2.0.0 build
+> tsc && vite build
+
+src/world/scene/SceneCamera.test.ts(25,18): error TS2345: Argument of type '{ id: string; name: string; gx_min: number; gx_max: number; gy_min: number; gy_max: number; }' is not assignable to parameter of type 'ZoneDef'.
+  Property 'resident' is missing in type '{ id: string; name: string; gx_min: number; gx_max: number; gy_min: number; gy_max: number; }' but required in type 'ZoneDef'.
+src/world/scene/SceneCamera.test.ts(28,18): error TS2345: Argument of type '{ id: string; name: string; gx_min: number; gx_max: number; gy_min: number; gy_max: number; }' is not assignable to parameter of type 'ZoneDef'.
+  Property 'resident' is missing in type '{ id: string; name: string; gx_min: number; gx_max: number; gy_min: number; gy_max: number; }' but required in type 'ZoneDef'.
+src/world/simulation/modelParity.test.ts(45,69): error TS2345: Argument of type '{ id: string; title: string; status: "running"; }' is not assignable to parameter of type '{ id: string; title: string; board: string; status: "blocked" | "failed" | "todo" | "ready" | "running" | "done"; block_kind?: "needs_input" | "dependency" | "capability" | "transient" | null | undefined; ... 7 more ...; worker_pid?: number | ... 1 more ... | undefined; }'.
+  Property 'board' is missing in type '{ id: string; title: string; status: "running"; }' but required in type '{ id: string; title: string; board: string; status: "blocked" | "failed" | "todo" | "ready" | "running" | "done"; block_kind?: "needs_input" | "dependency" | "capability" | "transient" | null | undefined; ... 7 more ...; worker_pid?: number | ... 1 more ... | undefined; }'.

@@ -1,0 +1,15 @@
+
+> office-v2-frontend@2.0.0 test
+> vitest run src/world/simulation/modelParity.test.ts src/world/scene/SceneCamera.test.ts --maxWorkers=2 --minWorkers=1
+
+
+ RUN  v2.1.9 C:/Users/Rifqi/Documents/ChatGPT/audit vps/visual-migration-work/Agentic_AI_Office/frontend
+
+ ✓ src/world/scene/SceneCamera.test.ts (3 tests) 15ms
+ ✓ src/world/simulation/modelParity.test.ts (4 tests) 184ms
+
+ Test Files  2 passed (2)
+      Tests  7 passed (7)
+   Start at  23:30:20
+   Duration  5.86s (transform 813ms, setup 86ms, collect 3.79s, tests 198ms, environment 1ms, prepare 1.65s)
+

@@ -1,0 +1,36 @@
+
+> office-v2-frontend@2.0.0 test:e2e
+> playwright test visual-migration.spec.ts
+
+
+Running 1 test using 1 worker
+
+(node:27860) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [chromium] › e2e\visual-migration.spec.ts:4:1 › DOM world preserves canonical topology and opens the real inspector (5ms)
+
+
+  1) [chromium] › e2e\visual-migration.spec.ts:4:1 › DOM world preserves canonical topology and opens the real inspector 
+
+    Error: browserType.launch: Executable doesn't exist at C:\Users\Rifqi\AppData\Local\ms-playwright\chromium_headless_shell-1243\chrome-headless-shell-win64\chrome-headless-shell.exe
+    ╔════════════════════════════════════════════════════════════╗
+    ║ Looks like Playwright was just installed or updated.       ║
+    ║ Please run the following command to download new browsers: ║
+    ║                                                            ║
+    ║     npx playwright install                                 ║
+    ║                                                            ║
+    ║ <3 Playwright Team                                         ║
+    ╚════════════════════════════════════════════════════════════╝
+
+    Error Context: test-results\visual-migration-DOM-world-2e99a-nd-opens-the-real-inspector-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\visual-migration-DOM-world-2e99a-nd-opens-the-real-inspector-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\visual-migration-DOM-world-2e99a-nd-opens-the-real-inspector-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › e2e\visual-migration.spec.ts:4:1 › DOM world preserves canonical topology and opens the real inspector 
