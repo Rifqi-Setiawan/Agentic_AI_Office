@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useOfficeStore } from '../store/officeStore';
 import { AudioControl } from './AudioControl';
-import { worldApp } from '../world/WorldApp';
+import { worldController as worldApp } from '../world/worldController';
 
 export const TopBar: React.FC = () => {
   const connectionStatus = useOfficeStore((s) => s.connectionStatus);

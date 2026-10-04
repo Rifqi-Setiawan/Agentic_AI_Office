@@ -1,5 +1,11 @@
 # Third-Party Licenses & Asset Attributions
 
+Visual migration presentation ports adapt W17ant/Claude-Office code at
+`291e7608aa3beb614aca80fe86077ef8c0cbc21d`, MIT, copyright 2026 W17ANT.
+See `docs/visual-migration/SOURCES.md` for exact files/modifications and
+`docs/visual-migration/licenses/W17ant-MIT.txt` for the retained full notice.
+Reference images are used for style review only and are not redistributed as production assets.
+
 Dokumen ini memuat daftar seluruh aset pihak ketiga, pustaka perangkat lunak, dan ketentuan lisensi yang digunakan dalam proyek **Agentic AI Office v2**.
 
 ---

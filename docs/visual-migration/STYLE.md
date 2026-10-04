@@ -1,0 +1,7 @@
+# Style decision — AO_CLAUDE_2P5D_V1
+
+The user delegated sample review in the 4 October chat. The selected direction is the generated Z08/Prism concept in `evidence/z08-prism-style-concept.png`: warm oak, blue-gray architectural surfaces, soft upper-left light, crisp modeled furniture, charcoal UI and compact stylized characters. Prism retains the dark hoodie, spectrum sleeves and large headphones. Built-in imagegen produced the concept, using the actual W17ant office-day image and baseline Prism atlas as references. No application AI/chat service is added.
+
+Self-review: approve materials, rendering finish and silhouette as modeling direction. The generated floor plan and desk positions are NOT approved geometry: it has three workstation desks and a round table instead of the map's actual four workstation anchors. The decorative layout is illustrative; the Blender scene must use the immutable map and provide transparent depth slices. The concept cannot prove native animation directions, foot anchors, collision or occlusion. Hair and small accessories require identity comparison in deterministic production output before final approval.
+
+Art production is blocked by unavailable local Blender. Baseline atlases may demonstrate the new renderer and behavior but are visibly labeled technical preview, not final assets. Mirrored baseline SW/NW directions are not approved exceptions for the release.

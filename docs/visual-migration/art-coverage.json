@@ -1,0 +1,2473 @@
+{
+  "finalArtReady": false,
+  "characters": [
+    {
+      "id": "jarvis",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "daedalus",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "oracle",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "merlin",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "muse",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "prism",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "forge",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "vector",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "sentinel",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "bastion",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "relay",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "warden",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "steward",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "scribe",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "nova",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "rifqi",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    },
+    {
+      "id": "guest",
+      "missing": [
+        {
+          "action": "idle",
+          "direction": "sw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "idle",
+          "direction": "nw",
+          "minimumFrames": 4
+        },
+        {
+          "action": "walk",
+          "direction": "sw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "walk",
+          "direction": "nw",
+          "minimumFrames": 6
+        },
+        {
+          "action": "sit_type",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "sit_type",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "stand_talk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "celebrate",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_berdiri",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_rukuk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_sujud",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "pray_duduk",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "drink",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "swim",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "game",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "whiteboard",
+          "direction": "nw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "sw",
+          "minimumFrames": 2
+        },
+        {
+          "action": "special",
+          "direction": "nw",
+          "minimumFrames": 2
+        }
+      ]
+    }
+  ],
+  "missingGroups": 476,
+  "invalidRotatedFrames": [],
+  "note": "Baseline-only data; a successful preview check does not approve release art."
+}

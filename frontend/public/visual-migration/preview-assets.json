@@ -1,0 +1,7926 @@
+{
+  "schemaVersion": 1,
+  "styleVersion": "BASELINE_PREVIEW_NOT_FINAL",
+  "exportScale": 1,
+  "logicalMapSha256": "765fdd8c1185fb79ba64050251267c3a8acc4c8997759ce8a2c1a2773fc03a67",
+  "floor": {
+    "file": "/visual-migration/baseline-floor.webp",
+    "x": 64,
+    "y": 46,
+    "width": 2432,
+    "height": 1220
+  },
+  "props": [
+    {
+      "id": "walls_back-0",
+      "sprite": "wall_back_corner_n.png",
+      "gx": 0,
+      "gy": 0,
+      "x": 1088,
+      "y": 64,
+      "z": 5,
+      "bounds": {
+        "x": 1056,
+        "y": 32,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1",
+      "sprite": "wall_back_ne.png",
+      "gx": 1,
+      "gy": 0,
+      "x": 1120,
+      "y": 80,
+      "z": 1005,
+      "bounds": {
+        "x": 1088,
+        "y": 48,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-44",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 1,
+      "x": 1056,
+      "y": 80,
+      "z": 1005,
+      "bounds": {
+        "x": 1024,
+        "y": 48,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-2",
+      "sprite": "wall_back_ne.png",
+      "gx": 2,
+      "gy": 0,
+      "x": 1152,
+      "y": 96,
+      "z": 2005,
+      "bounds": {
+        "x": 1120,
+        "y": 64,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-88",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 2,
+      "x": 1024,
+      "y": 96,
+      "z": 2005,
+      "bounds": {
+        "x": 992,
+        "y": 64,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-132",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 3,
+      "x": 992,
+      "y": 112,
+      "z": 3005,
+      "bounds": {
+        "x": 960,
+        "y": 80,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-3",
+      "sprite": "wall_back_window_day.png",
+      "gx": 3,
+      "gy": 0,
+      "x": 1184,
+      "y": 112,
+      "z": 3005,
+      "bounds": {
+        "x": 1152,
+        "y": 80,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-176",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 4,
+      "x": 960,
+      "y": 128,
+      "z": 4005,
+      "bounds": {
+        "x": 928,
+        "y": 96,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-4",
+      "sprite": "wall_back_ne.png",
+      "gx": 4,
+      "gy": 0,
+      "x": 1216,
+      "y": 128,
+      "z": 4005,
+      "bounds": {
+        "x": 1184,
+        "y": 96,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-220",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 5,
+      "x": 928,
+      "y": 144,
+      "z": 5005,
+      "bounds": {
+        "x": 896,
+        "y": 112,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-5",
+      "sprite": "wall_back_ne.png",
+      "gx": 5,
+      "gy": 0,
+      "x": 1248,
+      "y": 144,
+      "z": 5005,
+      "bounds": {
+        "x": 1216,
+        "y": 112,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-177",
+      "sprite": "furniture_sofa_leather.png",
+      "gx": 1,
+      "gy": 4,
+      "x": 992,
+      "y": 144,
+      "z": 5010,
+      "bounds": {
+        "x": 960,
+        "y": 112,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-264",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 6,
+      "x": 896,
+      "y": 160,
+      "z": 6005,
+      "bounds": {
+        "x": 864,
+        "y": 128,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-6",
+      "sprite": "wall_back_ne.png",
+      "gx": 6,
+      "gy": 0,
+      "x": 1280,
+      "y": 160,
+      "z": 6005,
+      "bounds": {
+        "x": 1248,
+        "y": 128,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-92",
+      "sprite": "furniture_wall_monitors_ceo.png",
+      "gx": 4,
+      "gy": 2,
+      "x": 1152,
+      "y": 160,
+      "z": 6010,
+      "bounds": {
+        "x": 1120,
+        "y": 128,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-308",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 7,
+      "x": 864,
+      "y": 176,
+      "z": 7005,
+      "bounds": {
+        "x": 832,
+        "y": 144,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-7",
+      "sprite": "wall_back_ne.png",
+      "gx": 7,
+      "gy": 0,
+      "x": 1312,
+      "y": 176,
+      "z": 7005,
+      "bounds": {
+        "x": 1280,
+        "y": 144,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-352",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 8,
+      "x": 832,
+      "y": 192,
+      "z": 8005,
+      "bounds": {
+        "x": 800,
+        "y": 160,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-8",
+      "sprite": "wall_back_window_day.png",
+      "gx": 8,
+      "gy": 0,
+      "x": 1344,
+      "y": 192,
+      "z": 8005,
+      "bounds": {
+        "x": 1312,
+        "y": 160,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-180",
+      "sprite": "furniture_desk_executive.png",
+      "gx": 4,
+      "gy": 4,
+      "x": 1088,
+      "y": 192,
+      "z": 8010,
+      "bounds": {
+        "x": 1056,
+        "y": 160,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-309",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 1,
+      "gy": 7,
+      "x": 896,
+      "y": 192,
+      "z": 8030,
+      "bounds": {
+        "x": 864,
+        "y": 160,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-396",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 9,
+      "x": 800,
+      "y": 208,
+      "z": 9005,
+      "bounds": {
+        "x": 768,
+        "y": 176,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-9",
+      "sprite": "wall_back_ne.png",
+      "gx": 9,
+      "gy": 0,
+      "x": 1376,
+      "y": 208,
+      "z": 9005,
+      "bounds": {
+        "x": 1344,
+        "y": 176,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-310",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 2,
+      "gy": 7,
+      "x": 928,
+      "y": 208,
+      "z": 9030,
+      "bounds": {
+        "x": 896,
+        "y": 176,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-10",
+      "sprite": "wall_back_ne.png",
+      "gx": 10,
+      "gy": 0,
+      "x": 1408,
+      "y": 224,
+      "z": 10005,
+      "bounds": {
+        "x": 1376,
+        "y": 192,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-440",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 10,
+      "x": 768,
+      "y": 224,
+      "z": 10005,
+      "bounds": {
+        "x": 736,
+        "y": 192,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-53",
+      "sprite": "wall_back_nw.png",
+      "gx": 9,
+      "gy": 1,
+      "x": 1344,
+      "y": 224,
+      "z": 10005,
+      "bounds": {
+        "x": 1312,
+        "y": 192,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-96",
+      "sprite": "furniture_trophy_shelf.png",
+      "gx": 8,
+      "gy": 2,
+      "x": 1280,
+      "y": 224,
+      "z": 10010,
+      "bounds": {
+        "x": 1248,
+        "y": 192,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-311",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 3,
+      "gy": 7,
+      "x": 960,
+      "y": 224,
+      "z": 10030,
+      "bounds": {
+        "x": 928,
+        "y": 192,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-11",
+      "sprite": "wall_back_ne.png",
+      "gx": 11,
+      "gy": 0,
+      "x": 1440,
+      "y": 240,
+      "z": 11005,
+      "bounds": {
+        "x": 1408,
+        "y": 208,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-441",
+      "sprite": "wall_back_ne.png",
+      "gx": 1,
+      "gy": 10,
+      "x": 800,
+      "y": 240,
+      "z": 11005,
+      "bounds": {
+        "x": 768,
+        "y": 208,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-484",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 11,
+      "x": 736,
+      "y": 240,
+      "z": 11005,
+      "bounds": {
+        "x": 704,
+        "y": 208,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-97",
+      "sprite": "wall_back_nw.png",
+      "gx": 9,
+      "gy": 2,
+      "x": 1312,
+      "y": 240,
+      "z": 11005,
+      "bounds": {
+        "x": 1280,
+        "y": 208,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-312",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 4,
+      "gy": 7,
+      "x": 992,
+      "y": 240,
+      "z": 11030,
+      "bounds": {
+        "x": 960,
+        "y": 208,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-12",
+      "sprite": "wall_back_ne.png",
+      "gx": 12,
+      "gy": 0,
+      "x": 1472,
+      "y": 256,
+      "z": 12005,
+      "bounds": {
+        "x": 1440,
+        "y": 224,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-141",
+      "sprite": "wall_back_nw.png",
+      "gx": 9,
+      "gy": 3,
+      "x": 1280,
+      "y": 256,
+      "z": 12005,
+      "bounds": {
+        "x": 1248,
+        "y": 224,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-442",
+      "sprite": "wall_back_ne.png",
+      "gx": 2,
+      "gy": 10,
+      "x": 832,
+      "y": 256,
+      "z": 12005,
+      "bounds": {
+        "x": 800,
+        "y": 224,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-528",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 12,
+      "x": 704,
+      "y": 256,
+      "z": 12005,
+      "bounds": {
+        "x": 672,
+        "y": 224,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-98",
+      "sprite": "furniture_glass_partition.png",
+      "gx": 10,
+      "gy": 2,
+      "x": 1344,
+      "y": 256,
+      "z": 12010,
+      "bounds": {
+        "x": 1312,
+        "y": 224,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-313",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 5,
+      "gy": 7,
+      "x": 1024,
+      "y": 256,
+      "z": 12030,
+      "bounds": {
+        "x": 992,
+        "y": 224,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-13",
+      "sprite": "wall_back_ne.png",
+      "gx": 13,
+      "gy": 0,
+      "x": 1504,
+      "y": 272,
+      "z": 13005,
+      "bounds": {
+        "x": 1472,
+        "y": 240,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-185",
+      "sprite": "wall_back_nw.png",
+      "gx": 9,
+      "gy": 4,
+      "x": 1248,
+      "y": 272,
+      "z": 13005,
+      "bounds": {
+        "x": 1216,
+        "y": 240,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-443",
+      "sprite": "wall_back_ne.png",
+      "gx": 3,
+      "gy": 10,
+      "x": 864,
+      "y": 272,
+      "z": 13005,
+      "bounds": {
+        "x": 832,
+        "y": 240,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-572",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 13,
+      "x": 672,
+      "y": 272,
+      "z": 13005,
+      "bounds": {
+        "x": 640,
+        "y": 240,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-529",
+      "sprite": "furniture_lab_bench.png",
+      "gx": 1,
+      "gy": 12,
+      "x": 736,
+      "y": 272,
+      "z": 13010,
+      "bounds": {
+        "x": 704,
+        "y": 240,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-314",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 6,
+      "gy": 7,
+      "x": 1056,
+      "y": 272,
+      "z": 13030,
+      "bounds": {
+        "x": 1024,
+        "y": 240,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-14",
+      "sprite": "wall_back_window_day.png",
+      "gx": 14,
+      "gy": 0,
+      "x": 1536,
+      "y": 288,
+      "z": 14005,
+      "bounds": {
+        "x": 1504,
+        "y": 256,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-229",
+      "sprite": "wall_back_nw.png",
+      "gx": 9,
+      "gy": 5,
+      "x": 1216,
+      "y": 288,
+      "z": 14005,
+      "bounds": {
+        "x": 1184,
+        "y": 256,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-444",
+      "sprite": "wall_back_doorway.png",
+      "gx": 4,
+      "gy": 10,
+      "x": 896,
+      "y": 288,
+      "z": 14005,
+      "bounds": {
+        "x": 864,
+        "y": 256,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-616",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 14,
+      "x": 640,
+      "y": 288,
+      "z": 14005,
+      "bounds": {
+        "x": 608,
+        "y": 256,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-186",
+      "sprite": "furniture_glass_partition.png",
+      "gx": 10,
+      "gy": 4,
+      "x": 1280,
+      "y": 288,
+      "z": 14010,
+      "bounds": {
+        "x": 1248,
+        "y": 256,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-573",
+      "sprite": "furniture_microscope.png",
+      "gx": 1,
+      "gy": 13,
+      "x": 704,
+      "y": 288,
+      "z": 14010,
+      "bounds": {
+        "x": 672,
+        "y": 256,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-315",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 7,
+      "gy": 7,
+      "x": 1088,
+      "y": 288,
+      "z": 14030,
+      "bounds": {
+        "x": 1056,
+        "y": 256,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-15",
+      "sprite": "wall_back_ne.png",
+      "gx": 15,
+      "gy": 0,
+      "x": 1568,
+      "y": 304,
+      "z": 15005,
+      "bounds": {
+        "x": 1536,
+        "y": 272,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-273",
+      "sprite": "wall_back_nw.png",
+      "gx": 9,
+      "gy": 6,
+      "x": 1184,
+      "y": 304,
+      "z": 15005,
+      "bounds": {
+        "x": 1152,
+        "y": 272,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-445",
+      "sprite": "wall_back_ne.png",
+      "gx": 5,
+      "gy": 10,
+      "x": 928,
+      "y": 304,
+      "z": 15005,
+      "bounds": {
+        "x": 896,
+        "y": 272,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-660",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 15,
+      "x": 608,
+      "y": 304,
+      "z": 15005,
+      "bounds": {
+        "x": 576,
+        "y": 272,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-101",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 13,
+      "gy": 2,
+      "x": 1440,
+      "y": 304,
+      "z": 15010,
+      "bounds": {
+        "x": 1408,
+        "y": 272,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-144",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 12,
+      "gy": 3,
+      "x": 1376,
+      "y": 304,
+      "z": 15010,
+      "bounds": {
+        "x": 1344,
+        "y": 272,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-58",
+      "sprite": "furniture_presentation_screen.png",
+      "gx": 14,
+      "gy": 1,
+      "x": 1504,
+      "y": 304,
+      "z": 15010,
+      "bounds": {
+        "x": 1472,
+        "y": 272,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-617",
+      "sprite": "furniture_whiteboard_formula.png",
+      "gx": 1,
+      "gy": 14,
+      "x": 672,
+      "y": 304,
+      "z": 15010,
+      "bounds": {
+        "x": 640,
+        "y": 272,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-316",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 8,
+      "gy": 7,
+      "x": 1120,
+      "y": 304,
+      "z": 15030,
+      "bounds": {
+        "x": 1088,
+        "y": 272,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-16",
+      "sprite": "wall_back_ne.png",
+      "gx": 16,
+      "gy": 0,
+      "x": 1600,
+      "y": 320,
+      "z": 16005,
+      "bounds": {
+        "x": 1568,
+        "y": 288,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-446",
+      "sprite": "wall_back_ne.png",
+      "gx": 6,
+      "gy": 10,
+      "x": 960,
+      "y": 320,
+      "z": 16005,
+      "bounds": {
+        "x": 928,
+        "y": 288,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-704",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 16,
+      "x": 576,
+      "y": 320,
+      "z": 16005,
+      "bounds": {
+        "x": 544,
+        "y": 288,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-102",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 14,
+      "gy": 2,
+      "x": 1472,
+      "y": 320,
+      "z": 16010,
+      "bounds": {
+        "x": 1440,
+        "y": 288,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-188",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 12,
+      "gy": 4,
+      "x": 1344,
+      "y": 320,
+      "z": 16010,
+      "bounds": {
+        "x": 1312,
+        "y": 288,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-274",
+      "sprite": "furniture_glass_partition.png",
+      "gx": 10,
+      "gy": 6,
+      "x": 1216,
+      "y": 320,
+      "z": 16010,
+      "bounds": {
+        "x": 1184,
+        "y": 288,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-661",
+      "sprite": "furniture_test_tube_rack.png",
+      "gx": 1,
+      "gy": 15,
+      "x": 640,
+      "y": 320,
+      "z": 16010,
+      "bounds": {
+        "x": 608,
+        "y": 288,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-317",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 9,
+      "gy": 7,
+      "x": 1152,
+      "y": 320,
+      "z": 16030,
+      "bounds": {
+        "x": 1120,
+        "y": 288,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-17",
+      "sprite": "wall_back_ne.png",
+      "gx": 17,
+      "gy": 0,
+      "x": 1632,
+      "y": 336,
+      "z": 17005,
+      "bounds": {
+        "x": 1600,
+        "y": 304,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-447",
+      "sprite": "wall_back_ne.png",
+      "gx": 7,
+      "gy": 10,
+      "x": 992,
+      "y": 336,
+      "z": 17005,
+      "bounds": {
+        "x": 960,
+        "y": 304,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-748",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 17,
+      "x": 544,
+      "y": 336,
+      "z": 17005,
+      "bounds": {
+        "x": 512,
+        "y": 304,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-103",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 15,
+      "gy": 2,
+      "x": 1504,
+      "y": 336,
+      "z": 17010,
+      "bounds": {
+        "x": 1472,
+        "y": 304,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-146",
+      "sprite": "furniture_boardroom_table.png",
+      "gx": 14,
+      "gy": 3,
+      "x": 1440,
+      "y": 336,
+      "z": 17010,
+      "bounds": {
+        "x": 1408,
+        "y": 304,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-705",
+      "sprite": "furniture_lab_bench.png",
+      "gx": 1,
+      "gy": 16,
+      "x": 608,
+      "y": 336,
+      "z": 17010,
+      "bounds": {
+        "x": 576,
+        "y": 304,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-318",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 10,
+      "gy": 7,
+      "x": 1184,
+      "y": 336,
+      "z": 17030,
+      "bounds": {
+        "x": 1152,
+        "y": 304,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-18",
+      "sprite": "wall_back_window_day.png",
+      "gx": 18,
+      "gy": 0,
+      "x": 1664,
+      "y": 352,
+      "z": 18005,
+      "bounds": {
+        "x": 1632,
+        "y": 320,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-448",
+      "sprite": "wall_back_ne.png",
+      "gx": 8,
+      "gy": 10,
+      "x": 1024,
+      "y": 352,
+      "z": 18005,
+      "bounds": {
+        "x": 992,
+        "y": 320,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-792",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 18,
+      "x": 512,
+      "y": 352,
+      "z": 18005,
+      "bounds": {
+        "x": 480,
+        "y": 320,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-104",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 16,
+      "gy": 2,
+      "x": 1536,
+      "y": 352,
+      "z": 18010,
+      "bounds": {
+        "x": 1504,
+        "y": 320,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-147",
+      "sprite": "furniture_boardroom_table.png",
+      "gx": 15,
+      "gy": 3,
+      "x": 1472,
+      "y": 352,
+      "z": 18010,
+      "bounds": {
+        "x": 1440,
+        "y": 320,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-190",
+      "sprite": "furniture_boardroom_table.png",
+      "gx": 14,
+      "gy": 4,
+      "x": 1408,
+      "y": 352,
+      "z": 18010,
+      "bounds": {
+        "x": 1376,
+        "y": 320,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-233",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 13,
+      "gy": 5,
+      "x": 1344,
+      "y": 352,
+      "z": 18010,
+      "bounds": {
+        "x": 1312,
+        "y": 320,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-534",
+      "sprite": "furniture_desk.png",
+      "gx": 6,
+      "gy": 12,
+      "x": 896,
+      "y": 352,
+      "z": 18010,
+      "bounds": {
+        "x": 864,
+        "y": 320,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-319",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 11,
+      "gy": 7,
+      "x": 1216,
+      "y": 352,
+      "z": 18030,
+      "bounds": {
+        "x": 1184,
+        "y": 320,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-19",
+      "sprite": "wall_back_ne.png",
+      "gx": 19,
+      "gy": 0,
+      "x": 1696,
+      "y": 368,
+      "z": 19005,
+      "bounds": {
+        "x": 1664,
+        "y": 336,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-449",
+      "sprite": "wall_back_ne.png",
+      "gx": 9,
+      "gy": 10,
+      "x": 1056,
+      "y": 368,
+      "z": 19005,
+      "bounds": {
+        "x": 1024,
+        "y": 336,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-492",
+      "sprite": "wall_back_nw.png",
+      "gx": 8,
+      "gy": 11,
+      "x": 992,
+      "y": 368,
+      "z": 19005,
+      "bounds": {
+        "x": 960,
+        "y": 336,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-836",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 19,
+      "x": 480,
+      "y": 368,
+      "z": 19005,
+      "bounds": {
+        "x": 448,
+        "y": 336,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-191",
+      "sprite": "furniture_boardroom_table.png",
+      "gx": 15,
+      "gy": 4,
+      "x": 1440,
+      "y": 368,
+      "z": 19010,
+      "bounds": {
+        "x": 1408,
+        "y": 336,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-234",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 14,
+      "gy": 5,
+      "x": 1376,
+      "y": 368,
+      "z": 19010,
+      "bounds": {
+        "x": 1344,
+        "y": 336,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-320",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 12,
+      "gy": 7,
+      "x": 1248,
+      "y": 368,
+      "z": 19030,
+      "bounds": {
+        "x": 1216,
+        "y": 336,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-20",
+      "sprite": "wall_back_ne.png",
+      "gx": 20,
+      "gy": 0,
+      "x": 1728,
+      "y": 384,
+      "z": 20005,
+      "bounds": {
+        "x": 1696,
+        "y": 352,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-450",
+      "sprite": "wall_back_ne.png",
+      "gx": 10,
+      "gy": 10,
+      "x": 1088,
+      "y": 384,
+      "z": 20005,
+      "bounds": {
+        "x": 1056,
+        "y": 352,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-536",
+      "sprite": "wall_back_nw.png",
+      "gx": 8,
+      "gy": 12,
+      "x": 960,
+      "y": 384,
+      "z": 20005,
+      "bounds": {
+        "x": 928,
+        "y": 352,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-63",
+      "sprite": "wall_back_nw.png",
+      "gx": 19,
+      "gy": 1,
+      "x": 1664,
+      "y": 384,
+      "z": 20005,
+      "bounds": {
+        "x": 1632,
+        "y": 352,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-880",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 20,
+      "x": 448,
+      "y": 384,
+      "z": 20005,
+      "bounds": {
+        "x": 416,
+        "y": 352,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-149",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 17,
+      "gy": 3,
+      "x": 1536,
+      "y": 384,
+      "z": 20010,
+      "bounds": {
+        "x": 1504,
+        "y": 352,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-235",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 15,
+      "gy": 5,
+      "x": 1408,
+      "y": 384,
+      "z": 20010,
+      "bounds": {
+        "x": 1376,
+        "y": 352,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-321",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 13,
+      "gy": 7,
+      "x": 1280,
+      "y": 384,
+      "z": 20030,
+      "bounds": {
+        "x": 1248,
+        "y": 352,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-837",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 1,
+      "gy": 19,
+      "x": 512,
+      "y": 384,
+      "z": 20030,
+      "bounds": {
+        "x": 480,
+        "y": 352,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-107",
+      "sprite": "wall_back_nw.png",
+      "gx": 19,
+      "gy": 2,
+      "x": 1632,
+      "y": 400,
+      "z": 21005,
+      "bounds": {
+        "x": 1600,
+        "y": 368,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-21",
+      "sprite": "wall_back_ne.png",
+      "gx": 21,
+      "gy": 0,
+      "x": 1760,
+      "y": 400,
+      "z": 21005,
+      "bounds": {
+        "x": 1728,
+        "y": 368,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-451",
+      "sprite": "wall_back_ne.png",
+      "gx": 11,
+      "gy": 10,
+      "x": 1120,
+      "y": 400,
+      "z": 21005,
+      "bounds": {
+        "x": 1088,
+        "y": 368,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-580",
+      "sprite": "wall_back_nw.png",
+      "gx": 8,
+      "gy": 13,
+      "x": 928,
+      "y": 400,
+      "z": 21005,
+      "bounds": {
+        "x": 896,
+        "y": 368,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-924",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 21,
+      "x": 416,
+      "y": 400,
+      "z": 21005,
+      "bounds": {
+        "x": 384,
+        "y": 368,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-193",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 17,
+      "gy": 4,
+      "x": 1504,
+      "y": 400,
+      "z": 21010,
+      "bounds": {
+        "x": 1472,
+        "y": 368,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-236",
+      "sprite": "furniture_chair_cushion.png",
+      "gx": 16,
+      "gy": 5,
+      "x": 1440,
+      "y": 400,
+      "z": 21010,
+      "bounds": {
+        "x": 1408,
+        "y": 368,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-322",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 14,
+      "gy": 7,
+      "x": 1312,
+      "y": 400,
+      "z": 21030,
+      "bounds": {
+        "x": 1280,
+        "y": 368,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-838",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 2,
+      "gy": 19,
+      "x": 544,
+      "y": 400,
+      "z": 21030,
+      "bounds": {
+        "x": 512,
+        "y": 368,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-151",
+      "sprite": "wall_back_nw.png",
+      "gx": 19,
+      "gy": 3,
+      "x": 1600,
+      "y": 416,
+      "z": 22005,
+      "bounds": {
+        "x": 1568,
+        "y": 384,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-22",
+      "sprite": "wall_back_ne.png",
+      "gx": 22,
+      "gy": 0,
+      "x": 1792,
+      "y": 416,
+      "z": 22005,
+      "bounds": {
+        "x": 1760,
+        "y": 384,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-452",
+      "sprite": "wall_back_doorway.png",
+      "gx": 12,
+      "gy": 10,
+      "x": 1152,
+      "y": 416,
+      "z": 22005,
+      "bounds": {
+        "x": 1120,
+        "y": 384,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-624",
+      "sprite": "wall_back_nw.png",
+      "gx": 8,
+      "gy": 14,
+      "x": 896,
+      "y": 416,
+      "z": 22005,
+      "bounds": {
+        "x": 864,
+        "y": 384,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-968",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 22,
+      "x": 384,
+      "y": 416,
+      "z": 22005,
+      "bounds": {
+        "x": 352,
+        "y": 384,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-538",
+      "sprite": "furniture_desk.png",
+      "gx": 10,
+      "gy": 12,
+      "x": 1024,
+      "y": 416,
+      "z": 22010,
+      "bounds": {
+        "x": 992,
+        "y": 384,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-65",
+      "sprite": "furniture_system_model_mini.png",
+      "gx": 21,
+      "gy": 1,
+      "x": 1728,
+      "y": 416,
+      "z": 22010,
+      "bounds": {
+        "x": 1696,
+        "y": 384,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-323",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 15,
+      "gy": 7,
+      "x": 1344,
+      "y": 416,
+      "z": 22030,
+      "bounds": {
+        "x": 1312,
+        "y": 384,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-839",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 3,
+      "gy": 19,
+      "x": 576,
+      "y": 416,
+      "z": 22030,
+      "bounds": {
+        "x": 544,
+        "y": 384,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1012",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 23,
+      "x": 352,
+      "y": 432,
+      "z": 23005,
+      "bounds": {
+        "x": 320,
+        "y": 400,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-195",
+      "sprite": "wall_back_nw.png",
+      "gx": 19,
+      "gy": 4,
+      "x": 1568,
+      "y": 432,
+      "z": 23005,
+      "bounds": {
+        "x": 1536,
+        "y": 400,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-23",
+      "sprite": "wall_back_ne.png",
+      "gx": 23,
+      "gy": 0,
+      "x": 1824,
+      "y": 432,
+      "z": 23005,
+      "bounds": {
+        "x": 1792,
+        "y": 400,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-453",
+      "sprite": "wall_back_ne.png",
+      "gx": 13,
+      "gy": 10,
+      "x": 1184,
+      "y": 432,
+      "z": 23005,
+      "bounds": {
+        "x": 1152,
+        "y": 400,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-668",
+      "sprite": "wall_back_nw.png",
+      "gx": 8,
+      "gy": 15,
+      "x": 864,
+      "y": 432,
+      "z": 23005,
+      "bounds": {
+        "x": 832,
+        "y": 400,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-711",
+      "sprite": "furniture_journal_shelf.png",
+      "gx": 7,
+      "gy": 16,
+      "x": 800,
+      "y": 432,
+      "z": 23010,
+      "bounds": {
+        "x": 768,
+        "y": 400,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-324",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 16,
+      "gy": 7,
+      "x": 1376,
+      "y": 432,
+      "z": 23030,
+      "bounds": {
+        "x": 1344,
+        "y": 400,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-840",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 4,
+      "gy": 19,
+      "x": 608,
+      "y": 432,
+      "z": 23030,
+      "bounds": {
+        "x": 576,
+        "y": 400,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1056",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 24,
+      "x": 320,
+      "y": 448,
+      "z": 24005,
+      "bounds": {
+        "x": 288,
+        "y": 416,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-239",
+      "sprite": "wall_back_nw.png",
+      "gx": 19,
+      "gy": 5,
+      "x": 1536,
+      "y": 448,
+      "z": 24005,
+      "bounds": {
+        "x": 1504,
+        "y": 416,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-24",
+      "sprite": "wall_back_window_day.png",
+      "gx": 24,
+      "gy": 0,
+      "x": 1856,
+      "y": 448,
+      "z": 24005,
+      "bounds": {
+        "x": 1824,
+        "y": 416,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-454",
+      "sprite": "wall_back_ne.png",
+      "gx": 14,
+      "gy": 10,
+      "x": 1216,
+      "y": 448,
+      "z": 24005,
+      "bounds": {
+        "x": 1184,
+        "y": 416,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-712",
+      "sprite": "wall_back_nw.png",
+      "gx": 8,
+      "gy": 16,
+      "x": 832,
+      "y": 448,
+      "z": 24005,
+      "bounds": {
+        "x": 800,
+        "y": 416,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-626",
+      "sprite": "furniture_drawing_desk_tablet.png",
+      "gx": 10,
+      "gy": 14,
+      "x": 960,
+      "y": 448,
+      "z": 24010,
+      "bounds": {
+        "x": 928,
+        "y": 416,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-325",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 17,
+      "gy": 7,
+      "x": 1408,
+      "y": 448,
+      "z": 24030,
+      "bounds": {
+        "x": 1376,
+        "y": 416,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-841",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 5,
+      "gy": 19,
+      "x": 640,
+      "y": 448,
+      "z": 24030,
+      "bounds": {
+        "x": 608,
+        "y": 416,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1100",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 25,
+      "x": 288,
+      "y": 464,
+      "z": 25005,
+      "bounds": {
+        "x": 256,
+        "y": 432,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-25",
+      "sprite": "wall_back_ne.png",
+      "gx": 25,
+      "gy": 0,
+      "x": 1888,
+      "y": 464,
+      "z": 25005,
+      "bounds": {
+        "x": 1856,
+        "y": 432,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-283",
+      "sprite": "wall_back_nw.png",
+      "gx": 19,
+      "gy": 6,
+      "x": 1504,
+      "y": 464,
+      "z": 25005,
+      "bounds": {
+        "x": 1472,
+        "y": 432,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-455",
+      "sprite": "wall_back_ne.png",
+      "gx": 15,
+      "gy": 10,
+      "x": 1248,
+      "y": 464,
+      "z": 25005,
+      "bounds": {
+        "x": 1216,
+        "y": 432,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-756",
+      "sprite": "wall_back_nw.png",
+      "gx": 8,
+      "gy": 17,
+      "x": 800,
+      "y": 464,
+      "z": 25005,
+      "bounds": {
+        "x": 768,
+        "y": 432,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-111",
+      "sprite": "furniture_desk.png",
+      "gx": 23,
+      "gy": 2,
+      "x": 1760,
+      "y": 464,
+      "z": 25010,
+      "bounds": {
+        "x": 1728,
+        "y": 432,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-197",
+      "sprite": "furniture_blueprint_table.png",
+      "gx": 21,
+      "gy": 4,
+      "x": 1632,
+      "y": 464,
+      "z": 25010,
+      "bounds": {
+        "x": 1600,
+        "y": 432,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-498",
+      "sprite": "furniture_swatch_wall.png",
+      "gx": 14,
+      "gy": 11,
+      "x": 1184,
+      "y": 464,
+      "z": 25010,
+      "bounds": {
+        "x": 1152,
+        "y": 432,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-326",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 18,
+      "gy": 7,
+      "x": 1440,
+      "y": 464,
+      "z": 25030,
+      "bounds": {
+        "x": 1408,
+        "y": 432,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-842",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 6,
+      "gy": 19,
+      "x": 672,
+      "y": 464,
+      "z": 25030,
+      "bounds": {
+        "x": 640,
+        "y": 432,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1144",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 26,
+      "x": 256,
+      "y": 480,
+      "z": 26005,
+      "bounds": {
+        "x": 224,
+        "y": 448,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-26",
+      "sprite": "wall_back_ne.png",
+      "gx": 26,
+      "gy": 0,
+      "x": 1920,
+      "y": 480,
+      "z": 26005,
+      "bounds": {
+        "x": 1888,
+        "y": 448,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-456",
+      "sprite": "wall_back_ne.png",
+      "gx": 16,
+      "gy": 10,
+      "x": 1280,
+      "y": 480,
+      "z": 26005,
+      "bounds": {
+        "x": 1248,
+        "y": 448,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-499",
+      "sprite": "wall_back_nw.png",
+      "gx": 15,
+      "gy": 11,
+      "x": 1216,
+      "y": 480,
+      "z": 26005,
+      "bounds": {
+        "x": 1184,
+        "y": 448,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-800",
+      "sprite": "wall_back_nw.png",
+      "gx": 8,
+      "gy": 18,
+      "x": 768,
+      "y": 480,
+      "z": 26005,
+      "bounds": {
+        "x": 736,
+        "y": 448,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1101",
+      "sprite": "furniture_attendance_board.png",
+      "gx": 1,
+      "gy": 25,
+      "x": 320,
+      "y": 480,
+      "z": 26010,
+      "bounds": {
+        "x": 288,
+        "y": 448,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-327",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 19,
+      "gy": 7,
+      "x": 1472,
+      "y": 480,
+      "z": 26030,
+      "bounds": {
+        "x": 1440,
+        "y": 448,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-843",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 7,
+      "gy": 19,
+      "x": 704,
+      "y": 480,
+      "z": 26030,
+      "bounds": {
+        "x": 672,
+        "y": 448,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1188",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 27,
+      "x": 224,
+      "y": 496,
+      "z": 27005,
+      "bounds": {
+        "x": 192,
+        "y": 464,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-27",
+      "sprite": "wall_back_ne.png",
+      "gx": 27,
+      "gy": 0,
+      "x": 1952,
+      "y": 496,
+      "z": 27005,
+      "bounds": {
+        "x": 1920,
+        "y": 464,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-457",
+      "sprite": "wall_back_ne.png",
+      "gx": 17,
+      "gy": 10,
+      "x": 1312,
+      "y": 496,
+      "z": 27005,
+      "bounds": {
+        "x": 1280,
+        "y": 464,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-543",
+      "sprite": "wall_back_nw.png",
+      "gx": 15,
+      "gy": 12,
+      "x": 1184,
+      "y": 496,
+      "z": 27005,
+      "bounds": {
+        "x": 1152,
+        "y": 464,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-70",
+      "sprite": "furniture_blueprint_rack.png",
+      "gx": 26,
+      "gy": 1,
+      "x": 1888,
+      "y": 496,
+      "z": 27010,
+      "bounds": {
+        "x": 1856,
+        "y": 464,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-328",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 20,
+      "gy": 7,
+      "x": 1504,
+      "y": 496,
+      "z": 27030,
+      "bounds": {
+        "x": 1472,
+        "y": 464,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-844",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 8,
+      "gy": 19,
+      "x": 736,
+      "y": 496,
+      "z": 27030,
+      "bounds": {
+        "x": 704,
+        "y": 464,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1232",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 28,
+      "x": 192,
+      "y": 512,
+      "z": 28005,
+      "bounds": {
+        "x": 160,
+        "y": 480,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-28",
+      "sprite": "wall_back_ne.png",
+      "gx": 28,
+      "gy": 0,
+      "x": 1984,
+      "y": 512,
+      "z": 28005,
+      "bounds": {
+        "x": 1952,
+        "y": 480,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-458",
+      "sprite": "wall_back_ne.png",
+      "gx": 18,
+      "gy": 10,
+      "x": 1344,
+      "y": 512,
+      "z": 28005,
+      "bounds": {
+        "x": 1312,
+        "y": 480,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-587",
+      "sprite": "wall_back_nw.png",
+      "gx": 15,
+      "gy": 13,
+      "x": 1152,
+      "y": 512,
+      "z": 28005,
+      "bounds": {
+        "x": 1120,
+        "y": 480,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-71",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 1,
+      "x": 1920,
+      "y": 512,
+      "z": 28005,
+      "bounds": {
+        "x": 1888,
+        "y": 480,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-544",
+      "sprite": "furniture_workstation_dev.png",
+      "gx": 16,
+      "gy": 12,
+      "x": 1216,
+      "y": 512,
+      "z": 28010,
+      "bounds": {
+        "x": 1184,
+        "y": 480,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-630",
+      "sprite": "furniture_moodboard.png",
+      "gx": 14,
+      "gy": 14,
+      "x": 1088,
+      "y": 512,
+      "z": 28010,
+      "bounds": {
+        "x": 1056,
+        "y": 480,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-329",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 21,
+      "gy": 7,
+      "x": 1536,
+      "y": 512,
+      "z": 28030,
+      "bounds": {
+        "x": 1504,
+        "y": 480,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-845",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 9,
+      "gy": 19,
+      "x": 768,
+      "y": 512,
+      "z": 28030,
+      "bounds": {
+        "x": 736,
+        "y": 480,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-115",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 2,
+      "x": 1888,
+      "y": 528,
+      "z": 29005,
+      "bounds": {
+        "x": 1856,
+        "y": 496,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1276",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 29,
+      "x": 160,
+      "y": 528,
+      "z": 29005,
+      "bounds": {
+        "x": 128,
+        "y": 496,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-29",
+      "sprite": "wall_back_ne.png",
+      "gx": 29,
+      "gy": 0,
+      "x": 2016,
+      "y": 528,
+      "z": 29005,
+      "bounds": {
+        "x": 1984,
+        "y": 496,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-459",
+      "sprite": "wall_back_doorway.png",
+      "gx": 19,
+      "gy": 10,
+      "x": 1376,
+      "y": 528,
+      "z": 29005,
+      "bounds": {
+        "x": 1344,
+        "y": 496,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-631",
+      "sprite": "wall_back_nw.png",
+      "gx": 15,
+      "gy": 14,
+      "x": 1120,
+      "y": 528,
+      "z": 29005,
+      "bounds": {
+        "x": 1088,
+        "y": 496,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1233",
+      "sprite": "furniture_potted_plant.png",
+      "gx": 1,
+      "gy": 28,
+      "x": 224,
+      "y": 528,
+      "z": 29010,
+      "bounds": {
+        "x": 192,
+        "y": 496,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-201",
+      "sprite": "furniture_blueprint_table.png",
+      "gx": 25,
+      "gy": 4,
+      "x": 1760,
+      "y": 528,
+      "z": 29010,
+      "bounds": {
+        "x": 1728,
+        "y": 496,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-330",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 22,
+      "gy": 7,
+      "x": 1568,
+      "y": 528,
+      "z": 29030,
+      "bounds": {
+        "x": 1536,
+        "y": 496,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-846",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 10,
+      "gy": 19,
+      "x": 800,
+      "y": 528,
+      "z": 29030,
+      "bounds": {
+        "x": 768,
+        "y": 496,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1320",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 30,
+      "x": 128,
+      "y": 544,
+      "z": 30005,
+      "bounds": {
+        "x": 96,
+        "y": 512,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-159",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 3,
+      "x": 1856,
+      "y": 544,
+      "z": 30005,
+      "bounds": {
+        "x": 1824,
+        "y": 512,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-30",
+      "sprite": "wall_back_window_day.png",
+      "gx": 30,
+      "gy": 0,
+      "x": 2048,
+      "y": 544,
+      "z": 30005,
+      "bounds": {
+        "x": 2016,
+        "y": 512,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-460",
+      "sprite": "wall_back_ne.png",
+      "gx": 20,
+      "gy": 10,
+      "x": 1408,
+      "y": 544,
+      "z": 30005,
+      "bounds": {
+        "x": 1376,
+        "y": 512,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-675",
+      "sprite": "wall_back_nw.png",
+      "gx": 15,
+      "gy": 15,
+      "x": 1088,
+      "y": 544,
+      "z": 30005,
+      "bounds": {
+        "x": 1056,
+        "y": 512,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1148",
+      "sprite": "furniture_reception_desk.png",
+      "gx": 4,
+      "gy": 26,
+      "x": 384,
+      "y": 544,
+      "z": 30010,
+      "bounds": {
+        "x": 352,
+        "y": 512,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-546",
+      "sprite": "furniture_chair.png",
+      "gx": 18,
+      "gy": 12,
+      "x": 1280,
+      "y": 544,
+      "z": 30010,
+      "bounds": {
+        "x": 1248,
+        "y": 512,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-632",
+      "sprite": "furniture_workstation_dev.png",
+      "gx": 16,
+      "gy": 14,
+      "x": 1152,
+      "y": 544,
+      "z": 30010,
+      "bounds": {
+        "x": 1120,
+        "y": 512,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-331",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 23,
+      "gy": 7,
+      "x": 1600,
+      "y": 544,
+      "z": 30030,
+      "bounds": {
+        "x": 1568,
+        "y": 512,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-847",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 11,
+      "gy": 19,
+      "x": 832,
+      "y": 544,
+      "z": 30030,
+      "bounds": {
+        "x": 800,
+        "y": 512,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1364",
+      "sprite": "wall_back_nw.png",
+      "gx": 0,
+      "gy": 31,
+      "x": 96,
+      "y": 560,
+      "z": 31005,
+      "bounds": {
+        "x": 64,
+        "y": 528,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-203",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 4,
+      "x": 1824,
+      "y": 560,
+      "z": 31005,
+      "bounds": {
+        "x": 1792,
+        "y": 528,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-31",
+      "sprite": "wall_back_ne.png",
+      "gx": 31,
+      "gy": 0,
+      "x": 2080,
+      "y": 560,
+      "z": 31005,
+      "bounds": {
+        "x": 2048,
+        "y": 528,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-461",
+      "sprite": "wall_back_ne.png",
+      "gx": 21,
+      "gy": 10,
+      "x": 1440,
+      "y": 560,
+      "z": 31005,
+      "bounds": {
+        "x": 1408,
+        "y": 528,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-719",
+      "sprite": "wall_back_nw.png",
+      "gx": 15,
+      "gy": 16,
+      "x": 1056,
+      "y": 560,
+      "z": 31005,
+      "bounds": {
+        "x": 1024,
+        "y": 528,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1149",
+      "sprite": "furniture_reception_desk.png",
+      "gx": 5,
+      "gy": 26,
+      "x": 416,
+      "y": 560,
+      "z": 31010,
+      "bounds": {
+        "x": 384,
+        "y": 528,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1364",
+      "sprite": "wall_front_cutaway_corner_s.png",
+      "gx": 0,
+      "gy": 31,
+      "x": 96,
+      "y": 560,
+      "z": 31030,
+      "bounds": {
+        "x": 64,
+        "y": 528,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-332",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 24,
+      "gy": 7,
+      "x": 1632,
+      "y": 560,
+      "z": 31030,
+      "bounds": {
+        "x": 1600,
+        "y": 528,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-848",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 12,
+      "gy": 19,
+      "x": 864,
+      "y": 560,
+      "z": 31030,
+      "bounds": {
+        "x": 832,
+        "y": 528,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-247",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 5,
+      "x": 1792,
+      "y": 576,
+      "z": 32005,
+      "bounds": {
+        "x": 1760,
+        "y": 544,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-32",
+      "sprite": "wall_back_ne.png",
+      "gx": 32,
+      "gy": 0,
+      "x": 2112,
+      "y": 576,
+      "z": 32005,
+      "bounds": {
+        "x": 2080,
+        "y": 544,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-462",
+      "sprite": "wall_back_ne.png",
+      "gx": 22,
+      "gy": 10,
+      "x": 1472,
+      "y": 576,
+      "z": 32005,
+      "bounds": {
+        "x": 1440,
+        "y": 544,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-763",
+      "sprite": "wall_back_nw.png",
+      "gx": 15,
+      "gy": 17,
+      "x": 1024,
+      "y": 576,
+      "z": 32005,
+      "bounds": {
+        "x": 992,
+        "y": 544,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-634",
+      "sprite": "furniture_chair.png",
+      "gx": 18,
+      "gy": 14,
+      "x": 1216,
+      "y": 576,
+      "z": 32010,
+      "bounds": {
+        "x": 1184,
+        "y": 544,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-720",
+      "sprite": "furniture_workstation_dev.png",
+      "gx": 16,
+      "gy": 16,
+      "x": 1088,
+      "y": 576,
+      "z": 32010,
+      "bounds": {
+        "x": 1056,
+        "y": 544,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-75",
+      "sprite": "furniture_whiteboard.png",
+      "gx": 31,
+      "gy": 1,
+      "x": 2048,
+      "y": 576,
+      "z": 32010,
+      "bounds": {
+        "x": 2016,
+        "y": 544,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1365",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 1,
+      "gy": 31,
+      "x": 128,
+      "y": 576,
+      "z": 32030,
+      "bounds": {
+        "x": 96,
+        "y": 544,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-333",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 25,
+      "gy": 7,
+      "x": 1664,
+      "y": 576,
+      "z": 32030,
+      "bounds": {
+        "x": 1632,
+        "y": 544,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-849",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 13,
+      "gy": 19,
+      "x": 896,
+      "y": 576,
+      "z": 32030,
+      "bounds": {
+        "x": 864,
+        "y": 544,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-291",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 6,
+      "x": 1760,
+      "y": 592,
+      "z": 33005,
+      "bounds": {
+        "x": 1728,
+        "y": 560,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-33",
+      "sprite": "wall_back_ne.png",
+      "gx": 33,
+      "gy": 0,
+      "x": 2144,
+      "y": 592,
+      "z": 33005,
+      "bounds": {
+        "x": 2112,
+        "y": 560,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-463",
+      "sprite": "wall_back_ne.png",
+      "gx": 23,
+      "gy": 10,
+      "x": 1504,
+      "y": 592,
+      "z": 33005,
+      "bounds": {
+        "x": 1472,
+        "y": 560,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-807",
+      "sprite": "wall_back_nw.png",
+      "gx": 15,
+      "gy": 18,
+      "x": 992,
+      "y": 592,
+      "z": 33005,
+      "bounds": {
+        "x": 960,
+        "y": 560,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1022",
+      "sprite": "furniture_achievement_board.png",
+      "gx": 10,
+      "gy": 23,
+      "x": 672,
+      "y": 592,
+      "z": 33010,
+      "bounds": {
+        "x": 640,
+        "y": 560,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-205",
+      "sprite": "furniture_chair_rounded.png",
+      "gx": 29,
+      "gy": 4,
+      "x": 1888,
+      "y": 592,
+      "z": 33010,
+      "bounds": {
+        "x": 1856,
+        "y": 560,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1366",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 2,
+      "gy": 31,
+      "x": 160,
+      "y": 592,
+      "z": 33030,
+      "bounds": {
+        "x": 128,
+        "y": 560,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-334",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 26,
+      "gy": 7,
+      "x": 1696,
+      "y": 592,
+      "z": 33030,
+      "bounds": {
+        "x": 1664,
+        "y": 560,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-850",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 14,
+      "gy": 19,
+      "x": 928,
+      "y": 592,
+      "z": 33030,
+      "bounds": {
+        "x": 896,
+        "y": 560,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-34",
+      "sprite": "wall_back_ne.png",
+      "gx": 34,
+      "gy": 0,
+      "x": 2176,
+      "y": 608,
+      "z": 34005,
+      "bounds": {
+        "x": 2144,
+        "y": 576,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-464",
+      "sprite": "wall_back_ne.png",
+      "gx": 24,
+      "gy": 10,
+      "x": 1536,
+      "y": 608,
+      "z": 34005,
+      "bounds": {
+        "x": 1504,
+        "y": 576,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-507",
+      "sprite": "wall_back_nw.png",
+      "gx": 23,
+      "gy": 11,
+      "x": 1472,
+      "y": 608,
+      "z": 34005,
+      "bounds": {
+        "x": 1440,
+        "y": 576,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1066",
+      "sprite": "furniture_kitchen_fridge.png",
+      "gx": 10,
+      "gy": 24,
+      "x": 640,
+      "y": 608,
+      "z": 34010,
+      "bounds": {
+        "x": 608,
+        "y": 576,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-249",
+      "sprite": "furniture_chair_rounded.png",
+      "gx": 29,
+      "gy": 5,
+      "x": 1856,
+      "y": 608,
+      "z": 34010,
+      "bounds": {
+        "x": 1824,
+        "y": 576,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-722",
+      "sprite": "furniture_chair.png",
+      "gx": 18,
+      "gy": 16,
+      "x": 1152,
+      "y": 608,
+      "z": 34010,
+      "bounds": {
+        "x": 1120,
+        "y": 576,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-808",
+      "sprite": "furniture_workstation_guest.png",
+      "gx": 16,
+      "gy": 18,
+      "x": 1024,
+      "y": 608,
+      "z": 34010,
+      "bounds": {
+        "x": 992,
+        "y": 576,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1367",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 3,
+      "gy": 31,
+      "x": 192,
+      "y": 608,
+      "z": 34030,
+      "bounds": {
+        "x": 160,
+        "y": 576,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-335",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 27,
+      "gy": 7,
+      "x": 1728,
+      "y": 608,
+      "z": 34030,
+      "bounds": {
+        "x": 1696,
+        "y": 576,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-851",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 15,
+      "gy": 19,
+      "x": 960,
+      "y": 608,
+      "z": 34030,
+      "bounds": {
+        "x": 928,
+        "y": 576,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-35",
+      "sprite": "wall_back_ne.png",
+      "gx": 35,
+      "gy": 0,
+      "x": 2208,
+      "y": 624,
+      "z": 35005,
+      "bounds": {
+        "x": 2176,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-465",
+      "sprite": "wall_back_doorway.png",
+      "gx": 25,
+      "gy": 10,
+      "x": 1568,
+      "y": 624,
+      "z": 35005,
+      "bounds": {
+        "x": 1536,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-551",
+      "sprite": "wall_back_nw.png",
+      "gx": 23,
+      "gy": 12,
+      "x": 1440,
+      "y": 624,
+      "z": 35005,
+      "bounds": {
+        "x": 1408,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-78",
+      "sprite": "wall_back_nw.png",
+      "gx": 34,
+      "gy": 1,
+      "x": 2144,
+      "y": 624,
+      "z": 35005,
+      "bounds": {
+        "x": 2112,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1110",
+      "sprite": "furniture_trashcan.png",
+      "gx": 10,
+      "gy": 25,
+      "x": 608,
+      "y": 624,
+      "z": 35010,
+      "bounds": {
+        "x": 576,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1368",
+      "sprite": "furniture_entrance_door.png",
+      "gx": 4,
+      "gy": 31,
+      "x": 224,
+      "y": 624,
+      "z": 35010,
+      "bounds": {
+        "x": 192,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-207",
+      "sprite": "furniture_chair_rounded.png",
+      "gx": 31,
+      "gy": 4,
+      "x": 1952,
+      "y": 624,
+      "z": 35010,
+      "bounds": {
+        "x": 1920,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-594",
+      "sprite": "furniture_pair_standing_desk.png",
+      "gx": 22,
+      "gy": 13,
+      "x": 1376,
+      "y": 624,
+      "z": 35010,
+      "bounds": {
+        "x": 1344,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1368",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 4,
+      "gy": 31,
+      "x": 224,
+      "y": 624,
+      "z": 35030,
+      "bounds": {
+        "x": 192,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-336",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 28,
+      "gy": 7,
+      "x": 1760,
+      "y": 624,
+      "z": 35030,
+      "bounds": {
+        "x": 1728,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-852",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 16,
+      "gy": 19,
+      "x": 992,
+      "y": 624,
+      "z": 35030,
+      "bounds": {
+        "x": 960,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-122",
+      "sprite": "wall_back_nw.png",
+      "gx": 34,
+      "gy": 2,
+      "x": 2112,
+      "y": 640,
+      "z": 36005,
+      "bounds": {
+        "x": 2080,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-36",
+      "sprite": "wall_back_ne.png",
+      "gx": 36,
+      "gy": 0,
+      "x": 2240,
+      "y": 640,
+      "z": 36005,
+      "bounds": {
+        "x": 2208,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-466",
+      "sprite": "wall_back_ne.png",
+      "gx": 26,
+      "gy": 10,
+      "x": 1600,
+      "y": 640,
+      "z": 36005,
+      "bounds": {
+        "x": 1568,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-595",
+      "sprite": "wall_back_nw.png",
+      "gx": 23,
+      "gy": 13,
+      "x": 1408,
+      "y": 640,
+      "z": 36005,
+      "bounds": {
+        "x": 1376,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1025",
+      "sprite": "furniture_espresso_machine.png",
+      "gx": 13,
+      "gy": 23,
+      "x": 768,
+      "y": 640,
+      "z": 36010,
+      "bounds": {
+        "x": 736,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1068",
+      "sprite": "furniture_marble_counter.png",
+      "gx": 12,
+      "gy": 24,
+      "x": 704,
+      "y": 640,
+      "z": 36010,
+      "bounds": {
+        "x": 672,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1240",
+      "sprite": "furniture_potted_plant.png",
+      "gx": 8,
+      "gy": 28,
+      "x": 448,
+      "y": 640,
+      "z": 36010,
+      "bounds": {
+        "x": 416,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1369",
+      "sprite": "furniture_entrance_door.png",
+      "gx": 5,
+      "gy": 31,
+      "x": 256,
+      "y": 640,
+      "z": 36010,
+      "bounds": {
+        "x": 224,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-251",
+      "sprite": "furniture_chair_rounded.png",
+      "gx": 31,
+      "gy": 5,
+      "x": 1920,
+      "y": 640,
+      "z": 36010,
+      "bounds": {
+        "x": 1888,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-810",
+      "sprite": "furniture_chair.png",
+      "gx": 18,
+      "gy": 18,
+      "x": 1088,
+      "y": 640,
+      "z": 36010,
+      "bounds": {
+        "x": 1056,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1369",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 5,
+      "gy": 31,
+      "x": 256,
+      "y": 640,
+      "z": 36030,
+      "bounds": {
+        "x": 224,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-337",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 29,
+      "gy": 7,
+      "x": 1792,
+      "y": 640,
+      "z": 36030,
+      "bounds": {
+        "x": 1760,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-853",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 17,
+      "gy": 19,
+      "x": 1024,
+      "y": 640,
+      "z": 36030,
+      "bounds": {
+        "x": 992,
+        "y": 608,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-166",
+      "sprite": "wall_back_nw.png",
+      "gx": 34,
+      "gy": 3,
+      "x": 2080,
+      "y": 656,
+      "z": 37005,
+      "bounds": {
+        "x": 2048,
+        "y": 624,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-37",
+      "sprite": "wall_back_ne.png",
+      "gx": 37,
+      "gy": 0,
+      "x": 2272,
+      "y": 656,
+      "z": 37005,
+      "bounds": {
+        "x": 2240,
+        "y": 624,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-467",
+      "sprite": "wall_back_ne.png",
+      "gx": 27,
+      "gy": 10,
+      "x": 1632,
+      "y": 656,
+      "z": 37005,
+      "bounds": {
+        "x": 1600,
+        "y": 624,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-639",
+      "sprite": "wall_back_doorway.png",
+      "gx": 23,
+      "gy": 14,
+      "x": 1376,
+      "y": 656,
+      "z": 37005,
+      "bounds": {
+        "x": 1344,
+        "y": 624,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1069",
+      "sprite": "furniture_marble_counter.png",
+      "gx": 13,
+      "gy": 24,
+      "x": 736,
+      "y": 656,
+      "z": 37010,
+      "bounds": {
+        "x": 704,
+        "y": 624,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-209",
+      "sprite": "furniture_chair_rounded.png",
+      "gx": 33,
+      "gy": 4,
+      "x": 2016,
+      "y": 656,
+      "z": 37010,
+      "bounds": {
+        "x": 1984,
+        "y": 624,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-80",
+      "sprite": "furniture_bookcase_tall.png",
+      "gx": 36,
+      "gy": 1,
+      "x": 2208,
+      "y": 656,
+      "z": 37010,
+      "bounds": {
+        "x": 2176,
+        "y": 624,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1370",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 6,
+      "gy": 31,
+      "x": 288,
+      "y": 656,
+      "z": 37030,
+      "bounds": {
+        "x": 256,
+        "y": 624,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-338",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 30,
+      "gy": 7,
+      "x": 1824,
+      "y": 656,
+      "z": 37030,
+      "bounds": {
+        "x": 1792,
+        "y": 624,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-854",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 18,
+      "gy": 19,
+      "x": 1056,
+      "y": 656,
+      "z": 37030,
+      "bounds": {
+        "x": 1024,
+        "y": 624,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-210",
+      "sprite": "wall_back_nw.png",
+      "gx": 34,
+      "gy": 4,
+      "x": 2048,
+      "y": 672,
+      "z": 38005,
+      "bounds": {
+        "x": 2016,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-38",
+      "sprite": "wall_back_window_day.png",
+      "gx": 38,
+      "gy": 0,
+      "x": 2304,
+      "y": 672,
+      "z": 38005,
+      "bounds": {
+        "x": 2272,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-468",
+      "sprite": "wall_back_ne.png",
+      "gx": 28,
+      "gy": 10,
+      "x": 1664,
+      "y": 672,
+      "z": 38005,
+      "bounds": {
+        "x": 1632,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-511",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 11,
+      "x": 1600,
+      "y": 672,
+      "z": 38005,
+      "bounds": {
+        "x": 1568,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-683",
+      "sprite": "wall_back_nw.png",
+      "gx": 23,
+      "gy": 15,
+      "x": 1344,
+      "y": 672,
+      "z": 38005,
+      "bounds": {
+        "x": 1312,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1070",
+      "sprite": "furniture_marble_counter.png",
+      "gx": 14,
+      "gy": 24,
+      "x": 768,
+      "y": 672,
+      "z": 38010,
+      "bounds": {
+        "x": 736,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-253",
+      "sprite": "furniture_chair_rounded.png",
+      "gx": 33,
+      "gy": 5,
+      "x": 1984,
+      "y": 672,
+      "z": 38010,
+      "bounds": {
+        "x": 1952,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-554",
+      "sprite": "furniture_large_monitor_preview.png",
+      "gx": 26,
+      "gy": 12,
+      "x": 1536,
+      "y": 672,
+      "z": 38010,
+      "bounds": {
+        "x": 1504,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-597",
+      "sprite": "furniture_desk.png",
+      "gx": 25,
+      "gy": 13,
+      "x": 1472,
+      "y": 672,
+      "z": 38010,
+      "bounds": {
+        "x": 1440,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1371",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 7,
+      "gy": 31,
+      "x": 320,
+      "y": 672,
+      "z": 38030,
+      "bounds": {
+        "x": 288,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-339",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 31,
+      "gy": 7,
+      "x": 1856,
+      "y": 672,
+      "z": 38030,
+      "bounds": {
+        "x": 1824,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-855",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 19,
+      "gy": 19,
+      "x": 1088,
+      "y": 672,
+      "z": 38030,
+      "bounds": {
+        "x": 1056,
+        "y": 640,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-254",
+      "sprite": "wall_back_nw.png",
+      "gx": 34,
+      "gy": 5,
+      "x": 2016,
+      "y": 688,
+      "z": 39005,
+      "bounds": {
+        "x": 1984,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-39",
+      "sprite": "wall_back_ne.png",
+      "gx": 39,
+      "gy": 0,
+      "x": 2336,
+      "y": 688,
+      "z": 39005,
+      "bounds": {
+        "x": 2304,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-469",
+      "sprite": "wall_back_doorway.png",
+      "gx": 29,
+      "gy": 10,
+      "x": 1696,
+      "y": 688,
+      "z": 39005,
+      "bounds": {
+        "x": 1664,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-555",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 12,
+      "x": 1568,
+      "y": 688,
+      "z": 39005,
+      "bounds": {
+        "x": 1536,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-727",
+      "sprite": "wall_back_nw.png",
+      "gx": 23,
+      "gy": 16,
+      "x": 1312,
+      "y": 688,
+      "z": 39005,
+      "bounds": {
+        "x": 1280,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1243",
+      "sprite": "furniture_table_round.png",
+      "gx": 11,
+      "gy": 28,
+      "x": 544,
+      "y": 688,
+      "z": 39010,
+      "bounds": {
+        "x": 512,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-168",
+      "sprite": "furniture_desk.png",
+      "gx": 36,
+      "gy": 3,
+      "x": 2144,
+      "y": 688,
+      "z": 39010,
+      "bounds": {
+        "x": 2112,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-770",
+      "sprite": "furniture_pair_standing_desk.png",
+      "gx": 22,
+      "gy": 17,
+      "x": 1248,
+      "y": 688,
+      "z": 39010,
+      "bounds": {
+        "x": 1216,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-82",
+      "sprite": "furniture_bookcase_tall.png",
+      "gx": 38,
+      "gy": 1,
+      "x": 2272,
+      "y": 688,
+      "z": 39010,
+      "bounds": {
+        "x": 2240,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1372",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 8,
+      "gy": 31,
+      "x": 352,
+      "y": 688,
+      "z": 39030,
+      "bounds": {
+        "x": 320,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-340",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 32,
+      "gy": 7,
+      "x": 1888,
+      "y": 688,
+      "z": 39030,
+      "bounds": {
+        "x": 1856,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-856",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 20,
+      "gy": 19,
+      "x": 1120,
+      "y": 688,
+      "z": 39030,
+      "bounds": {
+        "x": 1088,
+        "y": 656,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-298",
+      "sprite": "wall_back_nw.png",
+      "gx": 34,
+      "gy": 6,
+      "x": 1984,
+      "y": 704,
+      "z": 40005,
+      "bounds": {
+        "x": 1952,
+        "y": 672,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-40",
+      "sprite": "wall_back_ne.png",
+      "gx": 40,
+      "gy": 0,
+      "x": 2368,
+      "y": 704,
+      "z": 40005,
+      "bounds": {
+        "x": 2336,
+        "y": 672,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-470",
+      "sprite": "wall_back_ne.png",
+      "gx": 30,
+      "gy": 10,
+      "x": 1728,
+      "y": 704,
+      "z": 40005,
+      "bounds": {
+        "x": 1696,
+        "y": 672,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-599",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 13,
+      "x": 1536,
+      "y": 704,
+      "z": 40005,
+      "bounds": {
+        "x": 1504,
+        "y": 672,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-771",
+      "sprite": "wall_back_nw.png",
+      "gx": 23,
+      "gy": 17,
+      "x": 1280,
+      "y": 704,
+      "z": 40005,
+      "bounds": {
+        "x": 1248,
+        "y": 672,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1029",
+      "sprite": "furniture_lounge_sofa.png",
+      "gx": 17,
+      "gy": 23,
+      "x": 896,
+      "y": 704,
+      "z": 40010,
+      "bounds": {
+        "x": 864,
+        "y": 672,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-169",
+      "sprite": "furniture_green_reading_lamp.png",
+      "gx": 37,
+      "gy": 3,
+      "x": 2176,
+      "y": 704,
+      "z": 40010,
+      "bounds": {
+        "x": 2144,
+        "y": 672,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1373",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 9,
+      "gy": 31,
+      "x": 384,
+      "y": 704,
+      "z": 40030,
+      "bounds": {
+        "x": 352,
+        "y": 672,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-341",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 33,
+      "gy": 7,
+      "x": 1920,
+      "y": 704,
+      "z": 40030,
+      "bounds": {
+        "x": 1888,
+        "y": 672,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-857",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 21,
+      "gy": 19,
+      "x": 1152,
+      "y": 704,
+      "z": 40030,
+      "bounds": {
+        "x": 1120,
+        "y": 672,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-41",
+      "sprite": "wall_back_ne.png",
+      "gx": 41,
+      "gy": 0,
+      "x": 2400,
+      "y": 720,
+      "z": 41005,
+      "bounds": {
+        "x": 2368,
+        "y": 688,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-471",
+      "sprite": "wall_back_ne.png",
+      "gx": 31,
+      "gy": 10,
+      "x": 1760,
+      "y": 720,
+      "z": 41005,
+      "bounds": {
+        "x": 1728,
+        "y": 688,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-643",
+      "sprite": "wall_back_doorway.png",
+      "gx": 27,
+      "gy": 14,
+      "x": 1504,
+      "y": 720,
+      "z": 41005,
+      "bounds": {
+        "x": 1472,
+        "y": 688,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-815",
+      "sprite": "wall_back_nw.png",
+      "gx": 23,
+      "gy": 18,
+      "x": 1248,
+      "y": 720,
+      "z": 41005,
+      "bounds": {
+        "x": 1216,
+        "y": 688,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1030",
+      "sprite": "furniture_lounge_sofa.png",
+      "gx": 18,
+      "gy": 23,
+      "x": 928,
+      "y": 720,
+      "z": 41010,
+      "bounds": {
+        "x": 896,
+        "y": 688,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-84",
+      "sprite": "furniture_bookcase_tall.png",
+      "gx": 40,
+      "gy": 1,
+      "x": 2336,
+      "y": 720,
+      "z": 41010,
+      "bounds": {
+        "x": 2304,
+        "y": 688,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1374",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 10,
+      "gy": 31,
+      "x": 416,
+      "y": 720,
+      "z": 41030,
+      "bounds": {
+        "x": 384,
+        "y": 688,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-342",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 34,
+      "gy": 7,
+      "x": 1952,
+      "y": 720,
+      "z": 41030,
+      "bounds": {
+        "x": 1920,
+        "y": 688,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-858",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 22,
+      "gy": 19,
+      "x": 1184,
+      "y": 720,
+      "z": 41030,
+      "bounds": {
+        "x": 1152,
+        "y": 688,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-42",
+      "sprite": "wall_back_window_day.png",
+      "gx": 42,
+      "gy": 0,
+      "x": 2432,
+      "y": 736,
+      "z": 42005,
+      "bounds": {
+        "x": 2400,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-472",
+      "sprite": "wall_back_ne.png",
+      "gx": 32,
+      "gy": 10,
+      "x": 1792,
+      "y": 736,
+      "z": 42005,
+      "bounds": {
+        "x": 1760,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-515",
+      "sprite": "wall_back_nw.png",
+      "gx": 31,
+      "gy": 11,
+      "x": 1728,
+      "y": 736,
+      "z": 42005,
+      "bounds": {
+        "x": 1696,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-687",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 15,
+      "x": 1472,
+      "y": 736,
+      "z": 42005,
+      "bounds": {
+        "x": 1440,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1031",
+      "sprite": "furniture_lounge_sofa.png",
+      "gx": 19,
+      "gy": 23,
+      "x": 960,
+      "y": 736,
+      "z": 42010,
+      "bounds": {
+        "x": 928,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1246",
+      "sprite": "furniture_table_round.png",
+      "gx": 14,
+      "gy": 28,
+      "x": 640,
+      "y": 736,
+      "z": 42010,
+      "bounds": {
+        "x": 608,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-558",
+      "sprite": "furniture_qa_screens.png",
+      "gx": 30,
+      "gy": 12,
+      "x": 1664,
+      "y": 736,
+      "z": 42010,
+      "bounds": {
+        "x": 1632,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-601",
+      "sprite": "furniture_stamp_desk.png",
+      "gx": 29,
+      "gy": 13,
+      "x": 1600,
+      "y": 736,
+      "z": 42010,
+      "bounds": {
+        "x": 1568,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-730",
+      "sprite": "furniture_spare_tiles_pile.png",
+      "gx": 26,
+      "gy": 16,
+      "x": 1408,
+      "y": 736,
+      "z": 42010,
+      "bounds": {
+        "x": 1376,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1375",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 11,
+      "gy": 31,
+      "x": 448,
+      "y": 736,
+      "z": 42030,
+      "bounds": {
+        "x": 416,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-343",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 35,
+      "gy": 7,
+      "x": 1984,
+      "y": 736,
+      "z": 42030,
+      "bounds": {
+        "x": 1952,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-859",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 23,
+      "gy": 19,
+      "x": 1216,
+      "y": 736,
+      "z": 42030,
+      "bounds": {
+        "x": 1184,
+        "y": 704,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-43",
+      "sprite": "wall_back_ne.png",
+      "gx": 43,
+      "gy": 0,
+      "x": 2464,
+      "y": 752,
+      "z": 43005,
+      "bounds": {
+        "x": 2432,
+        "y": 720,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-473",
+      "sprite": "wall_back_doorway.png",
+      "gx": 33,
+      "gy": 10,
+      "x": 1824,
+      "y": 752,
+      "z": 43005,
+      "bounds": {
+        "x": 1792,
+        "y": 720,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-559",
+      "sprite": "wall_back_nw.png",
+      "gx": 31,
+      "gy": 12,
+      "x": 1696,
+      "y": 752,
+      "z": 43005,
+      "bounds": {
+        "x": 1664,
+        "y": 720,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-731",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 16,
+      "x": 1440,
+      "y": 752,
+      "z": 43005,
+      "bounds": {
+        "x": 1408,
+        "y": 720,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1032",
+      "sprite": "furniture_lounge_sofa_corner.png",
+      "gx": 20,
+      "gy": 23,
+      "x": 992,
+      "y": 752,
+      "z": 43010,
+      "bounds": {
+        "x": 960,
+        "y": 720,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-172",
+      "sprite": "furniture_lounge_chair.png",
+      "gx": 40,
+      "gy": 3,
+      "x": 2272,
+      "y": 752,
+      "z": 43010,
+      "bounds": {
+        "x": 2240,
+        "y": 720,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-602",
+      "sprite": "furniture_lamp_pass_fail.png",
+      "gx": 30,
+      "gy": 13,
+      "x": 1632,
+      "y": 752,
+      "z": 43010,
+      "bounds": {
+        "x": 1600,
+        "y": 720,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-86",
+      "sprite": "furniture_bookcase_tall.png",
+      "gx": 42,
+      "gy": 1,
+      "x": 2400,
+      "y": 752,
+      "z": 43010,
+      "bounds": {
+        "x": 2368,
+        "y": 720,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1376",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 12,
+      "gy": 31,
+      "x": 480,
+      "y": 752,
+      "z": 43030,
+      "bounds": {
+        "x": 448,
+        "y": 720,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-344",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 36,
+      "gy": 7,
+      "x": 2016,
+      "y": 752,
+      "z": 43030,
+      "bounds": {
+        "x": 1984,
+        "y": 720,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-860",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 24,
+      "gy": 19,
+      "x": 1248,
+      "y": 752,
+      "z": 43030,
+      "bounds": {
+        "x": 1216,
+        "y": 720,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-474",
+      "sprite": "wall_back_ne.png",
+      "gx": 34,
+      "gy": 10,
+      "x": 1856,
+      "y": 768,
+      "z": 44005,
+      "bounds": {
+        "x": 1824,
+        "y": 736,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-603",
+      "sprite": "wall_back_nw.png",
+      "gx": 31,
+      "gy": 13,
+      "x": 1664,
+      "y": 768,
+      "z": 44005,
+      "bounds": {
+        "x": 1632,
+        "y": 736,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-775",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 17,
+      "x": 1408,
+      "y": 768,
+      "z": 44005,
+      "bounds": {
+        "x": 1376,
+        "y": 736,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-173",
+      "sprite": "furniture_lounge_chair.png",
+      "gx": 41,
+      "gy": 3,
+      "x": 2304,
+      "y": 768,
+      "z": 44010,
+      "bounds": {
+        "x": 2272,
+        "y": 736,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1377",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 13,
+      "gy": 31,
+      "x": 512,
+      "y": 768,
+      "z": 44030,
+      "bounds": {
+        "x": 480,
+        "y": 736,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-345",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 37,
+      "gy": 7,
+      "x": 2048,
+      "y": 768,
+      "z": 44030,
+      "bounds": {
+        "x": 2016,
+        "y": 736,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-861",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 25,
+      "gy": 19,
+      "x": 1280,
+      "y": 768,
+      "z": 44030,
+      "bounds": {
+        "x": 1248,
+        "y": 736,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-87",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 1,
+      "x": 2432,
+      "y": 768,
+      "z": 44030,
+      "bounds": {
+        "x": 2400,
+        "y": 736,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-475",
+      "sprite": "wall_back_ne.png",
+      "gx": 35,
+      "gy": 10,
+      "x": 1888,
+      "y": 784,
+      "z": 45005,
+      "bounds": {
+        "x": 1856,
+        "y": 752,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-647",
+      "sprite": "wall_back_doorway.png",
+      "gx": 31,
+      "gy": 14,
+      "x": 1632,
+      "y": 784,
+      "z": 45005,
+      "bounds": {
+        "x": 1600,
+        "y": 752,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-819",
+      "sprite": "wall_back_nw.png",
+      "gx": 27,
+      "gy": 18,
+      "x": 1376,
+      "y": 784,
+      "z": 45005,
+      "bounds": {
+        "x": 1344,
+        "y": 752,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1249",
+      "sprite": "furniture_table_round.png",
+      "gx": 17,
+      "gy": 28,
+      "x": 736,
+      "y": 784,
+      "z": 45010,
+      "bounds": {
+        "x": 704,
+        "y": 752,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-518",
+      "sprite": "furniture_changelog_board.png",
+      "gx": 34,
+      "gy": 11,
+      "x": 1824,
+      "y": 784,
+      "z": 45010,
+      "bounds": {
+        "x": 1792,
+        "y": 752,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-131",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 2,
+      "x": 2400,
+      "y": 784,
+      "z": 45030,
+      "bounds": {
+        "x": 2368,
+        "y": 752,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1378",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 14,
+      "gy": 31,
+      "x": 544,
+      "y": 784,
+      "z": 45030,
+      "bounds": {
+        "x": 512,
+        "y": 752,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-346",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 38,
+      "gy": 7,
+      "x": 2080,
+      "y": 784,
+      "z": 45030,
+      "bounds": {
+        "x": 2048,
+        "y": 752,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-862",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 26,
+      "gy": 19,
+      "x": 1312,
+      "y": 784,
+      "z": 45030,
+      "bounds": {
+        "x": 1280,
+        "y": 752,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-476",
+      "sprite": "wall_back_ne.png",
+      "gx": 36,
+      "gy": 10,
+      "x": 1920,
+      "y": 800,
+      "z": 46005,
+      "bounds": {
+        "x": 1888,
+        "y": 768,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-519",
+      "sprite": "wall_back_nw.png",
+      "gx": 35,
+      "gy": 11,
+      "x": 1856,
+      "y": 800,
+      "z": 46005,
+      "bounds": {
+        "x": 1824,
+        "y": 768,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-691",
+      "sprite": "wall_back_nw.png",
+      "gx": 31,
+      "gy": 15,
+      "x": 1600,
+      "y": 800,
+      "z": 46005,
+      "bounds": {
+        "x": 1568,
+        "y": 768,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1035",
+      "sprite": "furniture_arcade_cabinet.png",
+      "gx": 23,
+      "gy": 23,
+      "x": 1088,
+      "y": 800,
+      "z": 46010,
+      "bounds": {
+        "x": 1056,
+        "y": 768,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-605",
+      "sprite": "furniture_desk.png",
+      "gx": 33,
+      "gy": 13,
+      "x": 1728,
+      "y": 800,
+      "z": 46010,
+      "bounds": {
+        "x": 1696,
+        "y": 768,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-734",
+      "sprite": "furniture_screen.png",
+      "gx": 30,
+      "gy": 16,
+      "x": 1536,
+      "y": 800,
+      "z": 46010,
+      "bounds": {
+        "x": 1504,
+        "y": 768,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1379",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 15,
+      "gy": 31,
+      "x": 576,
+      "y": 800,
+      "z": 46030,
+      "bounds": {
+        "x": 544,
+        "y": 768,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-175",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 3,
+      "x": 2368,
+      "y": 800,
+      "z": 46030,
+      "bounds": {
+        "x": 2336,
+        "y": 768,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-347",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 39,
+      "gy": 7,
+      "x": 2112,
+      "y": 800,
+      "z": 46030,
+      "bounds": {
+        "x": 2080,
+        "y": 768,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-863",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 27,
+      "gy": 19,
+      "x": 1344,
+      "y": 800,
+      "z": 46030,
+      "bounds": {
+        "x": 1312,
+        "y": 768,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-477",
+      "sprite": "wall_back_ne.png",
+      "gx": 37,
+      "gy": 10,
+      "x": 1952,
+      "y": 816,
+      "z": 47005,
+      "bounds": {
+        "x": 1920,
+        "y": 784,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-563",
+      "sprite": "wall_back_nw.png",
+      "gx": 35,
+      "gy": 12,
+      "x": 1824,
+      "y": 816,
+      "z": 47005,
+      "bounds": {
+        "x": 1792,
+        "y": 784,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-735",
+      "sprite": "wall_back_nw.png",
+      "gx": 31,
+      "gy": 16,
+      "x": 1568,
+      "y": 816,
+      "z": 47005,
+      "bounds": {
+        "x": 1536,
+        "y": 784,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1036",
+      "sprite": "furniture_arcade_cabinet.png",
+      "gx": 24,
+      "gy": 23,
+      "x": 1120,
+      "y": 816,
+      "z": 47010,
+      "bounds": {
+        "x": 1088,
+        "y": 784,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-262",
+      "sprite": "furniture_printing_press.png",
+      "gx": 42,
+      "gy": 5,
+      "x": 2272,
+      "y": 816,
+      "z": 47010,
+      "bounds": {
+        "x": 2240,
+        "y": 784,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1380",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 16,
+      "gy": 31,
+      "x": 608,
+      "y": 816,
+      "z": 47030,
+      "bounds": {
+        "x": 576,
+        "y": 784,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-219",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 4,
+      "x": 2336,
+      "y": 816,
+      "z": 47030,
+      "bounds": {
+        "x": 2304,
+        "y": 784,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-348",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 40,
+      "gy": 7,
+      "x": 2144,
+      "y": 816,
+      "z": 47030,
+      "bounds": {
+        "x": 2112,
+        "y": 784,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-864",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 28,
+      "gy": 19,
+      "x": 1376,
+      "y": 816,
+      "z": 47030,
+      "bounds": {
+        "x": 1344,
+        "y": 784,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-478",
+      "sprite": "wall_back_ne.png",
+      "gx": 38,
+      "gy": 10,
+      "x": 1984,
+      "y": 832,
+      "z": 48005,
+      "bounds": {
+        "x": 1952,
+        "y": 800,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-607",
+      "sprite": "wall_back_nw.png",
+      "gx": 35,
+      "gy": 13,
+      "x": 1792,
+      "y": 832,
+      "z": 48005,
+      "bounds": {
+        "x": 1760,
+        "y": 800,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-779",
+      "sprite": "wall_back_nw.png",
+      "gx": 31,
+      "gy": 17,
+      "x": 1536,
+      "y": 832,
+      "z": 48005,
+      "bounds": {
+        "x": 1504,
+        "y": 800,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1037",
+      "sprite": "furniture_arcade_cabinet.png",
+      "gx": 25,
+      "gy": 23,
+      "x": 1152,
+      "y": 832,
+      "z": 48010,
+      "bounds": {
+        "x": 1120,
+        "y": 800,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1252",
+      "sprite": "furniture_table_round.png",
+      "gx": 20,
+      "gy": 28,
+      "x": 832,
+      "y": 832,
+      "z": 48010,
+      "bounds": {
+        "x": 800,
+        "y": 800,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-650",
+      "sprite": "furniture_conveyor.png",
+      "gx": 34,
+      "gy": 14,
+      "x": 1728,
+      "y": 832,
+      "z": 48010,
+      "bounds": {
+        "x": 1696,
+        "y": 800,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-736",
+      "sprite": "furniture_parcel_rack.png",
+      "gx": 32,
+      "gy": 16,
+      "x": 1600,
+      "y": 832,
+      "z": 48010,
+      "bounds": {
+        "x": 1568,
+        "y": 800,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1381",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 17,
+      "gy": 31,
+      "x": 640,
+      "y": 832,
+      "z": 48030,
+      "bounds": {
+        "x": 608,
+        "y": 800,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-263",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 5,
+      "x": 2304,
+      "y": 832,
+      "z": 48030,
+      "bounds": {
+        "x": 2272,
+        "y": 800,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-349",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 41,
+      "gy": 7,
+      "x": 2176,
+      "y": 832,
+      "z": 48030,
+      "bounds": {
+        "x": 2144,
+        "y": 800,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-865",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 29,
+      "gy": 19,
+      "x": 1408,
+      "y": 832,
+      "z": 48030,
+      "bounds": {
+        "x": 1376,
+        "y": 800,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-479",
+      "sprite": "wall_back_doorway.png",
+      "gx": 39,
+      "gy": 10,
+      "x": 2016,
+      "y": 848,
+      "z": 49005,
+      "bounds": {
+        "x": 1984,
+        "y": 816,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-651",
+      "sprite": "wall_back_doorway.png",
+      "gx": 35,
+      "gy": 14,
+      "x": 1760,
+      "y": 848,
+      "z": 49005,
+      "bounds": {
+        "x": 1728,
+        "y": 816,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-823",
+      "sprite": "wall_back_nw.png",
+      "gx": 31,
+      "gy": 18,
+      "x": 1504,
+      "y": 848,
+      "z": 49005,
+      "bounds": {
+        "x": 1472,
+        "y": 816,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-565",
+      "sprite": "furniture_desk.png",
+      "gx": 37,
+      "gy": 12,
+      "x": 1888,
+      "y": 848,
+      "z": 49010,
+      "bounds": {
+        "x": 1856,
+        "y": 816,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-694",
+      "sprite": "furniture_conveyor.png",
+      "gx": 34,
+      "gy": 15,
+      "x": 1696,
+      "y": 848,
+      "z": 49010,
+      "bounds": {
+        "x": 1664,
+        "y": 816,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1382",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 18,
+      "gy": 31,
+      "x": 672,
+      "y": 848,
+      "z": 49030,
+      "bounds": {
+        "x": 640,
+        "y": 816,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-307",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 6,
+      "x": 2272,
+      "y": 848,
+      "z": 49030,
+      "bounds": {
+        "x": 2240,
+        "y": 816,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-350",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 42,
+      "gy": 7,
+      "x": 2208,
+      "y": 848,
+      "z": 49030,
+      "bounds": {
+        "x": 2176,
+        "y": 816,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-866",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 30,
+      "gy": 19,
+      "x": 1440,
+      "y": 848,
+      "z": 49030,
+      "bounds": {
+        "x": 1408,
+        "y": 816,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-480",
+      "sprite": "wall_back_ne.png",
+      "gx": 40,
+      "gy": 10,
+      "x": 2048,
+      "y": 864,
+      "z": 50005,
+      "bounds": {
+        "x": 2016,
+        "y": 832,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-695",
+      "sprite": "wall_back_nw.png",
+      "gx": 35,
+      "gy": 15,
+      "x": 1728,
+      "y": 864,
+      "z": 50005,
+      "bounds": {
+        "x": 1696,
+        "y": 832,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1039",
+      "sprite": "furniture_neon_sign.png",
+      "gx": 27,
+      "gy": 23,
+      "x": 1216,
+      "y": 864,
+      "z": 50010,
+      "bounds": {
+        "x": 1184,
+        "y": 832,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-523",
+      "sprite": "furniture_soc_map_wall.png",
+      "gx": 39,
+      "gy": 11,
+      "x": 1984,
+      "y": 864,
+      "z": 50010,
+      "bounds": {
+        "x": 1952,
+        "y": 832,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-738",
+      "sprite": "furniture_conveyor.png",
+      "gx": 34,
+      "gy": 16,
+      "x": 1664,
+      "y": 864,
+      "z": 50010,
+      "bounds": {
+        "x": 1632,
+        "y": 832,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-781",
+      "sprite": "furniture_cardboard_box.png",
+      "gx": 33,
+      "gy": 17,
+      "x": 1600,
+      "y": 864,
+      "z": 50010,
+      "bounds": {
+        "x": 1568,
+        "y": 832,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-824",
+      "sprite": "furniture_parcel_rack.png",
+      "gx": 32,
+      "gy": 18,
+      "x": 1536,
+      "y": 864,
+      "z": 50010,
+      "bounds": {
+        "x": 1504,
+        "y": 832,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1383",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 19,
+      "gy": 31,
+      "x": 704,
+      "y": 864,
+      "z": 50030,
+      "bounds": {
+        "x": 672,
+        "y": 832,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-351",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 7,
+      "x": 2240,
+      "y": 864,
+      "z": 50030,
+      "bounds": {
+        "x": 2208,
+        "y": 832,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-867",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 31,
+      "gy": 19,
+      "x": 1472,
+      "y": 864,
+      "z": 50030,
+      "bounds": {
+        "x": 1440,
+        "y": 832,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-481",
+      "sprite": "wall_back_ne.png",
+      "gx": 41,
+      "gy": 10,
+      "x": 2080,
+      "y": 880,
+      "z": 51005,
+      "bounds": {
+        "x": 2048,
+        "y": 848,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-739",
+      "sprite": "wall_back_nw.png",
+      "gx": 35,
+      "gy": 16,
+      "x": 1696,
+      "y": 880,
+      "z": 51005,
+      "bounds": {
+        "x": 1664,
+        "y": 848,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-997",
+      "sprite": "wall_back_nw.png",
+      "gx": 29,
+      "gy": 22,
+      "x": 1312,
+      "y": 880,
+      "z": 51005,
+      "bounds": {
+        "x": 1280,
+        "y": 848,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1212",
+      "sprite": "furniture_beanbag.png",
+      "gx": 24,
+      "gy": 27,
+      "x": 992,
+      "y": 880,
+      "z": 51010,
+      "bounds": {
+        "x": 960,
+        "y": 848,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-567",
+      "sprite": "furniture_alert_console.png",
+      "gx": 39,
+      "gy": 12,
+      "x": 1952,
+      "y": 880,
+      "z": 51010,
+      "bounds": {
+        "x": 1920,
+        "y": 848,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1384",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 20,
+      "gy": 31,
+      "x": 736,
+      "y": 880,
+      "z": 51030,
+      "bounds": {
+        "x": 704,
+        "y": 848,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-395",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 8,
+      "x": 2208,
+      "y": 880,
+      "z": 51030,
+      "bounds": {
+        "x": 2176,
+        "y": 848,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-868",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 32,
+      "gy": 19,
+      "x": 1504,
+      "y": 880,
+      "z": 51030,
+      "bounds": {
+        "x": 1472,
+        "y": 848,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1041",
+      "sprite": "wall_back_nw.png",
+      "gx": 29,
+      "gy": 23,
+      "x": 1280,
+      "y": 896,
+      "z": 52005,
+      "bounds": {
+        "x": 1248,
+        "y": 864,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-482",
+      "sprite": "wall_back_ne.png",
+      "gx": 42,
+      "gy": 10,
+      "x": 2112,
+      "y": 896,
+      "z": 52005,
+      "bounds": {
+        "x": 2080,
+        "y": 864,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-783",
+      "sprite": "wall_back_nw.png",
+      "gx": 35,
+      "gy": 17,
+      "x": 1664,
+      "y": 896,
+      "z": 52005,
+      "bounds": {
+        "x": 1632,
+        "y": 864,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-998",
+      "sprite": "wall_back_ne.png",
+      "gx": 30,
+      "gy": 22,
+      "x": 1344,
+      "y": 896,
+      "z": 52005,
+      "bounds": {
+        "x": 1312,
+        "y": 864,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1127",
+      "sprite": "furniture_billiard_table.png",
+      "gx": 27,
+      "gy": 25,
+      "x": 1152,
+      "y": 896,
+      "z": 52010,
+      "bounds": {
+        "x": 1120,
+        "y": 864,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-740",
+      "sprite": "furniture_server_rack.png",
+      "gx": 36,
+      "gy": 16,
+      "x": 1728,
+      "y": 896,
+      "z": 52010,
+      "bounds": {
+        "x": 1696,
+        "y": 864,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1385",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 21,
+      "gy": 31,
+      "x": 768,
+      "y": 896,
+      "z": 52030,
+      "bounds": {
+        "x": 736,
+        "y": 864,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-439",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 9,
+      "x": 2176,
+      "y": 896,
+      "z": 52030,
+      "bounds": {
+        "x": 2144,
+        "y": 864,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-869",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 33,
+      "gy": 19,
+      "x": 1536,
+      "y": 896,
+      "z": 52030,
+      "bounds": {
+        "x": 1504,
+        "y": 864,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1085",
+      "sprite": "wall_back_nw.png",
+      "gx": 29,
+      "gy": 24,
+      "x": 1248,
+      "y": 912,
+      "z": 53005,
+      "bounds": {
+        "x": 1216,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-483",
+      "sprite": "wall_back_ne.png",
+      "gx": 43,
+      "gy": 10,
+      "x": 2144,
+      "y": 912,
+      "z": 53005,
+      "bounds": {
+        "x": 2112,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-827",
+      "sprite": "wall_back_nw.png",
+      "gx": 35,
+      "gy": 18,
+      "x": 1632,
+      "y": 912,
+      "z": 53005,
+      "bounds": {
+        "x": 1600,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-999",
+      "sprite": "wall_back_ne.png",
+      "gx": 31,
+      "gy": 22,
+      "x": 1376,
+      "y": 912,
+      "z": 53005,
+      "bounds": {
+        "x": 1344,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1042",
+      "sprite": "furniture_quran_shelf.png",
+      "gx": 30,
+      "gy": 23,
+      "x": 1312,
+      "y": 912,
+      "z": 53010,
+      "bounds": {
+        "x": 1280,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1128",
+      "sprite": "furniture_billiard_table.png",
+      "gx": 28,
+      "gy": 25,
+      "x": 1184,
+      "y": 912,
+      "z": 53010,
+      "bounds": {
+        "x": 1152,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1171",
+      "sprite": "furniture_billiard_table.png",
+      "gx": 27,
+      "gy": 26,
+      "x": 1120,
+      "y": 912,
+      "z": 53010,
+      "bounds": {
+        "x": 1088,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1214",
+      "sprite": "furniture_beanbag.png",
+      "gx": 26,
+      "gy": 27,
+      "x": 1056,
+      "y": 912,
+      "z": 53010,
+      "bounds": {
+        "x": 1024,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-569",
+      "sprite": "furniture_desk.png",
+      "gx": 41,
+      "gy": 12,
+      "x": 2016,
+      "y": 912,
+      "z": 53010,
+      "bounds": {
+        "x": 1984,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-784",
+      "sprite": "furniture_server_rack.png",
+      "gx": 36,
+      "gy": 17,
+      "x": 1696,
+      "y": 912,
+      "z": 53010,
+      "bounds": {
+        "x": 1664,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1386",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 22,
+      "gy": 31,
+      "x": 800,
+      "y": 912,
+      "z": 53030,
+      "bounds": {
+        "x": 768,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-483",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 10,
+      "x": 2144,
+      "y": 912,
+      "z": 53030,
+      "bounds": {
+        "x": 2112,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-870",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 34,
+      "gy": 19,
+      "x": 1568,
+      "y": 912,
+      "z": 53030,
+      "bounds": {
+        "x": 1536,
+        "y": 880,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1000",
+      "sprite": "wall_back_ne.png",
+      "gx": 32,
+      "gy": 22,
+      "x": 1408,
+      "y": 928,
+      "z": 54005,
+      "bounds": {
+        "x": 1376,
+        "y": 896,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1129",
+      "sprite": "wall_back_nw.png",
+      "gx": 29,
+      "gy": 25,
+      "x": 1216,
+      "y": 928,
+      "z": 54005,
+      "bounds": {
+        "x": 1184,
+        "y": 896,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1043",
+      "sprite": "furniture_wudhu_station.png",
+      "gx": 31,
+      "gy": 23,
+      "x": 1344,
+      "y": 928,
+      "z": 54010,
+      "bounds": {
+        "x": 1312,
+        "y": 896,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1172",
+      "sprite": "furniture_billiard_table.png",
+      "gx": 28,
+      "gy": 26,
+      "x": 1152,
+      "y": 928,
+      "z": 54010,
+      "bounds": {
+        "x": 1120,
+        "y": 896,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-828",
+      "sprite": "furniture_server_rack.png",
+      "gx": 36,
+      "gy": 18,
+      "x": 1664,
+      "y": 928,
+      "z": 54010,
+      "bounds": {
+        "x": 1632,
+        "y": 896,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1387",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 23,
+      "gy": 31,
+      "x": 832,
+      "y": 928,
+      "z": 54030,
+      "bounds": {
+        "x": 800,
+        "y": 896,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-527",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 11,
+      "x": 2112,
+      "y": 928,
+      "z": 54030,
+      "bounds": {
+        "x": 2080,
+        "y": 896,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-871",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 35,
+      "gy": 19,
+      "x": 1600,
+      "y": 928,
+      "z": 54030,
+      "bounds": {
+        "x": 1568,
+        "y": 896,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1001",
+      "sprite": "wall_back_doorway.png",
+      "gx": 33,
+      "gy": 22,
+      "x": 1440,
+      "y": 944,
+      "z": 55005,
+      "bounds": {
+        "x": 1408,
+        "y": 912,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1173",
+      "sprite": "wall_back_nw.png",
+      "gx": 29,
+      "gy": 26,
+      "x": 1184,
+      "y": 944,
+      "z": 55005,
+      "bounds": {
+        "x": 1152,
+        "y": 912,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1044",
+      "sprite": "furniture_wudhu_station.png",
+      "gx": 32,
+      "gy": 23,
+      "x": 1376,
+      "y": 944,
+      "z": 55010,
+      "bounds": {
+        "x": 1344,
+        "y": 912,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1216",
+      "sprite": "furniture_beanbag.png",
+      "gx": 28,
+      "gy": 27,
+      "x": 1120,
+      "y": 944,
+      "z": 55010,
+      "bounds": {
+        "x": 1088,
+        "y": 912,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1388",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 24,
+      "gy": 31,
+      "x": 864,
+      "y": 944,
+      "z": 55030,
+      "bounds": {
+        "x": 832,
+        "y": 912,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-571",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 12,
+      "x": 2080,
+      "y": 944,
+      "z": 55030,
+      "bounds": {
+        "x": 2048,
+        "y": 912,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-872",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 36,
+      "gy": 19,
+      "x": 1632,
+      "y": 944,
+      "z": 55030,
+      "bounds": {
+        "x": 1600,
+        "y": 912,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1002",
+      "sprite": "wall_back_ne.png",
+      "gx": 34,
+      "gy": 22,
+      "x": 1472,
+      "y": 960,
+      "z": 56005,
+      "bounds": {
+        "x": 1440,
+        "y": 928,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1217",
+      "sprite": "wall_back_nw.png",
+      "gx": 29,
+      "gy": 27,
+      "x": 1152,
+      "y": 960,
+      "z": 56005,
+      "bounds": {
+        "x": 1120,
+        "y": 928,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1174",
+      "sprite": "furniture_shaf_partition.png",
+      "gx": 30,
+      "gy": 26,
+      "x": 1216,
+      "y": 960,
+      "z": 56010,
+      "bounds": {
+        "x": 1184,
+        "y": 928,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1389",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 25,
+      "gy": 31,
+      "x": 896,
+      "y": 960,
+      "z": 56030,
+      "bounds": {
+        "x": 864,
+        "y": 928,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-615",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 13,
+      "x": 2048,
+      "y": 960,
+      "z": 56030,
+      "bounds": {
+        "x": 2016,
+        "y": 928,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-873",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 37,
+      "gy": 19,
+      "x": 1664,
+      "y": 960,
+      "z": 56030,
+      "bounds": {
+        "x": 1632,
+        "y": 928,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1003",
+      "sprite": "wall_back_ne.png",
+      "gx": 35,
+      "gy": 22,
+      "x": 1504,
+      "y": 976,
+      "z": 57005,
+      "bounds": {
+        "x": 1472,
+        "y": 944,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1261",
+      "sprite": "wall_back_nw.png",
+      "gx": 29,
+      "gy": 28,
+      "x": 1120,
+      "y": 976,
+      "z": 57005,
+      "bounds": {
+        "x": 1088,
+        "y": 944,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1046",
+      "sprite": "furniture_wudhu_station.png",
+      "gx": 34,
+      "gy": 23,
+      "x": 1440,
+      "y": 976,
+      "z": 57010,
+      "bounds": {
+        "x": 1408,
+        "y": 944,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1390",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 26,
+      "gy": 31,
+      "x": 928,
+      "y": 976,
+      "z": 57030,
+      "bounds": {
+        "x": 896,
+        "y": 944,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-659",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 14,
+      "x": 2016,
+      "y": 976,
+      "z": 57030,
+      "bounds": {
+        "x": 1984,
+        "y": 944,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-874",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 38,
+      "gy": 19,
+      "x": 1696,
+      "y": 976,
+      "z": 57030,
+      "bounds": {
+        "x": 1664,
+        "y": 944,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1004",
+      "sprite": "wall_back_ne.png",
+      "gx": 36,
+      "gy": 22,
+      "x": 1536,
+      "y": 992,
+      "z": 58005,
+      "bounds": {
+        "x": 1504,
+        "y": 960,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1305",
+      "sprite": "wall_back_nw.png",
+      "gx": 29,
+      "gy": 29,
+      "x": 1088,
+      "y": 992,
+      "z": 58005,
+      "bounds": {
+        "x": 1056,
+        "y": 960,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1047",
+      "sprite": "furniture_wudhu_station.png",
+      "gx": 35,
+      "gy": 23,
+      "x": 1472,
+      "y": 992,
+      "z": 58010,
+      "bounds": {
+        "x": 1440,
+        "y": 960,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1133",
+      "sprite": "furniture_mihrab.png",
+      "gx": 33,
+      "gy": 25,
+      "x": 1344,
+      "y": 992,
+      "z": 58010,
+      "bounds": {
+        "x": 1312,
+        "y": 960,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-746",
+      "sprite": "furniture_server_rack.png",
+      "gx": 42,
+      "gy": 16,
+      "x": 1920,
+      "y": 992,
+      "z": 58010,
+      "bounds": {
+        "x": 1888,
+        "y": 960,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1391",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 27,
+      "gy": 31,
+      "x": 960,
+      "y": 992,
+      "z": 58030,
+      "bounds": {
+        "x": 928,
+        "y": 960,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-703",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 15,
+      "x": 1984,
+      "y": 992,
+      "z": 58030,
+      "bounds": {
+        "x": 1952,
+        "y": 960,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-875",
+      "sprite": "wall_front_cutaway_doorway.png",
+      "gx": 39,
+      "gy": 19,
+      "x": 1728,
+      "y": 992,
+      "z": 58030,
+      "bounds": {
+        "x": 1696,
+        "y": 960,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1048",
+      "sprite": "wall_back_nw.png",
+      "gx": 36,
+      "gy": 23,
+      "x": 1504,
+      "y": 1008,
+      "z": 59005,
+      "bounds": {
+        "x": 1472,
+        "y": 976,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1349",
+      "sprite": "wall_back_nw.png",
+      "gx": 29,
+      "gy": 30,
+      "x": 1056,
+      "y": 1008,
+      "z": 59005,
+      "bounds": {
+        "x": 1024,
+        "y": 976,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-790",
+      "sprite": "furniture_server_rack.png",
+      "gx": 42,
+      "gy": 17,
+      "x": 1888,
+      "y": 1008,
+      "z": 59010,
+      "bounds": {
+        "x": 1856,
+        "y": 976,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1392",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 28,
+      "gy": 31,
+      "x": 992,
+      "y": 1008,
+      "z": 59030,
+      "bounds": {
+        "x": 960,
+        "y": 976,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-747",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 16,
+      "x": 1952,
+      "y": 1008,
+      "z": 59030,
+      "bounds": {
+        "x": 1920,
+        "y": 976,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-876",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 40,
+      "gy": 19,
+      "x": 1760,
+      "y": 1008,
+      "z": 59030,
+      "bounds": {
+        "x": 1728,
+        "y": 976,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1092",
+      "sprite": "wall_back_nw.png",
+      "gx": 36,
+      "gy": 24,
+      "x": 1472,
+      "y": 1024,
+      "z": 60005,
+      "bounds": {
+        "x": 1440,
+        "y": 992,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-834",
+      "sprite": "furniture_server_rack.png",
+      "gx": 42,
+      "gy": 18,
+      "x": 1856,
+      "y": 1024,
+      "z": 60010,
+      "bounds": {
+        "x": 1824,
+        "y": 992,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1393",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 29,
+      "gy": 31,
+      "x": 1024,
+      "y": 1024,
+      "z": 60030,
+      "bounds": {
+        "x": 992,
+        "y": 992,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-791",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 17,
+      "x": 1920,
+      "y": 1024,
+      "z": 60030,
+      "bounds": {
+        "x": 1888,
+        "y": 992,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-877",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 41,
+      "gy": 19,
+      "x": 1792,
+      "y": 1024,
+      "z": 60030,
+      "bounds": {
+        "x": 1760,
+        "y": 992,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1136",
+      "sprite": "wall_back_nw.png",
+      "gx": 36,
+      "gy": 25,
+      "x": 1440,
+      "y": 1040,
+      "z": 61005,
+      "bounds": {
+        "x": 1408,
+        "y": 1008,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1093",
+      "sprite": "furniture_pool_lounger.png",
+      "gx": 37,
+      "gy": 24,
+      "x": 1504,
+      "y": 1040,
+      "z": 61010,
+      "bounds": {
+        "x": 1472,
+        "y": 1008,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1394",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 30,
+      "gy": 31,
+      "x": 1056,
+      "y": 1040,
+      "z": 61030,
+      "bounds": {
+        "x": 1024,
+        "y": 1008,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-835",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 18,
+      "x": 1888,
+      "y": 1040,
+      "z": 61030,
+      "bounds": {
+        "x": 1856,
+        "y": 1008,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-878",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 42,
+      "gy": 19,
+      "x": 1824,
+      "y": 1040,
+      "z": 61030,
+      "bounds": {
+        "x": 1792,
+        "y": 1008,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1180",
+      "sprite": "wall_back_nw.png",
+      "gx": 36,
+      "gy": 26,
+      "x": 1408,
+      "y": 1056,
+      "z": 62005,
+      "bounds": {
+        "x": 1376,
+        "y": 1024,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1137",
+      "sprite": "furniture_pool_umbrella.png",
+      "gx": 37,
+      "gy": 25,
+      "x": 1472,
+      "y": 1056,
+      "z": 62010,
+      "bounds": {
+        "x": 1440,
+        "y": 1024,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1180",
+      "sprite": "furniture_shaf_partition.png",
+      "gx": 36,
+      "gy": 26,
+      "x": 1408,
+      "y": 1056,
+      "z": 62010,
+      "bounds": {
+        "x": 1376,
+        "y": 1024,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1395",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 31,
+      "gy": 31,
+      "x": 1088,
+      "y": 1056,
+      "z": 62030,
+      "bounds": {
+        "x": 1056,
+        "y": 1024,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-879",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 19,
+      "x": 1856,
+      "y": 1056,
+      "z": 62030,
+      "bounds": {
+        "x": 1824,
+        "y": 1024,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1224",
+      "sprite": "wall_back_nw.png",
+      "gx": 36,
+      "gy": 27,
+      "x": 1376,
+      "y": 1072,
+      "z": 63005,
+      "bounds": {
+        "x": 1344,
+        "y": 1040,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1138",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 38,
+      "gy": 25,
+      "x": 1504,
+      "y": 1072,
+      "z": 63010,
+      "bounds": {
+        "x": 1472,
+        "y": 1040,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1181",
+      "sprite": "furniture_pool_lounger.png",
+      "gx": 37,
+      "gy": 26,
+      "x": 1440,
+      "y": 1072,
+      "z": 63010,
+      "bounds": {
+        "x": 1408,
+        "y": 1040,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1396",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 32,
+      "gy": 31,
+      "x": 1120,
+      "y": 1072,
+      "z": 63030,
+      "bounds": {
+        "x": 1088,
+        "y": 1040,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-923",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 20,
+      "x": 1824,
+      "y": 1072,
+      "z": 63030,
+      "bounds": {
+        "x": 1792,
+        "y": 1040,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1268",
+      "sprite": "wall_back_nw.png",
+      "gx": 36,
+      "gy": 28,
+      "x": 1344,
+      "y": 1088,
+      "z": 64005,
+      "bounds": {
+        "x": 1312,
+        "y": 1056,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1139",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 39,
+      "gy": 25,
+      "x": 1536,
+      "y": 1088,
+      "z": 64010,
+      "bounds": {
+        "x": 1504,
+        "y": 1056,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1182",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 38,
+      "gy": 26,
+      "x": 1472,
+      "y": 1088,
+      "z": 64010,
+      "bounds": {
+        "x": 1440,
+        "y": 1056,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1225",
+      "sprite": "furniture_pool_umbrella.png",
+      "gx": 37,
+      "gy": 27,
+      "x": 1408,
+      "y": 1088,
+      "z": 64010,
+      "bounds": {
+        "x": 1376,
+        "y": 1056,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1397",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 33,
+      "gy": 31,
+      "x": 1152,
+      "y": 1088,
+      "z": 64030,
+      "bounds": {
+        "x": 1120,
+        "y": 1056,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-967",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 21,
+      "x": 1792,
+      "y": 1088,
+      "z": 64030,
+      "bounds": {
+        "x": 1760,
+        "y": 1056,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1312",
+      "sprite": "wall_back_nw.png",
+      "gx": 36,
+      "gy": 29,
+      "x": 1312,
+      "y": 1104,
+      "z": 65005,
+      "bounds": {
+        "x": 1280,
+        "y": 1072,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1140",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 40,
+      "gy": 25,
+      "x": 1568,
+      "y": 1104,
+      "z": 65010,
+      "bounds": {
+        "x": 1536,
+        "y": 1072,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1226",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 38,
+      "gy": 27,
+      "x": 1440,
+      "y": 1104,
+      "z": 65010,
+      "bounds": {
+        "x": 1408,
+        "y": 1072,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1269",
+      "sprite": "furniture_pool_lounger.png",
+      "gx": 37,
+      "gy": 28,
+      "x": 1376,
+      "y": 1104,
+      "z": 65010,
+      "bounds": {
+        "x": 1344,
+        "y": 1072,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1011",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 22,
+      "x": 1760,
+      "y": 1104,
+      "z": 65030,
+      "bounds": {
+        "x": 1728,
+        "y": 1072,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1398",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 34,
+      "gy": 31,
+      "x": 1184,
+      "y": 1104,
+      "z": 65030,
+      "bounds": {
+        "x": 1152,
+        "y": 1072,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_back-1356",
+      "sprite": "wall_back_nw.png",
+      "gx": 36,
+      "gy": 30,
+      "x": 1280,
+      "y": 1120,
+      "z": 66005,
+      "bounds": {
+        "x": 1248,
+        "y": 1088,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1141",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 41,
+      "gy": 25,
+      "x": 1600,
+      "y": 1120,
+      "z": 66010,
+      "bounds": {
+        "x": 1568,
+        "y": 1088,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1270",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 38,
+      "gy": 28,
+      "x": 1408,
+      "y": 1120,
+      "z": 66010,
+      "bounds": {
+        "x": 1376,
+        "y": 1088,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1055",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 23,
+      "x": 1728,
+      "y": 1120,
+      "z": 66030,
+      "bounds": {
+        "x": 1696,
+        "y": 1088,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1399",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 35,
+      "gy": 31,
+      "x": 1216,
+      "y": 1120,
+      "z": 66030,
+      "bounds": {
+        "x": 1184,
+        "y": 1088,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1099",
+      "sprite": "furniture_tropical_plant.png",
+      "gx": 43,
+      "gy": 24,
+      "x": 1696,
+      "y": 1136,
+      "z": 67010,
+      "bounds": {
+        "x": 1664,
+        "y": 1104,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1142",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 42,
+      "gy": 25,
+      "x": 1632,
+      "y": 1136,
+      "z": 67010,
+      "bounds": {
+        "x": 1600,
+        "y": 1104,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1314",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 38,
+      "gy": 29,
+      "x": 1376,
+      "y": 1136,
+      "z": 67010,
+      "bounds": {
+        "x": 1344,
+        "y": 1104,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1357",
+      "sprite": "furniture_tropical_plant.png",
+      "gx": 37,
+      "gy": 30,
+      "x": 1312,
+      "y": 1136,
+      "z": 67010,
+      "bounds": {
+        "x": 1280,
+        "y": 1104,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1099",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 24,
+      "x": 1696,
+      "y": 1136,
+      "z": 67030,
+      "bounds": {
+        "x": 1664,
+        "y": 1104,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1400",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 36,
+      "gy": 31,
+      "x": 1248,
+      "y": 1136,
+      "z": 67030,
+      "bounds": {
+        "x": 1216,
+        "y": 1104,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1186",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 42,
+      "gy": 26,
+      "x": 1600,
+      "y": 1152,
+      "z": 68010,
+      "bounds": {
+        "x": 1568,
+        "y": 1120,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1315",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 39,
+      "gy": 29,
+      "x": 1408,
+      "y": 1152,
+      "z": 68010,
+      "bounds": {
+        "x": 1376,
+        "y": 1120,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1143",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 25,
+      "x": 1664,
+      "y": 1152,
+      "z": 68030,
+      "bounds": {
+        "x": 1632,
+        "y": 1120,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1401",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 37,
+      "gy": 31,
+      "x": 1280,
+      "y": 1152,
+      "z": 68030,
+      "bounds": {
+        "x": 1248,
+        "y": 1120,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1230",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 42,
+      "gy": 27,
+      "x": 1568,
+      "y": 1168,
+      "z": 69010,
+      "bounds": {
+        "x": 1536,
+        "y": 1136,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1316",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 40,
+      "gy": 29,
+      "x": 1440,
+      "y": 1168,
+      "z": 69010,
+      "bounds": {
+        "x": 1408,
+        "y": 1136,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1187",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 26,
+      "x": 1632,
+      "y": 1168,
+      "z": 69030,
+      "bounds": {
+        "x": 1600,
+        "y": 1136,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1402",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 38,
+      "gy": 31,
+      "x": 1312,
+      "y": 1168,
+      "z": 69030,
+      "bounds": {
+        "x": 1280,
+        "y": 1136,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1274",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 42,
+      "gy": 28,
+      "x": 1536,
+      "y": 1184,
+      "z": 70010,
+      "bounds": {
+        "x": 1504,
+        "y": 1152,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1317",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 41,
+      "gy": 29,
+      "x": 1472,
+      "y": 1184,
+      "z": 70010,
+      "bounds": {
+        "x": 1440,
+        "y": 1152,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1231",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 27,
+      "x": 1600,
+      "y": 1184,
+      "z": 70030,
+      "bounds": {
+        "x": 1568,
+        "y": 1152,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1403",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 39,
+      "gy": 31,
+      "x": 1344,
+      "y": 1184,
+      "z": 70030,
+      "bounds": {
+        "x": 1312,
+        "y": 1152,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-1318",
+      "sprite": "furniture_pool_coping.png",
+      "gx": 42,
+      "gy": 29,
+      "x": 1504,
+      "y": 1200,
+      "z": 71010,
+      "bounds": {
+        "x": 1472,
+        "y": 1168,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1275",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 28,
+      "x": 1568,
+      "y": 1200,
+      "z": 71030,
+      "bounds": {
+        "x": 1536,
+        "y": 1168,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1404",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 40,
+      "gy": 31,
+      "x": 1376,
+      "y": 1200,
+      "z": 71030,
+      "bounds": {
+        "x": 1344,
+        "y": 1168,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1319",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 29,
+      "x": 1536,
+      "y": 1216,
+      "z": 72030,
+      "bounds": {
+        "x": 1504,
+        "y": 1184,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1405",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 41,
+      "gy": 31,
+      "x": 1408,
+      "y": 1216,
+      "z": 72030,
+      "bounds": {
+        "x": 1376,
+        "y": 1184,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1363",
+      "sprite": "wall_front_cutaway_se.png",
+      "gx": 43,
+      "gy": 30,
+      "x": 1504,
+      "y": 1232,
+      "z": 73030,
+      "bounds": {
+        "x": 1472,
+        "y": 1200,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1406",
+      "sprite": "wall_front_cutaway_sw.png",
+      "gx": 42,
+      "gy": 31,
+      "x": 1440,
+      "y": 1232,
+      "z": 73030,
+      "bounds": {
+        "x": 1408,
+        "y": 1200,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "walls_front-1407",
+      "sprite": "wall_front_cutaway_corner_s.png",
+      "gx": 43,
+      "gy": 31,
+      "x": 1472,
+      "y": 1248,
+      "z": 74030,
+      "bounds": {
+        "x": 1440,
+        "y": 1216,
+        "width": 64,
+        "height": 64
+      }
+    }
+  ],
+  "provenance": {
+    "sourceCommit": "ae7473c16cb374544c9118d7d36d90515633fe02",
+    "source": "Existing Office generated environment atlas",
+    "license": "See LICENSES.md; source models Kenney CC0",
+    "finalArt": false
+  }
+}

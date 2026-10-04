@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useOfficeStore } from '../store/officeStore';
 import { AGENT_PERSONA_CATALOG } from './AgentInspector';
-import { worldApp } from '../world/WorldApp';
+import { worldController as worldApp } from '../world/worldController';
 
 export const AgentSidebar: React.FC = () => {
   const isOpen = useOfficeStore((s) => s.isAgentSidebarOpen);

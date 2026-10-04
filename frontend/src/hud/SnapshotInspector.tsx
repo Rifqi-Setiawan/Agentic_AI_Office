@@ -29,6 +29,8 @@ export const SnapshotInspector: React.FC = () => {
       className="pointer-events-auto fixed bottom-4 left-4 z-20 bg-[#14141e]/95 backdrop-blur-md border border-[#282d3f] rounded-lg shadow-xl text-xs max-w-sm overflow-hidden select-none"
       role="region"
       aria-label="Panel Verifikasi Mock Snapshot"
+      data-snapshot-panel
+      data-expanded={isExpanded}
     >
       <div className="flex items-center justify-between px-3 py-2 bg-[#1a1c29] border-b border-[#282d3f] gap-2">
         <div className="flex items-center gap-2">
@@ -52,7 +54,7 @@ export const SnapshotInspector: React.FC = () => {
         </button>
       </div>
 
-      <div className="p-3 space-y-1.5 font-mono text-[11px] text-[#9ca8b8]">
+      <div data-snapshot-content className="p-3 space-y-1.5 font-mono text-[11px] text-[#9ca8b8]">
         <div className="flex justify-between">
           <span className="text-[#687594]">Status:</span>
           <span className="text-[#f5f0e1] capitalize">{connectionStatus}</span>
