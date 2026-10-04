@@ -1,0 +1,5 @@
+usage: render_dom_characters.py [-h] [--plan]
+                                [--character {jarvis,daedalus,oracle,merlin,muse,prism,forge,vector,sentinel,bastion,relay,warden,steward,scribe,nova,rifqi,guest}]
+                                [--sample] --output-dir OUTPUT_DIR
+                                [--samples SAMPLES]
+render_dom_characters.py: error: Blender is unavailable. --plan is preparation only; no render has run.

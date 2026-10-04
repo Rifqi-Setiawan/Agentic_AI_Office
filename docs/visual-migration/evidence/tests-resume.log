@@ -1,0 +1,136 @@
+
+> office-v2-frontend@2.0.0 test
+> vitest run --maxWorkers=2 --minWorkers=1
+
+
+ RUN  v2.1.9 C:/Users/Rifqi/Documents/ChatGPT/audit vps/visual-migration-work/Agentic_AI_Office/frontend
+
+ ✓ src/world/easterEgg/easterEgg.test.ts (17 tests) 80ms
+ ✓ src/world/choreographer.test.ts (13 tests) 741ms
+   ✓ T1.14 Choreographer (Task Nyata, Ambient, Event Kolektif) > Kriteria Penerimaan 3: Simulasi 1 jam headless (3.600 dtk) tanpa macet > 5 mnt > memverifikasi tidak ada agen idle/ambient yang berada di 1 tile > 5 menit (300 dtk) 644ms
+ ✓ src/world/bubble.test.ts (16 tests) 106ms
+stdout | src/navigation/pathfinding.test.ts > T1.12 Pathfinding A* dan Reservasi Slot > Kriteria Penerimaan 2: Benchmark pencarian jalur terpanjang < 1 ms > mencapai pencarian jalur terpanjang < 1 ms per query (benchmark Vitest)
+[Benchmark Vitest] Jalur terpanjang (slot_z05_browse_1, 50 langkah): rata-rata 0.1160 ms per pencarian (100 iterasi, total 11.60 ms)
+
+ ✓ src/navigation/pathfinding.test.ts (20 tests) 57ms
+ ✓ src/hud/t1_17_hud.test.tsx (15 tests) 60ms
+ ✓ src/world/rifqiControl.test.ts (14 tests) 52ms
+ ✓ src/floor1_map.test.ts (6 tests) 288ms
+ ✓ src/world/vitalsEnvironment.test.ts (15 tests) 205ms
+ ✓ src/world/eventReactions.test.ts (9 tests) 56ms
+stdout | src/world/qa_sentinel_t1_13.test.tsx > SENTINEL INDEPENDENT QA: T1.13 Entitas Karakter dan FSM Gerak > 5. Acceptance Criterion 1: 16 Karakter Berjalan Bersamaan Tanpa Penurunan FPS di Bawah 60 > verifies 16 characters simultaneous walking benchmark maintains > 60 FPS (frame budget < 16.67ms)
+[Sentinel QA Benchmark] 16 Agents Walking: avg 0.0402 ms/frame -> 24857.4 FPS
+
+ ✓ src/world/qa_sentinel_t1_13.test.tsx (12 tests) 76ms
+ ✓ src/environment.test.ts (8 tests) 13ms
+ ✓ src/world/Character.test.ts (12 tests) 24ms
+ ✓ src/world/conversationBank.test.ts (13 tests) 17ms
+ ✓ src/world/simulation/modelParity.test.ts (11 tests) 197ms
+stdout | src/audio/OfficeAudio.test.ts > Office audio acceptance > all shipped audio fits the 1.5 MB budget
+Audio assets: 8; actual total bytes: 826172; limit: 1500000
+
+ ✓ src/audio/OfficeAudio.test.ts (7 tests) 13ms
+ ✓ src/hud/t2_3_visual_notifications_honest_mode.test.tsx (10 tests) 35ms
+ ✓ src/services/sseClient.test.ts (5 tests) 50ms
+stderr | OfficeSSEClient.pollSnapshotOnce (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\services\sseClient.ts:226:15)
+[SSE] Fallback polling snapshot gagal: [TypeError: fetch failed] {
+  [cause]: AggregateError: 
+      at internalConnectMultiple (node:net:1339:18)
+      at afterConnectMultiple (node:net:1942:7) {
+    code: 'ECONNREFUSED',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+[SSE] Fallback polling snapshot gagal: [TypeError: fetch failed] {
+  [cause]: AggregateError: 
+      at internalConnectMultiple (node:net:1339:18)
+      at afterConnectMultiple (node:net:1942:7) {
+    code: 'ECONNREFUSED',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+
+stderr | src/store/honestMode.test.ts > T2.3: Storage Preferensi Mode Jujur (Acceptance Criteria) > menangani exception localStorage (SecurityError / QuotaExceededError) dengan try/catch tanpa crash
+[ModeJujur] Gagal membaca preferensi dari localStorage: Error: SecurityError: The operation is insecure.
+    at MockStorage.<anonymous> (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:32:13)
+    at MockStorage.mockCall (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/spy/dist/index.js:61:17)
+    at MockStorage.getItem (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/tinyspy/dist/index.js:45:80)
+    at Module.getSavedHonestMode (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestModeStorage.ts:32:27)
+    at C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:39:18
+    at Proxy.assertThrows (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:2767:5)
+    at Proxy.methodWrapper (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:1686:25)
+    at Proxy.<anonymous> (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/expect/dist/index.js:1029:16)
+    at Proxy.overwritingMethodWrapper (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:1735:33)
+    at Proxy.<anonymous> (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/expect/dist/index.js:1509:21)
+[ModeJujur] Gagal membaca preferensi dari localStorage: Error: SecurityError: The operation is insecure.
+    at MockStorage.<anonymous> (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:32:13)
+    at MockStorage.mockCall (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/spy/dist/index.js:61:17)
+    at MockStorage.getItem (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/tinyspy/dist/index.js:45:80)
+    at Module.getSavedHonestMode (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestModeStorage.ts:32:27)
+    at C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:40:12
+    at file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/runner/dist/index.js:146:14
+    at file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/runner/dist/index.js:533:11
+    at runWithTimeout (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/runner/dist/index.js:39:7)
+    at runTest (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/runner/dist/index.js:1056:17)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+[ModeJujur] Gagal menyimpan preferensi ke localStorage: Error: QuotaExceededError: Storage quota exceeded.
+    at MockStorage.<anonymous> (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:35:13)
+    at MockStorage.mockCall (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/spy/dist/index.js:61:17)
+    at MockStorage.setItem (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/tinyspy/dist/index.js:45:80)
+    at Module.saveHonestMode (C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestModeStorage.ts:48:15)
+    at C:\Users\Rifqi\Documents\ChatGPT\audit vps\visual-migration-work\Agentic_AI_Office\frontend\src\store\honestMode.test.ts:43:18
+    at Proxy.assertThrows (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:2767:5)
+    at Proxy.methodWrapper (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:1686:25)
+    at Proxy.<anonymous> (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/expect/dist/index.js:1029:16)
+    at Proxy.overwritingMethodWrapper (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/chai/index.js:1735:33)
+    at Proxy.<anonymous> (file:///C:/Users/Rifqi/Documents/ChatGPT/audit%20vps/visual-migration-work/Agentic_AI_Office/frontend/node_modules/@vitest/expect/dist/index.js:1509:21)
+
+ ✓ src/store/honestMode.test.ts (10 tests) 11ms
+stdout | src/world/drawCalls.test.ts > Draw Calls & Acceptance Criterion 2 (< 30 draw call pada zoom 1x) > enforces Acceptance Criterion 2: < 30 draw call di seluruh peta pada zoom 1x
+[DrawCallTest] Total draw call terhitung di seluruh peta pada zoom 1x: 2 (Batas kriteria: < 30)
+
+ ✓ src/world/drawCalls.test.ts (2 tests) 32ms
+ ✓ src/character_sprites.test.ts (5 tests) 61ms
+ ✓ src/world/depthSort.test.ts (2 tests) 6ms
+stdout | src/world/characterBenchmark.test.ts > T1.13 Acceptance Criterion 1: 16 Karakter Berjalan Bersamaan >= 60 FPS > enforces Acceptance Criterion 1: 16 karakter berjalan bersamaan tanpa penurunan FPS di bawah 60
+[Benchmark T1.13] 16 Karakter Berjalan Simultan: Rata-rata 0.0342 ms/frame (120 frame dieksekusi dalam 4.11 ms) -> Ekuivalen FPS: 29227.7 FPS (Batas anggaran frame 60 FPS: <= 16.67 ms)
+
+ ✓ src/world/characterBenchmark.test.ts (2 tests) 57ms
+ ✓ src/store/officeStore.test.ts (6 tests) 5ms
+ ✓ src/world/honestModeChoreographer.test.ts (3 tests) 20ms
+ ✓ src/world/mapLoader.test.ts (5 tests) 51ms
+ ✓ src/hud/agentInspector.test.tsx (5 tests) 51ms
+ ✓ src/world/scene/SceneCamera.test.ts (4 tests) 5ms
+ ✓ src/world/projection.test.ts (5 tests) 5ms
+ ✓ src/world/activityAnimations.test.ts (4 tests) 9ms
+ ✓ src/spike.test.ts (3 tests) 10ms
+ ✓ src/world/additionalCollective.test.ts (6 tests) 63ms
+ ✓ src/world/camera.test.ts (3 tests) 7ms
+ ✓ src/world/ambientActivities.test.ts (5 tests) 23ms
+ ✓ src/hud/hud.test.tsx (5 tests) 33ms
+stdout | src/bundle.test.ts > Bundle Size Acceptance Criterion > ensures initial JS bundle size <= 400 KB gzip
+Bundle JS Breakdown (gzip): [
+  { file: 'browserAll-DvOefc7Q.js', rawKb: 0.21, gzipKb: 0.16 },
+  { file: 'BubbleManager-Mx5y4tMi.js', rawKb: 132.27, gzipKb: 43.23 },
+  { file: 'howler-Br74NEEg.js', rawKb: 35.98, gzipKb: 9.82 },
+  { file: 'index-DQNh_tZW.js', rawKb: 72.41, gzipKb: 18.17 },
+  { file: 'OfficeScene-CwpdqfYh.js', rawKb: 33.12, gzipKb: 11.03 },
+  { file: 'vendor-gsap-SFc2wnMY.js', rawKb: 68.79, gzipKb: 27.05 },
+  { file: 'vendor-pixi-Qi1s-vvT.js', rawKb: 651.38, gzipKb: 185.52 },
+  { file: 'vendor-react-qvKNXEaU.js', rawKb: 140.62, gzipKb: 45.37 },
+  { file: 'webworkerAll-DbdkKjDP.js', rawKb: 0.12, gzipKb: 0.11 },
+  { file: 'WorldApp-Cyo5iNL2.js', rawKb: 61.22, gzipKb: 17.51 }
+]
+Total initial JS raw: 1196.11 KB, gzip: 357.98 KB (Target: <= 400 KB)
+
+ ✓ src/bundle.test.ts (1 test) 52ms
+ ✓ src/world/culling.test.ts (3 tests) 4ms
+ ✓ src/world/atmosphere.test.ts (1 test) 4ms
+ ✓ src/world/worldApp.test.ts (2 tests) 3ms
+ ✓ src/scaffold.test.ts (2 tests) 2ms
+
+ Test Files  39 passed (39)
+      Tests  287 passed (287)
+   Start at  03:25:33
+   Duration  17.82s (transform 1.02s, setup 147ms, collect 18.84s, tests 2.58s, environment 8ms, prepare 3.82s)
+

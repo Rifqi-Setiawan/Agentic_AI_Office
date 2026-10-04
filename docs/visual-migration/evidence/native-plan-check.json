@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "mandatoryNativeFrameJobs": 2312,
+  "prismSliceFrameJobs": 48,
+  "characters": 17,
+  "directions": [
+    "se",
+    "sw",
+    "ne",
+    "nw"
+  ],
+  "minimumAnimations": {
+    "idle": 4,
+    "walk": 6,
+    "sit_type": 2,
+    "stand_talk": 2,
+    "celebrate": 2,
+    "pray_berdiri": 2,
+    "pray_rukuk": 2,
+    "pray_sujud": 2,
+    "pray_duduk": 2,
+    "drink": 2,
+    "swim": 2,
+    "game": 2,
+    "whiteboard": 2,
+    "special": 2
+  },
+  "protectedOutputPathsRejected": true,
+  "noBlenderExitCode": 2,
+  "noBlenderDidNotCreateOutput": true,
+  "syntaxCompiled": true,
+  "rendered": false,
+  "finalArt": false,
+  "note": "Job/input/output safety verification only. No Blender code or visual review executed."
+}

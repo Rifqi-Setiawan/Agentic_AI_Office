@@ -14,7 +14,10 @@ All application data below came from the repository's existing localhost mock AP
 | Resume after environment interruption around 00:08 WIB | Local Vite had stopped; old browser tabs showed connection-error pages; restarted only localhost fixture Vite | No VPS service/task restart. |
 | Rebind tab 2 after interruption | Browser tool rejected action: URL protocol policy blocks the tab | This is a mandatory browser access blocker. No alternate browser/CDP workaround attempted. |
 | Run Playwright DOM scenario | Launch failed before page execution: Chromium headless-shell executable absent | `evidence/playwright-attempt.log`; test assertions did not run. |
+| Latest resume: bind exact `http://127.0.0.1:5175/?officeRenderer=claude&seed=42` from ambient tab context | Browser tool again rejected the binding under URL protocol policy, although the requested URL was HTTP | The tab was not inspected and no new screenshots/QA were obtained. No alternate surface or indirect workaround attempted. Access restoration requested. |
 
 Still required: saved overview/detail/movement sequence for the final new scene, Founder floor-click/approach movement, inspector selection, public redaction after logout, unknown event attribution, stale/disconnected visuals, prayer/wudhu four poses, pool/arcade/class events, vitals effects, audio, day/night, 1280×800 and 390×844 responsive checks, reduced motion, hide/resume, rollback and a clean final console. Some behaviors are covered by source-retained existing tests or pure model tests; that does not replace browser acceptance.
 
 Do not infer motion footage from screenshots. The model clock ran, and differential movement tests passed, but a saved real browser movement recording is pending. The final art gate is independently blocked by Blender.
+
+Latest camera/CPU LED/AC airflow/reduced-motion fixes have passed typecheck/lint/build and model/camera tests. They remain visually unverified because the current browser binding is denied. Unit-test headless benchmark FPS is not browser render FPS.
