@@ -10,8 +10,11 @@
     <!-- Layer 1: World Canvas (PixiJS v8) -->
     <div id="world-root" class="fixed inset-0 z-0 overflow-hidden"></div>
 
+    <!-- Layer 1.5: Bubble DOM Overlay Pool (tanpa React) -->
+    <div id="bubble-layer" class="fixed inset-0 z-10 pointer-events-none overflow-hidden"></div>
+
     <!-- Layer 2: HUD Overlay (Terpisah - React Root) -->
-    <div id="hud-root" class="fixed inset-0 z-10 pointer-events-none"></div>
+    <div id="hud-root" class="fixed inset-0 z-20 pointer-events-none"></div>
 
     <script type="module" src="/src/main.tsx"></script>
   </body>

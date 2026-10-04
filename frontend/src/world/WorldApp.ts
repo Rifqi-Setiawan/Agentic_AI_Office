@@ -7,6 +7,7 @@ import { WORLD_HEIGHT, WORLD_ORIGIN_X, WORLD_ORIGIN_Y, WORLD_WIDTH } from './pro
 import { CharacterManager } from './CharacterManager';
 import type { Character } from './Character';
 import { Choreographer } from './Choreographer';
+import { BubbleManager } from './bubble';
 import { GridMap, type RawTiledMap } from '../navigation/GridMap';
 import { AStarPathfinder } from '../navigation/AStarPathfinder';
 import { SlotReservationManager } from '../navigation/SlotReservationManager';
@@ -23,6 +24,7 @@ export class WorldApp {
   private loadedMap: LoadedOfficeMap | null = null;
   private characterManager: CharacterManager | null = null;
   private choreographer: Choreographer | null = null;
+  private bubbleManager: BubbleManager | null = null;
   private gridMap: GridMap | null = null;
   private pathfinder: AStarPathfinder | null = null;
   private slotReservationManager: SlotReservationManager | null = null;
@@ -159,6 +161,17 @@ export class WorldApp {
       });
       this.choreographer.init();
 
+      // Inisialisasi BubbleManager (T1.15: DOM overlay pool tanpa React)
+      this.bubbleManager = new BubbleManager({
+        characterManager: this.characterManager,
+        camera: this.camera,
+        app: this.app,
+      });
+
+      this.choreographer.onBubble((event) => {
+        this.bubbleManager?.handleChoreographerBubble(event);
+      });
+
       if (typeof window !== 'undefined') {
         this.characterManager.loadAllCharacterSpritesheets().catch((err) => {
           console.warn('[WorldApp] Gagal memuat spritesheet karakter:', err);
@@ -253,6 +266,11 @@ export class WorldApp {
       this.choreographer.update(dtSec);
     }
 
+    // Pembaruan BubbleManager (T1.15: DOM overlay pool tanpa React)
+    if (this.bubbleManager) {
+      this.bubbleManager.update(dtSec);
+    }
+
     // Pembaruan FSM gerak dan rendering entitas karakter (T1.13)
     if (this.characterManager) {
       this.characterManager.update(dtSec);
@@ -317,6 +335,10 @@ export class WorldApp {
     return this.choreographer;
   }
 
+  public getBubbleManager(): BubbleManager | null {
+    return this.bubbleManager;
+  }
+
   public getGridMap(): GridMap | null {
     return this.gridMap;
   }
@@ -345,6 +367,10 @@ export class WorldApp {
     if (this.choreographer) {
       this.choreographer.destroy();
       this.choreographer = null;
+    }
+    if (this.bubbleManager) {
+      this.bubbleManager.destroy();
+      this.bubbleManager = null;
     }
     if (this.characterManager) {
       this.characterManager.destroy();
