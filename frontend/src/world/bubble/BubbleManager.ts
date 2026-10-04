@@ -19,6 +19,7 @@ import {
 } from './types';
 import { BubblePool } from './BubblePool';
 import { getRandomDialogLine } from './dialogBank';
+import { ConversationPair, getConversationById } from './conversationBank';
 import { resolvePlaceholders } from './placeholder';
 
 let nextBubbleId = 1;
@@ -42,6 +43,14 @@ export class BubbleManager {
 
   private storeUnsubscribe: (() => void) | null = null;
   private prevAgentWorkStates = new Map<string, string>();
+  private activeConversation: {
+    conversation: ConversationPair;
+    currentTurnIndex: number;
+    turnDuration: number;
+    delayRemaining: number;
+    context?: PlaceholderContext;
+    onComplete?: () => void;
+  } | null = null;
 
   constructor(config: BubbleManagerConfig = {}) {
     this.maxBubbles = config.maxBubbles ?? MAX_ACTIVE_BUBBLES;
@@ -380,7 +389,33 @@ export class BubbleManager {
       }
     }
 
-    // 2. Perbarui posisi DOM seluruh bubble yang aktif
+    // 2. Progresi percakapan dua arah (F27) jika sedang aktif
+    if (this.activeConversation) {
+      this.activeConversation.delayRemaining -= dtSec;
+      if (this.activeConversation.delayRemaining <= 0) {
+        const nextTurnIndex = this.activeConversation.currentTurnIndex + 1;
+        const conv = this.activeConversation.conversation;
+        if (nextTurnIndex < conv.turns.length) {
+          this.activeConversation.currentTurnIndex = nextTurnIndex;
+          this.activeConversation.delayRemaining = this.activeConversation.turnDuration;
+          const turn = conv.turns[nextTurnIndex];
+          this.requestBubble({
+            agentId: turn.agent,
+            text: turn.text,
+            kind: 'ambient',
+            duration: this.activeConversation.turnDuration,
+            force: true,
+            context: this.activeConversation.context,
+          });
+        } else {
+          const onComplete = this.activeConversation.onComplete;
+          this.activeConversation = null;
+          onComplete?.();
+        }
+      }
+    }
+
+    // 3. Perbarui posisi DOM seluruh bubble yang aktif
     for (const bubble of this.activeBubbles) {
       this.positionBubbleElement(bubble);
     }
@@ -429,6 +464,88 @@ export class BubbleManager {
     return { x: worldX, y: worldY };
   }
 
+  /**
+   * Menjalankan urutan percakapan dua arah (F27) antar agen.
+   */
+  public playConversation(
+    conversationOrId: ConversationPair | string,
+    options: {
+      turnDurationSec?: number;
+      context?: PlaceholderContext;
+      onComplete?: () => void;
+    } = {},
+  ): boolean {
+    const conversation =
+      typeof conversationOrId === 'string'
+        ? getConversationById(conversationOrId)
+        : conversationOrId;
+
+    if (!conversation || conversation.turns.length === 0) {
+      return false;
+    }
+
+    const turnDuration = options.turnDurationSec ?? 3.5;
+    const firstTurn = conversation.turns[0];
+
+    const started = this.requestBubble({
+      agentId: firstTurn.agent,
+      text: firstTurn.text,
+      kind: 'ambient',
+      duration: turnDuration,
+      force: true,
+      context: options.context,
+    });
+
+    if (!started) return false;
+
+    if (conversation.turns.length > 1) {
+      this.activeConversation = {
+        conversation,
+        currentTurnIndex: 0,
+        turnDuration,
+        delayRemaining: turnDuration,
+        context: options.context,
+        onComplete: options.onComplete,
+      };
+    } else {
+      options.onComplete?.();
+    }
+
+    return true;
+  }
+
+  /**
+   * Alias untuk playConversation.
+   */
+  public triggerConversation(
+    conversationOrId: ConversationPair | string,
+    options: {
+      turnDurationSec?: number;
+      context?: PlaceholderContext;
+      onComplete?: () => void;
+    } = {},
+  ): boolean {
+    return this.playConversation(conversationOrId, options);
+  }
+
+  /**
+   * Mengembalikan status percakapan dua arah yang sedang aktif.
+   */
+  public getActiveConversation(): { id: string; currentTurnIndex: number } | null {
+    if (!this.activeConversation) return null;
+    return {
+      id: this.activeConversation.conversation.id,
+      currentTurnIndex: this.activeConversation.currentTurnIndex,
+    };
+  }
+
+  /**
+   * Menghentikan percakapan dua arah yang sedang berjalan.
+   */
+  public cancelConversation(): void {
+    this.activeConversation = null;
+  }
+
   public getActiveBubbles(): readonly BubbleItem[] {
     return [...this.activeBubbles];
   }
@@ -442,6 +559,7 @@ export class BubbleManager {
   }
 
   public clearAllBubbles(): void {
+    this.cancelConversation();
     for (const bubble of this.activeBubbles) {
       this.pool.release(bubble.element);
     }
@@ -465,6 +583,7 @@ export class BubbleManager {
   }
 
   public destroy(): void {
+    this.cancelConversation();
     if (this.storeUnsubscribe) {
       this.storeUnsubscribe();
       this.storeUnsubscribe = null;

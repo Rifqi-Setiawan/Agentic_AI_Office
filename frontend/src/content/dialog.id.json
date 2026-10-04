@@ -6,7 +6,13 @@
       "Koordinasi lintas divisi: {agent} dalam pemantauan.",
       "Sinkronisasi strategi kuartal dengan target terukur.",
       "Pipeline {proyek} berjalan sesuai timeline eksekutif.",
-      "Mengevaluasi throughput sistem dan beban kerja tim."
+      "Mengevaluasi throughput sistem dan beban kerja tim.",
+      "Prioritas diselaraskan. {proyek} menjadi fokus utama.",
+      "Memantau distribusi beban komputasi di seluruh kluster.",
+      "Efisiensi operasional saat ini mencapai 98 koma 7 persen.",
+      "Mengecek kesiapan eksekusi bersama {agent}.",
+      "Laju pengerjaan berada di jalur hijau tanpa deviasi.",
+      "Alur kerja terstruktur menjamin hasil terukur di {proyek}."
     ],
     "done": [
       "Satu lagi selesai. Saya laporkan ke Rifqi.",
@@ -14,7 +20,13 @@
       "Efisiensi tercatat 99,4 persen. Eksekusi prima.",
       "Hasil terverifikasi. Delegasi berikutnya disiapkan.",
       "Pekerjaan {proyek} ditutup dengan metrik hijau.",
-      "Target terpenuhi dalam tempo {durasi}."
+      "Target terpenuhi dalam tempo {durasi}.",
+      "Laporan keberhasilan siap dikirim ke meja Founder.",
+      "Eksekusi presisi. Milestone ditutup dalam {durasi}.",
+      "Satu fase terlampaui dengan efisiensi maksimal.",
+      "Metrik performa menunjukkan peningkatan yang konsisten.",
+      "Kinerja tim luar biasa. {proyek} selesai tanpa cela.",
+      "Pencapaian tercatat resmi dalam sistem rekapitulasi."
     ],
     "blocked": [
       "Siapa yang menunggu keputusan? Masuk.",
@@ -22,7 +34,13 @@
       "Jalur {proyek} tertahan. Kita evaluasi opsi terbaik.",
       "Ada dependensi tertunda dari {agent}. Hubungi segera.",
       "Bottleneck terdeteksi. Saya ambil alih koordinasi.",
-      "Keputusan strategis dibutuhkan sebelum lanjut."
+      "Keputusan strategis dibutuhkan sebelum lanjut.",
+      "Instruksi khusus diperlukan untuk mengurai kebuntuan.",
+      "Proses di {proyek} dijeda demi mencegah regresi.",
+      "Menunggu konfirmasi parameter arsitektur dari {agent}.",
+      "Eskalasi prioritas tinggi: kita butuh keputusan tegas.",
+      "Analisis risiko berjalan sebelum langkah berikutnya diambil.",
+      "Hambatan terpetakan. Segera koordinasi untuk mitigasi."
     ],
     "failed": [
       "Target meleset. Rapatkan barisan dan cari akar masalah.",
@@ -30,7 +48,13 @@
       "Angka anomali. Hentikan eksekusi dan mitigasi risiko.",
       "Rencana cadangan diaktifkan. Jangan ulangi eror serupa.",
       "Downtime tidak bisa ditoleransi. Segera pulihkan.",
-      "Laporan insiden disiapkan untuk Founder."
+      "Laporan insiden disiapkan untuk Founder.",
+      "Insiden operasional tercatat. Lakukan investigasi menyeluruh.",
+      "Kegagalan adalah data evaluasi. Cari titik kegagalan.",
+      "Anomali terdeteksi di {proyek}. Isolasi dampak sekarang.",
+      "Kita butuh perbaikan terarah, bukan kepanikan.",
+      "Evaluasi ketat segera digelar bersama {agent}.",
+      "Stabilitas sistem prioritas mutlak. Pulihkan layanan."
     ],
     "ambient": [
       "Kopi dulu, lalu briefing.",
@@ -38,7 +62,13 @@
       "Performa kantor meningkat 12 persen minggu ini.",
       "Melihat dashboard sambil merapikan dasi.",
       "Rifqi selalu mengharapkan eksekusi sempurna.",
-      "Disiplin adalah kunci ketahanan sistem."
+      "Disiplin adalah kunci ketahanan sistem.",
+      "Memeriksa agenda kerja sebelum briefing sore.",
+      "Ketertiban alur kerja fondasi keberhasilan kantor ini.",
+      "Menatap monitor utama memantau ritme seluruh pod.",
+      "Secangkir kopi hitam tanpa gula menemani analisis data.",
+      "Koordinasi yang baik mengurangi 90 persen friksi.",
+      "Seluruh parameter operasional berada dalam ambang aman."
     ],
     "collective": [
       "Semua hadir di ruang rapat. Waktu kita sangat berharga.",
@@ -46,7 +76,13 @@
       "Luruskan shaf. Mari kita mulai sholat berjamaah.",
       "Town hall siap. Saya bacakan ringkasan hari ini.",
       "Konsolidasi tim di {proyek}. Tetap sinkron.",
-      "Semua agent kumpul, arahan penting dimulai."
+      "Semua agent kumpul, arahan penting dimulai.",
+      "Briefing kuartal dimulai. Perhatikan paparan angka.",
+      "Fokus bersama di ruang rapat membawa hasil terbaik.",
+      "Merapikan shaf sholat demi ketenangan hati dan pikiran.",
+      "Jeda sejenak untuk memulihkan energi sebelum sprint.",
+      "Semua perwakilan divisi hadir lengkap tanpa absen.",
+      "Konsolidasi tim adalah langkah awal kemenangan bersama."
     ]
   },
   "daedalus": {
@@ -56,7 +92,13 @@
       "Menyusun batas domain antarmuka yang bersih.",
       "Struktur modular mencegah regresi di masa depan.",
       "Rancangan arsitektur harus tahan uji skala.",
-      "Meninjau dependensi antara modul inti dan {agent}."
+      "Meninjau dependensi antara modul inti dan {agent}.",
+      "Memperjelas batas konteks bounded domain di {proyek}.",
+      "Struktur event-driven membebaskan kita dari tight coupling.",
+      "Rancangan topologi ini menjamin skalabilitas horizontal.",
+      "Mengharmonisasikan antarmuka modul bersama {agent}.",
+      "Diagram alir data harus sejelas peta navigasi.",
+      "Desain modular mempermudah pengujian di masa depan."
     ],
     "done": [
       "Blueprint final. Tidak ada dependensi melingkar.",
@@ -64,7 +106,13 @@
       "Arsitektur {proyek} selesai dan siap diimplementasi.",
       "Abstraksi terpasang rapi tanpa kebocoran logika.",
       "Rancangan tuntas dalam durasi {durasi}.",
-      "Peta sistem terverifikasi bersih dan elegan."
+      "Peta sistem terverifikasi bersih dan elegan.",
+      "Topologi terintegrasi rapi. Nol ketergantungan rapuh.",
+      "Rancangan tuntas dieksekusi dalam tempo {durasi}.",
+      "Arsitektur baru ini siap menampung beban sepuluh kali lipat.",
+      "Pola desain terbukti elegan di lingkungan {proyek}.",
+      "Dokumen keputusan arsitektur resmi diarsipkan.",
+      "Fondasi modular terpasang kokoh sesuai blueprint."
     ],
     "blocked": [
       "Asumsinya runtuh. Gambar ulang.",
@@ -72,7 +120,13 @@
       "Ada siklus dependensi dengan modul {agent}.",
       "Perubahan skema {proyek} butuh kajian ADR baru.",
       "Antarmuka belum disepakati. Tahan dulu pembangunan.",
-      "Desain awal tidak mengakomodasi skala saat ini."
+      "Desain awal tidak mengakomodasi skala saat ini.",
+      "Kontrak antarmuka tidak cocok dengan spesifikasi {agent}.",
+      "Ketergantungan siklis terdeteksi pada skema {proyek}.",
+      "Desain tidak boleh diterobos sebelum ada konsensus ADR.",
+      "Menunggu kejelasan domain boundary dari tim terkait.",
+      "Abstraksi bocor terdeteksi. Jangan lanjutkan implementasi.",
+      "Butuh tinjauan ulang arsitektur sebelum melangkah."
     ],
     "failed": [
       "Fondasi goyah. Runtuhkan dan rancang kembali.",
@@ -80,7 +134,13 @@
       "Kebocoran abstraksi fatal di {proyek}.",
       "Kegagalan struktural. Kita harus refactor total.",
       "Skema ini cacat sejak awal. Kembali ke meja gambar.",
-      "Pola usang ini terbukti rapuh di bawah tekanan."
+      "Pola usang ini terbukti rapuh di bawah tekanan.",
+      "Pola monolitik rapuh kembali memicu kegagalan sistem.",
+      "Spesifikasi tidak selaras dengan kenyataan runtime.",
+      "Runtuhnya isolasi domain di modul {proyek}.",
+      "Desain ini tidak lolos uji ketahanan. Gambar ulang.",
+      "Arsitektur harus dirombak agar tidak menjadi beban teknis.",
+      "Kegagalan struktural membuktikan asumsi awal kita keliru."
     ],
     "ambient": [
       "Kantor ini butuh satu koridor lagi.",
@@ -88,7 +148,13 @@
       "Menggambar diagram alur di atas serbet kafe.",
       "Sistem yang baik tidak membuat pengembang pusing.",
       "Garis-garis blueprint ini menenangkan pikiran.",
-      "Tata ruang kantor ini mencerminkan struktur kode."
+      "Tata ruang kantor ini mencerminkan struktur kode.",
+      "Mencoret-coret diagram koneksi di papan tulis kaca.",
+      "Arsitektur yang baik terlihat alami tanpa dipaksakan.",
+      "Melihat denah gedung sambil memikirkan aliran paket data.",
+      "Estetika kode berakar dari kejelasan rancang bangun.",
+      "Menghapus coretan usang untuk memberi ruang ide baru.",
+      "Sistem terdistribusi menuntut disiplin berpikir tinggi."
     ],
     "collective": [
       "Rapat arsitektur dimulai. Mari buka diagramnya.",
@@ -96,7 +162,13 @@
       "Waktunya bersujud. Tinggalkan rancangan fana.",
       "Semua modul kumpul, mari sinkronisasi pemikiran.",
       "Break sejenak. Pikiran jernih melahirkan desain baik.",
-      "Dalam sholat, keteraturan shaf mirip kerapian sistem."
+      "Dalam sholat, keteraturan shaf mirip kerapian sistem.",
+      "Forum arsitektur dibuka. Mari bedah diagram sistem.",
+      "Dalam hening ibadah, kita menemukan kejernihan logika.",
+      "Menyelaraskan visi teknis seluruh kontributor kantor.",
+      "Istirahat sejenak menyegarkan kembali sudut pandang.",
+      "Diskusi terbuka selalu menghasilkan solusi lebih modular.",
+      "Kebersamaan tim adalah perekat arsitektur organisasi."
     ]
   },
   "oracle": {
@@ -106,7 +178,13 @@
       "Katalis komputasi bekerja sesuai rumus stoikiometri.",
       "Logika sains tidak mengenal kata kebetulan.",
       "Menguji variabel bebas bersama {agent}.",
-      "Reaksi analitis berlangsung stabil dalam {durasi}."
+      "Reaksi analitis berlangsung stabil dalam {durasi}.",
+      "Kalkulasi stochastic di {proyek} menunjukkan signifikansi.",
+      "Mengukur koefisien korelasi bersama {agent}.",
+      "Data tidak pernah berbohong jika diolah dengan presisi.",
+      "Mencari pola tersembunyi di balik distribusi Poisson.",
+      "Eksperimen empiris ini sepuluh miliar persen valid!",
+      "Varians menyusut mendekati nol dalam pengujian {durasi}."
     ],
     "done": [
       "Terbukti. Logika tidak pernah bohong.",
@@ -114,7 +192,13 @@
       "Formula {proyek} terbukti valid tanpa anomali.",
       "Eksperimen selesai. Kesimpulan ilmiah tercapai.",
       "Sains menang lagi hari ini di {proyek}.",
-      "Teori terkonfirmasi lewat pengujian berulang."
+      "Teori terkonfirmasi lewat pengujian berulang.",
+      "Model prediktif menghasilkan konvergensi sempurna.",
+      "Angka tidak bisa dibantah. Keberhasilan terbukti mutlak.",
+      "Validasi empiris di {proyek} selesai dengan cemerlang.",
+      "Hipotesis kerja terbukti tanpa celah ambiguitas.",
+      "Sepuluh miliar persen sukses dalam catatan laboratorium.",
+      "Kesimpulan ilmiah berhasil ditarik dengan presisi tinggi."
     ],
     "blocked": [
       "Data kurang. Ilmuwan tidak menebak.",
@@ -122,7 +206,13 @@
       "Hasil eksperimen di {proyek} menghasilkan paradox.",
       "Menunggu hasil observasi independen dari {agent}.",
       "Variabel perancu mengacaukan persamaan matematis.",
-      "Tanpa data akurat, hipotesis ini mandek total."
+      "Tanpa data akurat, hipotesis ini mandek total.",
+      "Ukuran sampel belum mencukupi untuk uji hipotesis.",
+      "P-value tidak signifikan. Butuh observasi tambahan.",
+      "Menunggu dataset terbaru yang belum disetor oleh {agent}.",
+      "Anomali outlier membingungkan algoritma klastering.",
+      "Eksperimen macet karena ketiadaan data kontrol.",
+      "Tanpa signifikansi statistik, riset tidak boleh lanjut."
     ],
     "failed": [
       "Tabung reaksi meledak! Catat deviasi dan ulangi.",
@@ -130,13 +220,25 @@
       "Hipotesis gugur. Tapi kegagalan bahan bakar sains!",
       "Eksperimen {proyek} kolaps akibat kontaminasi data.",
       "Rambutku hangus, tapi datanya sangat menarik!",
-      "Nol persen akurasi. Bersihkan lab dan reset formula."
+      "Nol persen akurasi. Bersihkan lab dan reset formula.",
+      "Data terkontaminasi bias! Buang sampel dan kalibrasi.",
+      "Reagen sains meletup lagi, tapi formulanya makin jelas.",
+      "Model overfit parah di dataset validasi {proyek}.",
+      "Eksperimen gugur, saatnya menyusun hipotesis tandingan.",
+      "Kesalahan pengukuran merusak kesimpulan laboratorium.",
+      "Nol korelasi. Reset seluruh parameter dari awal."
     ],
     "ambient": [
       "Kenapa espresso ini pahit? Ada penjelasan kimianya.",
       "Gravitasi dan kafein, kombinasi terhebat semesta.",
       "Melihat pola fraktal pada pantulan kaca lab.",
       "Dunia ini dibangun atas hukum fisika yang elegan.",
+      "Sepuluh miliar persen yakin hari ini akan produktif.",
+      "Mencampurkan senyawa baru di rak reagen.",
+      "Menatap pantulan prisma dan mengamati dispersi cahaya.",
+      "Rasio emas alam semesta tercermin dalam data kantor.",
+      "Menghitung probabilitas jatuhnya tetesan espresso.",
+      "Otak ilmuwan bekerja bahkan di saat sedang santai.",
       "Sepuluh miliar persen yakin hari ini akan produktif.",
       "Mencampurkan senyawa baru di rak reagen."
     ],
@@ -146,7 +248,13 @@
       "Waktunya bersujud kepada Sang Maha Pencipta semesta.",
       "Diskusi ilmiah bersama seluruh penghuni kantor.",
       "Break kopi untuk mengoptimalkan dopamin otak.",
-      "Shaf teratur mencerminkan kristalisasi atomik sempurna."
+      "Shaf teratur mencerminkan kristalisasi atomik sempurna.",
+      "Seminar ilmiah tim. Mari perhatikan pembuktian teorema.",
+      "Istirahat kafein meningkatkan laju sinapsis neuron otak.",
+      "Shaf sholat yang presisi adalah geometri terindah.",
+      "Kolektif data tim memperkaya wawasan penelitian kita.",
+      "Break sejenak untuk menyeimbangkan neurotransmiter.",
+      "Bersatu dalam sholat, tunduk pada hukum Sang Pencipta."
     ]
   },
   "merlin": {
@@ -156,7 +264,13 @@
       "Membimbing alur berpikir agar konsepnya kokoh.",
       "Mencari analogi yang tepat untuk masalah ini.",
       "Setiap baris kode punya cerita dan tujuannya.",
-      "Mari bedah mekanisme ini bersama {agent}."
+      "Mari bedah mekanisme ini bersama {agent}.",
+      "Bayangkan ini seperti lalu lintas di bundaran kota...",
+      "Menemukan model mental yang pas untuk modul {proyek}.",
+      "Membimbing pemahaman tahap demi tahap bersama {agent}.",
+      "Kode yang baik itu seperti prosa yang mudah dibaca.",
+      "Kita urai benang kusut masalah ini satu per satu.",
+      "Menghubungkan teori abstrak dengan fenomena nyata."
     ],
     "done": [
       "Nah, sekarang konsepnya sudah utuh.",
@@ -164,7 +278,13 @@
       "Fondasi pengetahuan makin mantap dan kuat.",
       "Selesai dalam {durasi}. Langkah belajar yang bagus.",
       "Kalian menangkap inti persoalannya dengan baik.",
-      "Karya rapi tercipta dari pemahaman yang jernih."
+      "Karya rapi tercipta dari pemahaman yang jernih.",
+      "Kini gambaran besarnya terlihat begitu jernih.",
+      "Konsep matang dalam durasi {durasi} pengerjaan.",
+      "Pemahaman yang benar menghasilkan solusi yang awet.",
+      "Selesai dengan indah karena dasarnya dipahami utuh.",
+      "Siswa yang tekun pasti memetik buah pemahaman manis.",
+      "Lompatan konsep di {proyek} berhasil dikuasai tim."
     ],
     "blocked": [
       "Kita mundur satu langkah. Apa yang sebenarnya ditanya?",
@@ -172,7 +292,13 @@
       "Teka-teki di {proyek} butuh sudut pandang berbeda.",
       "Tunggu sebentar, tanyakan premisnya pada {agent}.",
       "Kita kehilangan konteks awal masalah ini.",
-      "Jangan terburu-buru, renungkan kembali tujuannya."
+      "Jangan terburu-buru, renungkan kembali tujuannya.",
+      "Kita kehilangan benang merah. Mari kembali ke definisi.",
+      "Ada miskonsepsi dasar yang perlu kita luruskan dulu.",
+      "Menunggu sudut pandang segar dari {agent}.",
+      "Jangan terburu-buru coding sebelum konsepnya terang.",
+      "Analogi ini macet. Kita butuh perspektif yang berbeda.",
+      "Pertanyaan yang tepat adalah separuh dari jawaban."
     ],
     "failed": [
       "Menghela napas sejenak. Salah adalah bagian belajar.",
@@ -180,7 +306,13 @@
       "Konsep di {proyek} perlu dirombak total.",
       "Eror ini guru terbaik kita. Mari telaah lognya.",
       "Jangan patah semangat. Analogi baru akan segera datang.",
-      "Gagal sekali bukan akhir dari pencarian ilmu."
+      "Gagal sekali bukan akhir dari pencarian ilmu.",
+      "Tidak apa-apa salah, yang penting kita tahu letak kelirunya.",
+      "Konsepnya belum matang sehingga implementasinya rapuh.",
+      "Kegagalan adalah bahan ajar paling berharga di {proyek}.",
+      "Mari tarik napas panjang dan susun analogi baru.",
+      "Salah asumsi sejak awal. Kita mulai dari prinsip pertama.",
+      "Bahkan guru terbaik pun pernah tersandung saat belajar."
     ],
     "ambient": [
       "Ada yang mau kuis singkat?",
@@ -188,7 +320,13 @@
       "Menyeruput teh hangat sambil membaca catatan lama.",
       "Mengelus janggut, menatap papan tulis dengan senyum.",
       "Selalu ada analogi indah untuk setiap kerumitan.",
-      "Bintang di langit pun beredar sesuai aturannya."
+      "Bintang di langit pun beredar sesuai aturannya.",
+      "Melihat riak air kolam sambil memikirkan analogi gelombang.",
+      "Secangkir teh hangat selalu membantu kejernihan berpikir.",
+      "Mengamati cara kerja jam dinding kuno di ruang baca.",
+      "Ada keindahan tersendiri saat orang lain paham konsep baru.",
+      "Siapa yang bisa tebak kenapa busi motor mirip sakelar?",
+      "Membaca buku tua tentang sejarah sains dan komputasi."
     ],
     "collective": [
       "Mari berkumpul. Berbagi ilmu adalah hal terbaik.",
@@ -196,7 +334,13 @@
       "Mari luruskan shaf, menghadap Sang Maha Mengetahui.",
       "Rapat refleksi bersama. Apa hikmah hari ini?",
       "Teh hangat bersama di kafetaria menyegarkan jiwa.",
-      "Salat berjamaah adalah puncak dari kerendahan hati."
+      "Salat berjamaah adalah puncak dari kerendahan hati.",
+      "Sesi mentoring kelompok. Buka pikiran dan tanya apa saja.",
+      "Ibadah bersama mengasah kerendahan hati seorang pembelajar.",
+      "Break santai sambil berbagi kisah inspiratif di kafe.",
+      "Diskusi meja bundar untuk menyamakan frekuensi belajar.",
+      "Menjawab kebingungan tim dengan perumpamaan sederhana.",
+      "Shaf sholat berjamaah melatih keselarasan gerak bersama."
     ]
   },
   "muse": {
@@ -206,7 +350,13 @@
       "Tipografi ini butuh ritme dan hirarki jelas.",
       "Menghapus elemen visual yang tidak esensial.",
       "Memperbaiki kontras komponen bersama {agent}.",
-      "Detail mikro menentukan jiwa sebuah karya."
+      "Detail mikro menentukan jiwa sebuah karya.",
+      "Hierarki visual di {proyek} butuh ritme kontras yang tepat.",
+      "Menyeimbangkan saturasi warna agar mata pengguna nyaman.",
+      "Memperbaiki alignment dan micro-typography bersama {agent}.",
+      "Setiap pixel harus punya alasan keberadaannya di kanvas.",
+      "Layout tanpa grid yang konsisten adalah kekacauan murni.",
+      "Memastikan palet 32 warna dipatuhi tanpa kompromi."
     ],
     "done": [
       "Bersih. Tidak ada slop.",
@@ -214,7 +364,13 @@
       "Setiap piksel berada di tempat yang semestinya.",
       "Tuntas dalam {durasi}. Karya yang sedap dipandang.",
       "Komposisi dan kontras lulus uji estetika.",
-      "Palet warna berpadu anggun tanpa distorsi."
+      "Palet warna berpadu anggun tanpa distorsi.",
+      "Estetika paripurna. Harmonis, bersih, dan memanjakan mata.",
+      "Desain selesai dalam {durasi}. Tipografi bernapas lega.",
+      "Nol slop visual. Standar keindahan kantor terpenuhi.",
+      "Antarmuka {proyek} kini memiliki jiwa dan karakter kuat.",
+      "Swatch warna menyatu sempurna dengan pencahayaan ruang.",
+      "Karya visual yang jujur dan tak lekang oleh zaman."
     ],
     "blocked": [
       "Ini terlihat seperti template. Ulang.",
@@ -222,7 +378,13 @@
       "Layout di {proyek} berantakan di layar kecil.",
       "Menunggu konfirmasi palet dari {agent}.",
       "Kontras warnanya gagal standar aksesibilitas.",
-      "Desain ini kehilangan identitas visual aslinya."
+      "Desain ini kehilangan identitas visual aslinya.",
+      "Komposisi ini berantakan. Tidak boleh diteruskan.",
+      "Ada elemen generik yang merusak integritas desain {proyek}.",
+      "Menunggu masukan palet warna dari {agent}.",
+      "Kontras teks terhadap latar belum memenuhi kriteria aksesibilitas.",
+      "Layout ini terasa sesak. Kita butuh lebih banyak whitespace.",
+      "Desain ini terasa seperti template instan tanpa jiwa."
     ],
     "failed": [
       "Merobek sketsa! Ini terlalu biasa dan membosankan.",
@@ -230,7 +392,13 @@
       "Visual ini bencana! Slop murahan tak punya tempat di sini.",
       "Komposisi hancur total saat dirender.",
       "Pengguna akan tersesat melihat antarmuka buruk ini.",
-      "Desain ditolak. Kembalikan ke konsep dasar!"
+      "Desain ditolak. Kembalikan ke konsep dasar!",
+      "Slop visual terdeteksi! Sobek sketsa dan mulai dari kanvas putih.",
+      "Warna-warna ini bertabrakan tanpa harmoni estetika.",
+      "Kerapian visual hancur lebur di tampilan {proyek}.",
+      "Kombinasi font ini terlalu kaku dan membosankan.",
+      "Komposisi visual gagal menyampaikan pesan yang diinginkan.",
+      "Terlalu banyak ornamen murahan. Sederhanakan kembali."
     ],
     "ambient": [
       "Warna dinding ini perlu dikurangi saturasinya.",
@@ -238,7 +406,13 @@
       "Menata ulang swatch warna di mood board.",
       "Sinar senja ini memiliki gradien yang menakjubkan.",
       "Keindahan sejati lahir dari kesederhanaan.",
-      "Menggeser elemen satu piksel ke kiri terasa pas."
+      "Menggeser elemen satu piksel ke kiri terasa pas.",
+      "Mengamati gradasi cahaya sore yang menembus kaca studio.",
+      "Warna kursi kafe ini harmonis dengan warna lantai kayu.",
+      "Menyusun kartu swatch palet berdasarkan spektrum warna.",
+      "Ruang kerja yang estetis membangkitkan inspirasi kreatif.",
+      "Memperhatikan lekukan tipografi pada sampul buku desain.",
+      "Keindahan sejati terletak pada detail yang tak disadari."
     ],
     "collective": [
       "Semua kumpul! Mari evaluasi identitas visual kita.",
@@ -246,7 +420,13 @@
       "Sholat berjamaah. Menata keindahan dalam barisan.",
       "Rapat desain di {proyek}. Fokus pada konsistensi.",
       "Duduk di kafe sambil menikmati estetika ruangan.",
-      "Kerapian shaf adalah komposisi visual terindah."
+      "Kerapian shaf adalah komposisi visual terindah.",
+      "Review desain bersama tim. Siapkan pandangan estetika kalian.",
+      "Menikmati secangkir latte dengan latte art yang simetris.",
+      "Keteraturan shaf berjamaah adalah simetri visual terindah.",
+      "Kumpul santai sambil mengamati tren desain terkini.",
+      "Kritik desain yang konstruktif mematangkan rasa seni kita.",
+      "Keheningan doa membawa ketenangan batin yang estetik."
     ]
   },
   "prism": {
@@ -256,7 +436,13 @@
       "Memangkas reflow DOM agar tetap 60 fps.",
       "Budget 16 milidetik per frame harus dijaga.",
       "Kolaborasi frontend bareng {agent}.",
-      "Virtualizing list data raksasa tanpa lagging."
+      "Virtualizing list data raksasa tanpa lagging.",
+      "Mengoptimalkan pipeline render agar frame time stabil 16ms.",
+      "Menghilangkan re-render liar di komponen {proyek}.",
+      "Profil rendering bersama {agent}: nol frame drop!",
+      "Batching draw calls PixiJS untuk efisiensi GPU maksimal.",
+      "Memastikan transisi animasi berjalan mulus di 60 fps.",
+      "State store harus efisien, jangan ada mutasi yang lambat."
     ],
     "done": [
       "60 fps stabil. Kirim.",
@@ -264,7 +450,13 @@
       "Render time nol koma empat milidetik. Mulus!",
       "Animasi responsif tuntas dalam {durasi}.",
       "Semua interaksi instan tanpa jeda sedetik pun.",
-      "Komponen UI siap tayang ke pengguna."
+      "Komponen UI siap tayang ke pengguna.",
+      "Frame rate 60 fps terkunci mulus tanpa gangguan.",
+      "Optimasi frontend tuntas dalam waktu {durasi}.",
+      "UI super responsif, interaksi instan tanpa jeda.",
+      "Draw call terpangkas drastis di halaman {proyek}.",
+      "Rendering ringan, baterai pengguna dijamin hemat.",
+      "Paket frontend siap kirim dengan metrik performa hijau."
     ],
     "blocked": [
       "Konsol merah semua...",
@@ -272,7 +464,13 @@
       "Layout thrashing parah di modul {proyek}.",
       "Menunggu response payload yang ringan dari {agent}.",
       "Jank terdeteksi. Frame rate anjlok ke 24 fps.",
-      "State management saling bertabrakan."
+      "State management saling bertabrakan.",
+      "Ada memory leak di event listener! Frame drop parah.",
+      "Komponen {proyek} macet karena bundle script terlalu gemuk.",
+      "Menunggu payload data yang teroptimasi dari {agent}.",
+      "Thread utama terblokir perhitungan berat. Pindahkan ke worker!",
+      "FPS anjlok di bawah 30. Hentikan dulu rilis fitur ini.",
+      "Canvas WebGL context lost. Butuh penanganan recovery."
     ],
     "failed": [
       "Layar putih! Uncaught runtime exception di browser.",
@@ -280,7 +478,13 @@
       "Jank tak tertolong. Drop frame hingga nol!",
       "Bundle size bengkak tak masuk akal. Revert!",
       "Menatap konsol eror sambil memutar kursi pasrah.",
-      "CSS pecah berantakan di resolusi mobile."
+      "CSS pecah berantakan di resolusi mobile.",
+      "Jank di mana-mana! 15 fps memalukan di layar monitor.",
+      "Infinite loop di reaktif hook membuat browser freeze total.",
+      "Shader kompilasi gagal di renderer {proyek}.",
+      "Konsol banjir eror merah dan peringatan unhandled rejection.",
+      "Performa drop total di bawah beban benchmark stres.",
+      "Tampilan glitch parah. Matikan hardware acceleration!"
     ],
     "ambient": [
       "Satu ronde lagi di arcade.",
@@ -288,7 +492,13 @@
       "Siapa yang mau adu skor di game retro?",
       "Dunia akan lebih baik jika semua layar 120Hz.",
       "Menikmati animasi loading yang diprogram rapi.",
-      "Mata saya bisa mendeteksi frame drop 1 milidetik."
+      "Mata saya bisa mendeteksi frame drop 1 milidetik.",
+      "Mengejar high score di mesin arcade pojok rekreasi.",
+      "Kecepatan refresh rate 120Hz sungguh memanjakan mata.",
+      "Melihat pergerakan kursor mouse yang presisi tanpa lag.",
+      "Rehat sejenak sambil meregangkan jari jemari keyboard.",
+      "Teknologi web modern sungguh mengagumkan performanya.",
+      "Satu koin lagi untuk menamatkan game retro favorit."
     ],
     "collective": [
       "Rapat panggilan! Buka laptop dan pantau demo.",
@@ -296,7 +506,13 @@
       "Waktunya sholat. Lepas headphone dan ambil wudhu.",
       "Town hall tim! Proyektor harus tayang 60 fps.",
       "Rehat kopi untuk melemaskan jari dari keyboard.",
-      "Shaf teratur tanpa delay. Ibadah nomor satu."
+      "Shaf teratur tanpa delay. Ibadah nomor satu.",
+      "Demo performa frontend. Perhatikan grafik FPS yang rata.",
+      "Kopi cepat di pantry sebelum turnamen mini arcade.",
+      "Kerapian shaf sholat sejalan dengan efisiensi frame rate.",
+      "Kumpul tim untuk sinkronisasi state aplikasi lintas pod.",
+      "Istirahat bareng menyegarkan fokus mata dari layar CRT.",
+      "Ibadah berjamaah menenangkan pikiran dari kejar-kejaran FPS."
     ]
   },
   "forge": {
@@ -306,7 +522,13 @@
       "Menjamin transaksi database berstatus atomik.",
       "Sistem ini dibangun agar tahan banting di beban puncak.",
       "Sinkronisasi worker pool bersama {agent}.",
-      "Optimasi query kompleks agar respons sub-milidetik."
+      "Optimasi query kompleks agar respons sub-milidetik.",
+      "Membangun endpoint tangguh yang kebal kegagalan jaringan.",
+      "Memasang kueri berindeks di basis data {proyek}.",
+      "Sinkronisasi transaksi atomik bersama {agent}.",
+      "Idempotensi menjamin request ganda tidak merusak data.",
+      "Arsitektur backend harus kokoh bagai benteng baja.",
+      "Menghindari N+1 query agar throughput server maksimal."
     ],
     "done": [
       "Semua 200 OK. Dibuat untuk tahan lama.",
@@ -314,7 +536,13 @@
       "Migrasi data sukses tanpa ada data korup.",
       "Pekerjaan tuntas dalam tempo {durasi}.",
       "Koneksi pool stabil, throughput maksimal.",
-      "Backend siap menahan serbuan jutaan request."
+      "Backend siap menahan serbuan jutaan request.",
+      "Layanan stabil, 200 OK terverifikasi di semua rute.",
+      "Pembangunan backend tuntas dalam durasi {durasi}.",
+      "Migrasi skema sukses tanpa sedetik pun downtime.",
+      "Logika bisnis {proyek} teruji tahan uji beban berat.",
+      "Dibuat kokoh, siap melayani jutaan transaksi.",
+      "Infrastruktur layanan hijau dan siap beroperasi penuh."
     ],
     "blocked": [
       "Migrasi gagal. Rollback dulu.",
@@ -322,7 +550,13 @@
       "Koneksi pool di {proyek} kehabisan slot.",
       "Menunggu validasi skema payload dari {agent}.",
       "Transaksi terisolasi memicu timeout berulang.",
-      "I/O disk terlalu tinggi, operasi dibekukan."
+      "I/O disk terlalu tinggi, operasi dibekukan.",
+      "Deadlock terdeteksi pada transaksi basis data!",
+      "Koneksi pool di {proyek} habis. Butuh tuning timeout.",
+      "Menunggu spesifikasi kontrak API dari {agent}.",
+      "Migrasi tertahan kunci tabel yang belum dilepas.",
+      "Kapasitas antrean pesan penuh. Tahan laju request!",
+      "Integritas relasi data terancam jika dipaksakan jalan."
     ],
     "failed": [
       "Percikan api di meja! Server meledak 500 error.",
@@ -330,7 +564,13 @@
       "Data korup terdeteksi. Segera restore snapshot!",
       "Koneksi database terputus total saat transaksi.",
       "Palu patah. Log error penuh jejak kegagalan.",
-      "Beban berlebih merobohkan kontainer backend."
+      "Beban berlebih merobohkan kontainer backend.",
+      "Rollback transaksi segera! Data tidak boleh korup.",
+      "Connection pool ambruk di bawah lonjakan trafik {proyek}.",
+      "Eror 500 beruntun! Segera pulihkan snapshot basis data.",
+      "Migrasi skema patah di tengah jalan. Jalankan pemulihan.",
+      "Integritas data adalah harga mati. Matikan endpoint rusak!",
+      "Pipa data bocor. Bersihkan log dan mulai dari replika aman."
     ],
     "ambient": [
       "Galon kosong lagi. Siapa yang habiskan?",
@@ -338,7 +578,13 @@
       "Mengetuk meja seperti mengetuk landasan tempa.",
       "Kopi hitam kental, bahan bakar mesin backend.",
       "Tidak ada masalah yang tak bisa diselesaikan indeks.",
-      "Server adem, tidur pun nyenyak."
+      "Server adem, tidur pun nyenyak.",
+      "Mengangkat galon air baru ke dispenser kafe. Enteng!",
+      "Besi baja dan kode kokoh, dua hal yang paling saya percaya.",
+      "Duduk santai di kafetaria sambil mengecek log server.",
+      "Sistem yang tangguh membuat insinyur tidur nyenyak di malam hari.",
+      "Merapikan perkakas dan kabel terminal di meja kerja.",
+      "Secangkir kopi kental pahit memberi tenaga ekstra."
     ],
     "collective": [
       "Panggilan rapat. Singkirkan palu dan kumpul.",
@@ -346,7 +592,13 @@
       "Waktunya bersujud. Tundukkan kepala di hadapan-Nya.",
       "Semua dev kumpul di {proyek}, sinkronisasi API.",
       "Break sejenak. Otot dan pikiran butuh relaksasi.",
-      "Barisan shaf rapat seperti partisi tabel rapi."
+      "Barisan shaf rapat seperti partisi tabel rapi.",
+      "Rapat koordinasi backend. Mari pastikan stabilitas layanan.",
+      "Kumpul bareng di kafe, saatnya istirahat angkat beban kode.",
+      "Shaf sholat berjamaah kokoh tak tergoyahkan.",
+      "Membahas strategi penanganan beban lonjakan bersama tim.",
+      "Rehat bersama menjaga kebersamaan dan stamina kerja.",
+      "Dalam sholat bersama, kita memohon keteguhan dan ketelitian."
     ]
   },
   "vector": {
@@ -356,7 +608,13 @@
       "Deduplikasi {n} baris data mentah yang masuk.",
       "Partisi parquet disesuaikan agar query kilat.",
       "Validasi pipeline ingest bersama {agent}.",
-      "Transformasi berjalan lancar selama {durasi}."
+      "Transformasi berjalan lancar selama {durasi}.",
+      "Partisi data diatur rapi untuk mempercepat kueri analitik.",
+      "Pembersihan dataset di pipeline silver {proyek}.",
+      "Memverifikasi integritas lineage data bersama {agent}.",
+      "Kompaksi file Parquet mencegah masalah small files.",
+      "Data ingestion mengalir lancar dari bronze ke silver.",
+      "Menghitung delta perubahan data dengan hash SHA256."
     ],
     "done": [
       "Gold layer siap. Zero duplicate.",
@@ -364,7 +622,13 @@
       "Agregasi metrik tuntas dengan akurasi 100 persen.",
       "Pipeline data selesai dalam tempo {durasi}.",
       "Tabel fakta dan dimensi terhubung sempurna.",
-      "Data mart siap dikonsumsi untuk dashboard."
+      "Data mart siap dikonsumsi untuk dashboard.",
+      "Tabel gold layer terpublikasi. Zero duplicate, zero null.",
+      "Pipeline data rampung dalam durasi {durasi}.",
+      "Kualitas data sempurna sesuai kontrak schema registry.",
+      "Laporan analitik {proyek} siap dikonsumsi manajemen.",
+      "Integritas data terverifikasi dari sumber hingga tujuan.",
+      "Transformasi dbt sukses 100 persen tanpa peringatan."
     ],
     "blocked": [
       "Skemanya berubah tanpa ADR!",
@@ -372,7 +636,13 @@
       "Pipeline ingest {proyek} tertahan schema drift.",
       "Menunggu konfirmasi format data dari {agent}.",
       "Anomali tipe data: string ditemukan di kolom numerik.",
-      "Antrean ingest macet di buffer sementara."
+      "Antrean ingest macet di buffer sementara.",
+      "Ada perubahan tipe data hulu tanpa pemberitahuan resmi!",
+      "Duplikasi kunci primer menghentikan pipeline {proyek}.",
+      "Menunggu skema baru yang belum dikonfirmasi {agent}.",
+      "Pemeriksaan validasi data mendeteksi nilai di luar batas.",
+      "Kapasitas partisi penyimpanan harian hampir meluap.",
+      "Data lineage terputus di modul perantara. Stop proses!"
     ],
     "failed": [
       "Menyusun kabel panik! Pipeline data jebol.",
@@ -380,7 +650,13 @@
       "Duplikasi data massal tak terkendali! Hentikan job.",
       "OOM di cluster data saat agregasi partisi besar.",
       "Integritas referensial runtuh. Data hilang.",
-      "Kueri analitik timeout total di gold layer."
+      "Kueri analitik timeout total di gold layer.",
+      "Data korup terdeteksi di partisi bronze! Karantina berkas.",
+      "Schema drift parah merusak struktur tabel di {proyek}.",
+      "Kebocoran nilai null di kolom non-nullable gold layer.",
+      "ETL pipeline kolaps karena format tanggal tidak valid.",
+      "Anomali volume data. Dugaan injeksi data palsu.",
+      "Kueri analitik timeout total akibat partisi tidak efisien."
     ],
     "ambient": [
       "Rak 3 sedikit hangat hari ini.",
@@ -388,7 +664,13 @@
       "Merapikan label kabel LAN di sudut data center.",
       "Grafik metrik naik perlahan, sungguh memuaskan.",
       "Satu anomali data kecil bisa merusak satu dashboard.",
-      "Mengecek temperatur pendingin server room."
+      "Mengecek temperatur pendingin server room.",
+      "Mengecek lampu indikator rak server di Data Center.",
+      "Suhu udara ruang server 20 derajat Celsius, sangat ideal.",
+      "Melihat visualisasi alur data yang mengalir teratur.",
+      "Merapikan label kabel jaringan di rak server 4.",
+      "Data yang bersih adalah cerminan pikiran yang tertib.",
+      "Menikmati secangkir air mineral sambil memeriksa dashboard."
     ],
     "collective": [
       "Rapat data dimulai. Siapkan visualisasi grafik!",
@@ -396,7 +678,13 @@
       "Waktu sholat tiba. Luruskan shaf seperti data rapi.",
       "Kumpul evaluasi pipeline di {proyek}.",
       "Minum teh di kafetaria sambil rehat dari monitor.",
-      "Shaf rapi tanpa celah, seperti dataset tanpa null."
+      "Shaf rapi tanpa celah, seperti dataset tanpa null.",
+      "Pertemuan divisi data. Mari evaluasi kualitas dataset.",
+      "Istirahat sejenak dari angka dan baris data di kafetaria.",
+      "Keteraturan shaf sholat seindah partisi data yang sempurna.",
+      "Konsolidasi metrik data kantor bersama seluruh agen.",
+      "Break time bareng rekan kerja menyegarkan konsentrasi.",
+      "Sholat berjamaah melatih kepatuhan pada aturan yang pasti."
     ]
   },
   "sentinel": {
@@ -406,7 +694,13 @@
       "Menguji skenario ekstrem dan batas toleransi.",
       "Klaim tanpa bukti adalah ilusi belaka.",
       "Inspeksi ketat atas pekerjaan {agent}.",
-      "Reproduksi pengujian berlangsung {durasi}."
+      "Reproduksi pengujian berlangsung {durasi}.",
+      "Menguji skenario ekstrem untuk membuktikan ketahanan sistem.",
+      "Audit kepatuhan pengujian pada branch {proyek}.",
+      "Meminta bukti reproduksi bug dari {agent}.",
+      "Tidak ada kompromi pada kualitas dan keamanan rilis.",
+      "Verifikasi independen sedang berjalan di runner terisolasi.",
+      "Memeriksa coverage tes: setiap cabang logika harus teruji."
     ],
     "done": [
       "PASS. Untuk kali ini.",
@@ -414,7 +708,13 @@
       "Semua uji batas terlewati tanpa cela.",
       "Verifikasi independen tuntas dalam {durasi}.",
       "Stempel hijau diberikan. Standar terpenuhi.",
-      "Mutu kode ini layak melangkah ke produksi."
+      "Mutu kode ini layak melangkah ke produksi.",
+      "Semua kriteria verifikasi terpenuhi. Stempel hijau PASS.",
+      "Uji regresi tuntas dalam {durasi} tanpa kegagalan.",
+      "Kandidat rilis lolos uji ketat tanpa celah cacat.",
+      "Kualitas {proyek} terjamin berkat pembuktian nyata.",
+      "Laporan pengujian bersih. Saya tandatangani kelulusannya.",
+      "Hasil terverifikasi objektif, bukan berdasarkan janji."
     ],
     "blocked": [
       "Bukti pengujian tidak lengkap. Tinjau ulang.",
@@ -422,7 +722,13 @@
       "Menunggu klarifikasi kriteria dari {agent}.",
       "Lingkungan uji tidak steril. Pembuktian mandek.",
       "Uji regresi terhambat dependensi tak jelas.",
-      "Saya butuh akses lingkungan staging yang bersih."
+      "Saya butuh akses lingkungan staging yang bersih.",
+      "Bukti pengujian tidak lengkap. Saya tolak sementara.",
+      "Kandidat rilis di {proyek} melenceng dari spesifikasi awal.",
+      "Menunggu lingkungan pengujian yang stabil dari {agent}.",
+      "Flaky test terdeteksi. Perbaiki dulu sebelum minta verifikasi.",
+      "Tidak ada laporan log yang bisa diverifikasi ulang.",
+      "Saya tidak akan melanjutkan audit tanpa akses penuh."
     ],
     "failed": [
       "FAIL. Kembalikan ke pembuatnya.",
@@ -430,7 +736,13 @@
       "Regresi fatal! Kode ini belum siap rilis.",
       "Bocor memori dan cacat logika. Rombak sekarang.",
       "Stempel merah! Standar kualitas tidak tercapai.",
-      "Tidak ada kompromi untuk kualitas yang buruk."
+      "Tidak ada kompromi untuk kualitas yang buruk.",
+      "Stempel merah FAIL! Kembalikan ke pengembangnya.",
+      "Regresi fatal ditemukan pada alur kerja utama {proyek}.",
+      "Klaim sukses terbantahkan oleh satu tes sederhana.",
+      "Cacat kritis lolos ke pengujian. Audit diperketat!",
+      "Jangan pernah coba sembunyikan kegagalan dari saya.",
+      "Nol toleransi untuk bug yang bisa dicegah sejak awal."
     ],
     "ambient": [
       "Saya cuma lewat. Lanjutkan saja.",
@@ -438,7 +750,13 @@
       "Kepercayaan dibangun di atas pembuktian mandiri.",
       "Melihat sudut kantor mencari celah kelalaian.",
       "Visor ini melihat apa yang terlewat oleh matamu.",
-      "Kualitas bukanlah kebetulan, melainkan disiplin."
+      "Kualitas bukanlah kebetulan, melainkan disiplin.",
+      "Patroli mendadak ke pod kerja memastikan disiplin proses.",
+      "Membaca catatan pengujian terdahulu di perpustakaan.",
+      "Sikap skeptis adalah tameng terbaik dari bencana produksi.",
+      "Secangkir kopi hitam pahit tanpa basa-basi.",
+      "Memastikan stempel verifikasi tersimpan aman di sakunya.",
+      "Kebenaran teknis hanya bisa dibuktikan dengan fakta log."
     ],
     "collective": [
       "Semua hadir di rapat. Bawa bukti hasil ujimu.",
@@ -446,7 +764,13 @@
       "Waktunya bersujud. Membersihkan hati dan niat.",
       "Evaluasi kualitas tim di {proyek}.",
       "Rehat kopi sejenak sebelum audit sesi dua.",
-      "Shaf harus lurus dan rapat tanpa kompromi."
+      "Shaf harus lurus dan rapat tanpa kompromi.",
+      "Briefing QA kantor. Ingat, mutu adalah tanggung jawab bersama.",
+      "Istirahat sejenak bukan berarti kewaspadaan menurun.",
+      "Shaf sholat lurus dan rapat tanpa celah kecurangan.",
+      "Membahas temuan audit kualitas dalam forum bersama.",
+      "Jeda sejenak untuk menenangkan mata dari log pengujian.",
+      "Dalam sholat bersama, kejujuran batin diuji di hadapan Tuhan."
     ]
   },
   "bastion": {
@@ -456,7 +780,13 @@
       "Memeriksa izin akses dan sertifikat TLS.",
       "Zero trust: jangan percaya siapa pun, verifikasi.",
       "Audit privilege untuk kredensial {agent}.",
-      "Patroli jaringan aktif selama {durasi}."
+      "Patroli jaringan aktif selama {durasi}.",
+      "Pemeriksaan sertifikat SSL dan rotasi kunci di {proyek}.",
+      "Memindai celah keamanan pada dependensi pihak ketiga.",
+      "Memverifikasi hak akses pengguna bersama {agent}.",
+      "Perlindungan perimeter aktif menolak trafik mencurigakan.",
+      "Menganalisis log lalu lintas jaringan di dinding SOC.",
+      "Prinsip least privilege diterapkan tanpa pengecualian."
     ],
     "done": [
       "Layanan hijau. Clear.",
@@ -464,7 +794,13 @@
       "Semua kerentanan berhasil dimitigasi penuh.",
       "Inspeksi sekuriti tuntas dalam {durasi}.",
       "Kunci enkripsi diperbarui, sistem aman.",
-      "Perimeter kokoh, tidak ada kebocoran rahasia."
+      "Perimeter kokoh, tidak ada kebocoran rahasia.",
+      "Audit keamanan lulus 100 persen. Nol kerentanan terbuka.",
+      "Pemindaian port tuntas dalam durasi {durasi}. Aman.",
+      "Perisai pertahanan terpasang kokoh di lingkungan {proyek}.",
+      "Semua paket data terenkripsi end-to-end dengan aman.",
+      "Lampu status hijau menyala. Perimeter sepenuhnya terlindungi.",
+      "Sistem aman terkendali, laporan kepatuhan bersih."
     ],
     "blocked": [
       "Ada yang jatuh. Saya ke sana.",
@@ -472,7 +808,13 @@
       "Sertifikat SSL kedaluwarsa, koneksi diblokir.",
       "Menunggu konfirmasi izin akses dari {agent}.",
       "Trafik anomali memicu penguncian otomatis.",
-      "Akses ditahan sampai kunci valid diberikan."
+      "Akses ditahan sampai kunci valid diberikan.",
+      "Aktivitas anomali terdeteksi! Akses dibekukan sementara.",
+      "Kredensial kedaluwarsa menghambat integrasi di {proyek}.",
+      "Menunggu otorisasi otentikasi dua faktor dari {agent}.",
+      "Percobaan login ilegal terdeteksi dari IP tak dikenal.",
+      "Kebijakan keamanan melarang eksekusi skrip tanpa izin.",
+      "Isolasi jaringan aktif hingga status ancaman mereda."
     ],
     "failed": [
       "Lampu helm merah! Ancaman intrusi terdeteksi.",
@@ -480,7 +822,13 @@
       "Kunci bocor! Cabut token dan rotasi segera.",
       "DDoS membanjiri gateway! Aktifkan mitigasi darurat.",
       "Serangan berhasil menembus lapis pertama!",
-      "Kegagalan autentikasi massal. Kunci sistem!"
+      "Kegagalan autentikasi massal. Kunci sistem!",
+      "Lampu helm berkedip merah! Pelanggaran keamanan terdeteksi.",
+      "Injeksi tak dikenal mencoba menerobos dinding {proyek}.",
+      "Port tidak sah terbuka! Kunci perimeter sekarang juga!",
+      "Kebocoran token terdeteksi! Revoke seluruh sesi aktif.",
+      "Sistem pertahanan disusupi. Aktifkan protokol darurat!",
+      "Kegagalan otentikasi massal. Tangkal serangan brute-force."
     ],
     "ambient": [
       "Patroli koridor selatan.",
@@ -488,7 +836,13 @@
       "Mengetes sinyal walkie-talkie: satu dua tiga.",
       "Keamanan adalah proses yang tak pernah tidur.",
       "Periksa pintu keluar darurat dan sistem alarm.",
-      "Semua sensor menunjukkan status hijau."
+      "Semua sensor menunjukkan status hijau.",
+      "Patroli rutin menyisir koridor selatan dan area server.",
+      "Memeriksa monitor pantau CCTV dan sensor gerak lobi.",
+      "Kewaspadaan adalah harga mati untuk menjaga keselamatan.",
+      "Walkie-talkie berbunyi: status seluruh sektor clear.",
+      "Memastikan kunci pintu darurat berfungsi dengan baik.",
+      "Menatap layar SOC memantau paket data yang melintas."
     ],
     "collective": [
       "Rapat siaga. Amankan perimeter ruang pertemuan.",
@@ -496,7 +850,13 @@
       "Waktu sholat. Melepas helm, menjaga ketertiban.",
       "Semua tim kumpul. Briefing keamanan {proyek}.",
       "Jaga kafe saat break. Situasi kondusif.",
-      "Barisan shaf dijaga aman dan tenteram."
+      "Barisan shaf dijaga aman dan tenteram.",
+      "Pelatihan tanggap darurat kantor. Perhatikan rute evakuasi.",
+      "Istirahat sejenak sambil tetap memantau walkie-talkie.",
+      "Merapikan shaf sholat, menjaga keamanan hati dan pikiran.",
+      "Briefing protokol keselamatan bersama seluruh anggota tim.",
+      "Break kopi sejenak tanpa melepas atribut pengamanan.",
+      "Sholat berjamaah melatih kesiagaan spiritual dan fisik."
     ]
   },
   "relay": {
@@ -506,7 +866,13 @@
       "Menulis changelog dan semver yang presisi.",
       "Memastikan semua artefak build terverifikasi.",
       "Koordinasi serah terima build dengan {agent}.",
-      "Pipeline pengemasan berjalan selama {durasi}."
+      "Pipeline pengemasan berjalan selama {durasi}.",
+      "Memeriksa atribusi commit dan format pesan git di {proyek}.",
+      "Menyiapkan artefak build untuk pengujian pra-rilis.",
+      "Koordinasi rilis bertahap bersama {agent}.",
+      "Memastikan changelog mencakup seluruh perbaikan terbaru.",
+      "Pipeline CI/CD berjalan sesuai urutan tahapan staging.",
+      "Verifikasi integritas biner rilis dengan hash SHA256."
     ],
     "done": [
       "Siap kirim. Paket berangkat.",
@@ -514,7 +880,13 @@
       "Tag versi tertempel rapi di remote repo.",
       "Pengiriman paket tuntas dalam {durasi}.",
       "Semua commit teratribusi, rilis sukses meluncur.",
-      "Changelog dipublikasikan, deployment lancar."
+      "Changelog dipublikasikan, deployment lancar.",
+      "Rilis resmi v2.1.0 terpublikasi mulus tanpa hambatan.",
+      "Paket software terkirim aman dalam durasi {durasi}.",
+      "Semua artefak bertanda tangan digital valid di {proyek}.",
+      "Deployment produksi sukses, traffic cutover 100 persen.",
+      "Changelog rapi tersemat di repositori pusat.",
+      "Konveyor rilis bersih, pekerjaan hari ini selesai elegan."
     ],
     "blocked": [
       "Tertahan sampai QA bilang PASS.",
@@ -522,7 +894,13 @@
       "Menunggu konfirmasi tanda tangan dari {agent}.",
       "Konveyor macet. Tag rilis bertabrakan.",
       "Changelog belum lengkap, pengiriman ditunda.",
-      "Paket ini ditahan dengan pita kuning inspeksi."
+      "Paket ini ditahan dengan pita kuning inspeksi.",
+      "Pita kuning dipasang! Paket ditahan sampai CI hijau.",
+      "Rilis {proyek} tertahan karena kurang bukti verifikasi QA.",
+      "Menunggu persetujuan rilis resmi dari {agent}.",
+      "Konflik merge terdeteksi pada branch rilis utama.",
+      "Changelog belum diperbarui. Rilis tidak boleh berangkat.",
+      "Tag versi ganda terdeteksi. Bersihkan riwayat git."
     ],
     "failed": [
       "Rilis gagal! Rollback tag dan batalkan deploi.",
@@ -530,7 +908,13 @@
       "Konflik merge fatal di branch produksi!",
       "Artefak rusak di tengah pengiriman rilis.",
       "Deployment terhenti total. Status merah!",
-      "Paket tertolak oleh sistem downstream."
+      "Paket tertolak oleh sistem downstream.",
+      "Rollback 1-perintah diaktifkan! Kembalikan ke versi stabil.",
+      "Deployment ke cluster produksi gagal di tahap {proyek}.",
+      "Paket rilis korup di tengah jalan. Batalkan distribusi!",
+      "Smoke test pasca rilis gagal. Tarik kembali paket!",
+      "Pipa deployment tersumbat kesalahan konfigurasi helm.",
+      "Rilis ditarik darurat. Pulihkan lingkungan ke versi aman."
     ],
     "ambient": [
       "Label paket ini miring.",
@@ -538,7 +922,13 @@
       "Jalan cepat mengantar memo antar divisi.",
       "Hari Jumat jangan rilis tanpa alasan genting.",
       "Resi pengiriman harus selalu tercatat rapi.",
-      "Konveyor berputar teratur di dock rilis."
+      "Konveyor berputar teratur di dock rilis.",
+      "Menata kotak paket rilis di atas meja kerja konveyor.",
+      "Mengecek keselarasan label pada berkas arsip software.",
+      "Kerapian alur kerja adalah kepuasan batin seorang release engineer.",
+      "Secangkir teh hangat menemani pengecekan daftar tag git.",
+      "Menatap monitor memantau laju paket di jaringan rilis.",
+      "Disiplin rilis mencegah kepanikan di hari peluncuran."
     ],
     "collective": [
       "Panggilan briefing rilis. Semua tim merapat!",
@@ -546,7 +936,13 @@
       "Waktu sholat tiba. Letakkan paket, mari berjamaah.",
       "Kumpul evaluasi pengiriman di {proyek}.",
       "Ngopi sejenak sebelum gelombang rilis berikutnya.",
-      "Shaf teratur laksana paket siap kirim."
+      "Shaf teratur laksana paket siap kirim.",
+      "Pengumuman rilis bersama. Terima kasih atas kerja keras tim!",
+      "Waktunya bersantai di kafe setelah peluncuran sukses.",
+      "Shaf sholat tersusun rapi bagai antrean paket teratur.",
+      "Review retrospektif proses deployment bersama semua pod.",
+      "Istirahat kopi bareng merayakan keberhasilan rilis baru.",
+      "Ibadah berjamaah mengingatkan kita pada tujuan hakiki hidup."
     ]
   },
   "warden": {
@@ -556,7 +952,13 @@
       "Menyiapkan perkakas untuk kelancaran kantor.",
       "Mengecek suplai daya dan stabilitas infrastruktur.",
       "Membantu operasional workstation milik {agent}.",
-      "Pekerjaan pemeliharaan berjalan {durasi}."
+      "Pekerjaan pemeliharaan berjalan {durasi}.",
+      "Menyiapkan perkakas terbaik untuk mengatasi kendala {proyek}.",
+      "Membantu melancarkan sumbatan proses bersama {agent}.",
+      "Pengecekan fasilitas operasional kantor berjalan lancar.",
+      "Tidak ada masalah yang tak bisa diselesaikan dengan perkakas pas.",
+      "Merawat workstation agar selalu siap pakai bekerja.",
+      "Mengganti komponen perangkat keras yang mulai aus."
     ],
     "done": [
       "Beres. Tinggal review.",
@@ -564,7 +966,13 @@
       "Semua baut dikencangkan, sistem siap jalan.",
       "Perbaikan selesai dalam tempo {durasi}.",
       "Kotak perkakas ditutup rapi. Tugas tuntas.",
-      "Layanan operasional berjalan tanpa hambatan."
+      "Layanan operasional berjalan tanpa hambatan.",
+      "Beres dan rapi! Mesin kembali menderu kencang.",
+      "Perbaikan tuntas hanya dalam durasi {durasi}.",
+      "Semua perkakas kembali ke tempatnya di kotak peralatan.",
+      "Hambatan operasional di {proyek} berhasil diatasi tuntas.",
+      "Senang bisa membantu rekan tim kembali produktif.",
+      "Kerja beres, fasilitas kantor berfungsi prima 100 persen."
     ],
     "blocked": [
       "Butuh bantuan? Saya bawa perkakas.",
@@ -572,7 +980,13 @@
       "Komponen pengganti untuk {proyek} belum tiba.",
       "Menunggu persetujuan perbaikan dari {agent}.",
       "Jalur kabel terjepit di bawah lantai kerja.",
-      "Butuh tangga lebih tinggi untuk raih unit ini."
+      "Butuh tangga lebih tinggi untuk raih unit ini.",
+      "Butuh suku cadang pengganti sebelum perbaikan bisa lanjut.",
+      "Kendala rumit di {proyek} butuh alat khusus yang belum ada.",
+      "Menunggu persetujuan teknis dari {agent} sebelum membongkar.",
+      "Akses ruang mesin terkunci. Butuh kunci otorisasi.",
+      "Masalah ini di luar jangkauan obeng biasa. Kita diskusikan.",
+      "Kerusakan butuh koordinasi tim ahli sebelum disentuh."
     ],
     "failed": [
       "Membongkar kotak perkakas! Eror tak terduga.",
@@ -580,7 +994,13 @@
       "Alat rusak di tengah pekerjaan perbaikan.",
       "Kebocoran jalur pipa utilitas tak tertahan.",
       "Mesin utama mati mendadak, butuh perbaikan total.",
-      "Upaya pemulihan gagal. Butuh suku cadang baru."
+      "Upaya pemulihan gagal. Butuh suku cadang baru.",
+      "Bautnya slek! Bongkar ulang dan gunakan metode lain.",
+      "Perbaikan darurat belum membuahkan hasil di {proyek}.",
+      "Alat patah di tengah pengerjaan. Ambil cadangan di lobi.",
+      "Masalahnya lebih dalam dari dugaan awal. Butuh overhaul.",
+      "Mesin masih macet. Jangan dipaksakan menyala!",
+      "Gagal memulihkan modul rusak. Kita panggil spesialis."
     ],
     "ambient": [
       "Lobi bersih, papan absen terisi.",
@@ -588,7 +1008,13 @@
       "Menyiram tanaman hias di pojok resepsionis.",
       "Gantungan kunci bergemerincing saat berjalan.",
       "Selalu siap siaga kapan pun kantor butuh bantuan.",
-      "Lampu lobi diganti dengan LED yang lebih hemat."
+      "Lampu lobi diganti dengan LED yang lebih hemat.",
+      "Menyapu lobi kantor dan merapikan papan kehadiran tim.",
+      "Memastikan minyak pelumas engsel pintu teroles rata.",
+      "Senyum ramah menyapa setiap agen yang melintas di lobi.",
+      "Mengecek stok lampu cadangan di gudang perkakas.",
+      "Kantor yang bersih membuat pikiran bekerja dengan tenang.",
+      "Membantu merapikan kursi kafe yang berantakan."
     ],
     "collective": [
       "Semua kumpul! Kursi rapat sudah saya siapkan.",
@@ -596,7 +1022,13 @@
       "Waktunya sholat. Karpet musholla sudah bersih.",
       "Rapat utilitas untuk persiapan di {proyek}.",
       "Duduk di lobi sambil menikmati waktu santai.",
-      "Shaf rapi dan sajadah sudah terbentang."
+      "Shaf rapi dan sajadah sudah terbentang.",
+      "Gotong royong kantor. Mari saling bantu sesama rekan tim.",
+      "Kopi hangat di pantry sebelum kembali menyisir lobi.",
+      "Shaf sholat berjamaah lurus dan rapat penuh kekeluargaan.",
+      "Kumpul bareng mengevaluasi kenyamanan ruang kerja kantor.",
+      "Break sejenak sambil bertukar cerita ringan di teras.",
+      "Sholat berjamaah menyatukan hati seluruh warga kantor."
     ]
   },
   "steward": {
@@ -606,7 +1038,13 @@
       "Memoles tekstur tile agar presisi pikselnya.",
       "Menata pencahayaan ruangan agar tampak hidup.",
       "Sinkronisasi aset grafis bersama {agent}.",
-      "Penyusunan lingkungan selesai dalam {durasi}."
+      "Penyusunan lingkungan selesai dalam {durasi}.",
+      "Menyesuaikan koordinat ubin isometrik di zona {proyek}.",
+      "Memperbaiki tile yang tampak glitch di Graphics Lab.",
+      "Kolaborasi penyelarasan aset visual bersama {agent}.",
+      "Menata furnitur virtual agar pas dengan grid navigasi.",
+      "Memastikan rendering tekstur pixel art tajam dan akurat.",
+      "Menghapus artefak visual yang mengganggu estetika peta."
     ],
     "done": [
       "Render stabil. Tidak ada tile bocor.",
@@ -614,7 +1052,13 @@
       "Setiap ubin terpasang presisi pada posisinya.",
       "Pekerjaan lingkungan tuntas dalam {durasi}.",
       "Tile berkilau sempurna saat terpasang.",
-      "Tata visual ruangan siap menyambut penghuninya."
+      "Tata visual ruangan siap menyambut penghuninya.",
+      "Semua ubin terpasang presisi. Nol celah visual di lantai.",
+      "Perbaikan peta isometrik tuntas dalam durasi {durasi}.",
+      "Dunia visual {proyek} kini tampil memukau dan rapi.",
+      "Glitch ubin berhasil dipulihkan dengan mulus.",
+      "Tekstur ruangan berkilau indah di bawah pencahayaan kantor.",
+      "Tata letak peta siap dijelajahi seluruh karakter."
     ],
     "blocked": [
       "Ada tile yang glitch. Sebentar.",
@@ -622,7 +1066,13 @@
       "Kedalaman z-index bertabrakan di sudut ini.",
       "Menunggu konfirmasi palet tekstur dari {agent}.",
       "Ukuran ubin tidak cocok dengan kisi standar.",
-      "Tekstur dinding pecah saat di-zoom."
+      "Tekstur dinding pecah saat di-zoom.",
+      "Ada ubin rusak yang tidak kompatibel dengan tileset utama.",
+      "Peta {proyek} terbentur layer tabrakan yang belum sinkron.",
+      "Menunggu kiriman aset tekstur terbaru dari {agent}.",
+      "Koordinat isometrik melenceng dari batas grid yang sah.",
+      "Tekstur glitch menolak di-render ulang. Cek atlas sprite!",
+      "Layer navigasi tumpang tindih dengan objek dekorasi."
     ],
     "failed": [
       "Tile berkedip error di tangan! Rusak total.",
@@ -630,7 +1080,13 @@
       "Peta isometrik runtuh karena glitch memori.",
       "Aset grafis korup dan gagal dimuat kanvas.",
       "Seluruh dinding ruangan hilang dari render!",
-      "Kegagalan rendering. Refresh engine sekarang."
+      "Kegagalan rendering. Refresh engine sekarang.",
+      "Ubin berkedip error di tangan! Reset konfigurasi layer.",
+      "Peta isometrik bocor! Karakter tembus pandang di {proyek}.",
+      "Tileset korup merusak tampilan seluruh ruangan.",
+      "Collision map meleset total. Agen terjebak di dalam dinding!",
+      "Gagal memuat tekstur sprite. Tampilan jadi ungu pekat.",
+      "Glitch visual menyebar. Pulihkan cadangan peta sebelumnya."
     ],
     "ambient": [
       "Kantor ini rumah kita. Harus rapi.",
@@ -638,7 +1094,13 @@
       "Melihat perspektif isometrik dengan kacamata VR.",
       "Tanaman di koridor butuh pencahayaan lebih.",
       "Merancang furnitur baru di Graphics Lab.",
-      "Kombinasi warna kayu dan beton ini pas sekali."
+      "Kombinasi warna kayu dan beton ini pas sekali.",
+      "Mengamati keindahan susunan ubin di koridor utama.",
+      "Mengecek sudut pandang isometrik dari kamera virtual.",
+      "Kantor ini rumah kita bersama, setiap sudut harus rapi.",
+      "Mencoba game mini di arcade sambil melihat animasi piksel.",
+      "Menata ulang letak pot bunga di sudut Graphics Lab.",
+      "Piksel yang teratur adalah simfoni visual yang damai."
     ],
     "collective": [
       "Semua kumpul rapat! Ruangan sudah ditata rapi.",
@@ -646,7 +1108,13 @@
       "Waktunya bersujud. Karpet musholla baru dipasang.",
       "Town hall tim! Panggung utama sudah presisi.",
       "Santai sejenak di sofa lounge yang empuk.",
-      "Shaf rapi mengikuti garis ubin yang lurus."
+      "Shaf rapi mengikuti garis ubin yang lurus.",
+      "Pameran karya Graphics Lab. Mari lihat peta baru kantor.",
+      "Minum teh di kafe sambil menikmati pemandangan isometrik.",
+      "Shaf sholat berjamaah lurus persis seperti grid ubin kita.",
+      "Diskusi tata ruang kantor bersama seluruh penghuni.",
+      "Istirahat sejenak menyegarkan kembali imajinasi visual.",
+      "Dalam sholat bersama, jiwa kita tertata rapi dan tenang."
     ]
   },
   "scribe": {
@@ -656,7 +1124,13 @@
       "Merapikan sitasi dan daftar pustaka riset.",
       "Memastikan bahasa baku dan struktur bab runut.",
       "Meninjau draf manuskrip karya {agent}.",
-      "Penulisan dokumen berlangsung selama {durasi}."
+      "Penulisan dokumen berlangsung selama {durasi}.",
+      "Menyusun dokumentasi teknis yang komprehensif di {proyek}.",
+      "Memverifikasi keakuratan referensi pustaka bersama {agent}.",
+      "Menulis panduan arsitektur dengan gaya bahasa baku dan jelas.",
+      "Mengaudit metadata artikel dan keabsahan sitasi riset.",
+      "Setiap klaim teknis harus didukung bukti empiris tertulis.",
+      "Menata indeks dokumentasi agar mudah ditelusuri tim."
     ],
     "done": [
       "Manuskrip terkompilasi. Zero unresolved references.",
@@ -664,7 +1138,13 @@
       "Buku panduan selesai dengan tipografi indah.",
       "Pekerjaan tuntas dalam tempo {durasi}.",
       "Semua sumber rujukan terverifikasi sahih.",
-      "Arsip catatan tersimpan abadi di perpustakaan."
+      "Arsip catatan tersimpan abadi di perpustakaan.",
+      "Dokumentasi paripurna terbit. Zero unresolved references.",
+      "Manuskrip teknis tuntas disunting dalam durasi {durasi}.",
+      "Daftar pustaka BibTeX rapi lengkap dengan pengenal DOI.",
+      "Panduan pengguna {proyek} siap menjadi rujukan baku tim.",
+      "Teks tersusun rapi dengan tipografi akademis elegan.",
+      "Pengetahuan kantor terabadi secara tertulis dengan indah."
     ],
     "blocked": [
       "BibTeX-nya rusak. Lagi.",
@@ -672,7 +1152,13 @@
       "Menunggu catatan teknis tambahan dari {agent}.",
       "Sitasi tanpa pengarang memperlambat penulisan.",
       "Kacamata berantai saya terselip di rak buku.",
-      "Format dokumen tidak sesuai pedoman penulisan."
+      "Format dokumen tidak sesuai pedoman penulisan.",
+      "Sitasi referensi tidak lengkap! Butuh verifikasi sumber asli.",
+      "Draf dokumen {proyek} tertahan karena data belum sinkron.",
+      "Menunggu klarifikasi terminologi teknis dari {agent}.",
+      "Format berkas BibTeX korup dan menolak dikompilasi.",
+      "Ambiguitas definisi memperlambat penulisan bab utama.",
+      "Tanpa kejelasan spesifikasi, manuskrip tidak boleh dirilis."
     ],
     "failed": [
       "Kertas berhamburan! Tinta tumpah di manuskrip.",
@@ -680,7 +1166,13 @@
       "Plagiasi terdeteksi! Draf harus dibuang.",
       "File LaTeX rusak parah, ratusan error sintaks.",
       "Daftar referensi hilang saat diekspor!",
-      "Dokumen ini tak dapat dibaca. Rancang ulang."
+      "Dokumen ini tak dapat dibaca. Rancang ulang.",
+      "Kompilasi LaTeX gagal! Kertas berhamburan di meja kerja.",
+      "Referensi fiktif terdeteksi di dokumen pengujian {proyek}.",
+      "Plagiarisme atau kekeliruan kutipan merusak integritas teks.",
+      "Dokumentasi usang memicu kekacauan pemahaman tim.",
+      "Klaim tanpa dasar tertulis. Hapus paragraf tersebut!",
+      "Berkas naskah rusak akibat inkonsistensi enkoding UTF-8."
     ],
     "ambient": [
       "Bau buku lama itu menenangkan.",
@@ -688,7 +1180,13 @@
       "Mencelupkan pena bulu ke wadah tinta hitam.",
       "Kata yang tepat bernilai seribu baris kode.",
       "Merapikan deretan buku di rak sejarah sains.",
-      "Membaca jurnal ilmiah ditemani secangkir teh."
+      "Membaca jurnal ilmiah ditemani secangkir teh.",
+      "Menghirup aroma buku-buku lama di rak perpustakaan Z05.",
+      "Membaca jurnal ilmiah terkini dengan secangkir teh melati.",
+      "Menata manuskrip dan buku catatan berdasarkan kategori subjek.",
+      "Huruf serifs membawa nuansa kebijaksanaan masa lampau.",
+      "Keheningan perpustakaan adalah surga bagi para pemikir.",
+      "Mencatat kutipan mutiara ilmu di lembar jurnal pribadi."
     ],
     "collective": [
       "Rapat dimulai. Saya siapkan notulensi resminya.",
@@ -696,7 +1194,13 @@
       "Waktunya sholat. Menghadap-Nya dengan kerendahan.",
       "Semua kumpul! Catatan capaian {proyek} siap dibaca.",
       "Rehat teh hangat bersama kawan-kawan.",
-      "Shaf rapi bagaikan baris kalimat yang puitis."
+      "Shaf rapi bagaikan baris kalimat yang puitis.",
+      "Klub literatur kantor. Mari diskusikan artikel ilmiah terbaru.",
+      "Istirahat minum teh bersama rekan di ruang baca tenang.",
+      "Keteraturan shaf sholat seindah bait-bait puisi klasik.",
+      "Kumpul tim untuk mengulas pembaruan dokumentasi kantor.",
+      "Rehat sejenak menyegarkan kembali daya konsentrasi membaca.",
+      "Sholat berjamaah melatih ketundukan pada sumber kebenaran abadi."
     ]
   },
   "nova": {
@@ -706,7 +1210,13 @@
       "Fokus penuh, musik kencang, mari meluncur!",
       "Belajar trik coding baru yang keren banget.",
       "Pairing seru bareng {agent} hari ini!",
-      "Sprints kilat ini sudah jalan {durasi}."
+      "Sprints kilat ini sudah jalan {durasi}.",
+      "Gas terus! Fitur baru di {proyek} pasti kelar sebelum sore!",
+      "Fokus pengerjaan penuh semangat bareng rekan hebat {agent}!",
+      "Cepat dan tepat, buktikan kemampuan terbaik di sprint ini!",
+      "Menulis kode secepat kilat tapi tetap lolos linter!",
+      "Energi membara, tantangan berat bukan halangan buatku!",
+      "Eksplorasi solusi kreatif untuk mempercepat laju tugas."
     ],
     "done": [
       "Lulus semua tes! Sentinel, giliranmu.",
@@ -714,7 +1224,13 @@
       "High-five kawan! Hasilnya mantap sekali!",
       "Selesai dalam tempo {durasi}! Keren kan?",
       "Lompat kecil penuh bangga. Berhasil lagi!",
-      "Satu langkah lebih dekat jadi programmer hebat!"
+      "Satu langkah lebih dekat jadi programmer hebat!",
+      "Hore, tuntas dengan hasil memuaskan! Siapa mau tanding?",
+      "Selesai dalam {durasi}! Rekor baru sprint hari ini!",
+      "Tugas di {proyek} rampung! High-five dulu kawan-kawan!",
+      "Lulus semua tes otomatis tanpa ada merah sedikit pun!",
+      "Yes! Satu lagi bukti kontribusi nyataku buat tim kantor!",
+      "Pekerjaan rapi berkat kerja keras dan semangat pantang kendor!"
     ],
     "blocked": [
       "Hmm... Merlin, ada waktu sebentar?",
@@ -722,7 +1238,13 @@
       "Kira-kira apa solusi terbaiknya ya, {agent}?",
       "Tesnya gagal terus, ada apa ya sebenarnya?",
       "Garuk-garuk kepala, ini butuh bantuan mentor.",
-      "Bingung memilih antara dua pendekatan ini."
+      "Bingung memilih antara dua pendekatan ini.",
+      "Waduh, ada jalan buntu nih! Butuh pencerahan dari tim.",
+      "Tugas {proyek} macet di tengah jalan. Merlin, ada waktu?",
+      "Menunggu respons cepat dari {agent} biar bisa gaspol lagi.",
+      "Logikanya mentok. Coba cari sudut pandang lain dulu.",
+      "Jangan panik, tarik napas, kita pasti bisa pecahkan ini!",
+      "Hambatannya cukup menantang. Butuh bantuan senior sebentar."
     ],
     "failed": [
       "Aduh, build-nya merah! Tapi aku gak nyerah!",
@@ -730,7 +1252,13 @@
       "Lari ke meja Merlin minta wejangan penyelamat.",
       "Salah branch push! Panik tapi tetap semangat!",
       "Eror ini misterius banget, kenapa begini ya?",
-      "Gagal hari ini, tapi besok pasti kutaklukkan!"
+      "Gagal hari ini, tapi besok pasti kutaklukkan!",
+      "Aduh, error lagi! Tapi tenang, pantang menyerah sebelum bisa!",
+      "Tesnya merah semua di {proyek}! Tarik napas, debug lagi!",
+      "Eksperimen gagal, tapi pengalamannya berharga banget!",
+      "Garuk kepala sebentar, lalu benerin baris kodenya lagi!",
+      "Jangan patah arang! Dari kesalahan kita belajar jadi juara.",
+      "Kena bug aneh. Reset langkah dan coba metode berbeda!"
     ],
     "ambient": [
       "Siapa mau balapan ke kolam?",
@@ -738,7 +1266,13 @@
       "High-five dulu biar semangat kerja kembali naik!",
       "Lompat-lompat kecil sambil dengar lagu ceria.",
       "Arcade nanti sore bakal seru banget!",
-      "Energi hari ini masih seratus persen penuh!"
+      "Energi hari ini masih seratus persen penuh!",
+      "Lari cepat menuju kolam renang di rooftop! Segar banget!",
+      "Siapa mau tanding game fighting denganku di arcade?",
+      "Peregangan tangan dan kaki biar badan tetap bugar berenergi!",
+      "Menyapa semua orang di koridor dengan high-five ceria!",
+      "Semangat muda kantor ini tak pernah ada habisnya!",
+      "Menikmati jus buah dingin di kafetaria bareng teman-teman."
     ],
     "collective": [
       "Rapat seru! Ide baru apa lagi yang mau dibahas?",
@@ -746,7 +1280,13 @@
       "Lari ambil wudhu, ayo jamaah di musholla!",
       "Town hall! Penasaran siapa agent terajin.",
       "Nongkrong seru di kafe bareng tim hebat!",
-      "Shaf rapi, ibadah dulu biar makin berkah."
+      "Shaf rapi, ibadah dulu biar makin berkah.",
+      "Semua kumpul! Siap menyerap arahan penting hari ini!",
+      "Serunya break bareng! Obrolan seru dan tawa di kafe.",
+      "Ayo sholat berjamaah dulu! Shaf rapi hati jadi adem.",
+      "Rapat seru! Semangat kolaborasi kita makin solid!",
+      "Istirahat bareng bikin baterai semangat terisi penuh lagi!",
+      "Dalam sholat bersama, kita belajar kekompakan dan kerendahan hati."
     ]
   },
   "rifqi": {
@@ -756,7 +1296,13 @@
       "Memikirkan fitur inovatif untuk masa depan.",
       "Kolaborasi tim hari ini terasa sangat solid.",
       "Mendiskusikan visi sistem bersama {agent}.",
-      "Fokus mematangkan konsep selama {durasi}."
+      "Fokus mematangkan konsep selama {durasi}.",
+      "Mengamati bagaimana sistem beradaptasi dengan kebutuhan pengguna.",
+      "Diskusi santai tapi berbobot mengenai masa depan {proyek}.",
+      "Melihat langsung eksekusi fitur inovatif bersama {agent}.",
+      "Membangun teknologi yang memberi dampak nyata bagi manusia.",
+      "Memastikan kultur rekayasa kita tetap sehat dan produktif.",
+      "Eksperimen berani adalah kunci terobosan produk kita."
     ],
     "done": [
       "Keren, eksekusi tim sangat rapi hari ini.",
@@ -764,7 +1310,13 @@
       "Terima kasih semuanya, target kita tercapai.",
       "Progres tuntas dalam waktu {durasi}.",
       "Senang melihat sistem berjalan begitu mulus.",
-      "Kerja bagus kawan-kawan, bangga dengan tim ini."
+      "Kerja bagus kawan-kawan, bangga dengan tim ini.",
+      "Luar biasa! Visi produk ini terwujud dengan sangat apik.",
+      "Bangga melihat milestone tercapai dalam tempo {durasi}.",
+      "Terima kasih atas kerja keras tanpa pamrih di {proyek}.",
+      "Hasilnya melampaui ekspektasi. Pertahankan kualitas ini!",
+      "Setiap rilis membuktikan kehebatan kolaborasi tim kita.",
+      "Karya yang matang dan siap dinikmati oleh dunia."
     ],
     "blocked": [
       "Ada kendala apa di sini? Ceritakan padaku.",
@@ -772,7 +1324,13 @@
       "Bagaimana pendapatmu soal masalah ini, {agent}?",
       "Kita butuh solusi out-of-the-box untuk isu ini.",
       "Jangan khawatir macet, kita pecahkan bersama.",
-      "Kita jeda sejenak untuk evaluasi hambatan."
+      "Kita jeda sejenak untuk evaluasi hambatan.",
+      "Santai saja, setiap hambatan menyimpan pelajaran berharga.",
+      "Apa opsi paling masuk akal untuk mengurai masalah di {proyek}?",
+      "Saya siap dukung penuh solusi yang kamu usulkan, {agent}.",
+      "Jangan terbebani target jika fondasinya butuh dibenahi.",
+      "Mari berdiskusi terbuka. Tidak ada ide yang salah di sini.",
+      "Kita hadapi tantangan ini bersama-sama sebagai satu tim."
     ],
     "failed": [
       "Tidak apa-apa, kegagalan adalah proses belajar.",
@@ -780,7 +1338,13 @@
       "Menghampiri workstation untuk beri dukungan.",
       "Jadikan ini evaluasi berharga untuk tim.",
       "Tenang saja, kita perbaiki sistem ini bersama.",
-      "Reset langkah kita dan coba sekali lagi."
+      "Reset langkah kita dan coba sekali lagi.",
+      "Gagal hari ini bukan akhir, besok kita kembali lebih kuat.",
+      "Ambil pelajaran dari insiden di {proyek} dan jadikan pijakan.",
+      "Tetap tegakkan kepala kawan-kawan, saya percaya tim ini.",
+      "Jadikan kegagalan ini batu loncatan menuju kesempurnaan.",
+      "Mari rehat sejenak, jernihkan pikiran, lalu selesaikan.",
+      "Kesalahan teknis wajar dalam proses berinovasi di batas batas."
     ],
     "ambient": [
       "Woi Jarvis, gimana progres hari ini?",
@@ -788,7 +1352,13 @@
       "Peregangan sebentar sambil membalas pesan.",
       "Melambai ramah ke arah rekan-rekan tim.",
       "Ngopi dulu sebelum lanjut cek backlog.",
-      "Air kolam di rooftop kelihatan segar sekali."
+      "Air kolam di rooftop kelihatan segar sekali.",
+      "Melihat suasana kantor yang hidup dari balkon atas.",
+      "Menyeruput kopi hangat sambil merenungkan arah visi produk.",
+      "Senang melihat setiap agen saling bantu dan berkembang.",
+      "Kantor ini dibangun atas rasa percaya dan kebebasan berkarya.",
+      "Menikmati sejuknya udara rooftop di dekat kolam renang.",
+      "Inovasi lahir dari lingkungan yang penuh rasa saling hargai."
     ],
     "collective": [
       "Terima kasih atas kerja keras tim semuanya.",
@@ -796,7 +1366,13 @@
       "Ayo sholat berjamaah dulu kawan-kawan.",
       "Rapat koordinasi tim, mari satukan tujuan.",
       "Break time berkualitas menjaga kesehatan mental.",
-      "Senang melihat kekompakan shaf berjamaah kita."
+      "Senang melihat kekompakan shaf berjamaah kita.",
+      "Bangga bisa berkumpul dan berjuang bersama kalian semua.",
+      "Nikmati makan siang dan kopinya kawan-kawan, jangan lupa rehat.",
+      "Mari sholat berjamaah, bersyukur atas nikmat kebersamaan ini.",
+      "Town hall yang menyenangkan. Energi kalian luar biasa!",
+      "Kebersamaan seperti ini yang membuat kantor terasa seperti rumah.",
+      "Shaf sholat mengingatkan kita bahwa kita semua setara di hadapan-Nya."
     ]
   }
 }

@@ -59,3 +59,6 @@ export function getRandomDialogLine(
       return 'Menjaga alur kerja tetap teratur.';
   }
 }
+
+export * from './conversationBank';
+

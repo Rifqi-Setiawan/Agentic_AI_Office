@@ -143,7 +143,7 @@ describe('T1.15 Bubble Manager & Dialog Bank (Fitur F13)', () => {
       expect(resNullTask).toBe('Pipeline proyek berjalan sesuai timeline eksekutif.');
     });
 
-    it('mengaudit seluruh 576 baris dialog di dialog.id.json: zero placeholder mentah saat context kosong', () => {
+    it('mengaudit seluruh 1.152 baris dialog di dialog.id.json: minimal 12 baris per state, <= 80 karakter, zero placeholder mentah', () => {
       const allAgents = Object.keys(dialogBank);
       expect(allAgents.length).toBe(16);
 
@@ -151,9 +151,19 @@ describe('T1.15 Bubble Manager & Dialog Bank (Fitur F13)', () => {
 
       for (const agentId of allAgents) {
         const agentStates = dialogBank[agentId]!;
+        const stateKeys = Object.keys(agentStates);
+        expect(stateKeys.length).toBe(6);
+
         for (const lines of Object.values(agentStates)) {
+          expect(lines).toBeDefined();
+          expect(lines!.length).toBeGreaterThanOrEqual(12);
+
           for (const line of lines!) {
             auditedLines++;
+
+            // Validasi batas panjang karakter (T2.8 / Spec: <= 80 karakter)
+            expect(line.length).toBeLessThanOrEqual(80);
+            expect(line.length).toBeGreaterThan(0);
 
             // Resolusi dengan context kosong (worst case)
             const resolved = resolvePlaceholders(line, { agentId });
@@ -169,7 +179,7 @@ describe('T1.15 Bubble Manager & Dialog Bank (Fitur F13)', () => {
         }
       }
 
-      expect(auditedLines).toBe(576);
+      expect(auditedLines).toBe(1152);
     });
 
     it('memvalidasi substitusi seluruh jenis placeholder dengan data nyata', () => {

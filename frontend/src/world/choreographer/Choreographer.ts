@@ -14,6 +14,7 @@ import type {
 } from './types';
 import { CollectiveManager } from './CollectiveManager';
 import { AmbientScheduler } from './AmbientScheduler';
+import { getRandomConversation, getConversationsBetween } from '../bubble/conversationBank';
 
 export class Choreographer {
   private characterManager: CharacterManager;
@@ -205,6 +206,9 @@ export class Choreographer {
     // ==========================================
     // LAPISAN PRIORITAS 1: TASK NYATA
     // ==========================================
+    if (newWork !== 'idle' && this.collectiveManager.isAgentInCollective(agentId)) {
+      this.collectiveManager.removeAgentFromCollective(agentId);
+    }
     if (newWork === 'working') {
       // Jika sebelumnya ikut event kolektif, lepaskan dari event kolektif
       if (this.collectiveManager.isAgentInCollective(agentId)) {
@@ -310,7 +314,7 @@ export class Choreographer {
    * Mengirim agen kembali ke mejanya untuk mengerjakan task.
    * Untuk kriteria penerimaan: Forge harus tiba di mejanya dalam <= 10 dtk.
    */
-  private sendAgentToDesk(
+  public sendAgentToDesk(
     agentId: string,
     state: AgentChoreographyState,
     char: Character,
@@ -423,6 +427,7 @@ export class Choreographer {
    */
   public update(dt: number): void {
     if (!this.isInitialized) return;
+    this.collectiveManager.update(this.agentStates, id => this.characterManager.getCharacter(id));
 
     for (const [agentId, state] of this.agentStates.entries()) {
       const char = this.characterManager.getCharacter(agentId);
@@ -834,6 +839,35 @@ export class Choreographer {
   }
 
   /**
+   * Memicu percakapan dua arah (F27) antar dua agen yang sedang berdekatan atau berinteraksi.
+   */
+  public triggerTwoWayConversation(agentA: string, agentB: string): boolean {
+    const conv = getRandomConversation(agentA, agentB, this.randomFn);
+    if (!conv || conv.turns.length === 0) return false;
+
+    // Emit giliran pertama
+    const turn1 = conv.turns[0];
+    this.emitBubble(turn1.agent, turn1.text, 'ambient');
+
+    // Emit giliran kedua setelah jeda singkat jika ada
+    if (conv.turns.length > 1) {
+      const turn2 = conv.turns[1];
+      setTimeout(() => {
+        this.emitBubble(turn2.agent, turn2.text, 'ambient');
+      }, 3500);
+    }
+
+    return true;
+  }
+
+  /**
+   * Mengambil daftar percakapan yang tersedia untuk dua agen.
+   */
+  public getAvailableConversationsBetween(agentA: string, agentB: string) {
+    return getConversationsBetween(agentA, agentB);
+  }
+
+  /**
    * Menangani event linimasa kantor dan memicu reaksi karakter (T2.2 / F20).
    */
   public handleOfficeEvent(event: OfficeEvent): void {
@@ -1128,6 +1162,14 @@ export class Choreographer {
 
   public getAmbientScheduler(): AmbientScheduler {
     return this.ambientScheduler;
+  }
+
+  public getSlotManager(): SlotReservationManager {
+    return this.slotManager;
+  }
+
+  public getGridMap(): GridMap {
+    return this.gridMap;
   }
 
   public isVectorRamPacingActive = false;

@@ -1,0 +1,362 @@
+[
+  {
+    "id": "prism_muse_spacing",
+    "agents": [
+      "prism",
+      "muse"
+    ],
+    "topic": "Spacing dan visual polish UI",
+    "turns": [
+      {
+        "agent": "prism",
+        "text": "Muse, padding tombol aksi ini sudah pas 12px, kan?"
+      },
+      {
+        "agent": "muse",
+        "text": "Kurang 4px. Geser ke 16px biar layout bernapas di 60 fps."
+      }
+    ]
+  },
+  {
+    "id": "forge_vector_skema",
+    "agents": [
+      "forge",
+      "vector"
+    ],
+    "topic": "Skema tabel dan idempotensi data",
+    "turns": [
+      {
+        "agent": "forge",
+        "text": "Vector, skema tabel transaksi baru butuh idempotency key."
+      },
+      {
+        "agent": "vector",
+        "text": "Sudah diindeks di layer silver. Zero null, zero duplicate."
+      }
+    ]
+  },
+  {
+    "id": "sentinel_nova_testing",
+    "agents": [
+      "sentinel",
+      "nova"
+    ],
+    "topic": "Cakupan pengujian dan verifikasi independen",
+    "turns": [
+      {
+        "agent": "nova",
+        "text": "Sentinel, semua unit test hijau! Bisa langsung stempel PASS?"
+      },
+      {
+        "agent": "sentinel",
+        "text": "Tunggu dulu. Saya uji ulang skenario edge case dari nol."
+      }
+    ]
+  },
+  {
+    "id": "daedalus_forge_decoupling",
+    "agents": [
+      "daedalus",
+      "forge"
+    ],
+    "topic": "Arsitektur event-driven dan modularitas",
+    "turns": [
+      {
+        "agent": "daedalus",
+        "text": "Forge, endpoint ini harus event-driven, bukan direct call."
+      },
+      {
+        "agent": "forge",
+        "text": "Siap. Saya bungkus antrean pesan agar tahan beban lonjakan."
+      }
+    ]
+  },
+  {
+    "id": "jarvis_merlin_evaluasi",
+    "agents": [
+      "jarvis",
+      "merlin"
+    ],
+    "topic": "Throughput tim dan pedagogi teknis",
+    "turns": [
+      {
+        "agent": "jarvis",
+        "text": "Merlin, throughput tim naik 14 persen setelah sesi analogimu."
+      },
+      {
+        "agent": "merlin",
+        "text": "Fondasi yang kokoh selalu membuat eksekusi berjalan lebih ringan."
+      }
+    ]
+  },
+  {
+    "id": "bastion_sentinel_audit",
+    "agents": [
+      "bastion",
+      "sentinel"
+    ],
+    "topic": "Firewall rules dan integritas checksum",
+    "turns": [
+      {
+        "agent": "bastion",
+        "text": "Sentinel, seluruh port staging sudah dikunci sesuai firewall rules."
+      },
+      {
+        "agent": "sentinel",
+        "text": "Bagus. Saya verifikasi sertifikat TLS dan checksum kandidatnya."
+      }
+    ]
+  },
+  {
+    "id": "scribe_daedalus_dokumentasi",
+    "agents": [
+      "scribe",
+      "daedalus"
+    ],
+    "topic": "Dokumentasi keputusan arsitektur (ADR)",
+    "turns": [
+      {
+        "agent": "scribe",
+        "text": "Daedalus, draf ADR pemisahan service sudah saya rapikan."
+      },
+      {
+        "agent": "daedalus",
+        "text": "Sempurna. Dokumentasi yang presisi mencegah kebingungan tim."
+      }
+    ]
+  },
+  {
+    "id": "steward_muse_palet",
+    "agents": [
+      "steward",
+      "muse"
+    ],
+    "topic": "Kepatuhan palet 32 warna pada sprite",
+    "turns": [
+      {
+        "agent": "steward",
+        "text": "Muse, bagaimana menurutmu kontras tile karpet di Graphics Lab?"
+      },
+      {
+        "agent": "muse",
+        "text": "Harmonis. Palet 32 warna terjaga tanpa ada piksel yang bocor."
+      }
+    ]
+  },
+  {
+    "id": "oracle_vector_telemetri",
+    "agents": [
+      "oracle",
+      "vector"
+    ],
+    "topic": "Deviasi statistik dan lineage data",
+    "turns": [
+      {
+        "agent": "oracle",
+        "text": "Vector, ada deviasi 0.03 persen pada distribusi latensi kueri."
+      },
+      {
+        "agent": "vector",
+        "text": "Saya cek log partisi bronze sekarang. Jangan sampai ada korupsi."
+      }
+    ]
+  },
+  {
+    "id": "relay_sentinel_rilis",
+    "agents": [
+      "relay",
+      "sentinel"
+    ],
+    "topic": "Kesiapan deployment dan kelulusan CI",
+    "turns": [
+      {
+        "agent": "relay",
+        "text": "Paket rilis v2.1.0 sudah siap di konveyor. Tunggu lampu hijau."
+      },
+      {
+        "agent": "sentinel",
+        "text": "Semua 7 job CI lulus dan SHA256 cocok. Silakan kirim, Relay."
+      }
+    ]
+  },
+  {
+    "id": "nova_merlin_algoritma",
+    "agents": [
+      "nova",
+      "merlin"
+    ],
+    "topic": "Pemahaman rekursi dan model mental",
+    "turns": [
+      {
+        "agent": "nova",
+        "text": "Merlin, rekursi ini bikin pusing. Ada cara lebih simpel?"
+      },
+      {
+        "agent": "merlin",
+        "text": "Bayangkan seperti membuka boneka Matryoshka sampai lapis terdalam."
+      }
+    ]
+  },
+  {
+    "id": "warden_bastion_infrastruktur",
+    "agents": [
+      "warden",
+      "bastion"
+    ],
+    "topic": "Perawatan pendingin server dan keamanan ruang fisik",
+    "turns": [
+      {
+        "agent": "warden",
+        "text": "Bastion, pendingin di ruang server Z12 sudah saya servis."
+      },
+      {
+        "agent": "bastion",
+        "text": "Terima kasih, Warden. Suhu rak stabil, perimeter aman."
+      }
+    ]
+  },
+  {
+    "id": "rifqi_jarvis_roadmap",
+    "agents": [
+      "rifqi",
+      "jarvis"
+    ],
+    "topic": "Progres sprint kuartal dan arah produk",
+    "turns": [
+      {
+        "agent": "rifqi",
+        "text": "Jarvis, bagaimana performa sprint tim kita minggu ini?"
+      },
+      {
+        "agent": "jarvis",
+        "text": "Sangat prima, Rifqi. Sembilan puluh delapan persen target tercapai."
+      }
+    ]
+  },
+  {
+    "id": "prism_steward_rendering",
+    "agents": [
+      "prism",
+      "steward"
+    ],
+    "topic": "Efisiensi atlas sprite dan draw calls",
+    "turns": [
+      {
+        "agent": "prism",
+        "text": "Steward, sprite karakter baru ini ringan sekali di render loop!"
+      },
+      {
+        "agent": "steward",
+        "text": "Sudah dipangkas ke batas atlas. Tidak ada overdraw yang mubazir."
+      }
+    ]
+  },
+  {
+    "id": "oracle_daedalus_paradigma",
+    "agents": [
+      "oracle",
+      "daedalus"
+    ],
+    "topic": "Optimasi kueri dan topologi layanan",
+    "turns": [
+      {
+        "agent": "oracle",
+        "text": "Daedalus, probabilitas optimasi kueri ini sepuluh miliar persen!"
+      },
+      {
+        "agent": "daedalus",
+        "text": "Bagus, tapi kita harus pastikan topologi layanannya tetap decoupled."
+      }
+    ]
+  },
+  {
+    "id": "scribe_merlin_pedagogi",
+    "agents": [
+      "scribe",
+      "merlin"
+    ],
+    "topic": "Penulisan panduan teknis berbasis analogi",
+    "turns": [
+      {
+        "agent": "scribe",
+        "text": "Merlin, analogi dapur restoranmu saya masukkan ke bab pengantar."
+      },
+      {
+        "agent": "merlin",
+        "text": "Bagus sekali. Konsep rumit selalu lebih mudah dipahami lewat cerita."
+      }
+    ]
+  },
+  {
+    "id": "relay_forge_kontrak",
+    "agents": [
+      "relay",
+      "forge"
+    ],
+    "topic": "Kesiapan endpoint health check untuk deployment",
+    "turns": [
+      {
+        "agent": "relay",
+        "text": "Forge, pastikan endpoint health check mengembalikan 200 OK."
+      },
+      {
+        "agent": "forge",
+        "text": "Pasti. Dibuat kokoh dan sudah lolos uji idempotensi."
+      }
+    ]
+  },
+  {
+    "id": "warden_steward_penataan",
+    "agents": [
+      "warden",
+      "steward"
+    ],
+    "topic": "Perbaikan ubin longgar dan integritas tilemap",
+    "turns": [
+      {
+        "agent": "warden",
+        "text": "Steward, ada ubin yang agak longgar dekat lorong kafetaria."
+      },
+      {
+        "agent": "steward",
+        "text": "Segera saya pasang ulang dengan perekat isometrik terbaik."
+      }
+    ]
+  },
+  {
+    "id": "nova_prism_arcade",
+    "agents": [
+      "nova",
+      "prism"
+    ],
+    "topic": "Tantangan game retro dan stabilitas FPS",
+    "turns": [
+      {
+        "agent": "nova",
+        "text": "Prism, habis rilis ini kita tanding satu ronde di arcade!"
+      },
+      {
+        "agent": "prism",
+        "text": "Tantangan diterima! Tapi pastikan frame rate-nya tetap 60 fps."
+      }
+    ]
+  },
+  {
+    "id": "rifqi_merlin_konsep",
+    "agents": [
+      "rifqi",
+      "merlin"
+    ],
+    "topic": "Analogi lakehouse untuk edukasi tim",
+    "turns": [
+      {
+        "agent": "rifqi",
+        "text": "Merlin, analogi apa yang pas untuk menjelaskan lakehouse ke tim?"
+      },
+      {
+        "agent": "merlin",
+        "text": "Bayangkan seperti mata air pegunungan yang disaring bertahap ke gelas."
+      }
+    ]
+  }
+]
