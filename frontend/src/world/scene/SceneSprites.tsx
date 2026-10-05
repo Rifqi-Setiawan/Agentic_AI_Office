@@ -8,10 +8,11 @@ import {applyAtlasFrame,type DepthProp,type SpriteAtlas} from './AssetRegistry';
 /** Furniture stays a sibling of every actor, in the same global depth context. */
 export const SceneProp=memo(({prop,atlas}:{prop:DepthProp;atlas:SpriteAtlas})=>{
   const bind=useCallback((el:HTMLDivElement|null)=>{
-    if(el) applyAtlasFrame(el,atlas,prop.sprite,'/sprites/environment.png');
+    if(el && !prop.file) applyAtlasFrame(el,atlas,prop.sprite,'/sprites/environment.png');
   },[atlas,prop]);
   return <div ref={bind} data-prop-id={prop.id} data-frame={prop.sprite}
-    className="depth-prop" style={{left:prop.bounds.x,top:prop.bounds.y,zIndex:prop.z}} aria-hidden="true">
+    className={`depth-prop ${prop.file?'illustrated-prop':''}`} style={{left:prop.bounds.x,top:prop.bounds.y,zIndex:prop.z,
+      ...(prop.file?{width:prop.bounds.width,height:prop.bounds.height,backgroundImage:`url("${prop.file}")`,backgroundSize:'100% 100%'}:{})}} aria-hidden="true">
     {prop.sprite.includes('server_rack')&&<span className="rack-led" style={{left:prop.x-prop.bounds.x-6,top:prop.y-prop.bounds.y-14}}/>}
   </div>;
 });

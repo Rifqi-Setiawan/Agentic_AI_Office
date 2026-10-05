@@ -1,3 +1,15 @@
+# Pembaruan aktif: ilustrasi 2D Z08, 5 Oktober 2026
+
+Brief terbaru mengganti ketentuan Blender/GLB/native render/kuota frame. Kandidat Z08 + Prism sudah dibuat dan terhubung lokal. 40 file/291 tes, typecheck/lint/build lulus; QA browser dan walk cycle belum lulus; user style approval diperlukan sebelum batch. Lihat CHECKPOINT_2D.md, STATUS.md, ART_BIBLE_2D.md dan ACCEPTANCE_2D.md. Bagian di bawah adalah catatan historis, bukan instruksi produksi aktif.
+
+# Pembaruan konsultasi — 5 Oktober 2026
+
+User menilai desain buruk dan meminta rangkuman untuk konsultasi Dot. Migrasi belum selesai; implementasi/render tidak dilanjutkan pada checkpoint ini. Ringkasan terkini ada di `HANDOFF_DOT.md` dan `STATUS.md`.
+
+Blender 4.5.14 LTS sekarang sudah dipasang dengan izin eksplisit, checksum resmi cocok, dan kalibrasi marker GPU benar-benar lulus. Importer glTF bawaan terblokir Application Control; parser GLB standard-library berhasil membaca Prism tanpa mengubah kebijakan keamanan. Run terakhir menghasilkan 11 PNG dari 48 sampel lalu gagal validator pada sit_type; belum ada slice diterima atau batch final. Script environment belum dieksekusi di Blender. Native art belum masuk ke preview. Browser QA akhir tetap belum selesai. Pipeline/log terbaru masih uncommitted dan belum masuk paket v2. Tidak ada push/deploy/perubahan produksi.
+
+**Laporan berikut adalah snapshot sebelum pemasangan dan percobaan Blender terbaru. Pernyataan “Blender belum tersedia”/“izin pending” di bawah merupakan status historis, bukan status sekarang.**
+
 # Review lokal — 5 Oktober 2026 WIB
 
 Preview teknis React/CSS sudah diimplementasikan dan disiapkan untuk review lokal. Migrasi visual penuh belum selesai: art Blender empat arah dan sebagian penerimaan browser masih terblokir. Tidak ada push, merge atau deployment; VPS, gateway Telegram/WhatsApp dan layanan Office yang dijeda tidak diubah.

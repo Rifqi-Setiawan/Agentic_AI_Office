@@ -7,7 +7,7 @@ import { BubbleManager } from '../bubble';
 import { VitalsModel } from '../simulation/VitalsModel';
 import { EasterEggModel } from '../simulation/EasterEggModel';
 import { SceneCamera } from './SceneCamera';
-import { applyAtlasFrame, animationFrames, type PreviewAssets, type SpriteAtlas } from './AssetRegistry';
+import { applyAtlasFrame, atlasImageUrl, resolveActorAnimation, type PreviewAssets, type SpriteAtlas } from './AssetRegistry';
 import { screenToGrid } from '../projection';
 import type { TiledMapDoc } from '../types';
 import { officeStore } from '../../store/officeStore';
@@ -26,7 +26,7 @@ export class DomWorld implements WorldController {
   readonly easterEggs: EasterEggModel;
   private raf = 0; private last = 0; private time = 0; private disposed = false;
   private observer: ResizeObserver;
-  private frames = new Map<string, string[]>();
+  private frames = new Map<string, ReturnType<typeof resolveActorAnimation>>();
   private actorElements = new Map<string, ActorNodes>();
   private propElements = new Map<string, HTMLElement>();
   private reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -38,7 +38,7 @@ export class DomWorld implements WorldController {
 
   constructor(readonly viewport: HTMLElement, readonly world: HTMLElement, readonly camera: SceneCamera,
     map: TiledMapDoc, readonly assets: PreviewAssets, readonly environment: SpriteAtlas,
-    readonly atlases: Map<string, SpriteAtlas>) {
+    readonly atlases: Map<string, SpriteAtlas>, readonly baselineAtlases: Map<string, SpriteAtlas> = new Map()) {
     this.gridMap = new GridMap(map);
     this.pathfinder = new AStarPathfinder(this.gridMap);
     this.reservations = new SlotReservationManager(this.gridMap);
@@ -107,11 +107,16 @@ export class DomWorld implements WorldController {
       const display = intersects(b.x, b.y, b.width, b.height) ? '' : 'none';
       if (el.style.display !== display) el.style.display = display;
       const night = state.timeOfDay === 'night' || state.timeOfDay === 'dusk';
-      const alternate = prop.sprite.replace('.png', '_night.png');
-      const sprite = night && this.environment.frames[alternate] ? alternate : prop.sprite;
-      if (el.dataset.frame !== sprite) {
-        applyAtlasFrame(el, this.environment, sprite, '/sprites/environment.png');
-        el.dataset.frame = sprite;
+      if (prop.file) {
+        const file=night && prop.nightFile ? prop.nightFile : prop.file;
+        if(el.dataset.assetFile!==file) {el.style.backgroundImage=`url("${file}")`;el.dataset.assetFile=file;}
+      } else {
+        const alternate = prop.sprite.replace('.png', '_night.png');
+        const sprite = night && this.environment.frames[alternate] ? alternate : prop.sprite;
+        if (el.dataset.frame !== sprite) {
+          applyAtlasFrame(el, this.environment, sprite, '/sprites/environment.png');
+          el.dataset.frame = sprite;
+        }
       }
       if (prop.sprite.includes('server_rack')) {
         el.classList.toggle('ram-alert', this.vitals.isRamAlertActive());
@@ -125,7 +130,7 @@ export class DomWorld implements WorldController {
     }
     for (const char of this.registry.getAllCharacters()) {
       const nodes = this.actorElements.get(char.id);
-      const atlas = this.atlases.get(char.id);
+      let atlas = this.atlases.get(char.id);
       if (!nodes || !atlas) continue;
       const el = nodes.body;
       const show = char.visible && intersects(char.x - 55, char.y - 90, 110, 110);
@@ -139,36 +144,34 @@ export class DomWorld implements WorldController {
       for (const [key,value] of Object.entries(fields)) if (el.dataset[key] !== value) el.dataset[key] = value;
       if (el.getAttribute('aria-pressed') !== String(char.isSelected)) el.setAttribute('aria-pressed', String(char.isSelected));
       const action = char.getCurrentAnimation();
-      let direction = char.facing.toLowerCase();
-      let key = `${char.id}:${action}:${direction}`;
-      let frames = this.frames.get(key);
-      if (!frames) {
-        frames = animationFrames(atlas, char.id, action, direction);
-        this.frames.set(key, frames);
+      const direction = char.facing.toLowerCase();
+      const key = `${char.id}:${action}:${direction}`;
+      let resolved = this.frames.get(key);
+      if (!resolved) {
+        resolved=resolveActorAnimation(atlas,this.baselineAtlases.get(char.id),char.id,action,direction);
+        this.frames.set(key,resolved);
       }
-      // Baseline-only exception is visible and logged. New production atlases require all four views.
-      const mirrored = !frames.length && (direction === 'sw' || direction === 'nw');
-      if (mirrored) {
-        direction = direction === 'sw' ? 'se' : 'ne';
-        key = `${char.id}:${action}:${direction}`;
-        frames = this.frames.get(key) ?? animationFrames(atlas, char.id, action, direction);
-        this.frames.set(key, frames);
-      }
+      const {frames,mirrored,source}=resolved;
+      atlas=resolved.atlas;
+      if(el.dataset.artSource!==source) el.dataset.artSource=source;
       const sprite = nodes.sprite;
+      sprite.classList.toggle('illustrated-sprite',source==='illustration');
       const missing = !frames.length;
       if (el.dataset.missingAnimation !== (missing ? action : '')) el.dataset.missingAnimation = missing ? action : '';
       if (missing) { sprite.style.visibility = 'hidden'; if(nodes.missing.textContent !== `Aset belum ada: ${action}`) nodes.missing.textContent = `Aset belum ada: ${action}`; }
       else {
         if (sprite.style.visibility) sprite.style.visibility = '';
         if (nodes.missing.textContent) nodes.missing.textContent = '';
-        const fps = ({ idle: 4.8, walk: 8.4, swim: 4.8, whiteboard: 5.4, game: 7.2 } as Record<string, number>)[action] ?? 6;
-        const phase = action === 'walk' ? char.travelDistance * (8.4 / 2.5) : char.animationTime * fps;
+        const fps = atlas.meta.animationFps?.[action] ?? (({ idle: 4.8, walk: 8.4, swim: 4.8, whiteboard: 5.4, game: 7.2 } as Record<string, number>)[action] ?? 6);
+        const phase = action === 'walk' ? char.travelDistance * (fps / 2.5) : char.animationTime * fps;
         const frameIndex = this.reduced.matches ? 0 : char.loop ? Math.floor(phase) % frames.length : Math.min(Math.floor(phase), frames.length - 1);
         const name = frames[frameIndex];
-        if (sprite.dataset.frame !== name) { applyAtlasFrame(sprite, atlas, name, `/sprites/characters/${char.id}.png`); sprite.dataset.frame = name; }
+        const url=atlasImageUrl(atlas,`/sprites/characters/${char.id}.png`);
+        if (sprite.dataset.frame !== name || sprite.dataset.atlasUrl!==url) { applyAtlasFrame(sprite, atlas, name, url); sprite.dataset.frame = name; sprite.dataset.atlasUrl=url; }
         const entry = atlas.frames[name];
         const scale = atlas.meta.exportScale ?? 1;
-        const left = `${24 + (-entry.sourceSize.w * .5 + entry.spriteSourceSize.x) / scale}px`, top = `${59 + (-entry.sourceSize.h * .92 + entry.spriteSourceSize.y) / scale + char.slotYOffset}px`;
+        const anchor=atlas.meta.footAnchor ?? {x:.5,y:.92};
+        const left = `${24 + (-entry.sourceSize.w * anchor.x + entry.spriteSourceSize.x) / scale}px`, top = `${59 + (-entry.sourceSize.h * anchor.y + entry.spriteSourceSize.y) / scale + char.slotYOffset}px`;
         if(sprite.style.left !== left) sprite.style.left = left;
         if(sprite.style.top !== top) sprite.style.top = top;
         if(sprite.style.transform !== (mirrored ? 'scaleX(-1)' : '')) sprite.style.transform = mirrored ? 'scaleX(-1)' : '';

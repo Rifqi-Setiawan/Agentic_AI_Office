@@ -1,7 +1,11 @@
 {
-  "schemaVersion": 1,
-  "styleVersion": "AO_CLAUDE_2P5D_V1",
+  "schemaVersion": 2,
+  "styleVersion": "AO_ILLUSTRATED_2D_Z08_V1",
   "finalArt": false,
+  "productionMethod": "built-in imagegen, mechanical sprite packing, React/CSS composition",
+  "supersedes": "Blender/native-render/2312-frame production requirement; historical files retained",
+  "batchAllowed": false,
+  "batchGate": "User visual approval of Z08 checkpoint required",
   "projection": {
     "tileWidth": 64,
     "tileHeight": 32,
@@ -13,13 +17,7 @@
       2560,
       1440
     ],
-    "cameraRotationDegrees": [
-      60,
-      0,
-      45
-    ],
-    "exportScale": 2,
-    "calibration": "pending Blender axis-marker render"
+    "exportScale": 2
   },
   "mapSha256": "765fdd8c1185fb79ba64050251267c3a8acc4c8997759ce8a2c1a2773fc03a67",
   "directions": [
@@ -28,345 +26,380 @@
     "ne",
     "nw"
   ],
-  "minimumAnimations": {
-    "idle": 4,
-    "walk": 6,
-    "sit_type": 2,
-    "stand_talk": 2,
-    "celebrate": 2,
-    "pray_berdiri": 2,
-    "pray_rukuk": 2,
-    "pray_sujud": 2,
-    "pray_duduk": 2,
-    "drink": 2,
-    "swim": 2,
-    "game": 2,
-    "whiteboard": 2,
-    "special": 2
-  },
+  "requiredActions": [
+    "idle",
+    "walk",
+    "sit_type",
+    "stand_talk",
+    "celebrate",
+    "pray_berdiri",
+    "pray_rukuk",
+    "pray_sujud",
+    "pray_duduk",
+    "drink",
+    "swim",
+    "game",
+    "whiteboard",
+    "special"
+  ],
+  "framePolicy": "Visible motion at usage size; no fixed total/minimum frame batch",
   "characters": [
     {
       "id": "jarvis",
-      "identitySource": {
-        "id": "jarvis",
-        "name": "Jarvis",
-        "base_rig": "A",
-        "model": "figure_Suit.glb",
-        "sig_hex": "#1F3A68",
-        "desc": "Jas navy 3-potong formal, dasi emas, earpiece, tablet di tangan samping",
-        "prop": "tablet"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
     },
     {
       "id": "daedalus",
-      "identitySource": {
-        "id": "daedalus",
-        "name": "Daedalus",
-        "base_rig": "B",
-        "model": "figure_Casual.glb",
-        "sig_hex": "#2F6FB3",
-        "desc": "Kemeja cerulean, syal arsitek, tabung blueprint silindris diagonal punggung, jangka",
-        "prop": "compass"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
-    },
-    {
-      "id": "oracle",
-      "identitySource": {
-        "id": "oracle",
-        "name": "Oracle",
-        "base_rig": "A",
-        "model": "figure_Casual.glb",
-        "sig_hex": "#8A4FBF",
-        "desc": "Jas lab putih berekor mekar, goggles di dahi, rambut acak-acakan unik, tabung reaksi",
-        "prop": "test_tube"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
     },
     {
       "id": "merlin",
-      "identitySource": {
-        "id": "merlin",
-        "name": "Merlin",
-        "base_rig": "A",
-        "model": "figure_Casual.glb",
-        "sig_hex": "#B5652B",
-        "desc": "Kardigan ochre, kacamata, janggut abu pendek, tongkat penunjuk panjang berujung bintang",
-        "prop": "star_wand"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
-    },
-    {
-      "id": "muse",
-      "identitySource": {
-        "id": "muse",
-        "name": "Muse",
-        "base_rig": "B",
-        "model": "figure_Worker.glb",
-        "sig_hex": "#E0567A",
-        "desc": "Overall denim noda cat, stylus panjang di telinga, sanggul rambut atas, tablet gambar",
-        "prop": "art_tablet"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
-    },
-    {
-      "id": "prism",
-      "identitySource": {
-        "id": "prism",
-        "name": "Prism",
-        "base_rig": "A",
-        "model": "figure_Casual.glb",
-        "sig_hex": "#2BB3C0",
-        "desc": "Hoodie gelap garis spektrum teal, headphone over-ear besar, keyboard mekanik",
-        "prop": "keyboard"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
-    },
-    {
-      "id": "forge",
-      "identitySource": {
-        "id": "forge",
-        "name": "Forge",
-        "base_rig": "C",
-        "model": "figure_Worker.glb",
-        "sig_hex": "#D9622B",
-        "desc": "Celemek kulit terracotta, siluet kekar berotot, goggle las dahi, palu tempa",
-        "prop": "hammer"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
-    },
-    {
-      "id": "vector",
-      "identitySource": {
-        "id": "vector",
-        "name": "Vector",
-        "base_rig": "B",
-        "model": "figure_Casual.glb",
-        "sig_hex": "#3FA66B",
-        "desc": "Rompi emerald, topi lapangan berpet depan, gulungan kabel besar di bahu, tablet data",
-        "prop": "data_tablet"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
-    },
-    {
-      "id": "sentinel",
-      "identitySource": {
-        "id": "sentinel",
-        "name": "Sentinel",
-        "base_rig": "A",
-        "model": "figure_Suit.glb",
-        "sig_hex": "#D23C3C",
-        "desc": "Mantel panjang kerah berdiri tinggi, visor horizontal crimson, papan klip PASS putih",
-        "prop": "clipboard"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
-    },
-    {
-      "id": "bastion",
-      "identitySource": {
-        "id": "bastion",
-        "name": "Bastion",
-        "base_rig": "C",
-        "model": "figure_Casual.glb",
-        "sig_hex": "#6B7785",
-        "desc": "Siluet zirah pelat kekar, helm taktis LED cyan, perisai pelat punggung, walkie-talkie",
-        "prop": "walkie"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
-    },
-    {
-      "id": "relay",
-      "identitySource": {
-        "id": "relay",
-        "name": "Relay",
-        "base_rig": "A",
-        "model": "figure_Worker.glb",
-        "sig_hex": "#6D5BD0",
-        "desc": "Jaket indigo, topi kurir berpet, tas selempang menonjol di pinggang, kotak paket",
-        "prop": "parcel"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
-    },
-    {
-      "id": "warden",
-      "identitySource": {
-        "id": "warden",
-        "name": "Warden",
-        "base_rig": "A",
-        "model": "figure_Worker.glb",
-        "sig_hex": "#8E8E3A",
-        "desc": "Rompi utilitas olive, ring gantungan kunci besar mencuat di pinggul, kotak perkakas merah",
-        "prop": "toolbox"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
-    },
-    {
-      "id": "steward",
-      "identitySource": {
-        "id": "steward",
-        "name": "Steward",
-        "base_rig": "A",
-        "model": "figure_Worker.glb",
-        "sig_hex": "#9CC23A",
-        "desc": "Overall lime, kacamata VR tebal di dahi, voxel tile isometrik melayang di telapak",
-        "prop": "tile"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
     },
     {
       "id": "scribe",
-      "identitySource": {
-        "id": "scribe",
-        "name": "Scribe",
-        "base_rig": "B",
-        "model": "figure_Casual.glb",
-        "sig_hex": "#7A4A2E",
-        "desc": "Kerudung/hijab anggun melingkupi kepala & bahu, blazer tweed sepia, pena bulu panjang",
-        "prop": "quill"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
+    },
+    {
+      "id": "oracle",
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
+    },
+    {
+      "id": "muse",
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
+    },
+    {
+      "id": "prism",
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "Prism slice candidate; remaining actions pending",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
+    },
+    {
+      "id": "forge",
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
     },
     {
       "id": "nova",
-      "identitySource": {
-        "id": "nova",
-        "name": "Nova",
-        "base_rig": "B",
-        "model": "figure_Casual.glb",
-        "sig_hex": "#F2C230",
-        "desc": "Jaket varsity gold lengan putih, kuncir kuda samping dengan jepit bintang emas, botol minum",
-        "prop": "bottle"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
+    },
+    {
+      "id": "steward",
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
+    },
+    {
+      "id": "sentinel",
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
+    },
+    {
+      "id": "relay",
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
+    },
+    {
+      "id": "vector",
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
+    },
+    {
+      "id": "bastion",
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
+    },
+    {
+      "id": "warden",
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
     },
     {
       "id": "rifqi",
-      "identitySource": {
-        "id": "rifqi",
-        "name": "Rifqi",
-        "base_rig": "A",
-        "model": "figure_Casual.glb",
-        "sig_hex": "#F5F0E1",
-        "desc": "Hoodie krem santai Founder, mahkota emas mini melayang di atas kepala, ponsel cerdas",
-        "prop": "phone"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
     },
     {
       "id": "guest",
-      "identitySource": {
-        "id": "guest",
-        "name": "Tamu",
-        "base_rig": "A",
-        "model": "figure_Casual.glb",
-        "sig_hex": "#9CA8B8",
-        "desc": "Blazer kasual abu-abu, kalung tali lanyard ID kartu tamu menggantung di dada, buku catatan",
-        "prop": "notebook"
-      },
-      "requiredViews": [
-        "se",
-        "sw",
-        "ne",
-        "nw"
-      ],
-      "status": "missing native four-view final art"
+      "identitySource": "docs/blueprint/03-character-design-spec.md",
+      "status": "pending style checkpoint",
+      "requiredActions": [
+        "idle",
+        "walk",
+        "sit_type",
+        "stand_talk",
+        "celebrate",
+        "pray_berdiri",
+        "pray_rukuk",
+        "pray_sujud",
+        "pray_duduk",
+        "drink",
+        "swim",
+        "game",
+        "whiteboard",
+        "special"
+      ]
     }
   ],
   "zones": [
@@ -466,13 +499,13 @@
           "gy": 7
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -655,13 +688,13 @@
           "gy": 7
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -724,13 +757,13 @@
           "gy": 7
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -841,13 +874,13 @@
           "gy": 7
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -946,13 +979,13 @@
           "gy": 7
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -1035,13 +1068,13 @@
           "gy": 19
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -1100,13 +1133,13 @@
           "gy": 19
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -1221,13 +1254,13 @@
           "gy": 14
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "illustrated slice candidate",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -1302,13 +1335,13 @@
           "gy": 14
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -1383,13 +1416,13 @@
           "gy": 14
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -1476,13 +1509,13 @@
           "gy": 14
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -1597,13 +1630,13 @@
           "gy": 14
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -1666,13 +1699,13 @@
           "gy": 31
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -1882,13 +1915,13 @@
         }
       ],
       "doors": [],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -2002,13 +2035,13 @@
         }
       ],
       "doors": [],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -2287,13 +2320,13 @@
           "gy": 22
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     },
     {
@@ -2620,13 +2653,13 @@
           "gy": 22
         }
       ],
-      "status": "baseline preview only; final layers/recomposition pending",
+      "status": "baseline art; batch not authorized",
       "layers": [
-        "static floor",
-        "back walls",
-        "split occluding furniture",
-        "door frames",
-        "front cutaway walls"
+        "floor",
+        "low cutaway wall pieces",
+        "furniture rear/front",
+        "open jambs",
+        "characters"
       ]
     }
   ],
@@ -2641,10 +2674,10 @@
     "mustRemainWalkable": true
   },
   "releaseGates": [
-    "native directions calibrated",
-    "all character identities reviewed",
-    "all zone layers recomposed",
-    "global occlusion browser checks",
-    "production provenance/freshness browser checks"
+    "user style checkpoint approval",
+    "all identities/actions reviewed",
+    "all zone layers verified",
+    "browser motion/occlusion/interaction checks",
+    "real provenance/freshness/redaction retained"
   ]
 }

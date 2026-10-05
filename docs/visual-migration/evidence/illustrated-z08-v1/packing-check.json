@@ -1,0 +1,11 @@
+{
+  "characterFrames": 20,
+  "rotatedFrames": 0,
+  "mirroredCandidateFrames": 0,
+  "mapSha256": "765fdd8c1185fb79ba64050251267c3a8acc4c8997759ce8a2c1a2773fc03a67",
+  "globalProps": 538,
+  "assetsPacked": true,
+  "browserQA": false,
+  "userStyleApproved": false,
+  "walkLoopAccepted": false
+}

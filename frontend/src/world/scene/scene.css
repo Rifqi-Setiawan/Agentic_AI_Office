@@ -8,6 +8,8 @@ body:has(.office-scene) [data-snapshot-panel][data-expanded=false] [data-snapsho
 .camera-world{position:absolute;left:0;top:0;width:2560px;height:1440px;transform-origin:0 0;filter:url(#office-atmosphere)}
 .static-floor{position:absolute;z-index:0;pointer-events:none;image-rendering:pixelated}
 .depth-prop{position:absolute;background-repeat:no-repeat;pointer-events:none;image-rendering:pixelated}
+.illustrated-prop,.actor-sprite.illustrated-sprite{image-rendering:auto}
+.static-floor{image-rendering:auto}
 .depth-prop.ram-alert{box-shadow:0 0 8px 3px #d8803255}
 .rack-led{position:absolute;width:3px;height:2px;background:var(--rack-led-color,#22c55e);opacity:var(--rack-led-opacity,1);box-shadow:5px 0 var(--rack-led-color,#22c55e),10px 0 var(--rack-led-color,#22c55e),0 16px var(--rack-led-color,#22c55e),5px 16px var(--rack-led-color,#22c55e)}
 .ac-airflow{position:absolute;left:8px;top:24px;width:2px;height:13px;background:#7dd3fc88;box-shadow:14px 0 #7dd3fc66,28px 0 #7dd3fc88;transform:skewX(-8deg)}

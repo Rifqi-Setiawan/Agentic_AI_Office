@@ -1,0 +1,89 @@
+{
+  "tool": "built-in imagegen",
+  "styleVersion": "AO_ILLUSTRATED_2D_Z08_V1",
+  "userStyleApproved": false,
+  "officeReferenceImage": "not supplied at known paths; question pending",
+  "references": [
+    "art/illustrated-z08-v1/sources/references/aset meja.png",
+    "art/illustrated-z08-v1/sources/references/aset karakter.png"
+  ],
+  "sources": [
+    {
+      "id": "desk",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-9e38c370-182c-4b89-ba61-214c046f0779.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/desk.png",
+      "sha256": "a5b19c33c8412b3f0bf2bca6dd16079f2ce2630b24fd1bb6a81687aaae2c9001"
+    },
+    {
+      "id": "idle",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-0c069180-6db8-461d-96e1-e4dfce5ac0f5.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/idle.png",
+      "sha256": "3ad1751c5bcd55cbab5d292b1ee75d5ed6f57a3a1b4696c7d2f56ce7f6a30e63"
+    },
+    {
+      "id": "walk-rejected-v1",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-827c33ae-4b62-4d9c-9a91-3ac4e761ddc4.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/walk-rejected-v1.png",
+      "sha256": "50835abd07df3fb994ba911521af7df4c2d04499f636868ba8190e9f647e2399"
+    },
+    {
+      "id": "walk-rejected-v2",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-a7b9c4c5-c9b8-456a-86b6-5ec1593cea92.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/walk-rejected-v2.png",
+      "sha256": "ed6725500663d01f669f645db47826fe1fd52a1fad2a9379989bbd53350b0e48"
+    },
+    {
+      "id": "walk-v3",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-15afe176-fdc6-4352-8156-3b3abb887d8d.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/walk-v3.png",
+      "sha256": "ef112295923c81bea2e2db8f2742e1a2262d494c3fb139da132f821314b514df"
+    },
+    {
+      "id": "walk-v4",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-363f8860-5975-422c-89c9-521fa64d6d95.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/walk-v4.png",
+      "sha256": "18ef3b8d6623f09569bbdf0469fce5bd83f9b2c3c1acc71af3c7036697503587"
+    },
+    {
+      "id": "walk-opposite-rejected",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-c1470e90-7442-4144-9a2d-1193c8bba62c.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/walk-opposite-rejected.png",
+      "sha256": "98171961fad9d0a65602f649dd7ea70f6ea064a55d9e6b8e4dd0f29f6bed5411"
+    },
+    {
+      "id": "sit-v1",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-63ffd602-fa62-46fa-aebe-2597351ded3d.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/sit-v1.png",
+      "sha256": "b23edee0899c0fd18f9209dcadd574e8342cf1baefe2f9f3587f609d07ca5801"
+    },
+    {
+      "id": "sit-v2",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-c9377390-641a-45c1-b4f7-6bc9b7210bc0.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/sit-v2.png",
+      "sha256": "9ce88ca6ccb082d5dc07d288595299a490ef33a2df5df44b9d98e5d6953703e9"
+    },
+    {
+      "id": "furniture",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-d49a446d-a86b-407e-aa22-aa0b35fc6678.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/furniture.png",
+      "sha256": "e9ef9c77d70038a6794396cac34e304456bf9b1e325f4575478d3b338c8e7c4d"
+    },
+    {
+      "id": "floor",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-419326e4-c829-44e2-86d5-2b57145bf1c8.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/floor.png",
+      "sha256": "a553020f913307fc638fc32b5944d1797ebb431b206cf2e9f9334df79f728f01"
+    },
+    {
+      "id": "door-posts",
+      "path": "C:\\Users\\Rifqi\\.codex\\generated_images\\01a10784-1460-7a70-833e-d07e95cd3259\\exec-d006183e-26de-4778-8f62-ff79f7964b80.png",
+      "workspaceFile": "art/illustrated-z08-v1/sources/door-posts.png",
+      "sha256": "eb0e9d1c969256b3548073e53de34b27bc230297592dbaf23cc1e80d6aea14fe"
+    },
+    {
+      "id": "idle-v2",
+      "workspaceFile": "art/illustrated-z08-v1/sources/idle-v2.png",
+      "sha256": "f94440097cdce070ade3a3e9ca61822edfedb70aeacffca63621c52fc8592386"
+    }
+  ]
+}

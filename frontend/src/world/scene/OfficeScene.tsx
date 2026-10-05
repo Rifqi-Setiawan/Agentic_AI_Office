@@ -13,7 +13,7 @@ import { applyAtlasFrame, type PreviewAssets, type SpriteAtlas } from './AssetRe
 import { SceneActor, SceneProp } from './SceneSprites';
 import './scene.css';
 
-interface SceneData { map: TiledMapDoc; assets: PreviewAssets; environment: SpriteAtlas; atlases: Map<string, SpriteAtlas>; }
+interface SceneData { map: TiledMapDoc; assets: PreviewAssets; environment: SpriteAtlas; atlases: Map<string, SpriteAtlas>; baselineAtlases: Map<string, SpriteAtlas>; }
 const ZONE_ICONS = ['◈','◎','⌘','▤','▥','⚗','◒','⌨','▧','✓','↗','▦','◇','☕','♜','☾','≈'];
 async function loadJson<T>(path: string, signal: AbortSignal): Promise<T> {
   const response = await fetch(path, { signal });
@@ -30,18 +30,22 @@ export const OfficeScene: React.FC = () => {
     const abort = new AbortController(), signal = abort.signal;
     Promise.all([
       loadJson<TiledMapDoc>('/maps/floor1.tmj', signal),
-      loadJson<PreviewAssets>('/visual-migration/preview-assets.json', signal),
+      loadJson<PreviewAssets>(new URLSearchParams(location.search).get('officeArt')==='baseline'?'/visual-migration/preview-assets.json':'/visual-migration/illustrated-z08-v1/assets.json', signal),
       loadJson<SpriteAtlas>('/sprites/environment.json', signal),
       Promise.all(AGENT_SPAWN_DEFS.map(async def => [def.id, await loadJson<SpriteAtlas>(`/sprites/characters/${def.id}.json`, signal)] as const)),
-    ]).then(([map, assets, environment, entries]) => {
-      if (!signal.aborted) setData({ map, assets, environment, atlases: new Map(entries) });
+    ]).then(async ([map, assets, environment, entries]) => {
+      const baselineAtlases=new Map(entries), atlases=new Map(entries);
+      await Promise.all(Object.entries(assets.characterOverrides??{}).map(async ([id,path])=>{
+        atlases.set(id,await loadJson<SpriteAtlas>(path,signal));
+      }));
+      if (!signal.aborted) setData({ map, assets, environment, atlases, baselineAtlases });
     }).catch(err => { if (!signal.aborted) setError(String(err)); });
     return () => abort.abort();
   }, []);
   useEffect(() => {
     if (!data || !viewport.current || !worldElement.current) return;
     const camera = new SceneCamera(viewport.current, worldElement.current);
-    const controller = new DomWorld(viewport.current, worldElement.current, camera, data.map, data.assets, data.environment, data.atlases);
+    const controller = new DomWorld(viewport.current, worldElement.current, camera, data.map, data.assets, data.environment, data.atlases, data.baselineAtlases);
     active.current = controller; worldController.attach(controller);
     const diagnostics = window as unknown as { __WORLD_APP__?: DomWorld; __DOM_WORLD__?: DomWorld };
     diagnostics.__WORLD_APP__ = controller; diagnostics.__DOM_WORLD__ = controller;
@@ -51,7 +55,7 @@ export const OfficeScene: React.FC = () => {
   const selectAgent = useCallback((id: string) => {active.current?.handleAgentClick(id);}, []);
   const grid = useMemo(() => data ? new GridMap(data.map) : null, [data]);
   return <div className="office-scene" data-renderer="react-css">
-    <div className="migration-notice" role="status">{import.meta.env.DEV ? 'Preview lokal · fixture demo' : 'Renderer percobaan · sumber data mengikuti backend'} · art baseline sementara · empat arah final menunggu Blender</div>
+    <div className="migration-notice" role="status">{import.meta.env.DEV ? 'Preview lokal · fixture demo' : 'Renderer percobaan'} · {data?.assets.characterOverrides ? 'Kandidat ilustrasi Z08 + Prism · ruang dan aksi lainnya masih aset lama' : 'Pembanding aset lama'} · menunggu review gaya</div>
     <button className="mobile-room-toggle" onClick={() => setMenu(!menu)} aria-expanded={menu}>17 ruang</button>
     <nav className={`scene-nav ${menu ? 'open' : ''}`} aria-label="Navigasi 17 ruang">
       <div className="nav-title">THE OFFICE <span>44 × 32</span></div>

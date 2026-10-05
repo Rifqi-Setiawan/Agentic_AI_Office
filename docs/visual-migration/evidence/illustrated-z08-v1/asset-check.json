@@ -1,0 +1,16 @@
+{
+  "resourcesExist": true,
+  "propRasterBoundsMatch2x": true,
+  "sourceHashesMatch": true,
+  "frameCount": 20,
+  "maxFrameEdgeAlpha": 0,
+  "nativeCandidateMirrored": false,
+  "mapSha256": "765fdd8c1185fb79ba64050251267c3a8acc4c8997759ce8a2c1a2773fc03a67",
+  "floorRasterSize": [
+    4864,
+    2440
+  ],
+  "browserQA": false,
+  "walkLoopAccepted": false,
+  "userStyleApproved": false
+}

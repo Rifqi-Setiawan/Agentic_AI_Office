@@ -1,0 +1,407 @@
+{
+  "frames": [
+    {
+      "file": "frames/prism_idle_se_0.png",
+      "action": "idle",
+      "direction": "se",
+      "source": "idle-v2.png",
+      "sourceCrop": [
+        33,
+        179,
+        351,
+        868
+      ],
+      "uniformScale": 0.19883040935672514,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "90f67ba5e00c177f3003226b5c722d6a7fde3ea3847a31a003e77a565d5c6248"
+    },
+    {
+      "file": "frames/prism_walk_se_0.png",
+      "action": "walk",
+      "direction": "se",
+      "source": "walk-v4.png",
+      "sourceCrop": [
+        187,
+        59,
+        436,
+        397
+      ],
+      "uniformScale": 0.4084084084084084,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "62397d11a2f05163dd39557f11ec07759340f94622bfdeba668b013acc94d47b"
+    },
+    {
+      "file": "frames/prism_sit_type_se_0.png",
+      "action": "sit_type",
+      "direction": "se",
+      "source": "sit-v2.png",
+      "sourceCrop": [
+        171,
+        18,
+        441,
+        377
+      ],
+      "uniformScale": 0.3190883190883191,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "60b8164159d840578ae7235eec6a782ca988507dfdf6ae6605e25171accf7cde"
+    },
+    {
+      "file": "frames/prism_walk_se_1.png",
+      "action": "walk",
+      "direction": "se",
+      "source": "walk-v4.png",
+      "sourceCrop": [
+        660,
+        59,
+        835,
+        397
+      ],
+      "uniformScale": 0.40963855421686746,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "c2a3c19a6ca54c48579e7706784432281d486b796c60914f421a7f818d3c613b"
+    },
+    {
+      "file": "frames/prism_sit_type_se_1.png",
+      "action": "sit_type",
+      "direction": "se",
+      "source": "sit-v2.png",
+      "sourceCrop": [
+        629,
+        18,
+        896,
+        377
+      ],
+      "uniformScale": 0.3163841807909605,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "1340d09942d3a45aa68a2e15ab15671f3028b2c8acd07db335c15e250082ef7e"
+    },
+    {
+      "file": "frames/prism_idle_sw_0.png",
+      "action": "idle",
+      "direction": "sw",
+      "source": "idle-v2.png",
+      "sourceCrop": [
+        421,
+        179,
+        739,
+        868
+      ],
+      "uniformScale": 0.19854014598540146,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "f04d779f3846515273caddf44c859795ce4969a10aaaa5d10c917465e0f02895"
+    },
+    {
+      "file": "frames/prism_walk_sw_0.png",
+      "action": "walk",
+      "direction": "sw",
+      "source": "walk-v4.png",
+      "sourceCrop": [
+        171,
+        417,
+        423,
+        763
+      ],
+      "uniformScale": 0.39766081871345027,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "623d71d8d44b9159ab5729ed091ee0905acbd0265c09b6a0ef91aa4b11b6393b"
+    },
+    {
+      "file": "frames/prism_sit_type_sw_0.png",
+      "action": "sit_type",
+      "direction": "sw",
+      "source": "sit-v2.png",
+      "sourceCrop": [
+        156,
+        389,
+        433,
+        758
+      ],
+      "uniformScale": 0.30939226519337015,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "4ad10f1829a474dda8f97b76c4c983175ae736d37ad20295b003bfa6c8982df7"
+    },
+    {
+      "file": "frames/prism_walk_sw_1.png",
+      "action": "walk",
+      "direction": "sw",
+      "source": "walk-v4.png",
+      "sourceCrop": [
+        673,
+        414,
+        855,
+        766
+      ],
+      "uniformScale": 0.3930635838150289,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "4c102998726bd4c94285bc85fd9c160cab56dc6447ef7413c0793d983c121817"
+    },
+    {
+      "file": "frames/prism_sit_type_sw_1.png",
+      "action": "sit_type",
+      "direction": "sw",
+      "source": "sit-v2.png",
+      "sourceCrop": [
+        617,
+        389,
+        894,
+        758
+      ],
+      "uniformScale": 0.3085399449035813,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "a7007340a9ca612ff7b961aedbe54ba30446d12b2ad35356f96052a49379841a"
+    },
+    {
+      "file": "frames/prism_idle_ne_0.png",
+      "action": "idle",
+      "direction": "ne",
+      "source": "idle-v2.png",
+      "sourceCrop": [
+        786,
+        179,
+        1108,
+        872
+      ],
+      "uniformScale": 0.19710144927536233,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "e510eb322ac8d0bf081767edf76f1afafc3ad75d943cddeb7ca5506b5c2b7a2b"
+    },
+    {
+      "file": "frames/prism_walk_ne_0.png",
+      "action": "walk",
+      "direction": "ne",
+      "source": "walk-v4.png",
+      "sourceCrop": [
+        166,
+        780,
+        428,
+        1117
+      ],
+      "uniformScale": 0.4146341463414634,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "d1d078053e0dd4ad3b5caf812c3c70377d6e3c68e213b3401826f5f2b2fc95ea"
+    },
+    {
+      "file": "frames/prism_sit_type_ne_0.png",
+      "action": "sit_type",
+      "direction": "ne",
+      "source": "sit-v2.png",
+      "sourceCrop": [
+        174,
+        783,
+        443,
+        1129
+      ],
+      "uniformScale": 0.3303834808259587,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "6fe581b2d0bd6e15f064eb9b441b81f6f79b803ec0037e0451be4348d6392bc9"
+    },
+    {
+      "file": "frames/prism_walk_ne_1.png",
+      "action": "walk",
+      "direction": "ne",
+      "source": "walk-v4.png",
+      "sourceCrop": [
+        668,
+        783,
+        858,
+        1122
+      ],
+      "uniformScale": 0.40963855421686746,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "69cb7eb7d6168f1525f7a08c23a81eac1818057eb2af314624db56c14e631fd9"
+    },
+    {
+      "file": "frames/prism_sit_type_ne_1.png",
+      "action": "sit_type",
+      "direction": "ne",
+      "source": "sit-v2.png",
+      "sourceCrop": [
+        629,
+        783,
+        896,
+        1129
+      ],
+      "uniformScale": 0.33136094674556216,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "988cdf831d961efd199603859b3d1637ca2389658764d001540dcc1e2cae5eac"
+    },
+    {
+      "file": "frames/prism_idle_nw_0.png",
+      "action": "idle",
+      "direction": "nw",
+      "source": "idle-v2.png",
+      "sourceCrop": [
+        1193,
+        179,
+        1515,
+        872
+      ],
+      "uniformScale": 0.19710144927536233,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "68eb860113fe0234e3b746101a786c4c638dec55872f9c3cff63aea13f7ba586"
+    },
+    {
+      "file": "frames/prism_walk_nw_0.png",
+      "action": "walk",
+      "direction": "nw",
+      "source": "walk-v4.png",
+      "sourceCrop": [
+        189,
+        1129,
+        448,
+        1480
+      ],
+      "uniformScale": 0.3965014577259475,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "bde96af8580f5df9e9a6e01f7f21cb65788d14641c4aff8a443446910a0e73d6"
+    },
+    {
+      "file": "frames/prism_sit_type_nw_0.png",
+      "action": "sit_type",
+      "direction": "nw",
+      "source": "sit-v2.png",
+      "sourceCrop": [
+        161,
+        1136,
+        433,
+        1483
+      ],
+      "uniformScale": 0.32748538011695905,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "fd44f8c4e16fb9fc1c768167147fe37033ff1d7347fc7f218adffe057bde07c8"
+    },
+    {
+      "file": "frames/prism_walk_nw_1.png",
+      "action": "walk",
+      "direction": "nw",
+      "source": "walk-v3.png",
+      "sourceCrop": [
+        618,
+        1137,
+        832,
+        1525
+      ],
+      "uniformScale": 0.3626666666666667,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "0ba93a12dd65c3598a030765dce55f6b9c43dc4b46183224606f2ce91576ff51"
+    },
+    {
+      "file": "frames/prism_sit_type_nw_1.png",
+      "action": "sit_type",
+      "direction": "nw",
+      "source": "sit-v2.png",
+      "sourceCrop": [
+        627,
+        1136,
+        904,
+        1485
+      ],
+      "uniformScale": 0.32653061224489793,
+      "mirrored": false,
+      "status": "candidate",
+      "footAnchor": [
+        0.5,
+        0.92
+      ],
+      "sha256": "4dbd9f021845572c54e2a5fbf7945be1e7e7af5c42c88bad8ec716db71742026"
+    }
+  ],
+  "loopQuality": "two-pose step study; opposite-leg phase still needed",
+  "browserMotionVerified": false,
+  "styleApproved": false
+}

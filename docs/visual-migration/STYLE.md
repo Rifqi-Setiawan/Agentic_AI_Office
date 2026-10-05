@@ -1,7 +1,11 @@
-# Style decision — AO_CLAUDE_2P5D_V1
+# AO_ILLUSTRATED_2D_Z08_V1 — arah terbaru 5 Oktober 2026
 
-The user delegated sample review in the 4 October chat. The selected direction is the generated Z08/Prism concept in `evidence/z08-prism-style-concept.png`: warm oak, blue-gray architectural surfaces, soft upper-left light, crisp modeled furniture, charcoal UI and compact stylized characters. Prism retains the dark hoodie, spectrum sleeves and large headphones. Built-in imagegen produced the concept, using the actual W17ant office-day image and baseline Prism atlas as references. No application AI/chat service is added.
+Instruksi terbaru user mengganti kewajiban Blender/GLB/native render/jumlah frame lama. Target: ilustrasi 2D isometrik, garis bersih, cel shading ilustratif, kayu terang, furnitur charcoal, aksen biru/cyan dan chibi konsisten. Hindari 3D, low-poly, clay, voxel dan pixel art kasar.
 
-Self-review: approve materials, rendering finish and silhouette as modeling direction. The generated floor plan and desk positions are NOT approved geometry: it has three workstation desks and a round table instead of the map's actual four workstation anchors. The decorative layout is illustrative; the Blender scene must use the immutable map and provide transparent depth slices. The concept cannot prove native animation directions, foot anchors, collision or occlusion. Hair and small accessories require identity comparison in deterministic production output before final approval.
+Acuan yang benar-benar dibuka: file user aset meja dan aset karakter. Gambar referensi kantor yang disebut dalam brief belum ada pada path yang diketahui; lokasi sudah ditanyakan. Konsep lama Z08 adalah concept art, bukan screenshot aplikasi atau acuan denah. W17ant tetap acuan presentasi.
 
-Art production is blocked by unavailable local Blender. Baseline atlases may demonstrate the new renderer and behavior but are visibly labeled technical preview, not final assets. Mirrored baseline SW/NW directions are not approved exceptions for the release.
+Aset kandidat dibuat dengan built-in imagegen, referensi meja/karakter yang sama pada setiap generasi. Sumber dan prompt disimpan dalam art/illustrated-z08-v1. Packing hanya crop, uniform scale, atlas dan pemisahan layer; background removal/redraw dilakukan oleh imagegen.
+
+Belum ada aset yang diterima user. Slice Z08 harus ditinjau sebelum batch seluruh kantor. Keputusan lama yang membolehkan batch tanpa review sudah diganti oleh instruksi ini. Hasil Blender lama, script lama dan instalasi tetap disimpan sebagai arsip; jangan menjalankannya sebagai job aktif.
+
+Aturan dan penerimaan aktif: ART_BIBLE_2D.md, ACCEPTANCE_2D.md, art-jobs.json. Scope aksi lain tetap tercatat, tanpa kuota frame tetap.

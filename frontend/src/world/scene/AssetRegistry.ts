@@ -4,16 +4,18 @@ export interface AtlasFrame {
   spriteSourceSize: { x: number; y: number; w: number; h: number };
   sourceSize: { w: number; h: number };
 }
-export interface SpriteAtlas { frames: Record<string, AtlasFrame>; meta: { image: string; size: { w: number; h: number }; exportScale?: number }; }
+export interface SpriteAtlas { frames: Record<string, AtlasFrame>; meta: { image: string; size: { w: number; h: number }; exportScale?: number; footAnchor?: {x:number;y:number}; animationFps?: Record<string,number>; candidate?: boolean; allowMirror?: boolean }; }
 export interface DepthProp {
   id: string; sprite: string; gx: number; gy: number; x: number; y: number; z: number;
   bounds: { x: number; y: number; width: number; height: number };
+  file?: string; nightFile?: string; artKind?: string;
 }
 export interface PreviewAssets {
   schemaVersion: number; styleVersion: string; exportScale: number;
   floor: { file: string; x: number; y: number; width: number; height: number };
   props: DepthProp[];
   logicalMapSha256: string;
+  characterOverrides?: Record<string,string>;
 }
 
 /** Trim offsets are explicit. Rotated packing must be re-exported for CSS. */
@@ -34,4 +36,24 @@ export function animationFrames(atlas: SpriteAtlas, id: string, action: string, 
   const prefix = `${id}_${action}_${direction.toLowerCase()}_`;
   return Object.keys(atlas.frames).filter(name => name.startsWith(prefix))
     .sort((a, b) => Number(a.slice(prefix.length).replace('.png', '')) - Number(b.slice(prefix.length).replace('.png', '')));
+}
+
+export function atlasImageUrl(atlas: SpriteAtlas, fallback: string) {
+  return atlas.meta.image.startsWith('/') ? atlas.meta.image : fallback;
+}
+
+/** Candidate views are never mirrored. An explicit baseline can retain pending actions. */
+export function resolveActorAnimation(primary: SpriteAtlas, baseline: SpriteAtlas | undefined, id: string, action: string, direction: string) {
+  let frames = animationFrames(primary,id,action,direction);
+  if (frames.length) return {atlas:primary,frames,mirrored:false,source:primary.meta.candidate ? 'illustration' : 'baseline'};
+  const fallback = baseline ?? (primary.meta.candidate ? undefined : primary);
+  if (fallback) {
+    frames = animationFrames(fallback,id,action,direction);
+    if (frames.length) return {atlas:fallback,frames,mirrored:false,source:'baseline'};
+    if (fallback.meta.allowMirror !== false && (direction==='sw'||direction==='nw')) {
+      frames=animationFrames(fallback,id,action,direction==='sw'?'se':'ne');
+      if (frames.length) return {atlas:fallback,frames,mirrored:true,source:'baseline'};
+    }
+  }
+  return {atlas:primary,frames:[],mirrored:false,source:'missing'};
 }

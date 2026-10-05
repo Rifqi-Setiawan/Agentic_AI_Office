@@ -1,3 +1,7 @@
+# Pembaruan aktif: ilustrasi 2D Z08, 5 Oktober 2026
+
+Brief terbaru mengganti ketentuan Blender/GLB/native render/kuota frame. Kandidat Z08 + Prism sudah dibuat dan terhubung lokal. 40 file/291 tes, typecheck/lint/build lulus; QA browser dan walk cycle belum lulus; user style approval diperlukan sebelum batch. Lihat CHECKPOINT_2D.md, STATUS.md, ART_BIBLE_2D.md dan ACCEPTANCE_2D.md. Bagian di bawah adalah catatan historis, bukan instruksi produksi aktif.
+
 # Actual browser observations — 4–5 October 2026 WIB
 
 All application data below came from the repository's existing localhost mock API plugin, not the VPS/Hermes production stream.
@@ -18,6 +22,6 @@ All application data below came from the repository's existing localhost mock AP
 
 Still required: saved overview/detail/movement sequence for the final new scene, Founder floor-click/approach movement, inspector selection, public redaction after logout, unknown event attribution, stale/disconnected visuals, prayer/wudhu four poses, pool/arcade/class events, vitals effects, audio, day/night, 1280×800 and 390×844 responsive checks, reduced motion, hide/resume, rollback and a clean final console. Some behaviors are covered by source-retained existing tests or pure model tests; that does not replace browser acceptance.
 
-Do not infer motion footage from screenshots. The model clock ran, and differential movement tests passed, but a saved real browser movement recording is pending. The final art gate is independently blocked by Blender.
+Do not infer motion footage from screenshots. The model clock ran, and differential movement tests passed, but a saved real browser movement recording is pending. Blender has since been installed and marker calibration passed; the final art gate remains incomplete because the native sample failed validation and environment/all-roster art is not produced.
 
 Latest camera/CPU LED/AC airflow/reduced-motion fixes have passed typecheck/lint/build and model/camera tests. They remain visually unverified because the current browser binding is denied. Unit-test headless benchmark FPS is not browser render FPS.

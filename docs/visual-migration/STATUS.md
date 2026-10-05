@@ -1,20 +1,23 @@
-# Visual migration status
+# Status â€” pemulihan slice ilustrasi 2D, 5 Oktober 2026
 
-- Base: `ae7473c16cb374544c9118d7d36d90515633fe02`; branch `codex/visual-migration-local`.
-- Last stage: 01 complete; 02 concept selected/slice blocked; 03/05 preview implementation complete; 04 final art blocked; 06 automated checks passed/browser partial; 07 local review candidate prepared; 08 prohibited.
-- Renderer: opt-in React/CSS preview `?officeRenderer=claude&seed=42`; legacy stays default pending final art.
-- Layout: 17/17 zones, 133/133 slots, 26/26 doors; all semantic values equal the package baseline.
-- Inspected evidence: actual W17ant room illustration, existing Office production screenshot, live localhost baseline in the in-app browser.
-- Latest executed checks (5 October, 03:25 WIB): typecheck/lint/build exit 0; 39 test files/287 tests passed with maxWorkers=2/minWorkers=1; JS gzip 357.98 KiB vs baseline 402.51. Map contract differences empty. Atlas packer earlier crop pixels/source size match exactly, rotated=false/exportScale=2. Model/camera tests include six collective traces, real-work priority and room refitting during a desktop-to-mobile flight. Playwright earlier launch failed before assertions (Chromium missing). Art gate remains blocked with 476 missing native West action/direction groups.
-- Decisions: ordinary style choices delegated by user. Warm diorama material family, crisp stylized silhouettes, charcoal UI; immutable map. No approval wait for ordinary sample review.
-- Blocker: local Blender unavailable; final layered art, native four directions and recomposition cannot be verified until supplied. Do not silently install Blender or substitute a flat room image.
-- Implemented: pure Character FSM, registry, shared choreography/navigation/bubbles, pure vitals/Easter state; DOM world/camera, global depth props, 17-room sidebar, culling, work badges, inspector/Founder HUD facade, rollback route, exportScale/crop support; art jobs and strict coverage report (476 missing native west animation groups).
-- Local commits: `6564272` model/contracts; `4bbe0b2` renderer/export; evidence/report commit and exact final HEAD recorded in the external release manifest.
-- Browser blocker: on the latest resume, binding the exact HTTP localhost URL supplied by ambient tab context was again automatically rejected by URL protocol policy. The tab could not be inspected. No workaround attempted. Actual earlier observations and remaining QA are in BROWSER_QA.md; only baseline screenshot and generated concept are saved, not final new-scene/motion/mobile screenshots.
-- Next: supply/authorize a local Blender runtime and restore permitted HTTP browser access; then native slice/batch art, calibration/recomposition, complete browser QA. REPORT.md states all limits. No ordinary style approval wait is required.
-- Resume note: 5 October 2026, 00:08 WIB; environment interruption stopped localhost server and reset browser bindings. Read STATUS/git status, restart only local fixture Vite. No VPS service is restarted.
-- Archive audit: initial archive was frontend-only (202 entries), retained; complete original source reconstructed from immutable base commit as `../Agentic-office-full-baseline-ae7473c.zip`. Release uses the full archive; source map hash verified.
-- Publish/deploy: forbidden. All work local; VPS read-only audit only. Office worker/Codex services stay paused.
-- Latest local continuation: backup `../Agentic-office-resume-e669bfd.zip` made from the repo root before changes. Fixed camera refit during resize; added source-equivalent CPU rack LED colors/frequency and AC airflow, continuous fan phase, and reduced-motion visual suppression. These visual changes compile but have not been observed in the blocked browser.
-- Native production preparation: `art/pipeline/render_dom_characters.py` reuses the actual licensed rig/identities/poses, prepares all four native rotations, resets pose state, uses 2× export and explicit foot anchor, renders/measures camera markers before batching, and rejects empty/clipped frames. Only plan/syntax/input/output-safety checks ran: 48 Prism sample jobs and 2,312 mandatory roster jobs. No Blender render, material/silhouette review or marker pass has occurred; finalArt remains false.
-- Missing authorization/access: a request for official local Blender installation permission is pending, because `../migration-plan/04_ART_BIBLE_AND_INVENTORY.md` explicitly forbids installation without permission. Browser access restoration was also requested after automatic rejection. No unanswered request is treated as approval.
+Target aktif AO_ILLUSTRATED_2D_Z08_V1. Brief terbaru mengganti ketentuan Blender/GLB/native render/kuota frame. STOP sebelum batch seluruh kantor sampai review gaya user. Render lama dan Blender tetap sebagai arsip, tidak dilanjutkan.
+
+Branch codex/visual-migration-local, HEAD awal tahap 8ea2150b00bd8a50695854eebe577afebb87cf92. Semua perubahan lokal awal dipertahankan. Backup source tracked/untracked sebelum edit: ../Agentic-office-before-2d-slice-2026-10-05.zip (tidak menyertakan .env).
+
+Dibuka: screenshot baseline, concept Z08 lama, file user aset meja/karakter. Gambar kantor utama yang disebut brief belum tersedia pada path diketahui; pertanyaan lokasi masih pending. Diagnosis maksimal delapan masalah di DIAGNOSIS_2D.md.
+
+Aset: candidate 2D generated desk/chairs/standing desk/low walls/open jambs/oak/corridor; Prism empat idle, dua pose walk per arah, dua seated/typing per arah. Total 20 pose candidate packed, tidak menjadi kuota minimum baru. 13 sumber/iterasi disimpan; versi gagal tidak dianggap accepted. Alpha meja dilihat pada light/dark. Idle baru dibuat agar crop tidak membawa sprite tetangga. Front desk slice diperbaiki setelah komposisi offline terlalu menutup badan.
+
+Integrasi: DOM route default menggunakan candidate Z08; officeArt=baseline menyediakan pembanding. Prism candidate dipilih untuk idle/walk/sit_type; aksi lain fallback original atlas, status source dicatat, tidak mirror candidate. Semua model/SSE/navigation/controls dipertahankan. Global props menjadi 538 karena pemisahan pieces.
+
+Kontrak logical harus tetap 44Ã—32 / 17 zona / 133 slot / 26 pintu; map unchanged. Source map SHA 765fdd8c1185fb79ba64050251267c3a8acc4c8997759ce8a2c1a2773fc03a67. Cek terbaru dan hasil teknis dicatat setelah integration checks selesai.
+
+QA visual: belum lulus. Browser tool terakhir menolak tab HTTP karena kebijakan URL; tidak ada bypass/retry tanpa perubahan akses. Belum ada screenshot overview/detail baru atau video browser. Offline map compositions dan contact sheet dilabeli bukan QA browser.
+
+Masalah tersisa: walk dua pose belum memiliki fase kaki berlawanan yang benar; sit/desk alignment dan front/back harus diterima di browser; transisi ukuran head/silhouette, light/dark semua assets serta night/motion masih membutuhkan review. User acceptedAssets kosong. Semua zona/karakter/aksi lain tetap pending, bukan dihapus.
+
+Preview: http://127.0.0.1:5175/?officeRenderer=claude&seed=42
+Pembanding: http://127.0.0.1:5175/?officeRenderer=claude&officeArt=baseline&seed=42
+Tidak ada push, merge, deploy atau VPS/gateway change. Office produksi tetap dijeda.
+
+Pemeriksaan setelah integrasi: 40 file/291 tes lulus; typecheck/lint/build exit 0; map differences kosong; asset-check.json resource/bounds/hash/alpha lulus. Bukti dan limit lengkap: CHECKPOINT_2D.md. Semua changes baru lokal; perubahan lama tetap dipertahankan.
