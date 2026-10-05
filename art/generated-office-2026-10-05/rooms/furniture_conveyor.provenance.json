@@ -1,0 +1,58 @@
+{
+  "asset": "furniture_conveyor.png",
+  "relative_path": "generated/rooms/furniture_conveyor.png",
+  "generation_mode": "built-in image_gen.imagegen",
+  "transparent_background_requested": true,
+  "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-3f2fbefe-b9cd-4a85-bbd7-ab073222b688.png",
+  "source_sha256": "d0e47f5f5e38f38943e753d644f3e3da07f07eb6a9e6be82acf8b1b359095171",
+  "sha256": "d0e47f5f5e38f38943e753d644f3e3da07f07eb6a9e6be82acf8b1b359095171",
+  "matches_original_bytes": true,
+  "prompt_file": "furniture_conveyor.prompt.txt",
+  "style_references_inspected": [
+    "generated/rooms/furniture_quran_shelf.png",
+    "generated/rooms/furniture_pool_lounger.png",
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png"
+  ],
+  "dimensions": {
+    "width": 1536,
+    "height": 1024
+  },
+  "mode": "RGBA",
+  "alpha": {
+    "range": [
+      0,
+      254
+    ],
+    "bbox_alpha_gte_128": [
+      226,
+      75,
+      1313,
+      955
+    ],
+    "nonzero_bbox": [
+      129,
+      72,
+      1452,
+      982
+    ],
+    "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+    "zero_pixels": 1092826,
+    "fraction_alpha_zero": 0.694800059000651,
+    "fraction_alpha_gte_128": 0.2970237731933594
+  },
+  "geometry": {
+    "requested": "2:1 orthographic dimetric; floor axes slopes +0.5/-0.5; vertical uprights",
+    "status": "Prompt-targeted, generative geometry. Exact slope compliance is not certified. No perspective rectification or pixel editing performed."
+  },
+  "pixel_editing_performed": false,
+  "visual_qa": {
+    "complete_object": true,
+    "no_people": true,
+    "no_legible_text": true,
+    "no_floor_or_room": true,
+    "style": "Refined outlined 2D illustration; warm oak, pale stone, charcoal and muted cyan as appropriate",
+    "camera": "Approximate dimetric; exact requested +0.5/-0.5 slopes are not certified",
+    "alpha_note": "Original RGBA retained without pixel edits. Use alpha>=128 bbox for object registration. Low-alpha fringe may extend outside this bbox.",
+    "feet_note": "Three feet visibly shown; fourth foot is naturally occluded in the generated viewpoint."
+  }
+}

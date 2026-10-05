@@ -1,0 +1,57 @@
+{
+  "asset": "furniture_pool_umbrella.png",
+  "relative_path": "generated/rooms/furniture_pool_umbrella.png",
+  "generation_mode": "built-in image_gen.imagegen",
+  "transparent_background_requested": true,
+  "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-3b44e004-1a6c-40cf-9765-bacc12579054.png",
+  "source_sha256": "8ef974e2e430eda3ea0a56a0893098843bb6f932fde1dad9f44682b4224e2e22",
+  "sha256": "8ef974e2e430eda3ea0a56a0893098843bb6f932fde1dad9f44682b4224e2e22",
+  "matches_original_bytes": true,
+  "prompt_file": "furniture_pool_umbrella.prompt.txt",
+  "style_references_inspected": [
+    "generated/rooms/furniture_quran_shelf.png",
+    "generated/rooms/furniture_pool_lounger.png",
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png"
+  ],
+  "dimensions": {
+    "width": 1536,
+    "height": 1024
+  },
+  "mode": "RGBA",
+  "alpha": {
+    "range": [
+      0,
+      254
+    ],
+    "bbox_alpha_gte_128": [
+      205,
+      38,
+      1331,
+      977
+    ],
+    "nonzero_bbox": [
+      65,
+      35,
+      1410,
+      1000
+    ],
+    "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+    "zero_pixels": 1234177,
+    "fraction_alpha_zero": 0.7846686045328776,
+    "fraction_alpha_gte_128": 0.20818773905436197
+  },
+  "geometry": {
+    "requested": "2:1 orthographic dimetric; floor axes slopes +0.5/-0.5; vertical uprights",
+    "status": "Prompt-targeted, generative geometry. Exact slope compliance is not certified. No perspective rectification or pixel editing performed."
+  },
+  "pixel_editing_performed": false,
+  "visual_qa": {
+    "complete_object": true,
+    "no_people": true,
+    "no_legible_text": true,
+    "no_floor_or_room": true,
+    "style": "Refined outlined 2D illustration; warm oak, pale stone, charcoal and muted cyan as appropriate",
+    "camera": "Approximate dimetric; exact requested +0.5/-0.5 slopes are not certified",
+    "alpha_note": "Original RGBA retained without pixel edits. Use alpha>=128 bbox for object registration. Low-alpha fringe may extend outside this bbox."
+  }
+}

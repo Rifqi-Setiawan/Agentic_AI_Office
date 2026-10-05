@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_kitchen_fridge.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_kitchen_fridge.lossless.webp",
+  "sourceSha256": "dcf204e6acf88c77da9157e1219637e326eb54c2237809a53e6221e44aa3740e",
+  "runtimeSha256": "d1c7136baf39c6b79d6219e27d26683bac223e1a7cc787894efddbce2817aa91",
+  "sourceDecodedRgbaSha256": "13911a1a52d79fedeea1301f19f6b5002372424fb5b6874f7c712d727ecec030",
+  "runtimeDecodedRgbaSha256": "13911a1a52d79fedeea1301f19f6b5002372424fb5b6874f7c712d727ecec030",
+  "nativeSize": [
+    1774,
+    887
+  ],
+  "sourceBytes": 493335,
+  "runtimeBytes": 281988,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

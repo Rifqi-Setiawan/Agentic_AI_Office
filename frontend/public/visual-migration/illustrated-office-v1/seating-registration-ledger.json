@@ -1,0 +1,2307 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "office-chair-NE",
+      "facing": "NE",
+      "sourceFile": "office-chair-NE.png",
+      "file": "/visual-migration/illustrated-office-v1/seating/office-chair-NE.png",
+      "provenanceFile": "office-chair-NE.provenance.json",
+      "sha256": "6aeae462cfeb76105f4f202b38589b413469291fd8670cf26d7614df6c942db7",
+      "provenanceSha256": "9c8d87bd5b6f4d137e5b35ead8543f1561ef865a80222b01144299fbb1a23c1d",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "alphaBox": [
+        579,
+        11,
+        1233,
+        877
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "observedOrientation": "Rear three-quarter chair; rear shell occupies screen-lower-left side relative to seat front, which projects screen-upper-right. Matches NE sitter facing.",
+      "sourceBytesPreserved": true,
+      "sourcePixelsEdited": false,
+      "mirrored": false,
+      "browserVisualQA": false,
+      "instanceIds": [
+        "furniture-233",
+        "furniture-234",
+        "furniture-235",
+        "furniture-236",
+        "room-seat-slot_z03_desk_daedalus",
+        "furniture-205",
+        "furniture-207",
+        "furniture-209",
+        "furniture-249",
+        "furniture-251",
+        "furniture-253",
+        "room-seat-slot_z05_desk_scribe",
+        "room-seat-slot_z06_desk_oracle",
+        "room-seat-slot_z07_desk_muse",
+        "room-seat-slot_z12_desk_vector",
+        "room-seat-slot_z12_desk_bastion",
+        "room-seat-slot_z14_seat_2",
+        "room-seat-slot_z14_seat_4",
+        "room-seat-slot_z14_seat_6",
+        "room-seat-slot_z14_seat_8"
+      ]
+    },
+    {
+      "id": "office-chair-NW",
+      "facing": "NW",
+      "sourceFile": "office-chair-NW.png",
+      "file": "/visual-migration/illustrated-office-v1/seating/office-chair-NW.png",
+      "provenanceFile": "office-chair-NW.provenance.json",
+      "sha256": "a89de6f5440688858f605fc11f131e7d329c4f85f29552edc0da0ea67179b1be",
+      "provenanceSha256": "ef87af92dd8daed4502e018760e3e71e836d7801eaa611b63eabf5f55bf6bc25",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "alphaBox": [
+        561,
+        28,
+        1229,
+        877
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "observedOrientation": "Rear three-quarter chair; rear shell is on screen-lower-right side relative to seat, whose front projects screen-upper-left. Matches NW sitter facing.",
+      "sourceBytesPreserved": true,
+      "sourcePixelsEdited": false,
+      "mirrored": false,
+      "browserVisualQA": false,
+      "instanceIds": [
+        "furniture-149",
+        "furniture-193"
+      ]
+    },
+    {
+      "id": "office-chair-SE",
+      "facing": "SE",
+      "sourceFile": "office-chair-SE.png",
+      "file": "/visual-migration/illustrated-office-v1/seating/office-chair-SE.png",
+      "provenanceFile": "office-chair-SE.provenance.json",
+      "sha256": "5f54ffd1f9b5c5cd891de97a679b0a194595ea76956fdbf00bd27d0b028f4e5d",
+      "provenanceSha256": "de6c4ecf0771d699ddbd4c649cad33f52635d7997e824dc4e858a34bd09dada3",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "alphaBox": [
+        601,
+        14,
+        1195,
+        883
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "observedOrientation": "Front three-quarter chair; inner backrest is screen-upper-left and front seat nose projects screen-lower-right. Matches SE sitter facing.",
+      "sourceBytesPreserved": true,
+      "sourcePixelsEdited": false,
+      "mirrored": false,
+      "browserVisualQA": false,
+      "instanceIds": [
+        "furniture-144",
+        "furniture-188"
+      ]
+    },
+    {
+      "id": "office-chair-SW",
+      "facing": "SW",
+      "sourceFile": "office-chair-SW.png",
+      "file": "/visual-migration/illustrated-office-v1/seating/office-chair-SW.png",
+      "provenanceFile": "office-chair-SW.provenance.json",
+      "sha256": "bee8a1c9b94a790e3ed46a77b45ecc1aeec4639865a27be5ab42db0b908e7a83",
+      "provenanceSha256": "23909dc999a1c6826012dedda160353cdc49fd23da6f2fbe1b80c7f480ab6852",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "alphaBox": [
+        596,
+        12,
+        1178,
+        878
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "observedOrientation": "Front three-quarter chair; inner backrest is screen-upper-right and front seat nose projects screen-lower-left. Matches SW sitter facing.",
+      "sourceBytesPreserved": true,
+      "sourcePixelsEdited": false,
+      "mirrored": false,
+      "browserVisualQA": false,
+      "instanceIds": [
+        "room-seat-slot_z01_desk_jarvis",
+        "furniture-101",
+        "furniture-102",
+        "furniture-103",
+        "furniture-104",
+        "room-seat-slot_z09_desk_steward",
+        "room-seat-slot_z10_desk_sentinel",
+        "room-seat-slot_z11_desk_relay",
+        "room-seat-slot_z13_desk_warden",
+        "room-seat-slot_z14_seat_1",
+        "room-seat-slot_z14_seat_3",
+        "room-seat-slot_z14_seat_5",
+        "room-seat-slot_z14_seat_7"
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "id": "room-seat-slot_z01_desk_jarvis",
+      "slotId": "slot_z01_desk_jarvis",
+      "sourceSlotId": 1,
+      "slotType": "desk:jarvis",
+      "zone": "Z01",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        4,
+        3
+      ],
+      "worldAnchor": [
+        1120,
+        176
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-180",
+        "gx": 4,
+        "gy": 4,
+        "sprite": "furniture_desk_executive.png"
+      },
+      "groundAnchor": [
+        1116.0,
+        187.0
+      ],
+      "originalGroundAnchor": [
+        1120,
+        185
+      ],
+      "presentationOffset": [
+        -4.0,
+        2.0
+      ],
+      "visualGridAnchor": [
+        4.0,
+        3.125
+      ],
+      "width": 34,
+      "bounds": {
+        "x": 1099.0,
+        "y": 136.40893470790377,
+        "width": 34,
+        "height": 50.59106529209622
+      },
+      "scale": 0.058419243986254296,
+      "depth": 7010,
+      "actorDepth": 7020,
+      "offsetReason": "Tuck 1/8 tile toward paired desk while retaining slot/actor coordinates",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-101",
+      "slotId": "slot_z02_seat_1",
+      "sourceSlotId": 8,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-101"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        13,
+        2
+      ],
+      "worldAnchor": [
+        1440,
+        304
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-146",
+        "gx": 14,
+        "gy": 3,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1440,
+        313.0
+      ],
+      "originalGroundAnchor": [
+        1440,
+        313.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        13,
+        2
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1425.0,
+        "y": 268.36082474226805,
+        "width": 30,
+        "height": 44.63917525773196
+      },
+      "scale": 0.05154639175257732,
+      "depth": 15010,
+      "actorDepth": 15020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-102",
+      "slotId": "slot_z02_seat_2",
+      "sourceSlotId": 9,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-102"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        14,
+        2
+      ],
+      "worldAnchor": [
+        1472,
+        320
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-146",
+        "gx": 14,
+        "gy": 3,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1472,
+        329.0
+      ],
+      "originalGroundAnchor": [
+        1472,
+        329.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        14,
+        2
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1457.0,
+        "y": 284.36082474226805,
+        "width": 30,
+        "height": 44.63917525773196
+      },
+      "scale": 0.05154639175257732,
+      "depth": 16010,
+      "actorDepth": 16020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-103",
+      "slotId": "slot_z02_seat_3",
+      "sourceSlotId": 10,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-103"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        15,
+        2
+      ],
+      "worldAnchor": [
+        1504,
+        336
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-147",
+        "gx": 15,
+        "gy": 3,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1504,
+        345.0
+      ],
+      "originalGroundAnchor": [
+        1504,
+        345.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        15,
+        2
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1489.0,
+        "y": 300.36082474226805,
+        "width": 30,
+        "height": 44.63917525773196
+      },
+      "scale": 0.05154639175257732,
+      "depth": 17010,
+      "actorDepth": 17020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-104",
+      "slotId": "slot_z02_seat_4",
+      "sourceSlotId": 11,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-104"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        16,
+        2
+      ],
+      "worldAnchor": [
+        1536,
+        352
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-147",
+        "gx": 15,
+        "gy": 3,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1536,
+        361.0
+      ],
+      "originalGroundAnchor": [
+        1536,
+        361.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        16,
+        2
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1521.0,
+        "y": 316.36082474226805,
+        "width": 30,
+        "height": 44.63917525773196
+      },
+      "scale": 0.05154639175257732,
+      "depth": 18010,
+      "actorDepth": 18020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-144",
+      "slotId": "slot_z02_seat_5",
+      "sourceSlotId": 12,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-144"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        12,
+        3
+      ],
+      "worldAnchor": [
+        1376,
+        304
+      ],
+      "logicalFacing": "NE",
+      "presentationFacing": "SE",
+      "furnitureTarget": {
+        "id": "furniture-146",
+        "gx": 14,
+        "gy": 3,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1376,
+        313.0
+      ],
+      "originalGroundAnchor": [
+        1376,
+        313.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        12,
+        3
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1361.0,
+        "y": 269.1111111111111,
+        "width": 30,
+        "height": 43.888888888888886
+      },
+      "scale": 0.050505050505050504,
+      "depth": 15010,
+      "actorDepth": 15020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-188",
+      "slotId": "slot_z02_seat_6",
+      "sourceSlotId": 13,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-188"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        12,
+        4
+      ],
+      "worldAnchor": [
+        1344,
+        320
+      ],
+      "logicalFacing": "NE",
+      "presentationFacing": "SE",
+      "furnitureTarget": {
+        "id": "furniture-190",
+        "gx": 14,
+        "gy": 4,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1344,
+        329.0
+      ],
+      "originalGroundAnchor": [
+        1344,
+        329.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        12,
+        4
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1329.0,
+        "y": 285.1111111111111,
+        "width": 30,
+        "height": 43.888888888888886
+      },
+      "scale": 0.050505050505050504,
+      "depth": 16010,
+      "actorDepth": 16020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-149",
+      "slotId": "slot_z02_seat_7",
+      "sourceSlotId": 14,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-149"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        17,
+        3
+      ],
+      "worldAnchor": [
+        1536,
+        384
+      ],
+      "logicalFacing": "SW",
+      "presentationFacing": "NW",
+      "furnitureTarget": {
+        "id": "furniture-147",
+        "gx": 15,
+        "gy": 3,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1536,
+        393.0
+      ],
+      "originalGroundAnchor": [
+        1536,
+        393.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        17,
+        3
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1521.0,
+        "y": 354.87125748502996,
+        "width": 30,
+        "height": 38.12874251497006
+      },
+      "scale": 0.04491017964071856,
+      "depth": 20010,
+      "actorDepth": 20020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-193",
+      "slotId": "slot_z02_seat_8",
+      "sourceSlotId": 15,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-193"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        17,
+        4
+      ],
+      "worldAnchor": [
+        1504,
+        400
+      ],
+      "logicalFacing": "SW",
+      "presentationFacing": "NW",
+      "furnitureTarget": {
+        "id": "furniture-191",
+        "gx": 15,
+        "gy": 4,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1504,
+        409.0
+      ],
+      "originalGroundAnchor": [
+        1504,
+        409.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        17,
+        4
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1489.0,
+        "y": 370.87125748502996,
+        "width": 30,
+        "height": 38.12874251497006
+      },
+      "scale": 0.04491017964071856,
+      "depth": 21010,
+      "actorDepth": 21020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-233",
+      "slotId": "slot_z02_seat_9",
+      "sourceSlotId": 16,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-233"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        13,
+        5
+      ],
+      "worldAnchor": [
+        1344,
+        352
+      ],
+      "logicalFacing": "NW",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-190",
+        "gx": 14,
+        "gy": 4,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1344,
+        361.0
+      ],
+      "originalGroundAnchor": [
+        1344,
+        361.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        13,
+        5
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1329.0,
+        "y": 321.27522935779814,
+        "width": 30,
+        "height": 39.72477064220184
+      },
+      "scale": 0.045871559633027525,
+      "depth": 18010,
+      "actorDepth": 18020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-234",
+      "slotId": "slot_z02_seat_10",
+      "sourceSlotId": 17,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-234"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        14,
+        5
+      ],
+      "worldAnchor": [
+        1376,
+        368
+      ],
+      "logicalFacing": "NW",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-190",
+        "gx": 14,
+        "gy": 4,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1376,
+        377.0
+      ],
+      "originalGroundAnchor": [
+        1376,
+        377.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        14,
+        5
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1361.0,
+        "y": 337.27522935779814,
+        "width": 30,
+        "height": 39.72477064220184
+      },
+      "scale": 0.045871559633027525,
+      "depth": 19010,
+      "actorDepth": 19020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-235",
+      "slotId": "slot_z02_seat_11",
+      "sourceSlotId": 18,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-235"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        15,
+        5
+      ],
+      "worldAnchor": [
+        1408,
+        384
+      ],
+      "logicalFacing": "NW",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-191",
+        "gx": 15,
+        "gy": 4,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1408,
+        393.0
+      ],
+      "originalGroundAnchor": [
+        1408,
+        393.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        15,
+        5
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1393.0,
+        "y": 353.27522935779814,
+        "width": 30,
+        "height": 39.72477064220184
+      },
+      "scale": 0.045871559633027525,
+      "depth": 20010,
+      "actorDepth": 20020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-236",
+      "slotId": "slot_z02_seat_12",
+      "sourceSlotId": 19,
+      "slotType": "meeting_seat",
+      "zone": "Z02",
+      "sourcePropIds": [
+        "furniture-236"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        16,
+        5
+      ],
+      "worldAnchor": [
+        1440,
+        400
+      ],
+      "logicalFacing": "NW",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-191",
+        "gx": 15,
+        "gy": 4,
+        "sprite": "furniture_boardroom_table.png"
+      },
+      "groundAnchor": [
+        1440,
+        409.0
+      ],
+      "originalGroundAnchor": [
+        1440,
+        409.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        16,
+        5
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 1425.0,
+        "y": 369.27522935779814,
+        "width": 30,
+        "height": 39.72477064220184
+      },
+      "scale": 0.045871559633027525,
+      "depth": 21010,
+      "actorDepth": 21020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z03_desk_daedalus",
+      "slotId": "slot_z03_desk_daedalus",
+      "sourceSlotId": 20,
+      "slotType": "desk:daedalus",
+      "zone": "Z03",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        23,
+        3
+      ],
+      "worldAnchor": [
+        1728,
+        480
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-111",
+        "gx": 23,
+        "gy": 2,
+        "sprite": "furniture_desk.png"
+      },
+      "groundAnchor": [
+        1732.0,
+        487.0
+      ],
+      "originalGroundAnchor": [
+        1728,
+        489
+      ],
+      "presentationOffset": [
+        4.0,
+        -2.0
+      ],
+      "visualGridAnchor": [
+        23.0,
+        2.875
+      ],
+      "width": 34,
+      "bounds": {
+        "x": 1715.0,
+        "y": 441.9785932721712,
+        "width": 34,
+        "height": 45.02140672782875
+      },
+      "scale": 0.05198776758409786,
+      "depth": 26010,
+      "actorDepth": 26020,
+      "offsetReason": "Tuck 1/8 tile toward paired desk while retaining slot/actor coordinates",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-205",
+      "slotId": "slot_z04_seat_1",
+      "sourceSlotId": 24,
+      "slotType": "class_seat",
+      "zone": "Z04",
+      "sourcePropIds": [
+        "furniture-205"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        29,
+        4
+      ],
+      "worldAnchor": [
+        1888,
+        592
+      ],
+      "logicalFacing": "NE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-75",
+        "gx": 31,
+        "gy": 1,
+        "sprite": "furniture_whiteboard.png"
+      },
+      "groundAnchor": [
+        1888,
+        601.0
+      ],
+      "originalGroundAnchor": [
+        1888,
+        601.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        29,
+        4
+      ],
+      "width": 28,
+      "bounds": {
+        "x": 1874.0,
+        "y": 563.9235474006116,
+        "width": 28,
+        "height": 37.076452599388375
+      },
+      "scale": 0.04281345565749235,
+      "depth": 33010,
+      "actorDepth": 33020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-207",
+      "slotId": "slot_z04_seat_2",
+      "sourceSlotId": 25,
+      "slotType": "class_seat",
+      "zone": "Z04",
+      "sourcePropIds": [
+        "furniture-207"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        31,
+        4
+      ],
+      "worldAnchor": [
+        1952,
+        624
+      ],
+      "logicalFacing": "NE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-75",
+        "gx": 31,
+        "gy": 1,
+        "sprite": "furniture_whiteboard.png"
+      },
+      "groundAnchor": [
+        1952,
+        633.0
+      ],
+      "originalGroundAnchor": [
+        1952,
+        633.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        31,
+        4
+      ],
+      "width": 28,
+      "bounds": {
+        "x": 1938.0,
+        "y": 595.9235474006116,
+        "width": 28,
+        "height": 37.076452599388375
+      },
+      "scale": 0.04281345565749235,
+      "depth": 35010,
+      "actorDepth": 35020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-209",
+      "slotId": "slot_z04_seat_3",
+      "sourceSlotId": 26,
+      "slotType": "class_seat",
+      "zone": "Z04",
+      "sourcePropIds": [
+        "furniture-209"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        33,
+        4
+      ],
+      "worldAnchor": [
+        2016,
+        656
+      ],
+      "logicalFacing": "NE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-75",
+        "gx": 31,
+        "gy": 1,
+        "sprite": "furniture_whiteboard.png"
+      },
+      "groundAnchor": [
+        2016,
+        665.0
+      ],
+      "originalGroundAnchor": [
+        2016,
+        665.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        33,
+        4
+      ],
+      "width": 28,
+      "bounds": {
+        "x": 2002.0,
+        "y": 627.9235474006116,
+        "width": 28,
+        "height": 37.076452599388375
+      },
+      "scale": 0.04281345565749235,
+      "depth": 37010,
+      "actorDepth": 37020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-249",
+      "slotId": "slot_z04_seat_4",
+      "sourceSlotId": 27,
+      "slotType": "class_seat",
+      "zone": "Z04",
+      "sourcePropIds": [
+        "furniture-249"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        29,
+        5
+      ],
+      "worldAnchor": [
+        1856,
+        608
+      ],
+      "logicalFacing": "NE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-75",
+        "gx": 31,
+        "gy": 1,
+        "sprite": "furniture_whiteboard.png"
+      },
+      "groundAnchor": [
+        1856,
+        617.0
+      ],
+      "originalGroundAnchor": [
+        1856,
+        617.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        29,
+        5
+      ],
+      "width": 28,
+      "bounds": {
+        "x": 1842.0,
+        "y": 579.9235474006116,
+        "width": 28,
+        "height": 37.076452599388375
+      },
+      "scale": 0.04281345565749235,
+      "depth": 34010,
+      "actorDepth": 34020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-251",
+      "slotId": "slot_z04_seat_5",
+      "sourceSlotId": 28,
+      "slotType": "class_seat",
+      "zone": "Z04",
+      "sourcePropIds": [
+        "furniture-251"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        31,
+        5
+      ],
+      "worldAnchor": [
+        1920,
+        640
+      ],
+      "logicalFacing": "NE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-75",
+        "gx": 31,
+        "gy": 1,
+        "sprite": "furniture_whiteboard.png"
+      },
+      "groundAnchor": [
+        1920,
+        649.0
+      ],
+      "originalGroundAnchor": [
+        1920,
+        649.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        31,
+        5
+      ],
+      "width": 28,
+      "bounds": {
+        "x": 1906.0,
+        "y": 611.9235474006116,
+        "width": 28,
+        "height": 37.076452599388375
+      },
+      "scale": 0.04281345565749235,
+      "depth": 36010,
+      "actorDepth": 36020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "furniture-253",
+      "slotId": "slot_z04_seat_6",
+      "sourceSlotId": 29,
+      "slotType": "class_seat",
+      "zone": "Z04",
+      "sourcePropIds": [
+        "furniture-253"
+      ],
+      "action": "replace",
+      "logicalAnchor": [
+        33,
+        5
+      ],
+      "worldAnchor": [
+        1984,
+        672
+      ],
+      "logicalFacing": "NE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-75",
+        "gx": 31,
+        "gy": 1,
+        "sprite": "furniture_whiteboard.png"
+      },
+      "groundAnchor": [
+        1984,
+        681.0
+      ],
+      "originalGroundAnchor": [
+        1984,
+        681.0
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        33,
+        5
+      ],
+      "width": 28,
+      "bounds": {
+        "x": 1970.0,
+        "y": 643.9235474006116,
+        "width": 28,
+        "height": 37.076452599388375
+      },
+      "scale": 0.04281345565749235,
+      "depth": 38010,
+      "actorDepth": 38020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z05_desk_scribe",
+      "slotId": "slot_z05_desk_scribe",
+      "sourceSlotId": 30,
+      "slotType": "desk:scribe",
+      "zone": "Z05",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        36,
+        4
+      ],
+      "worldAnchor": [
+        2112,
+        704
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-168",
+        "gx": 36,
+        "gy": 3,
+        "sprite": "furniture_desk.png"
+      },
+      "groundAnchor": [
+        2116.0,
+        711.0
+      ],
+      "originalGroundAnchor": [
+        2112,
+        713
+      ],
+      "presentationOffset": [
+        4.0,
+        -2.0
+      ],
+      "visualGridAnchor": [
+        36.0,
+        3.875
+      ],
+      "width": 34,
+      "bounds": {
+        "x": 2099.0,
+        "y": 665.9785932721712,
+        "width": 34,
+        "height": 45.02140672782875
+      },
+      "scale": 0.05198776758409786,
+      "depth": 40010,
+      "actorDepth": 40020,
+      "offsetReason": "Tuck 1/8 tile toward paired desk while retaining slot/actor coordinates",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z06_desk_oracle",
+      "slotId": "slot_z06_desk_oracle",
+      "sourceSlotId": 36,
+      "slotType": "desk:oracle",
+      "zone": "Z06",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        6,
+        13
+      ],
+      "worldAnchor": [
+        864,
+        368
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-534",
+        "gx": 6,
+        "gy": 12,
+        "sprite": "furniture_desk.png"
+      },
+      "groundAnchor": [
+        868.0,
+        375.0
+      ],
+      "originalGroundAnchor": [
+        864,
+        377
+      ],
+      "presentationOffset": [
+        4.0,
+        -2.0
+      ],
+      "visualGridAnchor": [
+        6.0,
+        12.875
+      ],
+      "width": 34,
+      "bounds": {
+        "x": 851.0,
+        "y": 329.9785932721712,
+        "width": 34,
+        "height": 45.02140672782875
+      },
+      "scale": 0.05198776758409786,
+      "depth": 19010,
+      "actorDepth": 19020,
+      "offsetReason": "Tuck 1/8 tile toward paired desk while retaining slot/actor coordinates",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z07_desk_muse",
+      "slotId": "slot_z07_desk_muse",
+      "sourceSlotId": 40,
+      "slotType": "desk:muse",
+      "zone": "Z07",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        10,
+        13
+      ],
+      "worldAnchor": [
+        992,
+        432
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-538",
+        "gx": 10,
+        "gy": 12,
+        "sprite": "furniture_desk.png"
+      },
+      "groundAnchor": [
+        996.0,
+        439.0
+      ],
+      "originalGroundAnchor": [
+        992,
+        441
+      ],
+      "presentationOffset": [
+        4.0,
+        -2.0
+      ],
+      "visualGridAnchor": [
+        10.0,
+        12.875
+      ],
+      "width": 34,
+      "bounds": {
+        "x": 979.0,
+        "y": 393.9785932721712,
+        "width": 34,
+        "height": 45.02140672782875
+      },
+      "scale": 0.05198776758409786,
+      "depth": 23010,
+      "actorDepth": 23020,
+      "offsetReason": "Tuck 1/8 tile toward paired desk while retaining slot/actor coordinates",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z09_desk_steward",
+      "slotId": "slot_z09_desk_steward",
+      "sourceSlotId": 48,
+      "slotType": "desk:steward",
+      "zone": "Z09",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        25,
+        12
+      ],
+      "worldAnchor": [
+        1504,
+        656
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-597",
+        "gx": 25,
+        "gy": 13,
+        "sprite": "furniture_desk.png"
+      },
+      "groundAnchor": [
+        1500.0,
+        667.0
+      ],
+      "originalGroundAnchor": [
+        1504,
+        665
+      ],
+      "presentationOffset": [
+        -4.0,
+        2.0
+      ],
+      "visualGridAnchor": [
+        25.0,
+        12.125
+      ],
+      "width": 34,
+      "bounds": {
+        "x": 1483.0,
+        "y": 616.4089347079038,
+        "width": 34,
+        "height": 50.59106529209622
+      },
+      "scale": 0.058419243986254296,
+      "depth": 37010,
+      "actorDepth": 37020,
+      "offsetReason": "Tuck 1/8 tile toward paired desk while retaining slot/actor coordinates",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z10_desk_sentinel",
+      "slotId": "slot_z10_desk_sentinel",
+      "sourceSlotId": 50,
+      "slotType": "desk:sentinel",
+      "zone": "Z10",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        29,
+        12
+      ],
+      "worldAnchor": [
+        1632,
+        720
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-601",
+        "gx": 29,
+        "gy": 13,
+        "sprite": "furniture_stamp_desk.png"
+      },
+      "groundAnchor": [
+        1628.0,
+        731.0
+      ],
+      "originalGroundAnchor": [
+        1632,
+        729
+      ],
+      "presentationOffset": [
+        -4.0,
+        2.0
+      ],
+      "visualGridAnchor": [
+        29.0,
+        12.125
+      ],
+      "width": 34,
+      "bounds": {
+        "x": 1611.0,
+        "y": 680.4089347079038,
+        "width": 34,
+        "height": 50.59106529209622
+      },
+      "scale": 0.058419243986254296,
+      "depth": 41010,
+      "actorDepth": 41020,
+      "offsetReason": "Tuck 1/8 tile toward paired desk while retaining slot/actor coordinates",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z11_desk_relay",
+      "slotId": "slot_z11_desk_relay",
+      "sourceSlotId": 52,
+      "slotType": "desk:relay",
+      "zone": "Z11",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        33,
+        12
+      ],
+      "worldAnchor": [
+        1760,
+        784
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-605",
+        "gx": 33,
+        "gy": 13,
+        "sprite": "furniture_desk.png"
+      },
+      "groundAnchor": [
+        1756.0,
+        795.0
+      ],
+      "originalGroundAnchor": [
+        1760,
+        793
+      ],
+      "presentationOffset": [
+        -4.0,
+        2.0
+      ],
+      "visualGridAnchor": [
+        33.0,
+        12.125
+      ],
+      "width": 34,
+      "bounds": {
+        "x": 1739.0,
+        "y": 744.4089347079038,
+        "width": 34,
+        "height": 50.59106529209622
+      },
+      "scale": 0.058419243986254296,
+      "depth": 45010,
+      "actorDepth": 45020,
+      "offsetReason": "Tuck 1/8 tile toward paired desk while retaining slot/actor coordinates",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z12_desk_vector",
+      "slotId": "slot_z12_desk_vector",
+      "sourceSlotId": 55,
+      "slotType": "desk:vector",
+      "zone": "Z12",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        37,
+        13
+      ],
+      "worldAnchor": [
+        1856,
+        864
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-565",
+        "gx": 37,
+        "gy": 12,
+        "sprite": "furniture_desk.png"
+      },
+      "groundAnchor": [
+        1860.0,
+        871.0
+      ],
+      "originalGroundAnchor": [
+        1856,
+        873
+      ],
+      "presentationOffset": [
+        4.0,
+        -2.0
+      ],
+      "visualGridAnchor": [
+        37.0,
+        12.875
+      ],
+      "width": 34,
+      "bounds": {
+        "x": 1843.0,
+        "y": 825.9785932721712,
+        "width": 34,
+        "height": 45.02140672782875
+      },
+      "scale": 0.05198776758409786,
+      "depth": 50010,
+      "actorDepth": 50020,
+      "offsetReason": "Tuck 1/8 tile toward paired desk while retaining slot/actor coordinates",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z12_desk_bastion",
+      "slotId": "slot_z12_desk_bastion",
+      "sourceSlotId": 56,
+      "slotType": "desk:bastion",
+      "zone": "Z12",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        41,
+        13
+      ],
+      "worldAnchor": [
+        1984,
+        928
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-569",
+        "gx": 41,
+        "gy": 12,
+        "sprite": "furniture_desk.png"
+      },
+      "groundAnchor": [
+        1988.0,
+        935.0
+      ],
+      "originalGroundAnchor": [
+        1984,
+        937
+      ],
+      "presentationOffset": [
+        4.0,
+        -2.0
+      ],
+      "visualGridAnchor": [
+        41.0,
+        12.875
+      ],
+      "width": 34,
+      "bounds": {
+        "x": 1971.0,
+        "y": 889.9785932721712,
+        "width": 34,
+        "height": 45.02140672782875
+      },
+      "scale": 0.05198776758409786,
+      "depth": 54010,
+      "actorDepth": 54020,
+      "offsetReason": "Tuck 1/8 tile toward paired desk while retaining slot/actor coordinates",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z13_desk_warden",
+      "slotId": "slot_z13_desk_warden",
+      "sourceSlotId": 61,
+      "slotType": "desk:warden",
+      "zone": "Z13",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        4,
+        25
+      ],
+      "worldAnchor": [
+        416,
+        528
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-1148",
+        "gx": 4,
+        "gy": 26,
+        "sprite": "furniture_reception_desk.png"
+      },
+      "groundAnchor": [
+        412.0,
+        539.0
+      ],
+      "originalGroundAnchor": [
+        416,
+        537
+      ],
+      "presentationOffset": [
+        -4.0,
+        2.0
+      ],
+      "visualGridAnchor": [
+        4.0,
+        25.125
+      ],
+      "width": 34,
+      "bounds": {
+        "x": 395.0,
+        "y": 488.40893470790377,
+        "width": 34,
+        "height": 50.59106529209622
+      },
+      "scale": 0.058419243986254296,
+      "depth": 29010,
+      "actorDepth": 29020,
+      "offsetReason": "Tuck 1/8 tile toward paired desk while retaining slot/actor coordinates",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z14_seat_1",
+      "slotId": "slot_z14_seat_1",
+      "sourceSlotId": 64,
+      "slotType": "cafe_seat",
+      "zone": "Z14",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        11,
+        27
+      ],
+      "worldAnchor": [
+        576,
+        672
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-1243",
+        "gx": 11,
+        "gy": 28,
+        "sprite": "furniture_table_round.png"
+      },
+      "groundAnchor": [
+        576,
+        681
+      ],
+      "originalGroundAnchor": [
+        576,
+        681
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        11,
+        27
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 561.0,
+        "y": 636.360824742268,
+        "width": 30,
+        "height": 44.63917525773196
+      },
+      "scale": 0.05154639175257732,
+      "depth": 38010,
+      "actorDepth": 38020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z14_seat_2",
+      "slotId": "slot_z14_seat_2",
+      "sourceSlotId": 65,
+      "slotType": "cafe_seat",
+      "zone": "Z14",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        11,
+        29
+      ],
+      "worldAnchor": [
+        512,
+        704
+      ],
+      "logicalFacing": "NW",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-1243",
+        "gx": 11,
+        "gy": 28,
+        "sprite": "furniture_table_round.png"
+      },
+      "groundAnchor": [
+        512,
+        713
+      ],
+      "originalGroundAnchor": [
+        512,
+        713
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        11,
+        29
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 497.0,
+        "y": 673.2752293577981,
+        "width": 30,
+        "height": 39.72477064220184
+      },
+      "scale": 0.045871559633027525,
+      "depth": 40010,
+      "actorDepth": 40020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z14_seat_3",
+      "slotId": "slot_z14_seat_3",
+      "sourceSlotId": 66,
+      "slotType": "cafe_seat",
+      "zone": "Z14",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        14,
+        27
+      ],
+      "worldAnchor": [
+        672,
+        720
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-1246",
+        "gx": 14,
+        "gy": 28,
+        "sprite": "furniture_table_round.png"
+      },
+      "groundAnchor": [
+        672,
+        729
+      ],
+      "originalGroundAnchor": [
+        672,
+        729
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        14,
+        27
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 657.0,
+        "y": 684.360824742268,
+        "width": 30,
+        "height": 44.63917525773196
+      },
+      "scale": 0.05154639175257732,
+      "depth": 41010,
+      "actorDepth": 41020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z14_seat_4",
+      "slotId": "slot_z14_seat_4",
+      "sourceSlotId": 67,
+      "slotType": "cafe_seat",
+      "zone": "Z14",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        14,
+        29
+      ],
+      "worldAnchor": [
+        608,
+        752
+      ],
+      "logicalFacing": "NW",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-1246",
+        "gx": 14,
+        "gy": 28,
+        "sprite": "furniture_table_round.png"
+      },
+      "groundAnchor": [
+        608,
+        761
+      ],
+      "originalGroundAnchor": [
+        608,
+        761
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        14,
+        29
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 593.0,
+        "y": 721.2752293577981,
+        "width": 30,
+        "height": 39.72477064220184
+      },
+      "scale": 0.045871559633027525,
+      "depth": 43010,
+      "actorDepth": 43020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z14_seat_5",
+      "slotId": "slot_z14_seat_5",
+      "sourceSlotId": 68,
+      "slotType": "cafe_seat",
+      "zone": "Z14",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        17,
+        27
+      ],
+      "worldAnchor": [
+        768,
+        768
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-1249",
+        "gx": 17,
+        "gy": 28,
+        "sprite": "furniture_table_round.png"
+      },
+      "groundAnchor": [
+        768,
+        777
+      ],
+      "originalGroundAnchor": [
+        768,
+        777
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        17,
+        27
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 753.0,
+        "y": 732.360824742268,
+        "width": 30,
+        "height": 44.63917525773196
+      },
+      "scale": 0.05154639175257732,
+      "depth": 44010,
+      "actorDepth": 44020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z14_seat_6",
+      "slotId": "slot_z14_seat_6",
+      "sourceSlotId": 69,
+      "slotType": "cafe_seat",
+      "zone": "Z14",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        17,
+        29
+      ],
+      "worldAnchor": [
+        704,
+        800
+      ],
+      "logicalFacing": "NW",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-1249",
+        "gx": 17,
+        "gy": 28,
+        "sprite": "furniture_table_round.png"
+      },
+      "groundAnchor": [
+        704,
+        809
+      ],
+      "originalGroundAnchor": [
+        704,
+        809
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        17,
+        29
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 689.0,
+        "y": 769.2752293577981,
+        "width": 30,
+        "height": 39.72477064220184
+      },
+      "scale": 0.045871559633027525,
+      "depth": 46010,
+      "actorDepth": 46020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z14_seat_7",
+      "slotId": "slot_z14_seat_7",
+      "sourceSlotId": 70,
+      "slotType": "cafe_seat",
+      "zone": "Z14",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        20,
+        27
+      ],
+      "worldAnchor": [
+        864,
+        816
+      ],
+      "logicalFacing": "SE",
+      "presentationFacing": "SW",
+      "furnitureTarget": {
+        "id": "furniture-1252",
+        "gx": 20,
+        "gy": 28,
+        "sprite": "furniture_table_round.png"
+      },
+      "groundAnchor": [
+        864,
+        825
+      ],
+      "originalGroundAnchor": [
+        864,
+        825
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        20,
+        27
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 849.0,
+        "y": 780.360824742268,
+        "width": 30,
+        "height": 44.63917525773196
+      },
+      "scale": 0.05154639175257732,
+      "depth": 47010,
+      "actorDepth": 47020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    },
+    {
+      "id": "room-seat-slot_z14_seat_8",
+      "slotId": "slot_z14_seat_8",
+      "sourceSlotId": 71,
+      "slotType": "cafe_seat",
+      "zone": "Z14",
+      "sourcePropIds": [],
+      "action": "add",
+      "logicalAnchor": [
+        20,
+        29
+      ],
+      "worldAnchor": [
+        800,
+        848
+      ],
+      "logicalFacing": "NW",
+      "presentationFacing": "NE",
+      "furnitureTarget": {
+        "id": "furniture-1252",
+        "gx": 20,
+        "gy": 28,
+        "sprite": "furniture_table_round.png"
+      },
+      "groundAnchor": [
+        800,
+        857
+      ],
+      "originalGroundAnchor": [
+        800,
+        857
+      ],
+      "presentationOffset": [
+        0,
+        0
+      ],
+      "visualGridAnchor": [
+        20,
+        29
+      ],
+      "width": 30,
+      "bounds": {
+        "x": 785.0,
+        "y": 817.2752293577981,
+        "width": 30,
+        "height": 39.72477064220184
+      },
+      "scale": 0.045871559633027525,
+      "depth": 49010,
+      "actorDepth": 49020,
+      "offsetReason": "Retain canonical chair ground anchor; no positional offset",
+      "depthReason": "Canonical footpoint furniture depth, behind the seated actor; no actor changes",
+      "sourcePixelsEdited": false,
+      "mirrored": false
+    }
+  ],
+  "replacedPropIds": [
+    "furniture-101",
+    "furniture-102",
+    "furniture-103",
+    "furniture-104",
+    "furniture-144",
+    "furniture-188",
+    "furniture-149",
+    "furniture-193",
+    "furniture-233",
+    "furniture-234",
+    "furniture-235",
+    "furniture-236",
+    "furniture-205",
+    "furniture-207",
+    "furniture-209",
+    "furniture-249",
+    "furniture-251",
+    "furniture-253"
+  ],
+  "addedPropIds": [
+    "room-seat-slot_z01_desk_jarvis",
+    "room-seat-slot_z03_desk_daedalus",
+    "room-seat-slot_z05_desk_scribe",
+    "room-seat-slot_z06_desk_oracle",
+    "room-seat-slot_z07_desk_muse",
+    "room-seat-slot_z09_desk_steward",
+    "room-seat-slot_z10_desk_sentinel",
+    "room-seat-slot_z11_desk_relay",
+    "room-seat-slot_z12_desk_vector",
+    "room-seat-slot_z12_desk_bastion",
+    "room-seat-slot_z13_desk_warden",
+    "room-seat-slot_z14_seat_1",
+    "room-seat-slot_z14_seat_2",
+    "room-seat-slot_z14_seat_3",
+    "room-seat-slot_z14_seat_4",
+    "room-seat-slot_z14_seat_5",
+    "room-seat-slot_z14_seat_6",
+    "room-seat-slot_z14_seat_7",
+    "room-seat-slot_z14_seat_8"
+  ],
+  "preservedMatchingChairs": [],
+  "summary": {
+    "registered": 37,
+    "replaced": 18,
+    "added": 19,
+    "meetingSeats": 12,
+    "cafeSeats": 8,
+    "classroomSeats": 6,
+    "staffedDesks": 11,
+    "preservedExistingMatches": 0
+  },
+  "canonicalMap": {
+    "width": 44,
+    "height": 32,
+    "zones": 17,
+    "slots": 133,
+    "doors": 26
+  },
+  "logicalMapSha256": "9a9bc468e345658b349923f4ae8dc696397bb929c69688b350ee74e6b610ef0e",
+  "logicalMapChanged": false,
+  "logicalLayoutChanged": false,
+  "slotFacingsChanged": false,
+  "characterAnimationsChanged": false,
+  "z08Changed": false,
+  "sourceBytesPreserved": true,
+  "sourcePixelsEdited": false,
+  "mirrored": false,
+  "scaleReference": "Approved Z08 chair width 40; meeting/cafe 30, staffed desk 34, classroom 28",
+  "browserVisualQA": false,
+  "actorInterleavingVisualQA": false,
+  "finalArt": false
+}

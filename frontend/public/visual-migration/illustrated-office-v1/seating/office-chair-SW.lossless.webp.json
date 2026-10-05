@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/seating/office-chair-SW.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/seating/office-chair-SW.lossless.webp",
+  "sourceSha256": "bee8a1c9b94a790e3ed46a77b45ecc1aeec4639865a27be5ab42db0b908e7a83",
+  "runtimeSha256": "44f4d70ba3e6a5e53c1c615e087401f4951a11d473fd0323e56f9ccd4f1f9f17",
+  "sourceDecodedRgbaSha256": "cc8a3002f389aa38f5dcb1af1069a4323b7d965f39d8d325f90cf5970d972c45",
+  "runtimeDecodedRgbaSha256": "cc8a3002f389aa38f5dcb1af1069a4323b7d965f39d8d325f90cf5970d972c45",
+  "nativeSize": [
+    1774,
+    887
+  ],
+  "sourceBytes": 662411,
+  "runtimeBytes": 394460,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

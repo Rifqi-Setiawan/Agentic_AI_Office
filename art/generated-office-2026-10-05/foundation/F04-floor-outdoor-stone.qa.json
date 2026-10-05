@@ -1,0 +1,176 @@
+{
+  "asset": "F04-floor-outdoor-stone",
+  "png_file": "generated/foundation/F04-floor-outdoor-stone.png",
+  "sha256": "d9920089523c968b242d7a1fcb82cdad612b44a8d7bbda48cf34bed6296852e1",
+  "canvas_px": [
+    1659,
+    948
+  ],
+  "mode": "RGBA",
+  "bbox_by_alpha_threshold": {
+    "1": {
+      "bbox_xyxy_exclusive": [
+        162,
+        37,
+        1518,
+        892
+      ],
+      "pixel_count": 408330
+    },
+    "64": {
+      "bbox_xyxy_exclusive": [
+        190,
+        164,
+        1469,
+        789
+      ],
+      "pixel_count": 401292
+    },
+    "128": {
+      "bbox_xyxy_exclusive": [
+        190,
+        164,
+        1469,
+        789
+      ],
+      "pixel_count": 400282
+    },
+    "250": {
+      "bbox_xyxy_exclusive": [
+        194,
+        165,
+        1465,
+        788
+      ],
+      "pixel_count": 395394
+    },
+    "255": {
+      "bbox_xyxy_exclusive": [
+        221,
+        166,
+        1441,
+        788
+      ],
+      "pixel_count": 752
+    }
+  },
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "transparent_pixel_fraction": 0.7404,
+  "fit_method": "Robust least squares on alpha>=128 column boundary, excluding 3.5 percent near left/right/crossing corners. Read-only measurements; vertices approximate.",
+  "fitted_edges_y_mx_plus_b": {
+    "top_left": {
+      "slope": -0.483,
+      "intercept": 564.3462,
+      "rms_error_px": 0.3324,
+      "samples": 550
+    },
+    "top_right": {
+      "slope": 0.4825,
+      "intercept": -236.1916,
+      "rms_error_px": 0.3513,
+      "samples": 550
+    },
+    "bottom_left": {
+      "slope": 0.4913,
+      "intercept": 379.95,
+      "rms_error_px": 0.3357,
+      "samples": 550
+    },
+    "bottom_right": {
+      "slope": -0.4928,
+      "intercept": 1196.25,
+      "rms_error_px": 0.3053,
+      "samples": 550
+    }
+  },
+  "fitted_vertices_xy": {
+    "top": [
+      829.1432,
+      163.87
+    ],
+    "right": [
+      1468.719,
+      472.4653
+    ],
+    "bottom": [
+      829.4889,
+      787.4779
+    ],
+    "left": [
+      189.2602,
+      472.9335
+    ]
+  },
+  "fitted_span_px": [
+    1279.4588,
+    623.6079
+  ],
+  "fitted_width_height_ratio": 2.0517,
+  "interior_alpha_inset_12px": {
+    "min": 252,
+    "median": 253.0,
+    "mean": 253.1156,
+    "max": 254,
+    "fraction_255": 0.0,
+    "fraction_at_least_250": 1.0,
+    "fraction_below_240": 0.0
+  },
+  "interior_mean_rgb": [
+    197.2871,
+    188.5374,
+    178.5882
+  ],
+  "runtime_registration": {
+    "use_source_vertices": {
+      "top": [
+        829.1432,
+        163.87
+      ],
+      "right": [
+        1468.719,
+        472.4653
+      ],
+      "bottom": [
+        829.4889,
+        787.4779
+      ],
+      "left": [
+        189.2602,
+        472.9335
+      ]
+    },
+    "target_logical_diamond": [
+      [
+        64,
+        0
+      ],
+      [
+        128,
+        32
+      ],
+      [
+        64,
+        64
+      ],
+      [
+        0,
+        32
+      ]
+    ],
+    "target_width_height_ratio": 2,
+    "recommendation": "Keep original PNG untouched. Register this source material to runtime 2:1 diamond using fitted source bounds/vertices and CSS/canvas clipping. Use a solid matching material underlay because interior alpha is near-opaque rather than uniformly 255. Inspect repeated material seams in runtime; seamless opposite-edge pixel continuity is not proven."
+  },
+  "visual_qa": {
+    "isolated_ground_plane": true,
+    "no_visible_slab_sides_or_bevels": true,
+    "no_objects_or_characters": true,
+    "transparent_outside": true,
+    "notes": "Small generator alpha fringe at some diamond edges; clip in runtime. Native dimensions and diamond footprint do not exactly match prompt. No source pixels were edited."
+  },
+  "status": "Generated source accepted visually; exact runtime geometry, repeat-seam and underlay QA pending."
+}

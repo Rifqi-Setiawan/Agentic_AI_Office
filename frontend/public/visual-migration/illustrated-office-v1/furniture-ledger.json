@@ -1,0 +1,4415 @@
+{
+  "sources": [
+    {
+      "id": "furniture_achievement_board",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_achievement_board.png",
+      "sha256": "52fd13e901b76ecd2c2939c605096e3fd45c2f85920c4d9e0c399592696ef218",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        153,
+        57,
+        1134,
+        1204
+      ],
+      "instances": [
+        {
+          "id": "furniture-1022",
+          "sourcePropIds": [
+            "furniture-1022"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            10,
+            23
+          ],
+          "originalEnvelope": [
+            659,
+            572,
+            685,
+            609
+          ],
+          "bounds": {
+            "x": 643.0,
+            "y": 541.1855249745158,
+            "width": 58.0,
+            "height": 67.8144750254842
+          },
+          "scale": 0.059123343527013254,
+          "logicalWidth": 58,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            672.0,
+            609
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_alert_console",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_alert_console.png",
+      "sha256": "1ca84296e2e69db07d4e9b756debb22a0ddd92517446a37c1e77b8570d4c3a36",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        329,
+        73,
+        949,
+        1208
+      ],
+      "instances": [
+        {
+          "id": "furniture-567",
+          "sourcePropIds": [
+            "furniture-567"
+          ],
+          "zone": "Z12",
+          "logicalAnchor": [
+            39,
+            12
+          ],
+          "originalEnvelope": [
+            1933,
+            862,
+            1971,
+            904
+          ],
+          "bounds": {
+            "x": 1921.0,
+            "y": 790.5,
+            "width": 62.0,
+            "height": 113.5
+          },
+          "scale": 0.1,
+          "logicalWidth": 62,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1952.0,
+            904
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_arcade_cabinet",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_arcade_cabinet.png",
+      "sha256": "e25d28db442ca2904d02ee5478c9521224fba15d299b5b48db46bc9b9f33bdb5",
+      "nativeSize": [
+        1312,
+        1199
+      ],
+      "alphaBox": [
+        302,
+        19,
+        958,
+        1182
+      ],
+      "instances": [
+        {
+          "id": "furniture-1035",
+          "sourcePropIds": [
+            "furniture-1035"
+          ],
+          "zone": "Z15",
+          "logicalAnchor": [
+            23,
+            23
+          ],
+          "originalEnvelope": [
+            1071,
+            774,
+            1105,
+            827
+          ],
+          "bounds": {
+            "x": 1067.0,
+            "y": 752.5396341463414,
+            "width": 42.0,
+            "height": 74.46036585365854
+          },
+          "scale": 0.06402439024390244,
+          "logicalWidth": 42,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1088.0,
+            827
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1036",
+          "sourcePropIds": [
+            "furniture-1036"
+          ],
+          "zone": "Z15",
+          "logicalAnchor": [
+            24,
+            23
+          ],
+          "originalEnvelope": [
+            1103,
+            790,
+            1137,
+            843
+          ],
+          "bounds": {
+            "x": 1099.0,
+            "y": 768.5396341463414,
+            "width": 42.0,
+            "height": 74.46036585365854
+          },
+          "scale": 0.06402439024390244,
+          "logicalWidth": 42,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1120.0,
+            843
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1037",
+          "sourcePropIds": [
+            "furniture-1037"
+          ],
+          "zone": "Z15",
+          "logicalAnchor": [
+            25,
+            23
+          ],
+          "originalEnvelope": [
+            1135,
+            806,
+            1169,
+            859
+          ],
+          "bounds": {
+            "x": 1131.0,
+            "y": 784.5396341463414,
+            "width": 42.0,
+            "height": 74.46036585365854
+          },
+          "scale": 0.06402439024390244,
+          "logicalWidth": 42,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1152.0,
+            859
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_attendance_board",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_attendance_board.png",
+      "sha256": "fa099c2408ef7cd94c5949138edcd67e8382d2d56d5082d1f0851a40d894258d",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        160,
+        84,
+        1049,
+        1216
+      ],
+      "instances": [
+        {
+          "id": "furniture-1101",
+          "sourcePropIds": [
+            "furniture-1101"
+          ],
+          "zone": "Z13",
+          "logicalAnchor": [
+            1,
+            25
+          ],
+          "originalEnvelope": [
+            307,
+            460,
+            333,
+            497
+          ],
+          "bounds": {
+            "x": 294.0,
+            "y": 430.78627671541057,
+            "width": 52.0,
+            "height": 66.21372328458943
+          },
+          "scale": 0.05849268841394826,
+          "logicalWidth": 52,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            320.0,
+            497
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_beanbag",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_beanbag.png",
+      "sha256": "6861b1a95e5deb1fadaa4a15c6d3bbb2b46875a40ecc3fabdba50ee7af9352c5",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        354,
+        112,
+        1192,
+        915
+      ],
+      "instances": [
+        {
+          "id": "furniture-1212",
+          "sourcePropIds": [
+            "furniture-1212"
+          ],
+          "zone": "Z15",
+          "logicalAnchor": [
+            24,
+            27
+          ],
+          "originalEnvelope": [
+            979,
+            870,
+            1005,
+            890
+          ],
+          "bounds": {
+            "x": 975.0,
+            "y": 857.4200477326968,
+            "width": 34.0,
+            "height": 32.579952267303106
+          },
+          "scale": 0.0405727923627685,
+          "logicalWidth": 34,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            992.0,
+            890
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1214",
+          "sourcePropIds": [
+            "furniture-1214"
+          ],
+          "zone": "Z15",
+          "logicalAnchor": [
+            26,
+            27
+          ],
+          "originalEnvelope": [
+            1043,
+            902,
+            1069,
+            922
+          ],
+          "bounds": {
+            "x": 1039.0,
+            "y": 889.4200477326968,
+            "width": 34.0,
+            "height": 32.579952267303106
+          },
+          "scale": 0.0405727923627685,
+          "logicalWidth": 34,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1056.0,
+            922
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1216",
+          "sourcePropIds": [
+            "furniture-1216"
+          ],
+          "zone": "Z15",
+          "logicalAnchor": [
+            28,
+            27
+          ],
+          "originalEnvelope": [
+            1107,
+            934,
+            1133,
+            954
+          ],
+          "bounds": {
+            "x": 1103.0,
+            "y": 921.4200477326968,
+            "width": 34.0,
+            "height": 32.579952267303106
+          },
+          "scale": 0.0405727923627685,
+          "logicalWidth": 34,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1120.0,
+            954
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_billiard_table",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_billiard_table.png",
+      "sha256": "772c70618515d1975b54315f2bc61c73d23101ee7682ad4384b965958a12392b",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "alphaBox": [
+        102,
+        17,
+        1653,
+        873
+      ],
+      "instances": [
+        {
+          "id": "furniture-1172",
+          "sourcePropIds": [
+            "furniture-1127",
+            "furniture-1128",
+            "furniture-1171",
+            "furniture-1172"
+          ],
+          "zone": "Z15",
+          "logicalAnchor": [
+            28,
+            26
+          ],
+          "originalEnvelope": [
+            1096,
+            877,
+            1208,
+            952
+          ],
+          "bounds": {
+            "x": 1082.0,
+            "y": 874.7337201805287,
+            "width": 140.0,
+            "height": 77.26627981947131
+          },
+          "scale": 0.09026434558349453,
+          "logicalWidth": 140,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1152.0,
+            952
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_blueprint_rack",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_blueprint_rack.png",
+      "sha256": "9c38d51152c1a303bd9759527614352ea7a0f10d8bd2c227d6fd2efa8cf825d8",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        126,
+        63,
+        1159,
+        1198
+      ],
+      "instances": [
+        {
+          "id": "furniture-70",
+          "sourcePropIds": [
+            "furniture-70"
+          ],
+          "zone": "Z03",
+          "logicalAnchor": [
+            26,
+            1
+          ],
+          "originalEnvelope": [
+            1877,
+            483,
+            1899,
+            510
+          ],
+          "bounds": {
+            "x": 1864.0,
+            "y": 457.2604065827686,
+            "width": 48.0,
+            "height": 52.73959341723137
+          },
+          "scale": 0.046466602129719266,
+          "logicalWidth": 48,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1888.0,
+            510
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_blueprint_table",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_blueprint_table.png",
+      "sha256": "093f5ac864d6bdf0cb2ba870b8234a827e63d08105acd30d9aa5f5f3fc18853c",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        212,
+        23,
+        1282,
+        991
+      ],
+      "instances": [
+        {
+          "id": "furniture-197",
+          "sourcePropIds": [
+            "furniture-197"
+          ],
+          "zone": "Z03",
+          "logicalAnchor": [
+            21,
+            4
+          ],
+          "originalEnvelope": [
+            1609,
+            440,
+            1655,
+            489
+          ],
+          "bounds": {
+            "x": 1594.0,
+            "y": 420.2448598130841,
+            "width": 76.0,
+            "height": 68.7551401869159
+          },
+          "scale": 0.07102803738317758,
+          "logicalWidth": 76,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1632.0,
+            489
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-201",
+          "sourcePropIds": [
+            "furniture-201"
+          ],
+          "zone": "Z03",
+          "logicalAnchor": [
+            25,
+            4
+          ],
+          "originalEnvelope": [
+            1737,
+            504,
+            1783,
+            553
+          ],
+          "bounds": {
+            "x": 1722.0,
+            "y": 484.2448598130841,
+            "width": 76.0,
+            "height": 68.7551401869159
+          },
+          "scale": 0.07102803738317758,
+          "logicalWidth": 76,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1760.0,
+            553
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_boardroom_table",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_boardroom_table.png",
+      "sha256": "5ad9f3984dfda7af7afc17c4508cb48d142a47805da010504593bf04cae4e576",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "alphaBox": [
+        20,
+        74,
+        1755,
+        875
+      ],
+      "instances": [
+        {
+          "id": "furniture-191",
+          "sourcePropIds": [
+            "furniture-146",
+            "furniture-147",
+            "furniture-190",
+            "furniture-191"
+          ],
+          "zone": "Z02",
+          "logicalAnchor": [
+            15,
+            4
+          ],
+          "originalEnvelope": [
+            1382,
+            316,
+            1498,
+            393
+          ],
+          "bounds": {
+            "x": 1364.0,
+            "y": 322.82593659942364,
+            "width": 152.0,
+            "height": 70.17406340057637
+          },
+          "scale": 0.08760806916426513,
+          "logicalWidth": 152,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1440.0,
+            393
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_bookcase_tall",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_bookcase_tall.png",
+      "sha256": "b7c2390e5fe169304851828750fde6e0ea895f6379339c2abe19917adbf7bd96",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        298,
+        30,
+        958,
+        1245
+      ],
+      "instances": [
+        {
+          "id": "furniture-80",
+          "sourcePropIds": [
+            "furniture-80"
+          ],
+          "zone": "Z05",
+          "logicalAnchor": [
+            36,
+            1
+          ],
+          "originalEnvelope": [
+            2194,
+            635,
+            2222,
+            672
+          ],
+          "bounds": {
+            "x": 2186.0,
+            "y": 591.0,
+            "width": 44.0,
+            "height": 81.0
+          },
+          "scale": 0.06666666666666667,
+          "logicalWidth": 44,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            2208.0,
+            672
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-82",
+          "sourcePropIds": [
+            "furniture-82"
+          ],
+          "zone": "Z05",
+          "logicalAnchor": [
+            38,
+            1
+          ],
+          "originalEnvelope": [
+            2258,
+            667,
+            2286,
+            704
+          ],
+          "bounds": {
+            "x": 2250.0,
+            "y": 623.0,
+            "width": 44.0,
+            "height": 81.0
+          },
+          "scale": 0.06666666666666667,
+          "logicalWidth": 44,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            2272.0,
+            704
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-84",
+          "sourcePropIds": [
+            "furniture-84"
+          ],
+          "zone": "Z05",
+          "logicalAnchor": [
+            40,
+            1
+          ],
+          "originalEnvelope": [
+            2322,
+            699,
+            2350,
+            736
+          ],
+          "bounds": {
+            "x": 2314.0,
+            "y": 655.0,
+            "width": 44.0,
+            "height": 81.0
+          },
+          "scale": 0.06666666666666667,
+          "logicalWidth": 44,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            2336.0,
+            736
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-86",
+          "sourcePropIds": [
+            "furniture-86"
+          ],
+          "zone": "Z05",
+          "logicalAnchor": [
+            42,
+            1
+          ],
+          "originalEnvelope": [
+            2386,
+            731,
+            2414,
+            768
+          ],
+          "bounds": {
+            "x": 2378.0,
+            "y": 687.0,
+            "width": 44.0,
+            "height": 81.0
+          },
+          "scale": 0.06666666666666667,
+          "logicalWidth": 44,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            2400.0,
+            768
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_cardboard_box",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_cardboard_box.png",
+      "sha256": "48f0884227695defd3d8341b83a00059683bef7d647add76cc29bc919a8e6cf5",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        187,
+        256,
+        1069,
+        1022
+      ],
+      "instances": [
+        {
+          "id": "furniture-781",
+          "sourcePropIds": [
+            "furniture-781"
+          ],
+          "zone": "Z11",
+          "logicalAnchor": [
+            33,
+            17
+          ],
+          "originalEnvelope": [
+            1594,
+            857,
+            1606,
+            871
+          ],
+          "bounds": {
+            "x": 1588.0,
+            "y": 850.156462585034,
+            "width": 24.0,
+            "height": 20.843537414965986
+          },
+          "scale": 0.027210884353741496,
+          "logicalWidth": 24,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1600.0,
+            871
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_changelog_board",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_changelog_board.png",
+      "sha256": "e9b96e6ffae41fc71b892778a3fde13ebbe9e62a639b925173dfb35b7912f231",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        153,
+        62,
+        1150,
+        1205
+      ],
+      "instances": [
+        {
+          "id": "furniture-518",
+          "sourcePropIds": [
+            "furniture-518"
+          ],
+          "zone": "Z11",
+          "logicalAnchor": [
+            34,
+            11
+          ],
+          "originalEnvelope": [
+            1812,
+            763,
+            1836,
+            802
+          ],
+          "bounds": {
+            "x": 1798.0,
+            "y": 742.3851554663992,
+            "width": 52.0,
+            "height": 59.6148445336008
+          },
+          "scale": 0.05215646940822467,
+          "logicalWidth": 52,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1824.0,
+            802
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_conveyor",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_conveyor.png",
+      "sha256": "d0e47f5f5e38f38943e753d644f3e3da07f07eb6a9e6be82acf8b1b359095171",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        226,
+        75,
+        1313,
+        955
+      ],
+      "instances": [
+        {
+          "id": "furniture-738",
+          "sourcePropIds": [
+            "furniture-738"
+          ],
+          "zone": "Z11",
+          "logicalAnchor": [
+            34,
+            16
+          ],
+          "originalEnvelope": [
+            1642,
+            817,
+            1752,
+            887
+          ],
+          "bounds": {
+            "x": 1645.0,
+            "y": 802.804967801288,
+            "width": 104.0,
+            "height": 84.19503219871206
+          },
+          "scale": 0.09567617295308188,
+          "logicalWidth": 104,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": {
+            "index": 0,
+            "count": 3,
+            "x0": 0.0,
+            "x1": 35.0,
+            "joinedSourcePropIds": [
+              "furniture-650",
+              "furniture-694",
+              "furniture-738"
+            ]
+          },
+          "groundAnchor": [
+            1697.0,
+            887
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-694",
+          "sourcePropIds": [
+            "furniture-694"
+          ],
+          "zone": "Z11",
+          "logicalAnchor": [
+            34,
+            15
+          ],
+          "originalEnvelope": [
+            1642,
+            817,
+            1752,
+            887
+          ],
+          "bounds": {
+            "x": 1645.0,
+            "y": 802.804967801288,
+            "width": 104.0,
+            "height": 84.19503219871206
+          },
+          "scale": 0.09567617295308188,
+          "logicalWidth": 104,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": {
+            "index": 1,
+            "count": 3,
+            "x0": 35.0,
+            "x1": 67.0,
+            "joinedSourcePropIds": [
+              "furniture-650",
+              "furniture-694",
+              "furniture-738"
+            ]
+          },
+          "groundAnchor": [
+            1697.0,
+            887
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-650",
+          "sourcePropIds": [
+            "furniture-650"
+          ],
+          "zone": "Z11",
+          "logicalAnchor": [
+            34,
+            14
+          ],
+          "originalEnvelope": [
+            1642,
+            817,
+            1752,
+            887
+          ],
+          "bounds": {
+            "x": 1645.0,
+            "y": 802.804967801288,
+            "width": 104.0,
+            "height": 84.19503219871206
+          },
+          "scale": 0.09567617295308188,
+          "logicalWidth": 104,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": {
+            "index": 2,
+            "count": 3,
+            "x0": 67.0,
+            "x1": 104.0,
+            "joinedSourcePropIds": [
+              "furniture-650",
+              "furniture-694",
+              "furniture-738"
+            ]
+          },
+          "groundAnchor": [
+            1697.0,
+            887
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_desk",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_desk.png",
+      "sha256": "e9b49aef99607316e3e0f942cb29d4a5e81ac97d6fececb7c8302ee988becc43",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        236,
+        50,
+        1341,
+        985
+      ],
+      "instances": [
+        {
+          "id": "furniture-111",
+          "sourcePropIds": [
+            "furniture-111"
+          ],
+          "zone": "Z03",
+          "logicalAnchor": [
+            23,
+            2
+          ],
+          "originalEnvelope": [
+            1746,
+            450,
+            1774,
+            476
+          ],
+          "bounds": {
+            "x": 1724.0,
+            "y": 415.0769230769231,
+            "width": 72.0,
+            "height": 60.92307692307693
+          },
+          "scale": 0.06515837104072399,
+          "logicalWidth": 72,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1760.0,
+            476
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-168",
+          "sourcePropIds": [
+            "furniture-168"
+          ],
+          "zone": "Z05",
+          "logicalAnchor": [
+            36,
+            3
+          ],
+          "originalEnvelope": [
+            2130,
+            674,
+            2158,
+            700
+          ],
+          "bounds": {
+            "x": 2108.0,
+            "y": 639.0769230769231,
+            "width": 72.0,
+            "height": 60.92307692307693
+          },
+          "scale": 0.06515837104072399,
+          "logicalWidth": 72,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            2144.0,
+            700
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-534",
+          "sourcePropIds": [
+            "furniture-534"
+          ],
+          "zone": "Z06",
+          "logicalAnchor": [
+            6,
+            12
+          ],
+          "originalEnvelope": [
+            882,
+            338,
+            910,
+            364
+          ],
+          "bounds": {
+            "x": 860.0,
+            "y": 303.0769230769231,
+            "width": 72.0,
+            "height": 60.92307692307693
+          },
+          "scale": 0.06515837104072399,
+          "logicalWidth": 72,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            896.0,
+            364
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-538",
+          "sourcePropIds": [
+            "furniture-538"
+          ],
+          "zone": "Z07",
+          "logicalAnchor": [
+            10,
+            12
+          ],
+          "originalEnvelope": [
+            1010,
+            402,
+            1038,
+            428
+          ],
+          "bounds": {
+            "x": 988.0,
+            "y": 367.0769230769231,
+            "width": 72.0,
+            "height": 60.92307692307693
+          },
+          "scale": 0.06515837104072399,
+          "logicalWidth": 72,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1024.0,
+            428
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-597",
+          "sourcePropIds": [
+            "furniture-597"
+          ],
+          "zone": "Z09",
+          "logicalAnchor": [
+            25,
+            13
+          ],
+          "originalEnvelope": [
+            1458,
+            658,
+            1486,
+            684
+          ],
+          "bounds": {
+            "x": 1436.0,
+            "y": 623.0769230769231,
+            "width": 72.0,
+            "height": 60.92307692307693
+          },
+          "scale": 0.06515837104072399,
+          "logicalWidth": 72,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1472.0,
+            684
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-605",
+          "sourcePropIds": [
+            "furniture-605"
+          ],
+          "zone": "Z11",
+          "logicalAnchor": [
+            33,
+            13
+          ],
+          "originalEnvelope": [
+            1714,
+            786,
+            1742,
+            812
+          ],
+          "bounds": {
+            "x": 1692.0,
+            "y": 751.0769230769231,
+            "width": 72.0,
+            "height": 60.92307692307693
+          },
+          "scale": 0.06515837104072399,
+          "logicalWidth": 72,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1728.0,
+            812
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-565",
+          "sourcePropIds": [
+            "furniture-565"
+          ],
+          "zone": "Z12",
+          "logicalAnchor": [
+            37,
+            12
+          ],
+          "originalEnvelope": [
+            1874,
+            834,
+            1902,
+            860
+          ],
+          "bounds": {
+            "x": 1852.0,
+            "y": 799.0769230769231,
+            "width": 72.0,
+            "height": 60.92307692307693
+          },
+          "scale": 0.06515837104072399,
+          "logicalWidth": 72,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1888.0,
+            860
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-569",
+          "sourcePropIds": [
+            "furniture-569"
+          ],
+          "zone": "Z12",
+          "logicalAnchor": [
+            41,
+            12
+          ],
+          "originalEnvelope": [
+            2002,
+            898,
+            2030,
+            924
+          ],
+          "bounds": {
+            "x": 1980.0,
+            "y": 863.0769230769231,
+            "width": 72.0,
+            "height": 60.92307692307693
+          },
+          "scale": 0.06515837104072399,
+          "logicalWidth": 72,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            2016.0,
+            924
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_desk_executive",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_executive.png",
+      "sha256": "e887bb04886d64aa941bbd1e79ab1076c0036c06ae0f52f53a5aad95b33e5e5e",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        88,
+        69,
+        1447,
+        970
+      ],
+      "instances": [
+        {
+          "id": "furniture-180",
+          "sourcePropIds": [
+            "furniture-180"
+          ],
+          "zone": "Z01",
+          "logicalAnchor": [
+            4,
+            4
+          ],
+          "originalEnvelope": [
+            1064,
+            173,
+            1112,
+            218
+          ],
+          "bounds": {
+            "x": 1038.0,
+            "y": 151.70125091979395,
+            "width": 100.0,
+            "height": 66.29874908020604
+          },
+          "scale": 0.07358351729212656,
+          "logicalWidth": 100,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1088.0,
+            218
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_drawing_desk_tablet",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_drawing_desk_tablet.png",
+      "sha256": "d2017630f340f1593c1314ebaff6463bbc6b3c399218762d13baaf480e1b34de",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        146,
+        31,
+        1414,
+        970
+      ],
+      "instances": [
+        {
+          "id": "furniture-626",
+          "sourcePropIds": [
+            "furniture-626"
+          ],
+          "zone": "Z07",
+          "logicalAnchor": [
+            10,
+            14
+          ],
+          "originalEnvelope": [
+            938,
+            428,
+            982,
+            472
+          ],
+          "bounds": {
+            "x": 920.0,
+            "y": 412.7570977917981,
+            "width": 80.0,
+            "height": 59.24290220820189
+          },
+          "scale": 0.06309148264984227,
+          "logicalWidth": 80,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            960.0,
+            472
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_espresso_machine",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_espresso_machine.png",
+      "sha256": "dad33a72142e53602a7a4e377efeabc751333f4368d99d65377e5cd1c0f2f93e",
+      "nativeSize": [
+        1367,
+        1151
+      ],
+      "alphaBox": [
+        218,
+        21,
+        1217,
+        1138
+      ],
+      "instances": [
+        {
+          "id": "furniture-1025",
+          "sourcePropIds": [
+            "furniture-1025"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            13,
+            23
+          ],
+          "originalEnvelope": [
+            754,
+            627,
+            782,
+            654
+          ],
+          "bounds": {
+            "x": 753.527551942186,
+            "y": 602.6389316145413,
+            "width": 30.0,
+            "height": 33.54354354354354
+          },
+          "scale": 0.03003003003003003,
+          "logicalWidth": 30,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            768.527551942186,
+            636.1824751580849
+          ],
+          "sourcePixelsEdited": false,
+          "support": {
+            "propIds": [
+              "furniture-1068",
+              "furniture-1069",
+              "furniture-1070"
+            ],
+            "sourceImagePoint": [
+              1085,
+              404
+            ],
+            "worldPoint": [
+              768.527551942186,
+              636.1824751580849
+            ],
+            "originalDepth": 36010,
+            "presentationDepth": 38012
+          }
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_glass_partition",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_glass_partition.png",
+      "sha256": "a41494be15c57c787468cff19c9da01810895dff98f4c1fdb1fcb416463a458c",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        282,
+        24,
+        1249,
+        1000
+      ],
+      "instances": [
+        {
+          "id": "furniture-98",
+          "sourcePropIds": [
+            "furniture-98"
+          ],
+          "zone": "Z02",
+          "logicalAnchor": [
+            10,
+            2
+          ],
+          "originalEnvelope": [
+            1327,
+            228,
+            1361,
+            284
+          ],
+          "bounds": {
+            "x": 1318.0,
+            "y": 231.5160289555326,
+            "width": 52.0,
+            "height": 52.483971044467424
+          },
+          "scale": 0.05377456049638056,
+          "logicalWidth": 52,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1344.0,
+            284
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-186",
+          "sourcePropIds": [
+            "furniture-186"
+          ],
+          "zone": "Z02",
+          "logicalAnchor": [
+            10,
+            4
+          ],
+          "originalEnvelope": [
+            1263,
+            260,
+            1297,
+            316
+          ],
+          "bounds": {
+            "x": 1254.0,
+            "y": 263.5160289555326,
+            "width": 52.0,
+            "height": 52.483971044467424
+          },
+          "scale": 0.05377456049638056,
+          "logicalWidth": 52,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1280.0,
+            316
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-274",
+          "sourcePropIds": [
+            "furniture-274"
+          ],
+          "zone": "Z02",
+          "logicalAnchor": [
+            10,
+            6
+          ],
+          "originalEnvelope": [
+            1199,
+            292,
+            1233,
+            348
+          ],
+          "bounds": {
+            "x": 1190.0,
+            "y": 295.5160289555326,
+            "width": 52.0,
+            "height": 52.483971044467424
+          },
+          "scale": 0.05377456049638056,
+          "logicalWidth": 52,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1216.0,
+            348
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_green_reading_lamp",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_green_reading_lamp.png",
+      "sha256": "a3ad53713c45074b233d7fe704e05896f54e3ec10b0546e6052620c2669a2659",
+      "nativeSize": [
+        1312,
+        1199
+      ],
+      "alphaBox": [
+        306,
+        115,
+        1025,
+        1091
+      ],
+      "instances": [
+        {
+          "id": "furniture-169",
+          "sourcePropIds": [
+            "furniture-169"
+          ],
+          "zone": "Z05",
+          "logicalAnchor": [
+            37,
+            3
+          ],
+          "originalEnvelope": [
+            2170,
+            696,
+            2181,
+            712
+          ],
+          "bounds": {
+            "x": 2166.5,
+            "y": 687.5660639777469,
+            "width": 18.0,
+            "height": 24.43393602225313
+          },
+          "scale": 0.025034770514603615,
+          "logicalWidth": 18,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            2175.5,
+            712
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_journal_shelf",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_journal_shelf.png",
+      "sha256": "fd3faee44a82dfe9cc47c36ba120e6a6a1d32206de56206b3bbf64b04a8286e0",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        63,
+        138,
+        1194,
+        1124
+      ],
+      "instances": [
+        {
+          "id": "furniture-711",
+          "sourcePropIds": [
+            "furniture-711"
+          ],
+          "zone": "Z06",
+          "logicalAnchor": [
+            7,
+            16
+          ],
+          "originalEnvelope": [
+            785,
+            415,
+            815,
+            452
+          ],
+          "bounds": {
+            "x": 776.0,
+            "y": 410.15384615384613,
+            "width": 48.0,
+            "height": 41.84615384615385
+          },
+          "scale": 0.042440318302387266,
+          "logicalWidth": 48,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            800.0,
+            452
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_kitchen_fridge",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_kitchen_fridge.png",
+      "sha256": "dcf204e6acf88c77da9157e1219637e326eb54c2237809a53e6221e44aa3740e",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "alphaBox": [
+        647,
+        30,
+        1127,
+        864
+      ],
+      "instances": [
+        {
+          "id": "furniture-1066",
+          "sourcePropIds": [
+            "furniture-1066"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            10,
+            24
+          ],
+          "originalEnvelope": [
+            629,
+            586,
+            652,
+            624
+          ],
+          "bounds": {
+            "x": 622.5,
+            "y": 561.45,
+            "width": 36.0,
+            "height": 62.55
+          },
+          "scale": 0.075,
+          "logicalWidth": 36,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            640.5,
+            624
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_lab_bench",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_lab_bench.png",
+      "sha256": "29a7bfcff4e805b8ace35d05f3d9121bc6953fd338227d28bba58e0ed106e170",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        62,
+        109,
+        1194,
+        1213
+      ],
+      "instances": [
+        {
+          "id": "furniture-529",
+          "sourcePropIds": [
+            "furniture-529"
+          ],
+          "zone": "Z06",
+          "logicalAnchor": [
+            1,
+            12
+          ],
+          "originalEnvelope": [
+            713,
+            251,
+            760,
+            296
+          ],
+          "bounds": {
+            "x": 693.5,
+            "y": 212.12720848056537,
+            "width": 86.0,
+            "height": 83.87279151943463
+          },
+          "scale": 0.07597173144876325,
+          "logicalWidth": 86,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            736.5,
+            296
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-705",
+          "sourcePropIds": [
+            "furniture-705"
+          ],
+          "zone": "Z06",
+          "logicalAnchor": [
+            1,
+            16
+          ],
+          "originalEnvelope": [
+            585,
+            315,
+            632,
+            360
+          ],
+          "bounds": {
+            "x": 565.5,
+            "y": 276.1272084805654,
+            "width": 86.0,
+            "height": 83.87279151943463
+          },
+          "scale": 0.07597173144876325,
+          "logicalWidth": 86,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            608.5,
+            360
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_lamp_pass_fail",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_lamp_pass_fail.png",
+      "sha256": "53d2535d4ed6223e377fd4c65e6029224dff50e3042ef8523db51ebaebad9e9f",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        351,
+        162,
+        890,
+        1071
+      ],
+      "instances": [
+        {
+          "id": "furniture-602",
+          "sourcePropIds": [
+            "furniture-602"
+          ],
+          "zone": "Z10",
+          "logicalAnchor": [
+            30,
+            13
+          ],
+          "originalEnvelope": [
+            1627,
+            739,
+            1637,
+            768
+          ],
+          "bounds": {
+            "x": 1625.0,
+            "y": 744.3896103896104,
+            "width": 14.000000000000002,
+            "height": 23.61038961038961
+          },
+          "scale": 0.025974025974025976,
+          "logicalWidth": 14,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1632.0,
+            768
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_large_monitor_preview",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_large_monitor_preview.png",
+      "sha256": "1274ab79e0117a8ba78a4e5082465dd3fb70c73956f3d7c0555c8f3903e112c9",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        187,
+        58,
+        1349,
+        978
+      ],
+      "instances": [
+        {
+          "id": "furniture-554",
+          "sourcePropIds": [
+            "furniture-554"
+          ],
+          "zone": "Z09",
+          "logicalAnchor": [
+            26,
+            12
+          ],
+          "originalEnvelope": [
+            1520,
+            655,
+            1552,
+            690
+          ],
+          "bounds": {
+            "x": 1501.0,
+            "y": 634.5783132530121,
+            "width": 70.0,
+            "height": 55.42168674698795
+          },
+          "scale": 0.060240963855421686,
+          "logicalWidth": 70,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1536.0,
+            690
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_lounge_chair",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_chair.png",
+      "sha256": "b56010d8d829a9a9c7fc5ed6e71fb1b66a62aec82cdca60b7203d80ba3e9cfbd",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        338,
+        66,
+        1199,
+        954
+      ],
+      "instances": [
+        {
+          "id": "furniture-172",
+          "sourcePropIds": [
+            "furniture-172"
+          ],
+          "zone": "Z05",
+          "logicalAnchor": [
+            40,
+            3
+          ],
+          "originalEnvelope": [
+            2259,
+            734,
+            2286,
+            765
+          ],
+          "bounds": {
+            "x": 2251.5,
+            "y": 721.6829268292682,
+            "width": 42.0,
+            "height": 43.31707317073171
+          },
+          "scale": 0.04878048780487805,
+          "logicalWidth": 42,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            2272.5,
+            765
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-173",
+          "sourcePropIds": [
+            "furniture-173"
+          ],
+          "zone": "Z05",
+          "logicalAnchor": [
+            41,
+            3
+          ],
+          "originalEnvelope": [
+            2291,
+            750,
+            2318,
+            781
+          ],
+          "bounds": {
+            "x": 2283.5,
+            "y": 737.6829268292682,
+            "width": 42.0,
+            "height": 43.31707317073171
+          },
+          "scale": 0.04878048780487805,
+          "logicalWidth": 42,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            2304.5,
+            781
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_lounge_sofa",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_sofa.png",
+      "sha256": "fac291b842d6dfc73c5c970483b713fa6e06ccfcf4f9f65da51db7c5108ccd17",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        131,
+        84,
+        1409,
+        992
+      ],
+      "instances": [
+        {
+          "id": "furniture-1031",
+          "sourcePropIds": [
+            "furniture-1029",
+            "furniture-1030",
+            "furniture-1031"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            19,
+            23
+          ],
+          "originalEnvelope": [
+            879,
+            688,
+            978,
+            750
+          ],
+          "bounds": {
+            "x": 873.5,
+            "y": 671.8466353677621,
+            "width": 109.99999999999999,
+            "height": 78.15336463223787
+          },
+          "scale": 0.08607198748043818,
+          "logicalWidth": 110,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            928.5,
+            750
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_lounge_sofa_corner",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_sofa_corner.png",
+      "sha256": "6937b26d4ddb2f9ac56804ba745d744c545be7bb76004c10dc9f211713591bc6",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        227,
+        63,
+        1308,
+        981
+      ],
+      "instances": [
+        {
+          "id": "furniture-1032",
+          "sourcePropIds": [
+            "furniture-1032"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            20,
+            23
+          ],
+          "originalEnvelope": [
+            960,
+            730,
+            1024,
+            773
+          ],
+          "bounds": {
+            "x": 960.0,
+            "y": 718.650323774283,
+            "width": 64.0,
+            "height": 54.349676225716934
+          },
+          "scale": 0.05920444033302498,
+          "logicalWidth": 64,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            992.0,
+            773
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_marble_counter",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_marble_counter.png",
+      "sha256": "3407b605a9cd3a4769f5996a43298a4e0c3b8a9cd7287f5c5dd6176c364731c4",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        210,
+        44,
+        1317,
+        1015
+      ],
+      "instances": [
+        {
+          "id": "furniture-1068",
+          "sourcePropIds": [
+            "furniture-1068"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            12,
+            24
+          ],
+          "originalEnvelope": [
+            680,
+            619,
+            792,
+            698
+          ],
+          "bounds": {
+            "x": 680.0,
+            "y": 599.7597109304427,
+            "width": 112.0,
+            "height": 98.24028906955736
+          },
+          "scale": 0.1011743450767841,
+          "logicalWidth": 112,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": {
+            "index": 0,
+            "count": 3,
+            "x0": 0.0,
+            "x1": 40.0,
+            "joinedSourcePropIds": [
+              "furniture-1068",
+              "furniture-1069",
+              "furniture-1070"
+            ]
+          },
+          "groundAnchor": [
+            736.0,
+            698
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1069",
+          "sourcePropIds": [
+            "furniture-1069"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            13,
+            24
+          ],
+          "originalEnvelope": [
+            680,
+            619,
+            792,
+            698
+          ],
+          "bounds": {
+            "x": 680.0,
+            "y": 599.7597109304427,
+            "width": 112.0,
+            "height": 98.24028906955736
+          },
+          "scale": 0.1011743450767841,
+          "logicalWidth": 112,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": {
+            "index": 1,
+            "count": 3,
+            "x0": 40.0,
+            "x1": 72.0,
+            "joinedSourcePropIds": [
+              "furniture-1068",
+              "furniture-1069",
+              "furniture-1070"
+            ]
+          },
+          "groundAnchor": [
+            736.0,
+            698
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1070",
+          "sourcePropIds": [
+            "furniture-1070"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            14,
+            24
+          ],
+          "originalEnvelope": [
+            680,
+            619,
+            792,
+            698
+          ],
+          "bounds": {
+            "x": 680.0,
+            "y": 599.7597109304427,
+            "width": 112.0,
+            "height": 98.24028906955736
+          },
+          "scale": 0.1011743450767841,
+          "logicalWidth": 112,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": {
+            "index": 2,
+            "count": 3,
+            "x0": 72.0,
+            "x1": 112.0,
+            "joinedSourcePropIds": [
+              "furniture-1068",
+              "furniture-1069",
+              "furniture-1070"
+            ]
+          },
+          "groundAnchor": [
+            736.0,
+            698
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_microscope",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_microscope.png",
+      "sha256": "047d620189fdc455d52e522136548916965fab372d3e0d582101ff23da60dbee",
+      "nativeSize": [
+        1374,
+        1145
+      ],
+      "alphaBox": [
+        262,
+        27,
+        1145,
+        1125
+      ],
+      "instances": [
+        {
+          "id": "furniture-573",
+          "sourcePropIds": [
+            "furniture-573"
+          ],
+          "zone": "Z06",
+          "logicalAnchor": [
+            1,
+            13
+          ],
+          "originalEnvelope": [
+            696,
+            277,
+            712,
+            300
+          ],
+          "bounds": {
+            "x": 692.0,
+            "y": 270.1562853907135,
+            "width": 24.0,
+            "height": 29.843714609286522
+          },
+          "scale": 0.027180067950169876,
+          "logicalWidth": 24,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            704.0,
+            300
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_mihrab",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_mihrab.png",
+      "sha256": "a18d975c6cffef2243fcc31322ffe9b3f50836fa016003cfb6af0bc1a656794f",
+      "nativeSize": [
+        1293,
+        1217
+      ],
+      "alphaBox": [
+        348,
+        56,
+        960,
+        1161
+      ],
+      "instances": [
+        {
+          "id": "furniture-1133",
+          "sourcePropIds": [
+            "furniture-1133"
+          ],
+          "zone": "Z16",
+          "logicalAnchor": [
+            33,
+            25
+          ],
+          "originalEnvelope": [
+            1328,
+            966,
+            1360,
+            1019
+          ],
+          "bounds": {
+            "x": 1317.0,
+            "y": 921.5,
+            "width": 54.0,
+            "height": 97.5
+          },
+          "scale": 0.08823529411764706,
+          "logicalWidth": 54,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1344.0,
+            1019
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_moodboard",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_moodboard.png",
+      "sha256": "60ca1dcacaaaae54542108ae6d61278ccbb2e89d419cf96bc9e58bf37b7e5b81",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        204,
+        68,
+        1051,
+        1195
+      ],
+      "instances": [
+        {
+          "id": "furniture-630",
+          "sourcePropIds": [
+            "furniture-630"
+          ],
+          "zone": "Z07",
+          "logicalAnchor": [
+            14,
+            14
+          ],
+          "originalEnvelope": [
+            1072,
+            490,
+            1104,
+            529
+          ],
+          "bounds": {
+            "x": 1061.0,
+            "y": 457.1487603305785,
+            "width": 54.0,
+            "height": 71.85123966942149
+          },
+          "scale": 0.06375442739079103,
+          "logicalWidth": 54,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1088.0,
+            529
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_neon_sign",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_neon_sign.png",
+      "sha256": "2114251923338b647fb4bd5ea6535e4fd1ddebee6446ac792a23d0eb5a18ecb2",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        204,
+        187,
+        1054,
+        1112
+      ],
+      "instances": [
+        {
+          "id": "furniture-1039",
+          "sourcePropIds": [
+            "furniture-1039"
+          ],
+          "zone": "Z15",
+          "logicalAnchor": [
+            27,
+            23
+          ],
+          "originalEnvelope": [
+            1203,
+            850,
+            1229,
+            875
+          ],
+          "bounds": {
+            "x": 1193.0,
+            "y": 824.9411764705883,
+            "width": 46.0,
+            "height": 50.05882352941176
+          },
+          "scale": 0.05411764705882353,
+          "logicalWidth": 46,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1216.0,
+            875
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_parcel_rack",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_parcel_rack.png",
+      "sha256": "2af3c2190d2ca91a517374d9ae705e85a99f88b5da44451e21fa9f2748d39186",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        325,
+        19,
+        1228,
+        1004
+      ],
+      "instances": [
+        {
+          "id": "furniture-736",
+          "sourcePropIds": [
+            "furniture-736"
+          ],
+          "zone": "Z11",
+          "logicalAnchor": [
+            32,
+            16
+          ],
+          "originalEnvelope": [
+            1583,
+            806,
+            1617,
+            858
+          ],
+          "bounds": {
+            "x": 1576.0,
+            "y": 805.641196013289,
+            "width": 48.0,
+            "height": 52.35880398671097
+          },
+          "scale": 0.053156146179401995,
+          "logicalWidth": 48,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1600.0,
+            858
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-824",
+          "sourcePropIds": [
+            "furniture-824"
+          ],
+          "zone": "Z11",
+          "logicalAnchor": [
+            32,
+            18
+          ],
+          "originalEnvelope": [
+            1519,
+            838,
+            1553,
+            890
+          ],
+          "bounds": {
+            "x": 1512.0,
+            "y": 837.641196013289,
+            "width": 48.0,
+            "height": 52.35880398671097
+          },
+          "scale": 0.053156146179401995,
+          "logicalWidth": 48,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1536.0,
+            890
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_pool_lounger",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_lounger.png",
+      "sha256": "fd21da66fee502b28d4e1e77fec318e8cf6e558f04812eca1a3b4f76177d1294",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        48,
+        37,
+        1497,
+        996
+      ],
+      "instances": [
+        {
+          "id": "furniture-1093",
+          "sourcePropIds": [
+            "furniture-1093"
+          ],
+          "zone": "Z17",
+          "logicalAnchor": [
+            37,
+            24
+          ],
+          "originalEnvelope": [
+            1485,
+            1029,
+            1523,
+            1055
+          ],
+          "bounds": {
+            "x": 1474.0,
+            "y": 1015.2898550724638,
+            "width": 60.0,
+            "height": 39.710144927536234
+          },
+          "scale": 0.041407867494824016,
+          "logicalWidth": 60,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1504.0,
+            1055
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1181",
+          "sourcePropIds": [
+            "furniture-1181"
+          ],
+          "zone": "Z17",
+          "logicalAnchor": [
+            37,
+            26
+          ],
+          "originalEnvelope": [
+            1421,
+            1061,
+            1459,
+            1087
+          ],
+          "bounds": {
+            "x": 1410.0,
+            "y": 1047.2898550724638,
+            "width": 60.0,
+            "height": 39.710144927536234
+          },
+          "scale": 0.041407867494824016,
+          "logicalWidth": 60,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1440.0,
+            1087
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1269",
+          "sourcePropIds": [
+            "furniture-1269"
+          ],
+          "zone": "Z17",
+          "logicalAnchor": [
+            37,
+            28
+          ],
+          "originalEnvelope": [
+            1357,
+            1093,
+            1395,
+            1119
+          ],
+          "bounds": {
+            "x": 1346.0,
+            "y": 1079.2898550724638,
+            "width": 60.0,
+            "height": 39.710144927536234
+          },
+          "scale": 0.041407867494824016,
+          "logicalWidth": 60,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1376.0,
+            1119
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_pool_umbrella",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_umbrella.png",
+      "sha256": "8ef974e2e430eda3ea0a56a0893098843bb6f932fde1dad9f44682b4224e2e22",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        205,
+        38,
+        1331,
+        977
+      ],
+      "instances": [
+        {
+          "id": "furniture-1137",
+          "sourcePropIds": [
+            "furniture-1137"
+          ],
+          "zone": "Z17",
+          "logicalAnchor": [
+            37,
+            25
+          ],
+          "originalEnvelope": [
+            1450,
+            1029,
+            1494,
+            1081
+          ],
+          "bounds": {
+            "x": 1434.0,
+            "y": 1017.6216696269983,
+            "width": 76.0,
+            "height": 63.37833037300177
+          },
+          "scale": 0.0674955595026643,
+          "logicalWidth": 76,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1472.0,
+            1081
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1225",
+          "sourcePropIds": [
+            "furniture-1225"
+          ],
+          "zone": "Z17",
+          "logicalAnchor": [
+            37,
+            27
+          ],
+          "originalEnvelope": [
+            1386,
+            1061,
+            1430,
+            1113
+          ],
+          "bounds": {
+            "x": 1370.0,
+            "y": 1049.6216696269983,
+            "width": 76.0,
+            "height": 63.37833037300177
+          },
+          "scale": 0.0674955595026643,
+          "logicalWidth": 76,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1408.0,
+            1113
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_potted_plant",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_potted_plant.png",
+      "sha256": "99d15732309a1884f9a175d28c37c05e9e747fb420a9bcd2103732033ca3cdbf",
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "alphaBox": [
+        56,
+        70,
+        990,
+        1427
+      ],
+      "instances": [
+        {
+          "id": "furniture-1233",
+          "sourcePropIds": [
+            "furniture-1233"
+          ],
+          "zone": "Z13",
+          "logicalAnchor": [
+            1,
+            28
+          ],
+          "originalEnvelope": [
+            220,
+            516,
+            228,
+            538
+          ],
+          "bounds": {
+            "x": 209.0,
+            "y": 494.41327623126335,
+            "width": 30.0,
+            "height": 43.58672376873662
+          },
+          "scale": 0.032119914346895075,
+          "logicalWidth": 30,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            224.0,
+            538
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1240",
+          "sourcePropIds": [
+            "furniture-1240"
+          ],
+          "zone": "Z13",
+          "logicalAnchor": [
+            8,
+            28
+          ],
+          "originalEnvelope": [
+            444,
+            628,
+            452,
+            650
+          ],
+          "bounds": {
+            "x": 433.0,
+            "y": 606.4132762312634,
+            "width": 30.0,
+            "height": 43.58672376873662
+          },
+          "scale": 0.032119914346895075,
+          "logicalWidth": 30,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            448.0,
+            650
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_presentation_screen",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_presentation_screen.png",
+      "sha256": "2c8d24489874c713025927f5cc39d0a57f929921f1a54855c4245e352faeff6c",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        120,
+        150,
+        1139,
+        1181
+      ],
+      "instances": [
+        {
+          "id": "furniture-58",
+          "sourcePropIds": [
+            "furniture-58"
+          ],
+          "zone": "Z02",
+          "logicalAnchor": [
+            14,
+            1
+          ],
+          "originalEnvelope": [
+            1486,
+            279,
+            1522,
+            322
+          ],
+          "bounds": {
+            "x": 1458.0,
+            "y": 228.91658488714427,
+            "width": 92.0,
+            "height": 93.08341511285575
+          },
+          "scale": 0.09028459273797841,
+          "logicalWidth": 92,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1504.0,
+            322
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_printing_press",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_printing_press.png",
+      "sha256": "3314a48c6e24305b28546e5164a85c7ac950173b2cd61640211eda5c5e16b848",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        122,
+        57,
+        1134,
+        1232
+      ],
+      "instances": [
+        {
+          "id": "furniture-262",
+          "sourcePropIds": [
+            "furniture-262"
+          ],
+          "zone": "Z05",
+          "logicalAnchor": [
+            42,
+            5
+          ],
+          "originalEnvelope": [
+            2259,
+            811,
+            2285,
+            830
+          ],
+          "bounds": {
+            "x": 2255.0,
+            "y": 790.5237154150198,
+            "width": 34.0,
+            "height": 39.476284584980235
+          },
+          "scale": 0.03359683794466403,
+          "logicalWidth": 34,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            2272.0,
+            830
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_qa_screens",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_qa_screens.png",
+      "sha256": "542120996ef75a91c10e11b11282f3c6e3ffa82d40fd11e8f9429f07091c637e",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        220,
+        40,
+        1318,
+        973
+      ],
+      "instances": [
+        {
+          "id": "furniture-558",
+          "sourcePropIds": [
+            "furniture-558"
+          ],
+          "zone": "Z10",
+          "logicalAnchor": [
+            30,
+            12
+          ],
+          "originalEnvelope": [
+            1652,
+            722,
+            1682,
+            754
+          ],
+          "bounds": {
+            "x": 1634.0,
+            "y": 697.9180327868853,
+            "width": 66.0,
+            "height": 56.08196721311475
+          },
+          "scale": 0.060109289617486336,
+          "logicalWidth": 66,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1667.0,
+            754
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_quran_shelf",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_quran_shelf.png",
+      "sha256": "239d8afd05ffbf28a27efd68a1a689dccc9008d78d93fdce7a711f33012b28d7",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        236,
+        33,
+        1302,
+        1002
+      ],
+      "instances": [
+        {
+          "id": "furniture-1042",
+          "sourcePropIds": [
+            "furniture-1042"
+          ],
+          "zone": "Z16",
+          "logicalAnchor": [
+            30,
+            23
+          ],
+          "originalEnvelope": [
+            1305,
+            904,
+            1320,
+            921
+          ],
+          "bounds": {
+            "x": 1286.5,
+            "y": 873.7317073170732,
+            "width": 52.0,
+            "height": 47.268292682926834
+          },
+          "scale": 0.04878048780487805,
+          "logicalWidth": 52,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1312.5,
+            921
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_reception_desk",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_reception_desk.png",
+      "sha256": "49565f08e10fbdfcfcab84bf7234b550421e7765ecc7191da02b6b52478f4c4d",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        63,
+        58,
+        1476,
+        951
+      ],
+      "instances": [
+        {
+          "id": "furniture-1149",
+          "sourcePropIds": [
+            "furniture-1148",
+            "furniture-1149"
+          ],
+          "zone": "Z13",
+          "logicalAnchor": [
+            5,
+            26
+          ],
+          "originalEnvelope": [
+            360,
+            522,
+            440,
+            586
+          ],
+          "bounds": {
+            "x": 344.0,
+            "y": 515.2172682236377,
+            "width": 112.0,
+            "height": 70.78273177636235
+          },
+          "scale": 0.07926397735314933,
+          "logicalWidth": 112,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            400.0,
+            586
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_screen",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_screen.png",
+      "sha256": "05c5281a108f31ba4e9eb57b770ea0511bd5ba84cf57c78581169d0f51c4faca",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        186,
+        185,
+        1071,
+        1089
+      ],
+      "instances": [
+        {
+          "id": "furniture-734",
+          "sourcePropIds": [
+            "furniture-734"
+          ],
+          "zone": "Z10",
+          "logicalAnchor": [
+            30,
+            16
+          ],
+          "originalEnvelope": [
+            1530,
+            791,
+            1543,
+            806
+          ],
+          "bounds": {
+            "x": 1519.5,
+            "y": 771.2700564971751,
+            "width": 34.0,
+            "height": 34.72994350282486
+          },
+          "scale": 0.0384180790960452,
+          "logicalWidth": 34,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1536.5,
+            806
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_server_rack",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_server_rack.png",
+      "sha256": "15f9fdc8d70193a5813b76a5a62d7cee144caf153bdcb29af766a2f914a33ca7",
+      "nativeSize": [
+        1327,
+        1186
+      ],
+      "alphaBox": [
+        319,
+        33,
+        1008,
+        1159
+      ],
+      "instances": [
+        {
+          "id": "furniture-740",
+          "sourcePropIds": [
+            "furniture-740"
+          ],
+          "zone": "Z12",
+          "logicalAnchor": [
+            36,
+            16
+          ],
+          "originalEnvelope": [
+            1710,
+            867,
+            1746,
+            924
+          ],
+          "bounds": {
+            "x": 1711.0,
+            "y": 868.4354136429608,
+            "width": 34.0,
+            "height": 55.56458635703919
+          },
+          "scale": 0.04934687953555878,
+          "logicalWidth": 34,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1728.0,
+            924
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-784",
+          "sourcePropIds": [
+            "furniture-784"
+          ],
+          "zone": "Z12",
+          "logicalAnchor": [
+            36,
+            17
+          ],
+          "originalEnvelope": [
+            1678,
+            883,
+            1714,
+            940
+          ],
+          "bounds": {
+            "x": 1679.0,
+            "y": 884.4354136429608,
+            "width": 34.0,
+            "height": 55.56458635703919
+          },
+          "scale": 0.04934687953555878,
+          "logicalWidth": 34,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1696.0,
+            940
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-828",
+          "sourcePropIds": [
+            "furniture-828"
+          ],
+          "zone": "Z12",
+          "logicalAnchor": [
+            36,
+            18
+          ],
+          "originalEnvelope": [
+            1646,
+            899,
+            1682,
+            956
+          ],
+          "bounds": {
+            "x": 1647.0,
+            "y": 900.4354136429608,
+            "width": 34.0,
+            "height": 55.56458635703919
+          },
+          "scale": 0.04934687953555878,
+          "logicalWidth": 34,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1664.0,
+            956
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-746",
+          "sourcePropIds": [
+            "furniture-746"
+          ],
+          "zone": "Z12",
+          "logicalAnchor": [
+            42,
+            16
+          ],
+          "originalEnvelope": [
+            1902,
+            963,
+            1938,
+            1020
+          ],
+          "bounds": {
+            "x": 1903.0,
+            "y": 964.4354136429608,
+            "width": 34.0,
+            "height": 55.56458635703919
+          },
+          "scale": 0.04934687953555878,
+          "logicalWidth": 34,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1920.0,
+            1020
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-790",
+          "sourcePropIds": [
+            "furniture-790"
+          ],
+          "zone": "Z12",
+          "logicalAnchor": [
+            42,
+            17
+          ],
+          "originalEnvelope": [
+            1870,
+            979,
+            1906,
+            1036
+          ],
+          "bounds": {
+            "x": 1871.0,
+            "y": 980.4354136429608,
+            "width": 34.0,
+            "height": 55.56458635703919
+          },
+          "scale": 0.04934687953555878,
+          "logicalWidth": 34,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1888.0,
+            1036
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-834",
+          "sourcePropIds": [
+            "furniture-834"
+          ],
+          "zone": "Z12",
+          "logicalAnchor": [
+            42,
+            18
+          ],
+          "originalEnvelope": [
+            1838,
+            995,
+            1874,
+            1052
+          ],
+          "bounds": {
+            "x": 1839.0,
+            "y": 996.4354136429608,
+            "width": 34.0,
+            "height": 55.56458635703919
+          },
+          "scale": 0.04934687953555878,
+          "logicalWidth": 34,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1856.0,
+            1052
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_shaf_partition",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_shaf_partition.png",
+      "sha256": "7faf0c9c03d393c7862fb435edbf2aaff9ae055dfb371476df9fa4ab9074c1a3",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        182,
+        26,
+        1394,
+        1001
+      ],
+      "instances": [
+        {
+          "id": "furniture-1174",
+          "sourcePropIds": [
+            "furniture-1174"
+          ],
+          "zone": "Z16",
+          "logicalAnchor": [
+            30,
+            26
+          ],
+          "originalEnvelope": [
+            1203,
+            937,
+            1229,
+            983
+          ],
+          "bounds": {
+            "x": 1186.0,
+            "y": 934.7326732673267,
+            "width": 60.0,
+            "height": 48.26732673267327
+          },
+          "scale": 0.04950495049504951,
+          "logicalWidth": 60,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1216.0,
+            983
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1180",
+          "sourcePropIds": [
+            "furniture-1180"
+          ],
+          "zone": "Z16",
+          "logicalAnchor": [
+            36,
+            26
+          ],
+          "originalEnvelope": [
+            1395,
+            1033,
+            1421,
+            1079
+          ],
+          "bounds": {
+            "x": 1378.0,
+            "y": 1030.7326732673268,
+            "width": 60.0,
+            "height": 48.26732673267327
+          },
+          "scale": 0.04950495049504951,
+          "logicalWidth": 60,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1408.0,
+            1079
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_soc_map_wall",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_soc_map_wall.png",
+      "sha256": "70106768612ff9d4fd2e06ce9e5d3465d80f722dff9e4e50f79082f340bbe8b8",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        172,
+        93,
+        1080,
+        1182
+      ],
+      "instances": [
+        {
+          "id": "furniture-523",
+          "sourcePropIds": [
+            "furniture-523"
+          ],
+          "zone": "Z12",
+          "logicalAnchor": [
+            39,
+            11
+          ],
+          "originalEnvelope": [
+            1966,
+            841,
+            2002,
+            884
+          ],
+          "bounds": {
+            "x": 1945.0,
+            "y": 790.4515418502202,
+            "width": 78.0,
+            "height": 93.54845814977973
+          },
+          "scale": 0.08590308370044053,
+          "logicalWidth": 78,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1984.0,
+            884
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_sofa_leather",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_sofa_leather.png",
+      "sha256": "90f83c8e6dc6611c34a12c296e733481ab7da26c42b6c01d4e659e941d2d025f",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "alphaBox": [
+        97,
+        51,
+        1689,
+        866
+      ],
+      "instances": [
+        {
+          "id": "furniture-177",
+          "sourcePropIds": [
+            "furniture-177"
+          ],
+          "zone": "Z01",
+          "logicalAnchor": [
+            1,
+            4
+          ],
+          "originalEnvelope": [
+            970,
+            124,
+            1014,
+            166
+          ],
+          "bounds": {
+            "x": 941.0,
+            "y": 113.78266331658291,
+            "width": 102.0,
+            "height": 52.21733668341709
+          },
+          "scale": 0.06407035175879397,
+          "logicalWidth": 102,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            992.0,
+            166
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_spare_tiles_pile",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_spare_tiles_pile.png",
+      "sha256": "0d6627d3240481823d22c955eb4b30325085dd21fba9dce01887a7b4f0cea559",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        125,
+        269,
+        1129,
+        1106
+      ],
+      "instances": [
+        {
+          "id": "furniture-730",
+          "sourcePropIds": [
+            "furniture-730"
+          ],
+          "zone": "Z09",
+          "logicalAnchor": [
+            26,
+            16
+          ],
+          "originalEnvelope": [
+            1395,
+            730,
+            1421,
+            747
+          ],
+          "bounds": {
+            "x": 1395.0,
+            "y": 725.3247011952192,
+            "width": 26.0,
+            "height": 21.675298804780876
+          },
+          "scale": 0.025896414342629483,
+          "logicalWidth": 26,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1408.0,
+            747
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_stamp_desk",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_stamp_desk.png",
+      "sha256": "3396ea958d4e5afc6aa3dd16f9088685a03699127222f9b3355a6ce62c050af0",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        194,
+        53,
+        1354,
+        969
+      ],
+      "instances": [
+        {
+          "id": "furniture-601",
+          "sourcePropIds": [
+            "furniture-601"
+          ],
+          "zone": "Z10",
+          "logicalAnchor": [
+            29,
+            13
+          ],
+          "originalEnvelope": [
+            1579,
+            719,
+            1621,
+            760
+          ],
+          "bounds": {
+            "x": 1564.0,
+            "y": 703.1448275862069,
+            "width": 72.0,
+            "height": 56.855172413793106
+          },
+          "scale": 0.06206896551724138,
+          "logicalWidth": 72,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1600.0,
+            760
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_swatch_wall",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_swatch_wall.png",
+      "sha256": "8f6d9b823d4db98f17cb2c8b85f0db61b59d41c710b15d7104523b5928e41f7e",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        249,
+        71,
+        995,
+        1201
+      ],
+      "instances": [
+        {
+          "id": "furniture-498",
+          "sourcePropIds": [
+            "furniture-498"
+          ],
+          "zone": "Z07",
+          "logicalAnchor": [
+            14,
+            11
+          ],
+          "originalEnvelope": [
+            1171,
+            443,
+            1197,
+            482
+          ],
+          "bounds": {
+            "x": 1157.0,
+            "y": 400.20375335120644,
+            "width": 54.00000000000001,
+            "height": 81.79624664879357
+          },
+          "scale": 0.07238605898123325,
+          "logicalWidth": 54,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1184.0,
+            482
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_system_model_mini",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_system_model_mini.png",
+      "sha256": "3f92f9900c68fcf1d5709c500566f608da8b2d0ad958e79b27f85618d19b827c",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "alphaBox": [
+        272,
+        45,
+        1527,
+        832
+      ],
+      "instances": [
+        {
+          "id": "furniture-65",
+          "sourcePropIds": [
+            "furniture-65"
+          ],
+          "zone": "Z03",
+          "logicalAnchor": [
+            21,
+            1
+          ],
+          "originalEnvelope": [
+            1714,
+            405,
+            1742,
+            431
+          ],
+          "bounds": {
+            "x": 1707.0,
+            "y": 404.6621513944223,
+            "width": 42.0,
+            "height": 26.33784860557769
+          },
+          "scale": 0.03346613545816733,
+          "logicalWidth": 42,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1728.0,
+            431
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_table_round",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_table_round.png",
+      "sha256": "976e49ac056952a2bb0c407d14e5d682d6d241c9e80912be6c283e9ce212a3fa",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        274,
+        89,
+        1263,
+        942
+      ],
+      "instances": [
+        {
+          "id": "furniture-1243",
+          "sourcePropIds": [
+            "furniture-1243"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            11,
+            28
+          ],
+          "originalEnvelope": [
+            530,
+            674,
+            558,
+            696
+          ],
+          "bounds": {
+            "x": 518.0,
+            "y": 651.1506572295248,
+            "width": 52.0,
+            "height": 44.849342770475225
+          },
+          "scale": 0.0525783619817998,
+          "logicalWidth": 52,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            544.0,
+            696
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1246",
+          "sourcePropIds": [
+            "furniture-1246"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            14,
+            28
+          ],
+          "originalEnvelope": [
+            626,
+            722,
+            654,
+            744
+          ],
+          "bounds": {
+            "x": 614.0,
+            "y": 699.1506572295248,
+            "width": 52.0,
+            "height": 44.849342770475225
+          },
+          "scale": 0.0525783619817998,
+          "logicalWidth": 52,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            640.0,
+            744
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1249",
+          "sourcePropIds": [
+            "furniture-1249"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            17,
+            28
+          ],
+          "originalEnvelope": [
+            722,
+            770,
+            750,
+            792
+          ],
+          "bounds": {
+            "x": 710.0,
+            "y": 747.1506572295248,
+            "width": 52.0,
+            "height": 44.849342770475225
+          },
+          "scale": 0.0525783619817998,
+          "logicalWidth": 52,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            736.0,
+            792
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1252",
+          "sourcePropIds": [
+            "furniture-1252"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            20,
+            28
+          ],
+          "originalEnvelope": [
+            818,
+            818,
+            846,
+            840
+          ],
+          "bounds": {
+            "x": 806.0,
+            "y": 795.1506572295248,
+            "width": 52.0,
+            "height": 44.849342770475225
+          },
+          "scale": 0.0525783619817998,
+          "logicalWidth": 52,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            832.0,
+            840
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_test_tube_rack",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_test_tube_rack.png",
+      "sha256": "86773f602c3ecfb71dd37d76be8f55324d571572caa4b303e09b56ebd78eb303",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        187,
+        116,
+        1127,
+        1166
+      ],
+      "instances": [
+        {
+          "id": "furniture-661",
+          "sourcePropIds": [
+            "furniture-661"
+          ],
+          "zone": "Z06",
+          "logicalAnchor": [
+            1,
+            15
+          ],
+          "originalEnvelope": [
+            632,
+            313,
+            648,
+            329
+          ],
+          "bounds": {
+            "x": 630.0,
+            "y": 306.6595744680851,
+            "width": 20.0,
+            "height": 22.340425531914892
+          },
+          "scale": 0.02127659574468085,
+          "logicalWidth": 20,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            640.0,
+            329
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_trashcan",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_trashcan.png",
+      "sha256": "c5ed656126949929a5a54a63509577f99ea33cf1ca66191ba4edda765b68b6f0",
+      "nativeSize": [
+        1268,
+        1241
+      ],
+      "alphaBox": [
+        338,
+        275,
+        925,
+        1054
+      ],
+      "instances": [
+        {
+          "id": "furniture-1110",
+          "sourcePropIds": [
+            "furniture-1110"
+          ],
+          "zone": "Z14",
+          "logicalAnchor": [
+            10,
+            25
+          ],
+          "originalEnvelope": [
+            603,
+            614,
+            613,
+            632
+          ],
+          "bounds": {
+            "x": 598.0,
+            "y": 605.4582623509369,
+            "width": 20.0,
+            "height": 26.54173764906303
+          },
+          "scale": 0.034071550255536626,
+          "logicalWidth": 20,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            608.0,
+            632
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_trophy_shelf",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_trophy_shelf.png",
+      "sha256": "2c57db6f8ec6d747cfef6e21169559285c41af868ba35f40611d9447b989a7d1",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        34,
+        205,
+        1221,
+        1088
+      ],
+      "instances": [
+        {
+          "id": "furniture-96",
+          "sourcePropIds": [
+            "furniture-96"
+          ],
+          "zone": "Z01",
+          "logicalAnchor": [
+            8,
+            2
+          ],
+          "originalEnvelope": [
+            1265,
+            198,
+            1295,
+            249
+          ],
+          "bounds": {
+            "x": 1253.0,
+            "y": 208.82982308340354,
+            "width": 54.0,
+            "height": 40.17017691659646
+          },
+          "scale": 0.04549283909014322,
+          "logicalWidth": 54,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1280.0,
+            249
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_tropical_plant",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_tropical_plant.png",
+      "sha256": "48fa334b2ff160626dce2ded41af8b6bbadbe420f116550d4e861edf050a4e37",
+      "nativeSize": [
+        1263,
+        1245
+      ],
+      "alphaBox": [
+        102,
+        31,
+        1153,
+        1190
+      ],
+      "instances": [
+        {
+          "id": "furniture-1099",
+          "sourcePropIds": [
+            "furniture-1099"
+          ],
+          "zone": "Z17",
+          "logicalAnchor": [
+            43,
+            24
+          ],
+          "originalEnvelope": [
+            1685,
+            1123,
+            1707,
+            1152
+          ],
+          "bounds": {
+            "x": 1674.0,
+            "y": 1103.4785918173168,
+            "width": 44.0,
+            "height": 48.52140818268316
+          },
+          "scale": 0.04186489058039962,
+          "logicalWidth": 44,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1696.0,
+            1152
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1357",
+          "sourcePropIds": [
+            "furniture-1357"
+          ],
+          "zone": "Z17",
+          "logicalAnchor": [
+            37,
+            30
+          ],
+          "originalEnvelope": [
+            1301,
+            1123,
+            1323,
+            1152
+          ],
+          "bounds": {
+            "x": 1290.0,
+            "y": 1103.4785918173168,
+            "width": 44.0,
+            "height": 48.52140818268316
+          },
+          "scale": 0.04186489058039962,
+          "logicalWidth": 44,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1312.0,
+            1152
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_wall_monitors_ceo",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_wall_monitors_ceo.png",
+      "sha256": "b9a626ee6b28f5ca1f92db23fdfd528c62a94b3a545fb3a09279df50ba70a42e",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        88,
+        183,
+        1169,
+        1192
+      ],
+      "instances": [
+        {
+          "id": "furniture-92",
+          "sourcePropIds": [
+            "furniture-92"
+          ],
+          "zone": "Z01",
+          "logicalAnchor": [
+            4,
+            2
+          ],
+          "originalEnvelope": [
+            1137,
+            142,
+            1167,
+            176
+          ],
+          "bounds": {
+            "x": 1107.0,
+            "y": 91.99444958371878,
+            "width": 90.0,
+            "height": 84.00555041628122
+          },
+          "scale": 0.08325624421831637,
+          "logicalWidth": 90,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1152.0,
+            176
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_whiteboard",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_whiteboard.png",
+      "sha256": "60ef17b8906023a82d5b324610f011f688ecb829ca179568f5aa411cafca0382",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        73,
+        85,
+        1205,
+        1204
+      ],
+      "instances": [
+        {
+          "id": "furniture-75",
+          "sourcePropIds": [
+            "furniture-75"
+          ],
+          "zone": "Z04",
+          "logicalAnchor": [
+            31,
+            1
+          ],
+          "originalEnvelope": [
+            2028,
+            550,
+            2068,
+            603
+          ],
+          "bounds": {
+            "x": 2007.0,
+            "y": 521.9416961130742,
+            "width": 82.0,
+            "height": 81.0583038869258
+          },
+          "scale": 0.07243816254416961,
+          "logicalWidth": 82,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            2048.0,
+            603
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_whiteboard_formula",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_whiteboard_formula.png",
+      "sha256": "a16748b2f3982849717f796ed82bd53dbd1e9a5cf6ed145eba663ec7b8b9e948",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaBox": [
+        138,
+        35,
+        1143,
+        1219
+      ],
+      "instances": [
+        {
+          "id": "furniture-617",
+          "sourcePropIds": [
+            "furniture-617"
+          ],
+          "zone": "Z06",
+          "logicalAnchor": [
+            1,
+            14
+          ],
+          "originalEnvelope": [
+            655,
+            280,
+            689,
+            330
+          ],
+          "bounds": {
+            "x": 637.0,
+            "y": 247.53233830845772,
+            "width": 70.0,
+            "height": 82.46766169154229
+          },
+          "scale": 0.06965174129353234,
+          "logicalWidth": 70,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            672.0,
+            330
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    },
+    {
+      "id": "furniture_wudhu_station",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_wudhu_station.png",
+      "sha256": "a296ca35c509042b7681c706534a5e1a95db3ec6adf066268a934ac87fb3e72d",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        327,
+        18,
+        1215,
+        988
+      ],
+      "instances": [
+        {
+          "id": "furniture-1043",
+          "sourcePropIds": [
+            "furniture-1043"
+          ],
+          "zone": "Z16",
+          "logicalAnchor": [
+            31,
+            23
+          ],
+          "originalEnvelope": [
+            1323,
+            913,
+            1366,
+            946
+          ],
+          "bounds": {
+            "x": 1322.5,
+            "y": 897.936936936937,
+            "width": 44.0,
+            "height": 48.06306306306306
+          },
+          "scale": 0.04954954954954955,
+          "logicalWidth": 44,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1344.5,
+            946
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1044",
+          "sourcePropIds": [
+            "furniture-1044"
+          ],
+          "zone": "Z16",
+          "logicalAnchor": [
+            32,
+            23
+          ],
+          "originalEnvelope": [
+            1355,
+            929,
+            1398,
+            962
+          ],
+          "bounds": {
+            "x": 1354.5,
+            "y": 913.936936936937,
+            "width": 44.0,
+            "height": 48.06306306306306
+          },
+          "scale": 0.04954954954954955,
+          "logicalWidth": 44,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1376.5,
+            962
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1046",
+          "sourcePropIds": [
+            "furniture-1046"
+          ],
+          "zone": "Z16",
+          "logicalAnchor": [
+            34,
+            23
+          ],
+          "originalEnvelope": [
+            1419,
+            961,
+            1462,
+            994
+          ],
+          "bounds": {
+            "x": 1418.5,
+            "y": 945.936936936937,
+            "width": 44.0,
+            "height": 48.06306306306306
+          },
+          "scale": 0.04954954954954955,
+          "logicalWidth": 44,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1440.5,
+            994
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-1047",
+          "sourcePropIds": [
+            "furniture-1047"
+          ],
+          "zone": "Z16",
+          "logicalAnchor": [
+            35,
+            23
+          ],
+          "originalEnvelope": [
+            1451,
+            977,
+            1494,
+            1010
+          ],
+          "bounds": {
+            "x": 1450.5,
+            "y": 961.936936936937,
+            "width": 44.0,
+            "height": 48.06306306306306
+          },
+          "scale": 0.04954954954954955,
+          "logicalWidth": 44,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1472.5,
+            1010
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false
+    }
+  ],
+  "sourcePixelsEdited": false,
+  "sourceBytesPreserved": true,
+  "logicalMapChanged": false,
+  "browserVisualQA": false
+}

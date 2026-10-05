@@ -1,0 +1,755 @@
+{
+  "assets": [
+    {
+      "asset": "furniture_large_monitor_preview.png",
+      "zone": "Z09",
+      "relative_path": "generated/rooms/furniture_large_monitor_preview.png",
+      "generation_mode": "built-in image_gen.imagegen",
+      "transparent_background_requested": true,
+      "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-82e05fdd-97f5-4ed5-8128-8b7a267a8fae.png",
+      "sha256": "1274ab79e0117a8ba78a4e5082465dd3fb70c73956f3d7c0555c8f3903e112c9",
+      "matches_original_bytes": true,
+      "prompt_file": "furniture_large_monitor_preview.prompt.txt",
+      "final_prompt": "Use case: precise-object-edit.\nImage 1 is the Z09 monitor sprite to correct. Image 2 is a STYLE AND CAMERA REFERENCE only, an oak media cabinet from the same game.\nKeep Image 1's single charcoal widescreen display, compact pedestal foot, and abstract cyan wireframe graphics without any text. Change its viewpoint so it uses the same strict 2:1 dimetric camera as the cabinet reference. It must be a clean 2D illustrated sprite, not a product render.\nCRITICAL GEOMETRY: the monitor's top and bottom long edges run down-right at slope +0.5, meaning 2 pixels right for every 1 pixel down, like the long cabinet edge in Image 2. The screen is therefore an obvious slanted parallelogram in image space, NOT a near-horizontal rectangle. The short visible thickness edges and the back-to-front axis of the base run down-left at slope -0.5. Vertical screen side edges stay vertical. These are orthographic parallel edges.\nMaintain warm upper-left illumination, smooth illustrated charcoal surfaces, crisp thin outlines, minimal clean cyan screen elements. No desk or new objects. Center the whole monitor with generous clean padding.\nOutput genuine alpha transparency. Every pixel outside the object must be fully transparent, without any glow, aura, haze, cast ground shadow, room, floor or platform. No people, text, letters, numbers, watermarks or logos.",
+      "style_references_inspected": [
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+      ],
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "mode": "RGBA",
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "zero_pixels": 879006,
+        "alpha_one_pixels": 4466,
+        "nonzero_bbox": [
+          0,
+          55,
+          1486,
+          998
+        ],
+        "visible_bbox_alpha_gt_1": [
+          184,
+          56,
+          1352,
+          981
+        ],
+        "visible_bbox_alpha_gt_8": [
+          187,
+          57,
+          1350,
+          979
+        ],
+        "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+        "zero_fraction": 0.5588569641113281
+      },
+      "registration_hint": {
+        "visual_bbox": [
+          184,
+          56,
+          1352,
+          981
+        ],
+        "threshold": ">1",
+        "bbox_width": 1168,
+        "bbox_height": 925,
+        "visual_center_x": 768.0,
+        "visual_bottom_y": 981,
+        "source_width_to_visible_width": 1.3150684931506849,
+        "source_height_to_visible_height": 1.107027027027027,
+        "pixel_cropping_performed": false
+      },
+      "visual_qa": {
+        "complete_object": true,
+        "no_people": true,
+        "no_legible_text": true,
+        "no_floor_or_room": true,
+        "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+        "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+        "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+      },
+      "previous_attempt": {
+        "original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-6ced0a87-8372-41b9-b716-f0d4c135a135.png",
+        "preserved_path": "generated/rooms/attempts/furniture_large_monitor_preview-first.png",
+        "selected_revision": "v2",
+        "reason": "Selected v2 steepens screen angle toward dimetric camera; still approximate rather than exact mathematical slope."
+      }
+    },
+    {
+      "asset": "furniture_qa_screens.png",
+      "zone": "Z10",
+      "relative_path": "generated/rooms/furniture_qa_screens.png",
+      "generation_mode": "built-in image_gen.imagegen",
+      "transparent_background_requested": true,
+      "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-60091b08-1104-4bc1-8b5d-945760a2273b.png",
+      "sha256": "542120996ef75a91c10e11b11282f3c6e3ffa82d40fd11e8f9429f07091c637e",
+      "matches_original_bytes": true,
+      "prompt_file": "furniture_qa_screens.prompt.txt",
+      "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One compact quality-assurance dual-screen diagnostic console: two graphite monitors side-by-side attached to a single low compact warm-oak console desk with slim charcoal legs. Screen fronts clearly visible, showing abstract cyan and pale mint diagnostic lines, graph blocks and status dots, no letters or numbers. A compact charcoal keyboard is integral on the desk. No chair or extra furniture.",
+      "style_references_inspected": [
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+      ],
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "mode": "RGBA",
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "zero_pixels": 1034651,
+        "alpha_one_pixels": 4734,
+        "nonzero_bbox": [
+          0,
+          35,
+          1464,
+          982
+        ],
+        "visible_bbox_alpha_gt_1": [
+          217,
+          38,
+          1323,
+          975
+        ],
+        "visible_bbox_alpha_gt_8": [
+          219,
+          40,
+          1319,
+          973
+        ],
+        "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+        "zero_fraction": 0.6578133900960287
+      },
+      "registration_hint": {
+        "visual_bbox": [
+          217,
+          38,
+          1323,
+          975
+        ],
+        "threshold": ">1",
+        "bbox_width": 1106,
+        "bbox_height": 937,
+        "visual_center_x": 770.0,
+        "visual_bottom_y": 975,
+        "source_width_to_visible_width": 1.3887884267631103,
+        "source_height_to_visible_height": 1.0928495197438635,
+        "pixel_cropping_performed": false
+      },
+      "visual_qa": {
+        "complete_object": true,
+        "no_people": true,
+        "no_legible_text": true,
+        "no_floor_or_room": true,
+        "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+        "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+        "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+      }
+    },
+    {
+      "asset": "furniture_stamp_desk.png",
+      "zone": "Z10",
+      "relative_path": "generated/rooms/furniture_stamp_desk.png",
+      "generation_mode": "built-in image_gen.imagegen",
+      "transparent_background_requested": true,
+      "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-c02f361c-48c6-4f0f-9125-9fca9258c4a5.png",
+      "sha256": "3396ea958d4e5afc6aa3dd16f9088685a03699127222f9b3355a6ce62c050af0",
+      "matches_original_bytes": true,
+      "prompt_file": "furniture_stamp_desk.prompt.txt",
+      "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One release packing and stamping desk: a compact sturdy rectangular honey-oak packing desk with charcoal legs, one lower storage shelf, a small charcoal rubber stamp with cyan grip, a single closed tan parcel and neatly stacked cream packing sheets on the tabletop. Each accessory is simple and contained within the desk footprint. No labels, shipping marks or words, no chair.",
+      "style_references_inspected": [
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+      ],
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "mode": "RGBA",
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "zero_pixels": 944760,
+        "alpha_one_pixels": 4293,
+        "nonzero_bbox": [
+          65,
+          50,
+          1504,
+          982
+        ],
+        "visible_bbox_alpha_gt_1": [
+          191,
+          50,
+          1358,
+          972
+        ],
+        "visible_bbox_alpha_gt_8": [
+          193,
+          52,
+          1356,
+          970
+        ],
+        "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+        "zero_fraction": 0.6006622314453125
+      },
+      "registration_hint": {
+        "visual_bbox": [
+          191,
+          50,
+          1358,
+          972
+        ],
+        "threshold": ">1",
+        "bbox_width": 1167,
+        "bbox_height": 922,
+        "visual_center_x": 774.5,
+        "visual_bottom_y": 972,
+        "source_width_to_visible_width": 1.3161953727506426,
+        "source_height_to_visible_height": 1.1106290672451193,
+        "pixel_cropping_performed": false
+      },
+      "visual_qa": {
+        "complete_object": true,
+        "no_people": true,
+        "no_legible_text": true,
+        "no_floor_or_room": true,
+        "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+        "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+        "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified.",
+        "zone_correction": "Actual map inventory assigns stamp desk to Z10 QA; initial requested description said Z11. Generated closed-parcel desk remains an additional QA themed item."
+      }
+    },
+    {
+      "asset": "furniture_server_rack.png",
+      "zone": "Z12",
+      "relative_path": "generated/rooms/furniture_server_rack.png",
+      "generation_mode": "built-in image_gen.imagegen",
+      "transparent_background_requested": true,
+      "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-387f5400-3067-4724-95fa-228f10964897.png",
+      "sha256": "15f9fdc8d70193a5813b76a5a62d7cee144caf153bdcb29af766a2f914a33ca7",
+      "matches_original_bytes": true,
+      "prompt_file": "furniture_server_rack.prompt.txt",
+      "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One freestanding graphite-charcoal server rack cabinet. Clearly readable vertically stacked server units, small restrained cyan status lights, precise dark ventilation slots, subtle glass panel sheen, compact plinth feet. Modern refined data-center equipment with visible front and side; no cables trailing outside the footprint, no logos or text.",
+      "style_references_inspected": [
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+      ],
+      "dimensions": {
+        "width": 1327,
+        "height": 1186
+      },
+      "mode": "RGBA",
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "zero_pixels": 914930,
+        "alpha_one_pixels": 3056,
+        "nonzero_bbox": [
+          98,
+          30,
+          1258,
+          1186
+        ],
+        "visible_bbox_alpha_gt_1": [
+          315,
+          30,
+          1012,
+          1162
+        ],
+        "visible_bbox_alpha_gt_8": [
+          318,
+          32,
+          1009,
+          1160
+        ],
+        "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+        "zero_fraction": 0.5813427439697755
+      },
+      "registration_hint": {
+        "visual_bbox": [
+          315,
+          30,
+          1012,
+          1162
+        ],
+        "threshold": ">1",
+        "bbox_width": 697,
+        "bbox_height": 1132,
+        "visual_center_x": 663.5,
+        "visual_bottom_y": 1162,
+        "source_width_to_visible_width": 1.903873744619799,
+        "source_height_to_visible_height": 1.047703180212014,
+        "pixel_cropping_performed": false
+      },
+      "visual_qa": {
+        "complete_object": true,
+        "no_people": true,
+        "no_legible_text": true,
+        "no_floor_or_room": true,
+        "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+        "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+        "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+      }
+    },
+    {
+      "asset": "furniture_reception_desk.png",
+      "zone": "Z13",
+      "relative_path": "generated/rooms/furniture_reception_desk.png",
+      "generation_mode": "built-in image_gen.imagegen",
+      "transparent_background_requested": true,
+      "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-d0f987de-4b4d-4dc3-aed2-a61c6e3eedc2.png",
+      "sha256": "49565f08e10fbdfcfcab84bf7234b550421e7765ecc7191da02b6b52478f4c4d",
+      "matches_original_bytes": true,
+      "prompt_file": "furniture_reception_desk.prompt.txt",
+      "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One welcoming curved oak reception desk, a single continuous gently rounded compact counter with warm honey-oak vertical slat front, pale cream worktop inset, charcoal toe-kick base, and one small discreet cyan accent line. Elegant calm welcoming office furniture, complete reception counter only; no separate objects, no chair.",
+      "style_references_inspected": [
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+      ],
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "mode": "RGBA",
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "zero_pixels": 826415,
+        "alpha_one_pixels": 5167,
+        "nonzero_bbox": [
+          0,
+          35,
+          1484,
+          961
+        ],
+        "visible_bbox_alpha_gt_1": [
+          61,
+          56,
+          1478,
+          958
+        ],
+        "visible_bbox_alpha_gt_8": [
+          62,
+          57,
+          1477,
+          952
+        ],
+        "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+        "zero_fraction": 0.5254205067952474
+      },
+      "registration_hint": {
+        "visual_bbox": [
+          61,
+          56,
+          1478,
+          958
+        ],
+        "threshold": ">1",
+        "bbox_width": 1417,
+        "bbox_height": 902,
+        "visual_center_x": 769.5,
+        "visual_bottom_y": 958,
+        "source_width_to_visible_width": 1.0839802399435428,
+        "source_height_to_visible_height": 1.1352549889135255,
+        "pixel_cropping_performed": false
+      },
+      "visual_qa": {
+        "complete_object": true,
+        "no_people": true,
+        "no_legible_text": true,
+        "no_floor_or_room": true,
+        "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+        "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+        "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+      }
+    },
+    {
+      "asset": "furniture_espresso_machine.png",
+      "zone": "Z14",
+      "relative_path": "generated/rooms/furniture_espresso_machine.png",
+      "generation_mode": "built-in image_gen.imagegen",
+      "transparent_background_requested": true,
+      "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-7b766176-3bac-4ff6-af51-cbe2f3cd0962.png",
+      "sha256": "dad33a72142e53602a7a4e377efeabc751333f4368d99d65377e5cd1c0f2f93e",
+      "matches_original_bytes": true,
+      "prompt_file": "furniture_espresso_machine.prompt.txt",
+      "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One compact polished espresso machine only, a refined charcoal and brushed warm silver commercial-style machine with two small simple cyan indicator lights, one centered grouphead and attached portafilter, slim steam wand, a dark ribbed drip tray, and compact water tank body. Shaded illustrated metal, no photoreal reflections. Machine is one standalone item; no counter, no cups, no coffee bags, no text.",
+      "style_references_inspected": [
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+      ],
+      "dimensions": {
+        "width": 1367,
+        "height": 1151
+      },
+      "mode": "RGBA",
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "zero_pixels": 780432,
+        "alpha_one_pixels": 3431,
+        "nonzero_bbox": [
+          215,
+          18,
+          1226,
+          1151
+        ],
+        "visible_bbox_alpha_gt_1": [
+          216,
+          18,
+          1222,
+          1141
+        ],
+        "visible_bbox_alpha_gt_8": [
+          218,
+          20,
+          1218,
+          1139
+        ],
+        "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+        "zero_fraction": 0.49601091128416686
+      },
+      "registration_hint": {
+        "visual_bbox": [
+          216,
+          18,
+          1222,
+          1141
+        ],
+        "threshold": ">1",
+        "bbox_width": 1006,
+        "bbox_height": 1123,
+        "visual_center_x": 719.0,
+        "visual_bottom_y": 1141,
+        "source_width_to_visible_width": 1.3588469184890657,
+        "source_height_to_visible_height": 1.02493321460374,
+        "pixel_cropping_performed": false
+      },
+      "visual_qa": {
+        "complete_object": true,
+        "no_people": true,
+        "no_legible_text": true,
+        "no_floor_or_room": true,
+        "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+        "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+        "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+      }
+    },
+    {
+      "asset": "furniture_arcade_cabinet.png",
+      "zone": "Z15",
+      "relative_path": "generated/rooms/furniture_arcade_cabinet.png",
+      "generation_mode": "built-in image_gen.imagegen",
+      "transparent_background_requested": true,
+      "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-90c062f3-a206-45af-a317-247383d221e4.png",
+      "sha256": "e25d28db442ca2904d02ee5478c9521224fba15d299b5b48db46bc9b9f33bdb5",
+      "matches_original_bytes": true,
+      "prompt_file": "furniture_arcade_cabinet.prompt.txt",
+      "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One sophisticated upright arcade cabinet in matte graphite charcoal with warm oak side inserts and subtle cyan trim. One integrated screen showing a simple abstract cyan geometric game scene without words, a small control deck with one joystick and a few cyan buttons, and a plain unlettered top marquee. Stylish adult office lounge arcade, complete object including base; no surrounding floor or other objects.",
+      "style_references_inspected": [
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+      ],
+      "dimensions": {
+        "width": 1312,
+        "height": 1199
+      },
+      "mode": "RGBA",
+      "alpha": {
+        "range": [
+          0,
+          255
+        ],
+        "zero_pixels": 999190,
+        "alpha_one_pixels": 3944,
+        "nonzero_bbox": [
+          81,
+          16,
+          1282,
+          1199
+        ],
+        "visible_bbox_alpha_gt_1": [
+          299,
+          16,
+          961,
+          1185
+        ],
+        "visible_bbox_alpha_gt_8": [
+          301,
+          18,
+          959,
+          1183
+        ],
+        "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+        "zero_fraction": 0.6351774344474054
+      },
+      "registration_hint": {
+        "visual_bbox": [
+          299,
+          16,
+          961,
+          1185
+        ],
+        "threshold": ">1",
+        "bbox_width": 662,
+        "bbox_height": 1169,
+        "visual_center_x": 630.0,
+        "visual_bottom_y": 1185,
+        "source_width_to_visible_width": 1.9818731117824773,
+        "source_height_to_visible_height": 1.0256629597946962,
+        "pixel_cropping_performed": false
+      },
+      "visual_qa": {
+        "complete_object": true,
+        "no_people": true,
+        "no_legible_text": true,
+        "no_floor_or_room": true,
+        "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+        "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+        "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+      }
+    },
+    {
+      "asset": "furniture_quran_shelf.png",
+      "zone": "Z16",
+      "relative_path": "generated/rooms/furniture_quran_shelf.png",
+      "generation_mode": "built-in image_gen.imagegen",
+      "transparent_background_requested": true,
+      "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-b13ce2ec-42ca-4de2-aa69-62c779132425.png",
+      "sha256": "239d8afd05ffbf28a27efd68a1a689dccc9008d78d93fdce7a711f33012b28d7",
+      "matches_original_bytes": true,
+      "prompt_file": "furniture_quran_shelf.prompt.txt",
+      "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One respectfully simple small warm-oak open book shelf for a quiet prayer room, with two open shelves holding a modest neatly arranged collection of closed books in muted deep teal, charcoal and warm cream covers. A clean plain solid upper surface. Books have absolutely plain covers and spines with no text, no symbols, no imitation scripture or calligraphy. Calm dignified furniture only, no prayer mats, no religious symbols, no people.",
+      "style_references_inspected": [
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+      ],
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "mode": "RGBA",
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "zero_pixels": 812870,
+        "alpha_one_pixels": 4310,
+        "nonzero_bbox": [
+          71,
+          30,
+          1388,
+          1007
+        ],
+        "visible_bbox_alpha_gt_1": [
+          233,
+          31,
+          1305,
+          1005
+        ],
+        "visible_bbox_alpha_gt_8": [
+          235,
+          32,
+          1303,
+          1003
+        ],
+        "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+        "zero_fraction": 0.516808827718099
+      },
+      "registration_hint": {
+        "visual_bbox": [
+          233,
+          31,
+          1305,
+          1005
+        ],
+        "threshold": ">1",
+        "bbox_width": 1072,
+        "bbox_height": 974,
+        "visual_center_x": 769.0,
+        "visual_bottom_y": 1005,
+        "source_width_to_visible_width": 1.4328358208955223,
+        "source_height_to_visible_height": 1.051334702258727,
+        "pixel_cropping_performed": false
+      },
+      "visual_qa": {
+        "complete_object": true,
+        "no_people": true,
+        "no_legible_text": true,
+        "no_floor_or_room": true,
+        "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+        "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+        "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified.",
+        "respectful_book_treatment": "All books closed, plain covers and spines without imitation scripture or calligraphy."
+      }
+    },
+    {
+      "asset": "furniture_pool_lounger.png",
+      "zone": "Z17",
+      "relative_path": "generated/rooms/furniture_pool_lounger.png",
+      "generation_mode": "built-in image_gen.imagegen",
+      "transparent_background_requested": true,
+      "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-0030e3f5-f78a-42c4-8cd4-2dd4f888af69.png",
+      "sha256": "fd21da66fee502b28d4e1e77fec318e8cf6e558f04812eca1a3b4f76177d1294",
+      "matches_original_bytes": true,
+      "prompt_file": "furniture_pool_lounger.prompt.txt",
+      "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One elegant outdoor poolside lounger with a warm teak frame, pale cream upholstered cushions, a gently raised backrest and slim teak legs. Crisp dimensional illustrated wood edges, restrained seams, long relaxed low profile. Complete single lounger only, no pillow, no towel, no pool, no water, no deck, no umbrella, no surrounding objects.",
+      "style_references_inspected": [
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+      ],
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "mode": "RGBA",
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "zero_pixels": 1026913,
+        "alpha_one_pixels": 6205,
+        "nonzero_bbox": [
+          44,
+          34,
+          1505,
+          999
+        ],
+        "visible_bbox_alpha_gt_1": [
+          47,
+          34,
+          1502,
+          999
+        ],
+        "visible_bbox_alpha_gt_8": [
+          47,
+          36,
+          1499,
+          997
+        ],
+        "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+        "zero_fraction": 0.6528937021891276
+      },
+      "registration_hint": {
+        "visual_bbox": [
+          47,
+          34,
+          1502,
+          999
+        ],
+        "threshold": ">1",
+        "bbox_width": 1455,
+        "bbox_height": 965,
+        "visual_center_x": 774.5,
+        "visual_bottom_y": 999,
+        "source_width_to_visible_width": 1.0556701030927835,
+        "source_height_to_visible_height": 1.061139896373057,
+        "pixel_cropping_performed": false
+      },
+      "visual_qa": {
+        "complete_object": true,
+        "no_people": true,
+        "no_legible_text": true,
+        "no_floor_or_room": true,
+        "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+        "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+        "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+      }
+    },
+    {
+      "asset": "furniture_parcel_rack.png",
+      "zone": "Z11",
+      "relative_path": "generated/rooms/furniture_parcel_rack.png",
+      "generation_mode": "built-in image_gen.imagegen",
+      "transparent_background_requested": true,
+      "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-429104e9-3015-41bf-acd6-7281c2d32495.png",
+      "sha256": "2af3c2190d2ca91a517374d9ae705e85a99f88b5da44451e21fa9f2748d39186",
+      "matches_original_bytes": true,
+      "prompt_file": "furniture_parcel_rack.prompt.txt",
+      "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One compact freestanding parcel storage rack for an office release dock: three sturdy warm honey-oak shelves within a simple charcoal metal frame. A tidy arrangement of a few closed tan cardboard cartons of different sizes, one plain roll of packing paper and a small stack of flat shipping supplies. All cartons closed, all surfaces and labels blank, no shipping marks or words. Everything is neatly contained within the shelf footprint, full rack and feet visible, no trailing items or other furniture.",
+      "style_references_inspected": [
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+        "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+      ],
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "mode": "RGBA",
+      "alpha": {
+        "range": [
+          0,
+          254
+        ],
+        "zero_pixels": 973905,
+        "alpha_one_pixels": 4890,
+        "nonzero_bbox": [
+          322,
+          16,
+          1328,
+          1007
+        ],
+        "visible_bbox_alpha_gt_1": [
+          322,
+          16,
+          1230,
+          1006
+        ],
+        "visible_bbox_alpha_gt_8": [
+          324,
+          18,
+          1229,
+          1004
+        ],
+        "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+        "zero_fraction": 0.6191921234130859
+      },
+      "registration_hint": {
+        "visual_bbox": [
+          322,
+          16,
+          1230,
+          1006
+        ],
+        "threshold": ">1",
+        "bbox_width": 908,
+        "bbox_height": 990,
+        "visual_center_x": 776.0,
+        "visual_bottom_y": 1006,
+        "source_width_to_visible_width": 1.6916299559471366,
+        "source_height_to_visible_height": 1.0343434343434343,
+        "pixel_cropping_performed": false
+      },
+      "visual_qa": {
+        "complete_object": true,
+        "no_people": true,
+        "no_legible_text": true,
+        "no_floor_or_room": true,
+        "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+        "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+        "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+      }
+    }
+  ],
+  "count": 10,
+  "pixel_editing_performed": false,
+  "source_or_manifest_modified": false
+}

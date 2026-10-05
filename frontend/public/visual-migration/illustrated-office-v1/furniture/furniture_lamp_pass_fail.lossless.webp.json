@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lamp_pass_fail.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lamp_pass_fail.lossless.webp",
+  "sourceSha256": "53d2535d4ed6223e377fd4c65e6029224dff50e3042ef8523db51ebaebad9e9f",
+  "runtimeSha256": "9ee8fd421bc2bc8594d45457b597af515a19a3bb688394d602897ed1992625d4",
+  "sourceDecodedRgbaSha256": "a8a1f00a971afc0fceb79822daabd4a2c219d9b4bbfb8e089673281e9130f26d",
+  "runtimeDecodedRgbaSha256": "a8a1f00a971afc0fceb79822daabd4a2c219d9b4bbfb8e089673281e9130f26d",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 802677,
+  "runtimeBytes": 506064,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

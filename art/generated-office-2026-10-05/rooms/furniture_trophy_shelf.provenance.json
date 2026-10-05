@@ -1,0 +1,83 @@
+{
+  "asset": "furniture_trophy_shelf",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-0cfe2528-2a60-4851-a2e7-7fe25d3e078b.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_trophy_shelf.png",
+  "source_original_sha256": "2c57db6f8ec6d747cfef6e21169559285c41af868ba35f40611d9447b989a7d1",
+  "sha256": "2c57db6f8ec6d747cfef6e21169559285c41af868ba35f40611d9447b989a7d1",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    30,
+    19,
+    1224,
+    1238
+  ],
+  "alpha_bbox_threshold_128": [
+    34,
+    205,
+    1221,
+    1088
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_trophy_shelf.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        35,
+        552
+      ],
+      [
+        994,
+        909
+      ]
+    ],
+    "axis_up_right": [
+      [
+        994,
+        909
+      ],
+      [
+        1216,
+        814
+      ]
+    ],
+    "observed_slopes": {
+      "down_right": 0.3722627737226277,
+      "up_right": -0.42792792792792794
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.03478243004478776,
+      0,
+      1.2497020996836095,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Selected revised generation corrects shallow first camera, but edges remain approximate (visually about +0.37/-0.43). Runtime geometric registration still required; trophy forms must retain upright stems."
+  },
+  "generation_history": {
+    "initial_source": "/workspace/scratch/1f7ded418f78/generated_images/exec-9797046a-1343-415c-93f5-6de989dc31ee.png",
+    "initial_status": "Rejected shallow camera",
+    "selected_status": "Built-in imagegen edit improved camera; raw bytes preserved; runtime registration still suggested"
+  }
+}

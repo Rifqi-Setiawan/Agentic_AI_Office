@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_wall_monitors_ceo.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_wall_monitors_ceo.lossless.webp",
+  "sourceSha256": "b9a626ee6b28f5ca1f92db23fdfd528c62a94b3a545fb3a09279df50ba70a42e",
+  "runtimeSha256": "758449baa632876c01c2cc75bb1e5ad0f8eb139519f1a52ce57eae77aca02227",
+  "sourceDecodedRgbaSha256": "c1afd695424dfba2e5b89d16acb3d3a8a1cdbb1cdcb381192bf1ff565fe64874",
+  "runtimeDecodedRgbaSha256": "c1afd695424dfba2e5b89d16acb3d3a8a1cdbb1cdcb381192bf1ff565fe64874",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 935536,
+  "runtimeBytes": 599646,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "asset": "furniture_blueprint_rack",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-db4b24ac-a6e7-4683-ae2e-9d4f336a1a4a.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_blueprint_rack.png",
+  "source_original_sha256": "9c38d51152c1a303bd9759527614352ea7a0f10d8bd2c227d6fd2efa8cf825d8",
+  "sha256": "9c38d51152c1a303bd9759527614352ea7a0f10d8bd2c227d6fd2efa8cf825d8",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    0,
+    55,
+    1234,
+    1214
+  ],
+  "alpha_bbox_threshold_128": [
+    126,
+    63,
+    1159,
+    1198
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_blueprint_rack.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        209,
+        414
+      ],
+      [
+        925,
+        877
+      ]
+    ],
+    "axis_up_right": [
+      [
+        975,
+        1172
+      ],
+      [
+        1134,
+        1064
+      ]
+    ],
+    "observed_slopes": {
+      "down_right": 0.6466480446927374,
+      "up_right": -0.6792452830188679
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.012292556891582984,
+      0,
+      0.7542084865348306,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Five upright rolls in compact floor-standing holder; no text. Main long edge visually about +0.65 rather than exact +0.5, and depth approximately -0.68. Registration matrix is approximate and needs runtime check."
+  }
+}

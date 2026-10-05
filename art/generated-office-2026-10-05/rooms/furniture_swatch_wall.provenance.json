@@ -1,0 +1,78 @@
+{
+  "asset": "furniture_swatch_wall",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-7ef6d3c6-f1b9-46a3-af72-dc6cbad44cab.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_swatch_wall.png",
+  "source_original_sha256": "8f6d9b823d4db98f17cb2c8b85f0db61b59d41c710b15d7104523b5928e41f7e",
+  "sha256": "8f6d9b823d4db98f17cb2c8b85f0db61b59d41c710b15d7104523b5928e41f7e",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    89,
+    21,
+    1210,
+    1214
+  ],
+  "alpha_bbox_threshold_128": [
+    249,
+    71,
+    995,
+    1201
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_swatch_wall.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        351,
+        86
+      ],
+      [
+        907,
+        375
+      ]
+    ],
+    "axis_up_right": [
+      [
+        859,
+        1180
+      ],
+      [
+        978,
+        1118
+      ]
+    ],
+    "observed_slopes": {
+      "down_right": 0.5197841726618705,
+      "up_right": -0.5210084033613446
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.000588124246692745,
+      0,
+      0.9608062384734908,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Nine material swatches verified on a slim freestanding supported panel. Broad top slope approximately +0.52 is near requested camera; depth fit remains approximate."
+  }
+}

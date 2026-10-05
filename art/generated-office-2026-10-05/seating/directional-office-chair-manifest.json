@@ -1,0 +1,88 @@
+{
+  "family": "charcoal-blue upholstered swivel office chair with charcoal five-spoke caster base",
+  "generated_with": "built-in image_gen.imagegen",
+  "pixel_processing": "None; selected original output bytes copied without image edits, mirroring, resizing or cropping.",
+  "generic_reference_actual_facing": "SW",
+  "assets": [
+    {
+      "orientation": "NE",
+      "destination": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/seating/office-chair-NE.png",
+      "sha256": "6aeae462cfeb76105f4f202b38589b413469291fd8670cf26d7614df6c942db7",
+      "canvas": [
+        1774,
+        887
+      ],
+      "alpha_128_bbox": [
+        579,
+        11,
+        1233,
+        877
+      ],
+      "observed_orientation": "Rear three-quarter chair; rear shell occupies screen-lower-left side relative to seat front, which projects screen-upper-right. Matches NE sitter facing.",
+      "uncertainties": [
+        "The dimetric camera is visually consistent with 2:1 axes, but exact slope cannot be established from rounded cushions and five-spoke caster base.",
+        "Rear upholstery panel seams are generated interpretation of unseen reference back."
+      ]
+    },
+    {
+      "orientation": "NW",
+      "destination": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/seating/office-chair-NW.png",
+      "sha256": "a89de6f5440688858f605fc11f131e7d329c4f85f29552edc0da0ea67179b1be",
+      "canvas": [
+        1774,
+        887
+      ],
+      "alpha_128_bbox": [
+        561,
+        28,
+        1229,
+        877
+      ],
+      "observed_orientation": "Rear three-quarter chair; rear shell is on screen-lower-right side relative to seat, whose front projects screen-upper-left. Matches NW sitter facing.",
+      "uncertainties": [
+        "Dimetric camera visually matches requested projection; rounded forms prevent certifying exact +/-0.5 axis slopes.",
+        "Generator synthesized the alternate rear view from references; no pixel mirror or other post-generation image edit was applied."
+      ]
+    },
+    {
+      "orientation": "SW",
+      "destination": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/seating/office-chair-SW.png",
+      "sha256": "bee8a1c9b94a790e3ed46a77b45ecc1aeec4639865a27be5ab42db0b908e7a83",
+      "canvas": [
+        1774,
+        887
+      ],
+      "alpha_128_bbox": [
+        596,
+        12,
+        1178,
+        878
+      ],
+      "observed_orientation": "Front three-quarter chair; inner backrest is screen-upper-right and front seat nose projects screen-lower-left. Matches SW sitter facing.",
+      "uncertainties": [
+        "Rounded cushions and caster base make exact +/-0.5 ground-axis slopes difficult to certify; visually consistent with the reference dimetric camera.",
+        "Upholstery texture is slightly lighter/more visible than generic reference at full resolution."
+      ]
+    },
+    {
+      "orientation": "SE",
+      "destination": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/seating/office-chair-SE.png",
+      "sha256": "5f54ffd1f9b5c5cd891de97a679b0a194595ea76956fdbf00bd27d0b028f4e5d",
+      "canvas": [
+        1774,
+        887
+      ],
+      "alpha_128_bbox": [
+        601,
+        14,
+        1195,
+        883
+      ],
+      "observed_orientation": "Front three-quarter chair; inner backrest is screen-upper-left and front seat nose projects screen-lower-right. Matches SE sitter facing.",
+      "uncertainties": [
+        "Rounded cushions and five-spoke caster base make exact +/-0.5 ground-axis slopes difficult to certify; visually consistent with the requested dimetric view.",
+        "Small differences in generated upholstery texture and caster positions exist across separately generated orientations."
+      ]
+    }
+  ]
+}

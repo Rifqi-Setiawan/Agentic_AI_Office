@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_coping.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_coping.lossless.webp",
+  "sourceSha256": "73f27a40e60513966128de0a2c800b9f391f3464fb434680ede4b3e6dbfc4e12",
+  "runtimeSha256": "efda8a94157a813e3b7d6887ea2de44a85e1af2cc090e4d962f8e75145fe3719",
+  "sourceDecodedRgbaSha256": "d95afe73a97c324835544c743958c050c82948b9fe3e22d31aef3c3b7a03e792",
+  "runtimeDecodedRgbaSha256": "d95afe73a97c324835544c743958c050c82948b9fe3e22d31aef3c3b7a03e792",
+  "nativeSize": [
+    1774,
+    887
+  ],
+  "sourceBytes": 1100292,
+  "runtimeBytes": 721940,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

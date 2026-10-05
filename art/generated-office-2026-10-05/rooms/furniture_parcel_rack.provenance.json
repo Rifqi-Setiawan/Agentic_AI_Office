@@ -1,0 +1,74 @@
+{
+  "asset": "furniture_parcel_rack.png",
+  "zone": "Z11",
+  "relative_path": "generated/rooms/furniture_parcel_rack.png",
+  "generation_mode": "built-in image_gen.imagegen",
+  "transparent_background_requested": true,
+  "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-429104e9-3015-41bf-acd6-7281c2d32495.png",
+  "sha256": "2af3c2190d2ca91a517374d9ae705e85a99f88b5da44451e21fa9f2748d39186",
+  "matches_original_bytes": true,
+  "prompt_file": "furniture_parcel_rack.prompt.txt",
+  "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One compact freestanding parcel storage rack for an office release dock: three sturdy warm honey-oak shelves within a simple charcoal metal frame. A tidy arrangement of a few closed tan cardboard cartons of different sizes, one plain roll of packing paper and a small stack of flat shipping supplies. All cartons closed, all surfaces and labels blank, no shipping marks or words. Everything is neatly contained within the shelf footprint, full rack and feet visible, no trailing items or other furniture.",
+  "style_references_inspected": [
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+  ],
+  "dimensions": {
+    "width": 1536,
+    "height": 1024
+  },
+  "mode": "RGBA",
+  "alpha": {
+    "range": [
+      0,
+      254
+    ],
+    "zero_pixels": 973905,
+    "alpha_one_pixels": 4890,
+    "nonzero_bbox": [
+      322,
+      16,
+      1328,
+      1007
+    ],
+    "visible_bbox_alpha_gt_1": [
+      322,
+      16,
+      1230,
+      1006
+    ],
+    "visible_bbox_alpha_gt_8": [
+      324,
+      18,
+      1229,
+      1004
+    ],
+    "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+    "zero_fraction": 0.6191921234130859
+  },
+  "registration_hint": {
+    "visual_bbox": [
+      322,
+      16,
+      1230,
+      1006
+    ],
+    "threshold": ">1",
+    "bbox_width": 908,
+    "bbox_height": 990,
+    "visual_center_x": 776.0,
+    "visual_bottom_y": 1006,
+    "source_width_to_visible_width": 1.6916299559471366,
+    "source_height_to_visible_height": 1.0343434343434343,
+    "pixel_cropping_performed": false
+  },
+  "visual_qa": {
+    "complete_object": true,
+    "no_people": true,
+    "no_legible_text": true,
+    "no_floor_or_room": true,
+    "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+    "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+    "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+  }
+}

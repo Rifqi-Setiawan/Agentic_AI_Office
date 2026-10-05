@@ -1,0 +1,46 @@
+{
+  "asset": "O01-pool-water",
+  "generation_date": "2026-10-05",
+  "tool": "tools.image_gen__imagegen",
+  "mode": "Built-in generation; O01 additionally has one built-in image edit. No CLI/API fallback.",
+  "selected_file": "generated/foundation/O01-pool-water.png",
+  "selected_sha256": "7bdb047cc4e793fd04c46e8f42f4f0d661befd1a5c890f0e846e1bb91dd2dcf2",
+  "original_runtime_file": "/workspace/scratch/1f7ded418f78/generated_images/exec-07233386-dc2d-4e41-a66b-ede6024dc7eb.png",
+  "original_sha256": "7bdb047cc4e793fd04c46e8f42f4f0d661befd1a5c890f0e846e1bb91dd2dcf2",
+  "byte_for_byte_copy_verified": true,
+  "references": [
+    {
+      "path": "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png",
+      "role": "Visually inspected style reference only, not image edit input",
+      "sha256": "e724fcee379d0dd843a0b40d5daac26dea0b8d44897db4a7f8acfadf2aab176b"
+    },
+    {
+      "path": "generated/foundation/F01-floor-oak-a-v2.png",
+      "role": "Visually inspected style reference only, not image edit input",
+      "sha256": "3978a78cb19bb1446d9d07ef9aff7b84dd701a3e866f2ff20d93f579244e105e"
+    }
+  ],
+  "spec_sources": [
+    "source/art/environment-foundation-2026-10-05/asset-specs.json",
+    "source/art/environment-foundation-2026-10-05/prompt-pack/ASSET_MANIFEST.json"
+  ],
+  "current_direction": "Current handoff requested cool-gray F03 corridor and warm-gray F04 outdoor, superseding the older manifest hue descriptions.",
+  "stages": [
+    {
+      "stage": "initial generation",
+      "prompt": "O01-pool-water.prompt.txt",
+      "runtime_file": "/workspace/scratch/1f7ded418f78/generated_images/exec-62f0d4ac-d1f8-4fec-a3f5-ca6e96e98d94.png",
+      "preserved_file": "O01-pool-water-initial.png",
+      "selected": false
+    },
+    {
+      "stage": "calm surface imagegen edit",
+      "prompt": "O01-pool-water-calm-edit.prompt.txt",
+      "runtime_file": "/workspace/scratch/1f7ded418f78/generated_images/exec-07233386-dc2d-4e41-a66b-ede6024dc7eb.png",
+      "selected": true
+    }
+  ],
+  "pixel_editing": "None. PNGs copied byte-for-byte. Pillow/numpy used read-only for measurements.",
+  "qa_file": "O01-pool-water.qa.json",
+  "status": "Generated source accepted visually; exact runtime geometry, repeat-seam and underlay QA pending."
+}

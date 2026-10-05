@@ -1,0 +1,92 @@
+{
+  "asset": "furniture_bookcase_tall",
+  "zone": "Z05",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-466af73c-982c-45d2-9f8b-1edfc09a3e9c.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_bookcase_tall.png",
+  "sha256": "b7c2390e5fe169304851828750fde6e0ea895f6379339c2abe19917adbf7bd96",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    91,
+    27,
+    1210,
+    1254
+  ],
+  "alpha_bbox_threshold_128": [
+    298,
+    30,
+    958,
+    1245
+  ],
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_bookcase_tall.prompt.txt",
+  "source_atlas_sha256": "944dd62f5413d8c845ca48d1cfed8654f61b1cb48d019211ac4dbebb4d26cdf8",
+  "alpha_bbox_threshold_64": [
+    297,
+    30,
+    958,
+    1245
+  ],
+  "alpha_qa": {
+    "nonzero_pixels": 674344,
+    "very_faint_alpha_1_to_15_pixels": 7825,
+    "solid_alpha_128_plus_pixels": 664480,
+    "notes": "Faint alpha specks may expand raw nonzero bbox. Threshold bounds are read-only QA and registration hints; no pixels were changed."
+  },
+  "geometry_review": {
+    "coordinate_system": "Original PNG pixels, x right, y down. Endpoint selections estimated visually, not mathematically exact.",
+    "axis_down_right": [
+      [
+        302,
+        100
+      ],
+      [
+        842,
+        304
+      ]
+    ],
+    "axis_up_right": [
+      [
+        842,
+        304
+      ],
+      [
+        954,
+        242
+      ]
+    ],
+    "edge_labels": [
+      "Front long top cap edge",
+      "Right short top cap edge"
+    ],
+    "observed_slopes": {
+      "down_right": 0.377778,
+      "up_right": -0.553571
+    },
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.094376,
+      0,
+      1.073711,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "[a,b,c,d,e,f]; fits ONLY selected lines using x_new=x and y_new=b*x+d*y. Use transform-origin 0 0 and recompute image/anchor bounds. This is a registration suggestion, not an applied pixel edit.",
+    "confidence": "Approximate visual QA; verify at runtime",
+    "notes": "Approximate hand-read bookcase cap corners. Correct front orientation and vertical uprights. Bottom/plinth and upper shelf slopes have some generative perspective variation; fitting selected cap edges does not prove strict orthographic consistency throughout."
+  }
+}

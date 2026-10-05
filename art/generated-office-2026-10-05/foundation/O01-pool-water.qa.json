@@ -1,0 +1,176 @@
+{
+  "asset": "O01-pool-water",
+  "png_file": "generated/foundation/O01-pool-water.png",
+  "sha256": "7bdb047cc4e793fd04c46e8f42f4f0d661befd1a5c890f0e846e1bb91dd2dcf2",
+  "canvas_px": [
+    1660,
+    948
+  ],
+  "mode": "RGBA",
+  "bbox_by_alpha_threshold": {
+    "1": {
+      "bbox_xyxy_exclusive": [
+        81,
+        17,
+        1577,
+        884
+      ],
+      "pixel_count": 532777
+    },
+    "64": {
+      "bbox_xyxy_exclusive": [
+        84,
+        131,
+        1575,
+        839
+      ],
+      "pixel_count": 525890
+    },
+    "128": {
+      "bbox_xyxy_exclusive": [
+        85,
+        131,
+        1575,
+        839
+      ],
+      "pixel_count": 524800
+    },
+    "250": {
+      "bbox_xyxy_exclusive": [
+        90,
+        132,
+        1573,
+        838
+      ],
+      "pixel_count": 518939
+    },
+    "255": {
+      "bbox_xyxy_exclusive": [
+        92,
+        132,
+        1571,
+        837
+      ],
+      "pixel_count": 1039
+    }
+  },
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "transparent_pixel_fraction": 0.6614,
+  "fit_method": "Robust least squares on alpha>=128 column boundary, excluding 3.5 percent near left/right/crossing corners. Read-only measurements; vertices approximate.",
+  "fitted_edges_y_mx_plus_b": {
+    "top_left": {
+      "slope": -0.4622,
+      "intercept": 516.147,
+      "rms_error_px": 0.4154,
+      "samples": 640
+    },
+    "top_right": {
+      "slope": 0.4658,
+      "intercept": -255.6943,
+      "rms_error_px": 0.3425,
+      "samples": 640
+    },
+    "bottom_left": {
+      "slope": 0.4845,
+      "intercept": 434.2341,
+      "rms_error_px": 0.6078,
+      "samples": 640
+    },
+    "bottom_right": {
+      "slope": -0.4819,
+      "intercept": 1234.6135,
+      "rms_error_px": 0.7761,
+      "samples": 640
+    }
+  },
+  "fitted_vertices_xy": {
+    "top": [
+      831.7255,
+      131.7235
+    ],
+    "right": [
+      1572.5523,
+      476.8006
+    ],
+    "bottom": [
+      828.2072,
+      835.5005
+    ],
+    "left": [
+      86.5247,
+      476.1553
+    ]
+  },
+  "fitted_span_px": [
+    1486.0276,
+    703.777
+  ],
+  "fitted_width_height_ratio": 2.1115,
+  "interior_alpha_inset_12px": {
+    "min": 251,
+    "median": 253.0,
+    "mean": 252.8604,
+    "max": 254,
+    "fraction_255": 0.0,
+    "fraction_at_least_250": 1.0,
+    "fraction_below_240": 0.0
+  },
+  "interior_mean_rgb": [
+    70.2342,
+    192.3057,
+    201.0118
+  ],
+  "runtime_registration": {
+    "use_source_vertices": {
+      "top": [
+        831.7255,
+        131.7235
+      ],
+      "right": [
+        1572.5523,
+        476.8006
+      ],
+      "bottom": [
+        828.2072,
+        835.5005
+      ],
+      "left": [
+        86.5247,
+        476.1553
+      ]
+    },
+    "target_logical_diamond": [
+      [
+        64,
+        0
+      ],
+      [
+        128,
+        32
+      ],
+      [
+        64,
+        64
+      ],
+      [
+        0,
+        32
+      ]
+    ],
+    "target_width_height_ratio": 2,
+    "recommendation": "Keep original PNG untouched. Register this source material to runtime 2:1 diamond using fitted source bounds/vertices and CSS/canvas clipping. Use a solid matching material underlay because interior alpha is near-opaque rather than uniformly 255. Inspect repeated material seams in runtime; seamless opposite-edge pixel continuity is not proven."
+  },
+  "visual_qa": {
+    "isolated_ground_plane": true,
+    "no_visible_slab_sides_or_bevels": true,
+    "no_objects_or_characters": true,
+    "transparent_outside": true,
+    "notes": "Small generator alpha fringe at some diamond edges; clip in runtime. Native dimensions and diamond footprint do not exactly match prompt. No source pixels were edited."
+  },
+  "status": "Generated source accepted visually; exact runtime geometry, repeat-seam and underlay QA pending."
+}

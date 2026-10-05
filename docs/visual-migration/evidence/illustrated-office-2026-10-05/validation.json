@@ -1,0 +1,80 @@
+{
+  "status": "IMPLEMENTED_CANDIDATE_AWAITING_BROWSER_AND_USER_REVIEW",
+  "checkedAtUTC": "2026-10-05T10:22:12Z",
+  "repository": "Rifqi-Setiawan/Agentic_AI_Office",
+  "branch": "codex/visual-migration-local",
+  "baseCommit": "c0a52d15b9b1c5c276292489044b017b74980c77",
+  "canonicalMapSha256": "9a9bc468e345658b349923f4ae8dc696397bb929c69688b350ee74e6b610ef0e",
+  "mapChanged": false,
+  "zones": 17,
+  "slots": 133,
+  "doors": 26,
+  "prayerRowSlots": 16,
+  "renderedProps": 602,
+  "registeredFurnitureSourceProps": 143,
+  "remainingLegacyFurnitureProps": 0,
+  "seating": {
+    "registered": 37,
+    "replaced": 18,
+    "added": 19,
+    "meetingSeats": 12,
+    "cafeSeats": 8,
+    "classroomSeats": 6,
+    "staffedDesks": 11,
+    "preservedExistingMatches": 0
+  },
+  "baseGroundCells": 1328,
+  "preservedZ08Cells": 80,
+  "generatedPrayerRugOverlayCells": 14,
+  "poolCopingCells": 16,
+  "frontendTests": {
+    "passed": 356,
+    "files": 50,
+    "failed": 0
+  },
+  "pythonTests": {
+    "passed": 53,
+    "failed": 0
+  },
+  "productionBuild": "passed",
+  "eslint": "passed",
+  "whitespaceCheck": "passed",
+  "runtimeEncoding": {
+    "sourceFiles": 70,
+    "packedFiles": 1,
+    "reusedFiles": 69,
+    "fallbackFiles": 0,
+    "sourceBytes": 85055962,
+    "runtimeBytes": 53186062,
+    "savedBytes": 31869900,
+    "savedPercent": 37.4693
+  },
+  "decodedRGBAPixelsEqualForAllRuntimeFiles": true,
+  "fullResolutionRGBAByteSum": 440420508,
+  "memoryMeasurementNote": "Sum of native RGBA pixel buffers, not measured browser peak memory; browser overhead is additional.",
+  "manifestSha256": "7eed7cd2789cd258782086b6f8c265811418b247498063bae843c726d3540ad4",
+  "staticPreviewSha256": "bbb3b067c83af813d4d7f0791a633a23919a9cc19d425fac0cacb0560bdbba17",
+  "staticPreviewIsBrowserScreenshot": false,
+  "staticPreviewOmits": [
+    "live actors",
+    "HUD",
+    "camera interactions",
+    "browser DOM/canvas behavior"
+  ],
+  "pending": [
+    "Actual browser QA for all17 rooms",
+    "Actor interleaving and facing consistency",
+    "Room density/polish acceptance by user",
+    "Mobile/touch and camera navigation",
+    "Load time, decode-memory and FPS budgets",
+    "Live backend/Hermes verification outside this environment-only task"
+  ],
+  "warnings": [
+    "Existing vendor-pixi bundle exceeds600kB warning",
+    "Legacy compare_scene.py emits Pillow getdata deprecation warning"
+  ],
+  "pushPerformed": false,
+  "deployPerformed": false,
+  "mergePerformed": false,
+  "complete100Percent": false
+}

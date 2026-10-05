@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_attendance_board.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_attendance_board.lossless.webp",
+  "sourceSha256": "fa099c2408ef7cd94c5949138edcd67e8382d2d56d5082d1f0851a40d894258d",
+  "runtimeSha256": "953487fd2d383419ddfbffabdbdf97a077b381bc7d4a725b894d57fcecb74f8e",
+  "sourceDecodedRgbaSha256": "e474f609d52ba5d1d442d4b180ee2349bbb71ca8130a824cccbc1678078e53ef",
+  "runtimeDecodedRgbaSha256": "e474f609d52ba5d1d442d4b180ee2349bbb71ca8130a824cccbc1678078e53ef",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 800525,
+  "runtimeBytes": 485482,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

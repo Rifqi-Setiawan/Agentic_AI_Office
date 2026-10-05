@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_cardboard_box.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_cardboard_box.lossless.webp",
+  "sourceSha256": "48f0884227695defd3d8341b83a00059683bef7d647add76cc29bc919a8e6cf5",
+  "runtimeSha256": "7cc8d409d017b70499d3ca4693c5ea840f692e96cd2bea549c0778813302ae98",
+  "sourceDecodedRgbaSha256": "157409e8220706ef8ecc76476fe7a1691c57bc72b36ee331eb7ee586b5cc7245",
+  "runtimeDecodedRgbaSha256": "157409e8220706ef8ecc76476fe7a1691c57bc72b36ee331eb7ee586b5cc7245",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 1012558,
+  "runtimeBytes": 661686,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

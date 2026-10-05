@@ -1,0 +1,1737 @@
+{
+  "schemaVersion": 1,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  },
+  "files": [
+    {
+      "sourceFile": "/visual-migration/environment-architecture-v1/G01-window-glass.png",
+      "runtimeFile": "/visual-migration/environment-architecture-v1/G01-window-glass.lossless.webp",
+      "sourceSha256": "786061486c23fe73b5f75bb97ba475764054154098fafeb60f929b997d4284f7",
+      "runtimeSha256": "d098cc365487cfadea78297d077df4d13c85b53c7ff1bf6aa99a79bc641a8a6c",
+      "sourceDecodedRgbaSha256": "74b5cb04820b48099428211cb95ef4515c7f0e304dea310205427cf7a919935d",
+      "runtimeDecodedRgbaSha256": "74b5cb04820b48099428211cb95ef4515c7f0e304dea310205427cf7a919935d",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 836784,
+      "runtimeBytes": 553344,
+      "effectiveRuntimeBytes": 553344,
+      "savedBytes": 283440,
+      "savedPercent": 33.8725,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:walls_back-3",
+        "props:walls_back-8",
+        "props:walls_back-14",
+        "props:walls_back-18",
+        "props:walls_back-24",
+        "props:walls_back-30",
+        "props:walls_back-38",
+        "props:walls_back-42"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_achievement_board.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_achievement_board.lossless.webp",
+      "sourceSha256": "52fd13e901b76ecd2c2939c605096e3fd45c2f85920c4d9e0c399592696ef218",
+      "runtimeSha256": "5a3a114dfbf707ba0f7989e3bcf7b429fad4281e5a3b3e7b62cc9b8678b601e6",
+      "sourceDecodedRgbaSha256": "87c86fd581e2c372094a48e6c9df7247ab753c35882c1a1e08c150238708934a",
+      "runtimeDecodedRgbaSha256": "87c86fd581e2c372094a48e6c9df7247ab753c35882c1a1e08c150238708934a",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 1105417,
+      "runtimeBytes": 688968,
+      "effectiveRuntimeBytes": 688968,
+      "savedBytes": 416449,
+      "savedPercent": 37.6735,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1022"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_alert_console.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_alert_console.lossless.webp",
+      "sourceSha256": "1ca84296e2e69db07d4e9b756debb22a0ddd92517446a37c1e77b8570d4c3a36",
+      "runtimeSha256": "ef43c7ee6ccae45071f77c42672bdaf72b1203f1785a2dae1066f51ed2d59c5f",
+      "sourceDecodedRgbaSha256": "2ffbb02d510fb8deedea2ff57a03aeb48e61c12ac1c1f5fe4bed953257e3fd1e",
+      "runtimeDecodedRgbaSha256": "2ffbb02d510fb8deedea2ff57a03aeb48e61c12ac1c1f5fe4bed953257e3fd1e",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 1008692,
+      "runtimeBytes": 620394,
+      "effectiveRuntimeBytes": 620394,
+      "savedBytes": 388298,
+      "savedPercent": 38.4952,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-567"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_arcade_cabinet.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_arcade_cabinet.lossless.webp",
+      "sourceSha256": "e25d28db442ca2904d02ee5478c9521224fba15d299b5b48db46bc9b9f33bdb5",
+      "runtimeSha256": "bee670c9d22bf0ce718358e70db4e3107180e23ec8cd473a604b7ad1ed9c297b",
+      "sourceDecodedRgbaSha256": "326b15ca5661572d767c8454f17ecd854fb4022c8f922d9e2d386902f08df0df",
+      "runtimeDecodedRgbaSha256": "326b15ca5661572d767c8454f17ecd854fb4022c8f922d9e2d386902f08df0df",
+      "nativeSize": [
+        1312,
+        1199
+      ],
+      "sourceBytes": 940298,
+      "runtimeBytes": 582564,
+      "effectiveRuntimeBytes": 582564,
+      "savedBytes": 357734,
+      "savedPercent": 38.0447,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1035",
+        "props:furniture-1036",
+        "props:furniture-1037"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_attendance_board.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_attendance_board.lossless.webp",
+      "sourceSha256": "fa099c2408ef7cd94c5949138edcd67e8382d2d56d5082d1f0851a40d894258d",
+      "runtimeSha256": "953487fd2d383419ddfbffabdbdf97a077b381bc7d4a725b894d57fcecb74f8e",
+      "sourceDecodedRgbaSha256": "e474f609d52ba5d1d442d4b180ee2349bbb71ca8130a824cccbc1678078e53ef",
+      "runtimeDecodedRgbaSha256": "e474f609d52ba5d1d442d4b180ee2349bbb71ca8130a824cccbc1678078e53ef",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 800525,
+      "runtimeBytes": 485482,
+      "effectiveRuntimeBytes": 485482,
+      "savedBytes": 315043,
+      "savedPercent": 39.3545,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1101"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_beanbag.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_beanbag.lossless.webp",
+      "sourceSha256": "6861b1a95e5deb1fadaa4a15c6d3bbb2b46875a40ecc3fabdba50ee7af9352c5",
+      "runtimeSha256": "bc9029f6f8ccbfdd56158e4a7e070994000aebb4a776f150b1e4576fbef63f7c",
+      "sourceDecodedRgbaSha256": "4a772a1a2440744afc6d92bad9cc0f2ff7fa4589bc2e6fe0edcd10d57ca83d22",
+      "runtimeDecodedRgbaSha256": "4a772a1a2440744afc6d92bad9cc0f2ff7fa4589bc2e6fe0edcd10d57ca83d22",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1680417,
+      "runtimeBytes": 1000376,
+      "effectiveRuntimeBytes": 1000376,
+      "savedBytes": 680041,
+      "savedPercent": 40.4686,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1212",
+        "props:furniture-1214",
+        "props:furniture-1216"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_billiard_table.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_billiard_table.lossless.webp",
+      "sourceSha256": "772c70618515d1975b54315f2bc61c73d23101ee7682ad4384b965958a12392b",
+      "runtimeSha256": "3b8cc87bb7b3afdfb6f549f1d75c1bf805341bcd4be82cf806e713a9a1700566",
+      "sourceDecodedRgbaSha256": "ef11396e947308c0ea75e352e039ab1e8df70cb260cfb6721c27bfd4bcef306d",
+      "runtimeDecodedRgbaSha256": "ef11396e947308c0ea75e352e039ab1e8df70cb260cfb6721c27bfd4bcef306d",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 1185675,
+      "runtimeBytes": 796042,
+      "effectiveRuntimeBytes": 796042,
+      "savedBytes": 389633,
+      "savedPercent": 32.8617,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1172"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_blueprint_rack.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_blueprint_rack.lossless.webp",
+      "sourceSha256": "9c38d51152c1a303bd9759527614352ea7a0f10d8bd2c227d6fd2efa8cf825d8",
+      "runtimeSha256": "2692ee41cf34b01b1f8b62c9812a498b7ba8bf8788e40970e0620c930a5224d1",
+      "sourceDecodedRgbaSha256": "59a5798a20c0b956eb4e5e2c0a4a18fa8f99b3f32c5c56fb965a4680d716da06",
+      "runtimeDecodedRgbaSha256": "59a5798a20c0b956eb4e5e2c0a4a18fa8f99b3f32c5c56fb965a4680d716da06",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 1438240,
+      "runtimeBytes": 891208,
+      "effectiveRuntimeBytes": 891208,
+      "savedBytes": 547032,
+      "savedPercent": 38.0348,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-70"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_blueprint_table.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_blueprint_table.lossless.webp",
+      "sourceSha256": "093f5ac864d6bdf0cb2ba870b8234a827e63d08105acd30d9aa5f5f3fc18853c",
+      "runtimeSha256": "fd78ff0f7190ef8a158897cc42909f0339f3bba4456cd0a82345b25835a87618",
+      "sourceDecodedRgbaSha256": "e9e91ee599fb132aadaaec47db3ae194c208fc355363688210d2eb2333fd97c2",
+      "runtimeDecodedRgbaSha256": "e9e91ee599fb132aadaaec47db3ae194c208fc355363688210d2eb2333fd97c2",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1803031,
+      "runtimeBytes": 1100082,
+      "effectiveRuntimeBytes": 1100082,
+      "savedBytes": 702949,
+      "savedPercent": 38.9871,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-197",
+        "props:furniture-201"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_boardroom_table.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_boardroom_table.lossless.webp",
+      "sourceSha256": "5ad9f3984dfda7af7afc17c4508cb48d142a47805da010504593bf04cae4e576",
+      "runtimeSha256": "fa8e75f814ded655d584db7822f7687d4b3d86e2a3d0c6d7c1161418f64e1e25",
+      "sourceDecodedRgbaSha256": "ab40d492fb878bf5767e8f6253706e988a0bd8acd23497dd7ff2c6dd37c6011b",
+      "runtimeDecodedRgbaSha256": "ab40d492fb878bf5767e8f6253706e988a0bd8acd23497dd7ff2c6dd37c6011b",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 983980,
+      "runtimeBytes": 655380,
+      "effectiveRuntimeBytes": 655380,
+      "savedBytes": 328600,
+      "savedPercent": 33.395,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-191"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_bookcase_tall.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_bookcase_tall.lossless.webp",
+      "sourceSha256": "b7c2390e5fe169304851828750fde6e0ea895f6379339c2abe19917adbf7bd96",
+      "runtimeSha256": "94b34033aa42c91a5478d29cd147491c7292373306b3acc450b8f8c1976d557f",
+      "sourceDecodedRgbaSha256": "47ffb2dfd9a766e94a8a00ce45ef5f9df8ef9cd3ba242fcc7ffc6216fa19d8cb",
+      "runtimeDecodedRgbaSha256": "47ffb2dfd9a766e94a8a00ce45ef5f9df8ef9cd3ba242fcc7ffc6216fa19d8cb",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 1470546,
+      "runtimeBytes": 939638,
+      "effectiveRuntimeBytes": 939638,
+      "savedBytes": 530908,
+      "savedPercent": 36.1028,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-80",
+        "props:furniture-82",
+        "props:furniture-84",
+        "props:furniture-86"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_cardboard_box.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_cardboard_box.lossless.webp",
+      "sourceSha256": "48f0884227695defd3d8341b83a00059683bef7d647add76cc29bc919a8e6cf5",
+      "runtimeSha256": "7cc8d409d017b70499d3ca4693c5ea840f692e96cd2bea549c0778813302ae98",
+      "sourceDecodedRgbaSha256": "157409e8220706ef8ecc76476fe7a1691c57bc72b36ee331eb7ee586b5cc7245",
+      "runtimeDecodedRgbaSha256": "157409e8220706ef8ecc76476fe7a1691c57bc72b36ee331eb7ee586b5cc7245",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 1012558,
+      "runtimeBytes": 661686,
+      "effectiveRuntimeBytes": 661686,
+      "savedBytes": 350872,
+      "savedPercent": 34.652,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-781"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_changelog_board.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_changelog_board.lossless.webp",
+      "sourceSha256": "e9b96e6ffae41fc71b892778a3fde13ebbe9e62a639b925173dfb35b7912f231",
+      "runtimeSha256": "15dfe26d03e649e093a30e1321b5c375be22084f8b6cb747532c78be6fdc692f",
+      "sourceDecodedRgbaSha256": "3a552169d581d3d66d8cbf6ce8c6606dbc3a2f9e713b1e29f981e1ebcec100b9",
+      "runtimeDecodedRgbaSha256": "3a552169d581d3d66d8cbf6ce8c6606dbc3a2f9e713b1e29f981e1ebcec100b9",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 916737,
+      "runtimeBytes": 552596,
+      "effectiveRuntimeBytes": 552596,
+      "savedBytes": 364141,
+      "savedPercent": 39.7214,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-518"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_conveyor.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_conveyor.lossless.webp",
+      "sourceSha256": "d0e47f5f5e38f38943e753d644f3e3da07f07eb6a9e6be82acf8b1b359095171",
+      "runtimeSha256": "fc76b2c00942d31f704ed31cfe76e7d23579ec9da8b5182e558e585f29a76d9c",
+      "sourceDecodedRgbaSha256": "9cf0709e7eb46235934cfa0a614645c0a303a773aba5395dd8236c613a03f661",
+      "runtimeDecodedRgbaSha256": "9cf0709e7eb46235934cfa0a614645c0a303a773aba5395dd8236c613a03f661",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1596273,
+      "runtimeBytes": 993364,
+      "effectiveRuntimeBytes": 993364,
+      "savedBytes": 602909,
+      "savedPercent": 37.7698,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-650",
+        "props:furniture-694",
+        "props:furniture-738"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk.lossless.webp",
+      "sourceSha256": "e9b49aef99607316e3e0f942cb29d4a5e81ac97d6fececb7c8302ee988becc43",
+      "runtimeSha256": "8d6a2942a687bf075c55b21f80ad1ea89eb14c4ec94b792acb5c825d679ec7c8",
+      "sourceDecodedRgbaSha256": "b2cf228a69bc44fb8ccf7860da0b7deaa12e494255dd0e452a88225646cec947",
+      "runtimeDecodedRgbaSha256": "b2cf228a69bc44fb8ccf7860da0b7deaa12e494255dd0e452a88225646cec947",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1511849,
+      "runtimeBytes": 926408,
+      "effectiveRuntimeBytes": 926408,
+      "savedBytes": 585441,
+      "savedPercent": 38.7235,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-534",
+        "props:furniture-538",
+        "props:furniture-111",
+        "props:furniture-597",
+        "props:furniture-168",
+        "props:furniture-605",
+        "props:furniture-565",
+        "props:furniture-569"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_executive.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_executive.lossless.webp",
+      "sourceSha256": "e887bb04886d64aa941bbd1e79ab1076c0036c06ae0f52f53a5aad95b33e5e5e",
+      "runtimeSha256": "efb1fd1eae81a55aa61199fd606bf7d45705f50bc24c4d9f2462ab110044e920",
+      "sourceDecodedRgbaSha256": "a01ec154ffaaf595691cae0fce279bbad49b39cdbca23764db20667b37e95490",
+      "runtimeDecodedRgbaSha256": "a01ec154ffaaf595691cae0fce279bbad49b39cdbca23764db20667b37e95490",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1858721,
+      "runtimeBytes": 1154738,
+      "effectiveRuntimeBytes": 1154738,
+      "savedBytes": 703983,
+      "savedPercent": 37.8746,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-180"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_drawing_desk_tablet.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_drawing_desk_tablet.lossless.webp",
+      "sourceSha256": "d2017630f340f1593c1314ebaff6463bbc6b3c399218762d13baaf480e1b34de",
+      "runtimeSha256": "bf96e96b74cc4cd376bbde60d7abd967125e652d0f70042f34ed97dc04f5bcf1",
+      "sourceDecodedRgbaSha256": "a0209c96203f724ffc434fe817729992acba910affedc0ba8f8bbca8bbb9e309",
+      "runtimeDecodedRgbaSha256": "a0209c96203f724ffc434fe817729992acba910affedc0ba8f8bbca8bbb9e309",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1678267,
+      "runtimeBytes": 1043132,
+      "effectiveRuntimeBytes": 1043132,
+      "savedBytes": 635135,
+      "savedPercent": 37.8447,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-626"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_espresso_machine.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_espresso_machine.lossless.webp",
+      "sourceSha256": "dad33a72142e53602a7a4e377efeabc751333f4368d99d65377e5cd1c0f2f93e",
+      "runtimeSha256": "e7463168ce322dc3a983b6a5c67f93ba97e735885e00122323718a244d18ea76",
+      "sourceDecodedRgbaSha256": "bcb688428f54b6de0404e8d3841ee023de8d75a1052ddffe7ce76d2ce9e9627e",
+      "runtimeDecodedRgbaSha256": "bcb688428f54b6de0404e8d3841ee023de8d75a1052ddffe7ce76d2ce9e9627e",
+      "nativeSize": [
+        1367,
+        1151
+      ],
+      "sourceBytes": 1424383,
+      "runtimeBytes": 854356,
+      "effectiveRuntimeBytes": 854356,
+      "savedBytes": 570027,
+      "savedPercent": 40.0192,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1025"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_glass_partition.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_glass_partition.lossless.webp",
+      "sourceSha256": "a41494be15c57c787468cff19c9da01810895dff98f4c1fdb1fcb416463a458c",
+      "runtimeSha256": "a02ed9e0cdae118fe97358970569405aacef3e29ff73d1a3ae47eea4d9876f3e",
+      "sourceDecodedRgbaSha256": "561a38608281f6426c03dd1f8d2dfd2720aea4b403ed314d31665defa5267c62",
+      "runtimeDecodedRgbaSha256": "561a38608281f6426c03dd1f8d2dfd2720aea4b403ed314d31665defa5267c62",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1364527,
+      "runtimeBytes": 826748,
+      "effectiveRuntimeBytes": 826748,
+      "savedBytes": 537779,
+      "savedPercent": 39.4114,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-98",
+        "props:furniture-186",
+        "props:furniture-274"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_green_reading_lamp.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_green_reading_lamp.lossless.webp",
+      "sourceSha256": "a3ad53713c45074b233d7fe704e05896f54e3ec10b0546e6052620c2669a2659",
+      "runtimeSha256": "f1917d722b9f96afb0e841c937b239511525e9f764b767438a34c3493bc847ea",
+      "sourceDecodedRgbaSha256": "68dd4d3ff167e02def5d90a7094c917af465b488581796c9b49f9bc2dfd4a41f",
+      "runtimeDecodedRgbaSha256": "68dd4d3ff167e02def5d90a7094c917af465b488581796c9b49f9bc2dfd4a41f",
+      "nativeSize": [
+        1312,
+        1199
+      ],
+      "sourceBytes": 497113,
+      "runtimeBytes": 303536,
+      "effectiveRuntimeBytes": 303536,
+      "savedBytes": 193577,
+      "savedPercent": 38.9402,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-169"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_journal_shelf.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_journal_shelf.lossless.webp",
+      "sourceSha256": "fd3faee44a82dfe9cc47c36ba120e6a6a1d32206de56206b3bbf64b04a8286e0",
+      "runtimeSha256": "9cde834b867d31d5df1014bb9ba92e9be959afbf8199866882e17742ecb156e9",
+      "sourceDecodedRgbaSha256": "2db766d0f41a450405b90ef346fa89db176f67bafdc9b67dbe8cde491f0d8dc5",
+      "runtimeDecodedRgbaSha256": "2db766d0f41a450405b90ef346fa89db176f67bafdc9b67dbe8cde491f0d8dc5",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 989173,
+      "runtimeBytes": 642678,
+      "effectiveRuntimeBytes": 642678,
+      "savedBytes": 346495,
+      "savedPercent": 35.0288,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-711"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_kitchen_fridge.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_kitchen_fridge.lossless.webp",
+      "sourceSha256": "dcf204e6acf88c77da9157e1219637e326eb54c2237809a53e6221e44aa3740e",
+      "runtimeSha256": "d1c7136baf39c6b79d6219e27d26683bac223e1a7cc787894efddbce2817aa91",
+      "sourceDecodedRgbaSha256": "13911a1a52d79fedeea1301f19f6b5002372424fb5b6874f7c712d727ecec030",
+      "runtimeDecodedRgbaSha256": "13911a1a52d79fedeea1301f19f6b5002372424fb5b6874f7c712d727ecec030",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 493335,
+      "runtimeBytes": 281988,
+      "effectiveRuntimeBytes": 281988,
+      "savedBytes": 211347,
+      "savedPercent": 42.8405,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1066"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lab_bench.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lab_bench.lossless.webp",
+      "sourceSha256": "29a7bfcff4e805b8ace35d05f3d9121bc6953fd338227d28bba58e0ed106e170",
+      "runtimeSha256": "02e05d1e9127725c907b091a2a716ca8e959d761297bde00e0dc7bdd8c761164",
+      "sourceDecodedRgbaSha256": "bd2236d9bf61d4e8f58bfd8456fb79b6ecb8e5221c91ee0921a82a623a833bba",
+      "runtimeDecodedRgbaSha256": "bd2236d9bf61d4e8f58bfd8456fb79b6ecb8e5221c91ee0921a82a623a833bba",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 1427726,
+      "runtimeBytes": 922180,
+      "effectiveRuntimeBytes": 922180,
+      "savedBytes": 505546,
+      "savedPercent": 35.4092,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-529",
+        "props:furniture-705"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lamp_pass_fail.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lamp_pass_fail.lossless.webp",
+      "sourceSha256": "53d2535d4ed6223e377fd4c65e6029224dff50e3042ef8523db51ebaebad9e9f",
+      "runtimeSha256": "9ee8fd421bc2bc8594d45457b597af515a19a3bb688394d602897ed1992625d4",
+      "sourceDecodedRgbaSha256": "a8a1f00a971afc0fceb79822daabd4a2c219d9b4bbfb8e089673281e9130f26d",
+      "runtimeDecodedRgbaSha256": "a8a1f00a971afc0fceb79822daabd4a2c219d9b4bbfb8e089673281e9130f26d",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 802677,
+      "runtimeBytes": 506064,
+      "effectiveRuntimeBytes": 506064,
+      "savedBytes": 296613,
+      "savedPercent": 36.953,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-602"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_large_monitor_preview.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_large_monitor_preview.lossless.webp",
+      "sourceSha256": "1274ab79e0117a8ba78a4e5082465dd3fb70c73956f3d7c0555c8f3903e112c9",
+      "runtimeSha256": "28dd52237671d7839d812ba33e26b06156ca330505c88ed281843d56f9e69945",
+      "sourceDecodedRgbaSha256": "826d062b06c89c247b4956952ce4c54dee1e18c940fb01b4f84b7837ce4c165e",
+      "runtimeDecodedRgbaSha256": "826d062b06c89c247b4956952ce4c54dee1e18c940fb01b4f84b7837ce4c165e",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1763913,
+      "runtimeBytes": 1101122,
+      "effectiveRuntimeBytes": 1101122,
+      "savedBytes": 662791,
+      "savedPercent": 37.575,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-554"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_chair.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_chair.lossless.webp",
+      "sourceSha256": "b56010d8d829a9a9c7fc5ed6e71fb1b66a62aec82cdca60b7203d80ba3e9cfbd",
+      "runtimeSha256": "a2c688d878ebeb027ebf3b3a4f93f1996b5acc3703003b46b23f85e03a8c45d7",
+      "sourceDecodedRgbaSha256": "245a4b6d96bc7cb875d6265bdc56c34046c74b5be661a9e55145d7eb3f05fc5b",
+      "runtimeDecodedRgbaSha256": "245a4b6d96bc7cb875d6265bdc56c34046c74b5be661a9e55145d7eb3f05fc5b",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1655931,
+      "runtimeBytes": 1012812,
+      "effectiveRuntimeBytes": 1012812,
+      "savedBytes": 643119,
+      "savedPercent": 38.8373,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-172",
+        "props:furniture-173"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_sofa.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_sofa.lossless.webp",
+      "sourceSha256": "fac291b842d6dfc73c5c970483b713fa6e06ccfcf4f9f65da51db7c5108ccd17",
+      "runtimeSha256": "36d4f61dff31f97a654067bbac092693db4d8b97e8ac88c0b5c9cf5c6d22ac47",
+      "sourceDecodedRgbaSha256": "a10169a15602ede53768804934898c34bbea19de20621076cf9c282462433b37",
+      "runtimeDecodedRgbaSha256": "a10169a15602ede53768804934898c34bbea19de20621076cf9c282462433b37",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 2038021,
+      "runtimeBytes": 1220644,
+      "effectiveRuntimeBytes": 1220644,
+      "savedBytes": 817377,
+      "savedPercent": 40.1064,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1031"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_sofa_corner.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_sofa_corner.lossless.webp",
+      "sourceSha256": "6937b26d4ddb2f9ac56804ba745d744c545be7bb76004c10dc9f211713591bc6",
+      "runtimeSha256": "a726617645d859dae1ad9061dbb57cc91904482dfcc14bbfee584f235adc25eb",
+      "sourceDecodedRgbaSha256": "099a62fa5675db255b49a8710ced2ab10e68adf0ddfba14bbdc2dd387b147725",
+      "runtimeDecodedRgbaSha256": "099a62fa5675db255b49a8710ced2ab10e68adf0ddfba14bbdc2dd387b147725",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1927447,
+      "runtimeBytes": 1201126,
+      "effectiveRuntimeBytes": 1201126,
+      "savedBytes": 726321,
+      "savedPercent": 37.6831,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1032"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_marble_counter.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_marble_counter.lossless.webp",
+      "sourceSha256": "3407b605a9cd3a4769f5996a43298a4e0c3b8a9cd7287f5c5dd6176c364731c4",
+      "runtimeSha256": "8924c4b068e539e130308c51ecc020c0b538a40d05d4d119d7c2fb0e7da89cf3",
+      "sourceDecodedRgbaSha256": "1b94218a919efabf95e7425c51621e92f006e5135f5b4c1b72c8ca9287bcdccd",
+      "runtimeDecodedRgbaSha256": "1b94218a919efabf95e7425c51621e92f006e5135f5b4c1b72c8ca9287bcdccd",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1982054,
+      "runtimeBytes": 1219336,
+      "effectiveRuntimeBytes": 1219336,
+      "savedBytes": 762718,
+      "savedPercent": 38.4812,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1068",
+        "props:furniture-1069",
+        "props:furniture-1070"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_microscope.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_microscope.lossless.webp",
+      "sourceSha256": "047d620189fdc455d52e522136548916965fab372d3e0d582101ff23da60dbee",
+      "runtimeSha256": "2eaec075881a8479ca901f60d4c83814c45fe6613c49c68cef6a440bb530d014",
+      "sourceDecodedRgbaSha256": "381cd5a3e44505457ee15486be336d610db95f300ec35297cb4c6ee759fc06c0",
+      "runtimeDecodedRgbaSha256": "381cd5a3e44505457ee15486be336d610db95f300ec35297cb4c6ee759fc06c0",
+      "nativeSize": [
+        1374,
+        1145
+      ],
+      "sourceBytes": 1052897,
+      "runtimeBytes": 640048,
+      "effectiveRuntimeBytes": 640048,
+      "savedBytes": 412849,
+      "savedPercent": 39.2108,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-573"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_mihrab.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_mihrab.lossless.webp",
+      "sourceSha256": "a18d975c6cffef2243fcc31322ffe9b3f50836fa016003cfb6af0bc1a656794f",
+      "runtimeSha256": "f36ba4dae76624af30e3700e1d04578c5e8d4a8774a903cf8324fa59d43dbfe9",
+      "sourceDecodedRgbaSha256": "dfd237908b952e1f43ae1481965f2bec02834d17c906f48b97e022ba116e3d04",
+      "runtimeDecodedRgbaSha256": "dfd237908b952e1f43ae1481965f2bec02834d17c906f48b97e022ba116e3d04",
+      "nativeSize": [
+        1293,
+        1217
+      ],
+      "sourceBytes": 876031,
+      "runtimeBytes": 554830,
+      "effectiveRuntimeBytes": 554830,
+      "savedBytes": 321201,
+      "savedPercent": 36.6655,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1133"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_moodboard.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_moodboard.lossless.webp",
+      "sourceSha256": "60ca1dcacaaaae54542108ae6d61278ccbb2e89d419cf96bc9e58bf37b7e5b81",
+      "runtimeSha256": "62c5cfe6824a7d52cf74f92b393b14ea90d0d308075e4efa8c750d28eb2b8524",
+      "sourceDecodedRgbaSha256": "06a0d9272ed87a6d00b347bd9efce7d5a2ee876f484f57872a38e807571d6483",
+      "runtimeDecodedRgbaSha256": "06a0d9272ed87a6d00b347bd9efce7d5a2ee876f484f57872a38e807571d6483",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 1164988,
+      "runtimeBytes": 752476,
+      "effectiveRuntimeBytes": 752476,
+      "savedBytes": 412512,
+      "savedPercent": 35.4091,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-630"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_neon_sign.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_neon_sign.lossless.webp",
+      "sourceSha256": "2114251923338b647fb4bd5ea6535e4fd1ddebee6446ac792a23d0eb5a18ecb2",
+      "runtimeSha256": "2f87b058cafd08d346f359c88b9ec60b636e77b5639812d3dcd5a8d45fdce4f1",
+      "sourceDecodedRgbaSha256": "5bec775ba77dd561d34aa1504711bcbac7027a594cbb3fb2ee05c326fb5f4767",
+      "runtimeDecodedRgbaSha256": "5bec775ba77dd561d34aa1504711bcbac7027a594cbb3fb2ee05c326fb5f4767",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 925485,
+      "runtimeBytes": 569650,
+      "effectiveRuntimeBytes": 569650,
+      "savedBytes": 355835,
+      "savedPercent": 38.4485,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1039"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_parcel_rack.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_parcel_rack.lossless.webp",
+      "sourceSha256": "2af3c2190d2ca91a517374d9ae705e85a99f88b5da44451e21fa9f2748d39186",
+      "runtimeSha256": "db2df1306fbe856cdd966ddce6dfddce5703c7b8395b12d34336d3e979e40dc1",
+      "sourceDecodedRgbaSha256": "cd9bd2706dd7ed86ea836b090cba9ea0067800da392912e3d3c0c29b88435d93",
+      "runtimeDecodedRgbaSha256": "cd9bd2706dd7ed86ea836b090cba9ea0067800da392912e3d3c0c29b88435d93",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1732295,
+      "runtimeBytes": 1052094,
+      "effectiveRuntimeBytes": 1052094,
+      "savedBytes": 680201,
+      "savedPercent": 39.2659,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-736",
+        "props:furniture-824"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_coping.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_coping.lossless.webp",
+      "sourceSha256": "73f27a40e60513966128de0a2c800b9f391f3464fb434680ede4b3e6dbfc4e12",
+      "runtimeSha256": "efda8a94157a813e3b7d6887ea2de44a85e1af2cc090e4d962f8e75145fe3719",
+      "sourceDecodedRgbaSha256": "d95afe73a97c324835544c743958c050c82948b9fe3e22d31aef3c3b7a03e792",
+      "runtimeDecodedRgbaSha256": "d95afe73a97c324835544c743958c050c82948b9fe3e22d31aef3c3b7a03e792",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 1100292,
+      "runtimeBytes": 721940,
+      "effectiveRuntimeBytes": 721940,
+      "savedBytes": 378352,
+      "savedPercent": 34.3865,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1138",
+        "props:furniture-1139",
+        "props:furniture-1182",
+        "props:furniture-1140",
+        "props:furniture-1226",
+        "props:furniture-1141",
+        "props:furniture-1270",
+        "props:furniture-1142",
+        "props:furniture-1314",
+        "props:furniture-1186",
+        "props:furniture-1315",
+        "props:furniture-1230",
+        "props:furniture-1316",
+        "props:furniture-1274",
+        "props:furniture-1317",
+        "props:furniture-1318"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_lounger.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_lounger.lossless.webp",
+      "sourceSha256": "fd21da66fee502b28d4e1e77fec318e8cf6e558f04812eca1a3b4f76177d1294",
+      "runtimeSha256": "2464970612bdf42c87bb7a0e6279c3749fa179da7e3a5b743183309be587c708",
+      "sourceDecodedRgbaSha256": "29b0535d4e32e58a537797aec30d87f34c8e7b4dc924f4051d6ed1208f1022fd",
+      "runtimeDecodedRgbaSha256": "29b0535d4e32e58a537797aec30d87f34c8e7b4dc924f4051d6ed1208f1022fd",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1442865,
+      "runtimeBytes": 868344,
+      "effectiveRuntimeBytes": 868344,
+      "savedBytes": 574521,
+      "savedPercent": 39.8181,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1093",
+        "props:furniture-1181",
+        "props:furniture-1269"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_umbrella.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_umbrella.lossless.webp",
+      "sourceSha256": "8ef974e2e430eda3ea0a56a0893098843bb6f932fde1dad9f44682b4224e2e22",
+      "runtimeSha256": "5714bda332aacd8cf4457a847f5aa4d2cef5cf35bf38e759f59b2c8fd6aa2830",
+      "sourceDecodedRgbaSha256": "249c775ceb538ca6a9ebd0a3ee06ea2a2cb57714171e221a856e7b42684b90c6",
+      "runtimeDecodedRgbaSha256": "249c775ceb538ca6a9ebd0a3ee06ea2a2cb57714171e221a856e7b42684b90c6",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1328025,
+      "runtimeBytes": 792854,
+      "effectiveRuntimeBytes": 792854,
+      "savedBytes": 535171,
+      "savedPercent": 40.2983,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1137",
+        "props:furniture-1225"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_potted_plant.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_potted_plant.lossless.webp",
+      "sourceSha256": "99d15732309a1884f9a175d28c37c05e9e747fb420a9bcd2103732033ca3cdbf",
+      "runtimeSha256": "9d48d05f3b3ff2743a30d9ed3d5af1a26c4a2bbf4e5cfa4eccde8215e7377288",
+      "sourceDecodedRgbaSha256": "e365a8ac5e92d2d7945b195f788340c6cf7aac3748fbc674e5bba93fdc053327",
+      "runtimeDecodedRgbaSha256": "e365a8ac5e92d2d7945b195f788340c6cf7aac3748fbc674e5bba93fdc053327",
+      "nativeSize": [
+        1024,
+        1536
+      ],
+      "sourceBytes": 1928231,
+      "runtimeBytes": 1191078,
+      "effectiveRuntimeBytes": 1191078,
+      "savedBytes": 737153,
+      "savedPercent": 38.2295,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1233",
+        "props:furniture-1240"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_presentation_screen.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_presentation_screen.lossless.webp",
+      "sourceSha256": "2c8d24489874c713025927f5cc39d0a57f929921f1a54855c4245e352faeff6c",
+      "runtimeSha256": "04743fa34ad1c863a5683b1deef9580193eb0da51fc0f59ccb25429f9b2e1804",
+      "sourceDecodedRgbaSha256": "2fc1b0e6a2b9072eee672c856c2506772c1eac35f38ee0b5a3f46123a5f0f1e8",
+      "runtimeDecodedRgbaSha256": "2fc1b0e6a2b9072eee672c856c2506772c1eac35f38ee0b5a3f46123a5f0f1e8",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 876516,
+      "runtimeBytes": 531338,
+      "effectiveRuntimeBytes": 531338,
+      "savedBytes": 345178,
+      "savedPercent": 39.3807,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-58"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_printing_press.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_printing_press.lossless.webp",
+      "sourceSha256": "3314a48c6e24305b28546e5164a85c7ac950173b2cd61640211eda5c5e16b848",
+      "runtimeSha256": "1c80275cf03d3c03abe415e1f779e9ac6d6564298852942f5ec891d8f0a5d3ba",
+      "sourceDecodedRgbaSha256": "5249bafc09312bf8faa86a962ca822a4068790af256044a17fed98a5c2c0b2d2",
+      "runtimeDecodedRgbaSha256": "5249bafc09312bf8faa86a962ca822a4068790af256044a17fed98a5c2c0b2d2",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 1550253,
+      "runtimeBytes": 1024736,
+      "effectiveRuntimeBytes": 1024736,
+      "savedBytes": 525517,
+      "savedPercent": 33.8988,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-262"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_qa_screens.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_qa_screens.lossless.webp",
+      "sourceSha256": "542120996ef75a91c10e11b11282f3c6e3ffa82d40fd11e8f9429f07091c637e",
+      "runtimeSha256": "054d86915c035433e14b2fb6fadfed1ef3b2080beb62fcf9b856c8b40ae7c01a",
+      "sourceDecodedRgbaSha256": "822ddb1601713c989a6639ff52fa8624da4d16091a27080f3e673a107f514654",
+      "runtimeDecodedRgbaSha256": "822ddb1601713c989a6639ff52fa8624da4d16091a27080f3e673a107f514654",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1591960,
+      "runtimeBytes": 975464,
+      "effectiveRuntimeBytes": 975464,
+      "savedBytes": 616496,
+      "savedPercent": 38.7256,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-558"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_quran_shelf.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_quran_shelf.lossless.webp",
+      "sourceSha256": "239d8afd05ffbf28a27efd68a1a689dccc9008d78d93fdce7a711f33012b28d7",
+      "runtimeSha256": "08add8b19d8263ab5be69408003b8b12ca06536f30ffc18a1036c788a677a505",
+      "sourceDecodedRgbaSha256": "eae63de1db5a0b5ffe456f44e4290e083bf6c8f29cafaf857c38a63268e6f012",
+      "runtimeDecodedRgbaSha256": "eae63de1db5a0b5ffe456f44e4290e083bf6c8f29cafaf857c38a63268e6f012",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1848389,
+      "runtimeBytes": 1168584,
+      "effectiveRuntimeBytes": 1168584,
+      "savedBytes": 679805,
+      "savedPercent": 36.7782,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1042"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_reception_desk.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_reception_desk.lossless.webp",
+      "sourceSha256": "49565f08e10fbdfcfcab84bf7234b550421e7765ecc7191da02b6b52478f4c4d",
+      "runtimeSha256": "7019ff3c4460bf23347471c7f4a16f1b9440405adc2b92b1e376ef6898058ef7",
+      "sourceDecodedRgbaSha256": "f4ecd68688f7dae3ac7e33de012362614a4b9328f9f8ed5d5f716166f460fdc7",
+      "runtimeDecodedRgbaSha256": "f4ecd68688f7dae3ac7e33de012362614a4b9328f9f8ed5d5f716166f460fdc7",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1594996,
+      "runtimeBytes": 1011606,
+      "effectiveRuntimeBytes": 1011606,
+      "savedBytes": 583390,
+      "savedPercent": 36.5763,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1149"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_screen.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_screen.lossless.webp",
+      "sourceSha256": "05c5281a108f31ba4e9eb57b770ea0511bd5ba84cf57c78581169d0f51c4faca",
+      "runtimeSha256": "cac1c20fa5e464b3c33029dcebf57ef42e257175027c92332b1f6bca8c205db8",
+      "sourceDecodedRgbaSha256": "920cc5d75ddc4e894fc92d8d4d281994cefe11ebfa758941665689d82e91e588",
+      "runtimeDecodedRgbaSha256": "920cc5d75ddc4e894fc92d8d4d281994cefe11ebfa758941665689d82e91e588",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 676733,
+      "runtimeBytes": 411878,
+      "effectiveRuntimeBytes": 411878,
+      "savedBytes": 264855,
+      "savedPercent": 39.1373,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-734"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_server_rack.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_server_rack.lossless.webp",
+      "sourceSha256": "15f9fdc8d70193a5813b76a5a62d7cee144caf153bdcb29af766a2f914a33ca7",
+      "runtimeSha256": "f2b190e50d894ba5e63edc82a5a2ab82d015155c48392b60e38653d1c97c1582",
+      "sourceDecodedRgbaSha256": "c6635c868bedd10dcdd72485f1caca126b73109cec65f9d74d26112eb980ae4c",
+      "runtimeDecodedRgbaSha256": "c6635c868bedd10dcdd72485f1caca126b73109cec65f9d74d26112eb980ae4c",
+      "nativeSize": [
+        1327,
+        1186
+      ],
+      "sourceBytes": 1039435,
+      "runtimeBytes": 622746,
+      "effectiveRuntimeBytes": 622746,
+      "savedBytes": 416689,
+      "savedPercent": 40.088,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-740",
+        "props:furniture-784",
+        "props:furniture-828",
+        "props:furniture-746",
+        "props:furniture-790",
+        "props:furniture-834"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_shaf_partition.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_shaf_partition.lossless.webp",
+      "sourceSha256": "7faf0c9c03d393c7862fb435edbf2aaff9ae055dfb371476df9fa4ab9074c1a3",
+      "runtimeSha256": "034c1662b9c77c7520390e042a506d76c6681d30db286ce85b70c039d0f52330",
+      "sourceDecodedRgbaSha256": "04887d73350f3e16705b9af67c1c25d3e37098e09c4d6d580bbc78dd3c5fbad0",
+      "runtimeDecodedRgbaSha256": "04887d73350f3e16705b9af67c1c25d3e37098e09c4d6d580bbc78dd3c5fbad0",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1759602,
+      "runtimeBytes": 1028936,
+      "effectiveRuntimeBytes": 1028936,
+      "savedBytes": 730666,
+      "savedPercent": 41.5245,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1174",
+        "props:furniture-1180"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_soc_map_wall.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_soc_map_wall.lossless.webp",
+      "sourceSha256": "70106768612ff9d4fd2e06ce9e5d3465d80f722dff9e4e50f79082f340bbe8b8",
+      "runtimeSha256": "73957e920018ac974d2214f15c9dfb7a9a83a11396b2bd65a7ab85be3a37c9f2",
+      "sourceDecodedRgbaSha256": "2e7403b979adcb144e30fd2d2283102e390ed0787bde29c27ecb4717f56856ea",
+      "runtimeDecodedRgbaSha256": "2e7403b979adcb144e30fd2d2283102e390ed0787bde29c27ecb4717f56856ea",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 747432,
+      "runtimeBytes": 454424,
+      "effectiveRuntimeBytes": 454424,
+      "savedBytes": 293008,
+      "savedPercent": 39.202,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-523"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_sofa_leather.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_sofa_leather.lossless.webp",
+      "sourceSha256": "90f83c8e6dc6611c34a12c296e733481ab7da26c42b6c01d4e659e941d2d025f",
+      "runtimeSha256": "7eeb23c0bc012ee6d1b21a0d7e36900e8446c0bd7851c33623d69fa9919c7019",
+      "sourceDecodedRgbaSha256": "8c23499170e3beb934cf043d26968c54d2bd65d3220d5358acdb54ef7c9664af",
+      "runtimeDecodedRgbaSha256": "8c23499170e3beb934cf043d26968c54d2bd65d3220d5358acdb54ef7c9664af",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 1412150,
+      "runtimeBytes": 900362,
+      "effectiveRuntimeBytes": 900362,
+      "savedBytes": 511788,
+      "savedPercent": 36.2418,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-177"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_spare_tiles_pile.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_spare_tiles_pile.lossless.webp",
+      "sourceSha256": "0d6627d3240481823d22c955eb4b30325085dd21fba9dce01887a7b4f0cea559",
+      "runtimeSha256": "0716c68d0a5ac4dbe13aa96fb0db807dcb96cdce7ed6c18f23ccd34b9b02990a",
+      "sourceDecodedRgbaSha256": "e874091262594fb4e84dd7179f25ac872ffc76e5d951ebfc5462054e0e411730",
+      "runtimeDecodedRgbaSha256": "e874091262594fb4e84dd7179f25ac872ffc76e5d951ebfc5462054e0e411730",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 1002660,
+      "runtimeBytes": 646448,
+      "effectiveRuntimeBytes": 646448,
+      "savedBytes": 356212,
+      "savedPercent": 35.5267,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-730"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_stamp_desk.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_stamp_desk.lossless.webp",
+      "sourceSha256": "3396ea958d4e5afc6aa3dd16f9088685a03699127222f9b3355a6ce62c050af0",
+      "runtimeSha256": "46baf89d0880218c0e43b50476342f02201841c462dd1ed564f632677250d19c",
+      "sourceDecodedRgbaSha256": "bf1b9cf25a9587c8eef3708c39ebb7934479d1e8060a27330ac1b1cac216efd5",
+      "runtimeDecodedRgbaSha256": "bf1b9cf25a9587c8eef3708c39ebb7934479d1e8060a27330ac1b1cac216efd5",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1827036,
+      "runtimeBytes": 1130784,
+      "effectiveRuntimeBytes": 1130784,
+      "savedBytes": 696252,
+      "savedPercent": 38.1083,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-601"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_swatch_wall.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_swatch_wall.lossless.webp",
+      "sourceSha256": "8f6d9b823d4db98f17cb2c8b85f0db61b59d41c710b15d7104523b5928e41f7e",
+      "runtimeSha256": "f30f0e6f880fcd7cb4797c64fa635169fd63222d5f514759dafb68a00b4c8753",
+      "sourceDecodedRgbaSha256": "9929df35525fdfe748594394bafcb59ef786a611c5d39bb8adff73653c3dd1d3",
+      "runtimeDecodedRgbaSha256": "9929df35525fdfe748594394bafcb59ef786a611c5d39bb8adff73653c3dd1d3",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 1042449,
+      "runtimeBytes": 640982,
+      "effectiveRuntimeBytes": 640982,
+      "savedBytes": 401467,
+      "savedPercent": 38.5119,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-498"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_system_model_mini.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_system_model_mini.lossless.webp",
+      "sourceSha256": "3f92f9900c68fcf1d5709c500566f608da8b2d0ad958e79b27f85618d19b827c",
+      "runtimeSha256": "ed0befb45833a619a3033cabb3fdebae9b93bb0a040e50c5026be083ed5ce5e5",
+      "sourceDecodedRgbaSha256": "a9d9c16dda6aa750bfce9a555154c449350bdc84aadbb8292ca32deb5310a94d",
+      "runtimeDecodedRgbaSha256": "a9d9c16dda6aa750bfce9a555154c449350bdc84aadbb8292ca32deb5310a94d",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 1060917,
+      "runtimeBytes": 688268,
+      "effectiveRuntimeBytes": 688268,
+      "savedBytes": 372649,
+      "savedPercent": 35.1252,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-65"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_table_round.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_table_round.lossless.webp",
+      "sourceSha256": "976e49ac056952a2bb0c407d14e5d682d6d241c9e80912be6c283e9ce212a3fa",
+      "runtimeSha256": "f40d9c947e1157566015244fe38fe118164ffbcf6146c9410f958828fc1a794b",
+      "sourceDecodedRgbaSha256": "6e2dac240075918b70ff2b2ba617787e05e5e02509cc209cce34bd720469aa52",
+      "runtimeDecodedRgbaSha256": "6e2dac240075918b70ff2b2ba617787e05e5e02509cc209cce34bd720469aa52",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1406402,
+      "runtimeBytes": 889796,
+      "effectiveRuntimeBytes": 889796,
+      "savedBytes": 516606,
+      "savedPercent": 36.7325,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1243",
+        "props:furniture-1246",
+        "props:furniture-1249",
+        "props:furniture-1252"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_test_tube_rack.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_test_tube_rack.lossless.webp",
+      "sourceSha256": "86773f602c3ecfb71dd37d76be8f55324d571572caa4b303e09b56ebd78eb303",
+      "runtimeSha256": "736a7c0d7722c02126e849a1f4f13cd72e72a3cd3b609f50852cff332989198c",
+      "sourceDecodedRgbaSha256": "7508654f4dd6f5688eabe18bbdc29f5d727a606b8c7d5beb59543df1c2ad4b9a",
+      "runtimeDecodedRgbaSha256": "7508654f4dd6f5688eabe18bbdc29f5d727a606b8c7d5beb59543df1c2ad4b9a",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 1177143,
+      "runtimeBytes": 832364,
+      "effectiveRuntimeBytes": 832364,
+      "savedBytes": 344779,
+      "savedPercent": 29.2895,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-661"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_trashcan.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_trashcan.lossless.webp",
+      "sourceSha256": "c5ed656126949929a5a54a63509577f99ea33cf1ca66191ba4edda765b68b6f0",
+      "runtimeSha256": "24264a8ea68c55ca656af6e4770b96247b7c9efc28a54fba53a9bbbde760829d",
+      "sourceDecodedRgbaSha256": "4f33dfe56de490ced36505185278c97341af8f8ae19e2996b343016a7879ed53",
+      "runtimeDecodedRgbaSha256": "4f33dfe56de490ced36505185278c97341af8f8ae19e2996b343016a7879ed53",
+      "nativeSize": [
+        1268,
+        1241
+      ],
+      "sourceBytes": 590975,
+      "runtimeBytes": 345062,
+      "effectiveRuntimeBytes": 345062,
+      "savedBytes": 245913,
+      "savedPercent": 41.6114,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1110"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_trophy_shelf.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_trophy_shelf.lossless.webp",
+      "sourceSha256": "2c57db6f8ec6d747cfef6e21169559285c41af868ba35f40611d9447b989a7d1",
+      "runtimeSha256": "560af63d5ea3dd37b266ce9d8388427c61f92343715cd27369d720ff7c08eb75",
+      "sourceDecodedRgbaSha256": "cc27aa739b7b02c757223d9e600b902d88066fdd091f865d10ba20ed1615619e",
+      "runtimeDecodedRgbaSha256": "cc27aa739b7b02c757223d9e600b902d88066fdd091f865d10ba20ed1615619e",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 927964,
+      "runtimeBytes": 642420,
+      "effectiveRuntimeBytes": 642420,
+      "savedBytes": 285544,
+      "savedPercent": 30.771,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-96"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_tropical_plant.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_tropical_plant.lossless.webp",
+      "sourceSha256": "48fa334b2ff160626dce2ded41af8b6bbadbe420f116550d4e861edf050a4e37",
+      "runtimeSha256": "83c5b26cd844c51151b9a011486df94925ed45a35793139b24cd825a6d7b4d20",
+      "sourceDecodedRgbaSha256": "c345cbd39b23c410fb43caf55cd09b9698f274d32fc7bd7fa9e16e9aaa14f3f7",
+      "runtimeDecodedRgbaSha256": "c345cbd39b23c410fb43caf55cd09b9698f274d32fc7bd7fa9e16e9aaa14f3f7",
+      "nativeSize": [
+        1263,
+        1245
+      ],
+      "sourceBytes": 1245095,
+      "runtimeBytes": 817032,
+      "effectiveRuntimeBytes": 817032,
+      "savedBytes": 428063,
+      "savedPercent": 34.3799,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1099",
+        "props:furniture-1357"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_wall_monitors_ceo.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_wall_monitors_ceo.lossless.webp",
+      "sourceSha256": "b9a626ee6b28f5ca1f92db23fdfd528c62a94b3a545fb3a09279df50ba70a42e",
+      "runtimeSha256": "758449baa632876c01c2cc75bb1e5ad0f8eb139519f1a52ce57eae77aca02227",
+      "sourceDecodedRgbaSha256": "c1afd695424dfba2e5b89d16acb3d3a8a1cdbb1cdcb381192bf1ff565fe64874",
+      "runtimeDecodedRgbaSha256": "c1afd695424dfba2e5b89d16acb3d3a8a1cdbb1cdcb381192bf1ff565fe64874",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 935536,
+      "runtimeBytes": 599646,
+      "effectiveRuntimeBytes": 599646,
+      "savedBytes": 335890,
+      "savedPercent": 35.9035,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-92"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_whiteboard.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_whiteboard.lossless.webp",
+      "sourceSha256": "60ef17b8906023a82d5b324610f011f688ecb829ca179568f5aa411cafca0382",
+      "runtimeSha256": "4012c8860e86902a6d5fa3244889a667df497dbc98bad87c83345c830a8729d1",
+      "sourceDecodedRgbaSha256": "6c3527484b9bb33bb4476fb7355922126feb89f02f7d4e5bc26bb705d5f153ad",
+      "runtimeDecodedRgbaSha256": "6c3527484b9bb33bb4476fb7355922126feb89f02f7d4e5bc26bb705d5f153ad",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 821884,
+      "runtimeBytes": 509802,
+      "effectiveRuntimeBytes": 509802,
+      "savedBytes": 312082,
+      "savedPercent": 37.9715,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-75"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_whiteboard_formula.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_whiteboard_formula.lossless.webp",
+      "sourceSha256": "a16748b2f3982849717f796ed82bd53dbd1e9a5cf6ed145eba663ec7b8b9e948",
+      "runtimeSha256": "e3254c54a3712af8e5925f4ce5449e29159d7d84dd78f98ee978a04b78214ed2",
+      "sourceDecodedRgbaSha256": "f6cd32722642981a60d2f51e25b89175b9780840dd952b36347e3d01c00584af",
+      "runtimeDecodedRgbaSha256": "f6cd32722642981a60d2f51e25b89175b9780840dd952b36347e3d01c00584af",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sourceBytes": 805604,
+      "runtimeBytes": 501100,
+      "effectiveRuntimeBytes": 501100,
+      "savedBytes": 304504,
+      "savedPercent": 37.7982,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-617"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_wudhu_station.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_wudhu_station.lossless.webp",
+      "sourceSha256": "a296ca35c509042b7681c706534a5e1a95db3ec6adf066268a934ac87fb3e72d",
+      "runtimeSha256": "80351f2c08c2d0dcd02a7bd6426b3bbb3a994a9508c4286b32dc43b7b70aaeaf",
+      "sourceDecodedRgbaSha256": "b934c1a3d181dce2b1ca14d68156ee1274bb68b9873f402fe228616c2c5c3ab0",
+      "runtimeDecodedRgbaSha256": "b934c1a3d181dce2b1ca14d68156ee1274bb68b9873f402fe228616c2c5c3ab0",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1707081,
+      "runtimeBytes": 1008360,
+      "effectiveRuntimeBytes": 1008360,
+      "savedBytes": 698721,
+      "savedPercent": 40.9307,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-1043",
+        "props:furniture-1044",
+        "props:furniture-1046",
+        "props:furniture-1047"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/seating/office-chair-NE.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/seating/office-chair-NE.lossless.webp",
+      "sourceSha256": "6aeae462cfeb76105f4f202b38589b413469291fd8670cf26d7614df6c942db7",
+      "runtimeSha256": "77d5617af372ea2335b16abfd976a88e01079a2add718e2cdac486cb6acc7a2a",
+      "sourceDecodedRgbaSha256": "ce5dc2cd17039a76bf74c5b3d33f937d91927696232f99e1582e4c568e3643a1",
+      "runtimeDecodedRgbaSha256": "ce5dc2cd17039a76bf74c5b3d33f937d91927696232f99e1582e4c568e3643a1",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 661800,
+      "runtimeBytes": 391704,
+      "effectiveRuntimeBytes": 391704,
+      "savedBytes": 270096,
+      "savedPercent": 40.8123,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-233",
+        "props:furniture-234",
+        "props:room-seat-slot_z06_desk_oracle",
+        "props:furniture-235",
+        "props:furniture-236",
+        "props:room-seat-slot_z07_desk_muse",
+        "props:room-seat-slot_z03_desk_daedalus",
+        "props:furniture-205",
+        "props:furniture-249",
+        "props:furniture-207",
+        "props:furniture-251",
+        "props:furniture-209",
+        "props:furniture-253",
+        "props:room-seat-slot_z05_desk_scribe",
+        "props:room-seat-slot_z14_seat_2",
+        "props:room-seat-slot_z14_seat_4",
+        "props:room-seat-slot_z14_seat_6",
+        "props:room-seat-slot_z14_seat_8",
+        "props:room-seat-slot_z12_desk_vector",
+        "props:room-seat-slot_z12_desk_bastion"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/seating/office-chair-NW.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/seating/office-chair-NW.lossless.webp",
+      "sourceSha256": "a89de6f5440688858f605fc11f131e7d329c4f85f29552edc0da0ea67179b1be",
+      "runtimeSha256": "b8a564f5e2df1a2dfa37ea230064e078dc1c66a41de4a2fbd662060eedcb9440",
+      "sourceDecodedRgbaSha256": "55bb7ae4eea8da33ed331893cfa1789f8069d8f6dff279424db37eaea1d816d7",
+      "runtimeDecodedRgbaSha256": "55bb7ae4eea8da33ed331893cfa1789f8069d8f6dff279424db37eaea1d816d7",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 611778,
+      "runtimeBytes": 358714,
+      "effectiveRuntimeBytes": 358714,
+      "savedBytes": 253064,
+      "savedPercent": 41.3653,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-149",
+        "props:furniture-193"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/seating/office-chair-SE.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/seating/office-chair-SE.lossless.webp",
+      "sourceSha256": "5f54ffd1f9b5c5cd891de97a679b0a194595ea76956fdbf00bd27d0b028f4e5d",
+      "runtimeSha256": "ca36ad405c71af2715d33c78bffb35a2486fe0a516c834f2c3aa4b2c67784cf3",
+      "sourceDecodedRgbaSha256": "af93ef580f185b35e90078677a49febb6a8dfea091a217d9324d335c3ae6d2c2",
+      "runtimeDecodedRgbaSha256": "af93ef580f185b35e90078677a49febb6a8dfea091a217d9324d335c3ae6d2c2",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 681280,
+      "runtimeBytes": 400250,
+      "effectiveRuntimeBytes": 400250,
+      "savedBytes": 281030,
+      "savedPercent": 41.2503,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:furniture-144",
+        "props:furniture-188"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/seating/office-chair-SW.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/seating/office-chair-SW.lossless.webp",
+      "sourceSha256": "bee8a1c9b94a790e3ed46a77b45ecc1aeec4639865a27be5ab42db0b908e7a83",
+      "runtimeSha256": "44f4d70ba3e6a5e53c1c615e087401f4951a11d473fd0323e56f9ccd4f1f9f17",
+      "sourceDecodedRgbaSha256": "cc8a3002f389aa38f5dcb1af1069a4323b7d965f39d8d325f90cf5970d972c45",
+      "runtimeDecodedRgbaSha256": "cc8a3002f389aa38f5dcb1af1069a4323b7d965f39d8d325f90cf5970d972c45",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 662411,
+      "runtimeBytes": 394460,
+      "effectiveRuntimeBytes": 394460,
+      "savedBytes": 267951,
+      "savedPercent": 40.4509,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "props:room-seat-slot_z01_desk_jarvis",
+        "props:furniture-101",
+        "props:furniture-102",
+        "props:furniture-103",
+        "props:furniture-104",
+        "props:room-seat-slot_z13_desk_warden",
+        "props:room-seat-slot_z09_desk_steward",
+        "props:room-seat-slot_z14_seat_1",
+        "props:room-seat-slot_z10_desk_sentinel",
+        "props:room-seat-slot_z14_seat_3",
+        "props:room-seat-slot_z14_seat_5",
+        "props:room-seat-slot_z11_desk_relay",
+        "props:room-seat-slot_z14_seat_7"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/surfaces/F01-floor-oak-a-v2.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/surfaces/F01-floor-oak-a-v2.lossless.webp",
+      "sourceSha256": "3978a78cb19bb1446d9d07ef9aff7b84dd701a3e866f2ff20d93f579244e105e",
+      "runtimeSha256": "e63032f1ae1513330d913ad01f5ee0616fe0a0c85191643afd780c20947437c9",
+      "sourceDecodedRgbaSha256": "252dfa9d84efd12a34a85f0659901242aa3890421beb353fff3575315325d3cf",
+      "runtimeDecodedRgbaSha256": "252dfa9d84efd12a34a85f0659901242aa3890421beb353fff3575315325d3cf",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 827558,
+      "runtimeBytes": 576706,
+      "effectiveRuntimeBytes": 576706,
+      "savedBytes": 250852,
+      "savedPercent": 30.3123,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "groundSurfaces:F01"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/surfaces/F03-floor-corridor-gray.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/surfaces/F03-floor-corridor-gray.lossless.webp",
+      "sourceSha256": "9c207a8b2021075c33eac8b53988f42aaae9384a23c7222e8f4bb4feb8bba3b3",
+      "runtimeSha256": "1fa30dd024604d108abdbcf654b63601bc96f1b73529a004dee755d160a61f08",
+      "sourceDecodedRgbaSha256": "ebe3304ab891ba82a2a82288beb909311b28e00c88dca50e05435584159b9228",
+      "runtimeDecodedRgbaSha256": "ebe3304ab891ba82a2a82288beb909311b28e00c88dca50e05435584159b9228",
+      "nativeSize": [
+        1659,
+        948
+      ],
+      "sourceBytes": 993339,
+      "runtimeBytes": 664680,
+      "effectiveRuntimeBytes": 664680,
+      "savedBytes": 328659,
+      "savedPercent": 33.0863,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "groundSurfaces:F03"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/surfaces/F04-floor-outdoor-stone.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/surfaces/F04-floor-outdoor-stone.lossless.webp",
+      "sourceSha256": "d9920089523c968b242d7a1fcb82cdad612b44a8d7bbda48cf34bed6296852e1",
+      "runtimeSha256": "f5d4a07ecfc144e5ecb69e4b40181622ea5e4acbfe013ecef7402f78d767211e",
+      "sourceDecodedRgbaSha256": "55cffd6e7f45fa117235b713a435dcbf77670bba6cbe90ab821188667bfa5fd7",
+      "runtimeDecodedRgbaSha256": "55cffd6e7f45fa117235b713a435dcbf77670bba6cbe90ab821188667bfa5fd7",
+      "nativeSize": [
+        1659,
+        948
+      ],
+      "sourceBytes": 800091,
+      "runtimeBytes": 536730,
+      "effectiveRuntimeBytes": 536730,
+      "savedBytes": 263361,
+      "savedPercent": 32.9164,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "groundSurfaces:F04"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/surfaces/F16-prayer-rug.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/surfaces/F16-prayer-rug.lossless.webp",
+      "sourceSha256": "2e4d2dc3a0609168007fca3928dfdfe092165d5bba63849996c2c583163abd75",
+      "runtimeSha256": "dbb07baae07fa4468ddc8cb325d5ddd799a9aaa317f5d0b6654fdcc3ca4b9df6",
+      "sourceDecodedRgbaSha256": "56cad4cc96108b55c8d0726bef3f29102fa7c570b679f569a89cabde8b05bd15",
+      "runtimeDecodedRgbaSha256": "56cad4cc96108b55c8d0726bef3f29102fa7c570b679f569a89cabde8b05bd15",
+      "nativeSize": [
+        1774,
+        887
+      ],
+      "sourceBytes": 1740295,
+      "runtimeBytes": 1132206,
+      "effectiveRuntimeBytes": 1132206,
+      "savedBytes": 608089,
+      "savedPercent": 34.9417,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "packed",
+      "references": [
+        "groundSurfaces:F16"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/surfaces/O01-pool-water.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/surfaces/O01-pool-water.lossless.webp",
+      "sourceSha256": "7bdb047cc4e793fd04c46e8f42f4f0d661befd1a5c890f0e846e1bb91dd2dcf2",
+      "runtimeSha256": "6178a349a5e1e04d5c9b24f76ede4100cbb49831d7d185e5da0b543ea0d2ba67",
+      "sourceDecodedRgbaSha256": "f2bef5190b2434a08c44c52d756e50f86d1613e8a1b0411d39cddc82f7687d51",
+      "runtimeDecodedRgbaSha256": "f2bef5190b2434a08c44c52d756e50f86d1613e8a1b0411d39cddc82f7687d51",
+      "nativeSize": [
+        1660,
+        948
+      ],
+      "sourceBytes": 683779,
+      "runtimeBytes": 467168,
+      "effectiveRuntimeBytes": 467168,
+      "savedBytes": 216611,
+      "savedPercent": 31.6785,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "reused",
+      "references": [
+        "groundSurfaces:O01"
+      ]
+    }
+  ],
+  "summary": {
+    "sourceFiles": 70,
+    "packedFiles": 1,
+    "reusedFiles": 69,
+    "fallbackFiles": 0,
+    "sourceBytes": 85055962,
+    "runtimeBytes": 53186062,
+    "savedBytes": 31869900,
+    "savedPercent": 37.4693
+  },
+  "sourceBytesPreserved": true,
+  "sourcePixelsEdited": false,
+  "geometryChanged": false,
+  "fullResolutionPreserved": true,
+  "fullResolutionDecodeMemoryVerified": false,
+  "browserVisualQA": false,
+  "limitations": [
+    "Full-resolution browser decode memory remains unverified; dimensions and RGBA memory are unchanged",
+    "Transfer-byte savings do not establish browser performance or visual acceptance"
+  ]
+}

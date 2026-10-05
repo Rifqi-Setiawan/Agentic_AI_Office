@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_sofa_leather.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_sofa_leather.lossless.webp",
+  "sourceSha256": "90f83c8e6dc6611c34a12c296e733481ab7da26c42b6c01d4e659e941d2d025f",
+  "runtimeSha256": "7eeb23c0bc012ee6d1b21a0d7e36900e8446c0bd7851c33623d69fa9919c7019",
+  "sourceDecodedRgbaSha256": "8c23499170e3beb934cf043d26968c54d2bd65d3220d5358acdb54ef7c9664af",
+  "runtimeDecodedRgbaSha256": "8c23499170e3beb934cf043d26968c54d2bd65d3220d5358acdb54ef7c9664af",
+  "nativeSize": [
+    1774,
+    887
+  ],
+  "sourceBytes": 1412150,
+  "runtimeBytes": 900362,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

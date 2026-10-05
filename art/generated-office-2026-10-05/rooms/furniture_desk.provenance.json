@@ -1,0 +1,34 @@
+{
+  "asset": "furniture_desk",
+  "zone": "shared",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-5569141c-420e-4690-8494-081caeec6d5c.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_desk.png",
+  "sha256": "e9b49aef99607316e3e0f942cb29d4a5e81ac97d6fececb7c8302ee988becc43",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_bbox": [
+    65,
+    32,
+    1420,
+    992
+  ],
+  "alpha_bbox_threshold_128": [
+    236,
+    50,
+    1341,
+    985
+  ],
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_desk.prompt.txt",
+  "source_atlas_sha256": "944dd62f5413d8c845ca48d1cfed8654f61b1cb48d019211ac4dbebb4d26cdf8"
+}

@@ -1,0 +1,78 @@
+{
+  "asset": "furniture_attendance_board",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-8fc2ba5c-7843-4885-843c-b183bcc45e58.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_attendance_board.png",
+  "source_original_sha256": "fa099c2408ef7cd94c5949138edcd67e8382d2d56d5082d1f0851a40d894258d",
+  "sha256": "fa099c2408ef7cd94c5949138edcd67e8382d2d56d5082d1f0851a40d894258d",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    157,
+    80,
+    1192,
+    1228
+  ],
+  "alpha_bbox_threshold_128": [
+    160,
+    84,
+    1049,
+    1216
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_attendance_board.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        308,
+        105
+      ],
+      [
+        955,
+        431
+      ]
+    ],
+    "axis_up_right": [
+      [
+        892,
+        1183
+      ],
+      [
+        1032,
+        1111
+      ]
+    ],
+    "observed_slopes": {
+      "down_right": 0.5038639876352395,
+      "up_right": -0.5142857142857142
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.005117973629424011,
+      0,
+      0.982173837612769,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Freestanding board with nine blank tiles and colored status dots, no names or text. Main top edge is visually very close to +0.5, with estimated feet depth."
+  }
+}

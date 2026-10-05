@@ -1,0 +1,155 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> office-v2-frontend@2.0.0 test
+> vitest run --maxWorkers=1 --minWorkers=1
+
+
+ RUN  v2.1.9 /workspace/scratch/1f7ded418f78/office_environment_work/source/frontend
+
+ ✓ src/world/choreographer.test.ts (13 tests) 544ms
+   ✓ T1.14 Choreographer (Task Nyata, Ambient, Event Kolektif) > Kriteria Penerimaan 3: Simulasi 1 jam headless (3.600 dtk) tanpa macet > 5 mnt > memverifikasi tidak ada agen idle/ambient yang berada di 1 tile > 5 menit (300 dtk) 464ms
+ ✓ src/world/easterEgg/easterEgg.test.ts (17 tests) 64ms
+ ✓ src/world/bubble.test.ts (16 tests) 89ms
+ ✓ src/world/rifqiControl.test.ts (14 tests) 44ms
+stdout | src/navigation/pathfinding.test.ts > T1.12 Pathfinding A* dan Reservasi Slot > Kriteria Penerimaan 2: Benchmark pencarian jalur terpanjang < 1 ms > mencapai pencarian jalur terpanjang < 1 ms per query (benchmark Vitest)
+[Benchmark Vitest] Jalur terpanjang (slot_z05_browse_1, 51 langkah): rata-rata 0.0865 ms per pencarian (100 iterasi, total 8.65 ms)
+
+ ✓ src/navigation/pathfinding.test.ts (20 tests) 46ms
+ ✓ src/hud/t1_17_hud.test.tsx (15 tests) 43ms
+ ✓ src/world/vitalsEnvironment.test.ts (15 tests) 147ms
+ ✓ src/world/scene/GroundSurfaces.test.tsx (11 tests) 131ms
+ ✓ src/floor1_map.test.ts (6 tests) 217ms
+ ✓ src/world/eventReactions.test.ts (9 tests) 59ms
+stdout | src/world/qa_sentinel_t1_13.test.tsx > SENTINEL INDEPENDENT QA: T1.13 Entitas Karakter dan FSM Gerak > 5. Acceptance Criterion 1: 16 Karakter Berjalan Bersamaan Tanpa Penurunan FPS di Bawah 60 > verifies 16 characters simultaneous walking benchmark maintains > 60 FPS (frame budget < 16.67ms)
+[Sentinel QA Benchmark] 16 Agents Walking: avg 0.0548 ms/frame -> 18260.1 FPS
+
+ ✓ src/world/qa_sentinel_t1_13.test.tsx (12 tests) 71ms
+ ✓ src/environment.test.ts (8 tests) 8ms
+ ✓ src/world/Character.test.ts (12 tests) 15ms
+ ✓ src/world/simulation/modelParity.test.ts (11 tests) 178ms
+ ✓ src/world/conversationBank.test.ts (13 tests) 15ms
+ ✓ src/world/scene/WallPresentation.test.tsx (10 tests) 351ms
+ ✓ src/world/scene/GroundSurfacesLifecycle.test.tsx (9 tests) 274ms
+ ✓ src/world/scene/IllustratedOffice.test.ts (7 tests) 175ms
+stdout | src/audio/OfficeAudio.test.ts > Office audio acceptance > all shipped audio fits the 1.5 MB budget
+Audio assets: 8; actual total bytes: 826172; limit: 1500000
+
+ ✓ src/audio/OfficeAudio.test.ts (7 tests) 11ms
+ ✓ src/hud/t2_3_visual_notifications_honest_mode.test.tsx (10 tests) 39ms
+stdout | src/world/drawCalls.test.ts > Draw Calls & Acceptance Criterion 2 (< 30 draw call pada zoom 1x) > enforces Acceptance Criterion 2: < 30 draw call di seluruh peta pada zoom 1x
+[DrawCallTest] Total draw call terhitung di seluruh peta pada zoom 1x: 2 (Batas kriteria: < 30)
+
+ ✓ src/world/drawCalls.test.ts (2 tests) 22ms
+stderr | src/services/sseClient.test.ts > OfficeSSEClient (Backoff & Fallback Polling) > triggers fallback snapshot polling every 5000 ms during disconnect
+[SSE] Fallback polling snapshot gagal: [TypeError: fetch failed] {
+  [cause]: AggregateError: 
+      at internalConnectMultiple (node:net:1339:18)
+      at afterConnectMultiple (node:net:1942:7) {
+    code: 'ECONNREFUSED',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+
+ ✓ src/services/sseClient.test.ts (5 tests) 26ms
+stderr | OfficeSSEClient.pollSnapshotOnce (/workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/src/services/sseClient.ts:226:15)
+[SSE] Fallback polling snapshot gagal: [TypeError: fetch failed] {
+  [cause]: AggregateError: 
+      at internalConnectMultiple (node:net:1339:18)
+      at afterConnectMultiple (node:net:1942:7) {
+    code: 'ECONNREFUSED',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+
+ ✓ src/character_sprites.test.ts (5 tests) 33ms
+stderr | src/store/honestMode.test.ts > T2.3: Storage Preferensi Mode Jujur (Acceptance Criteria) > menangani exception localStorage (SecurityError / QuotaExceededError) dengan try/catch tanpa crash
+[ModeJujur] Gagal membaca preferensi dari localStorage: Error: SecurityError: The operation is insecure.
+    at MockStorage.<anonymous> (/workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/src/store/honestMode.test.ts:32:13)
+    at MockStorage.mockCall (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/@vitest/spy/dist/index.js:61:17)
+    at MockStorage.getItem (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/tinyspy/dist/index.js:45:80)
+    at Module.getSavedHonestMode (/workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/src/store/honestModeStorage.ts:32:27)
+    at /workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/src/store/honestMode.test.ts:39:18
+    at Proxy.assertThrows (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/chai/index.js:2767:5)
+    at Proxy.methodWrapper (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/chai/index.js:1686:25)
+    at Proxy.<anonymous> (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/@vitest/expect/dist/index.js:1029:16)
+    at Proxy.overwritingMethodWrapper (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/chai/index.js:1735:33)
+    at Proxy.<anonymous> (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/@vitest/expect/dist/index.js:1509:21)
+[ModeJujur] Gagal membaca preferensi dari localStorage: Error: SecurityError: The operation is insecure.
+    at MockStorage.<anonymous> (/workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/src/store/honestMode.test.ts:32:13)
+    at MockStorage.mockCall (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/@vitest/spy/dist/index.js:61:17)
+    at MockStorage.getItem (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/tinyspy/dist/index.js:45:80)
+    at Module.getSavedHonestMode (/workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/src/store/honestModeStorage.ts:32:27)
+    at /workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/src/store/honestMode.test.ts:40:12
+    at file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/@vitest/runner/dist/index.js:146:14
+    at file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/@vitest/runner/dist/index.js:533:11
+    at runWithTimeout (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/@vitest/runner/dist/index.js:39:7)
+    at runTest (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/@vitest/runner/dist/index.js:1056:17)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+[ModeJujur] Gagal menyimpan preferensi ke localStorage: Error: QuotaExceededError: Storage quota exceeded.
+    at MockStorage.<anonymous> (/workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/src/store/honestMode.test.ts:35:13)
+    at MockStorage.mockCall (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/@vitest/spy/dist/index.js:61:17)
+    at MockStorage.setItem (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/tinyspy/dist/index.js:45:80)
+    at Module.saveHonestMode (/workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/src/store/honestModeStorage.ts:48:15)
+    at /workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/src/store/honestMode.test.ts:43:18
+    at Proxy.assertThrows (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/chai/index.js:2767:5)
+    at Proxy.methodWrapper (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/chai/index.js:1686:25)
+    at Proxy.<anonymous> (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/@vitest/expect/dist/index.js:1029:16)
+    at Proxy.overwritingMethodWrapper (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/chai/index.js:1735:33)
+    at Proxy.<anonymous> (file:///workspace/scratch/1f7ded418f78/office_environment_work/source/frontend/node_modules/@vitest/expect/dist/index.js:1509:21)
+
+ ✓ src/store/honestMode.test.ts (10 tests) 11ms
+ ✓ src/world/scene/DotComponents.test.ts (4 tests) 25ms
+ ✓ src/world/depthSort.test.ts (2 tests) 4ms
+ ✓ src/world/scene/RuntimeArtwork.test.tsx (9 tests) 10ms
+stdout | src/world/characterBenchmark.test.ts > T1.13 Acceptance Criterion 1: 16 Karakter Berjalan Bersamaan >= 60 FPS > enforces Acceptance Criterion 1: 16 karakter berjalan bersamaan tanpa penurunan FPS di bawah 60
+[Benchmark T1.13] 16 Karakter Berjalan Simultan: Rata-rata 0.0388 ms/frame (120 frame dieksekusi dalam 4.66 ms) -> Ekuivalen FPS: 25752.7 FPS (Batas anggaran frame 60 FPS: <= 16.67 ms)
+
+ ✓ src/world/characterBenchmark.test.ts (2 tests) 42ms
+ ✓ src/world/scene/ActorConsistency.test.ts (4 tests) 43ms
+ ✓ src/world/honestModeChoreographer.test.ts (3 tests) 19ms
+ ✓ src/store/officeStore.test.ts (6 tests) 5ms
+ ✓ src/world/mapLoader.test.ts (5 tests) 59ms
+ ✓ src/world/scene/FoundationWalls.test.ts (3 tests) 93ms
+ ✓ src/navigation/z08GuestLayout.test.ts (3 tests) 22ms
+ ✓ src/hud/agentInspector.test.tsx (5 tests) 30ms
+ ✓ src/world/scene/SceneCamera.test.ts (4 tests) 5ms
+ ✓ src/world/activityAnimations.test.ts (4 tests) 9ms
+ ✓ src/world/ambientActivities.test.ts (7 tests) 25ms
+ ✓ src/world/projection.test.ts (5 tests) 4ms
+ ✓ src/world/additionalCollective.test.ts (6 tests) 54ms
+ ✓ src/world/scene/DotAssets.test.ts (3 tests) 25ms
+ ✓ src/spike.test.ts (3 tests) 7ms
+ ✓ src/world/camera.test.ts (3 tests) 6ms
+ ✓ src/hud/hud.test.tsx (5 tests) 28ms
+ ✓ src/world/culling.test.ts (3 tests) 3ms
+stdout | src/bundle.test.ts > Bundle Size Acceptance Criterion > ensures initial JS bundle size <= 400 KB gzip
+Bundle JS Breakdown (gzip): [
+  { file: 'BubbleManager-XoIk9DS4.js', rawKb: 132.46, gzipKb: 43.26 },
+  { file: 'OfficeScene-B9qYlWy5.js', rawKb: 43.82, gzipKb: 15.09 },
+  { file: 'WorldApp-BVWi87VT.js', rawKb: 61.22, gzipKb: 17.51 },
+  { file: 'browserAll-DvOefc7Q.js', rawKb: 0.21, gzipKb: 0.16 },
+  { file: 'howler-Br74NEEg.js', rawKb: 35.98, gzipKb: 9.82 },
+  { file: 'index-BPGXSjoy.js', rawKb: 72.41, gzipKb: 18.18 },
+  { file: 'vendor-gsap-SFc2wnMY.js', rawKb: 68.79, gzipKb: 27.05 },
+  { file: 'vendor-pixi-Qi1s-vvT.js', rawKb: 651.38, gzipKb: 185.52 },
+  { file: 'vendor-react-qvKNXEaU.js', rawKb: 140.62, gzipKb: 45.37 },
+  { file: 'webworkerAll-DbdkKjDP.js', rawKb: 0.12, gzipKb: 0.11 }
+]
+Total initial JS raw: 1206.99 KB, gzip: 362.07 KB (Target: <= 400 KB)
+
+ ✓ src/bundle.test.ts (1 test) 43ms
+ ✓ src/world/atmosphere.test.ts (1 test) 5ms
+ ✓ src/world/scene/IllustratedAssets.test.ts (4 tests) 3ms
+ ✓ src/world/worldApp.test.ts (2 tests) 3ms
+ ✓ src/scaffold.test.ts (2 tests) 2ms
+
+ Test Files  50 passed (50)
+      Tests  356 passed (356)
+   Start at  17:21:26
+   Duration  18.88s (transform 858ms, setup 118ms, collect 7.77s, tests 3.18s, environment 8ms, prepare 2.33s)
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

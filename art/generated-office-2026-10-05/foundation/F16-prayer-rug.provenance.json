@@ -1,0 +1,24 @@
+{
+  "asset": "F16-prayer-rug",
+  "generation_date": "2026-10-05",
+  "tool": "tools.image_gen__imagegen",
+  "mode": "Built-in image generation. No CLI/API fallback.",
+  "selected_file": "generated/foundation/F16-prayer-rug.png",
+  "selected_sha256": "2e4d2dc3a0609168007fca3928dfdfe092165d5bba63849996c2c583163abd75",
+  "original_runtime_file": "/workspace/scratch/1f7ded418f78/generated_images/exec-fb125580-1d7a-455a-a5e5-d7bae259e585.png",
+  "original_sha256": "2e4d2dc3a0609168007fca3928dfdfe092165d5bba63849996c2c583163abd75",
+  "byte_for_byte_copy_verified": true,
+  "prompt_file": "F16-prayer-rug.prompt.txt",
+  "references": [],
+  "stages": [
+    {
+      "stage": "original generation",
+      "prompt": "F16-prayer-rug.prompt.txt",
+      "runtime_file": "/workspace/scratch/1f7ded418f78/generated_images/exec-fb125580-1d7a-455a-a5e5-d7bae259e585.png",
+      "selected": true
+    }
+  ],
+  "pixel_editing": "None. PNG copied byte-for-byte. Pillow/numpy used only for read-only measurements.",
+  "qa_file": "F16-prayer-rug.qa.json",
+  "status": "Source visually accepted and alpha measured; exact runtime registration tested separately. Browser visual QA not performed."
+}

@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/surfaces/F03-floor-corridor-gray.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/surfaces/F03-floor-corridor-gray.lossless.webp",
+  "sourceSha256": "9c207a8b2021075c33eac8b53988f42aaae9384a23c7222e8f4bb4feb8bba3b3",
+  "runtimeSha256": "1fa30dd024604d108abdbcf654b63601bc96f1b73529a004dee755d160a61f08",
+  "sourceDecodedRgbaSha256": "ebe3304ab891ba82a2a82288beb909311b28e00c88dca50e05435584159b9228",
+  "runtimeDecodedRgbaSha256": "ebe3304ab891ba82a2a82288beb909311b28e00c88dca50e05435584159b9228",
+  "nativeSize": [
+    1659,
+    948
+  ],
+  "sourceBytes": 993339,
+  "runtimeBytes": 664680,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

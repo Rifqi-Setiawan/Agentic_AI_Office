@@ -1,0 +1,36 @@
+{
+  "source": "/workspace/scratch/1f7ded418f78/generated_images/exec-dd2ef332-36b7-48d8-bde8-6c3a3524807c.png",
+  "destination": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/seating/office-chair-SW.png",
+  "prompt": "Use case: stylized-concept. Asset type: original transparent 2:1 dimetric office game furniture sprite. Input image 1: original charcoal upholstered office chair and exact product reference. Input image 2: accepted rear-oriented rendering of same chair used only for rendering finish and scale. Generate ONE new original rendering of this SAME charcoal office chair, facing SW: the seated person's forward direction points screen-LOWER-LEFT. We see the INSIDE FRONT of the padded backrest and the broad top seating cushion; tall backrest occupies screen-UPPER-RIGHT relative to the seat front; front seat nose projects toward screen-LOWER-LEFT. This is a front three-quarter chair view. Preserve reference 1 construction exactly: tall softly rounded upholstered backrest with separate upper cushion and three gently divided lower lumbar pads, piping seams, thick rounded charcoal-blue seat, padded armrests on charcoal metal supports, charcoal five-spoke caster base and cylinder. Match charcoal-blue color and gently textured upholstery, no wood. Fixed orthographic 2:1 DIMETRIC camera with ground axes image slopes exactly +/-0.5 and all verticals upright; no perspective convergence. Polished hand-painted soft 3D game render; diffuse top-left illumination and clean readable silhouette. Chair entirely visible and centered, generous transparent margins. Actual transparent alpha background. No sitter, floor, shadow plane, desk, room, labels, text, logo, watermark, arrows, grid, extra props, or collage. Render as original new view with physically correct global top-left lighting, no flipping or mirroring pixels.",
+  "orientation": "SW",
+  "observed_orientation": "Front three-quarter chair; inner backrest is screen-upper-right and front seat nose projects screen-lower-left. Matches SW sitter facing.",
+  "uncertainties": [
+    "Rounded cushions and caster base make exact +/-0.5 ground-axis slopes difficult to certify; visually consistent with the reference dimetric camera.",
+    "Upholstery texture is slightly lighter/more visible than generic reference at full resolution."
+  ],
+  "generator": "built-in image_gen.imagegen",
+  "original_bytes_preserved": true,
+  "sha256": "bee8a1c9b94a790e3ed46a77b45ecc1aeec4639865a27be5ab42db0b908e7a83",
+  "source_sha256": "bee8a1c9b94a790e3ed46a77b45ecc1aeec4639865a27be5ab42db0b908e7a83",
+  "canvas": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "alpha_128_bbox": [
+    596,
+    12,
+    1178,
+    878
+  ],
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "references": [
+    "generated/rooms/furniture_chair_cushion.png",
+    "generated/seating/office-chair-NE.png"
+  ],
+  "inspected": true,
+  "selection": "accepted"
+}

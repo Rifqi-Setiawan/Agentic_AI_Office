@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_test_tube_rack.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_test_tube_rack.lossless.webp",
+  "sourceSha256": "86773f602c3ecfb71dd37d76be8f55324d571572caa4b303e09b56ebd78eb303",
+  "runtimeSha256": "736a7c0d7722c02126e849a1f4f13cd72e72a3cd3b609f50852cff332989198c",
+  "sourceDecodedRgbaSha256": "7508654f4dd6f5688eabe18bbdc29f5d727a606b8c7d5beb59543df1c2ad4b9a",
+  "runtimeDecodedRgbaSha256": "7508654f4dd6f5688eabe18bbdc29f5d727a606b8c7d5beb59543df1c2ad4b9a",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 1177143,
+  "runtimeBytes": 832364,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

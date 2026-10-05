@@ -1,0 +1,98 @@
+{
+  "asset": "furniture_whiteboard",
+  "zone": "Z04",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-90cec0fd-9b3b-4ef0-874d-e11bc15de450.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_whiteboard.png",
+  "sha256": "60ef17b8906023a82d5b324610f011f688ecb829ca179568f5aa411cafca0382",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    70,
+    82,
+    1208,
+    1207
+  ],
+  "alpha_bbox_threshold_128": [
+    73,
+    85,
+    1205,
+    1204
+  ],
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_whiteboard.prompt.txt",
+  "source_atlas_sha256": "944dd62f5413d8c845ca48d1cfed8654f61b1cb48d019211ac4dbebb4d26cdf8",
+  "alpha_bbox_threshold_64": [
+    73,
+    84,
+    1205,
+    1205
+  ],
+  "alpha_qa": {
+    "nonzero_pixels": 543508,
+    "very_faint_alpha_1_to_15_pixels": 7666,
+    "solid_alpha_128_plus_pixels": 532561,
+    "notes": "Faint alpha specks may expand raw nonzero bbox. Threshold bounds are read-only QA and registration hints; no pixels were changed."
+  },
+  "geometry_review": {
+    "coordinate_system": "Original PNG pixels, x right, y down. Endpoint selections estimated visually, not mathematically exact.",
+    "axis_down_right": [
+      [
+        197,
+        122
+      ],
+      [
+        1070,
+        548
+      ]
+    ],
+    "axis_up_right": [
+      [
+        997,
+        1154
+      ],
+      [
+        1172,
+        1074
+      ]
+    ],
+    "edge_labels": [
+      "Wide top frame edge",
+      "Right foot long depth edge"
+    ],
+    "observed_slopes": {
+      "down_right": 0.487973,
+      "up_right": -0.457143
+    },
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      -0.01631,
+      0,
+      1.058072,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "[a,b,c,d,e,f]; fits ONLY selected lines using x_new=x and y_new=b*x+d*y. Use transform-origin 0 0 and recompute image/anchor bounds. This is a registration suggestion, not an applied pixel edit.",
+    "confidence": "Approximate visual QA; verify at runtime",
+    "notes": "Approximate hand-read edge endpoints after successful built-in imagegen orientation correction. Whiteboard aligns down-right, rather than the rejected first generation that faced the opposite direction. Broad top frame is a horizontal world-axis edge even though board plane is vertical."
+  },
+  "generation_history": {
+    "initial_source": "/workspace/scratch/1f7ded418f78/generated_images/exec-38af3697-ecea-4ccb-b876-78f7c4cd4435.png",
+    "initial_status": "Rejected incorrect opposite-facing board orientation",
+    "final_status": "Selected built-in imagegen edit with corrected down-right world axis",
+    "runtime_identity_correction": "Z04 uses furniture_whiteboard.png; furniture_whiteboard_formula belongs to Z06 and was not generated as classroom replacement."
+  }
+}

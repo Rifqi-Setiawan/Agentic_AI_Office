@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_green_reading_lamp.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_green_reading_lamp.lossless.webp",
+  "sourceSha256": "a3ad53713c45074b233d7fe704e05896f54e3ec10b0546e6052620c2669a2659",
+  "runtimeSha256": "f1917d722b9f96afb0e841c937b239511525e9f764b767438a34c3493bc847ea",
+  "sourceDecodedRgbaSha256": "68dd4d3ff167e02def5d90a7094c917af465b488581796c9b49f9bc2dfd4a41f",
+  "runtimeDecodedRgbaSha256": "68dd4d3ff167e02def5d90a7094c917af465b488581796c9b49f9bc2dfd4a41f",
+  "nativeSize": [
+    1312,
+    1199
+  ],
+  "sourceBytes": 497113,
+  "runtimeBytes": 303536,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

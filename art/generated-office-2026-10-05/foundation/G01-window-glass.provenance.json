@@ -1,0 +1,31 @@
+{
+  "asset": "G01-window-glass",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-5bb68c3a-b9f5-4d89-8b7a-47831899a594.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/foundation/G01-window-glass.png",
+  "sha256": "786061486c23fe73b5f75bb97ba475764054154098fafeb60f929b997d4284f7",
+  "dimensions": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    63,
+    21,
+    1712,
+    887
+  ],
+  "alpha_bbox_threshold_128": [
+    72,
+    188,
+    1702,
+    699
+  ],
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/foundation/G01-window-glass.prompt.txt",
+  "projection": "Planar front elevation for downstream architectural projection"
+}

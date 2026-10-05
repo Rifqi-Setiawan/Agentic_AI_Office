@@ -1,0 +1,137 @@
+{
+  "file": "generated/foundation/F01-floor-oak-a-v2.png",
+  "mode": "RGBA",
+  "size": [
+    1774,
+    887
+  ],
+  "bytes": 809461,
+  "sha256": "0665ad3cd46f0cfd43eaa991d0e79c5220fbe3d484981b70a52e0f96994b133c",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_counts": {
+    "transparent": 1090297,
+    "opaque": 719,
+    "partial": 482522
+  },
+  "thresholds": {
+    "1": {
+      "bbox_exclusive": [
+        146,
+        32,
+        1685,
+        831
+      ],
+      "width": 1539,
+      "height": 799,
+      "bbox_ratio": 1.9261576971214018,
+      "extrema": {
+        "top": [
+          1176.0,
+          32
+        ],
+        "right": [
+          1684,
+          516.0
+        ],
+        "bottom": [
+          1462.5,
+          830
+        ],
+        "left": [
+          146,
+          447.0
+        ]
+      }
+    },
+    "128": {
+      "bbox_exclusive": [
+        152,
+        125,
+        1623,
+        764
+      ],
+      "width": 1471,
+      "height": 639,
+      "bbox_ratio": 2.3020344287949923,
+      "extrema": {
+        "top": [
+          886.5,
+          125
+        ],
+        "right": [
+          1622,
+          443.5
+        ],
+        "bottom": [
+          886.5,
+          763
+        ],
+        "left": [
+          152,
+          443.5
+        ]
+      }
+    },
+    "254": {
+      "bbox_exclusive": [
+        162,
+        136,
+        1621,
+        756
+      ],
+      "width": 1459,
+      "height": 620,
+      "bbox_ratio": 2.3532258064516127,
+      "extrema": {
+        "top": [
+          860.0,
+          136
+        ],
+        "right": [
+          1620,
+          443.0
+        ],
+        "bottom": [
+          872.5,
+          755
+        ],
+        "left": [
+          162,
+          440.0
+        ]
+      }
+    },
+    "255": {
+      "bbox_exclusive": [
+        163,
+        147,
+        1621,
+        744
+      ],
+      "width": 1458,
+      "height": 597,
+      "bbox_ratio": 2.442211055276382,
+      "extrema": {
+        "top": [
+          936.5,
+          147
+        ],
+        "right": [
+          1620,
+          443.0
+        ],
+        "bottom": [
+          930.0,
+          743
+        ],
+        "left": [
+          163,
+          448.0
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_blueprint_table.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_blueprint_table.lossless.webp",
+  "sourceSha256": "093f5ac864d6bdf0cb2ba870b8234a827e63d08105acd30d9aa5f5f3fc18853c",
+  "runtimeSha256": "fd78ff0f7190ef8a158897cc42909f0339f3bba4456cd0a82345b25835a87618",
+  "sourceDecodedRgbaSha256": "e9e91ee599fb132aadaaec47db3ae194c208fc355363688210d2eb2333fd97c2",
+  "runtimeDecodedRgbaSha256": "e9e91ee599fb132aadaaec47db3ae194c208fc355363688210d2eb2333fd97c2",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1803031,
+  "runtimeBytes": 1100082,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

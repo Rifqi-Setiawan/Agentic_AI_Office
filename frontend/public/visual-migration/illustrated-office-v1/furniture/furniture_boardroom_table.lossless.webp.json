@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_boardroom_table.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_boardroom_table.lossless.webp",
+  "sourceSha256": "5ad9f3984dfda7af7afc17c4508cb48d142a47805da010504593bf04cae4e576",
+  "runtimeSha256": "fa8e75f814ded655d584db7822f7687d4b3d86e2a3d0c6d7c1161418f64e1e25",
+  "sourceDecodedRgbaSha256": "ab40d492fb878bf5767e8f6253706e988a0bd8acd23497dd7ff2c6dd37c6011b",
+  "runtimeDecodedRgbaSha256": "ab40d492fb878bf5767e8f6253706e988a0bd8acd23497dd7ff2c6dd37c6011b",
+  "nativeSize": [
+    1774,
+    887
+  ],
+  "sourceBytes": 983980,
+  "runtimeBytes": 655380,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

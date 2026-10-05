@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_microscope.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_microscope.lossless.webp",
+  "sourceSha256": "047d620189fdc455d52e522136548916965fab372d3e0d582101ff23da60dbee",
+  "runtimeSha256": "2eaec075881a8479ca901f60d4c83814c45fe6613c49c68cef6a440bb530d014",
+  "sourceDecodedRgbaSha256": "381cd5a3e44505457ee15486be336d610db95f300ec35297cb4c6ee759fc06c0",
+  "runtimeDecodedRgbaSha256": "381cd5a3e44505457ee15486be336d610db95f300ec35297cb4c6ee759fc06c0",
+  "nativeSize": [
+    1374,
+    1145
+  ],
+  "sourceBytes": 1052897,
+  "runtimeBytes": 640048,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

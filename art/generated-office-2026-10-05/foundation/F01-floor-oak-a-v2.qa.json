@@ -1,0 +1,204 @@
+{
+  "file": "generated/foundation/F01-floor-oak-a-v2.png",
+  "mode": "RGBA",
+  "size": [
+    1774,
+    887
+  ],
+  "bytes": 827558,
+  "sha256": "3978a78cb19bb1446d9d07ef9aff7b84dd701a3e866f2ff20d93f579244e105e",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_counts": {
+    "transparent": 1040145,
+    "opaque": 838,
+    "partial": 532555
+  },
+  "thresholds": {
+    "1": {
+      "bbox_exclusive": [
+        156,
+        39,
+        1655,
+        815
+      ],
+      "width": 1499,
+      "height": 776,
+      "bbox_ratio": 1.931701030927835,
+      "extrema": {
+        "top": [
+          1088.0,
+          39
+        ],
+        "right": [
+          1654,
+          351.5
+        ],
+        "bottom": [
+          1162.0,
+          814
+        ],
+        "left": [
+          156,
+          443.5
+        ]
+      }
+    },
+    "128": {
+      "bbox_exclusive": [
+        159,
+        85,
+        1612,
+        805
+      ],
+      "width": 1453,
+      "height": 720,
+      "bbox_ratio": 2.0180555555555557,
+      "extrema": {
+        "top": [
+          886.5,
+          85
+        ],
+        "right": [
+          1611,
+          444.5
+        ],
+        "bottom": [
+          886.5,
+          804
+        ],
+        "left": [
+          159,
+          443.5
+        ]
+      }
+    },
+    "254": {
+      "bbox_exclusive": [
+        161,
+        86,
+        1611,
+        804
+      ],
+      "width": 1450,
+      "height": 718,
+      "bbox_ratio": 2.01949860724234,
+      "extrema": {
+        "top": [
+          886.5,
+          86
+        ],
+        "right": [
+          1610,
+          445.0
+        ],
+        "bottom": [
+          886.5,
+          803
+        ],
+        "left": [
+          161,
+          443.0
+        ]
+      }
+    },
+    "255": {
+      "bbox_exclusive": [
+        161,
+        86,
+        1611,
+        804
+      ],
+      "width": 1450,
+      "height": 718,
+      "bbox_ratio": 2.01949860724234,
+      "extrema": {
+        "top": [
+          886.5,
+          86
+        ],
+        "right": [
+          1610,
+          445.0
+        ],
+        "bottom": [
+          886.5,
+          803
+        ],
+        "left": [
+          161,
+          443.0
+        ]
+      }
+    }
+  },
+  "fitted_edges": {
+    "NW": {
+      "slope": -0.4908625142823839,
+      "intercept": 519.5313477448096,
+      "rmse_px": 0.6394133659065069,
+      "max_abs_residual_px": 1.5132303116205321
+    },
+    "NE": {
+      "slope": 0.4959518818115836,
+      "intercept": -356.43166017749763,
+      "rmse_px": 0.8208107136139596,
+      "max_abs_residual_px": 1.8276869151954998
+    },
+    "SW": {
+      "slope": 0.4951528300064552,
+      "intercept": 364.5465679204021,
+      "rmse_px": 0.356472680867054,
+      "max_abs_residual_px": 0.9329586442981963
+    },
+    "SE": {
+      "slope": -0.49461694675929696,
+      "intercept": 1241.6133421130658,
+      "rmse_px": 0.46912842047705877,
+      "max_abs_residual_px": 1.2296928823407143
+    }
+  },
+  "alpha_most_common": [
+    {
+      "alpha": 0,
+      "count": 1040145
+    },
+    {
+      "alpha": 253,
+      "count": 500145
+    },
+    {
+      "alpha": 252,
+      "count": 12576
+    },
+    {
+      "alpha": 254,
+      "count": 3126
+    },
+    {
+      "alpha": 1,
+      "count": 2467
+    },
+    {
+      "alpha": 251,
+      "count": 1992
+    }
+  ],
+  "inner_diamond_alpha": {
+    "min": 252,
+    "max": 254,
+    "mean": 253.0042565164813,
+    "zero_count": 0,
+    "below_128_count": 0
+  },
+  "assessment": {
+    "material": "Polished warm honey oak, flat illustrated plane; visually coherent with Z08 oak palette.",
+    "transparency": "Actual alpha. Majority interior alpha 253, not fully opaque. Weak isolated speckles beyond dominant silhouette.",
+    "geometry": "Near-2:1 symmetric footprint, not exact. Native registration/clip required before strict 128x64 sprite acceptance.",
+    "plank_axis": "Visible long plank seams follow rising-right screen direction (negative slope), although requested +R positive slope.",
+    "repeat_seam_qa": "Not performed; edge continuity not accepted solely from this single source.",
+    "runtime_status": "Not installed or packed; source/manifests unchanged."
+  }
+}

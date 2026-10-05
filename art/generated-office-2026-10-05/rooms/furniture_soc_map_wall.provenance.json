@@ -1,0 +1,78 @@
+{
+  "asset": "furniture_soc_map_wall",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-ebc7c591-665d-4913-b944-646f98752add.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_soc_map_wall.png",
+  "source_original_sha256": "70106768612ff9d4fd2e06ce9e5d3465d80f722dff9e4e50f79082f340bbe8b8",
+  "sha256": "70106768612ff9d4fd2e06ce9e5d3465d80f722dff9e4e50f79082f340bbe8b8",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    0,
+    21,
+    1218,
+    1212
+  ],
+  "alpha_bbox_threshold_128": [
+    172,
+    93,
+    1080,
+    1182
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_soc_map_wall.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        259,
+        108
+      ],
+      [
+        1041,
+        495
+      ]
+    ],
+    "axis_up_right": [
+      [
+        949,
+        1161
+      ],
+      [
+        1060,
+        1098
+      ]
+    ],
+    "observed_slopes": {
+      "down_right": 0.4948849104859335,
+      "up_right": -0.5675675675675675
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.03420513320971996,
+      0,
+      0.9412185680361731,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Freestanding charcoal display with 10 abstract nodes including two amber alert nodes, no text. Main long frame edge visually close to +0.5; foot depth estimated."
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "asset": "furniture_blueprint_table",
+  "zone": "Z03",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-818eba61-c23c-44e7-b9d2-8e714a2fe8d7.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_blueprint_table.png",
+  "sha256": "093f5ac864d6bdf0cb2ba870b8234a827e63d08105acd30d9aa5f5f3fc18853c",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_bbox": [
+    105,
+    17,
+    1522,
+    993
+  ],
+  "alpha_bbox_threshold_128": [
+    212,
+    23,
+    1282,
+    991
+  ],
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_blueprint_table.prompt.txt",
+  "source_atlas_sha256": "944dd62f5413d8c845ca48d1cfed8654f61b1cb48d019211ac4dbebb4d26cdf8",
+  "alpha_bbox_threshold_64": [
+    212,
+    22,
+    1283,
+    991
+  ],
+  "alpha_qa": {
+    "nonzero_pixels": 519617,
+    "very_faint_alpha_1_to_15_pixels": 13907,
+    "solid_alpha_128_plus_pixels": 501755,
+    "notes": "Faint alpha specks may expand raw nonzero bbox. Threshold bounds are read-only QA and registration hints; no pixels were changed."
+  },
+  "geometry_review": {
+    "coordinate_system": "Original PNG pixels, x right, y down. Endpoint selections estimated visually, not mathematically exact.",
+    "axis_down_right": [
+      [
+        354,
+        698
+      ],
+      [
+        1017,
+        964
+      ]
+    ],
+    "axis_up_right": [
+      [
+        1017,
+        964
+      ],
+      [
+        1221,
+        822
+      ]
+    ],
+    "edge_labels": [
+      "Left-front foot center to right-front foot center",
+      "Right-front foot center to right-back foot center"
+    ],
+    "observed_slopes": {
+      "down_right": 0.401207,
+      "up_right": -0.696078
+    },
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.134364,
+      0,
+      0.91134,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "[a,b,c,d,e,f]; fits ONLY selected lines using x_new=x and y_new=b*x+d*y. Use transform-origin 0 0 and recompute image/anchor bounds. This is a registration suggestion, not an applied pixel edit.",
+    "confidence": "Approximate visual QA; verify at runtime",
+    "notes": "Approximate support-foot centers, moderate-to-low confidence. Use base/supports rather than the drawing-surface short edge, because this is intentionally a tilted drafting table. Ground footprint is inferred from feet; not pixel-perfect measured construction geometry."
+  }
+}

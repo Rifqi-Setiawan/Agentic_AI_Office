@@ -1,0 +1,34 @@
+{
+  "asset": "furniture_lounge_sofa",
+  "zone": "shared",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-6a79e4b6-4bdb-4fef-bc2d-c17333627d9a.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_lounge_sofa.png",
+  "sha256": "fac291b842d6dfc73c5c970483b713fa6e06ccfcf4f9f65da51db7c5108ccd17",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_bbox": [
+    0,
+    21,
+    1516,
+    995
+  ],
+  "alpha_bbox_threshold_128": [
+    131,
+    84,
+    1409,
+    992
+  ],
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_lounge_sofa.prompt.txt",
+  "source_atlas_sha256": "944dd62f5413d8c845ca48d1cfed8654f61b1cb48d019211ac4dbebb4d26cdf8"
+}

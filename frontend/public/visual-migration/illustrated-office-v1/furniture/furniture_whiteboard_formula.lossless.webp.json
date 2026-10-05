@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_whiteboard_formula.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_whiteboard_formula.lossless.webp",
+  "sourceSha256": "a16748b2f3982849717f796ed82bd53dbd1e9a5cf6ed145eba663ec7b8b9e948",
+  "runtimeSha256": "e3254c54a3712af8e5925f4ce5449e29159d7d84dd78f98ee978a04b78214ed2",
+  "sourceDecodedRgbaSha256": "f6cd32722642981a60d2f51e25b89175b9780840dd952b36347e3d01c00584af",
+  "runtimeDecodedRgbaSha256": "f6cd32722642981a60d2f51e25b89175b9780840dd952b36347e3d01c00584af",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 805604,
+  "runtimeBytes": 501100,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

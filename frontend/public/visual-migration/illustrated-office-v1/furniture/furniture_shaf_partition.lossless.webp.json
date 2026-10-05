@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_shaf_partition.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_shaf_partition.lossless.webp",
+  "sourceSha256": "7faf0c9c03d393c7862fb435edbf2aaff9ae055dfb371476df9fa4ab9074c1a3",
+  "runtimeSha256": "034c1662b9c77c7520390e042a506d76c6681d30db286ce85b70c039d0f52330",
+  "sourceDecodedRgbaSha256": "04887d73350f3e16705b9af67c1c25d3e37098e09c4d6d580bbc78dd3c5fbad0",
+  "runtimeDecodedRgbaSha256": "04887d73350f3e16705b9af67c1c25d3e37098e09c4d6d580bbc78dd3c5fbad0",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1759602,
+  "runtimeBytes": 1028936,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

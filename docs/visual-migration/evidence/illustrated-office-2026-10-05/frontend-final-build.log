@@ -1,0 +1,34 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> office-v2-frontend@2.0.0 build
+> tsc && vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 850 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                          1.20 kB │ gzip:   0.58 kB
+dist/assets/OfficeScene-CEhQNPj9.css     6.24 kB │ gzip:   2.06 kB
+dist/assets/index-Dd1vFtXT.css          34.39 kB │ gzip:   6.54 kB
+dist/assets/webworkerAll-DbdkKjDP.js     0.12 kB │ gzip:   0.11 kB
+dist/assets/browserAll-DvOefc7Q.js       0.21 kB │ gzip:   0.17 kB
+dist/assets/howler-Br74NEEg.js          36.85 kB │ gzip:  10.09 kB
+dist/assets/OfficeScene-DyrFyXFp.js     45.61 kB │ gzip:  15.68 kB
+dist/assets/WorldApp-DuXIEvuk.js        62.67 kB │ gzip:  17.99 kB
+dist/assets/vendor-gsap-SFc2wnMY.js     70.44 kB │ gzip:  27.81 kB
+dist/assets/index-pgNEIYJy.js           74.05 kB │ gzip:  18.67 kB
+dist/assets/BubbleManager-NLzqtY9S.js  135.64 kB │ gzip:  44.40 kB
+dist/assets/vendor-react-qvKNXEaU.js   143.99 kB │ gzip:  46.53 kB
+dist/assets/vendor-pixi-Qi1s-vvT.js    667.01 kB │ gzip: 190.45 kB
+
+(!) Some chunks are larger than 600 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 11.23s
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

@@ -1,0 +1,9 @@
+Use case: stylized-concept.
+Asset type: ONE isolated complete furniture sprite for a refined 2D office simulator.
+Style/medium: genuinely hand-illustrated, clean slender dark ink contours, smooth flat cel shading with gentle painted texture; warm oak, matte charcoal, pale warm stone and restrained muted cyan vocabulary. NOT pixel art, NOT a 3D render, NOT photorealistic.
+CRITICAL GEOMETRY: strict orthographic 2:1 DIMETRIC, fixed elevated game camera. A horizontal square footprint projects to a diamond exactly twice as wide as high. World x and y vectors on screen are (2,1) and (-2,1). ALL horizontal structural lines follow slopes +0.5 and -0.5; absolutely no near-horizontal 3/4 perspective. Upright verticals stay perfectly vertical, no convergence or lens distortion. Front and right sides visible. Lighting is top-left, lighter tops, calm darker side planes.
+Composition: one coherent complete object centered with generous transparent padding; show all components including bases and feet entirely within canvas. Detailed enough to be attractive but readable as a small game sprite.
+Background: true alpha transparency everywhere outside the object and in open gaps. No glow, no haze, no floor shadow, no vignette, no ground, no room, no floor tile, no display platform.
+Avoid: people, characters, readable text, letters, numerals, labels, logos, watermarks, added props, religious symbols, scripture or calligraphy.
+
+Subject: One tropical broadleaf plant with a modest lush cluster of large deep-green leaves on simple stems, growing in one matte charcoal square planter. Refined 2D painted leaf shapes with slender ink outlines and restrained highlights. Planter top follows exact dimetric axes. Entire leaf tips and planter fully visible, no scattered leaves or decoration.

@@ -1,0 +1,9 @@
+/workspace/scratch/1f7ded418f78/office_environment_work/source/scripts/compare_scene.py:23: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed = sum(max(pixel) > 8 for pixel in diff.getdata())
+.....................................................
+----------------------------------------------------------------------
+Ran 53 tests in 1.638s
+
+OK
+{"reference_sha256": "f8478943f5fb1b9920795023a9301889cf9b2e119d5e705f2b1b0861ba18ff24", "candidate_sha256": "83973cae92e8985832e850374e4dd561317af8687c63307775b6cb525344281c", "masks": [{"x": 0, "y": 0, "width": 8, "height": 8}], "reference_size": [64, 64], "candidate_size": [64, 64], "passed": true, "changed_pixels": 0, "total_pixels": 4096, "channel_tolerance": 8}
+{"reference_sha256": "f8478943f5fb1b9920795023a9301889cf9b2e119d5e705f2b1b0861ba18ff24", "candidate_sha256": "f4a4149544859bc065eccbfe9cf7153e4856512a3d792b0f290c9816156f52cd", "masks": [{"x": 0, "y": 0, "width": 8, "height": 8}], "reference_size": [64, 64], "candidate_size": [64, 64], "passed": false, "changed_pixels": 1, "total_pixels": 4096, "channel_tolerance": 8}

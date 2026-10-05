@@ -1,0 +1,263 @@
+{
+  "sources": [
+    {
+      "assetId": "F01",
+      "file": "/visual-migration/illustrated-office-v1/surfaces/F01-floor-oak-a-v2.png",
+      "sourceFile": "F01-floor-oak-a-v2.png",
+      "sourceSha256": "3978a78cb19bb1446d9d07ef9aff7b84dd701a3e866f2ff20d93f579244e105e",
+      "sourceSize": {
+        "width": 1774,
+        "height": 887
+      },
+      "sourceQuad": [
+        [
+          887.6674391755583,
+          83.80867670448998
+        ],
+        [
+          1613.2599332810669,
+          443.66763958447734
+        ],
+        [
+          886.1321034257426,
+          803.3173866912314
+        ],
+        [
+          157.18292896972096,
+          442.37614002846306
+        ]
+      ],
+      "sourceCopiedByteIdentical": true,
+      "sourcePixelsEdited": false,
+      "mirrored": false,
+      "floorCells": 1082,
+      "repeatTiles": 4,
+      "underlayColor": "#f0b961",
+      "sourceMeasurementFile": "F01-floor-oak-a-v2.qa.json"
+    },
+    {
+      "assetId": "F03",
+      "file": "/visual-migration/illustrated-office-v1/surfaces/F03-floor-corridor-gray.png",
+      "sourceFile": "F03-floor-corridor-gray.png",
+      "sourceSha256": "9c207a8b2021075c33eac8b53988f42aaae9384a23c7222e8f4bb4feb8bba3b3",
+      "sourceSize": {
+        "width": 1659,
+        "height": 948
+      },
+      "sourceQuad": [
+        [
+          828.1338,
+          148.891
+        ],
+        [
+          1538.9291,
+          481.401
+        ],
+        [
+          826.1129,
+          851.9942
+        ],
+        [
+          117.1444,
+          479.8566
+        ]
+      ],
+      "sourceCopiedByteIdentical": true,
+      "sourcePixelsEdited": false,
+      "mirrored": false,
+      "floorCells": 176,
+      "repeatTiles": 4,
+      "underlayColor": "#898d92",
+      "sourceMeasurementFile": "F03-floor-corridor-gray.qa.json"
+    },
+    {
+      "assetId": "F04",
+      "file": "/visual-migration/illustrated-office-v1/surfaces/F04-floor-outdoor-stone.png",
+      "sourceFile": "F04-floor-outdoor-stone.png",
+      "sourceSha256": "d9920089523c968b242d7a1fcb82cdad612b44a8d7bbda48cf34bed6296852e1",
+      "sourceSize": {
+        "width": 1659,
+        "height": 948
+      },
+      "sourceQuad": [
+        [
+          829.1432,
+          163.87
+        ],
+        [
+          1468.719,
+          472.4653
+        ],
+        [
+          829.4889,
+          787.4779
+        ],
+        [
+          189.2602,
+          472.9335
+        ]
+      ],
+      "sourceCopiedByteIdentical": true,
+      "sourcePixelsEdited": false,
+      "mirrored": false,
+      "floorCells": 45,
+      "repeatTiles": 4,
+      "underlayColor": "#c5bdb3",
+      "sourceMeasurementFile": "F04-floor-outdoor-stone.qa.json"
+    },
+    {
+      "assetId": "O01",
+      "file": "/visual-migration/illustrated-office-v1/surfaces/O01-pool-water.png",
+      "sourceFile": "O01-pool-water.png",
+      "sourceSha256": "7bdb047cc4e793fd04c46e8f42f4f0d661befd1a5c890f0e846e1bb91dd2dcf2",
+      "sourceSize": {
+        "width": 1660,
+        "height": 948
+      },
+      "sourceQuad": [
+        [
+          831.7255,
+          131.7235
+        ],
+        [
+          1572.5523,
+          476.8006
+        ],
+        [
+          828.2072,
+          835.5005
+        ],
+        [
+          86.5247,
+          476.1553
+        ]
+      ],
+      "sourceCopiedByteIdentical": true,
+      "sourcePixelsEdited": false,
+      "mirrored": false,
+      "floorCells": 25,
+      "repeatTiles": 4,
+      "underlayColor": "#46c0c9",
+      "sourceMeasurementFile": "O01-pool-water.qa.json"
+    },
+    {
+      "assetId": "F16",
+      "file": "/visual-migration/illustrated-office-v1/surfaces/F16-prayer-rug.png",
+      "sourceFile": "F16-prayer-rug.png",
+      "sourceSha256": "2e4d2dc3a0609168007fca3928dfdfe092165d5bba63849996c2c583163abd75",
+      "sourceSize": {
+        "width": 1774,
+        "height": 887
+      },
+      "sourceQuad": [
+        [
+          886.257424,
+          18.191687
+        ],
+        [
+          1760.698098,
+          443.475909
+        ],
+        [
+          888.0781,
+          872.05624
+        ],
+        [
+          10.558965,
+          442.450952
+        ]
+      ],
+      "sourceCopiedByteIdentical": true,
+      "sourcePixelsEdited": false,
+      "mirrored": false,
+      "floorCells": 0,
+      "repeatTiles": 1,
+      "underlayColor": "#5e7a6f",
+      "sourceMeasurementFile": "F16-prayer-rug.qa.json",
+      "overlayCells": 14,
+      "canonicalOverlayCells": [
+        {
+          "gx": 30,
+          "gy": 27
+        },
+        {
+          "gx": 31,
+          "gy": 27
+        },
+        {
+          "gx": 32,
+          "gy": 27
+        },
+        {
+          "gx": 33,
+          "gy": 27
+        },
+        {
+          "gx": 34,
+          "gy": 27
+        },
+        {
+          "gx": 35,
+          "gy": 27
+        },
+        {
+          "gx": 36,
+          "gy": 27
+        },
+        {
+          "gx": 30,
+          "gy": 29
+        },
+        {
+          "gx": 31,
+          "gy": 29
+        },
+        {
+          "gx": 32,
+          "gy": 29
+        },
+        {
+          "gx": 33,
+          "gy": 29
+        },
+        {
+          "gx": 34,
+          "gy": 29
+        },
+        {
+          "gx": 35,
+          "gy": 29
+        },
+        {
+          "gx": 36,
+          "gy": 29
+        }
+      ],
+      "overlaySprites": [
+        "furniture_prayer_rug_shaf.png"
+      ],
+      "underlyingBaseFloorPreserved": true,
+      "legacyOverlayRepainted": false
+    }
+  ],
+  "projection": "2:1 dimetric",
+  "tileLogical": [
+    64,
+    32
+  ],
+  "worldOrigin": [
+    1088,
+    64
+  ],
+  "registrationMethod": "runtime canvas affine triangles with exact outer clip",
+  "sourcePixelsEdited": false,
+  "logicalLayoutChanged": false,
+  "renderedGroundCells": 1328,
+  "preservedZ08FloorCells": 80,
+  "lowFurnitureRestoredFromAtlas": true,
+  "renderedOverlayCells": 14,
+  "legacyPrayerRugsRestoredFromAtlas": false,
+  "redundantBakedWaterReplacedBy": "O01",
+  "browserQA": false,
+  "repeatedSeamVisualQA": false
+}

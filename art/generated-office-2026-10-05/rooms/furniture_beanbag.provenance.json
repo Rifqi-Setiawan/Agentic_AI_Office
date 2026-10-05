@@ -1,0 +1,37 @@
+{
+  "asset": "furniture_beanbag",
+  "zone": "shared/social/CEO",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-0a453cb3-4275-4447-87a7-224d3d9fdf32.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_beanbag.png",
+  "source_original_sha256": "6861b1a95e5deb1fadaa4a15c6d3bbb2b46875a40ecc3fabdba50ee7af9352c5",
+  "sha256": "6861b1a95e5deb1fadaa4a15c6d3bbb2b46875a40ecc3fabdba50ee7af9352c5",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_bbox": [
+    0,
+    20,
+    1458,
+    1000
+  ],
+  "alpha_bbox_threshold_128": [
+    354,
+    112,
+    1192,
+    915
+  ],
+  "transparent_zero_alpha_pixels": 1087459,
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_beanbag.prompt.txt",
+  "geometry_caveats": "Organic rounded shape offers no straight ground-plane edges to validate exact \u00b10.5 axes. Elevated view is visually compatible; original low-alpha teal edge/lighting haze is retained.",
+  "visual_review": "Complete isolated object, matching charcoal/oak/teal illustrated style, no visible lettering or other furniture. Original alpha channel is preserved."
+}

@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_trashcan.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_trashcan.lossless.webp",
+  "sourceSha256": "c5ed656126949929a5a54a63509577f99ea33cf1ca66191ba4edda765b68b6f0",
+  "runtimeSha256": "24264a8ea68c55ca656af6e4770b96247b7c9efc28a54fba53a9bbbde760829d",
+  "sourceDecodedRgbaSha256": "4f33dfe56de490ced36505185278c97341af8f8ae19e2996b343016a7879ed53",
+  "runtimeDecodedRgbaSha256": "4f33dfe56de490ced36505185278c97341af8f8ae19e2996b343016a7879ed53",
+  "nativeSize": [
+    1268,
+    1241
+  ],
+  "sourceBytes": 590975,
+  "runtimeBytes": 345062,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

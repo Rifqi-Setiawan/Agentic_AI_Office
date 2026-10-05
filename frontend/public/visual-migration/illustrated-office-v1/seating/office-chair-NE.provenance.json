@@ -1,0 +1,34 @@
+{
+  "source": "/workspace/scratch/1f7ded418f78/generated_images/exec-2b6140b0-36b8-4182-bf35-22727be94655.png",
+  "destination": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/seating/office-chair-NE.png",
+  "prompt": "Use case: stylized-concept. Asset type: original transparent 2:1 dimetric office game furniture sprite. Reference image: the supplied charcoal upholstered office chair is the exact product/family and rendering-style reference. Create ONE new original rendering of this SAME chair, rotated in physical 3D so the seated person's forward direction is NE, screen-UPPER-RIGHT. Important orientation: we see the OUTSIDE REAR back shell toward screen-LOWER-LEFT, while the seat's front nose is on the far screen-UPPER-RIGHT side, partially occluded by the tall rear back shell. Do NOT show the large upholstered inner/front face of the backrest toward the camera. Show a rear three-quarter view, not a front view, with the near back shell spanning the lower-left side. Preserve exact construction: tall softly rounded segmented charcoal-blue upholstered backrest with piped seams; matching thick charcoal seat and arm pads; charcoal metal arm supports; charcoal five-spoke caster base and cylinder; no oak since the reference has no oak. Use fixed orthographic 2:1 DIMETRIC camera: horizontal ground axes slope exactly +/-0.5 in image space; all verticals upright; do not change camera with orientation. Polished hand-painted soft 3D game asset with crisp readable silhouette and gently textured upholstery, diffuse top-left light. Entire chair fully visible, centered, generous transparent margins. Transparent alpha background with no ground/floor/contact-shadow plane. No people, desk, room, letters, arrows, labels, logos, watermark, grid, extra objects, or collage. This is a distinct physical orientation, never a 2D flip/mirror of reference.",
+  "orientation": "NE",
+  "observed_orientation": "Rear three-quarter chair; rear shell occupies screen-lower-left side relative to seat front, which projects screen-upper-right. Matches NE sitter facing.",
+  "uncertainties": [
+    "The dimetric camera is visually consistent with 2:1 axes, but exact slope cannot be established from rounded cushions and five-spoke caster base.",
+    "Rear upholstery panel seams are generated interpretation of unseen reference back."
+  ],
+  "generator": "built-in image_gen.imagegen",
+  "original_bytes_preserved": true,
+  "sha256": "6aeae462cfeb76105f4f202b38589b413469291fd8670cf26d7614df6c942db7",
+  "source_sha256": "6aeae462cfeb76105f4f202b38589b413469291fd8670cf26d7614df6c942db7",
+  "canvas": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "alpha_128_bbox": [
+    579,
+    11,
+    1233,
+    877
+  ],
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "reference": "generated/rooms/furniture_chair_cushion.png",
+  "reference_sha256": "c3c188a35d30af14740f0913f8265cef49d502b6cd4b053c917c4ab08d2e008d",
+  "inspected": true,
+  "selection": "accepted"
+}

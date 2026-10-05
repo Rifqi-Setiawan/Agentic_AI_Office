@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_umbrella.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_umbrella.lossless.webp",
+  "sourceSha256": "8ef974e2e430eda3ea0a56a0893098843bb6f932fde1dad9f44682b4224e2e22",
+  "runtimeSha256": "5714bda332aacd8cf4457a847f5aa4d2cef5cf35bf38e759f59b2c8fd6aa2830",
+  "sourceDecodedRgbaSha256": "249c775ceb538ca6a9ebd0a3ee06ea2a2cb57714171e221a856e7b42684b90c6",
+  "runtimeDecodedRgbaSha256": "249c775ceb538ca6a9ebd0a3ee06ea2a2cb57714171e221a856e7b42684b90c6",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1328025,
+  "runtimeBytes": 792854,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

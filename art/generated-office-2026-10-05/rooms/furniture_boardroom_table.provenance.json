@@ -1,0 +1,92 @@
+{
+  "asset": "furniture_boardroom_table",
+  "zone": "Z02",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-988bc95b-a4d9-4faa-8027-c7077a9f7d52.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_boardroom_table.png",
+  "sha256": "5ad9f3984dfda7af7afc17c4508cb48d142a47805da010504593bf04cae4e576",
+  "dimensions": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    17,
+    20,
+    1758,
+    877
+  ],
+  "alpha_bbox_threshold_128": [
+    20,
+    74,
+    1755,
+    875
+  ],
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_boardroom_table.prompt.txt",
+  "source_atlas_sha256": "944dd62f5413d8c845ca48d1cfed8654f61b1cb48d019211ac4dbebb4d26cdf8",
+  "alpha_bbox_threshold_64": [
+    20,
+    74,
+    1755,
+    875
+  ],
+  "alpha_qa": {
+    "nonzero_pixels": 558026,
+    "very_faint_alpha_1_to_15_pixels": 9309,
+    "solid_alpha_128_plus_pixels": 545215,
+    "notes": "Faint alpha specks may expand raw nonzero bbox. Threshold bounds are read-only QA and registration hints; no pixels were changed."
+  },
+  "geometry_review": {
+    "coordinate_system": "Original PNG pixels, x right, y down. Endpoint selections estimated visually, not mathematically exact.",
+    "axis_down_right": [
+      [
+        20,
+        218
+      ],
+      [
+        1386,
+        721
+      ]
+    ],
+    "axis_up_right": [
+      [
+        1386,
+        721
+      ],
+      [
+        1753,
+        560
+      ]
+    ],
+    "edge_labels": [
+      "Front long tabletop edge",
+      "Right short tabletop edge"
+    ],
+    "observed_slopes": {
+      "down_right": 0.368228,
+      "up_right": -0.438692
+    },
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.043662,
+      0,
+      1.239279,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "[a,b,c,d,e,f]; fits ONLY selected lines using x_new=x and y_new=b*x+d*y. Use transform-origin 0 0 and recompute image/anchor bounds. This is a registration suggestion, not an applied pixel edit.",
+    "confidence": "Approximate visual QA; verify at runtime",
+    "notes": "Approximate hand-read tabletop corners. Opposite back long edge from [335,74] to [1753,560] has slope about 0.343 versus selected front 0.368: image is not mathematically orthographic. Fit gives selected edges exactly 2:1 but other edges retain small residuals."
+  }
+}

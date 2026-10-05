@@ -1,0 +1,74 @@
+{
+  "asset": "furniture_pool_lounger.png",
+  "zone": "Z17",
+  "relative_path": "generated/rooms/furniture_pool_lounger.png",
+  "generation_mode": "built-in image_gen.imagegen",
+  "transparent_background_requested": true,
+  "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-0030e3f5-f78a-42c4-8cd4-2dd4f888af69.png",
+  "sha256": "fd21da66fee502b28d4e1e77fec318e8cf6e558f04812eca1a3b4f76177d1294",
+  "matches_original_bytes": true,
+  "prompt_file": "furniture_pool_lounger.prompt.txt",
+  "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One elegant outdoor poolside lounger with a warm teak frame, pale cream upholstered cushions, a gently raised backrest and slim teak legs. Crisp dimensional illustrated wood edges, restrained seams, long relaxed low profile. Complete single lounger only, no pillow, no towel, no pool, no water, no deck, no umbrella, no surrounding objects.",
+  "style_references_inspected": [
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+  ],
+  "dimensions": {
+    "width": 1536,
+    "height": 1024
+  },
+  "mode": "RGBA",
+  "alpha": {
+    "range": [
+      0,
+      254
+    ],
+    "zero_pixels": 1026913,
+    "alpha_one_pixels": 6205,
+    "nonzero_bbox": [
+      44,
+      34,
+      1505,
+      999
+    ],
+    "visible_bbox_alpha_gt_1": [
+      47,
+      34,
+      1502,
+      999
+    ],
+    "visible_bbox_alpha_gt_8": [
+      47,
+      36,
+      1499,
+      997
+    ],
+    "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+    "zero_fraction": 0.6528937021891276
+  },
+  "registration_hint": {
+    "visual_bbox": [
+      47,
+      34,
+      1502,
+      999
+    ],
+    "threshold": ">1",
+    "bbox_width": 1455,
+    "bbox_height": 965,
+    "visual_center_x": 774.5,
+    "visual_bottom_y": 999,
+    "source_width_to_visible_width": 1.0556701030927835,
+    "source_height_to_visible_height": 1.061139896373057,
+    "pixel_cropping_performed": false
+  },
+  "visual_qa": {
+    "complete_object": true,
+    "no_people": true,
+    "no_legible_text": true,
+    "no_floor_or_room": true,
+    "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+    "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+    "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "asset": "furniture_stamp_desk.png",
+  "zone": "Z10",
+  "relative_path": "generated/rooms/furniture_stamp_desk.png",
+  "generation_mode": "built-in image_gen.imagegen",
+  "transparent_background_requested": true,
+  "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-c02f361c-48c6-4f0f-9125-9fca9258c4a5.png",
+  "sha256": "3396ea958d4e5afc6aa3dd16f9088685a03699127222f9b3355a6ce62c050af0",
+  "matches_original_bytes": true,
+  "prompt_file": "furniture_stamp_desk.prompt.txt",
+  "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One release packing and stamping desk: a compact sturdy rectangular honey-oak packing desk with charcoal legs, one lower storage shelf, a small charcoal rubber stamp with cyan grip, a single closed tan parcel and neatly stacked cream packing sheets on the tabletop. Each accessory is simple and contained within the desk footprint. No labels, shipping marks or words, no chair.",
+  "style_references_inspected": [
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+  ],
+  "dimensions": {
+    "width": 1536,
+    "height": 1024
+  },
+  "mode": "RGBA",
+  "alpha": {
+    "range": [
+      0,
+      254
+    ],
+    "zero_pixels": 944760,
+    "alpha_one_pixels": 4293,
+    "nonzero_bbox": [
+      65,
+      50,
+      1504,
+      982
+    ],
+    "visible_bbox_alpha_gt_1": [
+      191,
+      50,
+      1358,
+      972
+    ],
+    "visible_bbox_alpha_gt_8": [
+      193,
+      52,
+      1356,
+      970
+    ],
+    "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+    "zero_fraction": 0.6006622314453125
+  },
+  "registration_hint": {
+    "visual_bbox": [
+      191,
+      50,
+      1358,
+      972
+    ],
+    "threshold": ">1",
+    "bbox_width": 1167,
+    "bbox_height": 922,
+    "visual_center_x": 774.5,
+    "visual_bottom_y": 972,
+    "source_width_to_visible_width": 1.3161953727506426,
+    "source_height_to_visible_height": 1.1106290672451193,
+    "pixel_cropping_performed": false
+  },
+  "visual_qa": {
+    "complete_object": true,
+    "no_people": true,
+    "no_legible_text": true,
+    "no_floor_or_room": true,
+    "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+    "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+    "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified.",
+    "zone_correction": "Actual map inventory assigns stamp desk to Z10 QA; initial requested description said Z11. Generated closed-parcel desk remains an additional QA themed item."
+  }
+}

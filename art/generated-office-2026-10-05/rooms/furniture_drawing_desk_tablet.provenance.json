@@ -1,0 +1,92 @@
+{
+  "asset": "furniture_drawing_desk_tablet",
+  "zone": "Z07",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-3965bf5c-4a1f-4f85-8733-4bc9d96b2b22.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_drawing_desk_tablet.png",
+  "sha256": "d2017630f340f1593c1314ebaff6463bbc6b3c399218762d13baaf480e1b34de",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_bbox": [
+    71,
+    21,
+    1508,
+    976
+  ],
+  "alpha_bbox_threshold_128": [
+    146,
+    31,
+    1414,
+    970
+  ],
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_drawing_desk_tablet.prompt.txt",
+  "source_atlas_sha256": "944dd62f5413d8c845ca48d1cfed8654f61b1cb48d019211ac4dbebb4d26cdf8",
+  "alpha_bbox_threshold_64": [
+    145,
+    31,
+    1414,
+    971
+  ],
+  "alpha_qa": {
+    "nonzero_pixels": 508699,
+    "very_faint_alpha_1_to_15_pixels": 16002,
+    "solid_alpha_128_plus_pixels": 487975,
+    "notes": "Faint alpha specks may expand raw nonzero bbox. Threshold bounds are read-only QA and registration hints; no pixels were changed."
+  },
+  "geometry_review": {
+    "coordinate_system": "Original PNG pixels, x right, y down. Endpoint selections estimated visually, not mathematically exact.",
+    "axis_down_right": [
+      [
+        209,
+        685
+      ],
+      [
+        1140,
+        955
+      ]
+    ],
+    "axis_up_right": [
+      [
+        1140,
+        955
+      ],
+      [
+        1364,
+        809
+      ]
+    ],
+    "edge_labels": [
+      "Left-front foot center to right-front foot center",
+      "Right-front foot center to right-back foot center"
+    ],
+    "observed_slopes": {
+      "down_right": 0.290011,
+      "up_right": -0.651786
+    },
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.192066,
+      0,
+      1.061801,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "[a,b,c,d,e,f]; fits ONLY selected lines using x_new=x and y_new=b*x+d*y. Use transform-origin 0 0 and recompute image/anchor bounds. This is a registration suggestion, not an applied pixel edit.",
+    "confidence": "Approximate visual QA; verify at runtime",
+    "notes": "Approximate support-foot centers, moderate-to-low confidence. Drawing surface is intentionally tilted; use ground supports for world-grid fit. Opposite foot row also has slight generative perspective residuals. Do not force the tilted top depth edge itself to +/-0.5."
+  }
+}

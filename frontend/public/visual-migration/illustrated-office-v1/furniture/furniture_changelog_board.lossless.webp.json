@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_changelog_board.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_changelog_board.lossless.webp",
+  "sourceSha256": "e9b96e6ffae41fc71b892778a3fde13ebbe9e62a639b925173dfb35b7912f231",
+  "runtimeSha256": "15dfe26d03e649e093a30e1321b5c375be22084f8b6cb747532c78be6fdc692f",
+  "sourceDecodedRgbaSha256": "3a552169d581d3d66d8cbf6ce8c6606dbc3a2f9e713b1e29f981e1ebcec100b9",
+  "runtimeDecodedRgbaSha256": "3a552169d581d3d66d8cbf6ce8c6606dbc3a2f9e713b1e29f981e1ebcec100b9",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 916737,
+  "runtimeBytes": 552596,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

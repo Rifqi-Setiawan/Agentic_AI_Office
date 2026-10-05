@@ -1,0 +1,78 @@
+{
+  "asset": "furniture_journal_shelf",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-075a2526-cbf2-4bf8-bfe5-93d4930b0fd2.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_journal_shelf.png",
+  "source_original_sha256": "fd3faee44a82dfe9cc47c36ba120e6a6a1d32206de56206b3bbf64b04a8286e0",
+  "sha256": "fd3faee44a82dfe9cc47c36ba120e6a6a1d32206de56206b3bbf64b04a8286e0",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    19,
+    119,
+    1224,
+    1254
+  ],
+  "alpha_bbox_threshold_128": [
+    63,
+    138,
+    1194,
+    1124
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_journal_shelf.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        67,
+        623
+      ],
+      [
+        970,
+        933
+      ]
+    ],
+    "axis_up_right": [
+      [
+        970,
+        933
+      ],
+      [
+        1191,
+        814
+      ]
+    ],
+    "observed_slopes": {
+      "down_right": 0.3433001107419712,
+      "up_right": -0.5384615384615384
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.1106656361704183,
+      0,
+      1.1340933243164912,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Seven journals (five upright and two stacked) verified. Shelf broad front axis visually about +0.34 rather than exact +0.5; runtime registration advised."
+  }
+}

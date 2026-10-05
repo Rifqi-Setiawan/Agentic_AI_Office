@@ -1,0 +1,37 @@
+{
+  "asset": "furniture_trashcan",
+  "zone": "shared/social/CEO",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-7f98f986-3128-4169-910c-5e68f518bedd.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_trashcan.png",
+  "source_original_sha256": "c5ed656126949929a5a54a63509577f99ea33cf1ca66191ba4edda765b68b6f0",
+  "sha256": "c5ed656126949929a5a54a63509577f99ea33cf1ca66191ba4edda765b68b6f0",
+  "dimensions": [
+    1268,
+    1241
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    0,
+    50,
+    1176,
+    1201
+  ],
+  "alpha_bbox_threshold_128": [
+    338,
+    275,
+    925,
+    1054
+  ],
+  "transparent_zero_alpha_pixels": 1168726,
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_trashcan.prompt.txt",
+  "geometry_caveats": "Circular footprint has no straight axes to prove exact dimetric alignment. Top ellipse is visually close to the requested 2:1 ratio. Vertical sides upright.",
+  "visual_review": "Complete isolated object, matching charcoal/oak/teal illustrated style, no visible lettering or other furniture. Original alpha channel is preserved."
+}

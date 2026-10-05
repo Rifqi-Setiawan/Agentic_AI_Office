@@ -1,0 +1,78 @@
+{
+  "asset": "furniture_changelog_board",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-953d6bcc-67fa-496d-ada3-0d2dffceb869.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_changelog_board.png",
+  "source_original_sha256": "e9b96e6ffae41fc71b892778a3fde13ebbe9e62a639b925173dfb35b7912f231",
+  "sha256": "e9b96e6ffae41fc71b892778a3fde13ebbe9e62a639b925173dfb35b7912f231",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    0,
+    53,
+    1227,
+    1228
+  ],
+  "alpha_bbox_threshold_128": [
+    153,
+    62,
+    1150,
+    1205
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_changelog_board.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        269,
+        74
+      ],
+      [
+        1042,
+        455
+      ]
+    ],
+    "axis_up_right": [
+      [
+        980,
+        1166
+      ],
+      [
+        1132,
+        1080
+      ]
+    ],
+    "observed_slopes": {
+      "down_right": 0.49288486416558863,
+      "up_right": -0.5657894736842105
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.03443202829809472,
+      0,
+      0.9445775383873302,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Freestanding board with discrete feet and exactly three two-card columns. No letters or words. Broad edge visually near requested +0.5; all geometry values are estimated, not exact."
+  }
+}

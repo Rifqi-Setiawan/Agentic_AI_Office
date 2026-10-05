@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_spare_tiles_pile.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_spare_tiles_pile.lossless.webp",
+  "sourceSha256": "0d6627d3240481823d22c955eb4b30325085dd21fba9dce01887a7b4f0cea559",
+  "runtimeSha256": "0716c68d0a5ac4dbe13aa96fb0db807dcb96cdce7ed6c18f23ccd34b9b02990a",
+  "sourceDecodedRgbaSha256": "e874091262594fb4e84dd7179f25ac872ffc76e5d951ebfc5462054e0e411730",
+  "runtimeDecodedRgbaSha256": "e874091262594fb4e84dd7179f25ac872ffc76e5d951ebfc5462054e0e411730",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 1002660,
+  "runtimeBytes": 646448,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

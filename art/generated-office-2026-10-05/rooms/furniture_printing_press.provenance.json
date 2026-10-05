@@ -1,0 +1,66 @@
+{
+  "asset": "furniture_printing_press",
+  "zones": [
+    "Z05"
+  ],
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-2390b75c-627e-4b9a-8553-831f3642fd07.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_printing_press.png",
+  "sha256": "3314a48c6e24305b28546e5164a85c7ac950173b2cd61640211eda5c5e16b848",
+  "source_original_sha256": "3314a48c6e24305b28546e5164a85c7ac950173b2cd61640211eda5c5e16b848",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    116,
+    21,
+    1236,
+    1236
+  ],
+  "alpha_bbox_threshold_128": [
+    122,
+    57,
+    1134,
+    1232
+  ],
+  "alpha_qa": {
+    "nonzero_pixels": 677869,
+    "very_faint_alpha_1_to_15_pixels": 18359,
+    "solid_alpha_128_plus_pixels": 653249,
+    "edge_alpha_max": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "pixel_processing": "None. Original built-in generation output bytes copied without resizing, cropping, compositing, or retouching. Pillow used only for read-only analysis.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_printing_press.prompt.txt",
+  "style_references": [
+    {
+      "path": "generated/rooms/furniture_lab_bench.png",
+      "sha256": "29a7bfcff4e805b8ace35d05f3d9121bc6953fd338227d28bba58e0ed106e170"
+    },
+    {
+      "path": "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+      "sha256": "96d4d8be5453c9107c17322066f6cb73b4571c6d79a257e1c7662cc11ee119f3"
+    }
+  ],
+  "geometry_review": {
+    "target_screen_slopes": [
+      0.5,
+      -0.5
+    ],
+    "upright_verticals": true,
+    "strict_camera_certification": false,
+    "notes": "Selected replacement has clean transparent background, including most open frame and wheel holes. Base and platen slopes are shallower/steeper than target dimetric axes and vary locally; this is illustrated projection, not strict mathematical 2:1 geometry. Full object silhouette visible."
+  }
+}

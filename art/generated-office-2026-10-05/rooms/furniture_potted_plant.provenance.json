@@ -1,0 +1,34 @@
+{
+  "asset": "furniture_potted_plant",
+  "zone": "shared",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-a176a3d0-a3e0-4f81-a7f5-48366f832957.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_potted_plant.png",
+  "sha256": "99d15732309a1884f9a175d28c37c05e9e747fb420a9bcd2103732033ca3cdbf",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_bbox": [
+    27,
+    19,
+    1006,
+    1464
+  ],
+  "alpha_bbox_threshold_128": [
+    56,
+    70,
+    990,
+    1427
+  ],
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_potted_plant.prompt.txt",
+  "source_atlas_sha256": "944dd62f5413d8c845ca48d1cfed8654f61b1cb48d019211ac4dbebb4d26cdf8"
+}

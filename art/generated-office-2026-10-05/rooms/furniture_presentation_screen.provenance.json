@@ -1,0 +1,69 @@
+{
+  "asset": "furniture_presentation_screen",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-cdaab8b3-a3f4-4c39-bf5b-92789d60877b.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_presentation_screen.png",
+  "source_original_sha256": "2c8d24489874c713025927f5cc39d0a57f929921f1a54855c4245e352faeff6c",
+  "sha256": "2c8d24489874c713025927f5cc39d0a57f929921f1a54855c4245e352faeff6c",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    25,
+    52,
+    1250,
+    1254
+  ],
+  "alpha_bbox_threshold_128": [
+    120,
+    150,
+    1139,
+    1181
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_presentation_screen.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        151,
+        152
+      ],
+      [
+        1133,
+        549
+      ]
+    ],
+    "axis_up_right": null,
+    "observed_slopes": {
+      "down_right": 0.40427698574338083,
+      "up_right": null
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.09572301425661917,
+      0,
+      1,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Correct down-right wall plane, about +0.40 broad edge rather than mathematically exact +0.5; registration needed."
+  }
+}

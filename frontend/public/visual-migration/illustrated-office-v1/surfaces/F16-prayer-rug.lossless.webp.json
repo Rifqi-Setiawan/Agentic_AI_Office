@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/surfaces/F16-prayer-rug.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/surfaces/F16-prayer-rug.lossless.webp",
+  "sourceSha256": "2e4d2dc3a0609168007fca3928dfdfe092165d5bba63849996c2c583163abd75",
+  "runtimeSha256": "dbb07baae07fa4468ddc8cb325d5ddd799a9aaa317f5d0b6654fdcc3ca4b9df6",
+  "sourceDecodedRgbaSha256": "56cad4cc96108b55c8d0726bef3f29102fa7c570b679f569a89cabde8b05bd15",
+  "runtimeDecodedRgbaSha256": "56cad4cc96108b55c8d0726bef3f29102fa7c570b679f569a89cabde8b05bd15",
+  "nativeSize": [
+    1774,
+    887
+  ],
+  "sourceBytes": 1740295,
+  "runtimeBytes": 1132206,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

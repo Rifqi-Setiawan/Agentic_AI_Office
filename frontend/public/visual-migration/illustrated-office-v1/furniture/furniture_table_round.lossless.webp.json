@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_table_round.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_table_round.lossless.webp",
+  "sourceSha256": "976e49ac056952a2bb0c407d14e5d682d6d241c9e80912be6c283e9ce212a3fa",
+  "runtimeSha256": "f40d9c947e1157566015244fe38fe118164ffbcf6146c9410f958828fc1a794b",
+  "sourceDecodedRgbaSha256": "6e2dac240075918b70ff2b2ba617787e05e5e02509cc209cce34bd720469aa52",
+  "runtimeDecodedRgbaSha256": "6e2dac240075918b70ff2b2ba617787e05e5e02509cc209cce34bd720469aa52",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1406402,
+  "runtimeBytes": 889796,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

@@ -13,8 +13,24 @@ export interface RegisteredSpriteLayer {
 export interface DepthProp {
   id: string; sprite: string; gx: number; gy: number; x: number; y: number; z: number;
   bounds: { x: number; y: number; width: number; height: number };
-  file?: string; nightFile?: string; artKind?: string;
+  file?: string; runtimeFile?: string; nightFile?: string; artKind?: string;
   componentId?: string; artLayers?: RegisteredSpriteLayer[]; artClipPath?: string;
+  wallPresentation?: {
+    role: 'exterior-backdrop' | 'interior-cutaway';
+    sourceHeight: number; height: number;
+  };
+}
+/** Unedited generated ground PNG, registered at render time to canonical tiles.
+ * Vertices are ordered top/right/bottom/left in native source-image pixels. */
+export interface GroundSurfaceDefinition {
+  id: string; file: string; runtimeFile?: string;
+  sourceSize: { width: number; height: number };
+  sourceQuad: [[number, number], [number, number], [number, number], [number, number]];
+  floorSprites: string[];
+  /** Canonical baked furniture cells, painted over their existing base floor. */
+  overlaySprites?: string[];
+  repeatTiles: number;
+  underlayColor: string;
 }
 export interface PreviewAssets {
   schemaVersion: number; styleVersion: string; exportScale: number;
@@ -22,6 +38,27 @@ export interface PreviewAssets {
   props: DepthProp[];
   logicalMapSha256: string;
   characterOverrides?: Record<string,string>;
+  groundSurfaces?: GroundSurfaceDefinition[];
+}
+
+/** A verified, full-resolution lossless encoding may replace only the fetch
+ * URL. The original file and all source-pixel registration remain canonical. */
+export function propArtworkFile(prop: DepthProp, night = false) {
+  return night && prop.nightFile ? prop.nightFile : prop.runtimeFile ?? prop.file;
+}
+
+/** Registered planes own their image. Painting the original PNG on their
+ * wrapper as well leaks unregistered pixels behind the wall's clipped mesh. */
+export function applyPropArtwork(el: HTMLElement, prop: DepthProp, night: boolean) {
+  if (!prop.file) return;
+  const file = propArtworkFile(prop, night);
+  if (el.dataset.assetFile === file) return;
+  const image = `url("${file}")`;
+  if (prop.artLayers?.length) {
+    el.style.backgroundImage = 'none';
+    for (const plane of el.querySelectorAll<HTMLElement>('[data-art-plane]')) plane.style.backgroundImage = image;
+  } else el.style.backgroundImage = image;
+  el.dataset.assetFile = file;
 }
 
 /** Trim offsets are explicit. Rotated packing must be re-exported for CSS. */

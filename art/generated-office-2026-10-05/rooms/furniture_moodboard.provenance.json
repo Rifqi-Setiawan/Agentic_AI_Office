@@ -1,0 +1,78 @@
+{
+  "asset": "furniture_moodboard",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-670591c4-e544-4a8d-b8b7-2f207553d6d2.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_moodboard.png",
+  "source_original_sha256": "60ca1dcacaaaae54542108ae6d61278ccbb2e89d419cf96bc9e58bf37b7e5b81",
+  "sha256": "60ca1dcacaaaae54542108ae6d61278ccbb2e89d419cf96bc9e58bf37b7e5b81",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    71,
+    53,
+    1138,
+    1212
+  ],
+  "alpha_bbox_threshold_128": [
+    204,
+    68,
+    1051,
+    1195
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_moodboard.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        278,
+        69
+      ],
+      [
+        1002,
+        361
+      ]
+    ],
+    "axis_up_right": [
+      [
+        913,
+        1157
+      ],
+      [
+        1041,
+        1099
+      ]
+    ],
+    "observed_slopes": {
+      "down_right": 0.40331491712707185,
+      "up_right": -0.453125
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.02907972986594093,
+      0,
+      1.1676242314282834,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Freestanding supported moodboard has six pinned abstract pieces and no text/people. Broad edge is approximately +0.40, not exact +0.5; runtime registration hint included."
+  }
+}

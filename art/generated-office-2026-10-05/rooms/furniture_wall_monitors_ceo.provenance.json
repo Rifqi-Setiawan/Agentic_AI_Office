@@ -1,0 +1,69 @@
+{
+  "asset": "furniture_wall_monitors_ceo",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-a9493793-bd4c-4ab3-863e-45f2c887961f.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_wall_monitors_ceo.png",
+  "source_original_sha256": "b9a626ee6b28f5ca1f92db23fdfd528c62a94b3a545fb3a09279df50ba70a42e",
+  "sha256": "b9a626ee6b28f5ca1f92db23fdfd528c62a94b3a545fb3a09279df50ba70a42e",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    79,
+    180,
+    1174,
+    1254
+  ],
+  "alpha_bbox_threshold_128": [
+    88,
+    183,
+    1169,
+    1192
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_wall_monitors_ceo.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        108,
+        188
+      ],
+      [
+        1155,
+        597
+      ]
+    ],
+    "axis_up_right": null,
+    "observed_slopes": {
+      "down_right": 0.39063992359121297,
+      "up_right": null
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.10936007640878703,
+      0,
+      1,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Six screens verified. Shared plane is down-right, with an approximately +0.39 broad edge rather than mathematically exact +0.5; registration needed."
+  }
+}

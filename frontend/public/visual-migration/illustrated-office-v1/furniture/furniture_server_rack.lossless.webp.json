@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_server_rack.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_server_rack.lossless.webp",
+  "sourceSha256": "15f9fdc8d70193a5813b76a5a62d7cee144caf153bdcb29af766a2f914a33ca7",
+  "runtimeSha256": "f2b190e50d894ba5e63edc82a5a2ab82d015155c48392b60e38653d1c97c1582",
+  "sourceDecodedRgbaSha256": "c6635c868bedd10dcdd72485f1caca126b73109cec65f9d74d26112eb980ae4c",
+  "runtimeDecodedRgbaSha256": "c6635c868bedd10dcdd72485f1caca126b73109cec65f9d74d26112eb980ae4c",
+  "nativeSize": [
+    1327,
+    1186
+  ],
+  "sourceBytes": 1039435,
+  "runtimeBytes": 622746,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

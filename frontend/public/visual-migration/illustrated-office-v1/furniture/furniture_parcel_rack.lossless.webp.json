@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_parcel_rack.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_parcel_rack.lossless.webp",
+  "sourceSha256": "2af3c2190d2ca91a517374d9ae705e85a99f88b5da44451e21fa9f2748d39186",
+  "runtimeSha256": "db2df1306fbe856cdd966ddce6dfddce5703c7b8395b12d34336d3e979e40dc1",
+  "sourceDecodedRgbaSha256": "cd9bd2706dd7ed86ea836b090cba9ea0067800da392912e3d3c0c29b88435d93",
+  "runtimeDecodedRgbaSha256": "cd9bd2706dd7ed86ea836b090cba9ea0067800da392912e3d3c0c29b88435d93",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1732295,
+  "runtimeBytes": 1052094,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

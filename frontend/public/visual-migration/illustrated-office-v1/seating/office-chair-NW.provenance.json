@@ -1,0 +1,36 @@
+{
+  "source": "/workspace/scratch/1f7ded418f78/generated_images/exec-3398ed73-7dd1-4cdf-b771-b04220aa517a.png",
+  "destination": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/seating/office-chair-NW.png",
+  "prompt": "Use case: stylized-concept. Asset type: original transparent 2:1 dimetric office game furniture sprite. Input image 1 is the original charcoal upholstered office chair, the exact product/style reference. Input image 2 is an accepted rear view of this same chair, useful for consistent back-shell construction; do not copy its facing. Create ONE new original rendering of the SAME chair, physically rotated around its upright swivel axis so the seated person's forward direction is NW, screen-UPPER-LEFT. Critical orientation: OUTSIDE REAR back shell is at screen-LOWER-RIGHT side relative to the seat, and the seat's front nose extends away screen-UPPER-LEFT. We see the broad REAR back shell, not the segmented front lumbar upholstery. Show a rear three-quarter view from the opposite rear side to reference 2. Original new rendering; NOT a horizontal flip or mirror, and keep lighting from global screen-top-left. Preserve exact construction and proportions of original: tall softly rounded charcoal-blue upholstered backrest with piped seams; matching thick charcoal seat and arm pads; charcoal metal arm supports; charcoal five-spoke caster base and cylinder. Keep back shell segmentation matching reference 2. No wood. Camera: fixed orthographic 2:1 DIMETRIC, ground axes have image slopes exactly +0.5 and -0.5; verticals upright; same camera for all orientations. Polished hand-painted soft 3D game asset with crisp readable silhouette and gently textured upholstery. Entire chair fully visible, centered, generous transparent margins. Genuinely transparent alpha background; no floor or shadow plane, room, people, desk, letters, arrows, labels, logos, watermark, grid, extra objects, or collage.",
+  "orientation": "NW",
+  "observed_orientation": "Rear three-quarter chair; rear shell is on screen-lower-right side relative to seat, whose front projects screen-upper-left. Matches NW sitter facing.",
+  "uncertainties": [
+    "Dimetric camera visually matches requested projection; rounded forms prevent certifying exact +/-0.5 axis slopes.",
+    "Generator synthesized the alternate rear view from references; no pixel mirror or other post-generation image edit was applied."
+  ],
+  "generator": "built-in image_gen.imagegen",
+  "original_bytes_preserved": true,
+  "sha256": "a89de6f5440688858f605fc11f131e7d329c4f85f29552edc0da0ea67179b1be",
+  "source_sha256": "a89de6f5440688858f605fc11f131e7d329c4f85f29552edc0da0ea67179b1be",
+  "canvas": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "alpha_128_bbox": [
+    561,
+    28,
+    1229,
+    877
+  ],
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "references": [
+    "generated/rooms/furniture_chair_cushion.png",
+    "generated/seating/office-chair-NE.png"
+  ],
+  "inspected": true,
+  "selection": "accepted"
+}

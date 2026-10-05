@@ -1,0 +1,66 @@
+{
+  "asset": "furniture_test_tube_rack",
+  "zones": [
+    "Z06"
+  ],
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-9dd18e2f-cf62-4c88-8bf0-2fa00273cc28.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_test_tube_rack.png",
+  "sha256": "86773f602c3ecfb71dd37d76be8f55324d571572caa4b303e09b56ebd78eb303",
+  "source_original_sha256": "86773f602c3ecfb71dd37d76be8f55324d571572caa4b303e09b56ebd78eb303",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    0,
+    21,
+    1218,
+    1254
+  ],
+  "alpha_bbox_threshold_128": [
+    187,
+    116,
+    1127,
+    1166
+  ],
+  "alpha_qa": {
+    "nonzero_pixels": 579432,
+    "very_faint_alpha_1_to_15_pixels": 25739,
+    "solid_alpha_128_plus_pixels": 525979,
+    "edge_alpha_max": [
+      0,
+      1,
+      1,
+      0
+    ]
+  },
+  "pixel_processing": "None. Original built-in generation output bytes copied without resizing, cropping, compositing, or retouching. Pillow used only for read-only analysis.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_test_tube_rack.prompt.txt",
+  "style_references": [
+    {
+      "path": "generated/rooms/furniture_lab_bench.png",
+      "sha256": "29a7bfcff4e805b8ace35d05f3d9121bc6953fd338227d28bba58e0ed106e170"
+    },
+    {
+      "path": "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+      "sha256": "96d4d8be5453c9107c17322066f6cb73b4571c6d79a257e1c7662cc11ee119f3"
+    }
+  ],
+  "geometry_review": {
+    "target_screen_slopes": [
+      0.5,
+      -0.5
+    ],
+    "upright_verticals": true,
+    "strict_camera_certification": false,
+    "notes": "Selected square-canvas replacement has clean cutout transparency, including gaps between the three tubes. Rack long axis goes up-right, so it is opposite front-facing orientation to the earlier rejected rack. Base edges visually about -0.37 and +0.58, not exact target \u00b10.5. Geometry remains approximate and may need registration."
+  }
+}

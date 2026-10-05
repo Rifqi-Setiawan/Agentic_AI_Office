@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/surfaces/F04-floor-outdoor-stone.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/surfaces/F04-floor-outdoor-stone.lossless.webp",
+  "sourceSha256": "d9920089523c968b242d7a1fcb82cdad612b44a8d7bbda48cf34bed6296852e1",
+  "runtimeSha256": "f5d4a07ecfc144e5ecb69e4b40181622ea5e4acbfe013ecef7402f78d767211e",
+  "sourceDecodedRgbaSha256": "55cffd6e7f45fa117235b713a435dcbf77670bba6cbe90ab821188667bfa5fd7",
+  "runtimeDecodedRgbaSha256": "55cffd6e7f45fa117235b713a435dcbf77670bba6cbe90ab821188667bfa5fd7",
+  "nativeSize": [
+    1659,
+    948
+  ],
+  "sourceBytes": 800091,
+  "runtimeBytes": 536730,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

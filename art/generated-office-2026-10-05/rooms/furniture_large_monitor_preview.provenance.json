@@ -1,0 +1,80 @@
+{
+  "asset": "furniture_large_monitor_preview.png",
+  "zone": "Z09",
+  "relative_path": "generated/rooms/furniture_large_monitor_preview.png",
+  "generation_mode": "built-in image_gen.imagegen",
+  "transparent_background_requested": true,
+  "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-82e05fdd-97f5-4ed5-8128-8b7a267a8fae.png",
+  "sha256": "1274ab79e0117a8ba78a4e5082465dd3fb70c73956f3d7c0555c8f3903e112c9",
+  "matches_original_bytes": true,
+  "prompt_file": "furniture_large_monitor_preview.prompt.txt",
+  "final_prompt": "Use case: precise-object-edit.\nImage 1 is the Z09 monitor sprite to correct. Image 2 is a STYLE AND CAMERA REFERENCE only, an oak media cabinet from the same game.\nKeep Image 1's single charcoal widescreen display, compact pedestal foot, and abstract cyan wireframe graphics without any text. Change its viewpoint so it uses the same strict 2:1 dimetric camera as the cabinet reference. It must be a clean 2D illustrated sprite, not a product render.\nCRITICAL GEOMETRY: the monitor's top and bottom long edges run down-right at slope +0.5, meaning 2 pixels right for every 1 pixel down, like the long cabinet edge in Image 2. The screen is therefore an obvious slanted parallelogram in image space, NOT a near-horizontal rectangle. The short visible thickness edges and the back-to-front axis of the base run down-left at slope -0.5. Vertical screen side edges stay vertical. These are orthographic parallel edges.\nMaintain warm upper-left illumination, smooth illustrated charcoal surfaces, crisp thin outlines, minimal clean cyan screen elements. No desk or new objects. Center the whole monitor with generous clean padding.\nOutput genuine alpha transparency. Every pixel outside the object must be fully transparent, without any glow, aura, haze, cast ground shadow, room, floor or platform. No people, text, letters, numbers, watermarks or logos.",
+  "style_references_inspected": [
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+  ],
+  "dimensions": {
+    "width": 1536,
+    "height": 1024
+  },
+  "mode": "RGBA",
+  "alpha": {
+    "range": [
+      0,
+      254
+    ],
+    "zero_pixels": 879006,
+    "alpha_one_pixels": 4466,
+    "nonzero_bbox": [
+      0,
+      55,
+      1486,
+      998
+    ],
+    "visible_bbox_alpha_gt_1": [
+      184,
+      56,
+      1352,
+      981
+    ],
+    "visible_bbox_alpha_gt_8": [
+      187,
+      57,
+      1350,
+      979
+    ],
+    "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+    "zero_fraction": 0.5588569641113281
+  },
+  "registration_hint": {
+    "visual_bbox": [
+      184,
+      56,
+      1352,
+      981
+    ],
+    "threshold": ">1",
+    "bbox_width": 1168,
+    "bbox_height": 925,
+    "visual_center_x": 768.0,
+    "visual_bottom_y": 981,
+    "source_width_to_visible_width": 1.3150684931506849,
+    "source_height_to_visible_height": 1.107027027027027,
+    "pixel_cropping_performed": false
+  },
+  "visual_qa": {
+    "complete_object": true,
+    "no_people": true,
+    "no_legible_text": true,
+    "no_floor_or_room": true,
+    "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+    "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+    "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+  },
+  "previous_attempt": {
+    "original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-6ced0a87-8372-41b9-b716-f0d4c135a135.png",
+    "preserved_path": "generated/rooms/attempts/furniture_large_monitor_preview-first.png",
+    "selected_revision": "v2",
+    "reason": "Selected v2 steepens screen angle toward dimetric camera; still approximate rather than exact mathematical slope."
+  }
+}

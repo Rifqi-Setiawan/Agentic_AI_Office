@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_soc_map_wall.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_soc_map_wall.lossless.webp",
+  "sourceSha256": "70106768612ff9d4fd2e06ce9e5d3465d80f722dff9e4e50f79082f340bbe8b8",
+  "runtimeSha256": "73957e920018ac974d2214f15c9dfb7a9a83a11396b2bd65a7ab85be3a37c9f2",
+  "sourceDecodedRgbaSha256": "2e7403b979adcb144e30fd2d2283102e390ed0787bde29c27ecb4717f56856ea",
+  "runtimeDecodedRgbaSha256": "2e7403b979adcb144e30fd2d2283102e390ed0787bde29c27ecb4717f56856ea",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 747432,
+  "runtimeBytes": 454424,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

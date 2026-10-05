@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_swatch_wall.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_swatch_wall.lossless.webp",
+  "sourceSha256": "8f6d9b823d4db98f17cb2c8b85f0db61b59d41c710b15d7104523b5928e41f7e",
+  "runtimeSha256": "f30f0e6f880fcd7cb4797c64fa635169fd63222d5f514759dafb68a00b4c8753",
+  "sourceDecodedRgbaSha256": "9929df35525fdfe748594394bafcb59ef786a611c5d39bb8adff73653c3dd1d3",
+  "runtimeDecodedRgbaSha256": "9929df35525fdfe748594394bafcb59ef786a611c5d39bb8adff73653c3dd1d3",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 1042449,
+  "runtimeBytes": 640982,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_achievement_board.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_achievement_board.lossless.webp",
+  "sourceSha256": "52fd13e901b76ecd2c2939c605096e3fd45c2f85920c4d9e0c399592696ef218",
+  "runtimeSha256": "5a3a114dfbf707ba0f7989e3bcf7b429fad4281e5a3b3e7b62cc9b8678b601e6",
+  "sourceDecodedRgbaSha256": "87c86fd581e2c372094a48e6c9df7247ab753c35882c1a1e08c150238708934a",
+  "runtimeDecodedRgbaSha256": "87c86fd581e2c372094a48e6c9df7247ab753c35882c1a1e08c150238708934a",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 1105417,
+  "runtimeBytes": 688968,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

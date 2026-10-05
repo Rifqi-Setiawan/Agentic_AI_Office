@@ -1,0 +1,63 @@
+{
+  "asset": "furniture_glass_partition.png",
+  "relative_path": "generated/rooms/furniture_glass_partition.png",
+  "generation_mode": "built-in image_gen.imagegen",
+  "transparent_background_requested": true,
+  "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-97683ec9-6302-406a-80e2-b485bcacab25.png",
+  "source_sha256": "a41494be15c57c787468cff19c9da01810895dff98f4c1fdb1fcb416463a458c",
+  "sha256": "a41494be15c57c787468cff19c9da01810895dff98f4c1fdb1fcb416463a458c",
+  "matches_original_bytes": true,
+  "prompt_file": "furniture_glass_partition.prompt.txt",
+  "style_references_inspected": [
+    "generated/rooms/furniture_quran_shelf.png",
+    "generated/rooms/furniture_pool_lounger.png",
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png"
+  ],
+  "dimensions": {
+    "width": 1536,
+    "height": 1024
+  },
+  "mode": "RGBA",
+  "alpha": {
+    "range": [
+      0,
+      254
+    ],
+    "bbox_alpha_gte_128": [
+      282,
+      24,
+      1249,
+      1000
+    ],
+    "nonzero_bbox": [
+      45,
+      0,
+      1522,
+      1024
+    ],
+    "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+    "zero_pixels": 1068584,
+    "fraction_alpha_zero": 0.6793874104817709,
+    "fraction_alpha_gte_128": 0.31146494547526044,
+    "pane_interior_samples": {
+      "(600, 450)": 199,
+      "(770, 500)": 200,
+      "(900, 650)": 202
+    }
+  },
+  "geometry": {
+    "requested": "2:1 orthographic dimetric; floor axes slopes +0.5/-0.5; vertical uprights",
+    "status": "Prompt-targeted, generative geometry. Exact slope compliance is not certified. No perspective rectification or pixel editing performed."
+  },
+  "pixel_editing_performed": false,
+  "visual_qa": {
+    "complete_object": true,
+    "no_people": true,
+    "no_legible_text": true,
+    "no_floor_or_room": true,
+    "style": "Refined outlined 2D illustration; warm oak, pale stone, charcoal and muted cyan as appropriate",
+    "camera": "Approximate dimetric; exact requested +0.5/-0.5 slopes are not certified",
+    "alpha_note": "Original RGBA retained without pixel edits. Use alpha>=128 bbox for object registration. Low-alpha fringe may extend outside this bbox.",
+    "glass_interior_note": "True partial alpha transparency in glass. Pane-interior samples are alpha=199, 200 and 202 (about 78-79% opacity); subtle blue-gray glass is translucent, not fully clear."
+  }
+}

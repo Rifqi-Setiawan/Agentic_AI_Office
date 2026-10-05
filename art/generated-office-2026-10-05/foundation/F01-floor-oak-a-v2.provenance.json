@@ -1,0 +1,37 @@
+{
+  "asset": "F01-floor-oak-a-v2",
+  "mode": "Built-in tools.image_gen__imagegen; no CLI/API fallback",
+  "generation_date": "2026-10-05",
+  "selected_file": "generated/foundation/F01-floor-oak-a-v2.png",
+  "selected_sha256": "3978a78cb19bb1446d9d07ef9aff7b84dd701a3e866f2ff20d93f579244e105e",
+  "references": [
+    {
+      "path": "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-guest-desk.png",
+      "role": "Inspected palette reference only",
+      "sha256": "85bfff0cc9a693eec95af6e22f06ab98a99225cdfc4996091bbd7b8867d7e7ed"
+    },
+    {
+      "path": "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-oak-wall-shelf.png",
+      "role": "Inspected palette reference only",
+      "sha256": "1b3be0c76c54fe0b9517267f145280a32c2491e5802d159401bf6ebc2a5c0779"
+    }
+  ],
+  "stages": [
+    {
+      "stage": "initial generation",
+      "prompt": "F01-floor-oak-a-v2.prompt.txt",
+      "runtime_file": "/workspace/scratch/1f7ded418f78/generated_images/exec-50cc44e1-da4a-4899-bde0-d6c8a124b9a2.png",
+      "preserved_file": "F01-floor-oak-a-v2-initial.png",
+      "selected": false
+    },
+    {
+      "stage": "geometry-only imagegen edit",
+      "prompt": "F01-floor-oak-a-v2-geometry-edit.prompt.txt",
+      "runtime_file": "/workspace/scratch/1f7ded418f78/generated_images/exec-f3734b84-48f5-48fc-ad5a-e622bfbad302.png",
+      "preserved_file": "F01-floor-oak-a-v2-geometry-edit.png",
+      "selected": true
+    }
+  ],
+  "pixel_editing": "None. Files copied byte-for-byte. Pillow/numpy used read-only for measurements.",
+  "status": "Generated source requiring native geometry registration/clip and repeat-seam QA; not accepted as exact 2:1 packed sprite."
+}

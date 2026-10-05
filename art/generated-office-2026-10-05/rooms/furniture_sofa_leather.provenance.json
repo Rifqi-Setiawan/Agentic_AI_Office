@@ -1,0 +1,37 @@
+{
+  "asset": "furniture_sofa_leather",
+  "zone": "shared/social/CEO",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-80cb5887-991b-4042-8472-ee0b7fb455f7.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_sofa_leather.png",
+  "source_original_sha256": "90f83c8e6dc6611c34a12c296e733481ab7da26c42b6c01d4e659e941d2d025f",
+  "sha256": "90f83c8e6dc6611c34a12c296e733481ab7da26c42b6c01d4e659e941d2d025f",
+  "dimensions": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    92,
+    28,
+    1716,
+    887
+  ],
+  "alpha_bbox_threshold_128": [
+    97,
+    51,
+    1689,
+    866
+  ],
+  "transparent_zero_alpha_pixels": 803536,
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_sofa_leather.prompt.txt",
+  "geometry_caveats": "Fixed 2:1 dimetric axes were requested, but the generated illustration is not geometrically exact: visible major edges vary from the requested slopes \u00b10.5. No pixel correction was applied.",
+  "visual_review": "Complete isolated object, matching charcoal/oak illustrated style, no visible lettering or other furniture. Low-alpha painted edge/lighting haze may remain in original image output."
+}

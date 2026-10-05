@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_espresso_machine.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_espresso_machine.lossless.webp",
+  "sourceSha256": "dad33a72142e53602a7a4e377efeabc751333f4368d99d65377e5cd1c0f2f93e",
+  "runtimeSha256": "e7463168ce322dc3a983b6a5c67f93ba97e735885e00122323718a244d18ea76",
+  "sourceDecodedRgbaSha256": "bcb688428f54b6de0404e8d3841ee023de8d75a1052ddffe7ce76d2ce9e9627e",
+  "runtimeDecodedRgbaSha256": "bcb688428f54b6de0404e8d3841ee023de8d75a1052ddffe7ce76d2ce9e9627e",
+  "nativeSize": [
+    1367,
+    1151
+  ],
+  "sourceBytes": 1424383,
+  "runtimeBytes": 854356,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

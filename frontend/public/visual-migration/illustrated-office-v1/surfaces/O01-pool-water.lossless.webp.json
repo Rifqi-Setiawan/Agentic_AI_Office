@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/surfaces/O01-pool-water.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/surfaces/O01-pool-water.lossless.webp",
+  "sourceSha256": "7bdb047cc4e793fd04c46e8f42f4f0d661befd1a5c890f0e846e1bb91dd2dcf2",
+  "runtimeSha256": "6178a349a5e1e04d5c9b24f76ede4100cbb49831d7d185e5da0b543ea0d2ba67",
+  "sourceDecodedRgbaSha256": "f2bef5190b2434a08c44c52d756e50f86d1613e8a1b0411d39cddc82f7687d51",
+  "runtimeDecodedRgbaSha256": "f2bef5190b2434a08c44c52d756e50f86d1613e8a1b0411d39cddc82f7687d51",
+  "nativeSize": [
+    1660,
+    948
+  ],
+  "sourceBytes": 683779,
+  "runtimeBytes": 467168,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

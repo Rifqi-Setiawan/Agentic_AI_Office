@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_quran_shelf.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_quran_shelf.lossless.webp",
+  "sourceSha256": "239d8afd05ffbf28a27efd68a1a689dccc9008d78d93fdce7a711f33012b28d7",
+  "runtimeSha256": "08add8b19d8263ab5be69408003b8b12ca06536f30ffc18a1036c788a677a505",
+  "sourceDecodedRgbaSha256": "eae63de1db5a0b5ffe456f44e4290e083bf6c8f29cafaf857c38a63268e6f012",
+  "runtimeDecodedRgbaSha256": "eae63de1db5a0b5ffe456f44e4290e083bf6c8f29cafaf857c38a63268e6f012",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1848389,
+  "runtimeBytes": 1168584,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_beanbag.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_beanbag.lossless.webp",
+  "sourceSha256": "6861b1a95e5deb1fadaa4a15c6d3bbb2b46875a40ecc3fabdba50ee7af9352c5",
+  "runtimeSha256": "bc9029f6f8ccbfdd56158e4a7e070994000aebb4a776f150b1e4576fbef63f7c",
+  "sourceDecodedRgbaSha256": "4a772a1a2440744afc6d92bad9cc0f2ff7fa4589bc2e6fe0edcd10d57ca83d22",
+  "runtimeDecodedRgbaSha256": "4a772a1a2440744afc6d92bad9cc0f2ff7fa4589bc2e6fe0edcd10d57ca83d22",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1680417,
+  "runtimeBytes": 1000376,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

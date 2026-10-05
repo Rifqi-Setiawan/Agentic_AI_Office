@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/surfaces/F01-floor-oak-a-v2.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/surfaces/F01-floor-oak-a-v2.lossless.webp",
+  "sourceSha256": "3978a78cb19bb1446d9d07ef9aff7b84dd701a3e866f2ff20d93f579244e105e",
+  "runtimeSha256": "e63032f1ae1513330d913ad01f5ee0616fe0a0c85191643afd780c20947437c9",
+  "sourceDecodedRgbaSha256": "252dfa9d84efd12a34a85f0659901242aa3890421beb353fff3575315325d3cf",
+  "runtimeDecodedRgbaSha256": "252dfa9d84efd12a34a85f0659901242aa3890421beb353fff3575315325d3cf",
+  "nativeSize": [
+    1774,
+    887
+  ],
+  "sourceBytes": 827558,
+  "runtimeBytes": 576706,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

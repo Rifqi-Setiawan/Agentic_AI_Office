@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_billiard_table.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_billiard_table.lossless.webp",
+  "sourceSha256": "772c70618515d1975b54315f2bc61c73d23101ee7682ad4384b965958a12392b",
+  "runtimeSha256": "3b8cc87bb7b3afdfb6f549f1d75c1bf805341bcd4be82cf806e713a9a1700566",
+  "sourceDecodedRgbaSha256": "ef11396e947308c0ea75e352e039ab1e8df70cb260cfb6721c27bfd4bcef306d",
+  "runtimeDecodedRgbaSha256": "ef11396e947308c0ea75e352e039ab1e8df70cb260cfb6721c27bfd4bcef306d",
+  "nativeSize": [
+    1774,
+    887
+  ],
+  "sourceBytes": 1185675,
+  "runtimeBytes": 796042,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

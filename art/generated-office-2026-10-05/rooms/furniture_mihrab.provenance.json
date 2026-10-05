@@ -1,0 +1,57 @@
+{
+  "asset": "furniture_mihrab.png",
+  "relative_path": "generated/rooms/furniture_mihrab.png",
+  "generation_mode": "built-in image_gen.imagegen",
+  "transparent_background_requested": true,
+  "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-4ae03050-324e-46c3-899b-b3d7d7c72227.png",
+  "source_sha256": "a18d975c6cffef2243fcc31322ffe9b3f50836fa016003cfb6af0bc1a656794f",
+  "sha256": "a18d975c6cffef2243fcc31322ffe9b3f50836fa016003cfb6af0bc1a656794f",
+  "matches_original_bytes": true,
+  "prompt_file": "furniture_mihrab.prompt.txt",
+  "style_references_inspected": [
+    "generated/rooms/furniture_quran_shelf.png",
+    "generated/rooms/furniture_pool_lounger.png",
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png"
+  ],
+  "dimensions": {
+    "width": 1293,
+    "height": 1217
+  },
+  "mode": "RGBA",
+  "alpha": {
+    "range": [
+      0,
+      255
+    ],
+    "bbox_alpha_gte_128": [
+      348,
+      56,
+      960,
+      1161
+    ],
+    "nonzero_bbox": [
+      0,
+      20,
+      1261,
+      1164
+    ],
+    "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+    "zero_pixels": 1042981,
+    "fraction_alpha_zero": 0.6628073165601263,
+    "fraction_alpha_gte_128": 0.33201659145604834
+  },
+  "geometry": {
+    "requested": "2:1 orthographic dimetric; floor axes slopes +0.5/-0.5; vertical uprights",
+    "status": "Prompt-targeted, generative geometry. Exact slope compliance is not certified. No perspective rectification or pixel editing performed."
+  },
+  "pixel_editing_performed": false,
+  "visual_qa": {
+    "complete_object": true,
+    "no_people": true,
+    "no_legible_text": true,
+    "no_floor_or_room": true,
+    "style": "Refined outlined 2D illustration; warm oak, pale stone, charcoal and muted cyan as appropriate",
+    "camera": "Approximate dimetric; exact requested +0.5/-0.5 slopes are not certified",
+    "alpha_note": "Original RGBA retained without pixel edits. Use alpha>=128 bbox for object registration. Low-alpha fringe may extend outside this bbox."
+  }
+}

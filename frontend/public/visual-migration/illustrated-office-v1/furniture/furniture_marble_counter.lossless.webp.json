@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_marble_counter.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_marble_counter.lossless.webp",
+  "sourceSha256": "3407b605a9cd3a4769f5996a43298a4e0c3b8a9cd7287f5c5dd6176c364731c4",
+  "runtimeSha256": "8924c4b068e539e130308c51ecc020c0b538a40d05d4d119d7c2fb0e7da89cf3",
+  "sourceDecodedRgbaSha256": "1b94218a919efabf95e7425c51621e92f006e5135f5b4c1b72c8ca9287bcdccd",
+  "runtimeDecodedRgbaSha256": "1b94218a919efabf95e7425c51621e92f006e5135f5b4c1b72c8ca9287bcdccd",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1982054,
+  "runtimeBytes": 1219336,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

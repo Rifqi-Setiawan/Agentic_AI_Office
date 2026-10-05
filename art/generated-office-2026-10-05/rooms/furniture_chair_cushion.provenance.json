@@ -1,0 +1,38 @@
+{
+  "asset": "furniture_chair_cushion",
+  "zone": "shared",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-25c2c427-e285-4ec3-baae-4f4cf4b7204d.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_chair_cushion.png",
+  "sha256": "c3c188a35d30af14740f0913f8265cef49d502b6cd4b053c917c4ab08d2e008d",
+  "dimensions": [
+    1448,
+    1086
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    57,
+    49,
+    1329,
+    1045
+  ],
+  "alpha_bbox_threshold_128": [
+    422,
+    52,
+    1036,
+    1041
+  ],
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_chair_cushion.prompt.txt",
+  "source_atlas_sha256": "944dd62f5413d8c845ca48d1cfed8654f61b1cb48d019211ac4dbebb4d26cdf8",
+  "orientation": "SW",
+  "observed_orientation": "Front three-quarter view: front seat projects screen-lower-left and backrest is screen-upper-right. Cannot serve as SE.",
+  "orientation_inspected": true,
+  "materials_inspected": "Charcoal-blue upholstered cushions and charcoal caster base; no oak visible."
+}

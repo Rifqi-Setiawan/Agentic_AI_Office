@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_reception_desk.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_reception_desk.lossless.webp",
+  "sourceSha256": "49565f08e10fbdfcfcab84bf7234b550421e7765ecc7191da02b6b52478f4c4d",
+  "runtimeSha256": "7019ff3c4460bf23347471c7f4a16f1b9440405adc2b92b1e376ef6898058ef7",
+  "sourceDecodedRgbaSha256": "f4ecd68688f7dae3ac7e33de012362614a4b9328f9f8ed5d5f716166f460fdc7",
+  "runtimeDecodedRgbaSha256": "f4ecd68688f7dae3ac7e33de012362614a4b9328f9f8ed5d5f716166f460fdc7",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1594996,
+  "runtimeBytes": 1011606,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

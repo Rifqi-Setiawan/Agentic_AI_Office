@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_journal_shelf.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_journal_shelf.lossless.webp",
+  "sourceSha256": "fd3faee44a82dfe9cc47c36ba120e6a6a1d32206de56206b3bbf64b04a8286e0",
+  "runtimeSha256": "9cde834b867d31d5df1014bb9ba92e9be959afbf8199866882e17742ecb156e9",
+  "sourceDecodedRgbaSha256": "2db766d0f41a450405b90ef346fa89db176f67bafdc9b67dbe8cde491f0d8dc5",
+  "runtimeDecodedRgbaSha256": "2db766d0f41a450405b90ef346fa89db176f67bafdc9b67dbe8cde491f0d8dc5",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 989173,
+  "runtimeBytes": 642678,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

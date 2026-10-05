@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_moodboard.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_moodboard.lossless.webp",
+  "sourceSha256": "60ca1dcacaaaae54542108ae6d61278ccbb2e89d419cf96bc9e58bf37b7e5b81",
+  "runtimeSha256": "62c5cfe6824a7d52cf74f92b393b14ea90d0d308075e4efa8c750d28eb2b8524",
+  "sourceDecodedRgbaSha256": "06a0d9272ed87a6d00b347bd9efce7d5a2ee876f484f57872a38e807571d6483",
+  "runtimeDecodedRgbaSha256": "06a0d9272ed87a6d00b347bd9efce7d5a2ee876f484f57872a38e807571d6483",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 1164988,
+  "runtimeBytes": 752476,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lab_bench.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lab_bench.lossless.webp",
+  "sourceSha256": "29a7bfcff4e805b8ace35d05f3d9121bc6953fd338227d28bba58e0ed106e170",
+  "runtimeSha256": "02e05d1e9127725c907b091a2a716ca8e959d761297bde00e0dc7bdd8c761164",
+  "sourceDecodedRgbaSha256": "bd2236d9bf61d4e8f58bfd8456fb79b6ecb8e5221c91ee0921a82a623a833bba",
+  "runtimeDecodedRgbaSha256": "bd2236d9bf61d4e8f58bfd8456fb79b6ecb8e5221c91ee0921a82a623a833bba",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 1427726,
+  "runtimeBytes": 922180,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

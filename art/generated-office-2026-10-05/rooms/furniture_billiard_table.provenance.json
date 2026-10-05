@@ -1,0 +1,37 @@
+{
+  "asset": "furniture_billiard_table",
+  "zone": "shared/social/CEO",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-699d74f6-2c40-46e2-a96c-a20509c3f4e3.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_billiard_table.png",
+  "source_original_sha256": "772c70618515d1975b54315f2bc61c73d23101ee7682ad4384b965958a12392b",
+  "sha256": "772c70618515d1975b54315f2bc61c73d23101ee7682ad4384b965958a12392b",
+  "dimensions": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    0,
+    14,
+    1736,
+    876
+  ],
+  "alpha_bbox_threshold_128": [
+    102,
+    17,
+    1653,
+    873
+  ],
+  "transparent_zero_alpha_pixels": 944855,
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_billiard_table.prompt.txt",
+  "geometry_caveats": "Parallel projected tabletop edges are approximately dimetric rather than mathematically exact \u00b10.5 slopes. Three legs are visible; rear leg is occluded by the table, and no feet are cropped.",
+  "visual_review": "Complete isolated object, matching charcoal/oak/teal illustrated style, no visible lettering or other furniture. Original alpha channel is preserved."
+}

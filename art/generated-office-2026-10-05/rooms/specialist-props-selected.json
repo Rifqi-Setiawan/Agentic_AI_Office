@@ -1,0 +1,164 @@
+[
+  {
+    "asset": "furniture_microscope",
+    "dimensions": [
+      1374,
+      1145
+    ],
+    "bbox128": [
+      262,
+      27,
+      1145,
+      1125
+    ],
+    "sha256": "047d620189fdc455d52e522136548916965fab372d3e0d582101ff23da60dbee",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "asset": "furniture_test_tube_rack",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "bbox128": [
+      187,
+      116,
+      1127,
+      1166
+    ],
+    "sha256": "86773f602c3ecfb71dd37d76be8f55324d571572caa4b303e09b56ebd78eb303",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "asset": "furniture_system_model_mini",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "bbox128": [
+      272,
+      45,
+      1527,
+      832
+    ],
+    "sha256": "3f92f9900c68fcf1d5709c500566f608da8b2d0ad958e79b27f85618d19b827c",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "asset": "furniture_green_reading_lamp",
+    "dimensions": [
+      1312,
+      1199
+    ],
+    "bbox128": [
+      306,
+      115,
+      1025,
+      1091
+    ],
+    "sha256": "a3ad53713c45074b233d7fe704e05896f54e3ec10b0546e6052620c2669a2659",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "asset": "furniture_printing_press",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "bbox128": [
+      122,
+      57,
+      1134,
+      1232
+    ],
+    "sha256": "3314a48c6e24305b28546e5164a85c7ac950173b2cd61640211eda5c5e16b848",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "asset": "furniture_spare_tiles_pile",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "bbox128": [
+      125,
+      269,
+      1129,
+      1106
+    ],
+    "sha256": "0d6627d3240481823d22c955eb4b30325085dd21fba9dce01887a7b4f0cea559",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "asset": "furniture_alert_console",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "bbox128": [
+      329,
+      73,
+      949,
+      1208
+    ],
+    "sha256": "1ca84296e2e69db07d4e9b756debb22a0ddd92517446a37c1e77b8570d4c3a36",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "asset": "furniture_screen",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "bbox128": [
+      186,
+      185,
+      1071,
+      1089
+    ],
+    "sha256": "05c5281a108f31ba4e9eb57b770ea0511bd5ba84cf57c78581169d0f51c4faca",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  {
+    "asset": "furniture_cardboard_box",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "bbox128": [
+      187,
+      256,
+      1069,
+      1022
+    ],
+    "sha256": "48f0884227695defd3d8341b83a00059683bef7d647add76cc29bc919a8e6cf5",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  }
+]

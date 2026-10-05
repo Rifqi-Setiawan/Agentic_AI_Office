@@ -1,0 +1,74 @@
+{
+  "asset": "furniture_neon_sign",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-267a4f2f-4765-479f-8d67-a32e283976dd.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_neon_sign.png",
+  "source_original_sha256": "2114251923338b647fb4bd5ea6535e4fd1ddebee6446ac792a23d0eb5a18ecb2",
+  "sha256": "2114251923338b647fb4bd5ea6535e4fd1ddebee6446ac792a23d0eb5a18ecb2",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    0,
+    20,
+    1220,
+    1228
+  ],
+  "alpha_bbox_threshold_128": [
+    204,
+    187,
+    1054,
+    1112
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_neon_sign.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        320,
+        243
+      ],
+      [
+        965,
+        607
+      ]
+    ],
+    "axis_up_right": null,
+    "observed_slopes": {
+      "down_right": 0.5643410852713179,
+      "up_right": null
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      -0.06434108527131788,
+      0,
+      1,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Selected second generation corrects overly steep first projection. Main broad edge is visually about +0.564, close but not mathematically exact +0.5; optional small vertical-preserving shear suggested. Cyan/magenta abstract emblem has no text, transparent glow, and a compact dark parallelogram backing. Glow extends outside solid alpha bounds. Geometry remains an approximate visual estimate."
+  },
+  "generation_history": {
+    "initial_source": "/workspace/scratch/1f7ded418f78/generated_images/exec-1bcb9184-05a4-4449-8e54-eed0336862b6.png",
+    "initial_status": "Rejected as too steep +0.91 camera",
+    "selected_status": "Built-in imagegen edit brought broad edge to approximately +0.564; raw bytes preserved"
+  }
+}

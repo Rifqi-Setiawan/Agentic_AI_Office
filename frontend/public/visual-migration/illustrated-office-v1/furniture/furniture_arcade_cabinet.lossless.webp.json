@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_arcade_cabinet.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_arcade_cabinet.lossless.webp",
+  "sourceSha256": "e25d28db442ca2904d02ee5478c9521224fba15d299b5b48db46bc9b9f33bdb5",
+  "runtimeSha256": "bee670c9d22bf0ce718358e70db4e3107180e23ec8cd473a604b7ad1ed9c297b",
+  "sourceDecodedRgbaSha256": "326b15ca5661572d767c8454f17ecd854fb4022c8f922d9e2d386902f08df0df",
+  "runtimeDecodedRgbaSha256": "326b15ca5661572d767c8454f17ecd854fb4022c8f922d9e2d386902f08df0df",
+  "nativeSize": [
+    1312,
+    1199
+  ],
+  "sourceBytes": 940298,
+  "runtimeBytes": 582564,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

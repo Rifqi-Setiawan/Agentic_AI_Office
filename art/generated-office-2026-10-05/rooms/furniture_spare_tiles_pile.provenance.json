@@ -1,0 +1,66 @@
+{
+  "asset": "furniture_spare_tiles_pile",
+  "zones": [
+    "Z09"
+  ],
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-e81daee0-6968-4ca8-9262-384cad77f329.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_spare_tiles_pile.png",
+  "sha256": "0d6627d3240481823d22c955eb4b30325085dd21fba9dce01887a7b4f0cea559",
+  "source_original_sha256": "0d6627d3240481823d22c955eb4b30325085dd21fba9dce01887a7b4f0cea559",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    97,
+    21,
+    1210,
+    1214
+  ],
+  "alpha_bbox_threshold_128": [
+    125,
+    269,
+    1129,
+    1106
+  ],
+  "alpha_qa": {
+    "nonzero_pixels": 476713,
+    "very_faint_alpha_1_to_15_pixels": 5302,
+    "solid_alpha_128_plus_pixels": 469483,
+    "edge_alpha_max": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "pixel_processing": "None. Original built-in generation output bytes copied without resizing, cropping, compositing, or retouching. Pillow used only for read-only analysis.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_spare_tiles_pile.prompt.txt",
+  "style_references": [
+    {
+      "path": "generated/rooms/furniture_lab_bench.png",
+      "sha256": "29a7bfcff4e805b8ace35d05f3d9121bc6953fd338227d28bba58e0ed106e170"
+    },
+    {
+      "path": "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+      "sha256": "96d4d8be5453c9107c17322066f6cb73b4571c6d79a257e1c7662cc11ee119f3"
+    }
+  ],
+  "geometry_review": {
+    "target_screen_slopes": [
+      0.5,
+      -0.5
+    ],
+    "upright_verticals": true,
+    "strict_camera_certification": false,
+    "notes": "Selected square-canvas replacement is cleanly transparent. Five aligned square sample tiles use consistent upright thickness edges. Footprint edges are visibly closer to \u00b10.65 than requested \u00b10.5; strict 2:1 camera certification remains pending despite coherent internal projection."
+  }
+}

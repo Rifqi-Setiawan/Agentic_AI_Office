@@ -1,0 +1,36 @@
+{
+  "source": "/workspace/scratch/1f7ded418f78/generated_images/exec-b2c391af-5d23-4fb1-b48a-7b0e094afc53.png",
+  "destination": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/seating/office-chair-SE.png",
+  "prompt": "Use case: stylized-concept. Asset type: original transparent 2:1 dimetric office game furniture sprite. Input image 1: original charcoal upholstered office chair exact product reference. Input image 2: matching accepted SW/front view for construction and paint finish, NOT for its facing. Create ONE new original rendering of the SAME office chair physically turned to face SE: a seated person's forward direction points screen-LOWER-RIGHT. Critical layout: tall backrest is on screen-UPPER-LEFT relative to the seat; the front seat nose projects screen-LOWER-RIGHT. We see the INSIDE FRONT of the backrest, including the three-part lower lumbar cushioning and upper cushion, not the smooth rear shell. This is a front three-quarter view from the opposite front side to reference 2. Render a genuine 3D rotation, not a mirrored/flipped copy: global top-left lighting remains top-left, and the adjustment lever stays on the same physical side of the chair. Preserve exact construction/colors/proportions: tall softly rounded charcoal-blue upholstered backrest with separate upper cushion and three gently divided lower lumbar pads, thin piping seams, thick rounded charcoal seat, charcoal padded armrests and dark metal supports, charcoal five-spoke caster base with cylinder, no wood. Fixed orthographic 2:1 DIMETRIC camera; ground axes image slopes exactly +/-0.5; all verticals upright; no perspective convergence. Polished hand-painted soft 3D game asset, subtle fabric texture, clean readable silhouette, diffuse screen-top-left illumination. Entire chair fully visible and centered with transparent margins. Genuinely transparent alpha background, no floor/contact-shadow plane, sitter, desk, room, text, logos, watermark, arrows, labels, grid, extra objects, or collage.",
+  "orientation": "SE",
+  "observed_orientation": "Front three-quarter chair; inner backrest is screen-upper-left and front seat nose projects screen-lower-right. Matches SE sitter facing.",
+  "uncertainties": [
+    "Rounded cushions and five-spoke caster base make exact +/-0.5 ground-axis slopes difficult to certify; visually consistent with the requested dimetric view.",
+    "Small differences in generated upholstery texture and caster positions exist across separately generated orientations."
+  ],
+  "generator": "built-in image_gen.imagegen",
+  "original_bytes_preserved": true,
+  "sha256": "5f54ffd1f9b5c5cd891de97a679b0a194595ea76956fdbf00bd27d0b028f4e5d",
+  "source_sha256": "5f54ffd1f9b5c5cd891de97a679b0a194595ea76956fdbf00bd27d0b028f4e5d",
+  "canvas": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "alpha_128_bbox": [
+    601,
+    14,
+    1195,
+    883
+  ],
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "references": [
+    "generated/rooms/furniture_chair_cushion.png",
+    "generated/seating/office-chair-SW.png"
+  ],
+  "inspected": true,
+  "selection": "accepted"
+}

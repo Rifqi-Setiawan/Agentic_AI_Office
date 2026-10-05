@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/environment-architecture-v1/G01-window-glass.png",
+  "runtimeFile": "/visual-migration/environment-architecture-v1/G01-window-glass.lossless.webp",
+  "sourceSha256": "786061486c23fe73b5f75bb97ba475764054154098fafeb60f929b997d4284f7",
+  "runtimeSha256": "d098cc365487cfadea78297d077df4d13c85b53c7ff1bf6aa99a79bc641a8a6c",
+  "sourceDecodedRgbaSha256": "74b5cb04820b48099428211cb95ef4515c7f0e304dea310205427cf7a919935d",
+  "runtimeDecodedRgbaSha256": "74b5cb04820b48099428211cb95ef4515c7f0e304dea310205427cf7a919935d",
+  "nativeSize": [
+    1774,
+    887
+  ],
+  "sourceBytes": 836784,
+  "runtimeBytes": 553344,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

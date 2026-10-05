@@ -1,0 +1,75 @@
+{
+  "asset": "furniture_quran_shelf.png",
+  "zone": "Z16",
+  "relative_path": "generated/rooms/furniture_quran_shelf.png",
+  "generation_mode": "built-in image_gen.imagegen",
+  "transparent_background_requested": true,
+  "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-b13ce2ec-42ca-4de2-aa69-62c779132425.png",
+  "sha256": "239d8afd05ffbf28a27efd68a1a689dccc9008d78d93fdce7a711f33012b28d7",
+  "matches_original_bytes": true,
+  "prompt_file": "furniture_quran_shelf.prompt.txt",
+  "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One respectfully simple small warm-oak open book shelf for a quiet prayer room, with two open shelves holding a modest neatly arranged collection of closed books in muted deep teal, charcoal and warm cream covers. A clean plain solid upper surface. Books have absolutely plain covers and spines with no text, no symbols, no imitation scripture or calligraphy. Calm dignified furniture only, no prayer mats, no religious symbols, no people.",
+  "style_references_inspected": [
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+  ],
+  "dimensions": {
+    "width": 1536,
+    "height": 1024
+  },
+  "mode": "RGBA",
+  "alpha": {
+    "range": [
+      0,
+      254
+    ],
+    "zero_pixels": 812870,
+    "alpha_one_pixels": 4310,
+    "nonzero_bbox": [
+      71,
+      30,
+      1388,
+      1007
+    ],
+    "visible_bbox_alpha_gt_1": [
+      233,
+      31,
+      1305,
+      1005
+    ],
+    "visible_bbox_alpha_gt_8": [
+      235,
+      32,
+      1303,
+      1003
+    ],
+    "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+    "zero_fraction": 0.516808827718099
+  },
+  "registration_hint": {
+    "visual_bbox": [
+      233,
+      31,
+      1305,
+      1005
+    ],
+    "threshold": ">1",
+    "bbox_width": 1072,
+    "bbox_height": 974,
+    "visual_center_x": 769.0,
+    "visual_bottom_y": 1005,
+    "source_width_to_visible_width": 1.4328358208955223,
+    "source_height_to_visible_height": 1.051334702258727,
+    "pixel_cropping_performed": false
+  },
+  "visual_qa": {
+    "complete_object": true,
+    "no_people": true,
+    "no_legible_text": true,
+    "no_floor_or_room": true,
+    "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+    "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+    "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified.",
+    "respectful_book_treatment": "All books closed, plain covers and spines without imitation scripture or calligraphy."
+  }
+}

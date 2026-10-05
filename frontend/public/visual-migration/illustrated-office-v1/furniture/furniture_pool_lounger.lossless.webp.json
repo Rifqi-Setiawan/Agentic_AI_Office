@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_lounger.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_pool_lounger.lossless.webp",
+  "sourceSha256": "fd21da66fee502b28d4e1e77fec318e8cf6e558f04812eca1a3b4f76177d1294",
+  "runtimeSha256": "2464970612bdf42c87bb7a0e6279c3749fa179da7e3a5b743183309be587c708",
+  "sourceDecodedRgbaSha256": "29b0535d4e32e58a537797aec30d87f34c8e7b4dc924f4051d6ed1208f1022fd",
+  "runtimeDecodedRgbaSha256": "29b0535d4e32e58a537797aec30d87f34c8e7b4dc924f4051d6ed1208f1022fd",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1442865,
+  "runtimeBytes": 868344,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

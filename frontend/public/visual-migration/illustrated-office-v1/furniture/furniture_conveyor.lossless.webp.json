@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_conveyor.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_conveyor.lossless.webp",
+  "sourceSha256": "d0e47f5f5e38f38943e753d644f3e3da07f07eb6a9e6be82acf8b1b359095171",
+  "runtimeSha256": "fc76b2c00942d31f704ed31cfe76e7d23579ec9da8b5182e558e585f29a76d9c",
+  "sourceDecodedRgbaSha256": "9cf0709e7eb46235934cfa0a614645c0a303a773aba5395dd8236c613a03f661",
+  "runtimeDecodedRgbaSha256": "9cf0709e7eb46235934cfa0a614645c0a303a773aba5395dd8236c613a03f661",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1596273,
+  "runtimeBytes": 993364,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

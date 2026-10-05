@@ -1,0 +1,6 @@
+Use case: precise-object-edit.
+Image 1 is the Z09 monitor sprite to correct. Image 2 is a STYLE AND CAMERA REFERENCE only, an oak media cabinet from the same game.
+Keep Image 1's single charcoal widescreen display, compact pedestal foot, and abstract cyan wireframe graphics without any text. Change its viewpoint so it uses the same strict 2:1 dimetric camera as the cabinet reference. It must be a clean 2D illustrated sprite, not a product render.
+CRITICAL GEOMETRY: the monitor's top and bottom long edges run down-right at slope +0.5, meaning 2 pixels right for every 1 pixel down, like the long cabinet edge in Image 2. The screen is therefore an obvious slanted parallelogram in image space, NOT a near-horizontal rectangle. The short visible thickness edges and the back-to-front axis of the base run down-left at slope -0.5. Vertical screen side edges stay vertical. These are orthographic parallel edges.
+Maintain warm upper-left illumination, smooth illustrated charcoal surfaces, crisp thin outlines, minimal clean cyan screen elements. No desk or new objects. Center the whole monitor with generous clean padding.
+Output genuine alpha transparency. Every pixel outside the object must be fully transparent, without any glow, aura, haze, cast ground shadow, room, floor or platform. No people, text, letters, numbers, watermarks or logos.

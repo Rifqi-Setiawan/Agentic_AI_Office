@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_chair.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_chair.lossless.webp",
+  "sourceSha256": "b56010d8d829a9a9c7fc5ed6e71fb1b66a62aec82cdca60b7203d80ba3e9cfbd",
+  "runtimeSha256": "a2c688d878ebeb027ebf3b3a4f93f1996b5acc3703003b46b23f85e03a8c45d7",
+  "sourceDecodedRgbaSha256": "245a4b6d96bc7cb875d6265bdc56c34046c74b5be661a9e55145d7eb3f05fc5b",
+  "runtimeDecodedRgbaSha256": "245a4b6d96bc7cb875d6265bdc56c34046c74b5be661a9e55145d7eb3f05fc5b",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1655931,
+  "runtimeBytes": 1012812,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

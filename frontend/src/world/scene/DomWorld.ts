@@ -7,7 +7,7 @@ import { BubbleManager } from '../bubble';
 import { VitalsModel } from '../simulation/VitalsModel';
 import { EasterEggModel } from '../simulation/EasterEggModel';
 import { SceneCamera } from './SceneCamera';
-import { applyAtlasFrame, atlasImageUrl, resolveActorAnimation, type PreviewAssets, type SpriteAtlas } from './AssetRegistry';
+import { applyAtlasFrame, applyPropArtwork, atlasImageUrl, resolveActorAnimation, type PreviewAssets, type SpriteAtlas } from './AssetRegistry';
 import { screenToGrid } from '../projection';
 import type { TiledMapDoc } from '../types';
 import { officeStore } from '../../store/officeStore';
@@ -109,8 +109,7 @@ export class DomWorld implements WorldController {
       if (el.style.display !== display) el.style.display = display;
       const night = state.timeOfDay === 'night' || state.timeOfDay === 'dusk';
       if (prop.file) {
-        const file=night && prop.nightFile ? prop.nightFile : prop.file;
-        if(el.dataset.assetFile!==file) {el.style.backgroundImage=`url("${file}")`;el.dataset.assetFile=file;}
+        applyPropArtwork(el, prop, night);
       } else {
         const alternate = prop.sprite.replace('.png', '_night.png');
         const sprite = night && this.environment.frames[alternate] ? alternate : prop.sprite;

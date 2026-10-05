@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_potted_plant.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_potted_plant.lossless.webp",
+  "sourceSha256": "99d15732309a1884f9a175d28c37c05e9e747fb420a9bcd2103732033ca3cdbf",
+  "runtimeSha256": "9d48d05f3b3ff2743a30d9ed3d5af1a26c4a2bbf4e5cfa4eccde8215e7377288",
+  "sourceDecodedRgbaSha256": "e365a8ac5e92d2d7945b195f788340c6cf7aac3748fbc674e5bba93fdc053327",
+  "runtimeDecodedRgbaSha256": "e365a8ac5e92d2d7945b195f788340c6cf7aac3748fbc674e5bba93fdc053327",
+  "nativeSize": [
+    1024,
+    1536
+  ],
+  "sourceBytes": 1928231,
+  "runtimeBytes": 1191078,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

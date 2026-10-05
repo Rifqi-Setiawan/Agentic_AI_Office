@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_bookcase_tall.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_bookcase_tall.lossless.webp",
+  "sourceSha256": "b7c2390e5fe169304851828750fde6e0ea895f6379339c2abe19917adbf7bd96",
+  "runtimeSha256": "94b34033aa42c91a5478d29cd147491c7292373306b3acc450b8f8c1976d557f",
+  "sourceDecodedRgbaSha256": "47ffb2dfd9a766e94a8a00ce45ef5f9df8ef9cd3ba242fcc7ffc6216fa19d8cb",
+  "runtimeDecodedRgbaSha256": "47ffb2dfd9a766e94a8a00ce45ef5f9df8ef9cd3ba242fcc7ffc6216fa19d8cb",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 1470546,
+  "runtimeBytes": 939638,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

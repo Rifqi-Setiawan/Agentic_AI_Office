@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_tropical_plant.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_tropical_plant.lossless.webp",
+  "sourceSha256": "48fa334b2ff160626dce2ded41af8b6bbadbe420f116550d4e861edf050a4e37",
+  "runtimeSha256": "83c5b26cd844c51151b9a011486df94925ed45a35793139b24cd825a6d7b4d20",
+  "sourceDecodedRgbaSha256": "c345cbd39b23c410fb43caf55cd09b9698f274d32fc7bd7fa9e16e9aaa14f3f7",
+  "runtimeDecodedRgbaSha256": "c345cbd39b23c410fb43caf55cd09b9698f274d32fc7bd7fa9e16e9aaa14f3f7",
+  "nativeSize": [
+    1263,
+    1245
+  ],
+  "sourceBytes": 1245095,
+  "runtimeBytes": 817032,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

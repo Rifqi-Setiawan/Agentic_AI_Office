@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_wudhu_station.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_wudhu_station.lossless.webp",
+  "sourceSha256": "a296ca35c509042b7681c706534a5e1a95db3ec6adf066268a934ac87fb3e72d",
+  "runtimeSha256": "80351f2c08c2d0dcd02a7bd6426b3bbb3a994a9508c4286b32dc43b7b70aaeaf",
+  "sourceDecodedRgbaSha256": "b934c1a3d181dce2b1ca14d68156ee1274bb68b9873f402fe228616c2c5c3ab0",
+  "runtimeDecodedRgbaSha256": "b934c1a3d181dce2b1ca14d68156ee1274bb68b9873f402fe228616c2c5c3ab0",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1707081,
+  "runtimeBytes": 1008360,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

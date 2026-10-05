@@ -1,0 +1,39 @@
+{
+  "asset": "F03-floor-corridor-gray",
+  "generation_date": "2026-10-05",
+  "tool": "tools.image_gen__imagegen",
+  "mode": "Built-in generation; O01 additionally has one built-in image edit. No CLI/API fallback.",
+  "selected_file": "generated/foundation/F03-floor-corridor-gray.png",
+  "selected_sha256": "9c207a8b2021075c33eac8b53988f42aaae9384a23c7222e8f4bb4feb8bba3b3",
+  "original_runtime_file": "/workspace/scratch/1f7ded418f78/generated_images/exec-427789eb-2396-45e0-a4df-b5e326d70351.png",
+  "original_sha256": "9c207a8b2021075c33eac8b53988f42aaae9384a23c7222e8f4bb4feb8bba3b3",
+  "byte_for_byte_copy_verified": true,
+  "references": [
+    {
+      "path": "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png",
+      "role": "Visually inspected style reference only, not image edit input",
+      "sha256": "e724fcee379d0dd843a0b40d5daac26dea0b8d44897db4a7f8acfadf2aab176b"
+    },
+    {
+      "path": "generated/foundation/F01-floor-oak-a-v2.png",
+      "role": "Visually inspected style reference only, not image edit input",
+      "sha256": "3978a78cb19bb1446d9d07ef9aff7b84dd701a3e866f2ff20d93f579244e105e"
+    }
+  ],
+  "spec_sources": [
+    "source/art/environment-foundation-2026-10-05/asset-specs.json",
+    "source/art/environment-foundation-2026-10-05/prompt-pack/ASSET_MANIFEST.json"
+  ],
+  "current_direction": "Current handoff requested cool-gray F03 corridor and warm-gray F04 outdoor, superseding the older manifest hue descriptions.",
+  "stages": [
+    {
+      "stage": "initial generation",
+      "prompt": "F03-floor-corridor-gray.prompt.txt",
+      "runtime_file": "/workspace/scratch/1f7ded418f78/generated_images/exec-427789eb-2396-45e0-a4df-b5e326d70351.png",
+      "selected": true
+    }
+  ],
+  "pixel_editing": "None. PNGs copied byte-for-byte. Pillow/numpy used read-only for measurements.",
+  "qa_file": "F03-floor-corridor-gray.qa.json",
+  "status": "Generated source accepted visually; exact runtime geometry, repeat-seam and underlay QA pending."
+}

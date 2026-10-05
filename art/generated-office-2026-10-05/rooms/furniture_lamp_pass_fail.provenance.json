@@ -1,0 +1,78 @@
+{
+  "asset": "furniture_lamp_pass_fail",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-2bb73910-cbe2-4a9f-aa53-4844be1e6a54.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_lamp_pass_fail.png",
+  "source_original_sha256": "53d2535d4ed6223e377fd4c65e6029224dff50e3042ef8523db51ebaebad9e9f",
+  "sha256": "53d2535d4ed6223e377fd4c65e6029224dff50e3042ef8523db51ebaebad9e9f",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    65,
+    53,
+    1097,
+    1212
+  ],
+  "alpha_bbox_threshold_128": [
+    351,
+    162,
+    890,
+    1071
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_lamp_pass_fail.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        494,
+        304
+      ],
+      [
+        776,
+        436
+      ]
+    ],
+    "axis_up_right": [
+      [
+        776,
+        436
+      ],
+      [
+        873,
+        399
+      ]
+    ],
+    "observed_slopes": {
+      "down_right": 0.46808510638297873,
+      "up_right": -0.38144329896907214
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      -0.05099406145107155,
+      0,
+      1.1771236767363802,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Two stacked lenses, red above green, verified with no text. Lamp front plane is down-right, but mounting plate has a different visible orientation and cannot be exactly fixed by one global transform. Suggested matrix aligns the selected housing top edges only."
+  }
+}

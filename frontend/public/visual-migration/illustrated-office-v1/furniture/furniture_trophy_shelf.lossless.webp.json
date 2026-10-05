@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_trophy_shelf.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_trophy_shelf.lossless.webp",
+  "sourceSha256": "2c57db6f8ec6d747cfef6e21169559285c41af868ba35f40611d9447b989a7d1",
+  "runtimeSha256": "560af63d5ea3dd37b266ce9d8388427c61f92343715cd27369d720ff7c08eb75",
+  "sourceDecodedRgbaSha256": "cc27aa739b7b02c757223d9e600b902d88066fdd091f865d10ba20ed1615619e",
+  "runtimeDecodedRgbaSha256": "cc27aa739b7b02c757223d9e600b902d88066fdd091f865d10ba20ed1615619e",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 927964,
+  "runtimeBytes": 642420,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_glass_partition.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_glass_partition.lossless.webp",
+  "sourceSha256": "a41494be15c57c787468cff19c9da01810895dff98f4c1fdb1fcb416463a458c",
+  "runtimeSha256": "a02ed9e0cdae118fe97358970569405aacef3e29ff73d1a3ae47eea4d9876f3e",
+  "sourceDecodedRgbaSha256": "561a38608281f6426c03dd1f8d2dfd2720aea4b403ed314d31665defa5267c62",
+  "runtimeDecodedRgbaSha256": "561a38608281f6426c03dd1f8d2dfd2720aea4b403ed314d31665defa5267c62",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1364527,
+  "runtimeBytes": 826748,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

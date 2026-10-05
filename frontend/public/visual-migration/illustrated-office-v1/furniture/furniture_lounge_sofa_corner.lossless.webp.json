@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_sofa_corner.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_lounge_sofa_corner.lossless.webp",
+  "sourceSha256": "6937b26d4ddb2f9ac56804ba745d744c545be7bb76004c10dc9f211713591bc6",
+  "runtimeSha256": "a726617645d859dae1ad9061dbb57cc91904482dfcc14bbfee584f235adc25eb",
+  "sourceDecodedRgbaSha256": "099a62fa5675db255b49a8710ced2ab10e68adf0ddfba14bbdc2dd387b147725",
+  "runtimeDecodedRgbaSha256": "099a62fa5675db255b49a8710ced2ab10e68adf0ddfba14bbdc2dd387b147725",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1927447,
+  "runtimeBytes": 1201126,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

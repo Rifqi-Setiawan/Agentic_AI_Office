@@ -1,0 +1,92 @@
+{
+  "asset": "furniture_lab_bench",
+  "zone": "Z06",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-9db77833-c1ef-44f3-acfa-04883456eb0f.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_lab_bench.png",
+  "sha256": "29a7bfcff4e805b8ace35d05f3d9121bc6953fd338227d28bba58e0ed106e170",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    56,
+    106,
+    1218,
+    1254
+  ],
+  "alpha_bbox_threshold_128": [
+    62,
+    109,
+    1194,
+    1213
+  ],
+  "pixel_processing": "None. Original output bytes copied without resizing, cropping, compositing, or retouching.",
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_lab_bench.prompt.txt",
+  "source_atlas_sha256": "944dd62f5413d8c845ca48d1cfed8654f61b1cb48d019211ac4dbebb4d26cdf8",
+  "alpha_bbox_threshold_64": [
+    62,
+    109,
+    1195,
+    1213
+  ],
+  "alpha_qa": {
+    "nonzero_pixels": 810614,
+    "very_faint_alpha_1_to_15_pixels": 11971,
+    "solid_alpha_128_plus_pixels": 795429,
+    "notes": "Faint alpha specks may expand raw nonzero bbox. Threshold bounds are read-only QA and registration hints; no pixels were changed."
+  },
+  "geometry_review": {
+    "coordinate_system": "Original PNG pixels, x right, y down. Endpoint selections estimated visually, not mathematically exact.",
+    "axis_down_right": [
+      [
+        99,
+        890
+      ],
+      [
+        919,
+        1193
+      ]
+    ],
+    "axis_up_right": [
+      [
+        919,
+        1193
+      ],
+      [
+        1163,
+        1033
+      ]
+    ],
+    "edge_labels": [
+      "Left-front foot center to right-front foot center",
+      "Right-front foot center to right-back foot center"
+    ],
+    "observed_slopes": {
+      "down_right": 0.369512,
+      "up_right": -0.655738
+    },
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.139588,
+      0,
+      0.975372,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "[a,b,c,d,e,f]; fits ONLY selected lines using x_new=x and y_new=b*x+d*y. Use transform-origin 0 0 and recompute image/anchor bounds. This is a registration suggestion, not an applied pixel edit.",
+    "confidence": "Approximate visual QA; verify at runtime",
+    "notes": "Approximate support-foot centers, moderate confidence. Front worktop edge [62,412] to [925,648] is shallower (~0.273) than ground-foot line (~0.370); this is a genuine generative perspective inconsistency. A single affine transform aligns chosen support axes, but cannot make every worktop/cabinet line exact. Keep strict camera QA explicitly pending."
+  }
+}

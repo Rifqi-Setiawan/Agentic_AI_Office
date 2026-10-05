@@ -1,0 +1,123 @@
+{
+  "assets": [
+    {
+      "asset": "furniture_wudhu_station.png",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "bbox_alpha_gte_128": [
+        327,
+        18,
+        1215,
+        988
+      ],
+      "sha256": "a296ca35c509042b7681c706534a5e1a95db3ec6adf066268a934ac87fb3e72d"
+    },
+    {
+      "asset": "furniture_shaf_partition.png",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "bbox_alpha_gte_128": [
+        182,
+        26,
+        1394,
+        1001
+      ],
+      "sha256": "7faf0c9c03d393c7862fb435edbf2aaff9ae055dfb371476df9fa4ab9074c1a3"
+    },
+    {
+      "asset": "furniture_mihrab.png",
+      "dimensions": {
+        "width": 1293,
+        "height": 1217
+      },
+      "bbox_alpha_gte_128": [
+        348,
+        56,
+        960,
+        1161
+      ],
+      "sha256": "a18d975c6cffef2243fcc31322ffe9b3f50836fa016003cfb6af0bc1a656794f"
+    },
+    {
+      "asset": "furniture_pool_umbrella.png",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "bbox_alpha_gte_128": [
+        205,
+        38,
+        1331,
+        977
+      ],
+      "sha256": "8ef974e2e430eda3ea0a56a0893098843bb6f932fde1dad9f44682b4224e2e22"
+    },
+    {
+      "asset": "furniture_tropical_plant.png",
+      "dimensions": {
+        "width": 1263,
+        "height": 1245
+      },
+      "bbox_alpha_gte_128": [
+        102,
+        31,
+        1153,
+        1190
+      ],
+      "sha256": "48fa334b2ff160626dce2ded41af8b6bbadbe420f116550d4e861edf050a4e37"
+    },
+    {
+      "asset": "furniture_pool_coping.png",
+      "dimensions": {
+        "width": 1774,
+        "height": 887
+      },
+      "bbox_alpha_gte_128": [
+        92,
+        100,
+        1685,
+        856
+      ],
+      "sha256": "73f27a40e60513966128de0a2c800b9f391f3464fb434680ede4b3e6dbfc4e12"
+    },
+    {
+      "asset": "furniture_conveyor.png",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "bbox_alpha_gte_128": [
+        226,
+        75,
+        1313,
+        955
+      ],
+      "sha256": "d0e47f5f5e38f38943e753d644f3e3da07f07eb6a9e6be82acf8b1b359095171"
+    },
+    {
+      "asset": "furniture_glass_partition.png",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "bbox_alpha_gte_128": [
+        282,
+        24,
+        1249,
+        1000
+      ],
+      "sha256": "a41494be15c57c787468cff19c9da01810895dff98f4c1fdb1fcb416463a458c"
+    }
+  ],
+  "count": 8,
+  "generation": "Eight individual built-in imagegen calls; originals copied byte-for-byte",
+  "caveats": [
+    "Exact +/-0.5 dimetric slopes are not certified; coping is visibly shallower",
+    "Glass is genuinely translucent but moderately opaque: sampled pane alpha=199-202 (about 78-79% opacity)",
+    "Some original outputs retain nearly invisible low-alpha fringe"
+  ]
+}

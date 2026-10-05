@@ -1,0 +1,179 @@
+{
+  "asset": "F16-prayer-rug",
+  "png_file": "generated/foundation/F16-prayer-rug.png",
+  "sha256": "2e4d2dc3a0609168007fca3928dfdfe092165d5bba63849996c2c583163abd75",
+  "canvas_px": [
+    1774,
+    887
+  ],
+  "mode": "RGBA",
+  "bbox_by_alpha_threshold": {
+    "1": {
+      "bbox_xyxy_exclusive": [
+        10,
+        16,
+        1763,
+        875
+      ],
+      "pixel_count": 758541
+    },
+    "64": {
+      "bbox_xyxy_exclusive": [
+        13,
+        19,
+        1760,
+        873
+      ],
+      "pixel_count": 749865
+    },
+    "128": {
+      "bbox_xyxy_exclusive": [
+        14,
+        19,
+        1760,
+        872
+      ],
+      "pixel_count": 748619
+    },
+    "250": {
+      "bbox_xyxy_exclusive": [
+        15,
+        21,
+        1758,
+        871
+      ],
+      "pixel_count": 741456
+    },
+    "255": {
+      "bbox_xyxy_exclusive": [
+        15,
+        28,
+        1758,
+        868
+      ],
+      "pixel_count": 1155
+    }
+  },
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "transparent_pixel_fraction": 0.517939,
+  "fitted_edges_y_mx_plus_b": {
+    "top_left": {
+      "slope": -0.484481,
+      "intercept": 447.56657,
+      "rms_error_px": 0.43196,
+      "samples": 750
+    },
+    "top_right": {
+      "slope": 0.48635,
+      "intercept": -412.839611,
+      "rms_error_px": 0.404635,
+      "samples": 750
+    },
+    "bottom_left": {
+      "slope": 0.489568,
+      "intercept": 437.281621,
+      "rms_error_px": 0.33817,
+      "samples": 750
+    },
+    "bottom_right": {
+      "slope": -0.491142,
+      "intercept": 1308.228694,
+      "rms_error_px": 0.382748,
+      "samples": 750
+    }
+  },
+  "fitted_vertices_xy": {
+    "top": [
+      886.257424,
+      18.191687
+    ],
+    "right": [
+      1760.698098,
+      443.475909
+    ],
+    "bottom": [
+      888.0781,
+      872.05624
+    ],
+    "left": [
+      10.558965,
+      442.450952
+    ]
+  },
+  "fit_method": "Robust least squares on alpha>=128 column boundaries, ignoring 3.5 percent near corners; read-only approximate measurements.",
+  "fitted_span_px": [
+    1750.139133,
+    853.864553
+  ],
+  "fitted_width_height_ratio": 2.049668,
+  "interior_alpha_inset_12px": {
+    "min": 252,
+    "median": 253.0,
+    "mean": 253.001024,
+    "max": 254,
+    "fraction_255": 0.0,
+    "fraction_at_least_250": 1.0,
+    "fraction_below_240": 0.0
+  },
+  "interior_mean_rgb": [
+    94.374906,
+    121.600219,
+    111.409897
+  ],
+  "runtime_registration": {
+    "use_source_vertices": {
+      "top": [
+        886.257424,
+        18.191687
+      ],
+      "right": [
+        1760.698098,
+        443.475909
+      ],
+      "bottom": [
+        888.0781,
+        872.05624
+      ],
+      "left": [
+        10.558965,
+        442.450952
+      ]
+    },
+    "target_logical_diamond": [
+      [
+        32,
+        0
+      ],
+      [
+        64,
+        16
+      ],
+      [
+        32,
+        32
+      ],
+      [
+        0,
+        16
+      ]
+    ],
+    "target_width_height_ratio": 2,
+    "recommendation": "Preserve native PNG pixels. Register its measured source quad through two affine triangles, exact outer diamond clip, and opaque matching underlay. Overlay only 14 canonical rug cells over new base floor; never repaint legacy rug atlas sprites over the new art."
+  },
+  "visual_qa": {
+    "isolated_ground_plane": true,
+    "no_visible_slab_sides_or_bevels": true,
+    "no_objects_or_characters": true,
+    "no_text_or_scripture": true,
+    "transparent_outside": true,
+    "notes": "Original muted-teal woven diamond with cream geometric border. Generated approximate 2:1 source is measured, not resized or repainted."
+  },
+  "browserQA": false,
+  "repeatedSeamVisualQA": false,
+  "status": "Source visually accepted and alpha measured; exact runtime registration tested separately. Browser visual QA not performed."
+}

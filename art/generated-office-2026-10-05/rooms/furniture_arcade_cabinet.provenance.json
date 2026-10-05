@@ -1,0 +1,74 @@
+{
+  "asset": "furniture_arcade_cabinet.png",
+  "zone": "Z15",
+  "relative_path": "generated/rooms/furniture_arcade_cabinet.png",
+  "generation_mode": "built-in image_gen.imagegen",
+  "transparent_background_requested": true,
+  "selected_original_output": "/workspace/scratch/1f7ded418f78/generated_images/exec-90c062f3-a206-45af-a317-247383d221e4.png",
+  "sha256": "e25d28db442ca2904d02ee5478c9521224fba15d299b5b48db46bc9b9f33bdb5",
+  "matches_original_bytes": true,
+  "prompt_file": "furniture_arcade_cabinet.prompt.txt",
+  "final_prompt": "Use case: stylized-concept.\nCreate ONE isolated game furniture sprite as a genuinely alpha-transparent PNG. Illustration should match a refined office simulator: neat thin ink contours, smooth flat cel-shaded color planes, a little warm-oak grain, charcoal and tiny cyan accents. This is 2D illustrated game art, not a product render or photorealistic image.\nCRITICAL CAMERA: strict orthographic 2:1 dimetric sprite. A square horizontal footprint projects to a diamond exactly twice as wide as tall. The two world floor axes are screen vectors (2,1) and (-2,1). All straight tabletop/footprint/depth edges follow these axes, slopes +0.5 and -0.5, never shallow near-horizontal edges. Vertical edges are vertical. This same fixed overhead camera is used for every furniture piece.\nLight comes from upper left. Top faces are lighter and side faces darker.\nShow the whole object with all feet. One coherent complete furniture object occupies about 80% of canvas, centered with clear padding. Keep illustration details simple enough to read at a small game scale.\nAll empty space must have alpha zero, including gaps below furniture. Background is completely empty transparent alpha, with NO glow, NO haze, NO shadow halo, NO ground shadow, NO vignette. Do not draw any room, floor, platform, people or characters. No text, letters, numbers, logos or watermarks.\nSUBJECT: One sophisticated upright arcade cabinet in matte graphite charcoal with warm oak side inserts and subtle cyan trim. One integrated screen showing a simple abstract cyan geometric game scene without words, a small control deck with one joystick and a few cyan buttons, and a plain unlettered top marquee. Stylish adult office lounge arcade, complete object including base; no surrounding floor or other objects.",
+  "style_references_inspected": [
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/Z08-worker-desk.png",
+    "source/frontend/public/visual-migration/dot-z08-components-v2/components/media-cabinet-low-oak.png"
+  ],
+  "dimensions": {
+    "width": 1312,
+    "height": 1199
+  },
+  "mode": "RGBA",
+  "alpha": {
+    "range": [
+      0,
+      255
+    ],
+    "zero_pixels": 999190,
+    "alpha_one_pixels": 3944,
+    "nonzero_bbox": [
+      81,
+      16,
+      1282,
+      1199
+    ],
+    "visible_bbox_alpha_gt_1": [
+      299,
+      16,
+      961,
+      1185
+    ],
+    "visible_bbox_alpha_gt_8": [
+      301,
+      18,
+      959,
+      1183
+    ],
+    "bbox_format": "[left, top, right_exclusive, bottom_exclusive]",
+    "zero_fraction": 0.6351774344474054
+  },
+  "registration_hint": {
+    "visual_bbox": [
+      299,
+      16,
+      961,
+      1185
+    ],
+    "threshold": ">1",
+    "bbox_width": 662,
+    "bbox_height": 1169,
+    "visual_center_x": 630.0,
+    "visual_bottom_y": 1185,
+    "source_width_to_visible_width": 1.9818731117824773,
+    "source_height_to_visible_height": 1.0256629597946962,
+    "pixel_cropping_performed": false
+  },
+  "visual_qa": {
+    "complete_object": true,
+    "no_people": true,
+    "no_legible_text": true,
+    "no_floor_or_room": true,
+    "style": "Refined 2D outlined/cel-shaded furniture, warm oak or charcoal/cyan as appropriate",
+    "camera": "Dimetric appearance, approximate; exact +0.5/-0.5 axis compliance is not certified",
+    "alpha_note": "Some outputs retain nearly invisible alpha=1 fringe far outside the object. Use the recorded alpha>1 bbox for geometry; PNG bytes are unmodified."
+  }
+}

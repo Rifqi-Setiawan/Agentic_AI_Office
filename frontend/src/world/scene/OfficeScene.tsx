@@ -12,6 +12,8 @@ import { DomWorld } from './DomWorld';
 import { applyAtlasFrame, type PreviewAssets, type SpriteAtlas } from './AssetRegistry';
 import { SceneActor, SceneProp } from './SceneSprites';
 import { illustratedActorDefs } from './ActorRoster';
+import { presentOfficeWalls } from './WallPresentation';
+import { GroundSurfaces } from './GroundSurfaces';
 import './scene.css';
 
 interface SceneData { map: TiledMapDoc; assets: PreviewAssets; environment: SpriteAtlas; atlases: Map<string, SpriteAtlas>; actors: AgentSpawnDef[]; }
@@ -34,7 +36,8 @@ export const OfficeScene: React.FC = () => {
       : officeArt === 'previous' ? '/visual-migration/illustrated-z08-v3/assets.json'
       : officeArt === 'dot-v1' ? '/visual-migration/dot-z08-candidate/assets.json'
       : officeArt === 'dot-v2' ? '/visual-migration/dot-z08-components-v2/assets.json'
-      : '/visual-migration/environment-foundation-v1/assets.json';
+      : officeArt === 'foundation-v1' ? '/visual-migration/environment-foundation-v1/assets.json'
+      : '/visual-migration/illustrated-office-v1/assets.json';
     Promise.all([
       loadJson<TiledMapDoc>('/maps/floor1.tmj', signal),
       loadJson<PreviewAssets>(assetsUrl, signal),
@@ -42,7 +45,7 @@ export const OfficeScene: React.FC = () => {
     ]).then(async ([map, assets, environment]) => {
       const atlases = new Map(await Promise.all(Object.entries(assets.characterOverrides??{}).map(async ([id,path]) =>
         [id,await loadJson<SpriteAtlas>(path,signal)] as const)));
-      if (!signal.aborted) setData({ map, assets, environment, atlases, actors: illustratedActorDefs(atlases) });
+      if (!signal.aborted) setData({ map, assets: presentOfficeWalls(assets), environment, atlases, actors: illustratedActorDefs(atlases) });
     }).catch(err => { if (!signal.aborted) setError(String(err)); });
     return () => abort.abort();
   }, []);
@@ -75,6 +78,7 @@ export const OfficeScene: React.FC = () => {
       <div ref={worldElement} className={`camera-world ${debug ? 'debug' : ''}`}>
         {data && <>
           <img className="static-floor" src={data.assets.floor.file} alt="Lantai kantor canonical 17 zona" draggable={false} style={{left:data.assets.floor.x,top:data.assets.floor.y,width:data.assets.floor.width,height:data.assets.floor.height}} />
+          <GroundSurfaces map={data.map} surfaces={data.assets.groundSurfaces} atlas={data.environment}/>
           {data.assets.props.map(prop => <SceneProp key={prop.id} prop={prop} atlas={data.environment}/>)}
           {data.actors.map(def => <SceneActor key={def.id} def={def} onSelect={selectAgent}/>)}
           {grid?.zones.map(zone => {const p=gridToScreen(zone.gx_min+1,zone.gy_min+1);return <span key={zone.id} className="zone-label" style={{left:p.x,top:p.y}}>{zone.id} / {zone.name}</span>;})}

@@ -1,0 +1,189 @@
+[
+  {
+    "zone": "Z01",
+    "name": "Ruang CEO",
+    "generatedSourceProps": 4,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z02",
+    "name": "Boardroom",
+    "generatedSourceProps": 20,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z03",
+    "name": "Ruang Arsitektur",
+    "generatedSourceProps": 5,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z04",
+    "name": "Ruang Kelas",
+    "generatedSourceProps": 7,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z05",
+    "name": "Perpustakaan",
+    "generatedSourceProps": 9,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z06",
+    "name": "Lab Riset",
+    "generatedSourceProps": 7,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z07",
+    "name": "Studio Desain",
+    "generatedSourceProps": 4,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z08",
+    "name": "Dev Pods",
+    "generatedSourceProps": 0,
+    "preservedIllustratedProps": 9,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z09",
+    "name": "Graphics Lab",
+    "generatedSourceProps": 3,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z10",
+    "name": "QA Station",
+    "generatedSourceProps": 4,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z11",
+    "name": "Release Dock",
+    "generatedSourceProps": 8,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z12",
+    "name": "Data Center & SOC",
+    "generatedSourceProps": 10,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z13",
+    "name": "Lobi",
+    "generatedSourceProps": 5,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 2,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z14",
+    "name": "Kafetaria & Lounge",
+    "generatedSourceProps": 15,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z15",
+    "name": "Arcade",
+    "generatedSourceProps": 11,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z16",
+    "name": "Musholla",
+    "generatedSourceProps": 8,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  },
+  {
+    "zone": "Z17",
+    "name": "Kolam luar",
+    "generatedSourceProps": 23,
+    "preservedIllustratedProps": 0,
+    "architectureSourceProps": 0,
+    "remainingAtlasProps": 0,
+    "remainingSprites": [],
+    "browserVisualQA": false,
+    "complete": false
+  }
+]

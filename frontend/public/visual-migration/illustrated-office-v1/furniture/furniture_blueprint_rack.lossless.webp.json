@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_blueprint_rack.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_blueprint_rack.lossless.webp",
+  "sourceSha256": "9c38d51152c1a303bd9759527614352ea7a0f10d8bd2c227d6fd2efa8cf825d8",
+  "runtimeSha256": "2692ee41cf34b01b1f8b62c9812a498b7ba8bf8788e40970e0620c930a5224d1",
+  "sourceDecodedRgbaSha256": "59a5798a20c0b956eb4e5e2c0a4a18fa8f99b3f32c5c56fb965a4680d716da06",
+  "runtimeDecodedRgbaSha256": "59a5798a20c0b956eb4e5e2c0a4a18fa8f99b3f32c5c56fb965a4680d716da06",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 1438240,
+  "runtimeBytes": 891208,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

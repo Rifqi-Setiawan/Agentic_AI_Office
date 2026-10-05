@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_mihrab.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_mihrab.lossless.webp",
+  "sourceSha256": "a18d975c6cffef2243fcc31322ffe9b3f50836fa016003cfb6af0bc1a656794f",
+  "runtimeSha256": "f36ba4dae76624af30e3700e1d04578c5e8d4a8774a903cf8324fa59d43dbfe9",
+  "sourceDecodedRgbaSha256": "dfd237908b952e1f43ae1481965f2bec02834d17c906f48b97e022ba116e3d04",
+  "runtimeDecodedRgbaSha256": "dfd237908b952e1f43ae1481965f2bec02834d17c906f48b97e022ba116e3d04",
+  "nativeSize": [
+    1293,
+    1217
+  ],
+  "sourceBytes": 876031,
+  "runtimeBytes": 554830,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_neon_sign.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_neon_sign.lossless.webp",
+  "sourceSha256": "2114251923338b647fb4bd5ea6535e4fd1ddebee6446ac792a23d0eb5a18ecb2",
+  "runtimeSha256": "2f87b058cafd08d346f359c88b9ec60b636e77b5639812d3dcd5a8d45fdce4f1",
+  "sourceDecodedRgbaSha256": "5bec775ba77dd561d34aa1504711bcbac7027a594cbb3fb2ee05c326fb5f4767",
+  "runtimeDecodedRgbaSha256": "5bec775ba77dd561d34aa1504711bcbac7027a594cbb3fb2ee05c326fb5f4767",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 925485,
+  "runtimeBytes": 569650,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_printing_press.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_printing_press.lossless.webp",
+  "sourceSha256": "3314a48c6e24305b28546e5164a85c7ac950173b2cd61640211eda5c5e16b848",
+  "runtimeSha256": "1c80275cf03d3c03abe415e1f779e9ac6d6564298852942f5ec891d8f0a5d3ba",
+  "sourceDecodedRgbaSha256": "5249bafc09312bf8faa86a962ca822a4068790af256044a17fed98a5c2c0b2d2",
+  "runtimeDecodedRgbaSha256": "5249bafc09312bf8faa86a962ca822a4068790af256044a17fed98a5c2c0b2d2",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 1550253,
+  "runtimeBytes": 1024736,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

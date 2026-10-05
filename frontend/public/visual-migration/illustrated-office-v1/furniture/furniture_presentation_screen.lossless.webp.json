@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_presentation_screen.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_presentation_screen.lossless.webp",
+  "sourceSha256": "2c8d24489874c713025927f5cc39d0a57f929921f1a54855c4245e352faeff6c",
+  "runtimeSha256": "04743fa34ad1c863a5683b1deef9580193eb0da51fc0f59ccb25429f9b2e1804",
+  "sourceDecodedRgbaSha256": "2fc1b0e6a2b9072eee672c856c2506772c1eac35f38ee0b5a3f46123a5f0f1e8",
+  "runtimeDecodedRgbaSha256": "2fc1b0e6a2b9072eee672c856c2506772c1eac35f38ee0b5a3f46123a5f0f1e8",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceBytes": 876516,
+  "runtimeBytes": 531338,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

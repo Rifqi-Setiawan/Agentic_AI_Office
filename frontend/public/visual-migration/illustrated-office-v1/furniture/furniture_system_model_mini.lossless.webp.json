@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_system_model_mini.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_system_model_mini.lossless.webp",
+  "sourceSha256": "3f92f9900c68fcf1d5709c500566f608da8b2d0ad958e79b27f85618d19b827c",
+  "runtimeSha256": "ed0befb45833a619a3033cabb3fdebae9b93bb0a040e50c5026be083ed5ce5e5",
+  "sourceDecodedRgbaSha256": "a9d9c16dda6aa750bfce9a555154c449350bdc84aadbb8292ca32deb5310a94d",
+  "runtimeDecodedRgbaSha256": "a9d9c16dda6aa750bfce9a555154c449350bdc84aadbb8292ca32deb5310a94d",
+  "nativeSize": [
+    1774,
+    887
+  ],
+  "sourceBytes": 1060917,
+  "runtimeBytes": 688268,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}

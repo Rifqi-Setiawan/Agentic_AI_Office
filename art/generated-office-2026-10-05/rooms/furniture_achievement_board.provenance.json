@@ -1,0 +1,78 @@
+{
+  "asset": "furniture_achievement_board",
+  "generated_with": "built-in image_gen.imagegen",
+  "source_branch": "codex/visual-migration-local",
+  "source_commit": "c0a52d15",
+  "source_original_path": "/workspace/scratch/1f7ded418f78/generated_images/exec-22d31b1f-5c14-482d-8277-ab8121508845.png",
+  "project_path": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_achievement_board.png",
+  "source_original_sha256": "52fd13e901b76ecd2c2939c605096e3fd45c2f85920c4d9e0c399592696ef218",
+  "sha256": "52fd13e901b76ecd2c2939c605096e3fd45c2f85920c4d9e0c399592696ef218",
+  "source_canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bbox": [
+    0,
+    21,
+    1141,
+    1212
+  ],
+  "alpha_bbox_threshold_128": [
+    153,
+    57,
+    1134,
+    1204
+  ],
+  "prompt_file": "/workspace/scratch/1f7ded418f78/office_environment_work/generated/rooms/furniture_achievement_board.prompt.txt",
+  "pixel_processing": "None. Original PNG bytes copied without resizing, cropping, compositing, retouching or alpha edits.",
+  "geometry_review": {
+    "coordinate_system": "Original image pixels, x right and y down. Hand-selected endpoints are approximate visual estimates.",
+    "target_slopes": {
+      "down_right": 0.5,
+      "up_right": -0.5
+    },
+    "axis_down_right": [
+      [
+        275,
+        84
+      ],
+      [
+        1026,
+        452
+      ]
+    ],
+    "axis_up_right": [
+      [
+        998,
+        1176
+      ],
+      [
+        1117,
+        1115
+      ]
+    ],
+    "observed_slopes": {
+      "down_right": 0.49001331557922767,
+      "up_right": -0.5126050420168067
+    },
+    "suggested_css_matrix_before_uniform_scale": [
+      1,
+      0.011266363849424699,
+      0,
+      0.9973884802964187,
+      0,
+      0
+    ],
+    "suggested_css_matrix_meaning": "Registration hint only; not applied. Recompute image anchor/bounds for a runtime transform; visual verification remains required.",
+    "notes": "Freestanding achievement cork board with three blank cards and cyan-ribbon star medal. No text, no people. Broad edge visually close to requested +0.5; depth estimated."
+  }
+}
