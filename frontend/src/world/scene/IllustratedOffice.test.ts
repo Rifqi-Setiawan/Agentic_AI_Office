@@ -8,9 +8,10 @@ const root=path.resolve(__dirname,'../../../public');
 const read=<T,>(name:string):T=>JSON.parse(fs.readFileSync(path.join(root,name),'utf8')) as T;
 const before=read<PreviewAssets>('visual-migration/environment-foundation-v1/assets.json');
 const after=read<PreviewAssets>('visual-migration/illustrated-office-v1/assets.json');
-interface Instance {id:string;sourcePropIds:string[];zone:string;bounds:{x:number;y:number;width:number;height:number};scale:number;groundAnchor:number[];support?:{propIds:string[];sourceImagePoint:number[];worldPoint:number[];originalDepth:number;presentationDepth:number};depthSlice?:{index:number;count:number;x0:number;x1:number;joinedSourcePropIds:string[]}|null;}
+interface RepresentedProp {sourcePropId:string;representedBy:string;feature:string;logicalAnchor:number[];}
+interface Instance {id:string;sourcePropIds:string[];zone:string;bounds:{x:number;y:number;width:number;height:number};scale:number;groundAnchor:number[];support?:{propIds:string[];sourceImagePoint:number[];worldPoint:number[];originalDepth:number;presentationDepth:number};representedProps?:RepresentedProp[];presentationOffset?:{world:number[];visualGridAnchor:number[];originalBounds:{x:number;y:number;width:number;height:number}};depthSlice?:{index:number;count:number;x0:number;x1:number;joinedSourcePropIds:string[]}|null;}
 interface Source {id:string;file:string;sha256:string;nativeSize:number[];alphaBox:number[];instances:Instance[];sourceBytesPreserved:boolean;browserVisualQA:boolean;}
-const ledger=read<{sources:Source[];sourcePixelsEdited:boolean;logicalMapChanged:boolean}>('visual-migration/illustrated-office-v1/furniture-ledger.json');
+const ledger=read<{sources:Source[];sourcePixelsEdited:boolean;logicalMapChanged:boolean;roomPresentation:{representedProps:RepresentedProp[]}}>('visual-migration/illustrated-office-v1/furniture-ledger.json');
 
 describe('Generated illustrated Office furniture registration',()=>{
   it('preserves canonical map bytes, actor art and approved Z08 furniture',()=>{
@@ -78,6 +79,68 @@ describe('Generated illustrated Office furniture registration',()=>{
     expect(support.worldPoint[1]).toBeCloseTo(hosts[0].bounds.y+b*x+d*y+ty,7);
     expect(support.presentationDepth).toBeGreaterThan(Math.max(...hosts.map(p=>p.z)));
     expect(instance.bounds.y+instance.bounds.height).toBeCloseTo(support.worldPoint[1],7);
+  });
+  it('supports the library lamp on clear desk-top artwork while preserving both canonical anchors',()=>{
+    const instance=ledger.sources.find(s=>s.id==='furniture_green_reading_lamp')!.instances[0];
+    const support=instance.support!;
+    expect(support.propIds).toEqual(['furniture-168']);
+    expect(support.sourceImagePoint).toEqual([1150,350]);
+    const host=after.props.find(p=>p.id===support.propIds[0])!;
+    const [a,b,c,d,tx,ty]=host.artLayers![0].matrix;
+    const [x,y]=support.sourceImagePoint;
+    expect(support.worldPoint[0]).toBeCloseTo(host.bounds.x+a*x+c*y+tx,7);
+    expect(support.worldPoint[1]).toBeCloseTo(host.bounds.y+b*x+d*y+ty,7);
+    expect(instance.groundAnchor).toEqual(support.worldPoint);
+    expect(instance.bounds.y+instance.bounds.height).toBeCloseTo(support.worldPoint[1],7);
+    expect(support.presentationDepth).toBeGreaterThan(host.z);
+  });
+  it('represents the lab microscope and tubes exactly once on their existing supported bench artwork',()=>{
+    const pairs=[['furniture-573','furniture-529'],['furniture-661','furniture-705']];
+    expect(ledger.roomPresentation.representedProps.map(p=>[p.sourcePropId,p.representedBy])).toEqual(pairs);
+    for(const [identity,hostId] of pairs){
+      expect(after.props.some(p=>p.id===identity)).toBe(false);
+      const host=after.props.find(p=>p.id===hostId)!;
+      expect(host.sprite).toBe('furniture_lab_bench.png');
+      const instances=ledger.sources.flatMap(s=>s.instances).filter(i=>i.sourcePropIds.includes(identity));
+      expect(instances).toHaveLength(1);
+      expect(instances[0].id).toBe(hostId);
+      expect(instances[0].representedProps?.find(p=>p.sourcePropId===identity)?.representedBy).toBe(hostId);
+    }
+  });
+  it('separates the SOC display and compact console without moving logical equipment anchors',()=>{
+    const map=after.props.find(p=>p.id==='furniture-523')!;
+    const console=after.props.find(p=>p.id==='furniture-567')!;
+    expect(console.bounds.width).toBe(48);
+    expect(console.bounds.x+console.bounds.width).toBeLessThan(map.bounds.x);
+    const instance=ledger.sources.find(s=>s.id==='furniture_soc_map_wall')!.instances[0];
+    expect(instance.presentationOffset?.world).toEqual([32,-16]);
+    expect(instance.presentationOffset?.visualGridAnchor).toEqual([39,10]);
+    for(const prop of [map,console]){
+      const original=before.props.find(p=>p.id===prop.id)!;
+      expect([prop.gx,prop.gy,prop.x,prop.y,prop.z]).toEqual([original.gx,original.gy,original.x,original.y,original.z]);
+    }
+  });
+  it('pairs only SW-facing Z09/Z11 seats with an independent rear-view desk and unchanged ground anchors',()=>{
+    const source=ledger.sources.find(s=>s.id==='furniture_desk_operator_sw')!;
+    const seating=read<{instances:{id:string;zone:string;presentationFacing:string}[]}>('visual-migration/illustrated-office-v1/seating-registration-ledger.json');
+    expect(source.instances.map(i=>i.id).sort()).toEqual(['furniture-597','furniture-605']);
+    expect(source.instances.map(i=>i.zone).sort()).toEqual(['Z09','Z11']);
+    const originalSource=ledger.sources.find(s=>s.id==='furniture_desk')!;
+    expect(source.sha256).not.toBe(originalSource.sha256);
+    for(const instance of source.instances){
+      const prop=after.props.find(p=>p.id===instance.id)!;
+      expect(prop.sprite).toBe('furniture_desk.png');
+      expect(prop.file).toBe(source.file);
+      expect(prop.bounds.width).toBe(72);
+      expect(instance.groundAnchor).toEqual([prop.x,prop.y+12]);
+      const seat=seating.instances.find(p=>p.zone===instance.zone)!;
+      const chair=after.props.find(p=>p.id===seat.id)!;
+      expect(seat.presentationFacing).toBe('SW');
+      expect(chair.gx).toBe(prop.gx);
+      expect(chair.gy).toBe(prop.gy-1);
+    }
+    expect(originalSource.instances.some(i=>i.zone==='Z09'||i.zone==='Z11')).toBe(false);
+    for(const zone of ['Z05','Z06','Z07','Z12'])expect(originalSource.instances.some(i=>i.zone===zone)).toBe(true);
   });
   it('tiles each joined depth-sliced object exactly once and preserves source-cell depth',()=>{
     for(const id of ['furniture_marble_counter','furniture_conveyor']){

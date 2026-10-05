@@ -20,7 +20,7 @@ export const HudRoot: React.FC = () => {
   return (
     <div className="relative w-full h-full flex flex-col justify-between pointer-events-none select-none overflow-hidden">
       {/* Bagian Atas: TopBar & AgentStatusBar */}
-      <div className="flex flex-col w-full z-10">
+      <div className="flex flex-col w-full z-10" data-hud-header>
         <TopBar />
         <AgentStatusBar />
       </div>

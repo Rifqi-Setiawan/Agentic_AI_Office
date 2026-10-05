@@ -369,9 +369,7 @@
         "props:furniture-534",
         "props:furniture-538",
         "props:furniture-111",
-        "props:furniture-597",
         "props:furniture-168",
-        "props:furniture-605",
         "props:furniture-565",
         "props:furniture-569"
       ]
@@ -397,6 +395,30 @@
       "status": "reused",
       "references": [
         "props:furniture-180"
+      ]
+    },
+    {
+      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_operator_sw.png",
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_operator_sw.lossless.webp",
+      "sourceSha256": "6e585e1c2541b5a14aacd05a1817a59eaf9ac7fda9806447afd9babe8c7e0f6a",
+      "runtimeSha256": "c8b4bd975a39698e2f4a6a6c1fd019efd78dd5b23f939c022d16126057802eaa",
+      "sourceDecodedRgbaSha256": "c788d86e4524628dd9dc9a0974ed3606752f4c867e900c6d69fc2fc303d45f6e",
+      "runtimeDecodedRgbaSha256": "c788d86e4524628dd9dc9a0974ed3606752f4c867e900c6d69fc2fc303d45f6e",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1422064,
+      "runtimeBytes": 877128,
+      "effectiveRuntimeBytes": 877128,
+      "savedBytes": 544936,
+      "savedPercent": 38.3201,
+      "fullDecodedRgbaEqual": true,
+      "sourceBytesPreserved": true,
+      "status": "packed",
+      "references": [
+        "props:furniture-597",
+        "props:furniture-605"
       ]
     },
     {
@@ -702,29 +724,6 @@
         "props:furniture-1068",
         "props:furniture-1069",
         "props:furniture-1070"
-      ]
-    },
-    {
-      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_microscope.png",
-      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_microscope.lossless.webp",
-      "sourceSha256": "047d620189fdc455d52e522136548916965fab372d3e0d582101ff23da60dbee",
-      "runtimeSha256": "2eaec075881a8479ca901f60d4c83814c45fe6613c49c68cef6a440bb530d014",
-      "sourceDecodedRgbaSha256": "381cd5a3e44505457ee15486be336d610db95f300ec35297cb4c6ee759fc06c0",
-      "runtimeDecodedRgbaSha256": "381cd5a3e44505457ee15486be336d610db95f300ec35297cb4c6ee759fc06c0",
-      "nativeSize": [
-        1374,
-        1145
-      ],
-      "sourceBytes": 1052897,
-      "runtimeBytes": 640048,
-      "effectiveRuntimeBytes": 640048,
-      "savedBytes": 412849,
-      "savedPercent": 39.2108,
-      "fullDecodedRgbaEqual": true,
-      "sourceBytesPreserved": true,
-      "status": "reused",
-      "references": [
-        "props:furniture-573"
       ]
     },
     {
@@ -1286,29 +1285,6 @@
       ]
     },
     {
-      "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_test_tube_rack.png",
-      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_test_tube_rack.lossless.webp",
-      "sourceSha256": "86773f602c3ecfb71dd37d76be8f55324d571572caa4b303e09b56ebd78eb303",
-      "runtimeSha256": "736a7c0d7722c02126e849a1f4f13cd72e72a3cd3b609f50852cff332989198c",
-      "sourceDecodedRgbaSha256": "7508654f4dd6f5688eabe18bbdc29f5d727a606b8c7d5beb59543df1c2ad4b9a",
-      "runtimeDecodedRgbaSha256": "7508654f4dd6f5688eabe18bbdc29f5d727a606b8c7d5beb59543df1c2ad4b9a",
-      "nativeSize": [
-        1254,
-        1254
-      ],
-      "sourceBytes": 1177143,
-      "runtimeBytes": 832364,
-      "effectiveRuntimeBytes": 832364,
-      "savedBytes": 344779,
-      "savedPercent": 29.2895,
-      "fullDecodedRgbaEqual": true,
-      "sourceBytesPreserved": true,
-      "status": "reused",
-      "references": [
-        "props:furniture-661"
-      ]
-    },
-    {
       "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_trashcan.png",
       "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_trashcan.lossless.webp",
       "sourceSha256": "c5ed656126949929a5a54a63509577f99ea33cf1ca66191ba4edda765b68b6f0",
@@ -1685,7 +1661,7 @@
       "savedPercent": 34.9417,
       "fullDecodedRgbaEqual": true,
       "sourceBytesPreserved": true,
-      "status": "packed",
+      "status": "reused",
       "references": [
         "groundSurfaces:F16"
       ]
@@ -1715,14 +1691,14 @@
     }
   ],
   "summary": {
-    "sourceFiles": 70,
+    "sourceFiles": 69,
     "packedFiles": 1,
-    "reusedFiles": 69,
+    "reusedFiles": 68,
     "fallbackFiles": 0,
-    "sourceBytes": 85055962,
-    "runtimeBytes": 53186062,
-    "savedBytes": 31869900,
-    "savedPercent": 37.4693
+    "sourceBytes": 84247986,
+    "runtimeBytes": 52590778,
+    "savedBytes": 31657208,
+    "savedPercent": 37.5762
   },
   "sourceBytesPreserved": true,
   "sourcePixelsEdited": false,

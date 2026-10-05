@@ -83,13 +83,13 @@
             904
           ],
           "bounds": {
-            "x": 1921.0,
-            "y": 790.5,
-            "width": 62.0,
-            "height": 113.5
+            "x": 1928.0,
+            "y": 816.1290322580645,
+            "width": 48.0,
+            "height": 87.87096774193549
           },
-          "scale": 0.1,
-          "logicalWidth": 62,
+          "scale": 0.07741935483870968,
+          "logicalWidth": 48,
           "scaleReference": "Approved Z08: desk80/chair40/sofa100",
           "depthSlice": null,
           "groundAnchor": [
@@ -1163,70 +1163,6 @@
           "sourcePixelsEdited": false
         },
         {
-          "id": "furniture-597",
-          "sourcePropIds": [
-            "furniture-597"
-          ],
-          "zone": "Z09",
-          "logicalAnchor": [
-            25,
-            13
-          ],
-          "originalEnvelope": [
-            1458,
-            658,
-            1486,
-            684
-          ],
-          "bounds": {
-            "x": 1436.0,
-            "y": 623.0769230769231,
-            "width": 72.0,
-            "height": 60.92307692307693
-          },
-          "scale": 0.06515837104072399,
-          "logicalWidth": 72,
-          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
-          "depthSlice": null,
-          "groundAnchor": [
-            1472.0,
-            684
-          ],
-          "sourcePixelsEdited": false
-        },
-        {
-          "id": "furniture-605",
-          "sourcePropIds": [
-            "furniture-605"
-          ],
-          "zone": "Z11",
-          "logicalAnchor": [
-            33,
-            13
-          ],
-          "originalEnvelope": [
-            1714,
-            786,
-            1742,
-            812
-          ],
-          "bounds": {
-            "x": 1692.0,
-            "y": 751.0769230769231,
-            "width": 72.0,
-            "height": 60.92307692307693
-          },
-          "scale": 0.06515837104072399,
-          "logicalWidth": 72,
-          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
-          "depthSlice": null,
-          "groundAnchor": [
-            1728.0,
-            812
-          ],
-          "sourcePixelsEdited": false
-        },
-        {
           "id": "furniture-565",
           "sourcePropIds": [
             "furniture-565"
@@ -1344,6 +1280,94 @@
       ],
       "sourceBytesPreserved": true,
       "browserVisualQA": false
+    },
+    {
+      "id": "furniture_desk_operator_sw",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_operator_sw.png",
+      "sha256": "6e585e1c2541b5a14aacd05a1817a59eaf9ac7fda9806447afd9babe8c7e0f6a",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaBox": [
+        224,
+        103,
+        1426,
+        951
+      ],
+      "instances": [
+        {
+          "id": "furniture-597",
+          "sourcePropIds": [
+            "furniture-597"
+          ],
+          "zone": "Z09",
+          "logicalAnchor": [
+            25,
+            13
+          ],
+          "originalEnvelope": [
+            1458,
+            658,
+            1486,
+            684
+          ],
+          "bounds": {
+            "x": 1436.0,
+            "y": 633.2046589018303,
+            "width": 72.0,
+            "height": 50.79534109816972
+          },
+          "scale": 0.059900166389351084,
+          "logicalWidth": 72,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1472.0,
+            684
+          ],
+          "sourcePixelsEdited": false
+        },
+        {
+          "id": "furniture-605",
+          "sourcePropIds": [
+            "furniture-605"
+          ],
+          "zone": "Z11",
+          "logicalAnchor": [
+            33,
+            13
+          ],
+          "originalEnvelope": [
+            1714,
+            786,
+            1742,
+            812
+          ],
+          "bounds": {
+            "x": 1692.0,
+            "y": 761.2046589018303,
+            "width": 72.0,
+            "height": 50.79534109816972
+          },
+          "scale": 0.059900166389351084,
+          "logicalWidth": 72,
+          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
+          "depthSlice": null,
+          "groundAnchor": [
+            1728.0,
+            812
+          ],
+          "sourcePixelsEdited": false
+        }
+      ],
+      "sourceBytesPreserved": true,
+      "browserVisualQA": false,
+      "operatorFacing": "SW",
+      "independentView": true,
+      "mirrored": false,
+      "provenanceFile": "art/generated-office-2026-10-05/rooms/furniture_desk_operator_sw.provenance.json",
+      "projectionQualification": "Correct up-right axis family; long-edge slope approximately -0.35, not strict 2:1. Original same-style illustration also has non-exact projection. Logical grid remains exact and unchanged."
     },
     {
       "id": "furniture_drawing_desk_tablet",
@@ -1611,8 +1635,8 @@
             712
           ],
           "bounds": {
-            "x": 2166.5,
-            "y": 687.5660639777469,
+            "x": 2158.554751131222,
+            "y": 634.1904983668871,
             "width": 18.0,
             "height": 24.43393602225313
           },
@@ -1621,10 +1645,25 @@
           "scaleReference": "Approved Z08: desk80/chair40/sofa100",
           "depthSlice": null,
           "groundAnchor": [
-            2175.5,
-            712
+            2167.554751131222,
+            658.6244343891402
           ],
-          "sourcePixelsEdited": false
+          "sourcePixelsEdited": false,
+          "support": {
+            "propIds": [
+              "furniture-168"
+            ],
+            "sourceImagePoint": [
+              1150,
+              350
+            ],
+            "worldPoint": [
+              2167.554751131222,
+              658.6244343891402
+            ],
+            "originalDepth": 40010,
+            "presentationDepth": 40010
+          }
         }
       ],
       "sourceBytesPreserved": true,
@@ -1750,7 +1789,8 @@
         {
           "id": "furniture-529",
           "sourcePropIds": [
-            "furniture-529"
+            "furniture-529",
+            "furniture-573"
           ],
           "zone": "Z06",
           "logicalAnchor": [
@@ -1777,12 +1817,25 @@
             736.5,
             296
           ],
-          "sourcePixelsEdited": false
+          "sourcePixelsEdited": false,
+          "representedProps": [
+            {
+              "sourcePropId": "furniture-573",
+              "representedBy": "furniture-529",
+              "feature": "microscope",
+              "logicalAnchor": [
+                1,
+                13
+              ],
+              "reason": "Already depicted on the bench in the original unedited artwork"
+            }
+          ]
         },
         {
           "id": "furniture-705",
           "sourcePropIds": [
-            "furniture-705"
+            "furniture-705",
+            "furniture-661"
           ],
           "zone": "Z06",
           "logicalAnchor": [
@@ -1809,7 +1862,19 @@
             608.5,
             360
           ],
-          "sourcePixelsEdited": false
+          "sourcePixelsEdited": false,
+          "representedProps": [
+            {
+              "sourcePropId": "furniture-661",
+              "representedBy": "furniture-705",
+              "feature": "test-tube rack",
+              "logicalAnchor": [
+                1,
+                15
+              ],
+              "reason": "Already depicted on the bench in the original unedited artwork"
+            }
+          ]
         }
       ],
       "sourceBytesPreserved": true,
@@ -2242,57 +2307,6 @@
           "groundAnchor": [
             736.0,
             698
-          ],
-          "sourcePixelsEdited": false
-        }
-      ],
-      "sourceBytesPreserved": true,
-      "browserVisualQA": false
-    },
-    {
-      "id": "furniture_microscope",
-      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_microscope.png",
-      "sha256": "047d620189fdc455d52e522136548916965fab372d3e0d582101ff23da60dbee",
-      "nativeSize": [
-        1374,
-        1145
-      ],
-      "alphaBox": [
-        262,
-        27,
-        1145,
-        1125
-      ],
-      "instances": [
-        {
-          "id": "furniture-573",
-          "sourcePropIds": [
-            "furniture-573"
-          ],
-          "zone": "Z06",
-          "logicalAnchor": [
-            1,
-            13
-          ],
-          "originalEnvelope": [
-            696,
-            277,
-            712,
-            300
-          ],
-          "bounds": {
-            "x": 692.0,
-            "y": 270.1562853907135,
-            "width": 24.0,
-            "height": 29.843714609286522
-          },
-          "scale": 0.027180067950169876,
-          "logicalWidth": 24,
-          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
-          "depthSlice": null,
-          "groundAnchor": [
-            704.0,
-            300
           ],
           "sourcePixelsEdited": false
         }
@@ -3450,8 +3464,8 @@
             884
           ],
           "bounds": {
-            "x": 1945.0,
-            "y": 790.4515418502202,
+            "x": 1977.0,
+            "y": 774.4515418502202,
             "width": 78.0,
             "height": 93.54845814977973
           },
@@ -3460,10 +3474,27 @@
           "scaleReference": "Approved Z08: desk80/chair40/sofa100",
           "depthSlice": null,
           "groundAnchor": [
-            1984.0,
-            884
+            2016.0,
+            868
           ],
-          "sourcePixelsEdited": false
+          "sourcePixelsEdited": false,
+          "presentationOffset": {
+            "world": [
+              32,
+              -16
+            ],
+            "visualGridAnchor": [
+              39,
+              10
+            ],
+            "originalBounds": {
+              "x": 1945.0,
+              "y": 790.4515418502202,
+              "width": 78.0,
+              "height": 93.54845814977973
+            },
+            "reason": "Mount the display along the Z12 rear-wall line"
+          }
         }
       ],
       "sourceBytesPreserved": true,
@@ -3864,57 +3895,6 @@
           "groundAnchor": [
             832.0,
             840
-          ],
-          "sourcePixelsEdited": false
-        }
-      ],
-      "sourceBytesPreserved": true,
-      "browserVisualQA": false
-    },
-    {
-      "id": "furniture_test_tube_rack",
-      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_test_tube_rack.png",
-      "sha256": "86773f602c3ecfb71dd37d76be8f55324d571572caa4b303e09b56ebd78eb303",
-      "nativeSize": [
-        1254,
-        1254
-      ],
-      "alphaBox": [
-        187,
-        116,
-        1127,
-        1166
-      ],
-      "instances": [
-        {
-          "id": "furniture-661",
-          "sourcePropIds": [
-            "furniture-661"
-          ],
-          "zone": "Z06",
-          "logicalAnchor": [
-            1,
-            15
-          ],
-          "originalEnvelope": [
-            632,
-            313,
-            648,
-            329
-          ],
-          "bounds": {
-            "x": 630.0,
-            "y": 306.6595744680851,
-            "width": 20.0,
-            "height": 22.340425531914892
-          },
-          "scale": 0.02127659574468085,
-          "logicalWidth": 20,
-          "scaleReference": "Approved Z08: desk80/chair40/sofa100",
-          "depthSlice": null,
-          "groundAnchor": [
-            640.0,
-            329
           ],
           "sourcePixelsEdited": false
         }
@@ -4408,6 +4388,34 @@
       "browserVisualQA": false
     }
   ],
+  "roomPresentation": {
+    "representedProps": [
+      {
+        "sourcePropId": "furniture-573",
+        "representedBy": "furniture-529",
+        "feature": "microscope",
+        "logicalAnchor": [
+          1,
+          13
+        ],
+        "reason": "Already depicted on the bench in the original unedited artwork"
+      },
+      {
+        "sourcePropId": "furniture-661",
+        "representedBy": "furniture-705",
+        "feature": "test-tube rack",
+        "logicalAnchor": [
+          1,
+          15
+        ],
+        "reason": "Already depicted on the bench in the original unedited artwork"
+      }
+    ],
+    "sourcePixelsEdited": false,
+    "logicalLayoutChanged": false,
+    "actorSlotsChanged": false,
+    "browserVisualQA": false
+  },
   "sourcePixelsEdited": false,
   "sourceBytesPreserved": true,
   "logicalMapChanged": false,

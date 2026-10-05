@@ -14,6 +14,7 @@ import { SceneActor, SceneProp } from './SceneSprites';
 import { illustratedActorDefs } from './ActorRoster';
 import { presentOfficeWalls } from './WallPresentation';
 import { GroundSurfaces } from './GroundSurfaces';
+import { observeSceneLayout } from './SceneLayout';
 import './scene.css';
 
 interface SceneData { map: TiledMapDoc; assets: PreviewAssets; environment: SpriteAtlas; atlases: Map<string, SpriteAtlas>; actors: AgentSpawnDef[]; }
@@ -25,10 +26,14 @@ async function loadJson<T>(path: string, signal: AbortSignal): Promise<T> {
 }
 
 export const OfficeScene: React.FC = () => {
+  const scene = useRef<HTMLDivElement>(null), controls = useRef<HTMLDivElement>(null);
   const viewport = useRef<HTMLDivElement>(null), worldElement = useRef<HTMLDivElement>(null);
   const active = useRef<DomWorld | null>(null);
   const [data, setData] = useState<SceneData | null>(null), [error, setError] = useState('');
   const [focusedZone, setFocusedZone] = useState(''), [debug, setDebug] = useState(false), [menu, setMenu] = useState(false);
+  useEffect(() => {
+    if (scene.current && controls.current) return observeSceneLayout(scene.current, controls.current);
+  }, []);
   useEffect(() => {
     const abort = new AbortController(), signal = abort.signal;
     const officeArt = new URLSearchParams(location.search).get('officeArt');
@@ -61,9 +66,11 @@ export const OfficeScene: React.FC = () => {
   const focus = (id: string) => { active.current?.flyToZone(id); setFocusedZone(id); setMenu(false); };
   const selectAgent = useCallback((id: string) => {active.current?.handleAgentClick(id);}, []);
   const grid = useMemo(() => data ? new GridMap(data.map) : null, [data]);
-  return <div className="office-scene" data-renderer="react-css">
-    <div className="migration-notice" role="status">{import.meta.env.DEV ? 'Preview lokal · fixture demo' : 'Renderer percobaan'} · Karakter 2.5D: {data?.actors.map(def => def.name).join(', ') || 'belum tersedia'} · pose yang belum lengkap memakai pose 2.5D yang tersedia · menunggu review gaya</div>
-    <button className="mobile-room-toggle" onClick={() => setMenu(!menu)} aria-expanded={menu}>17 ruang</button>
+  return <div ref={scene} className="office-scene" data-renderer="react-css">
+    <div ref={controls} className="scene-controls">
+      <div className="migration-notice" role="status">{import.meta.env.DEV ? 'Preview lokal · fixture demo' : 'Renderer percobaan'} · Karakter 2.5D: {data?.actors.map(def => def.name).join(', ') || 'belum tersedia'} · pose yang belum lengkap memakai pose 2.5D yang tersedia · menunggu review gaya</div>
+      <button className="mobile-room-toggle" onClick={() => setMenu(!menu)} aria-expanded={menu}>17 ruang</button>
+    </div>
     <nav className={`scene-nav ${menu ? 'open' : ''}`} aria-label="Navigasi 17 ruang">
       <div className="nav-title">THE OFFICE <span>44 × 32</span></div>
       <button className={!focusedZone ? 'active' : ''} onClick={() => { active.current?.camera.overview(); setFocusedZone(''); setMenu(false); }}>◉ <span>Seluruh kantor</span></button>
@@ -86,7 +93,8 @@ export const OfficeScene: React.FC = () => {
           {grid?.doors.map(door => {const p=gridToScreen(door.gx,door.gy);return <span key={door.id} className="debug-door" title={`${door.name}: ${door.from} → ${door.to}`} style={{left:p.x,top:p.y}}>◇</span>;})}
           <div className="world-effect friday-sticker" data-effect="friday" hidden style={{left:gridToScreen(34,12).x-45,top:gridToScreen(34,12).y-35}}>No Deploy Friday</div>
           <div className="world-effect glitch-tile" data-effect="glitch" hidden style={{left:gridToScreen(25,16).x-32,top:gridToScreen(25,16).y-16}}/>
-          <div className="world-effect ac-unit" style={{left:gridToScreen(38,11).x-24,top:gridToScreen(38,11).y-36}}>AC <span data-effect="fan">✣</span><i className="ac-airflow" data-effect="airflow" hidden/></div>
+          {/* Rear-wall presentation mount outside the equipment silhouette. */}
+          <div className="world-effect ac-unit" style={{left:gridToScreen(42,10).x-24,top:gridToScreen(42,10).y-36}}>AC <span data-effect="fan">✣</span><i className="ac-airflow" data-effect="airflow" hidden/></div>
           {BOX_SPAWN_POINTS.map((point,index) => {const p=gridToScreen(point.gx,point.gy);return <div key={`box-${index}`} className="depth-prop" data-effect="boxes" hidden ref={el => {if(el) applyAtlasFrame(el,data.environment,'furniture_cardboard_box.png','/sprites/environment.png');}} style={{left:p.x-32,top:p.y+point.offsetY-32,zIndex:calculateZIndex(point.gx,point.gy,LAYER_OFFSETS.FURNITURE+(point.offsetY<0?2:1))}}/>;})}
           {Array.from({length:24},(_,index) => <i key={index} className="world-effect confetti" data-confetti={index}/>)}
         </>}

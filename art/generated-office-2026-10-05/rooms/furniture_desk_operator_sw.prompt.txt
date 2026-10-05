@@ -1,0 +1,12 @@
+Use case: precise-object-edit
+Make ONE corrected production desk sprite, a genuine independently drawn opposite-side view with a transparent background.
+
+REFERENCE PRIORITY:
+Image 1 (original desk): THIS controls the tabletop footprint, CAMERA, long-edge direction, thin outlined 2D painted rendering, oak and charcoal colors, object proportions. Retain its long-edge family UP AND TO THE RIGHT. Do not rotate the camera 90 degrees.
+Image 2 (rear monitor candidate): use ONLY to show the required opaque dark REAR monitor casing. Its desk orientation is WRONG and must NOT be copied.
+
+THE ONE CRITICAL CORRECTION: desk's LONG left-to-right edges, keyboard long edges, and monitor horizontal top/bottom edges must all rise UPWARD TO THE RIGHT, not downward to the right. The monitor's upper-RIGHT corner must be visibly HIGHER than its upper-LEFT corner. Likewise the desk's long left end is LOWER on the canvas and right end is HIGHER. Look at Image 1. That is the required long-edge orientation. Parallel orthographic 2:1 dimetric axis families: up-right (horizontal +32, vertical -16), and down-right (horizontal +32, vertical +16). All legs vertical. Do not use perspective or a different camera.
+
+Use the original desk's same pale oak tabletop and charcoal rectangular metal frame, with attached dark cabinet pedestal, clean fine outline and soft painted texture. Change the functional side: The monitor displays its dark opaque REAR casing toward the viewer. No blue screen or visible screen surface. Its screen and keyboard face the absent operator seated on the far side of the desk, upper-right in the room, facing southwest. Show the keyboard beyond/behind the monitor toward that operator side, physically partly hidden as needed. Show back panel of the cabinet, no drawer handles facing the camera. No chair, no person, no added objects.
+
+A single complete desk, every leg fully included, centered with transparent margins. No ground tile, no background scene. GENUINELY TRANSPARENT RGBA BACKGROUND. No black background, no checkerboard pixels, no colored glow; a very restrained neutral shadow immediately at feet only. Same polished 2D illustrated office sprite style as Image 1, not pixel art, not Blender, not a 3D render. Landscape 1536x1024.

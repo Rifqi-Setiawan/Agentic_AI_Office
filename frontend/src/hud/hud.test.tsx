@@ -58,5 +58,6 @@ describe('HUD React Components (Isolated Root)', () => {
     expect(html).toContain('pointer-events-auto');
     expect(html).toContain('Agentic AI Office');
     expect(html).toContain('Snapshot Terverifikasi');
+    expect(html).toContain('data-hud-header="true"');
   });
 });

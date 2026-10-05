@@ -1,5 +1,6 @@
 /* Sidebar presentation adapted from W17ant rooms.css, MIT; one continuous world. */
 .office-scene{position:fixed;inset:0;background:#101217;color:#e6e3da}
+.scene-controls{display:contents}
 body:has(.office-scene) [data-snapshot-panel]{left:218px;bottom:62px}
 body:has(.office-scene) [data-snapshot-panel][data-expanded=false] [data-snapshot-content]{display:none}
 .world-actor[aria-pressed=true] .actor-shadow{outline:2px solid #70d3cf;outline-offset:3px}
@@ -37,5 +38,5 @@ body:has(.office-scene) [data-snapshot-panel][data-expanded=false] [data-snapsho
 .scene-error,.scene-loading{position:absolute;left:32px;top:20px;z-index:10;font-size:14px}
 .world-effect{position:absolute;z-index:85000;pointer-events:none}.world-effect[hidden],[hidden]{display:none!important}
 .friday-sticker{padding:3px 6px;border:1px solid #c8a463;background:#372f21;color:#f2d696;font-size:9px}.glitch-tile{width:64px;height:32px;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);background:#a253ba88;border:1px solid #69d1d1}.ac-unit{width:48px;height:24px;padding:2px;border:1px solid #798895;background:#34414c;font-size:8px}.ac-unit span{display:inline-block;font-size:16px;margin-left:10px}.disk-boxes{color:#cb9b66;font-size:22px;line-height:18px}.confetti{width:5px;height:5px;left:0;top:0}
-@media(max-width:700px){.migration-notice{top:209px;left:12px;font-size:9px}.scene-viewport{inset:255px 0 0 0}.scene-nav{display:none;top:252px;bottom:65px}.scene-nav.open{display:block}.mobile-room-toggle{display:block;position:absolute;top:232px;left:12px;z-index:5}.scene-toolbar{left:12px;bottom:8px;gap:5px}.scene-toolbar button,.scene-toolbar a{font-size:10px;padding:5px 7px}}
+@media(max-width:700px){.scene-controls{display:flex;position:absolute;top:var(--scene-hud-bottom,0px);left:12px;right:16px;flex-direction:column;align-items:flex-start;gap:8px;padding:8px 0;z-index:5}.migration-notice{position:static;font-size:9px}.scene-viewport{inset:var(--scene-controls-bottom,0px) 0 0 0}.scene-nav{display:none;top:var(--scene-controls-bottom,0px);bottom:max(65px,calc(var(--scene-nav-bottom,0px) + 8px))}.scene-nav.open{display:block}.mobile-room-toggle{display:block}.scene-toolbar{left:12px;bottom:8px;gap:5px}.scene-toolbar button,.scene-toolbar a{font-size:10px;padding:5px 7px}}
 @media(max-width:700px){body:has(.office-scene) [data-snapshot-panel]{left:12px;bottom:94px;font-size:10px}body:has(.office-scene) #activity-feed{bottom:44px;right:12px;width:min(320px,calc(100vw - 24px))}}

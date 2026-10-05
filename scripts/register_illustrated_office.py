@@ -15,6 +15,7 @@ from register_office_surfaces import build_ground_surfaces
 from register_office_architecture import register_architecture
 from register_pool_coping import register_pool_coping
 from register_room_seating import register_room_seating
+from register_room_presentation import apply_room_presentation
 from pack_office_runtime import pack_runtime_art
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -45,7 +46,12 @@ whiteboard_formula wudhu_station'''.split(), [
 70,42,110,64,112,24,54,54,46,48,38,60,76,30,92,34,66,52,112,34,34,60,78,102,
 26,72,54,42,52,20,20,44,54,90,82,70,44]))
 WIDTHS['arcade_cabinet'] = 42
+# The alert console must remain a compact standing terminal, clear of its
+# separately registered SOC display and the adjacent staffed workstations.
+WIDTHS['alert_console'] = 48
 DEPTH_SLICED = {'furniture_marble_counter.png', 'furniture_conveyor.png'}
+REAR_OPERATOR_DESK = 'furniture_desk_operator_sw.png'
+REAR_OPERATOR_ZONES = frozenset(('Z09', 'Z11'))
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -110,11 +116,24 @@ def register(generated):
     excluded.add('furniture_entrance_door.png') # Owned by open-portal architecture.
     excluded.add('furniture_pool_coping.png') # Exact continuous ground ring.
     (OUT/'furniture').mkdir(parents=True, exist_ok=True)
+    rear_desk_available = (generated/'rooms'/REAR_OPERATOR_DESK).is_file()
+    if rear_desk_available:
+        variant = generated/'rooms'/REAR_OPERATOR_DESK
+        review = json.loads(variant.with_suffix('.provenance.json').read_text())
+        if (review.get('sha256') != digest(variant) or not review.get('inspected')
+                or not review.get('accepted_for_registration') or review.get('operator_facing') != 'SW'
+                or review.get('long_edge_direction') != 'up-right'
+                or not review.get('original_bytes_preserved') or review.get('mirrored') is not False):
+            raise ValueError('Rear-operator desk requires verified original artwork and scoped facing acceptance')
     for source in sorted((generated/'rooms').glob('furniture_*.png')):
         if source.name in excluded:
             continue
-        candidates = [p for p in original['props'] if p['sprite'] == source.name
-                      and not p.get('file') and room_for(p,zones) != 'Z08']
+        canonical_sprite = 'furniture_desk.png' if source.name == REAR_OPERATOR_DESK else source.name
+        candidates = [p for p in original['props'] if p['sprite'] == canonical_sprite
+                      and not p.get('file') and room_for(p,zones) != 'Z08'
+                      and (source.name != REAR_OPERATOR_DESK or room_for(p,zones) in REAR_OPERATOR_ZONES)
+                      and (source.name != 'furniture_desk.png' or not rear_desk_available
+                           or room_for(p,zones) not in REAR_OPERATOR_ZONES)]
         if not candidates:
             continue
         image = Image.open(source)
@@ -126,7 +145,7 @@ def register(generated):
         destination = OUT/'furniture'/source.name
         shutil.copyfile(source, destination)
         assert digest(destination) == digest(source)
-        entry = atlas['frames'][source.name]
+        entry = atlas['frames'][canonical_sprite]
         if entry['rotated']:
             raise ValueError('Repack rotated atlas frame before registration')
         frame = entry['frame']
@@ -144,7 +163,7 @@ def register(generated):
             y0 = min(p['bounds']['y']+old_box[1] for p in group)
             x1 = max(p['bounds']['x']+old_box[2] for p in group)
             y1 = max(p['bounds']['y']+old_box[3] for p in group)
-            logical_width = WIDTHS[source.stem.removeprefix('furniture_')]
+            logical_width = WIDTHS[Path(canonical_sprite).stem.removeprefix('furniture_')]
             scale = logical_width/(box[2]-box[0])
             width, height = (box[2]-box[0])*scale, (box[3]-box[1])*scale
             p = copy.deepcopy(max(group, key=lambda p:(p['z'], p['id'])))
@@ -185,6 +204,10 @@ def register(generated):
         records.append(dict(id=source.stem, file=f'{WEB}/furniture/{source.name}', sha256=digest(source),
                             nativeSize=list(image.size), alphaBox=list(box), instances=instances,
                             sourceBytesPreserved=True, browserVisualQA=False))
+        if source.name == REAR_OPERATOR_DESK:
+            records[-1].update(operatorFacing='SW', independentView=True, mirrored=False,
+                               provenanceFile='art/generated-office-2026-10-05/rooms/'+source.with_suffix('.provenance.json').name,
+                               projectionQualification=review['projection_qualification'])
     assets['props'] = sorted([p for p in original['props'] if p['id'] not in replaced] + rendered,
                              key=lambda p:(p['z'],p['id']))
     # The canonical espresso location is behind the counter on the map. Its
@@ -207,6 +230,7 @@ def register(generated):
                                     support=dict(propIds=[p['id'] for p in counter],sourceImagePoint=[sx,sy],
                                                  worldPoint=anchor,originalDepth=old_z,presentationDepth=coffee['z']))
         assets['props'].sort(key=lambda p:(p['z'],p['id']))
+    room_presentation = apply_room_presentation(assets, records)
     assert len({p['id'] for p in assets['props']}) == len(assets['props'])
     assert assets['logicalMapSha256'] == digest(PUBLIC/'maps/floor1.tmj')
     assets['styleVersion'] = 'AO_ILLUSTRATED_OFFICE_V1_CANDIDATE'
@@ -244,7 +268,8 @@ def register(generated):
                              architectureSourceProps=sum(p['id'] in architecture_sources for p in before),
                              remainingAtlasProps=len(remaining), remainingSprites=sorted({p['sprite'] for p in remaining}),
                              browserVisualQA=False, complete=False))
-    dump(OUT/'furniture-ledger.json', dict(sources=records, sourcePixelsEdited=False, sourceBytesPreserved=True,
+    dump(OUT/'furniture-ledger.json', dict(sources=records, roomPresentation=room_presentation,
+                                        sourcePixelsEdited=False, sourceBytesPreserved=True,
                                         logicalMapChanged=False, browserVisualQA=False))
     dump(OUT/'coverage.json', coverage)
     dump(OUT/'assets.json', assets)

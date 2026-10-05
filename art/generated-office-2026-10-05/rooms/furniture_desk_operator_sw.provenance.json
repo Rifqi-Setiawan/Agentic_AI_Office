@@ -1,0 +1,60 @@
+{
+  "asset": "furniture_desk_operator_sw",
+  "generated_with": "built-in image_gen.imagegen",
+  "generated_at": "2026-10-05T14:59:40Z",
+  "source_reference": "art/generated-office-2026-10-05/rooms/furniture_desk.png",
+  "generation": "One targeted correction after first bounded candidate",
+  "prompt_file": "furniture_desk_operator_sw.prompt.txt",
+  "sha256": "6e585e1c2541b5a14aacd05a1817a59eaf9ac7fda9806447afd9babe8c7e0f6a",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_bbox_threshold_128": [
+    225,
+    104,
+    1425,
+    950
+  ],
+  "operator_facing": "SW",
+  "long_edge_direction": "up-right",
+  "inspected": true,
+  "accepted_for_registration": true,
+  "acceptance_scope": "Functional-facing replacement for only Z09/Z11; candidate for browser and user review",
+  "projection_qualification": "Correct up-right axis family; long-edge slope approximately -0.35, not strict 2:1. Original same-style illustration also has non-exact projection. Logical grid remains exact and unchanged.",
+  "projection_inspection": {
+    "manually_observed_tabletop_top_long_edge": [
+      [
+        227,
+        435
+      ],
+      [
+        1174,
+        104
+      ]
+    ],
+    "long_edge_slope": -0.3495248152059134,
+    "target_slope": -0.5,
+    "direction_correct": true,
+    "precise_2_to_1": false
+  },
+  "visual_inspection": {
+    "rear_monitor_casing_visible": true,
+    "screen_hidden": true,
+    "keyboard_beyond_monitor": true,
+    "chair_present": false,
+    "full_legs_included": true,
+    "style_matches_original": true,
+    "broad_translucent_glow_present": true
+  },
+  "original_bytes_preserved": true,
+  "mirrored": false,
+  "pixel_processing": "None. Original image generation output bytes copied; no resizing, crop, rotation, reflection, warping, compositing or retouching.",
+  "browser_visual_qa": false,
+  "final_art": false
+}

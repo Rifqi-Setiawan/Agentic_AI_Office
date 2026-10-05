@@ -4691,43 +4691,6 @@
       "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_glass_partition.lossless.webp"
     },
     {
-      "id": "furniture-573",
-      "sprite": "furniture_microscope.png",
-      "gx": 1,
-      "gy": 13,
-      "x": 704,
-      "y": 288,
-      "z": 14010,
-      "bounds": {
-        "x": 692.0,
-        "y": 270.1562853907135,
-        "width": 24.0,
-        "height": 29.843714609286522
-      },
-      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_microscope.png",
-      "artKind": "registered-generated-furniture",
-      "componentId": "furniture_microscope",
-      "zone": "Z06",
-      "artClipPath": "polygon(0px 0px,24.0px 0px,24.0px 29.843714609286522px,0px 29.843714609286522px)",
-      "artLayers": [
-        {
-          "id": "whole-object",
-          "width": 1374,
-          "height": 1145,
-          "clipPath": "polygon(262px 27px,1145px 27px,1145px 1125px,262px 1125px)",
-          "matrix": [
-            0.027180067950169876,
-            0,
-            0,
-            0.027180067950169876,
-            -7.121177802944508,
-            -0.7338618346545867
-          ]
-        }
-      ],
-      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_microscope.lossless.webp"
-    },
-    {
       "id": "walls_front-315",
       "sprite": "wall_front_cutaway_sw.png",
       "gx": 7,
@@ -5828,43 +5791,6 @@
         }
       ],
       "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_glass_partition.lossless.webp"
-    },
-    {
-      "id": "furniture-661",
-      "sprite": "furniture_test_tube_rack.png",
-      "gx": 1,
-      "gy": 15,
-      "x": 640,
-      "y": 320,
-      "z": 16010,
-      "bounds": {
-        "x": 630.0,
-        "y": 306.6595744680851,
-        "width": 20.0,
-        "height": 22.340425531914892
-      },
-      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_test_tube_rack.png",
-      "artKind": "registered-generated-furniture",
-      "componentId": "furniture_test_tube_rack",
-      "zone": "Z06",
-      "artClipPath": "polygon(0px 0px,20.0px 0px,20.0px 22.340425531914892px,0px 22.340425531914892px)",
-      "artLayers": [
-        {
-          "id": "whole-object",
-          "width": 1254,
-          "height": 1254,
-          "clipPath": "polygon(187px 116px,1127px 116px,1127px 1166px,187px 1166px)",
-          "matrix": [
-            0.02127659574468085,
-            0,
-            0,
-            0.02127659574468085,
-            -3.978723404255319,
-            -2.4680851063829787
-          ]
-        }
-      ],
-      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_test_tube_rack.lossless.webp"
     },
     {
       "id": "walls_front-317",
@@ -24629,32 +24555,32 @@
       "z": 38010,
       "bounds": {
         "x": 1436.0,
-        "y": 623.0769230769231,
+        "y": 633.2046589018303,
         "width": 72.0,
-        "height": 60.92307692307693
+        "height": 50.79534109816972
       },
-      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_desk.png",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_operator_sw.png",
       "artKind": "registered-generated-furniture",
-      "componentId": "furniture_desk",
+      "componentId": "furniture_desk_operator_sw",
       "zone": "Z09",
-      "artClipPath": "polygon(0px 0px,72.0px 0px,72.0px 60.92307692307693px,0px 60.92307692307693px)",
+      "artClipPath": "polygon(0px 0px,72.0px 0px,72.0px 50.79534109816972px,0px 50.79534109816972px)",
       "artLayers": [
         {
           "id": "whole-object",
           "width": 1536,
           "height": 1024,
-          "clipPath": "polygon(236px 50px,1341px 50px,1341px 985px,236px 985px)",
+          "clipPath": "polygon(224px 103px,1426px 103px,1426px 951px,224px 951px)",
           "matrix": [
-            0.06515837104072399,
+            0.059900166389351084,
             0,
             0,
-            0.06515837104072399,
-            -15.37737556561086,
-            -3.2579185520361995
+            0.059900166389351084,
+            -13.417637271214643,
+            -6.169717138103161
           ]
         }
       ],
-      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk.lossless.webp"
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_operator_sw.lossless.webp"
     },
     {
       "id": "room-seat-slot_z14_seat_1",
@@ -26819,8 +26745,8 @@
       "y": 704,
       "z": 40010,
       "bounds": {
-        "x": 2166.5,
-        "y": 687.5660639777469,
+        "x": 2158.554751131222,
+        "y": 634.1904983668871,
         "width": 18.0,
         "height": 24.43393602225313
       },
@@ -32402,32 +32328,32 @@
       "z": 46010,
       "bounds": {
         "x": 1692.0,
-        "y": 751.0769230769231,
+        "y": 761.2046589018303,
         "width": 72.0,
-        "height": 60.92307692307693
+        "height": 50.79534109816972
       },
-      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_desk.png",
+      "file": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_operator_sw.png",
       "artKind": "registered-generated-furniture",
-      "componentId": "furniture_desk",
+      "componentId": "furniture_desk_operator_sw",
       "zone": "Z11",
-      "artClipPath": "polygon(0px 0px,72.0px 0px,72.0px 60.92307692307693px,0px 60.92307692307693px)",
+      "artClipPath": "polygon(0px 0px,72.0px 0px,72.0px 50.79534109816972px,0px 50.79534109816972px)",
       "artLayers": [
         {
           "id": "whole-object",
           "width": 1536,
           "height": 1024,
-          "clipPath": "polygon(236px 50px,1341px 50px,1341px 985px,236px 985px)",
+          "clipPath": "polygon(224px 103px,1426px 103px,1426px 951px,224px 951px)",
           "matrix": [
-            0.06515837104072399,
+            0.059900166389351084,
             0,
             0,
-            0.06515837104072399,
-            -15.37737556561086,
-            -3.2579185520361995
+            0.059900166389351084,
+            -13.417637271214643,
+            -6.169717138103161
           ]
         }
       ],
-      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk.lossless.webp"
+      "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_operator_sw.lossless.webp"
     },
     {
       "id": "furniture-734",
@@ -36199,8 +36125,8 @@
       "y": 864,
       "z": 50010,
       "bounds": {
-        "x": 1945.0,
-        "y": 790.4515418502202,
+        "x": 1977.0,
+        "y": 774.4515418502202,
         "width": 78.0,
         "height": 93.54845814977973
       },
@@ -37001,16 +36927,16 @@
       "y": 880,
       "z": 51010,
       "bounds": {
-        "x": 1921.0,
-        "y": 790.5,
-        "width": 62.0,
-        "height": 113.5
+        "x": 1928.0,
+        "y": 816.1290322580645,
+        "width": 48.0,
+        "height": 87.87096774193549
       },
       "file": "/visual-migration/illustrated-office-v1/furniture/furniture_alert_console.png",
       "artKind": "registered-generated-furniture",
       "componentId": "furniture_alert_console",
       "zone": "Z12",
-      "artClipPath": "polygon(0px 0px,62.0px 0px,62.0px 113.5px,0px 113.5px)",
+      "artClipPath": "polygon(0px 0px,48.0px 0px,48.0px 87.87096774193549px,0px 87.87096774193549px)",
       "artLayers": [
         {
           "id": "whole-object",
@@ -37018,12 +36944,12 @@
           "height": 1254,
           "clipPath": "polygon(329px 73px,949px 73px,949px 1208px,329px 1208px)",
           "matrix": [
-            0.1,
+            0.07741935483870968,
             0,
             0,
-            0.1,
-            -32.9,
-            -7.300000000000001
+            0.07741935483870968,
+            -25.470967741935485,
+            -5.651612903225807
           ]
         }
       ],

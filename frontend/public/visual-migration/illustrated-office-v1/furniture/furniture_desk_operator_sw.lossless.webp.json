@@ -1,0 +1,21 @@
+{
+  "sourceFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_operator_sw.png",
+  "runtimeFile": "/visual-migration/illustrated-office-v1/furniture/furniture_desk_operator_sw.lossless.webp",
+  "sourceSha256": "6e585e1c2541b5a14aacd05a1817a59eaf9ac7fda9806447afd9babe8c7e0f6a",
+  "runtimeSha256": "c8b4bd975a39698e2f4a6a6c1fd019efd78dd5b23f939c022d16126057802eaa",
+  "sourceDecodedRgbaSha256": "c788d86e4524628dd9dc9a0974ed3606752f4c867e900c6d69fc2fc303d45f6e",
+  "runtimeDecodedRgbaSha256": "c788d86e4524628dd9dc9a0974ed3606752f4c867e900c6d69fc2fc303d45f6e",
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "sourceBytes": 1422064,
+  "runtimeBytes": 877128,
+  "fullDecodedRgbaEqual": true,
+  "encoding": {
+    "format": "WEBP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  }
+}
