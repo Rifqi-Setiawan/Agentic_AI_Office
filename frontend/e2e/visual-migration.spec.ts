@@ -11,8 +11,10 @@ test('DOM world preserves canonical topology and opens the real inspector',async
   await expect(ground).toHaveCount(1);
   await expect(ground).toHaveAttribute('data-surface-status','ready');
   await expect(ground).not.toHaveAttribute('data-surface-error', /.+/);
+  const overviewPath = testInfo.outputPath('illustrated-office-overview.png');
+  await page.screenshot({path:overviewPath,fullPage:true,animations:'disabled'});
   await testInfo.attach('illustrated-office-overview', {
-    body: await page.screenshot({fullPage:true,animations:'disabled'}),
+    path:overviewPath,
     contentType:'image/png',
   });
   // Candidate actor art is deliberately gated to the three complete four-view
@@ -28,8 +30,10 @@ test('DOM world preserves canonical topology and opens the real inspector',async
   await page.getByRole('button',{name:'Pilih Prism',exact:true}).click();
   await expect(page.getByTestId('agent-inspector')).toBeVisible();
   await expect(page.getByTestId('agent-inspector')).toContainText('Prism');
+  const inspectorPath = testInfo.outputPath('illustrated-office-inspector.png');
+  await page.screenshot({path:inspectorPath,fullPage:true});
   await testInfo.attach('illustrated-office-browser', {
-    body: await page.screenshot({fullPage:true}),
+    path:inspectorPath,
     contentType:'image/png',
   });
 });
