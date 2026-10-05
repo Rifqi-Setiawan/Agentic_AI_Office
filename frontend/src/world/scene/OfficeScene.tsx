@@ -30,7 +30,7 @@ export const OfficeScene: React.FC = () => {
     const abort = new AbortController(), signal = abort.signal;
     Promise.all([
       loadJson<TiledMapDoc>('/maps/floor1.tmj', signal),
-      loadJson<PreviewAssets>(new URLSearchParams(location.search).get('officeArt')==='baseline'?'/visual-migration/preview-assets.json':'/visual-migration/illustrated-z08-v1/assets.json', signal),
+      loadJson<PreviewAssets>(new URLSearchParams(location.search).get('officeArt')==='baseline'?'/visual-migration/preview-assets.json':'/visual-migration/illustrated-z08-v2/assets.json', signal),
       loadJson<SpriteAtlas>('/sprites/environment.json', signal),
       Promise.all(AGENT_SPAWN_DEFS.map(async def => [def.id, await loadJson<SpriteAtlas>(`/sprites/characters/${def.id}.json`, signal)] as const)),
     ]).then(async ([map, assets, environment, entries]) => {

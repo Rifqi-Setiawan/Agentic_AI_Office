@@ -1,3 +1,9 @@
+# Koreksi orientasi v2 — status terkini
+
+User menolak alignment v1. Empat workstation kini memakai meja SE baru, kursi di belakang slot dan meja di depan karakter; denah/collision tetap. Aset dan integrasi lokal selesai; build/lint dan empat tes renderer lulus. QA browser tetap terblokir. Bukti offline, prompt terpilih dan backup: [ORIENTATION_FIX.md](ORIENTATION_FIX.md). Batch tetap menunggu review gaya user.
+
+---
+
 # Pembaruan aktif: ilustrasi 2D Z08, 5 Oktober 2026
 
 Brief terbaru mengganti ketentuan Blender/GLB/native render/kuota frame. Kandidat Z08 + Prism sudah dibuat dan terhubung lokal. 40 file/291 tes, typecheck/lint/build lulus; QA browser dan walk cycle belum lulus; user style approval diperlukan sebelum batch. Lihat CHECKPOINT_2D.md, STATUS.md, ART_BIBLE_2D.md dan ACCEPTANCE_2D.md. Bagian di bawah adalah catatan historis, bukan instruksi produksi aktif.

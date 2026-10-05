@@ -1,3 +1,7 @@
+# Pembaruan orientasi v2
+
+Default preview sekarang memakai meja/kursi yang mengikuti slot SE. Koreksi diperiksa melalui komposisi offline, build/lint, tes renderer dan kontrak map. Belum ada akses browser pulih atau QA browser baru. Detail aktual: ORIENTATION_FIX.md.
+
 # Pembaruan aktif: ilustrasi 2D Z08, 5 Oktober 2026
 
 Brief terbaru mengganti ketentuan Blender/GLB/native render/kuota frame. Kandidat Z08 + Prism sudah dibuat dan terhubung lokal. 40 file/291 tes, typecheck/lint/build lulus; QA browser dan walk cycle belum lulus; user style approval diperlukan sebelum batch. Lihat CHECKPOINT_2D.md, STATUS.md, ART_BIBLE_2D.md dan ACCEPTANCE_2D.md. Bagian di bawah adalah catatan historis, bukan instruksi produksi aktif.

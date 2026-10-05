@@ -1,0 +1,11 @@
+{
+  "resourceCount": 39,
+  "resourcePresence": true,
+  "propRasterBounds2x": true,
+  "mapUnchanged": true,
+  "fourDesksAndChairsFacingSE": true,
+  "chairActorDeskDepthOrder": true,
+  "candidateMirroring": false,
+  "browserQA": false,
+  "staticWorkstationsInspected": true
+}

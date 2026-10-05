@@ -1,3 +1,9 @@
+# Pembaruan koreksi orientasi v2
+
+User menolak alignment v1 pada screenshot meja/kursi. Default preview sekarang memakai v2 dengan meja SE baru, kursi di belakang dan meja di depan slot, serta ukuran meja yang lebih kompak. Bukti terbaru, prompt, pemeriksaan, backup, dan batas QA ada di [ORIENTATION_FIX.md](ORIENTATION_FIX.md). Bagian berikut adalah checkpoint v1; klaim koreksi anchor v1 belum diterima dan tidak berlaku sebagai bukti alignment v2.
+
+---
+
 # Checkpoint ilustrasi 2D Z08 — 5 Oktober 2026
 
 Arah terbaru dipakai dari checkout/perubahan lokal yang ada. Tidak ada reset, push, merge, deploy atau perubahan VPS/gateway. Hasil Blender lama, script dan instalasi tetap dipertahankan sebagai arsip. Source sebelum edit ada dalam ../Agentic-office-before-2d-slice-2026-10-05.zip.

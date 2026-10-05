@@ -1,0 +1,26 @@
+{
+  "tool": "built-in imagegen",
+  "styleVersion": "AO_ILLUSTRATED_2D_Z08_V2",
+  "userStyleApproved": false,
+  "inheritedSourcesIndex": "art/illustrated-z08-v1/source-index.json",
+  "references": [
+    "art/illustrated-z08-v1/sources/references/aset meja.png",
+    "art/illustrated-z08-v1/sources/references/aset karakter.png"
+  ],
+  "sources": [
+    {
+      "id": "desk-se",
+      "workspaceFile": "art/illustrated-z08-v2/sources/desk-se.png",
+      "path": "C:/Users/Rifqi/.codex/generated_images/01a10784-1460-7a70-833e-d07e95cd3259/exec-5980b2b2-a240-4f85-843b-fb305e2bcb32.png",
+      "sha256": "4d87e8c4a13ac6100110cfd4cdfb5c44b095edfaa0f0340f5d42a7ada5638e95",
+      "selected": false
+    },
+    {
+      "id": "desk-se-compact",
+      "workspaceFile": "art/illustrated-z08-v2/sources/desk-se-compact.png",
+      "path": "C:/Users/Rifqi/.codex/generated_images/01a10784-1460-7a70-833e-d07e95cd3259/exec-f0faf681-9f79-4ded-883f-5db3dad5a378.png",
+      "sha256": "1dac3b4ea4ba4b9ed0778f4725144341b555c81817f282d981b3724457742a9a",
+      "selected": true
+    }
+  ]
+}

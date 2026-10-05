@@ -6,6 +6,7 @@ Offline compositions are asset checks, NEVER browser screenshots or motion QA.
 """
 from collections import deque
 from pathlib import Path
+import argparse
 import copy
 import hashlib
 import json
@@ -20,6 +21,8 @@ SRC = ART / 'sources'
 OUT = PUBLIC / 'visual-migration/illustrated-z08-v1'
 EVIDENCE = ROOT / 'docs/visual-migration/evidence/illustrated-z08-v1'
 STYLE = 'AO_ILLUSTRATED_2D_Z08_V1'
+WEB_ROOT = '/visual-migration/illustrated-z08-v1'
+ORIENTATION_FIX = False
 
 
 def write_json(path, data):
@@ -28,7 +31,8 @@ def write_json(path, data):
 
 def parts(name, columns, rows):
     """Locate isolated opaque subjects; preserve original RGBA in source crops."""
-    image = Image.open(SRC / (name + '.png')).convert('RGBA')
+    source = ART/'sources/desk-se-compact.png' if ORIENTATION_FIX and name == 'desk' else SRC/(name+'.png')
+    image = Image.open(source).convert('RGBA')
     small = image.getchannel('A')
     small.thumbnail((400, 600))
     w, h = small.size
@@ -66,7 +70,7 @@ def parts(name, columns, rows):
                    min(image.width, math.ceil(b[2]*image.width/w)+5),
                    min(image.height, math.ceil(b[3]*image.height/h)+5))
             crop = image.crop(box)
-            result[row, col] = {'image': crop, 'source': name+'.png', 'sourceCrop': box}
+            result[row, col] = {'image': crop, 'source': source.name, 'sourceCrop': box}
     return result
 
 
@@ -104,7 +108,7 @@ def main():
             entries.append(('walk', direction, frame, walk[i, frame], 136))
             entries.append(('sit_type', direction, frame, sit[i, frame], 112))
     atlas_image = Image.new('RGBA', (512, 960))
-    atlas = {'frames':{}, 'meta':{'image':'/visual-migration/illustrated-z08-v1/prism.png',
+    atlas = {'frames':{}, 'meta':{'image':WEB_ROOT+'/prism.png',
              'size':{'w':512,'h':960}, 'exportScale':2, 'styleVersion':STYLE,
              'footAnchor':{'x':.5,'y':.92}, 'animationFps':{'idle':1,'walk':4.8,'sit_type':3},
              'candidate':True, 'userStyleApproved':False, 'allowMirror':False}}
@@ -140,7 +144,7 @@ def main():
                 'browserMotionVerified':False, 'styleApproved':False})
 
     desk = parts('desk',1,1)[0,0]['image']
-    desk = save_piece('desk',desk,192)
+    desk = save_piece('desk',desk,168 if ORIENTATION_FIX else 192)
     furniture = parts('furniture',3,2)
     chair = save_piece('chair',furniture[0,0]['image'],80)
     standing = save_piece('standing-desk',furniture[1,0]['image'],144)
@@ -175,10 +179,10 @@ def main():
     floor.crop(floor_bounds).save(OUT/'floor.webp',lossless=True)
     assets = copy.deepcopy(baseline)
     assets.update({'styleVersion':STYLE,'schemaVersion':2,'exportScale':2,
-                   'floor':{'file':'/visual-migration/illustrated-z08-v1/floor.webp',
+                   'floor':{'file':WEB_ROOT+'/floor.webp',
                             'x':floor_bounds[0]/2,'y':floor_bounds[1]/2,
                             'width':(floor_bounds[2]-floor_bounds[0])/2,'height':(floor_bounds[3]-floor_bounds[1])/2},
-                   'characterOverrides':{'prism':'/visual-migration/illustrated-z08-v1/prism.json'},
+                   'characterOverrides':{'prism':WEB_ROOT+'/prism.json'},
                    'userStyleApproved':False,'finalArt':False})
     assets['props'] = []
 
@@ -187,7 +191,7 @@ def main():
         image.save(OUT/file)
         w,h=image.width/2,image.height/2
         bounds={'x':prop['x']+offset[0]-anchor[0]*w,'y':prop['y']+offset[1]-anchor[1]*h,'width':w,'height':h}
-        assets['props'].append({**prop,'id':prop['id']+'-'+suffix,'file':'/visual-migration/illustrated-z08-v1/'+file,
+        assets['props'].append({**prop,'id':prop['id']+'-'+suffix,'file':WEB_ROOT+'/'+file,
                                'z':z,'bounds':bounds,'artKind':'illustration-candidate',
                                'sourcePropId':prop['id'],'visualOffset':list(offset)})
 
@@ -205,6 +209,22 @@ def main():
             image=wall_rising if '_nw' in name else wall_falling
             piece(prop,'low-wall',image,(.5,.70),prop['z'])
         elif 'workstation' in name:
+            if ORIENTATION_FIX:
+                slot=next(s for s in slots if s['gx']==prop['gx']+1 and s['gy']==prop['gy'])
+                if slot['facing'] != 'SE':
+                    raise ValueError('SE artwork cannot be silently assigned another facing')
+                # SE in the simulation is +gx -> screen(+32,+16). Place the
+                # keyboard ahead of the unchanged slot, and the chair behind it.
+                # Source tile IDs/collision remain unchanged; only art placement
+                # and painter depth use the recorded visual ground anchor.
+                distance=.95
+                offset=((1+distance)*32,(1+distance)*16)
+                visual_gx=slot['gx']+distance
+                piece(prop,'desk-se',desk,(.54,.78),round((visual_gx+slot['gy'])*1000)+10,offset)
+                assets['props'][-1].update({'facing':'SE','slotId':slot['id'],
+                    'visualGridAnchor':{'gx':visual_gx,'gy':slot['gy']},
+                    'groundAnchor':{'x':.54,'y':.78}})
+                continue
             split=round(desk.height*.50)
             # The unchanged furniture tile anchors the drawer-side rear leg;
             # the illustrated work surface reaches the adjacent interaction slot.
@@ -213,6 +233,17 @@ def main():
                   (0,split/2-desk.height*.60/2))
         elif name=='furniture_chair.png':
             slot=next(s for s in slots if s['gx']==prop['gx']-1 and s['gy']==prop['gy'])
+            if ORIENTATION_FIX:
+                if slot['facing'] != 'SE':
+                    raise ValueError('SE chair cannot be silently assigned another facing')
+                distance=-.35
+                visual_gx=slot['gx']+distance
+                offset=((distance-1)*32,(distance-1)*16)
+                piece(prop,'chair-se',chair,(.5,.93),round((visual_gx+slot['gy'])*1000)+10,offset)
+                assets['props'][-1].update({'facing':'SE','slotId':slot['id'],
+                    'visualGridAnchor':{'gx':visual_gx,'gy':slot['gy']},
+                    'groundAnchor':{'x':.5,'y':.93}})
+                continue
             offset=(-32,-16+slot['y_offset'])
             split=round(chair.height*.70)
             piece(prop,'back',chair.crop((0,0,chair.width,split)),(.5,chair.height*.93/split),base-1010,offset)
@@ -222,7 +253,7 @@ def main():
             piece(prop,'standing',standing,(.5,.76),prop['z'])
         else: assets['props'].append(prop)
     assets['props'].sort(key=lambda p:(p['z'],p['id']))
-    assets['provenance']={'tool':'built-in imagegen','sources':'art/illustrated-z08-v1/source-index.json',
+    assets['provenance']={'tool':'built-in imagegen','sources':str(ART.relative_to(ROOT)/'source-index.json').replace('\\','/'),
              'referenceRights':'User supplied; independent rights not verified; no blanket MIT claim',
              'finalArt':False,'acceptedAssets':[], 'scope':['Z08','Prism idle/walk/sit_type','adjacent corridor floor segments']}
     write_json(OUT/'assets.json',assets)
@@ -257,6 +288,49 @@ def main():
     detail=comp.crop((900*2,390*2,1650*2,850*2)).convert('RGB')
     ImageDraw.Draw(detail).text((20,20),'OFFLINE Z08 LAYER COMPOSITION - NOT browser screenshot',fill='white')
     detail.save(EVIDENCE/'offline-z08-detail.png')
+    if ORIENTATION_FIX:
+        detail.resize((750,460),Image.Resampling.LANCZOS).save(EVIDENCE/'offline-z08-normal.png')
+        workstations=detail.crop((225,115,885,555))
+        draw=ImageDraw.Draw(workstations)
+        draw.rectangle((0,0,660,15),fill='#151d28')
+        draw.text((5,2),'OFFLINE ASSET COMPOSITION - not a browser screenshot',fill='white')
+        workstations.save(EVIDENCE/'workstations-detail.png')
+        # These source-image tabletop corners were visually identified on the
+        # generated desk. SAT verifies that adjacent illustrated tabletops have
+        # a gap; tall monitor/plant silhouettes can still overlap in projection.
+        source=parts('desk',1,1)[0,0]
+        crop=source['sourceCrop']
+        corners=[(272,525),(925,147),(1267,304),(585,706)]
+        scale=desk.width/source['image'].width/2
+        props=[p for p in assets['props'] if p['id'].endswith('-desk-se')]
+        polygons=[[(p['bounds']['x']+(cx-crop[0])*scale,
+                    p['bounds']['y']+(cy-crop[1])*scale) for cx,cy in corners] for p in props]
+        gaps=[]
+        for a,b in zip(polygons,polygons[1:]):
+            separated=[]
+            for polygon in (a,b):
+                for u,v in zip(polygon,polygon[1:]+polygon[:1]):
+                    nx,ny=-(v[1]-u[1]),v[0]-u[0]
+                    length=math.hypot(nx,ny)
+                    pa=[(x*nx+y*ny)/length for x,y in a]
+                    pb=[(x*nx+y*ny)/length for x,y in b]
+                    separated.append(max(min(pb)-max(pa),min(pa)-max(pb)))
+            gap=max(separated)
+            if gap<=0: raise ValueError('Adjacent desk tabletops intersect')
+            gaps.append(gap)
+        write_json(EVIDENCE/'orientation-check.json',{
+            'facing':'SE','canonicalGridVector':[1,0],'screenVector':[32,16],
+            'deskAheadOfSlot':True,'chairBehindSlot':True,
+            'sourceDesk':'art/illustrated-z08-v2/sources/'+source['source'],
+            'sourceCrop':crop,'sourceTabletopLandmarks':corners,'adjacentTabletopGapsLogicalPixels':gaps,
+            'scope':'offline geometry and static layer check; browser motion still pending',
+            'mapSha256':assets['logicalMapSha256'],'sourceFurnitureTilesChanged':False,
+            'slotsChanged':False,'collisionChanged':False,
+            'workstations':[{'slotId':p['slotId'],'deskSourceId':p['sourcePropId'],
+                'deskVisualGroundAnchor':p['visualGridAnchor'],
+                'chairVisualGroundAnchor':next(c['visualGridAnchor'] for c in assets['props']
+                    if c.get('slotId')==p['slotId'] and c['id'].endswith('-chair-se')),
+                'painterOrder':['chair','actor','desk']} for p in props]})
     write_json(EVIDENCE/'packing-check.json',{'characterFrames':len(ledger),'rotatedFrames':0,'mirroredCandidateFrames':0,
          'mapSha256':assets['logicalMapSha256'],'globalProps':len(assets['props']),
          'assetsPacked':True,'browserQA':False,'userStyleApproved':False,'walkLoopAccepted':False})
@@ -264,4 +338,14 @@ def main():
 
 
 if __name__ == '__main__':
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--orientation-fix',action='store_true',help='Write v2 with slot-facing-aligned SE desk/chair art; preserve v1')
+    args=parser.parse_args()
+    if args.orientation_fix:
+        ORIENTATION_FIX=True
+        ART=ROOT/'art/illustrated-z08-v2'
+        OUT=PUBLIC/'visual-migration/illustrated-z08-v2'
+        EVIDENCE=ROOT/'docs/visual-migration/evidence/illustrated-z08-v2'
+        STYLE='AO_ILLUSTRATED_2D_Z08_V2'
+        WEB_ROOT='/visual-migration/illustrated-z08-v2'
     main()

@@ -1,3 +1,17 @@
+# Status aktif — koreksi orientasi Z08 v2, 5 Oktober 2026
+
+User menolak kursi/meja yang saling menimpa pada kandidat v1. Default preview kini memakai AO_ILLUSTRATED_2D_Z08_V2: gambar meja SE baru, kursi di belakang slot, keyboard/monitor di depan karakter, serta celah antar-tabletop. Denah, slot, facing dan collision tetap. Bukti, prompt dan pemeriksaan terbaru: ORIENTATION_FIX.md.
+
+Aset koreksi selesai dan terintegrasi lokal. Build termasuk TypeScript, lint, empat tes renderer dan kontrak map lulus. QA browser BELUM karena tool terakhir menolak binding dengan alasan URL protocol policy blocks the tab. Bukti v2 yang tersedia adalah komposisi offline dan contact sheet, bukan screenshot/video browser. Walk cycle tetap pending; ini belum migrasi seluruh kantor.
+
+Preview: http://127.0.0.1:5175/?officeRenderer=claude&seed=42 (refresh penuh, pilih Z08). Vite lokal kembali dijalankan. Semua artwork masih candidate, acceptedAssets kosong. STOP sebelum batch seluruh 17 zona sampai persetujuan gaya user. Tidak ada push/merge/deploy/VPS/gateway change; produksi tetap dijeda.
+
+Backup sebelum koreksi: ../Agentic-office-before-seat-orientation-2026-10-05.zip. Perubahan Blender lama tetap dipertahankan.
+
+---
+
+## Riwayat v1 (alignment ditolak user, bukan status terkini)
+
 # Status â€” pemulihan slice ilustrasi 2D, 5 Oktober 2026
 
 Target aktif AO_ILLUSTRATED_2D_Z08_V1. Brief terbaru mengganti ketentuan Blender/GLB/native render/kuota frame. STOP sebelum batch seluruh kantor sampai review gaya user. Render lama dan Blender tetap sebagai arsip, tidak dilanjutkan.

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "styleVersion": "AO_ILLUSTRATED_2D_Z08_V1",
+  "styleVersion": "AO_ILLUSTRATED_2D_Z08_V2",
   "finalArt": false,
   "productionMethod": "built-in imagegen, mechanical sprite packing, React/CSS composition",
   "supersedes": "Blender/native-render/2312-frame production requirement; historical files retained",

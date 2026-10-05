@@ -16,7 +16,7 @@ def build_jobs():
     path=ROOT/'frontend/public/maps/floor1.tmj'
     layout=canonical(json.loads(path.read_text()))
     roster=re.findall(r"id: '([^']+)'",(ROOT/'frontend/src/world/simulation/roster.ts').read_text())
-    return {'schemaVersion':2,'styleVersion':'AO_ILLUSTRATED_2D_Z08_V1','finalArt':False,
+    return {'schemaVersion':2,'styleVersion':'AO_ILLUSTRATED_2D_Z08_V2','finalArt':False,
       'productionMethod':'built-in imagegen, mechanical sprite packing, React/CSS composition',
       'supersedes':'Blender/native-render/2312-frame production requirement; historical files retained',
       'batchAllowed':False,'batchGate':'User visual approval of Z08 checkpoint required',
@@ -36,7 +36,7 @@ def build_jobs():
                      'browser motion/occlusion/interaction checks','real provenance/freshness/redaction retained']}
 
 def coverage(jobs):
-    candidate=ROOT/'frontend/public/visual-migration/illustrated-z08-v1/prism.json'
+    candidate=ROOT/'frontend/public/visual-migration/illustrated-z08-v2/prism.json'
     frames=json.loads(candidate.read_text())['frames'] if candidate.exists() else {}
     return {'finalArtReady':False,'styleApprovedByUser':False,'browserQAPassed':False,
        'note':'Counts describe packed candidate poses, not accepted animation or release art.',
