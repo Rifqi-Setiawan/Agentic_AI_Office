@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "authorization": "User replied setuju to removing the fourth workstation from the main row and using a separate temporary hotdesk if needed.",
+  "adjustments": [
+    {
+      "id": "z08-separate-guest-hotdesk",
+      "date": "2026-10-05",
+      "slotId": "slot_z08_desk_guest",
+      "slotFrom": {"gx": 17, "gy": 18},
+      "slotTo": {"gx": 21, "gy": 15},
+      "collisionChanges": [
+        {"gx": 16, "gy": 18, "from": 125, "to": 0},
+        {"gx": 22, "gy": 15, "from": 0, "to": 125}
+      ],
+      "furnitureChanges": [
+        {"gx": 16, "gy": 18, "from": 90, "to": 0},
+        {"gx": 18, "gy": 18, "from": 15, "to": 0},
+        {"gx": 22, "gy": 15, "from": 0, "to": 90},
+        {"gx": 20, "gy": 15, "from": 0, "to": 15}
+      ]
+    }
+  ]
+}

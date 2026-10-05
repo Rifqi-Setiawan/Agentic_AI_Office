@@ -1,4 +1,10 @@
-# Pembaruan koreksi orientasi v2
+# Pembaruan susunan tiga workstation v3
+
+Persetujuan user untuk tiga meja utama sudah diterapkan. Guest tetap tersedia pada hotdesk kecil yang terpisah; map, generator, fallback dan collision konsisten. Kontrak mempertahankan 17 zona / 133 slot / 26 pintu, dengan hanya relokasi Guest yang diizinkan. 293 tes, build dan lint lulus. Bukti serta limit browser: [THREE_DESK_LAYOUT.md](THREE_DESK_LAYOUT.md). Default manifest sekarang v3; bagian berikut adalah riwayat v2/v1.
+
+---
+
+# Pembaruan koreksi orientasi v2 (riwayat)
 
 User menolak alignment v1 pada screenshot meja/kursi. Default preview sekarang memakai v2 dengan meja SE baru, kursi di belakang dan meja di depan slot, serta ukuran meja yang lebih kompak. Bukti terbaru, prompt, pemeriksaan, backup, dan batas QA ada di [ORIENTATION_FIX.md](ORIENTATION_FIX.md). Bagian berikut adalah checkpoint v1; klaim koreksi anchor v1 belum diterima dan tidak berlaku sebagai bukti alignment v2.
 

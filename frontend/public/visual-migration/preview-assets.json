@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "styleVersion": "BASELINE_PREVIEW_NOT_FINAL",
   "exportScale": 1,
-  "logicalMapSha256": "765fdd8c1185fb79ba64050251267c3a8acc4c8997759ce8a2c1a2773fc03a67",
+  "logicalMapSha256": "befa52bc1060f7cc699484fea39d2e1827821a83cbca663dc10825afd3838de5",
   "floor": {
     "file": "/visual-migration/baseline-floor.webp",
     "x": 64,
@@ -3357,21 +3357,6 @@
       }
     },
     {
-      "id": "furniture-808",
-      "sprite": "furniture_workstation_guest.png",
-      "gx": 16,
-      "gy": 18,
-      "x": 1024,
-      "y": 608,
-      "z": 34010,
-      "bounds": {
-        "x": 992,
-        "y": 576,
-        "width": 64,
-        "height": 64
-      }
-    },
-    {
       "id": "walls_front-1367",
       "sprite": "wall_front_cutaway_sw.png",
       "gx": 3,
@@ -3531,6 +3516,21 @@
       "z": 35010,
       "bounds": {
         "x": 1344,
+        "y": 592,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-680",
+      "sprite": "furniture_chair.png",
+      "gx": 20,
+      "gy": 15,
+      "x": 1248,
+      "y": 624,
+      "z": 35010,
+      "bounds": {
+        "x": 1216,
         "y": 592,
         "width": 64,
         "height": 64
@@ -3717,21 +3717,6 @@
       }
     },
     {
-      "id": "furniture-810",
-      "sprite": "furniture_chair.png",
-      "gx": 18,
-      "gy": 18,
-      "x": 1088,
-      "y": 640,
-      "z": 36010,
-      "bounds": {
-        "x": 1056,
-        "y": 608,
-        "width": 64,
-        "height": 64
-      }
-    },
-    {
       "id": "walls_front-1369",
       "sprite": "wall_front_cutaway_sw.png",
       "gx": 5,
@@ -3861,6 +3846,21 @@
       "z": 37010,
       "bounds": {
         "x": 1984,
+        "y": 624,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "furniture-682",
+      "sprite": "furniture_workstation_guest.png",
+      "gx": 22,
+      "gy": 15,
+      "x": 1312,
+      "y": 656,
+      "z": 37010,
+      "bounds": {
+        "x": 1280,
         "y": 624,
         "width": 64,
         "height": 64

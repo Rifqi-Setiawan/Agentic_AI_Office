@@ -1,0 +1,30 @@
+{
+  "tool": "built-in imagegen",
+  "styleVersion": "AO_ILLUSTRATED_2D_Z08_V3",
+  "userStyleApproved": false,
+  "inheritedSourcesIndex": [
+    "art/illustrated-z08-v1/source-index.json",
+    "art/illustrated-z08-v2/source-index.json"
+  ],
+  "references": [
+    "art/illustrated-z08-v1/sources/references/aset meja.png",
+    "art/illustrated-z08-v1/sources/references/aset karakter.png"
+  ],
+  "sources": [
+    {
+      "id": "hotdesk-se",
+      "workspaceFile": "art/illustrated-z08-v3/sources/hotdesk-se.png",
+      "path": "C:/Users/Rifqi/.codex/generated_images/01a10784-1460-7a70-833e-d07e95cd3259/exec-0b44e089-ec51-4f0e-b954-6b947e1f202c.png",
+      "sha256": "b65408f6ec4115bf95cd91d24dc899903f1675eccf48a45a4c86d2f88f02521b",
+      "selected": false
+    },
+    {
+      "id": "hotdesk-se-taller",
+      "workspaceFile": "art/illustrated-z08-v3/sources/hotdesk-se-taller.png",
+      "path": "C:/Users/Rifqi/.codex/generated_images/01a10784-1460-7a70-833e-d07e95cd3259/exec-925573a5-86d4-42ac-b2d2-84a92c0fc639.png",
+      "sha256": "226334a2ed59e68437dab3e2241451b7d94a08d8e4d4d49da73c9ee010f9761b",
+      "selected": true
+    }
+  ],
+  "approvedLayoutAdjustments": "docs/visual-migration/approved-layout-adjustments.json"
+}

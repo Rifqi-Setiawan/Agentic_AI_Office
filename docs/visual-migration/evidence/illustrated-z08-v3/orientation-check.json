@@ -1,0 +1,111 @@
+{
+  "facing": "SE",
+  "canonicalGridVector": [
+    1,
+    0
+  ],
+  "screenVector": [
+    32,
+    16
+  ],
+  "deskAheadOfSlot": true,
+  "chairBehindSlot": true,
+  "sourceDesk": "art/illustrated-z08-v2/sources/desk-se-compact.png",
+  "sourceCrop": [
+    263,
+    37,
+    1277,
+    995
+  ],
+  "sourceTabletopLandmarks": [
+    [
+      272,
+      525
+    ],
+    [
+      925,
+      147
+    ],
+    [
+      1267,
+      304
+    ],
+    [
+      585,
+      706
+    ]
+  ],
+  "adjacentTabletopGapsLogicalPixels": [
+    2.6290629681788005,
+    2.6290629681788005
+  ],
+  "scope": "offline geometry and static layer check; browser motion still pending",
+  "mapSha256": "befa52bc1060f7cc699484fea39d2e1827821a83cbca663dc10825afd3838de5",
+  "sourceFurnitureTilesChanged": true,
+  "slotsChanged": true,
+  "collisionChanged": true,
+  "mainWorkstationCount": 3,
+  "guestHotdesks": [
+    {
+      "slotId": "slot_z08_desk_guest",
+      "sourceId": "furniture-682",
+      "visualGridAnchor": {
+        "gx": 21.65,
+        "gy": 15
+      }
+    }
+  ],
+  "workstations": [
+    {
+      "slotId": "slot_z08_desk_prism",
+      "deskSourceId": "furniture-544",
+      "deskVisualGroundAnchor": {
+        "gx": 17.95,
+        "gy": 12
+      },
+      "chairVisualGroundAnchor": {
+        "gx": 16.65,
+        "gy": 12
+      },
+      "painterOrder": [
+        "chair",
+        "actor",
+        "desk"
+      ]
+    },
+    {
+      "slotId": "slot_z08_desk_forge",
+      "deskSourceId": "furniture-632",
+      "deskVisualGroundAnchor": {
+        "gx": 17.95,
+        "gy": 14
+      },
+      "chairVisualGroundAnchor": {
+        "gx": 16.65,
+        "gy": 14
+      },
+      "painterOrder": [
+        "chair",
+        "actor",
+        "desk"
+      ]
+    },
+    {
+      "slotId": "slot_z08_desk_nova",
+      "deskSourceId": "furniture-720",
+      "deskVisualGroundAnchor": {
+        "gx": 17.95,
+        "gy": 16
+      },
+      "chairVisualGroundAnchor": {
+        "gx": 16.65,
+        "gy": 16
+      },
+      "painterOrder": [
+        "chair",
+        "actor",
+        "desk"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "styleVersion": "AO_ILLUSTRATED_2D_Z08_V2",
+  "styleVersion": "AO_ILLUSTRATED_2D_Z08_V3",
   "finalArt": false,
   "productionMethod": "built-in imagegen, mechanical sprite packing, React/CSS composition",
   "supersedes": "Blender/native-render/2312-frame production requirement; historical files retained",
@@ -19,7 +19,7 @@
     ],
     "exportScale": 2
   },
-  "mapSha256": "765fdd8c1185fb79ba64050251267c3a8acc4c8997759ce8a2c1a2773fc03a67",
+  "mapSha256": "befa52bc1060f7cc699484fea39d2e1827821a83cbca663dc10825afd3838de5",
   "directions": [
     "se",
     "sw",
@@ -1200,8 +1200,8 @@
           "anim": "sit_type",
           "y_offset": -6,
           "zone": "Z08",
-          "gx": 17,
-          "gy": 18
+          "gx": 21,
+          "gy": 15
         },
         {
           "objectId": 46,
@@ -2679,5 +2679,6 @@
     "all zone layers verified",
     "browser motion/occlusion/interaction checks",
     "real provenance/freshness/redaction retained"
-  ]
+  ],
+  "approvedLayoutAdjustments": "docs/visual-migration/approved-layout-adjustments.json"
 }

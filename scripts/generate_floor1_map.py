@@ -158,7 +158,7 @@ SLOTS_DEF = [
     {"id": "slot_z08_desk_prism", "zone": "Z08", "type": "desk:prism", "capacity": 1, "gx": 17, "gy": 12, "facing": "SE", "anim": "sit_type", "y_offset": -6},
     {"id": "slot_z08_desk_forge", "zone": "Z08", "type": "desk:forge", "capacity": 1, "gx": 17, "gy": 14, "facing": "SE", "anim": "sit_type", "y_offset": -6},
     {"id": "slot_z08_desk_nova", "zone": "Z08", "type": "desk:nova", "capacity": 1, "gx": 17, "gy": 16, "facing": "SE", "anim": "sit_type", "y_offset": -6},
-    {"id": "slot_z08_desk_guest", "zone": "Z08", "type": "desk:guest", "capacity": 1, "gx": 17, "gy": 18, "facing": "SE", "anim": "sit_type", "y_offset": -6},
+    {"id": "slot_z08_desk_guest", "zone": "Z08", "type": "desk:guest", "capacity": 1, "gx": 21, "gy": 15, "facing": "SE", "anim": "sit_type", "y_offset": -6},
     {"id": "slot_z08_pair_1", "zone": "Z08", "type": "pair_stand", "capacity": 1, "gx": 21, "gy": 13, "facing": "NW", "anim": "stand_talk", "y_offset": 0},
     {"id": "slot_z08_pair_2", "zone": "Z08", "type": "pair_stand", "capacity": 1, "gx": 21, "gy": 17, "facing": "NW", "anim": "stand_talk", "y_offset": 0},
 
@@ -461,10 +461,12 @@ def build_furniture_layer() -> list[int]:
     # Z08 Dev Pods
     for gy, sprite in [(12, "furniture_workstation_dev.png"),
                        (14, "furniture_workstation_dev.png"),
-                       (16, "furniture_workstation_dev.png"),
-                       (18, "furniture_workstation_guest.png")]:
+                       (16, "furniture_workstation_dev.png")]:
         set_f(16, gy, sprite)
         set_f(18, gy, "furniture_chair.png")
+    # User-approved layout: temporary guest hotdesk away from the three residents.
+    set_f(22, 15, "furniture_workstation_guest.png")
+    set_f(20, 15, "furniture_chair.png")
     set_f(22, 13, "furniture_pair_standing_desk.png")
     set_f(22, 17, "furniture_pair_standing_desk.png")
 
@@ -620,7 +622,7 @@ def build_collision_layer() -> list[int]:
         (36, 1), (38, 1), (40, 1), (42, 1), (42, 5), # Bookcases, press
         (1, 12), (1, 14), (1, 16), (7, 16), # Lab benches, journals
         (14, 11), (14, 14), # Swatches, moodboard
-        (16, 12), (16, 14), (16, 16), (16, 18), (22, 13), (22, 17), # Dev workstations, pair desks
+        (16, 12), (16, 14), (16, 16), (22, 15), (22, 13), (22, 17), # Three dev stations, separate hotdesk, pair desks
         (26, 12), (26, 16), # Ultrawide, spare tiles
         (30, 12), (30, 13), # QA screens, beacon
         (34, 11), (34, 14), (34, 15), (34, 16), (32, 16), (32, 18), # Conveyor, parcels

@@ -1,0 +1,15 @@
+{
+  "scope": "Static resource, source hash, map change and generator checks; not browser QA",
+  "wholeMapMatchesOriginalPlusApprovedGuestMove": true,
+  "furnitureGeneratorMatchesMap": true,
+  "collisionGeneratorMatchesMap": true,
+  "mainDesks": 3,
+  "separateGuestHotdesks": 1,
+  "props": 530,
+  "mapSha256": "befa52bc1060f7cc699484fea39d2e1827821a83cbca663dc10825afd3838de5",
+  "resourcesExist": true,
+  "rasterBoundsMatch2x": true,
+  "sourceHashesMatch": true,
+  "guestCharacter": "Existing baseline sprites remain; style differs from Prism",
+  "browserQA": false
+}

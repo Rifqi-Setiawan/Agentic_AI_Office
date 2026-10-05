@@ -1,4 +1,14 @@
-# Status aktif — koreksi orientasi Z08 v2, 5 Oktober 2026
+# Status aktif — tiga meja utama Z08 v3, 5 Oktober 2026
+
+Usulan susunan tiga workstation Prism/Forge/Nova disetujui user dan sudah diterapkan lokal. Guest memakai hotdesk satu laptop di sisi ruangan, dengan slot/kursi/fallback/collision yang ikut dipindahkan. Pengecualian denah terbatas ini tercatat di approved-layout-adjustments.json; 44×32 / 17 zona / 133 slot / 26 pintu dan koridor tetap. Default preview memakai AO_ILLUSTRATED_2D_Z08_V3.
+
+293 tes / 41 file, build termasuk TypeScript, lint, verifier kontrak dan pemeriksaan resource statis lulus. Bukti offline, prompt, backup serta batas QA: [THREE_DESK_LAYOUT.md](THREE_DESK_LAYOUT.md). Browser tool masih terblokir; tidak ada screenshot/video browser baru. Guest dan roster selain Prism tetap memakai baseline. Migrasi seluruh kantor masih pending.
+
+Preview lokal: http://127.0.0.1:5175/?officeRenderer=claude&seed=42 — Ctrl+F5 dan pilih Z08. Tidak ada push/deploy/VPS/gateway change atau worker produksi. Batch 17 zona belum dilanjutkan.
+
+---
+
+## Riwayat koreksi orientasi v2
 
 User menolak kursi/meja yang saling menimpa pada kandidat v1. Default preview kini memakai AO_ILLUSTRATED_2D_Z08_V2: gambar meja SE baru, kursi di belakang slot, keyboard/monitor di depan karakter, serta celah antar-tabletop. Denah, slot, facing dan collision tetap. Bukti, prompt dan pemeriksaan terbaru: ORIENTATION_FIX.md.
 

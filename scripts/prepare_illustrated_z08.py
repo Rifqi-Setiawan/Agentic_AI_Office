@@ -1,4 +1,4 @@
-"""Pack imagegen illustrations and recompose the unchanged map for a Z08 candidate.
+"""Pack imagegen illustrations and recompose the canonical map for a Z08 candidate.
 
 Only mechanical source crops, uniform character scaling, atlas packing and layer
 composition are performed here. Background removal/redrawing uses imagegen.
@@ -23,6 +23,7 @@ EVIDENCE = ROOT / 'docs/visual-migration/evidence/illustrated-z08-v1'
 STYLE = 'AO_ILLUSTRATED_2D_Z08_V1'
 WEB_ROOT = '/visual-migration/illustrated-z08-v1'
 ORIENTATION_FIX = False
+GUEST_HOTDESK = False
 
 
 def write_json(path, data):
@@ -31,7 +32,12 @@ def write_json(path, data):
 
 def parts(name, columns, rows):
     """Locate isolated opaque subjects; preserve original RGBA in source crops."""
-    source = ART/'sources/desk-se-compact.png' if ORIENTATION_FIX and name == 'desk' else SRC/(name+'.png')
+    if ORIENTATION_FIX and name == 'desk':
+        source = ROOT/'art/illustrated-z08-v2/sources/desk-se-compact.png'
+    elif GUEST_HOTDESK and name == 'hotdesk':
+        source = ART/'sources/hotdesk-se-taller.png'
+    else:
+        source = SRC/(name+'.png')
     image = Image.open(source).convert('RGBA')
     small = image.getchannel('A')
     small.thumbnail((400, 600))
@@ -145,6 +151,7 @@ def main():
 
     desk = parts('desk',1,1)[0,0]['image']
     desk = save_piece('desk',desk,168 if ORIENTATION_FIX else 192)
+    hotdesk = save_piece('hotdesk',parts('hotdesk',1,1)[0,0]['image'],144) if GUEST_HOTDESK else None
     furniture = parts('furniture',3,2)
     chair = save_piece('chair',furniture[0,0]['image'],80)
     standing = save_piece('standing-desk',furniture[1,0]['image'],144)
@@ -210,20 +217,22 @@ def main():
             piece(prop,'low-wall',image,(.5,.70),prop['z'])
         elif 'workstation' in name:
             if ORIENTATION_FIX:
-                slot=next(s for s in slots if s['gx']==prop['gx']+1 and s['gy']==prop['gy'])
+                guest = GUEST_HOTDESK and name == 'furniture_workstation_guest.png'
+                slot=next(s for s in slots if s['id']=='slot_z08_desk_guest') if guest else next(s for s in slots if s['gx']==prop['gx']+1 and s['gy']==prop['gy'])
                 if slot['facing'] != 'SE':
                     raise ValueError('SE artwork cannot be silently assigned another facing')
                 # SE in the simulation is +gx -> screen(+32,+16). Place the
-                # keyboard ahead of the unchanged slot, and the chair behind it.
-                # Source tile IDs/collision remain unchanged; only art placement
-                # and painter depth use the recorded visual ground anchor.
-                distance=.95
-                offset=((1+distance)*32,(1+distance)*16)
+                # keyboard ahead of the slot, and the chair behind it. Guest's
+                # v3 tile/slot relocation is explicitly authorized in the docs.
+                distance=.65 if guest else .95
                 visual_gx=slot['gx']+distance
-                piece(prop,'desk-se',desk,(.54,.78),round((visual_gx+slot['gy'])*1000)+10,offset)
+                offset=((visual_gx-prop['gx'])*32,(visual_gx-prop['gx'])*16)
+                anchor=(.5,.88) if guest else (.54,.78)
+                piece(prop,'hotdesk-se' if guest else 'desk-se',hotdesk if guest else desk,anchor,round((visual_gx+slot['gy'])*1000)+10,offset)
                 assets['props'][-1].update({'facing':'SE','slotId':slot['id'],
                     'visualGridAnchor':{'gx':visual_gx,'gy':slot['gy']},
-                    'groundAnchor':{'x':.54,'y':.78}})
+                    'groundAnchor':{'x':anchor[0],'y':anchor[1]},
+                    'workstationRole':'temporary-guest' if guest else 'permanent-developer'})
                 continue
             split=round(desk.height*.50)
             # The unchanged furniture tile anchors the drawer-side rear leg;
@@ -232,13 +241,15 @@ def main():
             piece(prop,'front',desk.crop((0,split,desk.width,desk.height)),(.125,0),base+1100,
                   (0,split/2-desk.height*.60/2))
         elif name=='furniture_chair.png':
-            slot=next(s for s in slots if s['gx']==prop['gx']-1 and s['gy']==prop['gy'])
+            guest_slot=next(s for s in slots if s['id']=='slot_z08_desk_guest')
+            guest=GUEST_HOTDESK and (prop['gx'],prop['gy'])==(guest_slot['gx']-1,guest_slot['gy'])
+            slot=guest_slot if guest else next(s for s in slots if s['gx']==prop['gx']-1 and s['gy']==prop['gy'])
             if ORIENTATION_FIX:
                 if slot['facing'] != 'SE':
                     raise ValueError('SE chair cannot be silently assigned another facing')
                 distance=-.35
                 visual_gx=slot['gx']+distance
-                offset=((distance-1)*32,(distance-1)*16)
+                offset=((visual_gx-prop['gx'])*32,(visual_gx-prop['gx'])*16)
                 piece(prop,'chair-se',chair,(.5,.93),round((visual_gx+slot['gy'])*1000)+10,offset)
                 assets['props'][-1].update({'facing':'SE','slotId':slot['id'],
                     'visualGridAnchor':{'gx':visual_gx,'gy':slot['gy']},
@@ -259,7 +270,8 @@ def main():
     write_json(OUT/'assets.json',assets)
     write_json(ART/'slice-contract.json',{'zone':zone,'slots':slots,
                 'doors':[d for d in contract['doors'] if 'Z08' in (d.get('from'),d.get('to'))],
-                'logicalMapSha256':assets['logicalMapSha256'],'mapChanged':False})
+                'logicalMapSha256':assets['logicalMapSha256'],'mapChanged':GUEST_HOTDESK,
+                'approvedLayoutAdjustments':'docs/visual-migration/approved-layout-adjustments.json' if GUEST_HOTDESK else None})
     # Contact sheet on light/dark backgrounds; no background pixels are edited.
     sheet=Image.new('RGB',(960,1050),'#151d28');draw=ImageDraw.Draw(sheet)
     draw.text((15,10),'ASSET CONTACT SHEET - candidate, NOT browser QA',fill='#f4ede0')
@@ -324,13 +336,46 @@ def main():
             'sourceDesk':'art/illustrated-z08-v2/sources/'+source['source'],
             'sourceCrop':crop,'sourceTabletopLandmarks':corners,'adjacentTabletopGapsLogicalPixels':gaps,
             'scope':'offline geometry and static layer check; browser motion still pending',
-            'mapSha256':assets['logicalMapSha256'],'sourceFurnitureTilesChanged':False,
-            'slotsChanged':False,'collisionChanged':False,
+            'mapSha256':assets['logicalMapSha256'],'sourceFurnitureTilesChanged':GUEST_HOTDESK,
+            'slotsChanged':GUEST_HOTDESK,'collisionChanged':GUEST_HOTDESK,
+            'mainWorkstationCount':len(props),
+            'guestHotdesks':[{'slotId':p['slotId'],'sourceId':p['sourcePropId'],'visualGridAnchor':p['visualGridAnchor']} for p in assets['props'] if p.get('workstationRole')=='temporary-guest'],
             'workstations':[{'slotId':p['slotId'],'deskSourceId':p['sourcePropId'],
                 'deskVisualGroundAnchor':p['visualGridAnchor'],
                 'chairVisualGroundAnchor':next(c['visualGridAnchor'] for c in assets['props']
                     if c.get('slotId')==p['slotId'] and c['id'].endswith('-chair-se')),
                 'painterOrder':['chair','actor','desk']} for p in props]})
+    if GUEST_HOTDESK:
+        staff=[p for p in assets['props'] if p.get('workstationRole')=='permanent-developer']
+        guest_props=[p for p in assets['props'] if p.get('slotId')=='slot_z08_desk_guest']
+        assert len(staff)==3 and len([p for p in guest_props if p['id'].endswith('-hotdesk-se')])==1
+        guest_atlas=json.loads((PUBLIC/'sprites/characters/guest.json').read_text())
+        guest_sheet=Image.open(PUBLIC/'sprites/characters/guest.png').convert('RGBA')
+        guest_slot=next(s for s in slots if s['id']=='slot_z08_desk_guest')
+        gx,gy=guest_slot['gx'],guest_slot['gy']
+        ground_x,ground_y=1088+(gx-gy)*32,64+(gx+gy)*16
+        contact=Image.new('RGBA',(800,360))
+        for index,color in enumerate(['#eee8df','#202c3a']):
+            contact.paste(color,(index*400,0,(index+1)*400,360))
+            anchor_x,anchor_y=index*400+155,240
+            layers=[(p['z'],p) for p in guest_props]+[((gx+gy)*1000+20,{'actor':True})]
+            for _,p in sorted(layers,key=lambda p:p[0]):
+                if p.get('actor'):
+                    entry=guest_atlas['frames'][f'guest_sit_type_se_{index}.png']
+                    f,s,t=entry['frame'],entry['sourceSize'],entry['spriteSourceSize']
+                    scale=guest_atlas['meta'].get('exportScale',1)
+                    image=guest_sheet.crop((f['x'],f['y'],f['x']+f['w'],f['y']+f['h']))
+                    image=image.resize((round(image.width*2/scale),round(image.height*2/scale)),Image.Resampling.NEAREST)
+                    left=anchor_x+round((-s['w']*.5+t['x'])*2/scale)
+                    top=anchor_y+round((-s['h']*.92+t['y'])*2/scale)+guest_slot['y_offset']*2
+                else:
+                    image=Image.open(PUBLIC/p['file'].lstrip('/')).convert('RGBA')
+                    b=p['bounds']
+                    left=anchor_x+round((b['x']-ground_x)*2)
+                    top=anchor_y+round((b['y']-ground_y)*2)
+                contact.alpha_composite(image,(left,top))
+            ImageDraw.Draw(contact).text((index*400+12,12),f'OFFLINE GUEST FIT - baseline actor pose {index}',fill='#688e9e')
+        contact.convert('RGB').save(EVIDENCE/'guest-hotdesk-light-dark.png')
     write_json(EVIDENCE/'packing-check.json',{'characterFrames':len(ledger),'rotatedFrames':0,'mirroredCandidateFrames':0,
          'mapSha256':assets['logicalMapSha256'],'globalProps':len(assets['props']),
          'assetsPacked':True,'browserQA':False,'userStyleApproved':False,'walkLoopAccepted':False})
@@ -340,6 +385,7 @@ def main():
 if __name__ == '__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--orientation-fix',action='store_true',help='Write v2 with slot-facing-aligned SE desk/chair art; preserve v1')
+    parser.add_argument('--guest-hotdesk',action='store_true',help='Write v3 with three developer desks and a separate temporary Guest hotdesk')
     args=parser.parse_args()
     if args.orientation_fix:
         ORIENTATION_FIX=True
@@ -348,4 +394,12 @@ if __name__ == '__main__':
         EVIDENCE=ROOT/'docs/visual-migration/evidence/illustrated-z08-v2'
         STYLE='AO_ILLUSTRATED_2D_Z08_V2'
         WEB_ROOT='/visual-migration/illustrated-z08-v2'
+    if args.guest_hotdesk:
+        ORIENTATION_FIX=True
+        GUEST_HOTDESK=True
+        ART=ROOT/'art/illustrated-z08-v3'
+        OUT=PUBLIC/'visual-migration/illustrated-z08-v3'
+        EVIDENCE=ROOT/'docs/visual-migration/evidence/illustrated-z08-v3'
+        STYLE='AO_ILLUSTRATED_2D_Z08_V3'
+        WEB_ROOT='/visual-migration/illustrated-z08-v3'
     main()

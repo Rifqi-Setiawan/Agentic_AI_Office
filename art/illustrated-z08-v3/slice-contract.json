@@ -1,0 +1,116 @@
+{
+  "zone": {
+    "objectId": 167,
+    "objectName": "Z08 Dev Pods",
+    "zone_id": "Z08",
+    "name": "Dev Pods",
+    "resident": "Prism, Forge, Nova",
+    "gx_min": 16,
+    "gx_max": 23,
+    "gy_min": 10,
+    "gy_max": 19
+  },
+  "slots": [
+    {
+      "objectId": 42,
+      "id": "slot_z08_desk_prism",
+      "type": "desk:prism",
+      "capacity": 1,
+      "facing": "SE",
+      "anim": "sit_type",
+      "y_offset": -6,
+      "zone": "Z08",
+      "gx": 17,
+      "gy": 12
+    },
+    {
+      "objectId": 43,
+      "id": "slot_z08_desk_forge",
+      "type": "desk:forge",
+      "capacity": 1,
+      "facing": "SE",
+      "anim": "sit_type",
+      "y_offset": -6,
+      "zone": "Z08",
+      "gx": 17,
+      "gy": 14
+    },
+    {
+      "objectId": 44,
+      "id": "slot_z08_desk_nova",
+      "type": "desk:nova",
+      "capacity": 1,
+      "facing": "SE",
+      "anim": "sit_type",
+      "y_offset": -6,
+      "zone": "Z08",
+      "gx": 17,
+      "gy": 16
+    },
+    {
+      "objectId": 45,
+      "id": "slot_z08_desk_guest",
+      "type": "desk:guest",
+      "capacity": 1,
+      "facing": "SE",
+      "anim": "sit_type",
+      "y_offset": -6,
+      "zone": "Z08",
+      "gx": 21,
+      "gy": 15
+    },
+    {
+      "objectId": 46,
+      "id": "slot_z08_pair_1",
+      "type": "pair_stand",
+      "capacity": 1,
+      "facing": "NW",
+      "anim": "stand_talk",
+      "y_offset": 0,
+      "zone": "Z08",
+      "gx": 21,
+      "gy": 13
+    },
+    {
+      "objectId": 47,
+      "id": "slot_z08_pair_2",
+      "type": "pair_stand",
+      "capacity": 1,
+      "facing": "NW",
+      "anim": "stand_talk",
+      "y_offset": 0,
+      "zone": "Z08",
+      "gx": 21,
+      "gy": 17
+    }
+  ],
+  "doors": [
+    {
+      "objectId": 141,
+      "id": "door_z08_north",
+      "from": "Z08",
+      "to": "corridor_north",
+      "gx": 19,
+      "gy": 10
+    },
+    {
+      "objectId": 148,
+      "id": "door_z08_south",
+      "from": "Z08",
+      "to": "corridor_south",
+      "gx": 19,
+      "gy": 19
+    },
+    {
+      "objectId": 153,
+      "id": "door_prod_z08_z09",
+      "from": "Z08",
+      "to": "Z09",
+      "gx": 23,
+      "gy": 14
+    }
+  ],
+  "logicalMapSha256": "befa52bc1060f7cc699484fea39d2e1827821a83cbca663dc10825afd3838de5",
+  "mapChanged": true,
+  "approvedLayoutAdjustments": "docs/visual-migration/approved-layout-adjustments.json"
+}

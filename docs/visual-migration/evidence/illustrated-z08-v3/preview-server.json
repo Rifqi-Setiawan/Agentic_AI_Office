@@ -1,0 +1,28 @@
+{
+  "type": "Static HTTP resource checks, NOT browser QA",
+  "previewURL": "http://127.0.0.1:5175/?officeRenderer=claude&seed=42",
+  "resources": [
+    {
+      "path": "/?officeRenderer=claude&seed=42",
+      "status": 200,
+      "bytes": 1143
+    },
+    {
+      "path": "/maps/floor1.tmj",
+      "status": 200,
+      "bytes": 374569
+    },
+    {
+      "path": "/visual-migration/illustrated-z08-v3/assets.json",
+      "status": 200,
+      "bytes": 164442
+    },
+    {
+      "path": "/visual-migration/illustrated-z08-v3/hotdesk.png",
+      "status": 200,
+      "bytes": 24248
+    }
+  ],
+  "builtPublicFilesMatch": 71,
+  "browserTool": "Previously blocked: URL protocol policy blocks the tab. No renewed browser access, workaround, or new browser screenshot."
+}
