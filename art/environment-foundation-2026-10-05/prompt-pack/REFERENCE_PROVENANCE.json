@@ -1,0 +1,50 @@
+[
+  {
+    "file": "references/02-oak-reference.png",
+    "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/floor-oak-z08.png",
+    "sha256": "3f3f298c7bccde16412a8f01bf2c3726794231395f378eb0b29359ada5429dcc",
+    "role": "style/material reference only; source bytes unchanged"
+  },
+  {
+    "file": "references/03-wall-tall-R-reference.png",
+    "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-tall-fall-right.png",
+    "sha256": "94a7d56d0becb32719baf83b8f61864a77db141a1d0160b9f926da3320f69bea",
+    "role": "style/material reference only; source bytes unchanged"
+  },
+  {
+    "file": "references/04-wall-tall-L-reference.png",
+    "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-tall-rise-right.png",
+    "sha256": "845afda69f3002ff2f06c4a4f4f69a59081e27b5043bb534945eb97a878dbbca",
+    "role": "style/material reference only; source bytes unchanged"
+  },
+  {
+    "file": "references/05-wall-low-R-reference.png",
+    "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-low-fall-right.png",
+    "sha256": "5f2ad543bfc3e96d58bfe5548343b10879b6e3553e48485eaeed4212648a49e3",
+    "role": "style/material reference only; source bytes unchanged"
+  },
+  {
+    "file": "references/06-wall-low-L-reference.png",
+    "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-low-rise-right.png",
+    "sha256": "5984c8932ce246f4352f6e6b44a193dd85c92fdf79a2551294cbf494dbd8f49e",
+    "role": "style/material reference only; source bytes unchanged"
+  },
+  {
+    "file": "references/07-doorframe-reference.png",
+    "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/doorframe-open-fall-right.png",
+    "sha256": "1534429c2c07c5364d3af0beff81388d15ab1d5cb2d3a398e97e46307cd50842",
+    "role": "style/material reference only; source bytes unchanged"
+  },
+  {
+    "file": "references/08-pillar-reference.png",
+    "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/pillar-corner-cyan.png",
+    "sha256": "4ae86f6e0f12b1530072b968b97ee532af2354ce06a1c356907547d4c381acbd",
+    "role": "style/material reference only; source bytes unchanged"
+  },
+  {
+    "file": "references/00-suasana-z08.png",
+    "source": "docs/visual-migration/evidence/dot-z08-components-2026-10-05/z08-room-candidate.png",
+    "sha256": "f1a7056e7da3f3a15770bd1172fae33f5d859c1f5d775096840722fc140724af",
+    "role": "style/material reference only; source bytes unchanged"
+  }
+]

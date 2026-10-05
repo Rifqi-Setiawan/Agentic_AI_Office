@@ -1,0 +1,234 @@
+[
+  {
+    "file": "00_MASTER_STYLE.txt",
+    "sha256": "a07c26bfd20a12399f657de53ec0e0825ab9d0834ee0ebc45963939a3b988656"
+  },
+  {
+    "file": "ALL_PROMPTS.md",
+    "sha256": "707a64414ce6fe82bcae9066795d075a462ae09d4f8a428525fb5a70a5d063af"
+  },
+  {
+    "file": "ASSET_MANIFEST.json",
+    "sha256": "1777d26992cf1e78125b38604ed380d933ab6b9a63e7d3097590b44c415b6f23"
+  },
+  {
+    "file": "CHECKLIST.csv",
+    "sha256": "2e2b1c81bb0328fe334db3fe7a89cd25a8d115e7188b1bb30e9c17eb102d9f5e"
+  },
+  {
+    "file": "index.html",
+    "sha256": "24459ab8268f0537e4c0536d9ecfeeced158a8addbae0f97a00b7b1bfefc83f4"
+  },
+  {
+    "file": "MAP_COVERAGE.json",
+    "sha256": "9795b8cda6a52c819bad1b09a92fad1acb20ffe0479ed5e37d7e7b1d0c90b8bb"
+  },
+  {
+    "file": "prompts/01-lantai/F01-floor-oak-a.txt",
+    "sha256": "1d684ab28456760932abe31e20f470b40a64c5504c2c91ba1124f9583a015333"
+  },
+  {
+    "file": "prompts/01-lantai/F02-floor-oak-b.txt",
+    "sha256": "576f1d27027910deb644711299c4d358742304efe8ad7ebff0407ff1fd1b329d"
+  },
+  {
+    "file": "prompts/01-lantai/F03-floor-corridor-gray.txt",
+    "sha256": "4db064494df52ac7a77607de184be1a3721ec86c57313a28e209a99746ce692f"
+  },
+  {
+    "file": "prompts/01-lantai/F04-floor-outdoor-stone.txt",
+    "sha256": "e353ccf842331b4d6dbad959395810e8c9651d99923fa9849cea5089f64ca0a3"
+  },
+  {
+    "file": "prompts/01-lantai/F05-platform-edge-r.txt",
+    "sha256": "f0e3d10c97d4ea42d6e3d2290b0c476532c57b61d618c43a857e7f2872faf4ae"
+  },
+  {
+    "file": "prompts/01-lantai/F06-platform-edge-l.txt",
+    "sha256": "f8ca62f865b788369f553d56ee9a1c14626908b787fae27ae215322e63034c33"
+  },
+  {
+    "file": "prompts/01-lantai/F07-platform-corner-s.txt",
+    "sha256": "8526cb22ea60b1511cad493a2bf5da39897037051e4e832abf3418aaefbea04e"
+  },
+  {
+    "file": "prompts/02-dinding/W01-wall-tall-r-1u.txt",
+    "sha256": "dc8a919e371b045d0663dc21c11e182acc7dd983308029d80c2791b314e10361"
+  },
+  {
+    "file": "prompts/02-dinding/W02-wall-tall-l-1u.txt",
+    "sha256": "72b5ab7d0828b630ff1340684d896873b2fce45bf09b57900505732aa96d53d1"
+  },
+  {
+    "file": "prompts/02-dinding/W03-wall-tall-r-2u.txt",
+    "sha256": "bf11dee6902aae3a37cd60a73d1e9a4538e64b49f793baf317e8b3e1c42a2bc5"
+  },
+  {
+    "file": "prompts/02-dinding/W04-wall-tall-l-2u.txt",
+    "sha256": "2038fcb8414e8c7a7988c4040408d27a61a9b3e2d0084b71c12e474903e439d2"
+  },
+  {
+    "file": "prompts/02-dinding/W05-wall-low-r-1u.txt",
+    "sha256": "f1913c2ba68227b54a4813094c13b7e5b5aa87d384e456302320798159803661"
+  },
+  {
+    "file": "prompts/02-dinding/W06-wall-low-l-1u.txt",
+    "sha256": "c2ba50a782a69124e9f53400e0c8e9f03b26bbd27c021c6b9ee1973fea66401d"
+  },
+  {
+    "file": "prompts/02-dinding/W07-wall-low-r-2u.txt",
+    "sha256": "a9f55f13e4a87d4a6f12ff81b0a5f3a7b284d8c606a5f1aa04113fd13162b3c2"
+  },
+  {
+    "file": "prompts/02-dinding/W08-wall-low-l-2u.txt",
+    "sha256": "caf815a7d96dff57b04e777cb1ae3157a8956b874b98b27fdf8b06f572ce61f4"
+  },
+  {
+    "file": "prompts/02-dinding/W09-wall-corner-n-tall.txt",
+    "sha256": "fce7a1cbc572f9a524793d9d26ef881ac38042e404e0dd01babc3d6608409e1f"
+  },
+  {
+    "file": "prompts/02-dinding/W10-wall-corner-s-low.txt",
+    "sha256": "9ed0a074374934ad529717b62ba382635a40ab0a12b15722e68fd1059fcecb13"
+  },
+  {
+    "file": "prompts/03-pilar/P01-pillar-tall.txt",
+    "sha256": "444f713a29087dd44df8c9501249f9fb9e608f625a7e29a28a8be97277837257"
+  },
+  {
+    "file": "prompts/03-pilar/P02-post-low.txt",
+    "sha256": "5ce2ff1368a9ae3cb1e56cf54bcd65d50fec120e00b4d5099d1714ca0c4c4d82"
+  },
+  {
+    "file": "prompts/04-pintu/D01-door-open-r.txt",
+    "sha256": "153b099cbce3309ba5af93dd069b33e2efb0840dcd2592aa891eca63f2acf654"
+  },
+  {
+    "file": "prompts/04-pintu/D02-door-open-l.txt",
+    "sha256": "d1bf5060e81431bf1d46e2903873593f0f8fa5b9f0b5f5346cc8680ece8a1692"
+  },
+  {
+    "file": "prompts/04-pintu/D03-door-cutaway-r.txt",
+    "sha256": "47a6fee82f4a4eb6de7b99b8165a60b8a1c937bdf886749ed54e3d69ea6bd9c9"
+  },
+  {
+    "file": "prompts/04-pintu/D04-door-cutaway-l.txt",
+    "sha256": "7053a235f970eae7965af9626d01bfcdffcd6c4cc9344c139deb50ee29a4fa68"
+  },
+  {
+    "file": "prompts/04-pintu/D05-door-entrance-r.txt",
+    "sha256": "dbe43b15131244abda59a39f721a6696bec5ae7a3b80fcea8b1fde59064d239a"
+  },
+  {
+    "file": "prompts/04-pintu/D06-door-entrance-l.txt",
+    "sha256": "19e3d388ea3876290e38860905c4f9595d14ac96a2ab3eb3d095331dc8b37b38"
+  },
+  {
+    "file": "prompts/05-jendela-kaca/G01-window-r.txt",
+    "sha256": "d95dd9f9e9385a9bcc01f8a09cdfb8b3ebc3c4e8ee0730a3f379ae348711a98c"
+  },
+  {
+    "file": "prompts/05-jendela-kaca/G02-window-l.txt",
+    "sha256": "f8fcca3cacc53053936cce9c829685081c709214e344134625829e34b6fa168a"
+  },
+  {
+    "file": "prompts/05-jendela-kaca/G03-partition-r.txt",
+    "sha256": "78df6611d651eff35ee46ba21ab5a95a90ccd1e536bfbcb2223ea4eb7c464875"
+  },
+  {
+    "file": "prompts/05-jendela-kaca/G04-partition-l.txt",
+    "sha256": "9f96bbe5b2f3b5bbf1f7ab9eb5fdea88a415b9cde9c54510150343ede6b0bf79"
+  },
+  {
+    "file": "prompts/06-transisi/J01-threshold-r.txt",
+    "sha256": "45f836a5517e9e14a676ce13df82f4ebf98ed52d6008301119438bcce043f0af"
+  },
+  {
+    "file": "prompts/06-transisi/J02-threshold-l.txt",
+    "sha256": "64059d4a2a624cdaa1e6e5b6f950105efdc7b103723f1b58fda8454cebe1b8f5"
+  },
+  {
+    "file": "prompts/07-outdoor-kolam/O01-pool-water.txt",
+    "sha256": "64afcd117ae14defed5c5056596e9446586efb592de400627425e08d45c17459"
+  },
+  {
+    "file": "prompts/07-outdoor-kolam/O02-pool-coping-r.txt",
+    "sha256": "44558c3c18e975584621cac5c7ea892fca3c0e187d2fa163779ff9532f3e0a97"
+  },
+  {
+    "file": "prompts/07-outdoor-kolam/O03-pool-coping-l.txt",
+    "sha256": "09583564e6eb8fa119524a56eac808a74a1e9f848f3b7d7135cf6f1028051cc6"
+  },
+  {
+    "file": "prompts/07-outdoor-kolam/O04-pool-coping-corner-n.txt",
+    "sha256": "f49cd436256bb2fdfd9d0bb6fda2f47a278950593d6fd8d31e7b7651a80bb528"
+  },
+  {
+    "file": "prompts/07-outdoor-kolam/O05-pool-coping-corner-s.txt",
+    "sha256": "268a98a659fd382d8d18db9b81777a01647d8c8fce84c8b6a02482a027389983"
+  },
+  {
+    "file": "prompts/07-outdoor-kolam/O06-pool-coping-corner-e.txt",
+    "sha256": "1c2c701017a7dda376a8655f4714ffef75c49d7f90c2bef1294e60e732ef7a4d"
+  },
+  {
+    "file": "prompts/07-outdoor-kolam/O07-pool-coping-corner-w.txt",
+    "sha256": "a23d6e8519cd02e6bdb555e5c6c8b9f9f8ed2bc3b00c4f70cafe81120aef6ba4"
+  },
+  {
+    "file": "REFERENCE_PROVENANCE.json",
+    "sha256": "a3f3d23e5e17edfa2631c7e2fde50c0347ba95ee0f2657a5eb0228fde0e53937"
+  },
+  {
+    "file": "references/00-suasana-z08.png",
+    "sha256": "f1a7056e7da3f3a15770bd1172fae33f5d859c1f5d775096840722fc140724af"
+  },
+  {
+    "file": "references/01-geometri-2-to-1.png",
+    "sha256": "3a01e83c4158fad16a0eac986c0e774f793325bd4b812b0976ab2650ca8ffe23"
+  },
+  {
+    "file": "references/02-oak-reference.png",
+    "sha256": "3f3f298c7bccde16412a8f01bf2c3726794231395f378eb0b29359ada5429dcc"
+  },
+  {
+    "file": "references/03-wall-tall-R-reference.png",
+    "sha256": "94a7d56d0becb32719baf83b8f61864a77db141a1d0160b9f926da3320f69bea"
+  },
+  {
+    "file": "references/04-wall-tall-L-reference.png",
+    "sha256": "845afda69f3002ff2f06c4a4f4f69a59081e27b5043bb534945eb97a878dbbca"
+  },
+  {
+    "file": "references/05-wall-low-R-reference.png",
+    "sha256": "5f2ad543bfc3e96d58bfe5548343b10879b6e3553e48485eaeed4212648a49e3"
+  },
+  {
+    "file": "references/06-wall-low-L-reference.png",
+    "sha256": "5984c8932ce246f4352f6e6b44a193dd85c92fdf79a2551294cbf494dbd8f49e"
+  },
+  {
+    "file": "references/07-doorframe-reference.png",
+    "sha256": "1534429c2c07c5364d3af0beff81388d15ab1d5cb2d3a398e97e46307cd50842"
+  },
+  {
+    "file": "references/08-pillar-reference.png",
+    "sha256": "4ae86f6e0f12b1530072b968b97ee532af2354ce06a1c356907547d4c381acbd"
+  },
+  {
+    "file": "references/09-denah-canonical.png",
+    "sha256": "79c0bc2083f50def876455c6841322f4783db3512bfd19c5c097324ef509d08b"
+  },
+  {
+    "file": "REPAIR_PROMPT.txt",
+    "sha256": "b6c9d09701fdc1c737f6cc966a4f4baf5afb6eb83756f1a9eed99b575b671540"
+  },
+  {
+    "file": "results/README.txt",
+    "sha256": "1fdb02dce70b79a7d03b0519fc8a979a614340636505bc0b25ba5446cc31e04b"
+  },
+  {
+    "file": "START_HERE.md",
+    "sha256": "ddb242fcd76fbce4f5457cf6f2f5807de3999870a74a55ff1ca5bbe55e813e8e"
+  }
+]

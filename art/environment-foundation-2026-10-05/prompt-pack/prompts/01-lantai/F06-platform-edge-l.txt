@@ -1,0 +1,22 @@
+Use case: stylized-concept.
+Asset type: reusable isolated 2.5D office architecture game sprite, not a complete room.
+Style: match the attached Dot office reference: clean illustrated contours, controlled soft painted shading, matte light honey oak, cool blue-gray wall panels, charcoal trims and tiny restrained cyan accents. Warm, tidy modern office; neither photorealism, pixel art nor shiny low-poly Blender render.
+Camera: orthographic 2:1 DIMETRIC. R/+gx goes screen down-right (+32,+16), L/+gy goes down-left (-32,+16). Vertical world edges stay vertical on screen. A floor diamond has width:height 2:1; do not default to 30-degree true isometric or perspective vanishing points.
+Lighting: upper-left of the SCREEN, soft and consistent. Generate the requested orientation explicitly, not a horizontal flip of an existing image. Match modular proportions and shared materials; no newly invented theme.
+Reference roles: Image 1 is the technical geometry guide only, not an art style. Subsequent attached images are material/shading references only. They are not edit targets. The old native floor panel's diamond ratio/padding and old long-wall proportions are not authoritative geometry; the guide and this prompt control those. Ignore any characters, furniture and decorations visible in a context reference.
+Output: exactly ONE complete isolated PNG image with true RGBA transparency, preferably a 1024x1024 native canvas with at least 8% transparent padding on every side. Keep the complete contour inside the canvas. No spritesheet, contact sheet, alternatives, labels, ID numbers, dimensions drawn on the image, watermark or logo. No black/white/background rectangle, fake checkerboard transparency, baked surrounding room/floor, background glow or cast shadow stretching outside the object. Keep subtle contact shading within the object.
+Avoid: people, AI agents, characters, desk, chair, sofa, TV, rugs, plants, posters, bookshelves, room-specific decorations, full office/room compositions, doors added to plain-wall jobs, random objects and extra architecture beyond the requested single module.
+Numbers below are engine registration targets, not annotations to draw. A larger native canvas is fine; correct geometry/proportions matter more than guessing the final packing dimensions. Do not claim exact alpha, seamless tiling, grid registration or engine acceptance without checking actual exported pixels.
+
+Input images to attach, in this order:
+Image 1: 01-geometri-2-to-1.png
+Image 2: 04-wall-tall-L-reference.png
+
+Primary request (F06):
+One exposed front slab edge along L, length one grid edge. Thin blue-gray structural fascia below ground level, depth four logical pixels. No top floor surface or wall. Modular end faces, subtle underside shading entirely within the object. This attaches below the floor perimeter, not on every floor tile.
+
+Target geometry for later packing:
+{"axis": "L", "lengthTiles": 1, "belowFloorDepth": 4}
+
+Suggested downloaded filename: F06-platform-edge-l.png
+Return the single image. Do not create a room, combine modules or generate the other jobs from this pack.

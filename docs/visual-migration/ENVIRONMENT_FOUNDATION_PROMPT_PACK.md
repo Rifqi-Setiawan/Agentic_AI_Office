@@ -1,8 +1,12 @@
+> **Status handoff 5 Oktober 2026:** paket asli 59 file + ZIP sekarang disimpan byte-identik di repo agar portable. Angka 0/36 di bawah adalah snapshot persiapan awal; terkini tiga input generated, dua registered/installed trial, nol final accepted. F01 menunggu revisi; wall height 80 menghalangi pandangan menurut user dan menjadi P0. Tinggi wall dalam prompt hanya proposal; policy visibility/cutaway harus diperbaiki. [Handoff](../HANDOFF_BRE.md) dan [rencana](../PROJECT_PLAN.md) berlaku untuk lanjutan. Publikasi GitHub diizinkan sekarang; no-push laporan lama bersifat historis.
+
+---
+
 # Lingkungan general kantor dahulu — paket GPT web
 
 User meminta seluruh lingkungan dasar kantor selesai sebelum pekerjaan karakter atau penataan/dekorasi spesifik ruangan. Suasana mengikuti sumber Dot: oak hangat, panel blue-gray, trim charcoal, aksen cyan kecil, kontur ilustrasi bersih dan cahaya kiri atas. Paket memakai sumber tersebut, bukan foto kantor dari internet atau style baru.
 
-[Download ZIP prompt + gambar referensi](<C:/Users/Rifqi/Documents/ChatGPT/audit vps/office-environment-prompts-20261005.zip>) · [Panduan dan daftar prompt](<C:/Users/Rifqi/Documents/ChatGPT/audit vps/office-environment-prompts-20261005/START_HERE.md>) · [Katalog bergambar lokal](<C:/Users/Rifqi/Documents/ChatGPT/audit vps/office-environment-prompts-20261005/index.html>) · [Semua prompt](<C:/Users/Rifqi/Documents/ChatGPT/audit vps/office-environment-prompts-20261005/ALL_PROMPTS.md>).
+[Download ZIP prompt + gambar referensi](../../art/environment-foundation-2026-10-05/office-environment-prompts-20261005.zip) · [Panduan dan daftar prompt](../../art/environment-foundation-2026-10-05/prompt-pack/START_HERE.md) · [Katalog bergambar lokal](../../art/environment-foundation-2026-10-05/prompt-pack/index.html) · [Semua prompt](../../art/environment-foundation-2026-10-05/prompt-pack/ALL_PROMPTS.md).
 
 | Kelompok | Jumlah | Isi |
 |---|---:|---|

@@ -1,3 +1,9 @@
+# Arsip pipeline Blender — bukan workflow visual aktif
+
+Panduan dan benchmark di bawah adalah riwayat pipeline lama. Instruksi terbaru memakai ilustrasi 2.5D React/CSS, empat view asli dan tanpa legacy fallback/mirror; fokus lingkungan general, karakter ditunda. Jangan menjalankan render/batch karakter dari contoh lama untuk melanjutkan foundation. Perubahan lokal `render_all_characters.py`, `render_dom_characters.py`, `gltf_stdlib.py`, `render_dom_environment.py` disertakan agar pekerjaan eksperimen tidak hilang; handoff hanya memeriksa sintaks, tidak menjalankan Blender. [Handoff Bre](../../docs/HANDOFF_BRE.md), [plan](../../docs/PROJECT_PLAN.md).
+
+---
+
 # Sprite Rendering Pipeline (Blender Headless & PixiJS Testbed)
 
 Pipeline render procedural untuk menghasilkan sprite pixel-art isometrik 2.5D dari model 3D GLB (Kenney & Quaternius) yang deterministik, ringan, dan siap pakai untuk PixiJS v8.

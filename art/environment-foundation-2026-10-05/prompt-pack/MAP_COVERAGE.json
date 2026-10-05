@@ -1,0 +1,441 @@
+{
+  "mapSha256": "9a9bc468e345658b349923f4ae8dc696397bb929c69688b350ee74e6b610ef0e",
+  "dimensions": [
+    44,
+    32
+  ],
+  "zones": 17,
+  "slots": 133,
+  "doors": [
+    {
+      "id": "door_z01",
+      "from": "Z01",
+      "to": "corridor_north",
+      "gx": 5,
+      "gy": 7,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z02",
+      "from": "Z02",
+      "to": "corridor_north",
+      "gx": 15,
+      "gy": 7,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z03",
+      "from": "Z03",
+      "to": "corridor_north",
+      "gx": 23,
+      "gy": 7,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z04",
+      "from": "Z04",
+      "to": "corridor_north",
+      "gx": 31,
+      "gy": 7,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z05",
+      "from": "Z05",
+      "to": "corridor_north",
+      "gx": 39,
+      "gy": 7,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z06_north",
+      "from": "Z06",
+      "to": "corridor_north",
+      "gx": 4,
+      "gy": 10,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z07_north",
+      "from": "Z07",
+      "to": "corridor_north",
+      "gx": 12,
+      "gy": 10,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z08_north",
+      "from": "Z08",
+      "to": "corridor_north",
+      "gx": 19,
+      "gy": 10,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z09_north",
+      "from": "Z09",
+      "to": "corridor_north",
+      "gx": 25,
+      "gy": 10,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z10_north",
+      "from": "Z10",
+      "to": "corridor_north",
+      "gx": 29,
+      "gy": 10,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z11_north",
+      "from": "Z11",
+      "to": "corridor_north",
+      "gx": 33,
+      "gy": 10,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z12_north",
+      "from": "Z12",
+      "to": "corridor_north",
+      "gx": 39,
+      "gy": 10,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z06_south",
+      "from": "Z06",
+      "to": "corridor_south",
+      "gx": 4,
+      "gy": 19,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z07_south",
+      "from": "Z07",
+      "to": "corridor_south",
+      "gx": 12,
+      "gy": 19,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z08_south",
+      "from": "Z08",
+      "to": "corridor_south",
+      "gx": 19,
+      "gy": 19,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z09_south",
+      "from": "Z09",
+      "to": "corridor_south",
+      "gx": 25,
+      "gy": 19,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z10_south",
+      "from": "Z10",
+      "to": "corridor_south",
+      "gx": 29,
+      "gy": 19,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z11_south",
+      "from": "Z11",
+      "to": "corridor_south",
+      "gx": 33,
+      "gy": 19,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z12_south",
+      "from": "Z12",
+      "to": "corridor_south",
+      "gx": 39,
+      "gy": 19,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_prod_z08_z09",
+      "from": "Z08",
+      "to": "Z09",
+      "gx": 23,
+      "gy": 14,
+      "axisProposal": "L"
+    },
+    {
+      "id": "door_prod_z09_z10",
+      "from": "Z09",
+      "to": "Z10",
+      "gx": 27,
+      "gy": 14,
+      "axisProposal": "L"
+    },
+    {
+      "id": "door_prod_z10_z11",
+      "from": "Z10",
+      "to": "Z11",
+      "gx": 31,
+      "gy": 14,
+      "axisProposal": "L"
+    },
+    {
+      "id": "door_prod_z11_z12",
+      "from": "Z11",
+      "to": "Z12",
+      "gx": 35,
+      "gy": 14,
+      "axisProposal": "L"
+    },
+    {
+      "id": "door_z16_north",
+      "from": "Z16",
+      "to": "corridor_south",
+      "gx": 33,
+      "gy": 22,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_z17_north",
+      "from": "Z17",
+      "to": "corridor_south",
+      "gx": 39,
+      "gy": 22,
+      "axisProposal": "R"
+    },
+    {
+      "id": "door_lobby_entrance",
+      "from": "Z13",
+      "to": "outside",
+      "gx": 4,
+      "gy": 31,
+      "axisProposal": "R"
+    }
+  ],
+  "floorGidCoverage": [
+    {
+      "gid": 94,
+      "sourceType": "tile_floor_corridor",
+      "tiles": 176,
+      "proposedMaterial": "F03"
+    },
+    {
+      "gid": 97,
+      "sourceType": "tile_floor_pool_water",
+      "tiles": 25,
+      "proposedMaterial": "O01"
+    },
+    {
+      "gid": 98,
+      "sourceType": "tile_floor_z01_ceo",
+      "tiles": 80,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 99,
+      "sourceType": "tile_floor_z02_boardroom",
+      "tiles": 80,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 100,
+      "sourceType": "tile_floor_z03_architecture",
+      "tiles": 64,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 101,
+      "sourceType": "tile_floor_z04_classroom",
+      "tiles": 56,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 102,
+      "sourceType": "tile_floor_z05_library",
+      "tiles": 72,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 103,
+      "sourceType": "tile_floor_z06_lab",
+      "tiles": 90,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 104,
+      "sourceType": "tile_floor_z07_design",
+      "tiles": 70,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 105,
+      "sourceType": "tile_floor_z08_dev_pods",
+      "tiles": 80,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 106,
+      "sourceType": "tile_floor_z09_graphics_lab",
+      "tiles": 40,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 107,
+      "sourceType": "tile_floor_z10_qa_station",
+      "tiles": 40,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 108,
+      "sourceType": "tile_floor_z11_release_dock",
+      "tiles": 40,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 109,
+      "sourceType": "tile_floor_z12_datacenter",
+      "tiles": 80,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 110,
+      "sourceType": "tile_floor_z13_lobby",
+      "tiles": 100,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 111,
+      "sourceType": "tile_floor_z14_cafeteria",
+      "tiles": 120,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 112,
+      "sourceType": "tile_floor_z15_arcade",
+      "tiles": 80,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 113,
+      "sourceType": "tile_floor_z16_musholla",
+      "tiles": 70,
+      "proposedMaterial": "F01/F02"
+    },
+    {
+      "gid": 114,
+      "sourceType": "tile_floor_z17_pool_deck",
+      "tiles": 45,
+      "proposedMaterial": "F04"
+    }
+  ],
+  "wallGidCoverage": [
+    {
+      "layer": "walls_back",
+      "gid": 115,
+      "sourceType": "wall_back_corner_n",
+      "count": 1,
+      "candidateModules": [
+        "W09"
+      ]
+    },
+    {
+      "layer": "walls_back",
+      "gid": 116,
+      "sourceType": "wall_back_doorway",
+      "count": 12,
+      "candidateModules": [
+        "D01",
+        "D02",
+        "D03",
+        "D04"
+      ]
+    },
+    {
+      "layer": "walls_back",
+      "gid": 117,
+      "sourceType": "wall_back_ne",
+      "count": 77,
+      "candidateModules": [
+        "W01",
+        "W02",
+        "W03",
+        "W04"
+      ]
+    },
+    {
+      "layer": "walls_back",
+      "gid": 118,
+      "sourceType": "wall_back_nw",
+      "count": 116,
+      "candidateModules": [
+        "W01",
+        "W02",
+        "W03",
+        "W04"
+      ]
+    },
+    {
+      "layer": "walls_back",
+      "gid": 119,
+      "sourceType": "wall_back_window_day",
+      "count": 8,
+      "candidateModules": [
+        "G01",
+        "G02"
+      ]
+    },
+    {
+      "layer": "walls_front",
+      "gid": 121,
+      "sourceType": "wall_front_cutaway_corner_s",
+      "count": 2,
+      "candidateModules": [
+        "W10"
+      ]
+    },
+    {
+      "layer": "walls_front",
+      "gid": 122,
+      "sourceType": "wall_front_cutaway_doorway",
+      "count": 13,
+      "candidateModules": [
+        "D01",
+        "D02",
+        "D03",
+        "D04"
+      ]
+    },
+    {
+      "layer": "walls_front",
+      "gid": 123,
+      "sourceType": "wall_front_cutaway_se",
+      "count": 30,
+      "candidateModules": [
+        "W05",
+        "W06",
+        "W07",
+        "W08"
+      ]
+    },
+    {
+      "layer": "walls_front",
+      "gid": 124,
+      "sourceType": "wall_front_cutaway_sw",
+      "count": 113,
+      "candidateModules": [
+        "W05",
+        "W06",
+        "W07",
+        "W08"
+      ]
+    }
+  ],
+  "stage": "prompt inventory only; artwork generation, packing, assembly and visual/navigation QA remain",
+  "decorationExcluded": true,
+  "characterWorkDeferred": true,
+  "orientationMapping": "Candidate family only; choose and register the actual orientation against each map boundary during assembly."
+}

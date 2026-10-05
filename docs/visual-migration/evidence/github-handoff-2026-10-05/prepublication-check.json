@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-05",
+  "scope": "documentation/source/portable-package audit before GitHub publication; no runtime, Blender, backend or live-VPS execution",
+  "relativeLinksChecked": 79,
+  "brokenRelativeLinks": [],
+  "syntaxOnlyFiles": [
+    "art/pipeline/render_all_characters.py",
+    "art/pipeline/render_dom_characters.py",
+    "art/pipeline/gltf_stdlib.py",
+    "art/pipeline/render_dom_environment.py",
+    "scripts/export_office_handoff_facts.py"
+  ],
+  "repositoryFactsSourceHashes": "passed",
+  "sourceMapCounts": {
+    "zones": 17,
+    "slots": 133,
+    "doors": 26
+  },
+  "textFilesScannedForHighConfidenceSecrets": 534,
+  "secretFindings": [],
+  "secretFileContentsRead": false,
+  "skippedSensitiveFilenames": [],
+  "largeFilesOver40MiB": [],
+  "portablePromptFiles": 59,
+  "portablePromptBytesIdentical": true,
+  "zipCRC": "passed",
+  "promptZipSha256": "4e9f58529ac5b1bca358fbe404c032f0f42403d09ce5f3874d36ffceba1e71e8",
+  "priorRuntimeEvidence": "foundation-wall installation-check.json:28 tests/7 files, build and lint; browser Z08 and Z01; not re-executed during handoff",
+  "githubPublication": "pending commit/push; verify remote branch SHA after push",
+  "productionChanges": false,
+  "historyTextBlobsScannedForHighConfidenceSecrets": 288,
+  "historySecretFindings": [],
+  "stagedPromptManifestHashesPassed": 58,
+  "gitattributes": "prompt-pack preserves raw bytes; CR-at-EOL accepted for original CSV export"
+}

@@ -1,3 +1,9 @@
+# Checkpoint aktif — handoff Bre
+
+[HANDOFF_BRE](../HANDOFF_BRE.md) merangkum keadaan terbaru. Feedback wall tinggi menutup ruangan/jalan menjadi P0; height 80 trial belum disetujui sebagai desain final. User mengizinkan push semua pekerjaan repo ke GitHub. Fokus foundation 17 zona, karakter/dekorasi per room ditunda; tiga input generated / dua installed trial / nol final accepted. Checkpoint di bawah adalah riwayat bukti teknis, bukan klaim final visual 100%.
+
+---
+
 # Checkpoint terbaru — paket foundation kantor
 
 Prioritas user: bangun lingkungan general seluruh 17 zona terlebih dahulu; karakter/dekorasi/layout per ruang ditunda. Paket 38 prompt / 10 referensi/panduan telah disiapkan dan diperiksa untuk GPT web. Lihat [ENVIRONMENT_FOUNDATION_PROMPT_PACK.md](ENVIRONMENT_FOUNDATION_PROMPT_PACK.md). Saat ini 3/36 inti generated telah dikirim; W01/W02 terdaftar dan dipasang untuk trial lokal pada 193 modul dinding tinggi. 28 tes / tujuh file, build/lint lulus. Browser Z08 dan Z01 diperiksa, tanpa error tercatat; tidak ada klaim seluruh 17 zona sudah QA visual. [Pemasangan dan screenshot](FOUNDATION_WALL_INSTALL.md). F01 tetap menunggu revisi 2:1; [intake F01](F01_FLOOR_INTAKE.md). Default AO_DOT_ENVIRONMENT_FOUNDATION_V1; map/floor/slot/door/karakter/furniture/layout tetap. General environment belum 100%.

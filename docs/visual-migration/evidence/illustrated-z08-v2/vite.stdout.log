@@ -1,0 +1,36 @@
+
+  VITE v5.4.21  ready in 602 ms
+
+  ➜  Local:   http://127.0.0.1:5175/
+  ➜  press h + enter to show help
+10.13.01 [vite] hmr update /src/index.css, /src/world/scene/OfficeScene.tsx
+10.19.44 [vite] hmr update /src/world/scene/OfficeScene.tsx, /src/index.css
+11.00.07 [vite] hmr update /src/world/scene/OfficeScene.tsx, /src/index.css
+11.05.24 [vite] hmr update /src/world/scene/OfficeScene.tsx, /src/index.css
+11.07.57 [vite] page reload src/world/scene/DotAssets.test.ts
+12.15.18 [vite] hmr update /src/world/scene/OfficeScene.tsx, /src/index.css
+12.38.19 [vite] hmr update /src/index.css, /src/world/scene/OfficeScene.tsx
+12.38.19 [vite] page reload src/world/scene/DotAssets.test.ts
+12.38.19 [vite] page reload src/world/scene/DotComponents.test.ts
+12.39.40 [vite] hmr update /src/index.css, /src/world/scene/OfficeScene.tsx
+12.39.40 [vite] page reload src/navigation/z08GuestLayout.test.ts
+12.39.40 [vite] page reload src/world/ambientActivities.test.ts
+12.53.45 [vite] page reload src/world/scene/DotComponents.test.ts
+12.53.45 [vite] page reload src/floor1_map.test.ts
+13.22.28 [vite] hmr update /src/index.css, /src/world/scene/OfficeScene.tsx, /src/world/scene/SceneSprites.tsx
+13.22.28 [vite] hmr update /src/index.css, /src/world/scene/OfficeScene.tsx
+13.22.28 [vite] hmr update /src/index.css, /src/world/scene/OfficeScene.tsx
+13.22.28 [vite] hmr update /src/world/scene/OfficeScene.tsx, /src/index.css
+13.22.28 [vite] hmr update /src/index.css, /src/world/scene/OfficeScene.tsx
+13.25.54 [vite] page reload src/world/scene/IllustratedAssets.test.ts
+13.25.54 [vite] page reload src/world/scene/DotAssets.test.ts
+13.25.54 [vite] page reload src/world/scene/DotComponents.test.ts
+14.39.03 [vite] hmr update /src/index.css, /src/world/scene/OfficeScene.tsx, /src/world/scene/SceneSprites.tsx
+14.39.03 [vite] hmr update /src/world/scene/SceneSprites.tsx, /src/index.css
+14.39.03 [vite] hmr update /src/world/scene/scene.css
+14.39.03 [vite] hmr update /src/world/scene/OfficeScene.tsx, /src/index.css
+14.42.59 [vite] hmr update /src/index.css, /src/world/scene/OfficeScene.tsx, /src/world/scene/SceneSprites.tsx
+14.42.59 [vite] hmr update /src/index.css, /src/world/scene/OfficeScene.tsx, /src/world/scene/SceneSprites.tsx
+14.42.59 [vite] hmr update /src/world/scene/SceneSprites.tsx, /src/index.css
+14.46.16 [vite] hmr update /src/index.css, /src/world/scene/OfficeScene.tsx, /src/world/scene/SceneSprites.tsx
+14.46.16 [vite] hmr update /src/world/scene/SceneSprites.tsx, /src/index.css

@@ -6,17 +6,20 @@
     "priority": "complete general office environment before character or per-room decoration/layout work",
     "authorizedForAll17Zones": true,
     "generationWorkflow": "user generates isolated PNGs in GPT web from prepared prompts and supplied Dot references",
-    "promptPack": "office-environment-prompts-20261005.zip",
+    "promptPack": "art/environment-foundation-2026-10-05/office-environment-prompts-20261005.zip",
     "promptCount": 38,
     "requiredAssets": 36,
     "optionalGlassPartitions": 2,
     "newRequiredAssetsGenerated": 3,
-    "newRequiredAssetsAccepted": 2,
+    "newRequiredAssetsAccepted": 0,
     "newRequiredAssetsInstalled": 2,
-    "acceptanceScope": "W01/W02 registered and installed for local trial; final whole-environment acceptance remains pending",
-    "status": "W01/W02 installed on 193 tall wall modules. Browser Z08/Z01 checked; full 17-zone visual QA pending. F01 needs geometry revision; 33 other required assets await user artwork",
+    "acceptanceScope": "Two installed/registered trial wall inputs; user reported occlusion. No final foundation acceptance.",
+    "status": "Foundation incomplete. W01/W02 installed for trial; user reported tall walls obscure other rooms and paths. Height/visibility not final approved. F01 revision and other 33 required artworks pending.",
     "latestIntake": {
-      "assetIds": ["W01", "W02"],
+      "assetIds": [
+        "W01",
+        "W02"
+      ],
       "revision": "r01",
       "status": "registered_installed_local_trial",
       "report": "docs/visual-migration/FOUNDATION_WALL_INSTALL.md"
@@ -29,11 +32,24 @@
     },
     "characterProductionDeferred": true,
     "roomDecorationAndLayoutDeferred": true,
-    "report": "docs/visual-migration/ENVIRONMENT_FOUNDATION_PROMPT_PACK.md"
+    "report": "docs/visual-migration/ENVIRONMENT_FOUNDATION_PROMPT_PACK.md",
+    "newRequiredAssetsRegistered": 2,
+    "wallVisibilityGate": "P0 pending: tall trial walls obscure other rooms and paths; test cutaway/internal-wall/camera visibility before extending installation",
+    "plan": "docs/PROJECT_PLAN.md",
+    "handoff": "docs/HANDOFF_BRE.md"
   },
   "actorRenderPolicy": {
-    "visibleAgents": ["prism", "forge", "nova"],
-    "requiredNeutralViews": ["se", "sw", "ne", "nw"],
+    "visibleAgents": [
+      "prism",
+      "forge",
+      "nova"
+    ],
+    "requiredNeutralViews": [
+      "se",
+      "sw",
+      "ne",
+      "nw"
+    ],
     "legacyCharacterFallback": false,
     "pendingAction": "hold one existing 2.5D pose from the same agent and facing; prefer seated pose at a seated slot",
     "unavailableAgent": "omit scene actor, simulation and seat reservations",
@@ -2758,5 +2774,13 @@
     "real provenance/freshness/redaction retained"
   ],
   "approvedLayoutAdjustments": "docs/visual-migration/approved-layout-adjustments.json",
-  "supplementalSourcesIndex": "art/dot-z08-components-2026-10-05/source-index.json"
+  "supplementalSourcesIndex": "art/dot-z08-components-2026-10-05/source-index.json",
+  "publicationScope": {
+    "branch": "codex/visual-migration-local",
+    "pushAuthorized": true,
+    "mergeAuthorized": false,
+    "deployAuthorized": false,
+    "productionWorkersAuthorized": false,
+    "latestRequest": "Publish all repository work and project/plan/agent/layout Markdown for Bre to continue"
+  }
 }

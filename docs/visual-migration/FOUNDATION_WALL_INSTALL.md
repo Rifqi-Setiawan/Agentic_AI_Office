@@ -1,3 +1,7 @@
+> **Feedback setelah trial, 5 Oktober 2026:** user menyatakan wall terlalu tinggi menutupi ruangan/jalan. Height 80 belum final approved; P0 Bre adalah policy cutaway/visibility. Bukti teknis/browser di bawah tetap bukti pemasangan, bukan persetujuan desain final. Instruksi terbaru mengizinkan publikasi pekerjaan ke GitHub; batas no-push di akhir laporan hanya riwayat trial. [Handoff](../HANDOFF_BRE.md) / [rencana](../PROJECT_PLAN.md).
+
+---
+
 # W01/W02 dipasang sebagai trial lokal
 
 User meminta W01/W02 dari dua PNG yang dikirim dipasang dahulu, sambil merevisi F01 di GPT web. Default preview sekarang memakai `AO_DOT_ENVIRONMENT_FOUNDATION_V1`: [preview lokal](http://127.0.0.1:5175/?officeRenderer=claude&seed=42). Refresh browser, lalu pilih Z08 untuk melihat hasil. Snapshot sebelumnya tetap dapat dibuka dengan `officeArt=dot-v2`.

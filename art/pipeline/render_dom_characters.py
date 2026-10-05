@@ -9,11 +9,14 @@ import argparse
 import hashlib
 import json
 import math
+import os
 import shutil
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 import render_all_characters as legacy
+from gltf_stdlib import import_model
 
 ROOT = Path(__file__).resolve().parents[2]
 STYLE = "AO_CLAUDE_2P5D_V1_CANDIDATE"
@@ -24,6 +27,35 @@ SCALE = 2
 LOGICAL_SIZE = (64, 96)
 PIXELS_PER_UNIT = 32 / math.sqrt(.5)
 ORTHO = LOGICAL_SIZE[1] / PIXELS_PER_UNIT
+
+
+def configure_device(requested):
+    bpy = legacy.bpy
+    scene = bpy.context.scene
+    preferences = bpy.context.preferences.addons['cycles'].preferences
+    choices = ('OPTIX', 'CUDA') if requested == 'auto' else (requested.upper(),)
+    for backend in choices:
+        if backend == 'CPU':
+            break
+        try:
+            preferences.compute_device_type = backend
+            preferences.get_devices()
+            available = [d for d in preferences.devices if d.type == backend]
+            if available:
+                for device in preferences.devices:
+                    device.use = device.type == backend
+                scene.cycles.device = 'GPU'
+                print(json.dumps({'computeBackend': backend, 'devices': [d.name for d in available]}), flush=True)
+                return
+        except (TypeError, RuntimeError):
+            if requested != 'auto':
+                raise
+    if requested not in ('auto', 'cpu'):
+        raise RuntimeError(f'Requested GPU backend unavailable: {requested}')
+    scene.cycles.device = 'CPU'
+    scene.render.threads_mode = 'FIXED'
+    scene.render.threads = min(8, os.cpu_count() or 1)
+    print(json.dumps({'computeBackend': 'CPU', 'threads': scene.render.threads}), flush=True)
 
 
 def digest(path):
@@ -77,12 +109,13 @@ def safe_output(value):
     return output
 
 
-def calibrate(output):
+def calibrate(output, device='auto'):
     """Measure rendered emission-marker centroids, not just camera equations."""
     bpy = legacy.bpy
     Vector = legacy.Vector
     bpy.ops.wm.read_factory_settings(use_empty=True)
     legacy.setup_blender_scene(samples=8)
+    configure_device(device)
     scene = bpy.context.scene
     scene.render.resolution_x = scene.render.resolution_y = 256
     scene.render.resolution_percentage = 100
@@ -152,15 +185,11 @@ def studio_style():
         bpy.context.collection.objects.link(light)
         light.location = location
         light.rotation_euler = (-light.location).to_track_quat('-Z', 'Y').to_euler()
-    # The legacy builder specifies sRGB hex values as node inputs. Convert those
-    # inputs once to linear RGB for the continuous-color candidate render.
     for mat in bpy.data.materials:
         if not mat.use_nodes:
             continue
         bsdf = mat.node_tree.nodes.get("Principled BSDF")
         if bsdf:
-            color = bsdf.inputs["Base Color"].default_value
-            color[:3] = [v / 12.92 if v <= .04045 else ((v + .055) / 1.055) ** 2.4 for v in color[:3]]
             bsdf.inputs["Roughness"].default_value = max(.35, bsdf.inputs["Roughness"].default_value)
     for obj in bpy.data.objects:
         if obj.type == "MESH" and obj.parent_type == "BONE" and len(obj.data.polygons) <= 6:
@@ -168,18 +197,26 @@ def studio_style():
             bevel.width, bevel.segments = .008, 2
 
 
-def render_character(cid, jobs, output, samples):
+def render_character(cid, jobs, output, samples, device='auto'):
     bpy, Vector = legacy.bpy, legacy.Vector
     info = next(c for c in legacy.CHARACTERS if c["id"] == cid)
     bpy.ops.wm.read_factory_settings(use_empty=True)
     legacy.setup_blender_scene(samples=samples)
+    configure_device(device)
     scene = bpy.context.scene
     scene.render.resolution_x = LOGICAL_SIZE[0] * SCALE
     scene.render.resolution_y = LOGICAL_SIZE[1] * SCALE
     scene.render.resolution_percentage = 100
     # Ground origin projects to sourceCanvas (.5, .92); trim keeps this pivot.
+    scene.render.use_persistent_data = True
     legacy.setup_camera(Vector((0, 0, .42 * ORTHO / math.sqrt(.75))), ORTHO)
-    root, arm = legacy.build_character(info, str(ROOT / "art/sumber/characters"))
+    # Convert only the builder's hex overrides, not imported glTF colors which
+    # Blender already converted to linear RGB. This override is process-local.
+    def linear_rgba(hex_color):
+        values = [int(hex_color.lstrip('#')[i:i+2],16)/255 for i in (0,2,4)]
+        return [v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4 for v in values]+[1]
+    legacy.hex_to_rgba_float = linear_rgba
+    root, arm = legacy.build_character(info, str(ROOT / "art/sumber/characters"), import_model=import_model)
     studio_style()
     rest_pose = {bone.name: bone.matrix_basis.copy() for bone in arm.pose.bones}
     records = []
@@ -192,12 +229,14 @@ def render_character(cid, jobs, output, samples):
         bone = arm.pose.bones["Root"]
         bone.rotation_mode = "XYZ"
         bone.rotation_euler = (0, math.radians(job["rootBoneDegrees"]), 0)
-        root.location.z = 0
+        root.location = (0,0,0)
         bpy.context.view_layer.update()
         graph = bpy.context.evaluated_depsgraph_get()
         meshes = [o for o in bpy.data.objects if o.type == "MESH"]
         floor = min((m.evaluated_get(graph).matrix_world @ Vector(c)).z for m in meshes for c in m.bound_box)
-        root.location.z = -floor + lift
+        feet = [arm.matrix_world@arm.pose.bones[name].matrix.translation for name in ('Foot.L','Foot.R') if name in arm.pose.bones]
+        contact = sum(feet,Vector((0,0,0)))/len(feet) if feet else Vector((0,0,0))
+        root.location = (-contact.x,-contact.y,-floor+lift)
         bpy.context.view_layer.update()
         path = output / job["file"]
         path.parent.mkdir(exist_ok=True)
@@ -240,6 +279,8 @@ def main():
     parser.add_argument("--sample", action="store_true", help="Only idle/walk/sit_type; never final coverage")
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--samples", type=int, default=32)
+    parser.add_argument("--device", choices=('auto', 'cpu', 'cuda', 'optix'), default='auto')
+    parser.add_argument("--calibration-only", action='store_true')
     args = parser.parse_args(argv)
     if args.samples < 1:
         parser.error("samples must be positive")
@@ -254,9 +295,12 @@ def main():
     if args.plan:
         print(json.dumps({"plannedFrames": len(document["jobs"]), "rendered": False, "finalArt": False}))
         return
-    calibrate(output)
+    calibrate(output, args.device)
+    if args.calibration_only:
+        print(json.dumps({'calibrationPassed': True, 'renderedCharacterFrames': 0}), flush=True)
+        return
     for model in document["models"]:
-        render_character(model["id"], [j for j in document["jobs"] if j["character"] == model["id"]], output, args.samples)
+        render_character(model["id"], [j for j in document["jobs"] if j["character"] == model["id"]], output, args.samples, args.device)
     print(json.dumps({"renderedFrames": len(document["jobs"]), "calibrationPassed": True, "finalArt": False}))
 
 

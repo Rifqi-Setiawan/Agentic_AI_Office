@@ -1,3 +1,9 @@
+# Blueprint awal — baca bersama handoff terbaru
+
+Blueprint 3 Oktober memberi landasan konsep/arsitektur. Untuk melanjutkan gunakan [HANDOFF_BRE](../HANDOFF_BRE.md), [plan](../PROJECT_PLAN.md), [roster](../AGENT_ROSTER.md), [denah aktual](../OFFICE_LAYOUT.md) dan art bible 5 Oktober. User terbaru mengizinkan push branch, memprioritaskan lingkungan general, menunda karakter/dekorasi, dan mengkritik wall tinggi yang menutup pandangan. Layout Z08 Dot sudah disetujui dan tercatat pada approved-layout-adjustments; map aktual menjadi authority koordinat. Aturan lama Blender/pixel art/mirror/kuota frame dan slice gate digantikan instruksi baru. Import Kanban/deploy/cutover dari contoh di bawah tidak diotorisasi oleh handoff ini.
+
+---
+
 # Office v2 — Blueprint (untuk agent Hermes)
 
 Paket ini adalah spesifikasi lengkap untuk membangun ulang office virtual di office.rifqisetiawan.my.id.

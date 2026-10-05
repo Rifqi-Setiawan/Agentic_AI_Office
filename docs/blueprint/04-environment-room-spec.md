@@ -1,3 +1,7 @@
+> **Status 5 Oktober 2026:** bounds 17 zona/dua koridor tetap; posisi/slot/collision aktual berasal dari map floor1.tmj dan [denah aktual](../OFFICE_LAYOUT.md). Z08 sudah diubah sesuai persetujuan layout Dot: tiga workstation staf, Guest (22,12) NE, sofa/TV dan dua gaming seat. Tabel furniture/slot awal di bawah bukan hitungan runtime terbaru. Trial W01/W02 height 80 menghalangi ruangan/jalan menurut feedback user; policy cutaway/internal wall menjadi P0. Full height belum tentu cocok pada sisi belakang partisi internal. [Rencana](../PROJECT_PLAN.md).
+
+---
+
 # 4. Environment / Room Design Spec
 
 V1 terdiri dari satu lantai berukuran 44×32 tile dengan 17 zona dalam tiga pita. Pita belakang untuk ruang berpikir, pita tengah untuk jalur produksi, dan pita depan untuk ruang sosial. Jalur produksi sengaja disusun berurutan, Dev Pods → QA → Release Dock → Data Center, supaya alur kerja Hermes terbaca dari tata letaknya.

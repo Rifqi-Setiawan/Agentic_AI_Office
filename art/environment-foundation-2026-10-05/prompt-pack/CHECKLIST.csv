@@ -1,0 +1,39 @@
+﻿ID,Asset,Inti,Output PNG,Generated,Alpha/Geometry/Seam Checked,Packed,Installed,Browser QA
+F01,Lantai oak utama,yes,F01-floor-oak-a.png,pending,pending,pending,pending,pending
+F02,Variasi lantai oak,yes,F02-floor-oak-b.png,pending,pending,pending,pending,pending
+F03,Lantai koridor abu-abu,yes,F03-floor-corridor-gray.png,pending,pending,pending,pending,pending
+F04,Lantai outdoor antiselip,yes,F04-floor-outdoor-stone.png,pending,pending,pending,pending,pending
+F05,Tepi platform R,yes,F05-platform-edge-r.png,pending,pending,pending,pending,pending
+F06,Tepi platform L,yes,F06-platform-edge-l.png,pending,pending,pending,pending,pending
+F07,Sudut depan platform,yes,F07-platform-corner-s.png,pending,pending,pending,pending,pending
+W01,"Dinding tinggi R, 1 modul",yes,W01-wall-tall-r-1u.png,pending,pending,pending,pending,pending
+W02,"Dinding tinggi L, 1 modul",yes,W02-wall-tall-l-1u.png,pending,pending,pending,pending,pending
+W03,"Dinding tinggi R, 2 modul",yes,W03-wall-tall-r-2u.png,pending,pending,pending,pending,pending
+W04,"Dinding tinggi L, 2 modul",yes,W04-wall-tall-l-2u.png,pending,pending,pending,pending,pending
+W05,"Dinding rendah R, 1 modul",yes,W05-wall-low-r-1u.png,pending,pending,pending,pending,pending
+W06,"Dinding rendah L, 1 modul",yes,W06-wall-low-l-1u.png,pending,pending,pending,pending,pending
+W07,"Dinding rendah R, 2 modul",yes,W07-wall-low-r-2u.png,pending,pending,pending,pending,pending
+W08,"Dinding rendah L, 2 modul",yes,W08-wall-low-l-2u.png,pending,pending,pending,pending,pending
+W09,Sudut belakang dinding tinggi,yes,W09-wall-corner-n-tall.png,pending,pending,pending,pending,pending
+W10,Sudut depan dinding rendah,yes,W10-wall-corner-s-low.png,pending,pending,pending,pending,pending
+P01,Pilar sambungan tinggi,yes,P01-pillar-tall.png,pending,pending,pending,pending,pending
+P02,Post sambungan rendah,yes,P02-post-low.png,pending,pending,pending,pending,pending
+D01,Kusen terbuka R,yes,D01-door-open-r.png,pending,pending,pending,pending,pending
+D02,Kusen terbuka L,yes,D02-door-open-l.png,pending,pending,pending,pending,pending
+D03,Kusen depan rendah R,yes,D03-door-cutaway-r.png,pending,pending,pending,pending,pending
+D04,Kusen depan rendah L,yes,D04-door-cutaway-l.png,pending,pending,pending,pending,pending
+D05,Kusen entrance R,yes,D05-door-entrance-r.png,pending,pending,pending,pending,pending
+D06,Kusen entrance L,yes,D06-door-entrance-l.png,pending,pending,pending,pending,pending
+G01,Jendela R,yes,G01-window-r.png,pending,pending,pending,pending,pending
+G02,Jendela L,yes,G02-window-l.png,pending,pending,pending,pending,pending
+G03,Partisi kaca opsional R,optional,G03-partition-r.png,pending,pending,pending,pending,pending
+G04,Partisi kaca opsional L,optional,G04-partition-l.png,pending,pending,pending,pending,pending
+J01,Ambang lantai R,yes,J01-threshold-r.png,pending,pending,pending,pending,pending
+J02,Ambang lantai L,yes,J02-threshold-l.png,pending,pending,pending,pending,pending
+O01,Permukaan air kolam,yes,O01-pool-water.png,pending,pending,pending,pending,pending
+O02,Bibir kolam R,yes,O02-pool-coping-r.png,pending,pending,pending,pending,pending
+O03,Bibir kolam L,yes,O03-pool-coping-l.png,pending,pending,pending,pending,pending
+O04,Sudut bibir kolam N,yes,O04-pool-coping-corner-n.png,pending,pending,pending,pending,pending
+O05,Sudut bibir kolam S,yes,O05-pool-coping-corner-s.png,pending,pending,pending,pending,pending
+O06,Sudut bibir kolam E,yes,O06-pool-coping-corner-e.png,pending,pending,pending,pending,pending
+O07,Sudut bibir kolam W,yes,O07-pool-coping-corner-w.png,pending,pending,pending,pending,pending

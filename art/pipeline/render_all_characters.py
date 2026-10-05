@@ -429,10 +429,13 @@ def apply_base_rig(arm: bpy.types.Object, base_rig: str) -> None:
         pb.rotation_euler = (base_arm_x, 0, 0)
 
 
-def build_character(char_info: dict, models_dir: str) -> tuple[bpy.types.Object, bpy.types.Object]:
+def build_character(char_info: dict, models_dir: str, import_model=None) -> tuple[bpy.types.Object, bpy.types.Object]:
     """Import character model, apply rig, material swaps, and custom 3D accessories/props."""
     model_path = os.path.join(models_dir, char_info["model"])
-    bpy.ops.import_scene.gltf(filepath=model_path)
+    if import_model is None:
+        bpy.ops.import_scene.gltf(filepath=model_path)
+    else:
+        import_model(model_path)
 
     # Remove collision / helper meshes
     ico = bpy.data.objects.get("Icosphere")

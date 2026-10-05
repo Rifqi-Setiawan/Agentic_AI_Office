@@ -1,0 +1,2521 @@
+{
+  "snapshotDate": "2026-10-05",
+  "scope": "repository facts; not an inventory of live Hermes registrations",
+  "sourceSha256": {
+    "frontend/public/maps/floor1.tmj": "9a9bc468e345658b349923f4ae8dc696397bb929c69688b350ee74e6b610ef0e",
+    "frontend/src/world/simulation/roster.ts": "4e24d21f322b027b66ba82d514200eeb7bd13837feaa19b8eeaa7e54503f69b8",
+    "backend/src/office/sources/profiles.py": "528ed0f9aa8e056f8d7692fe2833cee75d8a8cd7223925b5c9f74631d4b61504",
+    "frontend/public/visual-migration/environment-foundation-v1/assets.json": "807dc23d399eef1562389b03bb1e2fdee9035ab1e95e2ec261c02b8dad7efe5c",
+    "frontend/public/visual-migration/dot-z08-candidate/prism.json": "fa8c83ab2372f76e403d657d26980198f2381f4fdc1df597a5234a2d279b9fe0",
+    "frontend/public/visual-migration/dot-z08-components-v2/forge.json": "b751b4d620239e2933dab1d5e11008cbe4fccc929755e1600f987b8d1e1adf74",
+    "frontend/public/visual-migration/dot-z08-components-v2/nova.json": "e1853d8c369f41106a06a2686b550a1996caa45d44989c801905de07ca1650b7"
+  },
+  "map": {
+    "width": 44,
+    "height": 32,
+    "tileWidth": 64,
+    "tileHeight": 32,
+    "layers": [
+      "floor",
+      "walls_back",
+      "walls_front",
+      "furniture",
+      "collision",
+      "slots",
+      "doors",
+      "zones"
+    ],
+    "zones": [
+      {
+        "zone_id": "Z01",
+        "name": "Ruang CEO",
+        "resident": "Jarvis",
+        "gx_min": 0,
+        "gx_max": 9,
+        "gy_min": 0,
+        "gy_max": 7,
+        "slotCount": 6
+      },
+      {
+        "zone_id": "Z02",
+        "name": "Boardroom",
+        "resident": "Rapat",
+        "gx_min": 10,
+        "gx_max": 19,
+        "gy_min": 0,
+        "gy_max": 7,
+        "slotCount": 13
+      },
+      {
+        "zone_id": "Z03",
+        "name": "Ruang Arsitektur",
+        "resident": "Daedalus",
+        "gx_min": 20,
+        "gx_max": 27,
+        "gy_min": 0,
+        "gy_max": 7,
+        "slotCount": 3
+      },
+      {
+        "zone_id": "Z04",
+        "name": "Ruang Kelas",
+        "resident": "Merlin",
+        "gx_min": 28,
+        "gx_max": 34,
+        "gy_min": 0,
+        "gy_max": 7,
+        "slotCount": 7
+      },
+      {
+        "zone_id": "Z05",
+        "name": "Perpustakaan",
+        "resident": "Scribe",
+        "gx_min": 35,
+        "gx_max": 43,
+        "gy_min": 0,
+        "gy_max": 7,
+        "slotCount": 6
+      },
+      {
+        "zone_id": "Z06",
+        "name": "Lab Riset",
+        "resident": "Oracle",
+        "gx_min": 0,
+        "gx_max": 8,
+        "gy_min": 10,
+        "gy_max": 19,
+        "slotCount": 4
+      },
+      {
+        "zone_id": "Z07",
+        "name": "Studio Desain",
+        "resident": "Muse",
+        "gx_min": 9,
+        "gx_max": 15,
+        "gy_min": 10,
+        "gy_max": 19,
+        "slotCount": 2
+      },
+      {
+        "zone_id": "Z08",
+        "name": "Dev Pods",
+        "resident": "Prism, Forge, Nova",
+        "gx_min": 16,
+        "gx_max": 23,
+        "gy_min": 10,
+        "gy_max": 19,
+        "slotCount": 6
+      },
+      {
+        "zone_id": "Z09",
+        "name": "Graphics Lab",
+        "resident": "Steward",
+        "gx_min": 24,
+        "gx_max": 27,
+        "gy_min": 10,
+        "gy_max": 19,
+        "slotCount": 2
+      },
+      {
+        "zone_id": "Z10",
+        "name": "QA Station",
+        "resident": "Sentinel",
+        "gx_min": 28,
+        "gx_max": 31,
+        "gy_min": 10,
+        "gy_max": 19,
+        "slotCount": 2
+      },
+      {
+        "zone_id": "Z11",
+        "name": "Release Dock",
+        "resident": "Relay",
+        "gx_min": 32,
+        "gx_max": 35,
+        "gy_min": 10,
+        "gy_max": 19,
+        "slotCount": 3
+      },
+      {
+        "zone_id": "Z12",
+        "name": "Data Center & SOC",
+        "resident": "Vector, Bastion",
+        "gx_min": 36,
+        "gx_max": 43,
+        "gy_min": 10,
+        "gy_max": 19,
+        "slotCount": 6
+      },
+      {
+        "zone_id": "Z13",
+        "name": "Lobi",
+        "resident": "Warden",
+        "gx_min": 0,
+        "gx_max": 9,
+        "gy_min": 22,
+        "gy_max": 31,
+        "slotCount": 3
+      },
+      {
+        "zone_id": "Z14",
+        "name": "Kafetaria & Lounge",
+        "resident": "Semua",
+        "gx_min": 10,
+        "gx_max": 21,
+        "gy_min": 22,
+        "gy_max": 31,
+        "slotCount": 16
+      },
+      {
+        "zone_id": "Z15",
+        "name": "Arcade",
+        "resident": "Semua",
+        "gx_min": 22,
+        "gx_max": 29,
+        "gy_min": 22,
+        "gy_max": 31,
+        "slotCount": 8
+      },
+      {
+        "zone_id": "Z16",
+        "name": "Musholla",
+        "resident": "Semua",
+        "gx_min": 30,
+        "gx_max": 36,
+        "gy_min": 22,
+        "gy_max": 31,
+        "slotCount": 21
+      },
+      {
+        "zone_id": "Z17",
+        "name": "Kolam luar",
+        "resident": "Semua",
+        "gx_min": 37,
+        "gx_max": 43,
+        "gy_min": 22,
+        "gy_max": 31,
+        "slotCount": 25
+      }
+    ],
+    "doors": [
+      {
+        "id": "door_z01",
+        "from": "Z01",
+        "to": "corridor_north",
+        "gx": 5,
+        "gy": 7
+      },
+      {
+        "id": "door_z02",
+        "from": "Z02",
+        "to": "corridor_north",
+        "gx": 15,
+        "gy": 7
+      },
+      {
+        "id": "door_z03",
+        "from": "Z03",
+        "to": "corridor_north",
+        "gx": 23,
+        "gy": 7
+      },
+      {
+        "id": "door_z04",
+        "from": "Z04",
+        "to": "corridor_north",
+        "gx": 31,
+        "gy": 7
+      },
+      {
+        "id": "door_z05",
+        "from": "Z05",
+        "to": "corridor_north",
+        "gx": 39,
+        "gy": 7
+      },
+      {
+        "id": "door_z06_north",
+        "from": "Z06",
+        "to": "corridor_north",
+        "gx": 4,
+        "gy": 10
+      },
+      {
+        "id": "door_z07_north",
+        "from": "Z07",
+        "to": "corridor_north",
+        "gx": 12,
+        "gy": 10
+      },
+      {
+        "id": "door_z08_north",
+        "from": "Z08",
+        "to": "corridor_north",
+        "gx": 19,
+        "gy": 10
+      },
+      {
+        "id": "door_z09_north",
+        "from": "Z09",
+        "to": "corridor_north",
+        "gx": 25,
+        "gy": 10
+      },
+      {
+        "id": "door_z10_north",
+        "from": "Z10",
+        "to": "corridor_north",
+        "gx": 29,
+        "gy": 10
+      },
+      {
+        "id": "door_z11_north",
+        "from": "Z11",
+        "to": "corridor_north",
+        "gx": 33,
+        "gy": 10
+      },
+      {
+        "id": "door_z12_north",
+        "from": "Z12",
+        "to": "corridor_north",
+        "gx": 39,
+        "gy": 10
+      },
+      {
+        "id": "door_z06_south",
+        "from": "Z06",
+        "to": "corridor_south",
+        "gx": 4,
+        "gy": 19
+      },
+      {
+        "id": "door_z07_south",
+        "from": "Z07",
+        "to": "corridor_south",
+        "gx": 12,
+        "gy": 19
+      },
+      {
+        "id": "door_z08_south",
+        "from": "Z08",
+        "to": "corridor_south",
+        "gx": 19,
+        "gy": 19
+      },
+      {
+        "id": "door_z09_south",
+        "from": "Z09",
+        "to": "corridor_south",
+        "gx": 25,
+        "gy": 19
+      },
+      {
+        "id": "door_z10_south",
+        "from": "Z10",
+        "to": "corridor_south",
+        "gx": 29,
+        "gy": 19
+      },
+      {
+        "id": "door_z11_south",
+        "from": "Z11",
+        "to": "corridor_south",
+        "gx": 33,
+        "gy": 19
+      },
+      {
+        "id": "door_z12_south",
+        "from": "Z12",
+        "to": "corridor_south",
+        "gx": 39,
+        "gy": 19
+      },
+      {
+        "id": "door_prod_z08_z09",
+        "from": "Z08",
+        "to": "Z09",
+        "gx": 23,
+        "gy": 14
+      },
+      {
+        "id": "door_prod_z09_z10",
+        "from": "Z09",
+        "to": "Z10",
+        "gx": 27,
+        "gy": 14
+      },
+      {
+        "id": "door_prod_z10_z11",
+        "from": "Z10",
+        "to": "Z11",
+        "gx": 31,
+        "gy": 14
+      },
+      {
+        "id": "door_prod_z11_z12",
+        "from": "Z11",
+        "to": "Z12",
+        "gx": 35,
+        "gy": 14
+      },
+      {
+        "id": "door_z16_north",
+        "from": "Z16",
+        "to": "corridor_south",
+        "gx": 33,
+        "gy": 22
+      },
+      {
+        "id": "door_z17_north",
+        "from": "Z17",
+        "to": "corridor_south",
+        "gx": 39,
+        "gy": 22
+      },
+      {
+        "id": "door_lobby_entrance",
+        "from": "Z13",
+        "to": "outside",
+        "gx": 4,
+        "gy": 31
+      }
+    ],
+    "slots": [
+      {
+        "id": "slot_z01_desk_jarvis",
+        "type": "desk:jarvis",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z01",
+        "gx": 4,
+        "gy": 3
+      },
+      {
+        "id": "slot_z01_sofa_1",
+        "type": "sofa",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z01",
+        "gx": 1,
+        "gy": 5
+      },
+      {
+        "id": "slot_z01_sofa_2",
+        "type": "sofa",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z01",
+        "gx": 2,
+        "gy": 5
+      },
+      {
+        "id": "slot_z01_door_queue_1",
+        "type": "door_queue",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z01",
+        "gx": 4,
+        "gy": 6
+      },
+      {
+        "id": "slot_z01_door_queue_2",
+        "type": "door_queue",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z01",
+        "gx": 5,
+        "gy": 6
+      },
+      {
+        "id": "slot_z01_door_queue_3",
+        "type": "door_queue",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z01",
+        "gx": 6,
+        "gy": 6
+      },
+      {
+        "id": "slot_z02_presenter",
+        "type": "presenter",
+        "capacity": 1,
+        "facing": "SW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z02",
+        "gx": 11,
+        "gy": 2
+      },
+      {
+        "id": "slot_z02_seat_1",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 13,
+        "gy": 2
+      },
+      {
+        "id": "slot_z02_seat_2",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 14,
+        "gy": 2
+      },
+      {
+        "id": "slot_z02_seat_3",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 15,
+        "gy": 2
+      },
+      {
+        "id": "slot_z02_seat_4",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 16,
+        "gy": 2
+      },
+      {
+        "id": "slot_z02_seat_5",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 12,
+        "gy": 3
+      },
+      {
+        "id": "slot_z02_seat_6",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 12,
+        "gy": 4
+      },
+      {
+        "id": "slot_z02_seat_7",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "SW",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 17,
+        "gy": 3
+      },
+      {
+        "id": "slot_z02_seat_8",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "SW",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 17,
+        "gy": 4
+      },
+      {
+        "id": "slot_z02_seat_9",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 13,
+        "gy": 5
+      },
+      {
+        "id": "slot_z02_seat_10",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 14,
+        "gy": 5
+      },
+      {
+        "id": "slot_z02_seat_11",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 15,
+        "gy": 5
+      },
+      {
+        "id": "slot_z02_seat_12",
+        "type": "meeting_seat",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z02",
+        "gx": 16,
+        "gy": 5
+      },
+      {
+        "id": "slot_z03_desk_daedalus",
+        "type": "desk:daedalus",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z03",
+        "gx": 23,
+        "gy": 3
+      },
+      {
+        "id": "slot_z03_bp_1",
+        "type": "blueprint_table",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z03",
+        "gx": 21,
+        "gy": 5
+      },
+      {
+        "id": "slot_z03_bp_2",
+        "type": "blueprint_table",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z03",
+        "gx": 25,
+        "gy": 5
+      },
+      {
+        "id": "slot_z04_whiteboard",
+        "type": "whiteboard",
+        "capacity": 1,
+        "facing": "SW",
+        "anim": "whiteboard",
+        "y_offset": 0,
+        "zone": "Z04",
+        "gx": 31,
+        "gy": 2
+      },
+      {
+        "id": "slot_z04_seat_1",
+        "type": "class_seat",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z04",
+        "gx": 29,
+        "gy": 4
+      },
+      {
+        "id": "slot_z04_seat_2",
+        "type": "class_seat",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z04",
+        "gx": 31,
+        "gy": 4
+      },
+      {
+        "id": "slot_z04_seat_3",
+        "type": "class_seat",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z04",
+        "gx": 33,
+        "gy": 4
+      },
+      {
+        "id": "slot_z04_seat_4",
+        "type": "class_seat",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z04",
+        "gx": 29,
+        "gy": 5
+      },
+      {
+        "id": "slot_z04_seat_5",
+        "type": "class_seat",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z04",
+        "gx": 31,
+        "gy": 5
+      },
+      {
+        "id": "slot_z04_seat_6",
+        "type": "class_seat",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z04",
+        "gx": 33,
+        "gy": 5
+      },
+      {
+        "id": "slot_z05_desk_scribe",
+        "type": "desk:scribe",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z05",
+        "gx": 36,
+        "gy": 4
+      },
+      {
+        "id": "slot_z05_browse_1",
+        "type": "bookshelf_browse",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z05",
+        "gx": 37,
+        "gy": 2
+      },
+      {
+        "id": "slot_z05_browse_2",
+        "type": "bookshelf_browse",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z05",
+        "gx": 39,
+        "gy": 2
+      },
+      {
+        "id": "slot_z05_browse_3",
+        "type": "bookshelf_browse",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z05",
+        "gx": 41,
+        "gy": 2
+      },
+      {
+        "id": "slot_z05_chair_1",
+        "type": "reading_chair",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z05",
+        "gx": 40,
+        "gy": 4
+      },
+      {
+        "id": "slot_z05_chair_2",
+        "type": "reading_chair",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z05",
+        "gx": 41,
+        "gy": 4
+      },
+      {
+        "id": "slot_z06_desk_oracle",
+        "type": "desk:oracle",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z06",
+        "gx": 6,
+        "gy": 13
+      },
+      {
+        "id": "slot_z06_bench_1",
+        "type": "lab_bench",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z06",
+        "gx": 2,
+        "gy": 13
+      },
+      {
+        "id": "slot_z06_bench_2",
+        "type": "lab_bench",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z06",
+        "gx": 2,
+        "gy": 17
+      },
+      {
+        "id": "slot_z06_whiteboard",
+        "type": "whiteboard",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "whiteboard",
+        "y_offset": 0,
+        "zone": "Z06",
+        "gx": 2,
+        "gy": 15
+      },
+      {
+        "id": "slot_z07_desk_muse",
+        "type": "desk:muse",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z07",
+        "gx": 10,
+        "gy": 13
+      },
+      {
+        "id": "slot_z07_moodboard",
+        "type": "moodboard",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z07",
+        "gx": 13,
+        "gy": 14
+      },
+      {
+        "id": "slot_z08_desk_prism",
+        "type": "desk:prism",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z08",
+        "gx": 17,
+        "gy": 12
+      },
+      {
+        "id": "slot_z08_desk_forge",
+        "type": "desk:forge",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z08",
+        "gx": 17,
+        "gy": 14
+      },
+      {
+        "id": "slot_z08_desk_nova",
+        "type": "desk:nova",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z08",
+        "gx": 17,
+        "gy": 16
+      },
+      {
+        "id": "slot_z08_desk_guest",
+        "type": "desk:guest",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z08",
+        "gx": 22,
+        "gy": 12
+      },
+      {
+        "id": "slot_z08_gaming_1",
+        "type": "dev_gaming_seat",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "game",
+        "y_offset": -4,
+        "zone": "Z08",
+        "gx": 19,
+        "gy": 16
+      },
+      {
+        "id": "slot_z08_gaming_2",
+        "type": "dev_gaming_seat",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "game",
+        "y_offset": -4,
+        "zone": "Z08",
+        "gx": 20,
+        "gy": 16
+      },
+      {
+        "id": "slot_z09_desk_steward",
+        "type": "desk:steward",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z09",
+        "gx": 25,
+        "gy": 12
+      },
+      {
+        "id": "slot_z09_tile_repair",
+        "type": "tile_repair",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z09",
+        "gx": 25,
+        "gy": 16
+      },
+      {
+        "id": "slot_z10_desk_sentinel",
+        "type": "desk:sentinel",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z10",
+        "gx": 29,
+        "gy": 12
+      },
+      {
+        "id": "slot_z10_inspect",
+        "type": "inspect_stand",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z10",
+        "gx": 29,
+        "gy": 16
+      },
+      {
+        "id": "slot_z11_desk_relay",
+        "type": "desk:relay",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z11",
+        "gx": 33,
+        "gy": 12
+      },
+      {
+        "id": "slot_z11_parcel_1",
+        "type": "parcel_rack",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z11",
+        "gx": 33,
+        "gy": 16
+      },
+      {
+        "id": "slot_z11_parcel_2",
+        "type": "parcel_rack",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z11",
+        "gx": 33,
+        "gy": 18
+      },
+      {
+        "id": "slot_z12_desk_vector",
+        "type": "desk:vector",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z12",
+        "gx": 37,
+        "gy": 13
+      },
+      {
+        "id": "slot_z12_desk_bastion",
+        "type": "desk:bastion",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z12",
+        "gx": 41,
+        "gy": 13
+      },
+      {
+        "id": "slot_z12_rack_1",
+        "type": "rack_inspect",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z12",
+        "gx": 38,
+        "gy": 16
+      },
+      {
+        "id": "slot_z12_rack_2",
+        "type": "rack_inspect",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z12",
+        "gx": 38,
+        "gy": 17
+      },
+      {
+        "id": "slot_z12_rack_3",
+        "type": "rack_inspect",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z12",
+        "gx": 41,
+        "gy": 16
+      },
+      {
+        "id": "slot_z12_rack_4",
+        "type": "rack_inspect",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z12",
+        "gx": 41,
+        "gy": 17
+      },
+      {
+        "id": "slot_z13_desk_warden",
+        "type": "desk:warden",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z13",
+        "gx": 4,
+        "gy": 25
+      },
+      {
+        "id": "slot_z13_attendance",
+        "type": "attendance_board",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z13",
+        "gx": 2,
+        "gy": 25
+      },
+      {
+        "id": "slot_z13_spawn",
+        "type": "spawn",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "walk",
+        "y_offset": 0,
+        "zone": "Z13",
+        "gx": 4,
+        "gy": 30
+      },
+      {
+        "id": "slot_z14_seat_1",
+        "type": "cafe_seat",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 11,
+        "gy": 27
+      },
+      {
+        "id": "slot_z14_seat_2",
+        "type": "cafe_seat",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 11,
+        "gy": 29
+      },
+      {
+        "id": "slot_z14_seat_3",
+        "type": "cafe_seat",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 14,
+        "gy": 27
+      },
+      {
+        "id": "slot_z14_seat_4",
+        "type": "cafe_seat",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 14,
+        "gy": 29
+      },
+      {
+        "id": "slot_z14_seat_5",
+        "type": "cafe_seat",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 17,
+        "gy": 27
+      },
+      {
+        "id": "slot_z14_seat_6",
+        "type": "cafe_seat",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 17,
+        "gy": 29
+      },
+      {
+        "id": "slot_z14_seat_7",
+        "type": "cafe_seat",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 20,
+        "gy": 27
+      },
+      {
+        "id": "slot_z14_seat_8",
+        "type": "cafe_seat",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 20,
+        "gy": 29
+      },
+      {
+        "id": "slot_z14_queue_1",
+        "type": "counter_queue",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z14",
+        "gx": 12,
+        "gy": 25
+      },
+      {
+        "id": "slot_z14_queue_2",
+        "type": "counter_queue",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z14",
+        "gx": 13,
+        "gy": 25
+      },
+      {
+        "id": "slot_z14_queue_3",
+        "type": "counter_queue",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z14",
+        "gx": 14,
+        "gy": 25
+      },
+      {
+        "id": "slot_z14_sofa_1",
+        "type": "lounge_sofa",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 17,
+        "gy": 24
+      },
+      {
+        "id": "slot_z14_sofa_2",
+        "type": "lounge_sofa",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 18,
+        "gy": 24
+      },
+      {
+        "id": "slot_z14_sofa_3",
+        "type": "lounge_sofa",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 19,
+        "gy": 24
+      },
+      {
+        "id": "slot_z14_sofa_4",
+        "type": "lounge_sofa",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z14",
+        "gx": 20,
+        "gy": 24
+      },
+      {
+        "id": "slot_z15_arcade_1",
+        "type": "arcade",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "game",
+        "y_offset": 0,
+        "zone": "Z15",
+        "gx": 23,
+        "gy": 24
+      },
+      {
+        "id": "slot_z15_arcade_2",
+        "type": "arcade",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "game",
+        "y_offset": 0,
+        "zone": "Z15",
+        "gx": 24,
+        "gy": 24
+      },
+      {
+        "id": "slot_z15_arcade_3",
+        "type": "arcade",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "game",
+        "y_offset": 0,
+        "zone": "Z15",
+        "gx": 25,
+        "gy": 24
+      },
+      {
+        "id": "slot_z15_billiard_1",
+        "type": "billiard",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "game",
+        "y_offset": 0,
+        "zone": "Z15",
+        "gx": 26,
+        "gy": 25
+      },
+      {
+        "id": "slot_z15_billiard_2",
+        "type": "billiard",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "game",
+        "y_offset": 0,
+        "zone": "Z15",
+        "gx": 29,
+        "gy": 26
+      },
+      {
+        "id": "slot_z15_beanbag_1",
+        "type": "beanbag",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z15",
+        "gx": 24,
+        "gy": 28
+      },
+      {
+        "id": "slot_z15_beanbag_2",
+        "type": "beanbag",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z15",
+        "gx": 26,
+        "gy": 28
+      },
+      {
+        "id": "slot_z15_beanbag_3",
+        "type": "beanbag",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z15",
+        "gx": 28,
+        "gy": 28
+      },
+      {
+        "id": "slot_z16_imam",
+        "type": "imam",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 33,
+        "gy": 26
+      },
+      {
+        "id": "slot_z16_shaf1_1",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 30,
+        "gy": 27
+      },
+      {
+        "id": "slot_z16_shaf1_2",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 31,
+        "gy": 27
+      },
+      {
+        "id": "slot_z16_shaf1_3",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 32,
+        "gy": 27
+      },
+      {
+        "id": "slot_z16_shaf1_4",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 33,
+        "gy": 27
+      },
+      {
+        "id": "slot_z16_shaf1_5",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 34,
+        "gy": 27
+      },
+      {
+        "id": "slot_z16_shaf1_6",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 35,
+        "gy": 27
+      },
+      {
+        "id": "slot_z16_shaf1_7",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 36,
+        "gy": 27
+      },
+      {
+        "id": "slot_z16_shaf1_8",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 33,
+        "gy": 28
+      },
+      {
+        "id": "slot_z16_shaf2_1",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 30,
+        "gy": 29
+      },
+      {
+        "id": "slot_z16_shaf2_2",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 31,
+        "gy": 29
+      },
+      {
+        "id": "slot_z16_shaf2_3",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 32,
+        "gy": 29
+      },
+      {
+        "id": "slot_z16_shaf2_4",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 34,
+        "gy": 29
+      },
+      {
+        "id": "slot_z16_shaf2_5",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 35,
+        "gy": 29
+      },
+      {
+        "id": "slot_z16_shaf2_6",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 36,
+        "gy": 29
+      },
+      {
+        "id": "slot_z16_shaf2_7",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 32,
+        "gy": 30
+      },
+      {
+        "id": "slot_z16_shaf2_8",
+        "type": "prayer_row",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "pray",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 34,
+        "gy": 30
+      },
+      {
+        "id": "slot_z16_wudhu_1",
+        "type": "wudhu",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 31,
+        "gy": 24
+      },
+      {
+        "id": "slot_z16_wudhu_2",
+        "type": "wudhu",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 32,
+        "gy": 24
+      },
+      {
+        "id": "slot_z16_wudhu_3",
+        "type": "wudhu",
+        "capacity": 1,
+        "facing": "SW",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 34,
+        "gy": 24
+      },
+      {
+        "id": "slot_z16_wudhu_4",
+        "type": "wudhu",
+        "capacity": 1,
+        "facing": "SW",
+        "anim": "idle",
+        "y_offset": 0,
+        "zone": "Z16",
+        "gx": 35,
+        "gy": 24
+      },
+      {
+        "id": "slot_z17_swim_1",
+        "type": "pool_swim",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "swim",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 39,
+        "gy": 26
+      },
+      {
+        "id": "slot_z17_swim_2",
+        "type": "pool_swim",
+        "capacity": 1,
+        "facing": "SW",
+        "anim": "swim",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 41,
+        "gy": 26
+      },
+      {
+        "id": "slot_z17_swim_3",
+        "type": "pool_swim",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "swim",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 41,
+        "gy": 27
+      },
+      {
+        "id": "slot_z17_swim_4",
+        "type": "pool_swim",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "swim",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 41,
+        "gy": 28
+      },
+      {
+        "id": "slot_z17_swim_5",
+        "type": "pool_swim",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "swim",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 39,
+        "gy": 28
+      },
+      {
+        "id": "slot_z17_swim_6",
+        "type": "pool_swim",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "swim",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 39,
+        "gy": 27
+      },
+      {
+        "id": "slot_z17_lounger_1",
+        "type": "pool_lounger",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z17",
+        "gx": 37,
+        "gy": 24
+      },
+      {
+        "id": "slot_z17_lounger_2",
+        "type": "pool_lounger",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z17",
+        "gx": 37,
+        "gy": 26
+      },
+      {
+        "id": "slot_z17_lounger_3",
+        "type": "pool_lounger",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -4,
+        "zone": "Z17",
+        "gx": 37,
+        "gy": 28
+      },
+      {
+        "id": "slot_z17_assembly_1",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 43,
+        "gy": 23
+      },
+      {
+        "id": "slot_z17_assembly_2",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 43,
+        "gy": 24
+      },
+      {
+        "id": "slot_z17_assembly_3",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 43,
+        "gy": 25
+      },
+      {
+        "id": "slot_z17_assembly_4",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 43,
+        "gy": 26
+      },
+      {
+        "id": "slot_z17_assembly_5",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 43,
+        "gy": 27
+      },
+      {
+        "id": "slot_z17_assembly_6",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 43,
+        "gy": 28
+      },
+      {
+        "id": "slot_z17_assembly_7",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 43,
+        "gy": 29
+      },
+      {
+        "id": "slot_z17_assembly_8",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 43,
+        "gy": 30
+      },
+      {
+        "id": "slot_z17_assembly_9",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 43,
+        "gy": 31
+      },
+      {
+        "id": "slot_z17_assembly_10",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 37,
+        "gy": 30
+      },
+      {
+        "id": "slot_z17_assembly_11",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 38,
+        "gy": 30
+      },
+      {
+        "id": "slot_z17_assembly_12",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 39,
+        "gy": 30
+      },
+      {
+        "id": "slot_z17_assembly_13",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 40,
+        "gy": 30
+      },
+      {
+        "id": "slot_z17_assembly_14",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 41,
+        "gy": 30
+      },
+      {
+        "id": "slot_z17_assembly_15",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 42,
+        "gy": 30
+      },
+      {
+        "id": "slot_z17_assembly_16",
+        "type": "pool_assembly",
+        "capacity": 1,
+        "facing": "NW",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z17",
+        "gx": 37,
+        "gy": 31
+      },
+      {
+        "id": "slot_z14_town_presenter",
+        "type": "town_presenter",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "stand_talk",
+        "y_offset": 0,
+        "zone": "Z14",
+        "gx": 16,
+        "gy": 25
+      }
+    ]
+  },
+  "roster": [
+    {
+      "id": "jarvis",
+      "name": "Jarvis",
+      "role": "Principal Orchestrator",
+      "signatureColor": "#1F3A68",
+      "defaultSlotId": "slot_z01_desk_jarvis",
+      "fallbackFacing": "SE",
+      "fallbackGx": 4,
+      "fallbackGy": 3,
+      "defaultSlot": {
+        "id": "slot_z01_desk_jarvis",
+        "type": "desk:jarvis",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z01",
+        "gx": 4,
+        "gy": 3
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Jarvis",
+        "alias": "The Orchestrator",
+        "role": "Chief Orchestrator",
+        "department": "Executive Leadership",
+        "personality": "Tenang, berwibawa, selalu menyebut angka dan data akurat",
+        "specialties": [
+          "Orkestrasi",
+          "Perencanaan Strategis",
+          "Routing Multitasking"
+        ],
+        "primary_color": "#1F3A68",
+        "desk_zone": "ruang_ceo"
+      }
+    },
+    {
+      "id": "daedalus",
+      "name": "Daedalus",
+      "role": "System Architect",
+      "signatureColor": "#2F6FB3",
+      "defaultSlotId": "slot_z03_desk_daedalus",
+      "fallbackFacing": "SE",
+      "fallbackGx": 23,
+      "fallbackGy": 3,
+      "defaultSlot": {
+        "id": "slot_z03_desk_daedalus",
+        "type": "desk:daedalus",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z03",
+        "gx": 23,
+        "gy": 3
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Daedalus",
+        "alias": "The Architect",
+        "role": "Principal Systems & Data Architect",
+        "department": "Architecture & Core",
+        "personality": "Visioner, metodis, menjunjung tinggi decoupling dan batas sistem",
+        "specialties": [
+          "Arsitektur Sistem",
+          "OpenAPI",
+          "Relasional Data",
+          "Event-Driven"
+        ],
+        "primary_color": "#2F6FB3",
+        "desk_zone": "ruang_arsitektur"
+      }
+    },
+    {
+      "id": "merlin",
+      "name": "Merlin",
+      "role": "Knowledge Mentor",
+      "signatureColor": "#B5652B",
+      "defaultSlotId": "slot_z04_whiteboard",
+      "fallbackFacing": "SW",
+      "fallbackGx": 31,
+      "fallbackGy": 2,
+      "defaultSlot": {
+        "id": "slot_z04_whiteboard",
+        "type": "whiteboard",
+        "capacity": 1,
+        "facing": "SW",
+        "anim": "whiteboard",
+        "y_offset": 0,
+        "zone": "Z04",
+        "gx": 31,
+        "gy": 2
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Merlin",
+        "alias": "The Mentor",
+        "role": "Tech Mentor & Pedagogis",
+        "department": "Engineering Education",
+        "personality": "Sabar, bijak, gemar analogi intuitif dan pembelajaran bertahap",
+        "specialties": [
+          "Mentoring",
+          "Analogi Teknis",
+          "Pedagogi Rekayasa",
+          "Review Konsep"
+        ],
+        "primary_color": "#B5652B",
+        "desk_zone": "ruang_kelas"
+      }
+    },
+    {
+      "id": "scribe",
+      "name": "Scribe",
+      "role": "Documentation & Librarian",
+      "signatureColor": "#7A4A2E",
+      "defaultSlotId": "slot_z05_desk_scribe",
+      "fallbackFacing": "SE",
+      "fallbackGx": 36,
+      "fallbackGy": 4,
+      "defaultSlot": {
+        "id": "slot_z05_desk_scribe",
+        "type": "desk:scribe",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z05",
+        "gx": 36,
+        "gy": 4
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Scribe",
+        "alias": "The Chronicler",
+        "role": "Technical Writer & Documentarian",
+        "department": "Documentation",
+        "personality": "Akademis, teliti, mencintai tipografi dan keteraturan sitasi dokumen",
+        "specialties": [
+          "Technical Writing",
+          "Dokumentasi Arsitektur",
+          "Manuskrip Teknis"
+        ],
+        "primary_color": "#7A4A2E",
+        "desk_zone": "perpustakaan"
+      }
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "role": "Research Scientist",
+      "signatureColor": "#8A4FBF",
+      "defaultSlotId": "slot_z06_desk_oracle",
+      "fallbackFacing": "SE",
+      "fallbackGx": 6,
+      "fallbackGy": 13,
+      "defaultSlot": {
+        "id": "slot_z06_desk_oracle",
+        "type": "desk:oracle",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z06",
+        "gx": 6,
+        "gy": 13
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Oracle",
+        "alias": "Senku",
+        "role": "Research Lead & Scientist",
+        "department": "Scientific Research",
+        "personality": "Jenius eksentrik, hiper-logis, sangat percaya diri (probabilitas 10 miliar persen)",
+        "specialties": [
+          "Riset Literatur",
+          "Evaluasi Model",
+          "Penalaran Ilmiah",
+          "Eksperimen"
+        ],
+        "primary_color": "#8A4FBF",
+        "desk_zone": "lab_riset"
+      }
+    },
+    {
+      "id": "muse",
+      "name": "Muse",
+      "role": "Design Lead",
+      "signatureColor": "#E0567A",
+      "defaultSlotId": "slot_z07_desk_muse",
+      "fallbackFacing": "SE",
+      "fallbackGx": 10,
+      "fallbackGy": 13,
+      "defaultSlot": {
+        "id": "slot_z07_desk_muse",
+        "type": "desk:muse",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z07",
+        "gx": 10,
+        "gy": 13
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Muse",
+        "alias": "The Designer",
+        "role": "Design Engineer & UI/UX Lead",
+        "department": "Product Design",
+        "personality": "Perfeksionis visual, ketat terhadap estetika anti-AI-slop dan presisi 1px",
+        "specialties": [
+          "UI/UX Design",
+          "Design Systems",
+          "Tipografi Tabular",
+          "Color Harmony"
+        ],
+        "primary_color": "#E0567A",
+        "desk_zone": "studio_desain"
+      }
+    },
+    {
+      "id": "prism",
+      "name": "Prism",
+      "role": "Frontend Specialist",
+      "signatureColor": "#2BB3C0",
+      "defaultSlotId": "slot_z08_desk_prism",
+      "fallbackFacing": "SE",
+      "fallbackGx": 17,
+      "fallbackGy": 12,
+      "defaultSlot": {
+        "id": "slot_z08_desk_prism",
+        "type": "desk:prism",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z08",
+        "gx": 17,
+        "gy": 12
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Prism",
+        "alias": "The Frontend Craftsman",
+        "role": "Frontend Specialist",
+        "department": "Client Engineering",
+        "personality": "Cepat, berorientasi detail mikro, bangga dengan stabilitas 60 FPS",
+        "specialties": [
+          "React",
+          "Zustand",
+          "TypeScript",
+          "PixiJS Integration",
+          "Web Vitals"
+        ],
+        "primary_color": "#2BB3C0",
+        "desk_zone": "dev_pod_1"
+      }
+    },
+    {
+      "id": "forge",
+      "name": "Forge",
+      "role": "Backend Specialist",
+      "signatureColor": "#D9622B",
+      "defaultSlotId": "slot_z08_desk_forge",
+      "fallbackFacing": "SE",
+      "fallbackGx": 17,
+      "fallbackGy": 14,
+      "defaultSlot": {
+        "id": "slot_z08_desk_forge",
+        "type": "desk:forge",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z08",
+        "gx": 17,
+        "gy": 14
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Forge",
+        "alias": "The Blacksmith",
+        "role": "Backend Specialist",
+        "department": "Core Engineering",
+        "personality": "Kokoh, pragmatis, sangat menyukai integritas transaksi dan optimasi performa",
+        "specialties": [
+          "Python 3.12",
+          "FastAPI",
+          "SQLite WAL",
+          "AsyncIO",
+          "ACID Persistence"
+        ],
+        "primary_color": "#D9622B",
+        "desk_zone": "dev_pod_2"
+      }
+    },
+    {
+      "id": "nova",
+      "name": "Nova",
+      "role": "Ops & Automation",
+      "signatureColor": "#F2C230",
+      "defaultSlotId": "slot_z08_desk_nova",
+      "fallbackFacing": "SE",
+      "fallbackGx": 17,
+      "fallbackGy": 16,
+      "defaultSlot": {
+        "id": "slot_z08_desk_nova",
+        "type": "desk:nova",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z08",
+        "gx": 17,
+        "gy": 16
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Nova",
+        "alias": "The Pathfinder",
+        "role": "Junior Systems Engineer",
+        "department": "Client Engineering",
+        "personality": "Energik, antusias tinggi, haus tantangan dan menyukai eksplorasi",
+        "specialties": [
+          "Pathfinding A*",
+          "Simulasi Interaksi",
+          "State Coordination"
+        ],
+        "primary_color": "#F2C230",
+        "desk_zone": "dev_pod_3"
+      }
+    },
+    {
+      "id": "steward",
+      "name": "Steward",
+      "role": "Graphics & Engine Lead",
+      "signatureColor": "#9CC23A",
+      "defaultSlotId": "slot_z09_desk_steward",
+      "fallbackFacing": "SE",
+      "fallbackGx": 25,
+      "fallbackGy": 12,
+      "defaultSlot": {
+        "id": "slot_z09_desk_steward",
+        "type": "desk:steward",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z09",
+        "gx": 25,
+        "gy": 12
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Steward",
+        "alias": "The Worldbuilder",
+        "role": "Graphics Lab Lead",
+        "department": "Creative Technology",
+        "personality": "Kreatif, perfeksionis spasial, memastikan render tilemap tanpa cacat",
+        "specialties": [
+          "Isometric Rendering",
+          "Blender Sprites",
+          "Pixel Art",
+          "Depth Sorting"
+        ],
+        "primary_color": "#9CC23A",
+        "desk_zone": "graphics_lab"
+      }
+    },
+    {
+      "id": "sentinel",
+      "name": "Sentinel",
+      "role": "QA Lead & Auditor",
+      "signatureColor": "#D23C3C",
+      "defaultSlotId": "slot_z10_desk_sentinel",
+      "fallbackFacing": "SE",
+      "fallbackGx": 29,
+      "fallbackGy": 12,
+      "defaultSlot": {
+        "id": "slot_z10_desk_sentinel",
+        "type": "desk:sentinel",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z10",
+        "gx": 29,
+        "gy": 12
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Sentinel",
+        "alias": "The Guardian",
+        "role": "QA Lead & Verifier",
+        "department": "Quality Assurance",
+        "personality": "Tegas, skeptis objektif, tidak kompromi terhadap verifikasi independen",
+        "specialties": [
+          "Automated Testing",
+          "Property Testing",
+          "E2E Playwright",
+          "Gate Audit"
+        ],
+        "primary_color": "#D23C3C",
+        "desk_zone": "qa_station"
+      }
+    },
+    {
+      "id": "relay",
+      "name": "Relay",
+      "role": "Release Officer",
+      "signatureColor": "#6D5BD0",
+      "defaultSlotId": "slot_z11_desk_relay",
+      "fallbackFacing": "SE",
+      "fallbackGx": 33,
+      "fallbackGy": 12,
+      "defaultSlot": {
+        "id": "slot_z11_desk_relay",
+        "type": "desk:relay",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z11",
+        "gx": 33,
+        "gy": 12
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Relay",
+        "alias": "The Courier",
+        "role": "Release Engineer & Delivery",
+        "department": "DevOps & CI/CD",
+        "personality": "Rapi, tepat waktu, memastikan hanya paket terverifikasi yang meluncur",
+        "specialties": [
+          "CI/CD Pipelines",
+          "Git Automation",
+          "Package Delivery",
+          "Release Audit"
+        ],
+        "primary_color": "#6D5BD0",
+        "desk_zone": "release_dock"
+      }
+    },
+    {
+      "id": "vector",
+      "name": "Vector",
+      "role": "Data Engineer",
+      "signatureColor": "#3FA66B",
+      "defaultSlotId": "slot_z12_desk_vector",
+      "fallbackFacing": "SE",
+      "fallbackGx": 37,
+      "fallbackGy": 13,
+      "defaultSlot": {
+        "id": "slot_z12_desk_vector",
+        "type": "desk:vector",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z12",
+        "gx": 37,
+        "gy": 13
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Vector",
+        "alias": "The Data Master",
+        "role": "Data Engineer",
+        "department": "Data & Analytics",
+        "personality": "Teliti, terobsesi data bersih tanpa duplikasi dan skema terkelola",
+        "specialties": [
+          "DuckDB",
+          "Data Pipelines",
+          "Lakehouse Architecture",
+          "Analytics"
+        ],
+        "primary_color": "#3FA66B",
+        "desk_zone": "data_center"
+      }
+    },
+    {
+      "id": "bastion",
+      "name": "Bastion",
+      "role": "Security & SOC Officer",
+      "signatureColor": "#6B7785",
+      "defaultSlotId": "slot_z12_desk_bastion",
+      "fallbackFacing": "SE",
+      "fallbackGx": 41,
+      "fallbackGy": 13,
+      "defaultSlot": {
+        "id": "slot_z12_desk_bastion",
+        "type": "desk:bastion",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z12",
+        "gx": 41,
+        "gy": 13
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Bastion",
+        "alias": "The Shield",
+        "role": "Systems & Security Architect",
+        "department": "Security & SOC",
+        "personality": "Waspada, security-first, memitigasi risiko sebelum insiden terjadi",
+        "specialties": [
+          "Linux Hardening",
+          "Systemd Services",
+          "Zero-Write Enforcement",
+          "SOC"
+        ],
+        "primary_color": "#6B7785",
+        "desk_zone": "soc"
+      }
+    },
+    {
+      "id": "warden",
+      "name": "Warden",
+      "role": "Operations & Facilities",
+      "signatureColor": "#8E8E3A",
+      "defaultSlotId": "slot_z13_desk_warden",
+      "fallbackFacing": "SE",
+      "fallbackGx": 4,
+      "fallbackGy": 25,
+      "defaultSlot": {
+        "id": "slot_z13_desk_warden",
+        "type": "desk:warden",
+        "capacity": 1,
+        "facing": "SE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z13",
+        "gx": 4,
+        "gy": 25
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": {
+        "name": "Warden",
+        "alias": "The Operator",
+        "role": "Operations & Facilities Lead",
+        "department": "Office Operations",
+        "personality": "Serbabisa, selalu siap sedia membantu dan menjaga kebersihan lobi",
+        "specialties": [
+          "Facilities Management",
+          "System Health",
+          "Operational Troubleshooting"
+        ],
+        "primary_color": "#8E8E3A",
+        "desk_zone": "lobi"
+      }
+    },
+    {
+      "id": "rifqi",
+      "name": "Rifqi",
+      "role": "Founder & Visionary",
+      "signatureColor": "#F5F0E1",
+      "defaultSlotId": "slot_z14_lounge_1",
+      "fallbackFacing": "SE",
+      "fallbackGx": 14,
+      "fallbackGy": 28,
+      "defaultSlot": null,
+      "defaultSlotExists": false,
+      "profileMetadata": {
+        "name": "Rifqi",
+        "alias": "The Founder",
+        "role": "Founder & Human Lead",
+        "department": "Executive Leadership",
+        "personality": "Visioner produk, memberikan arah, kontrol dan persetujuan gate",
+        "specialties": [
+          "Product Vision",
+          "Final Sign-Off",
+          "Strategic Decision"
+        ],
+        "primary_color": "#F5F0E1",
+        "desk_zone": "bebas"
+      }
+    },
+    {
+      "id": "guest",
+      "name": "Tamu",
+      "role": "Pengunjung Kantor",
+      "signatureColor": "#9CA8B8",
+      "defaultSlotId": "slot_z08_desk_guest",
+      "fallbackFacing": "NE",
+      "fallbackGx": 22,
+      "fallbackGy": 12,
+      "defaultSlot": {
+        "id": "slot_z08_desk_guest",
+        "type": "desk:guest",
+        "capacity": 1,
+        "facing": "NE",
+        "anim": "sit_type",
+        "y_offset": -6,
+        "zone": "Z08",
+        "gx": 22,
+        "gy": 12
+      },
+      "defaultSlotExists": true,
+      "profileMetadata": null
+    }
+  ],
+  "visibleCharacterAnimations": {
+    "prism": {
+      "atlas": "frontend/public/visual-migration/dot-z08-candidate/prism.json",
+      "frameCount": 22,
+      "actions": {
+        "idle": {
+          "SE": 1,
+          "SW": 1,
+          "NE": 1,
+          "NW": 1
+        },
+        "sit_type": {
+          "SE": 2,
+          "SW": 2,
+          "NE": 2,
+          "NW": 2
+        },
+        "walk": {
+          "SW": 2,
+          "NE": 2,
+          "NW": 2,
+          "SE": 4
+        }
+      }
+    },
+    "forge": {
+      "atlas": "frontend/public/visual-migration/dot-z08-components-v2/forge.json",
+      "frameCount": 6,
+      "actions": {
+        "idle": {
+          "SE": 1,
+          "SW": 1,
+          "NE": 1,
+          "NW": 1
+        },
+        "sit_type": {
+          "SE": 2
+        }
+      }
+    },
+    "nova": {
+      "atlas": "frontend/public/visual-migration/dot-z08-components-v2/nova.json",
+      "frameCount": 28,
+      "actions": {
+        "idle": {
+          "SE": 1,
+          "SW": 1,
+          "NE": 1,
+          "NW": 1
+        },
+        "sit_type": {
+          "SE": 2,
+          "SW": 2,
+          "NE": 2,
+          "NW": 2
+        },
+        "walk": {
+          "SE": 4,
+          "SW": 4,
+          "NE": 4,
+          "NW": 4
+        }
+      }
+    }
+  },
+  "styleVersion": "AO_DOT_ENVIRONMENT_FOUNDATION_V1",
+  "finalArt": false
+}

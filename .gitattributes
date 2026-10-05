@@ -1,3 +1,5 @@
 # Preserve the Windows checkout bytes used by the visual migration SHA256 contract.
 /frontend/public/maps/floor1.tmj text eol=crlf
 /frontend/public/visual-migration/dot-z08-components-v2/*.json text eol=crlf
+# Keep the exported prompt package byte-identical to PACKAGE_FILES.json on every OS.
+/art/environment-foundation-2026-10-05/prompt-pack/** -text whitespace=trailing-space,space-before-tab,cr-at-eol

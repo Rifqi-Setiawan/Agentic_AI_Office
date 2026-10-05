@@ -1,3 +1,7 @@
+> **Status 5 Oktober 2026:** konsep identitas/persona di bawah dipertahankan. Jalur produksi Quaternius/Blender, dua arah + mirror dan kuota frame lama telah digantikan ilustrasi 2.5D empat arah asli. Avatar aktif hanya Prism/Forge/Nova; karakter lain hidden tanpa legacy fallback, bukan dihapus dari profil. Produksi karakter ditunda sampai foundation selesai. Lihat [roster aktual](../AGENT_ROSTER.md) dan [handoff](../HANDOFF_BRE.md).
+
+---
+
 # 3. Agent Character Design Spec
 
 Setiap karakter harus bisa dikenali dari siluetnya pada tinggi 48 px. Karena itu, pembeda utamanya adalah satu aksesori besar (helm, celemek, jas lab, tabung blueprint) ditambah satu warna khas. Wajah dan detail kecil hanya bonus.
