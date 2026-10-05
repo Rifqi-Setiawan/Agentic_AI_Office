@@ -9,6 +9,7 @@ body:has(.office-scene) [data-snapshot-panel][data-expanded=false] [data-snapsho
 .static-floor{position:absolute;z-index:0;pointer-events:none;image-rendering:pixelated}
 .depth-prop{position:absolute;background-repeat:no-repeat;pointer-events:none;image-rendering:pixelated}
 .illustrated-prop,.actor-sprite.illustrated-sprite{image-rendering:auto}
+.registered-art-plane{position:absolute;left:0;top:0;transform-origin:0 0;background-repeat:no-repeat;background-size:100% 100%;image-rendering:auto;pointer-events:none}
 .static-floor{image-rendering:auto}
 .depth-prop.ram-alert{box-shadow:0 0 8px 3px #d8803255}
 .rack-led{position:absolute;width:3px;height:2px;background:var(--rack-led-color,#22c55e);opacity:var(--rack-led-opacity,1);box-shadow:5px 0 var(--rack-led-color,#22c55e),10px 0 var(--rack-led-color,#22c55e),0 16px var(--rack-led-color,#22c55e),5px 16px var(--rack-led-color,#22c55e)}

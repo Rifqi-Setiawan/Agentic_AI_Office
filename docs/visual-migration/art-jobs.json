@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "styleVersion": "AO_DOT_Z08_COMPONENTS_V2",
+  "styleVersion": "AO_DOT_ENVIRONMENT_FOUNDATION_V1",
   "finalArt": false,
   "environmentFoundation": {
     "priority": "complete general office environment before character or per-room decoration/layout work",
@@ -10,14 +10,19 @@
     "promptCount": 38,
     "requiredAssets": 36,
     "optionalGlassPartitions": 2,
-    "newRequiredAssetsGenerated": 1,
-    "newRequiredAssetsAccepted": 0,
-    "newRequiredAssetsInstalled": 0,
-    "status": "F01 r01 received and stored byte-identical; requires 2:1 geometry revision. Remaining 35 required assets await user artwork. Repeat/browser QA and packing pending",
+    "newRequiredAssetsGenerated": 3,
+    "newRequiredAssetsAccepted": 2,
+    "newRequiredAssetsInstalled": 2,
+    "acceptanceScope": "W01/W02 registered and installed for local trial; final whole-environment acceptance remains pending",
+    "status": "W01/W02 installed on 193 tall wall modules. Browser Z08/Z01 checked; full 17-zone visual QA pending. F01 needs geometry revision; 33 other required assets await user artwork",
     "latestIntake": {
-      "assetId": "F01",
+      "assetIds": ["W01", "W02"],
       "revision": "r01",
-      "status": "received_needs_geometry_revision",
+      "status": "registered_installed_local_trial",
+      "report": "docs/visual-migration/FOUNDATION_WALL_INSTALL.md"
+    },
+    "pendingFloorRevision": {
+      "assetId": "F01",
       "dominantRatio": 1.531081081081081,
       "targetRatio": 2,
       "report": "docs/visual-migration/F01_FLOOR_INTAKE.md"

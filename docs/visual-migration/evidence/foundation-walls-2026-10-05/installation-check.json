@@ -1,0 +1,41 @@
+{
+  "status": "W01/W02 registered and installed for local trial",
+  "wallModules": 193,
+  "W01": 74,
+  "W02": 119,
+  "renderedPlanes": 844,
+  "sourcePNGsByteIdentical": true,
+  "pngPixelEditing": false,
+  "logicalMapUnchanged": true,
+  "floorUnchanged": true,
+  "characterAtlasesUnchanged": true,
+  "tests": {
+    "command": "npm run test -- src/world/scene src/floor1_map.test.ts --maxWorkers=1 --minWorkers=1",
+    "files": 7,
+    "passed": 28
+  },
+  "build": "passed, TypeScript + Vite; vendor Pixi chunk-size warning",
+  "lint": "passed",
+  "browserQA": {
+    "zones": [
+      "Z08",
+      "Z01"
+    ],
+    "sceneErrors": [],
+    "loggedErrorsWarnings": [],
+    "full17ZoneVisualReview": false
+  },
+  "remaining": [
+    "F01 revision",
+    "other 33 required assets not received",
+    "doors/window/corners/pillars/cutaway style and height joins",
+    "complete office environment visual/navigation QA"
+  ],
+  "backup": {
+    "path": "C:\\Users\\Rifqi\\Documents\\ChatGPT\\audit vps\\visual-migration-work\\Agentic-office-before-wall-install-8232ef6-2026-10-05.zip",
+    "sha256": "a1a1f478ff0b10b695be833b75747d13ebbc79c1bacd5832616ccde2cfc60eda",
+    "crcPassed": true
+  },
+  "pushDeploy": false,
+  "vpsChanges": false
+}

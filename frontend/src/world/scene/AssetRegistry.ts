@@ -5,10 +5,16 @@ export interface AtlasFrame {
   sourceSize: { w: number; h: number };
 }
 export interface SpriteAtlas { frames: Record<string, AtlasFrame>; meta: { image: string; size: { w: number; h: number }; exportScale?: number; footAnchor?: {x:number;y:number}; animationFps?: Record<string,number>; candidate?: boolean; allowMirror?: boolean }; }
+/** Source PNG remains intact; each visible plane is registered to the map in CSS. */
+export interface RegisteredSpriteLayer {
+  id: string; width: number; height: number;
+  clipPath: string; matrix: number[];
+}
 export interface DepthProp {
   id: string; sprite: string; gx: number; gy: number; x: number; y: number; z: number;
   bounds: { x: number; y: number; width: number; height: number };
   file?: string; nightFile?: string; artKind?: string;
+  componentId?: string; artLayers?: RegisteredSpriteLayer[]; artClipPath?: string;
 }
 export interface PreviewAssets {
   schemaVersion: number; styleVersion: string; exportScale: number;

@@ -1,0 +1,28 @@
+{
+  "actorIds": [
+    "prism",
+    "forge",
+    "nova"
+  ],
+  "floor": [
+    {
+      "complete": true,
+      "naturalWidth": 4864,
+      "src": "/visual-migration/illustrated-z08-v3/floor.webp"
+    }
+  ],
+  "planeCount": 844,
+  "sceneErrors": [],
+  "url": "http://127.0.0.1:5175/?officeRenderer=claude&seed=42",
+  "viteErrorOverlay": false,
+  "wallModules": {
+    "W01": 74,
+    "W02": 119
+  },
+  "logs": [],
+  "visuallyCheckedZones": [
+    "Z08",
+    "Z01"
+  ],
+  "all17ZonesVisuallyChecked": false
+}

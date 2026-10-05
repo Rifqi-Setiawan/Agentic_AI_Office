@@ -10,9 +10,13 @@ export const SceneProp=memo(({prop,atlas}:{prop:DepthProp;atlas:SpriteAtlas})=>{
   const bind=useCallback((el:HTMLDivElement|null)=>{
     if(el && !prop.file) applyAtlasFrame(el,atlas,prop.sprite,'/sprites/environment.png');
   },[atlas,prop]);
-  return <div ref={bind} data-prop-id={prop.id} data-frame={prop.sprite}
+  return <div ref={bind} data-prop-id={prop.id} data-frame={prop.sprite} data-component-id={prop.componentId}
     className={`depth-prop ${prop.file?'illustrated-prop':''}`} style={{left:prop.bounds.x,top:prop.bounds.y,zIndex:prop.z,
-      ...(prop.file?{width:prop.bounds.width,height:prop.bounds.height,backgroundImage:`url("${prop.file}")`,backgroundSize:'100% 100%'}:{})}} aria-hidden="true">
+      ...(prop.file?{width:prop.bounds.width,height:prop.bounds.height,clipPath:prop.artClipPath,
+        ...(prop.artLayers ? {} : {backgroundImage:`url("${prop.file}")`,backgroundSize:'100% 100%'})}: {})}} aria-hidden="true">
+    {prop.artLayers?.map(layer => <span key={layer.id} className="registered-art-plane" data-art-plane={layer.id}
+      style={{width:layer.width,height:layer.height,backgroundImage:`url("${prop.file}")`,
+        clipPath:layer.clipPath,transform:`matrix(${layer.matrix.join(',')})`}} />)}
     {prop.sprite.includes('server_rack')&&<span className="rack-led" style={{left:prop.x-prop.bounds.x-6,top:prop.y-prop.bounds.y-14}}/>}
   </div>;
 });

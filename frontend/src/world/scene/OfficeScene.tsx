@@ -33,7 +33,8 @@ export const OfficeScene: React.FC = () => {
     const assetsUrl = officeArt === 'baseline' ? '/visual-migration/preview-assets.json'
       : officeArt === 'previous' ? '/visual-migration/illustrated-z08-v3/assets.json'
       : officeArt === 'dot-v1' ? '/visual-migration/dot-z08-candidate/assets.json'
-      : '/visual-migration/dot-z08-components-v2/assets.json';
+      : officeArt === 'dot-v2' ? '/visual-migration/dot-z08-components-v2/assets.json'
+      : '/visual-migration/environment-foundation-v1/assets.json';
     Promise.all([
       loadJson<TiledMapDoc>('/maps/floor1.tmj', signal),
       loadJson<PreviewAssets>(assetsUrl, signal),

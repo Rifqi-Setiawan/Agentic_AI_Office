@@ -1,0 +1,28 @@
+[
+  {
+    "assetId": "W01",
+    "axis": "R",
+    "source": "art/environment-foundation-2026-10-05/intake/W01-W02-r01/W01-wall-tall-r-1u.png",
+    "sourceSha256": "06632980c1b25b6aaa4b1f852cf9308f64f022e0d80e54d9fc5602eb81212011",
+    "file": "/visual-migration/environment-foundation-v1/W01-wall-tall-r-1u.png",
+    "nativeCanvas": [
+      1254,
+      1254
+    ],
+    "sourceCopiedByteIdentical": true,
+    "mirrored": false
+  },
+  {
+    "assetId": "W02",
+    "axis": "L",
+    "source": "art/environment-foundation-2026-10-05/intake/W01-W02-r01/W02-wall-tall-l-1u.png",
+    "sourceSha256": "40d030e2706d148f4898f537b81b7a277fe2fd4f46a93b5fb8e8e40cd3f2c4c9",
+    "file": "/visual-migration/environment-foundation-v1/W02-wall-tall-l-1u.png",
+    "nativeCanvas": [
+      1254,
+      1254
+    ],
+    "sourceCopiedByteIdentical": true,
+    "mirrored": false
+  }
+]
