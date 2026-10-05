@@ -366,6 +366,13 @@ test.describe('E2E Playwright dengan rekaman SSE (T1.20)', () => {
       await manager.loadAllCharacterSpritesheets();
       manager.update(0);
       manager.getAllCharacters().forEach(character => character.animatedSprite.gotoAndStop(0));
+      // Pin the procedural rack LEDs as well as sprite frames. This is a
+      // screenshot-only phase reset; live telemetry logic and masks are intact.
+      const vitals = world.getVitalsEnvironmentManager();
+      if (vitals) {
+        (vitals as unknown as { animTime: number }).animTime = 0;
+        vitals.update(0, diagnostics.__OFFICE_STORE__.getState().vitals);
+      }
       world.updateCulling();
       await document.fonts.ready;
       world.getApp()!.renderer.render(world.getApp()!.stage);
