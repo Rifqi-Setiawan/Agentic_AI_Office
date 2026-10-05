@@ -377,13 +377,14 @@ test.describe('E2E Playwright dengan rekaman SSE (T1.20)', () => {
       if (box) masks.push(box);
     }
     const screenshotPath = path.join(evidence, 'candidate_scene.png');
-    await page.screenshot({ path: screenshotPath, fullPage: true });
+    // Freeze pulsing HUD indicators as well as the already-stopped world ticker.
+    await page.screenshot({ path: screenshotPath, fullPage: true, animations: 'disabled' });
     expect(fs.existsSync(screenshotPath)).toBe(true);
     expect(fs.statSync(screenshotPath).size).toBeGreaterThan(100 * 1024);
     const masksPath = path.join(evidence, 'masks.json');
     fs.writeFileSync(masksPath, JSON.stringify(masks));
     const repeatPath = path.join(evidence, 'candidate_scene_repeat.png');
-    await page.screenshot({ path: repeatPath, fullPage: true });
+    await page.screenshot({ path: repeatPath, fullPage: true, animations: 'disabled' });
     const determinismDir = path.join(evidence, 'determinism');
     fs.mkdirSync(determinismDir, { recursive: true });
     console.log(execFileSync(process.env.OFFICE_VISUAL_PYTHON ?? 'python3',

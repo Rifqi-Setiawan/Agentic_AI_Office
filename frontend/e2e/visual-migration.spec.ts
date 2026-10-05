@@ -11,7 +11,16 @@ test('DOM world preserves canonical topology and opens the real inspector',async
   await expect(ground).toHaveCount(1);
   await expect(ground).toHaveAttribute('data-surface-status','ready');
   await expect(ground).not.toHaveAttribute('data-surface-error', /.+/);
-  await expect(page.locator('[data-agent-id]')).toHaveCount(17);
+  await testInfo.attach('illustrated-office-overview', {
+    body: await page.screenshot({fullPage:true,animations:'disabled'}),
+    contentType:'image/png',
+  });
+  // Candidate actor art is deliberately gated to the three complete four-view
+  // atlases. The other canonical agents remain in the HUD, not mixed into art.
+  await expect(page.locator('[data-agent-id]')).toHaveCount(3);
+  for (const id of ['prism','forge','nova']) {
+    await expect(page.locator(`[data-agent-id="${id}"]`)).toHaveCount(1);
+  }
   await expect(page.locator('.debug-slot')).toHaveCount(133);
   await expect(page.locator('.debug-door')).toHaveCount(26);
   await expect(page.getByRole('navigation',{name:'Navigasi 17 ruang'}).getByRole('button')).toHaveCount(18);
