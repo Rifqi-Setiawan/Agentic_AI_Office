@@ -1,0 +1,219 @@
+{
+  "regions": [
+    {
+      "region": "Z08 old Guest desk",
+      "box": [
+        360,
+        220,
+        407,
+        280
+      ],
+      "pixels": 827
+    },
+    {
+      "region": "Z08 old Guest actor",
+      "box": [
+        403,
+        205,
+        435,
+        263
+      ],
+      "pixels": 528
+    },
+    {
+      "region": "Z08 old Guest chair",
+      "box": [
+        438,
+        264,
+        458,
+        293
+      ],
+      "pixels": 243
+    },
+    {
+      "region": "Z08 new Guest actor",
+      "box": [
+        741,
+        191,
+        782,
+        240
+      ],
+      "pixels": 546
+    },
+    {
+      "region": "Z08 new Guest desk",
+      "box": [
+        774,
+        210,
+        822,
+        258
+      ],
+      "pixels": 661
+    },
+    {
+      "region": "Z08 standing desk to chair",
+      "box": [
+        710,
+        239,
+        762,
+        294
+      ],
+      "pixels": 1062
+    },
+    {
+      "region": "Z08 TV",
+      "box": [
+        620,
+        228,
+        658,
+        269
+      ],
+      "pixels": 494
+    },
+    {
+      "region": "Z08 coffee table",
+      "box": [
+        657,
+        251,
+        689,
+        277
+      ],
+      "pixels": 379
+    },
+    {
+      "region": "Z08 sofas",
+      "box": [
+        492,
+        261,
+        565,
+        312
+      ],
+      "pixels": 1355
+    },
+    {
+      "region": "Z08 removed standing desk",
+      "box": [
+        582,
+        302,
+        635,
+        358
+      ],
+      "pixels": 972
+    },
+    {
+      "region": "Prism pose",
+      "box": [
+        584,
+        116,
+        628,
+        166
+      ],
+      "pixels": 515
+    },
+    {
+      "region": "Forge pose",
+      "box": [
+        517,
+        132,
+        571,
+        201
+      ],
+      "pixels": 848
+    },
+    {
+      "region": "Nova pose",
+      "box": [
+        456,
+        191,
+        497,
+        231
+      ],
+      "pixels": 83
+    },
+    {
+      "region": "Steward pose",
+      "box": [
+        839,
+        237,
+        889,
+        289
+      ],
+      "pixels": 510
+    },
+    {
+      "region": "Sentinel pose",
+      "box": [
+        969,
+        300,
+        1012,
+        349
+      ],
+      "pixels": 265
+    },
+    {
+      "region": "Relay pose",
+      "box": [
+        1090,
+        376,
+        1140,
+        410
+      ],
+      "pixels": 148
+    },
+    {
+      "region": "Rifqi pose (left-edge clipped)",
+      "box": [
+        0,
+        315,
+        16,
+        376
+      ],
+      "pixels": 168
+    },
+    {
+      "region": "HUD SSE pulse",
+      "box": [
+        209,
+        15,
+        221,
+        27
+      ],
+      "pixels": 32
+    },
+    {
+      "region": "HUD work pulse",
+      "box": [
+        247,
+        90,
+        259,
+        102
+      ],
+      "pixels": 32
+    },
+    {
+      "region": "Server rack LEDs (right-edge clipped)",
+      "box": [
+        1274,
+        618,
+        1280,
+        636
+      ],
+      "pixels": 16
+    }
+  ],
+  "unassigned": 0,
+  "total": 9684,
+  "classification": {
+    "approved_Z08_layout": 7067,
+    "actor_frame_1_to_0_and_badge_phase": 2537,
+    "CSS_pulse_phase": 64,
+    "server_LED_phase": 16
+  },
+  "cross_run": {
+    "b191375_vs_26dcc1b": {
+      "world_pixels": 0,
+      "HUD_pulse_pixels": 64
+    }
+  },
+  "recommendation": "Do not blindly rebaseline. All regions are explained, but pin procedural LED phase and confirm a fresh capture before accepting; preserve old reference and explicit approved visual delta review."
+}

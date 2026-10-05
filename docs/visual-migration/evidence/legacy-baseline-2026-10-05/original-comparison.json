@@ -1,0 +1,30 @@
+{
+  "reference_sha256": "e790df8ef5f35a195bc81856cc2da7cf98932b1625b67b542570b5eeb4c2c49a",
+  "candidate_sha256": "7ee301c5167d5c998bf855c02affbbc2f17660e49059fd1c92270708e4586963",
+  "masks": [
+    {
+      "x": 792.34375,
+      "y": 13,
+      "width": 93.90625,
+      "height": 16
+    },
+    {
+      "x": 285.75,
+      "y": 42,
+      "width": 253.109375,
+      "height": 26
+    }
+  ],
+  "reference_size": [
+    1280,
+    720
+  ],
+  "candidate_size": [
+    1280,
+    720
+  ],
+  "passed": false,
+  "changed_pixels": 9668,
+  "total_pixels": 921600,
+  "channel_tolerance": 8
+}
