@@ -5,14 +5,14 @@ import type { WorldApp } from '../src/world/WorldApp';
 import { mockSnapshotFixture } from '../src/mocks/fixtures';
 
 type EvidenceWindow = Window & { __WORLD_APP__: WorldApp };
-const evidence = process.env.OFFICE_COLLECTIVE_EVIDENCE!;
 for (const [kind, title, zone] of [
   ['pool_party', 'Pesta Kolam', 'Z17'],
   ['fire_drill', 'Simulasi Evakuasi', 'Z17'],
   ['town_hall', 'Pertemuan Kantor', 'Z14'],
 ] as const) {
-  test(`${kind}: Founder keyboard, world, task priority and real expiry`, async ({ page, request }) => {
+  test(`${kind}: Founder keyboard, world, task priority and real expiry`, async ({ page, request }, testInfo) => {
     test.setTimeout(190000);
+    const evidence = process.env.OFFICE_COLLECTIVE_EVIDENCE || testInfo.outputPath('collective-evidence');
     fs.mkdirSync(evidence, { recursive: true });
     const errors: string[] = [];
     page.on('pageerror', e => errors.push(e.message));
@@ -92,6 +92,7 @@ for (const [kind, title, zone] of [
 }
 
 test.afterEach(async ({ page }, info) => {
+  const evidence = process.env.OFFICE_COLLECTIVE_EVIDENCE || info.outputPath('collective-evidence');
   fs.mkdirSync(evidence, { recursive: true });
   const raw = await page.evaluate(() => {
     const w = (window as EvidenceWindow).__WORLD_APP__;

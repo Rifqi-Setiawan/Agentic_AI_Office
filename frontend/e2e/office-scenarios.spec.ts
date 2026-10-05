@@ -331,15 +331,15 @@ test.describe('E2E Playwright dengan rekaman SSE (T1.20)', () => {
   });
 
   // Screenshot Baseline Deterministik (Seed Ambient Tetap)
-  test('Baseline visual: screenshot scene deterministik (seed ambient tetap) tersimpan di repo', async ({ page }) => {
+  test('Baseline visual: screenshot scene deterministik (seed ambient tetap) tersimpan di repo', async ({ page }, testInfo) => {
     await page.goto('/?seed=42', { waitUntil: 'domcontentloaded' });
     await page.waitForSelector('canvas', { timeout: 15000 });
 
     // Beri waktu 2 detik untuk inisialisasi render dan font stabil
     await page.waitForTimeout(2000);
 
-    const evidence = process.env.OFFICE_VISUAL_EVIDENCE;
-    if (!evidence) throw new Error('OFFICE_VISUAL_EVIDENCE wajib diisi');
+    const evidence = process.env.OFFICE_VISUAL_EVIDENCE || testInfo.outputPath('visual-evidence');
+    fs.mkdirSync(evidence, { recursive: true });
     const baseline = path.resolve(__dirname, 'screenshots/baseline_scene.png');
     const hash = () => createHash('sha256').update(fs.readFileSync(baseline)).digest('hex');
     const before = hash();

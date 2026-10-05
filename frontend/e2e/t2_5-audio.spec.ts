@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { join } from 'node:path';
 
-const evidence = process.env.OFFICE_AUDIO_EVIDENCE!;
-test('audio default off, real lazy fetch/decode/play, keyboard volume, mute and reload', async ({ page, request }) => {
+test('audio default off, real lazy fetch/decode/play, keyboard volume, mute and reload', async ({ page, request }, testInfo) => {
+  const evidence = process.env.OFFICE_AUDIO_EVIDENCE || testInfo.outputPath('audio-evidence');
   const audioRequests: string[] = [];
   page.on('request', (r) => { if (new URL(r.url()).pathname.startsWith('/audio/')) audioRequests.push(r.url()); });
   await page.goto('/?seed=42');
@@ -43,7 +43,8 @@ test('audio default off, real lazy fetch/decode/play, keyboard volume, mute and 
   await page.screenshot({ path: join(evidence, 'audio-disabled.png'), fullPage: true });
 });
 
-test('asset failure is visible, stops audio and can be retried', async ({ page }) => {
+test('asset failure is visible, stops audio and can be retried', async ({ page }, testInfo) => {
+  const evidence = process.env.OFFICE_AUDIO_EVIDENCE || testInfo.outputPath('audio-evidence');
   await page.route('http://localhost:5175/audio/**', (route) => route.abort());
   await page.goto('/?seed=42');
   await page.getByRole('button', { name: 'Nyalakan suara', exact: true }).click();
