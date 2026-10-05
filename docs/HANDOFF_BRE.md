@@ -1,6 +1,20 @@
 # Handoff Bre — Agentic AI Office, 5 Oktober 2026
 
-## Mulai di sini
+## Pembaruan setelah publikasi
+
+Gunakan **`main`** untuk pekerjaan berikutnya. Checkpoint 17 ruang dan perbaikan
+QA pada `902f57b` telah lulus [CI lengkap](https://github.com/Rifqi-Setiawan/Agentic_AI_Office/actions/runs/37321653600).
+Scene ilustrasi tersedia melalui `/?officeRenderer=claude`; legacy tetap default.
+Lingkungan dan dekorasi fungsional 17 ruang sudah terintegrasi sebagai kandidat,
+dengan review detail/performa masih berlangsung. Tidak ada deploy VPS.
+Lihat [README terkini](../README.md) dan [kandidat kantor](visual-migration/ILLUSTRATED_OFFICE_CANDIDATE.md).
+
+## Handoff historis sebelum publikasi
+
+Bagian di bawah merekam keadaan sebelum checkpoint terbaru; arahan branch dan
+urutan prioritas lamanya tidak menggantikan pembaruan di atas.
+
+## Mulai di sini (historis)
 
 Lanjutkan branch **`codex/visual-migration-local`**. Kondisi sebelum handoff: commit `4643b6c` (trial W01/W02). Handoff ini menyertakan seluruh source, runtime artwork, source intake, prompt dan referensi, screenshot, dokumentasi, serta perubahan pipeline Blender lokal yang sebelumnya belum di-commit. Jangan mulai ulang dari `main`: migrasi visual ada di branch ini.
 

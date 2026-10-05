@@ -1,0 +1,46 @@
+name: Office Room Quality
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/office-room-quality.yml'
+      - 'frontend/playwright.quality.config.ts'
+      - 'frontend/e2e/office-room-quality.spec.ts'
+      - 'frontend/src/world/scene/**'
+      - 'frontend/public/visual-migration/**'
+      - 'frontend/public/maps/floor1.tmj'
+
+permissions:
+  contents: read
+
+jobs:
+  room-quality:
+    name: Fixture room views and timing
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install locked dependencies
+        working-directory: frontend
+        run: npm ci
+      - name: Install Chromium
+        working-directory: frontend
+        run: npx playwright install chromium --with-deps
+      - name: Capture fixture rooms and timing
+        working-directory: frontend
+        run: npx playwright test --config playwright.quality.config.ts
+      - name: Preserve fixture-only room review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: office-room-quality
+          path: frontend/test-results/room-quality/
+          if-no-files-found: warn
+          retention-days: 3

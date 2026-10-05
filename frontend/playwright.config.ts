@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './e2e',
-  testIgnore: '**/t2_9-production-repair.spec.ts',
+  testIgnore: ['**/t2_9-production-repair.spec.ts', '**/office-room-quality.spec.ts'],
   outputDir: process.env.OFFICE_BROWSER_EVIDENCE,
   timeout: 30000,
   expect: {

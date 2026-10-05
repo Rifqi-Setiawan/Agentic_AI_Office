@@ -1,3 +1,20 @@
+# Bukti browser CI terbaru — 5 Oktober 2026
+
+Commit `902f57b` lulus [run 37321653600](https://github.com/Rifqi-Setiawan/Agentic_AI_Office/actions/runs/37321653600):
+38/38 tes Chromium, termasuk scene ilustrasi dengan ground ready tanpa error,
+tiga kandidat aktor yang memang tersedia, 133 slot, 26 pintu, 17 ruang, fokus
+Z08 dan inspector Prism. Screenshot overview serta inspector asli tersimpan
+sebagai artifact CI fixture. Seluruh 356 tes frontend dan 129 tes backend juga
+lulus. [Review baseline](LEGACY_VISUAL_BASELINE_REVIEW.md) menjelaskan perubahan
+reference legacy; mask dan toleransi tidak dilonggarkan.
+
+Bukti ini berasal dari runner CI terpisah, bukan akses ulang browser lokal yang
+terblokir. Data menggunakan fixture, bukan VPS/Hermes. Review seluruh detail
+ruang, mobile dan performa scene masih memerlukan evidence tersendiri; hasil ini
+bukan approval gaya final atau bukti performa perangkat pengguna.
+
+Catatan di bawah adalah riwayat sebelum checkpoint tersebut.
+
 # Pembaruan orientasi v2
 
 Default preview sekarang memakai meja/kursi yang mengikuti slot SE. Koreksi diperiksa melalui komposisi offline, build/lint, tes renderer dan kontrak map. Belum ada akses browser pulih atau QA browser baru. Detail aktual: ORIENTATION_FIX.md.
