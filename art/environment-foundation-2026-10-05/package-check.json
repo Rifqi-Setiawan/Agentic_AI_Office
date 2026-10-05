@@ -1,0 +1,17 @@
+{
+  "prompts": 38,
+  "required": 36,
+  "optional": 2,
+  "references": 10,
+  "sourcePNGsByteIdentical": 8,
+  "generatedArtwork": 0,
+  "coveredFloorTypes": 19,
+  "coveredWallTypes": 9,
+  "doors": 26,
+  "zones": 17,
+  "slots": 133,
+  "zip": "C:\\Users\\Rifqi\\Documents\\ChatGPT\\audit vps\\office-environment-prompts-20261005.zip",
+  "sha256": "4e9f58529ac5b1bca358fbe404c032f0f42403d09ce5f3874d36ffceba1e71e8",
+  "files": 59,
+  "crcPassed": true
+}

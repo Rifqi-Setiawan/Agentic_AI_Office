@@ -1,4 +1,10 @@
-# Checkpoint terbaru — karakter 2.5D konsisten
+# Checkpoint terbaru — paket foundation kantor
+
+Prioritas user: bangun lingkungan general seluruh 17 zona terlebih dahulu; karakter/dekorasi/layout per ruang ditunda. Paket 38 prompt / 10 referensi/panduan telah disiapkan dan diperiksa untuk GPT web. Lihat [ENVIRONMENT_FOUNDATION_PROMPT_PACK.md](ENVIRONMENT_FOUNDATION_PROMPT_PACK.md). Saat ini 0/36 inti baru generated; packing/pemasangan/QA general belum dimulai. Paket tidak mengubah runtime atau denah.
+
+---
+
+## Riwayat konsistensi karakter 2.5D
 
 Prism, Forge, Nova adalah tiga actor scene yang tersedia. Tidak ada fallback sprite lama atau actor yang belum memiliki empat view idle 2.5D. Aksi yang belum ada menahan pose 2.5D dari agent/arah yang sama. 307 tes / 44 file, build/lint lulus; browser sudah memverifikasi special/game tetap memakai atlas ilustrasi. Screenshot dan detail: [CHARACTER_CONSISTENCY_FIX.md](CHARACTER_CONSISTENCY_FIX.md). QA motion loop tetap pending.
 

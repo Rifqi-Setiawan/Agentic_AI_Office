@@ -1,0 +1,1435 @@
+{
+  "assets": [
+    {
+      "code": "F01",
+      "group": "01-lantai",
+      "title": "Lantai oak utama",
+      "outputFile": "F01-floor-oak-a.png",
+      "subject": "One seamless single-tile honey/light-oak floor diamond. Fine quiet wood grain and staggered plank joints running along R. No perimeter outline, slab sides or edge bevel; a flat surface that can repeat across a whole office. Match opposite edges for a continuous plank pattern.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "02-oak-reference.png"
+      ],
+      "geometry": {
+        "footprintTiles": [
+          1,
+          1
+        ],
+        "logicalDiamond": [
+          64,
+          32
+        ],
+        "packedDiamondPx": [
+          128,
+          64
+        ],
+        "thickness": 0
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "F02",
+      "group": "01-lantai",
+      "title": "Variasi lantai oak",
+      "outputFile": "F02-floor-oak-b.png",
+      "subject": "One alternate honey/light-oak single-tile floor diamond. Keep exactly the same shade, plank width, direction and edge pattern as F01. Change only quiet interior grain; no stain, unique knot landmark or decorative motif. This is a same-material variation, not another room theme.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "02-oak-reference.png"
+      ],
+      "geometry": {
+        "footprintTiles": [
+          1,
+          1
+        ],
+        "logicalDiamond": [
+          64,
+          32
+        ],
+        "packedDiamondPx": [
+          128,
+          64
+        ],
+        "thickness": 0
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "F03",
+      "group": "01-lantai",
+      "title": "Lantai koridor abu-abu",
+      "outputFile": "F03-floor-corridor-gray.png",
+      "subject": "One seamless single-tile warm charcoal-gray matte stone/ceramic floor diamond. Subtle thin grout, low contrast, clean modern office material. No wood grain, logos, arrows, tile-border outline or slab sides. Repeatable edges; avoid a checkerboard contrast when tiled.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png",
+        "02-oak-reference.png"
+      ],
+      "geometry": {
+        "footprintTiles": [
+          1,
+          1
+        ],
+        "logicalDiamond": [
+          64,
+          32
+        ],
+        "packedDiamondPx": [
+          128,
+          64
+        ],
+        "thickness": 0
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "F04",
+      "group": "01-lantai",
+      "title": "Lantai outdoor antiselip",
+      "outputFile": "F04-floor-outdoor-stone.png",
+      "subject": "One seamless single-tile light blue-gray matte stone pool-deck floor diamond. Restrained fine non-slip texture, dry surface, no cracks or vegetation. Same outline/shading language as the office references. No coping, water, furniture, rim outline or slab sides.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png",
+        "02-oak-reference.png"
+      ],
+      "geometry": {
+        "footprintTiles": [
+          1,
+          1
+        ],
+        "logicalDiamond": [
+          64,
+          32
+        ],
+        "packedDiamondPx": [
+          128,
+          64
+        ],
+        "thickness": 0
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "F05",
+      "group": "01-lantai",
+      "title": "Tepi platform R",
+      "outputFile": "F05-platform-edge-r.png",
+      "subject": "One exposed front slab edge along R, length one grid edge. Thin blue-gray structural fascia below ground level, depth four logical pixels. No top floor surface or wall. Modular end faces, subtle underside shading entirely within the object. This attaches below the floor perimeter, not on every floor tile.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 1,
+        "belowFloorDepth": 4
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "F06",
+      "group": "01-lantai",
+      "title": "Tepi platform L",
+      "outputFile": "F06-platform-edge-l.png",
+      "subject": "One exposed front slab edge along L, length one grid edge. Thin blue-gray structural fascia below ground level, depth four logical pixels. No top floor surface or wall. Modular end faces, subtle underside shading entirely within the object. This attaches below the floor perimeter, not on every floor tile.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "04-wall-tall-L-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 1,
+        "belowFloorDepth": 4
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "F07",
+      "group": "01-lantai",
+      "title": "Sudut depan platform",
+      "outputFile": "F07-platform-corner-s.png",
+      "subject": "One south/front outside corner joining two exposed platform fascia strips. Ground endpoint S is the closest diamond vertex; legs run from S toward screen upper-left and upper-right, each one grid edge. Depth four logical pixels below ground. No top floor panel, wall, pedestal or furniture.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png",
+        "04-wall-tall-L-reference.png"
+      ],
+      "geometry": {
+        "corner": "S",
+        "legsTiles": [
+          1,
+          1
+        ],
+        "belowFloorDepth": 4
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "W01",
+      "group": "02-dinding",
+      "title": "Dinding tinggi R, 1 modul",
+      "outputFile": "W01-wall-tall-r-1u.png",
+      "subject": "One straight tall blue-gray office wall along R, exactly 1 grid-edge module(s) long. Height 80 logical pixels, thickness six logical floor-plane units. Matte panels, charcoal skirting and restrained top cap. Both ends are flush and complete so segments join without an overhang; no pillar, floor or neon strip. Panel rhythm is one subtle seam per grid module, never a large dark border at each seam.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 1,
+        "height": 80,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "W02",
+      "group": "02-dinding",
+      "title": "Dinding tinggi L, 1 modul",
+      "outputFile": "W02-wall-tall-l-1u.png",
+      "subject": "One straight tall blue-gray office wall along L, exactly 1 grid-edge module(s) long. Height 80 logical pixels, thickness six logical floor-plane units. Matte panels, charcoal skirting and restrained top cap. Both ends are flush and complete so segments join without an overhang; no pillar, floor or neon strip. Panel rhythm is one subtle seam per grid module, never a large dark border at each seam.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "04-wall-tall-L-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 1,
+        "height": 80,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "W03",
+      "group": "02-dinding",
+      "title": "Dinding tinggi R, 2 modul",
+      "outputFile": "W03-wall-tall-r-2u.png",
+      "subject": "One straight tall blue-gray office wall along R, exactly 2 grid-edge module(s) long. Height 80 logical pixels, thickness six logical floor-plane units. Matte panels, charcoal skirting and restrained top cap. Both ends are flush and complete so segments join without an overhang; no pillar, floor or neon strip. Panel rhythm is one subtle seam per grid module, never a large dark border at each seam.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 2,
+        "height": 80,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "W04",
+      "group": "02-dinding",
+      "title": "Dinding tinggi L, 2 modul",
+      "outputFile": "W04-wall-tall-l-2u.png",
+      "subject": "One straight tall blue-gray office wall along L, exactly 2 grid-edge module(s) long. Height 80 logical pixels, thickness six logical floor-plane units. Matte panels, charcoal skirting and restrained top cap. Both ends are flush and complete so segments join without an overhang; no pillar, floor or neon strip. Panel rhythm is one subtle seam per grid module, never a large dark border at each seam.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "04-wall-tall-L-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 2,
+        "height": 80,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "W05",
+      "group": "02-dinding",
+      "title": "Dinding rendah R, 1 modul",
+      "outputFile": "W05-wall-low-r-1u.png",
+      "subject": "One straight low blue-gray office wall along R, exactly 1 grid-edge module(s) long. Height 16 logical pixels, thickness six logical floor-plane units. Matte panels, charcoal skirting and restrained top cap. Both ends are flush and complete so segments join without an overhang; no pillar, floor or neon strip. Panel rhythm is one subtle seam per grid module, never a large dark border at each seam.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "05-wall-low-R-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 1,
+        "height": 16,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "W06",
+      "group": "02-dinding",
+      "title": "Dinding rendah L, 1 modul",
+      "outputFile": "W06-wall-low-l-1u.png",
+      "subject": "One straight low blue-gray office wall along L, exactly 1 grid-edge module(s) long. Height 16 logical pixels, thickness six logical floor-plane units. Matte panels, charcoal skirting and restrained top cap. Both ends are flush and complete so segments join without an overhang; no pillar, floor or neon strip. Panel rhythm is one subtle seam per grid module, never a large dark border at each seam.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "06-wall-low-L-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 1,
+        "height": 16,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "W07",
+      "group": "02-dinding",
+      "title": "Dinding rendah R, 2 modul",
+      "outputFile": "W07-wall-low-r-2u.png",
+      "subject": "One straight low blue-gray office wall along R, exactly 2 grid-edge module(s) long. Height 16 logical pixels, thickness six logical floor-plane units. Matte panels, charcoal skirting and restrained top cap. Both ends are flush and complete so segments join without an overhang; no pillar, floor or neon strip. Panel rhythm is one subtle seam per grid module, never a large dark border at each seam.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "05-wall-low-R-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 2,
+        "height": 16,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "W08",
+      "group": "02-dinding",
+      "title": "Dinding rendah L, 2 modul",
+      "outputFile": "W08-wall-low-l-2u.png",
+      "subject": "One straight low blue-gray office wall along L, exactly 2 grid-edge module(s) long. Height 16 logical pixels, thickness six logical floor-plane units. Matte panels, charcoal skirting and restrained top cap. Both ends are flush and complete so segments join without an overhang; no pillar, floor or neon strip. Panel rhythm is one subtle seam per grid module, never a large dark border at each seam.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "06-wall-low-L-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 2,
+        "height": 16,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "W09",
+      "group": "02-dinding",
+      "title": "Sudut belakang dinding tinggi",
+      "outputFile": "W09-wall-corner-n-tall.png",
+      "subject": "One north/back interior wall corner: a central rear diamond vertex N with two tall wall legs extending toward screen lower-right (+R) and lower-left (+L). Each leg is one grid edge, height 80, thickness six logical units. Joined top caps and skirting are seamless. The inner faces are visible. No floor, pillar, doorway or decorations.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png",
+        "04-wall-tall-L-reference.png"
+      ],
+      "geometry": {
+        "corner": "N",
+        "legsTiles": [
+          1,
+          1
+        ],
+        "height": 80,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "W10",
+      "group": "02-dinding",
+      "title": "Sudut depan dinding rendah",
+      "outputFile": "W10-wall-corner-s-low.png",
+      "subject": "One south/front outside cutaway-wall corner: a central nearest diamond vertex S with low wall legs extending toward screen upper-left (-R) and upper-right (-L). Each leg is one grid edge, height 16, thickness six logical units. The outside faces are visible; top caps and skirting join cleanly. No floor, tall post, fence, doorway or decoration.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "05-wall-low-R-reference.png",
+        "06-wall-low-L-reference.png"
+      ],
+      "geometry": {
+        "corner": "S",
+        "legsTiles": [
+          1,
+          1
+        ],
+        "height": 16,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "P01",
+      "group": "03-pilar",
+      "title": "Pilar sambungan tinggi",
+      "outputFile": "P01-pillar-tall.png",
+      "subject": "One slim full-height charcoal/blue-gray structural junction pillar. Square footprint six by six logical floor units, height 80. Two visible faces and a dimetric top cap. One narrow restrained cyan inset on the visible darker face, matching the reference, without glow spilling outside alpha. It covers wall joins/end terminals; no pedestal wider than its footprint.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "08-pillar-reference.png"
+      ],
+      "geometry": {
+        "footprintLogical": [
+          6,
+          6
+        ],
+        "height": 80
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "P02",
+      "group": "03-pilar",
+      "title": "Post sambungan rendah",
+      "outputFile": "P02-post-low.png",
+      "subject": "One low blue-gray corner/end post for cutaway wall joins. Square footprint six by six logical units, height 16, same cap and skirting as low wall. No tall pillar, glowing lamp, separate base or floor. It must join W05/W06 at equal cap height.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "08-pillar-reference.png",
+        "05-wall-low-R-reference.png"
+      ],
+      "geometry": {
+        "footprintLogical": [
+          6,
+          6
+        ],
+        "height": 16
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "D01",
+      "group": "04-pintu",
+      "title": "Kusen terbuka R",
+      "outputFile": "D01-door-open-r.png",
+      "subject": "One isolated open office passage frame along R. Total ground span one grid edge, thickness six logical units, total height 80. Each jamb takes four logical units along the span; unobstructed clear width is 24 logical units. Two slim jambs and one lintel; clear opening height 72 logical pixels. No door leaf, glass across the opening, sill step or floor patch. A restrained narrow cyan inset on one jamb, same charcoal hardware as the reference. Ends join adjoining wall modules. A true transparent passage, never filled with a black rectangle or another room scene.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "07-doorframe-reference.png",
+        "03-wall-tall-R-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 1,
+        "height": 80,
+        "thickness": 6,
+        "clearWidth": 24,
+        "clearHeight": 72
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "D02",
+      "group": "04-pintu",
+      "title": "Kusen terbuka L",
+      "outputFile": "D02-door-open-l.png",
+      "subject": "One isolated open office passage frame along L. Total ground span one grid edge, thickness six logical units, total height 80. Each jamb takes four logical units along the span; unobstructed clear width is 24 logical units. Two slim jambs and one lintel; clear opening height 72 logical pixels. No door leaf, glass across the opening, sill step or floor patch. A restrained narrow cyan inset on one jamb, same charcoal hardware as the reference. Ends join adjoining wall modules. A true transparent passage, never filled with a black rectangle or another room scene.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "07-doorframe-reference.png",
+        "04-wall-tall-L-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 1,
+        "height": 80,
+        "thickness": 6,
+        "clearWidth": 24,
+        "clearHeight": 72
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "D03",
+      "group": "04-pintu",
+      "title": "Kusen depan rendah R",
+      "outputFile": "D03-door-cutaway-r.png",
+      "subject": "One isolated cutaway office passage frame along R. Total ground span one grid edge, thickness six logical units, total height 16. Each jamb takes four logical units along the span; unobstructed clear width is 24 logical units. Two low jamb terminals only; no overhead beam, arch or door leaf. Keep the passage open at floor level. Same blue-gray material and skirting as low cutaway walls; no cyan tower. Ends join adjoining wall modules. A true transparent passage, never filled with a black rectangle or another room scene.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "07-doorframe-reference.png",
+        "05-wall-low-R-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 1,
+        "height": 16,
+        "thickness": 6,
+        "clearWidth": 24,
+        "clearHeight": null
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "D04",
+      "group": "04-pintu",
+      "title": "Kusen depan rendah L",
+      "outputFile": "D04-door-cutaway-l.png",
+      "subject": "One isolated cutaway office passage frame along L. Total ground span one grid edge, thickness six logical units, total height 16. Each jamb takes four logical units along the span; unobstructed clear width is 24 logical units. Two low jamb terminals only; no overhead beam, arch or door leaf. Keep the passage open at floor level. Same blue-gray material and skirting as low cutaway walls; no cyan tower. Ends join adjoining wall modules. A true transparent passage, never filled with a black rectangle or another room scene.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "07-doorframe-reference.png",
+        "06-wall-low-L-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 1,
+        "height": 16,
+        "thickness": 6,
+        "clearWidth": 24,
+        "clearHeight": null
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "D05",
+      "group": "04-pintu",
+      "title": "Kusen entrance R",
+      "outputFile": "D05-door-entrance-r.png",
+      "subject": "One isolated entrance office passage frame along R. Total ground span one grid edge, thickness six logical units, total height 80. Each jamb takes four logical units along the span; unobstructed clear width is 24 logical units. Two slim jambs and one lintel; clear opening height 72 logical pixels. No door leaf, glass across the opening, sill step or floor patch. A restrained narrow cyan inset on one jamb, same charcoal hardware as the reference. Ends join adjoining wall modules. A true transparent passage, never filled with a black rectangle or another room scene.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "07-doorframe-reference.png",
+        "03-wall-tall-R-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 1,
+        "height": 80,
+        "thickness": 6,
+        "clearWidth": 24,
+        "clearHeight": 72
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "D06",
+      "group": "04-pintu",
+      "title": "Kusen entrance L",
+      "outputFile": "D06-door-entrance-l.png",
+      "subject": "One isolated entrance office passage frame along L. Total ground span one grid edge, thickness six logical units, total height 80. Each jamb takes four logical units along the span; unobstructed clear width is 24 logical units. Two slim jambs and one lintel; clear opening height 72 logical pixels. No door leaf, glass across the opening, sill step or floor patch. A restrained narrow cyan inset on one jamb, same charcoal hardware as the reference. Ends join adjoining wall modules. A true transparent passage, never filled with a black rectangle or another room scene.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "07-doorframe-reference.png",
+        "04-wall-tall-L-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 1,
+        "height": 80,
+        "thickness": 6,
+        "clearWidth": 24,
+        "clearHeight": 72
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "G01",
+      "group": "05-jendela-kaca",
+      "title": "Jendela R",
+      "outputFile": "G01-window-r.png",
+      "subject": "One isolated window module along R, ground length one grid edge, total height 80 and wall/frame thickness six logical units. A blue-gray tall-wall window bay with a centered clean rectangular opening, charcoal frame and pale cyan lightly tinted glass. Solid wall below/above the aperture matches the tall walls. No view painted behind the glass. Reflections are quiet and consistent with upper-left light. Glass uses genuine partial alpha; transparent margins and openings must not contain a checkerboard, landscape or fake transparency. No frosted labels, screens or UI.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png",
+        "07-doorframe-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 1,
+        "height": 80,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "G02",
+      "group": "05-jendela-kaca",
+      "title": "Jendela L",
+      "outputFile": "G02-window-l.png",
+      "subject": "One isolated window module along L, ground length one grid edge, total height 80 and wall/frame thickness six logical units. A blue-gray tall-wall window bay with a centered clean rectangular opening, charcoal frame and pale cyan lightly tinted glass. Solid wall below/above the aperture matches the tall walls. No view painted behind the glass. Reflections are quiet and consistent with upper-left light. Glass uses genuine partial alpha; transparent margins and openings must not contain a checkerboard, landscape or fake transparency. No frosted labels, screens or UI.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "04-wall-tall-L-reference.png",
+        "07-doorframe-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 1,
+        "height": 80,
+        "thickness": 6
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "G03",
+      "group": "05-jendela-kaca",
+      "title": "Partisi kaca opsional R",
+      "outputFile": "G03-partition-r.png",
+      "subject": "One isolated partition module along R, ground length one grid edge, total height 80 and wall/frame thickness six logical units. A floor-to-top minimalist interior glass partition panel, thin charcoal frame and pale cyan lightly tinted glass. No door, opaque drywall infill or furniture; this is an optional future structural variant, not a new room layout. Reflections are quiet and consistent with upper-left light. Glass uses genuine partial alpha; transparent margins and openings must not contain a checkerboard, landscape or fake transparency. No frosted labels, screens or UI.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png",
+        "07-doorframe-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 1,
+        "height": 80,
+        "thickness": 6
+      },
+      "required": false,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "G04",
+      "group": "05-jendela-kaca",
+      "title": "Partisi kaca opsional L",
+      "outputFile": "G04-partition-l.png",
+      "subject": "One isolated partition module along L, ground length one grid edge, total height 80 and wall/frame thickness six logical units. A floor-to-top minimalist interior glass partition panel, thin charcoal frame and pale cyan lightly tinted glass. No door, opaque drywall infill or furniture; this is an optional future structural variant, not a new room layout. Reflections are quiet and consistent with upper-left light. Glass uses genuine partial alpha; transparent margins and openings must not contain a checkerboard, landscape or fake transparency. No frosted labels, screens or UI.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "04-wall-tall-L-reference.png",
+        "07-doorframe-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 1,
+        "height": 80,
+        "thickness": 6
+      },
+      "required": false,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "J01",
+      "group": "06-transisi",
+      "title": "Ambang lantai R",
+      "outputFile": "J01-threshold-r.png",
+      "subject": "One flush ground-level charcoal metal threshold strip running along R. Length one grid edge; narrow three-logical-unit footprint across the strip, height zero (no step). Clean seam between oak and gray floor, no adjoining floor tiles, doorway, screw text, carpet or decoration. It must not make a walkable opening look blocked.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "07-doorframe-reference.png",
+        "02-oak-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 1,
+        "width": 3,
+        "height": 0
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "J02",
+      "group": "06-transisi",
+      "title": "Ambang lantai L",
+      "outputFile": "J02-threshold-l.png",
+      "subject": "One flush ground-level charcoal metal threshold strip running along L. Length one grid edge; narrow three-logical-unit footprint across the strip, height zero (no step). Clean seam between oak and gray floor, no adjoining floor tiles, doorway, screw text, carpet or decoration. It must not make a walkable opening look blocked.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "07-doorframe-reference.png",
+        "02-oak-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 1,
+        "width": 3,
+        "height": 0
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "O01",
+      "group": "07-outdoor-kolam",
+      "title": "Permukaan air kolam",
+      "outputFile": "O01-pool-water.png",
+      "subject": "One seamless single-tile still pool-water diamond, muted clear cyan/teal with very gentle small ripples and soft restrained light. Water inside the diamond is opaque so unrelated underlying floor does not show through. No pool rim, rectangular pool scene, swimmers, ladder, floating objects, sunlight sparkle stars or slab sides. Repeatable edges; no perimeter outline.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "00-suasana-z08.png",
+        "03-wall-tall-R-reference.png"
+      ],
+      "geometry": {
+        "footprintTiles": [
+          1,
+          1
+        ],
+        "logicalDiamond": [
+          64,
+          32
+        ],
+        "packedDiamondPx": [
+          128,
+          64
+        ],
+        "thickness": 0
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "O02",
+      "group": "07-outdoor-kolam",
+      "title": "Bibir kolam R",
+      "outputFile": "O02-pool-coping-r.png",
+      "subject": "One straight matte blue-gray stone pool coping/rim segment along R, length one grid edge. Band width eight logical units, top flush with outdoor deck level; a short four-logical-pixel inner lip is visible below the water-facing edge. No surrounding deck or water plane. Flush modular ends, quiet contour and texture; no lounger, ladder or plant.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png",
+        "02-oak-reference.png"
+      ],
+      "geometry": {
+        "axis": "R",
+        "lengthTiles": 1,
+        "width": 8,
+        "innerLipDepth": 4,
+        "waterSide": "toward pool interior at assembly"
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "O03",
+      "group": "07-outdoor-kolam",
+      "title": "Bibir kolam L",
+      "outputFile": "O03-pool-coping-l.png",
+      "subject": "One straight matte blue-gray stone pool coping/rim segment along L, length one grid edge. Band width eight logical units, top flush with outdoor deck level; a short four-logical-pixel inner lip is visible below the water-facing edge. No surrounding deck or water plane. Flush modular ends, quiet contour and texture; no lounger, ladder or plant.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "04-wall-tall-L-reference.png",
+        "02-oak-reference.png"
+      ],
+      "geometry": {
+        "axis": "L",
+        "lengthTiles": 1,
+        "width": 8,
+        "innerLipDepth": 4,
+        "waterSide": "toward pool interior at assembly"
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "O04",
+      "group": "07-outdoor-kolam",
+      "title": "Sudut bibir kolam N",
+      "outputFile": "O04-pool-coping-corner-n.png",
+      "subject": "One N corner pool coping module connecting two perpendicular rim runs. Vertex N has one-grid-edge legs going screen lower-right (+R) and lower-left (+L). Match straight coping: blue-gray matte stone, band width eight logical units, top flush with deck, inner lip depth four. The lip faces the interior of the diamond pool, never the outdoor deck. No water plane, complete pool, floor surface, ladder or furniture.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png",
+        "04-wall-tall-L-reference.png"
+      ],
+      "geometry": {
+        "corner": "N",
+        "legsTiles": [
+          1,
+          1
+        ],
+        "width": 8,
+        "innerLipDepth": 4
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "O05",
+      "group": "07-outdoor-kolam",
+      "title": "Sudut bibir kolam S",
+      "outputFile": "O05-pool-coping-corner-s.png",
+      "subject": "One S corner pool coping module connecting two perpendicular rim runs. Vertex S has one-grid-edge legs going screen upper-left (-R) and upper-right (-L). Match straight coping: blue-gray matte stone, band width eight logical units, top flush with deck, inner lip depth four. The lip faces the interior of the diamond pool, never the outdoor deck. No water plane, complete pool, floor surface, ladder or furniture.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png",
+        "04-wall-tall-L-reference.png"
+      ],
+      "geometry": {
+        "corner": "S",
+        "legsTiles": [
+          1,
+          1
+        ],
+        "width": 8,
+        "innerLipDepth": 4
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "O06",
+      "group": "07-outdoor-kolam",
+      "title": "Sudut bibir kolam E",
+      "outputFile": "O06-pool-coping-corner-e.png",
+      "subject": "One E corner pool coping module connecting two perpendicular rim runs. Vertex E has one-grid-edge legs going screen upper-left (-R) and lower-left (+L). Match straight coping: blue-gray matte stone, band width eight logical units, top flush with deck, inner lip depth four. The lip faces the interior of the diamond pool, never the outdoor deck. No water plane, complete pool, floor surface, ladder or furniture.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png",
+        "04-wall-tall-L-reference.png"
+      ],
+      "geometry": {
+        "corner": "E",
+        "legsTiles": [
+          1,
+          1
+        ],
+        "width": 8,
+        "innerLipDepth": 4
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    },
+    {
+      "code": "O07",
+      "group": "07-outdoor-kolam",
+      "title": "Sudut bibir kolam W",
+      "outputFile": "O07-pool-coping-corner-w.png",
+      "subject": "One W corner pool coping module connecting two perpendicular rim runs. Vertex W has one-grid-edge legs going screen lower-right (+R) and upper-right (-L). Match straight coping: blue-gray matte stone, band width eight logical units, top flush with deck, inner lip depth four. The lip faces the interior of the diamond pool, never the outdoor deck. No water plane, complete pool, floor surface, ladder or furniture.",
+      "referenceFiles": [
+        "01-geometri-2-to-1.png",
+        "03-wall-tall-R-reference.png",
+        "04-wall-tall-L-reference.png"
+      ],
+      "geometry": {
+        "corner": "W",
+        "legsTiles": [
+          1,
+          1
+        ],
+        "width": 8,
+        "innerLipDepth": 4
+      },
+      "required": true,
+      "status": "needs_web_generation",
+      "nativeCanvas": "1024x1024 requested; verify actual returned size",
+      "projection": "orthographic 2:1 dimetric",
+      "exportScale": 2
+    }
+  ],
+  "references": [
+    {
+      "file": "references/02-oak-reference.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/floor-oak-z08.png",
+      "sha256": "3f3f298c7bccde16412a8f01bf2c3726794231395f378eb0b29359ada5429dcc",
+      "role": "style/material reference only; source bytes unchanged"
+    },
+    {
+      "file": "references/03-wall-tall-R-reference.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-tall-fall-right.png",
+      "sha256": "94a7d56d0becb32719baf83b8f61864a77db141a1d0160b9f926da3320f69bea",
+      "role": "style/material reference only; source bytes unchanged"
+    },
+    {
+      "file": "references/04-wall-tall-L-reference.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-tall-rise-right.png",
+      "sha256": "845afda69f3002ff2f06c4a4f4f69a59081e27b5043bb534945eb97a878dbbca",
+      "role": "style/material reference only; source bytes unchanged"
+    },
+    {
+      "file": "references/05-wall-low-R-reference.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-low-fall-right.png",
+      "sha256": "5f2ad543bfc3e96d58bfe5548343b10879b6e3553e48485eaeed4212648a49e3",
+      "role": "style/material reference only; source bytes unchanged"
+    },
+    {
+      "file": "references/06-wall-low-L-reference.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-low-rise-right.png",
+      "sha256": "5984c8932ce246f4352f6e6b44a193dd85c92fdf79a2551294cbf494dbd8f49e",
+      "role": "style/material reference only; source bytes unchanged"
+    },
+    {
+      "file": "references/07-doorframe-reference.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/doorframe-open-fall-right.png",
+      "sha256": "1534429c2c07c5364d3af0beff81388d15ab1d5cb2d3a398e97e46307cd50842",
+      "role": "style/material reference only; source bytes unchanged"
+    },
+    {
+      "file": "references/08-pillar-reference.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/pillar-corner-cyan.png",
+      "sha256": "4ae86f6e0f12b1530072b968b97ee532af2354ce06a1c356907547d4c381acbd",
+      "role": "style/material reference only; source bytes unchanged"
+    },
+    {
+      "file": "references/00-suasana-z08.png",
+      "source": "docs/visual-migration/evidence/dot-z08-components-2026-10-05/z08-room-candidate.png",
+      "sha256": "f1a7056e7da3f3a15770bd1172fae33f5d859c1f5d775096840722fc140724af",
+      "role": "style/material reference only; source bytes unchanged"
+    }
+  ],
+  "coverage": {
+    "mapSha256": "9a9bc468e345658b349923f4ae8dc696397bb929c69688b350ee74e6b610ef0e",
+    "dimensions": [
+      44,
+      32
+    ],
+    "zones": 17,
+    "slots": 133,
+    "doors": [
+      {
+        "id": "door_z01",
+        "from": "Z01",
+        "to": "corridor_north",
+        "gx": 5,
+        "gy": 7,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z02",
+        "from": "Z02",
+        "to": "corridor_north",
+        "gx": 15,
+        "gy": 7,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z03",
+        "from": "Z03",
+        "to": "corridor_north",
+        "gx": 23,
+        "gy": 7,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z04",
+        "from": "Z04",
+        "to": "corridor_north",
+        "gx": 31,
+        "gy": 7,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z05",
+        "from": "Z05",
+        "to": "corridor_north",
+        "gx": 39,
+        "gy": 7,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z06_north",
+        "from": "Z06",
+        "to": "corridor_north",
+        "gx": 4,
+        "gy": 10,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z07_north",
+        "from": "Z07",
+        "to": "corridor_north",
+        "gx": 12,
+        "gy": 10,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z08_north",
+        "from": "Z08",
+        "to": "corridor_north",
+        "gx": 19,
+        "gy": 10,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z09_north",
+        "from": "Z09",
+        "to": "corridor_north",
+        "gx": 25,
+        "gy": 10,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z10_north",
+        "from": "Z10",
+        "to": "corridor_north",
+        "gx": 29,
+        "gy": 10,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z11_north",
+        "from": "Z11",
+        "to": "corridor_north",
+        "gx": 33,
+        "gy": 10,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z12_north",
+        "from": "Z12",
+        "to": "corridor_north",
+        "gx": 39,
+        "gy": 10,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z06_south",
+        "from": "Z06",
+        "to": "corridor_south",
+        "gx": 4,
+        "gy": 19,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z07_south",
+        "from": "Z07",
+        "to": "corridor_south",
+        "gx": 12,
+        "gy": 19,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z08_south",
+        "from": "Z08",
+        "to": "corridor_south",
+        "gx": 19,
+        "gy": 19,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z09_south",
+        "from": "Z09",
+        "to": "corridor_south",
+        "gx": 25,
+        "gy": 19,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z10_south",
+        "from": "Z10",
+        "to": "corridor_south",
+        "gx": 29,
+        "gy": 19,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z11_south",
+        "from": "Z11",
+        "to": "corridor_south",
+        "gx": 33,
+        "gy": 19,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z12_south",
+        "from": "Z12",
+        "to": "corridor_south",
+        "gx": 39,
+        "gy": 19,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_prod_z08_z09",
+        "from": "Z08",
+        "to": "Z09",
+        "gx": 23,
+        "gy": 14,
+        "axisProposal": "L"
+      },
+      {
+        "id": "door_prod_z09_z10",
+        "from": "Z09",
+        "to": "Z10",
+        "gx": 27,
+        "gy": 14,
+        "axisProposal": "L"
+      },
+      {
+        "id": "door_prod_z10_z11",
+        "from": "Z10",
+        "to": "Z11",
+        "gx": 31,
+        "gy": 14,
+        "axisProposal": "L"
+      },
+      {
+        "id": "door_prod_z11_z12",
+        "from": "Z11",
+        "to": "Z12",
+        "gx": 35,
+        "gy": 14,
+        "axisProposal": "L"
+      },
+      {
+        "id": "door_z16_north",
+        "from": "Z16",
+        "to": "corridor_south",
+        "gx": 33,
+        "gy": 22,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_z17_north",
+        "from": "Z17",
+        "to": "corridor_south",
+        "gx": 39,
+        "gy": 22,
+        "axisProposal": "R"
+      },
+      {
+        "id": "door_lobby_entrance",
+        "from": "Z13",
+        "to": "outside",
+        "gx": 4,
+        "gy": 31,
+        "axisProposal": "R"
+      }
+    ],
+    "floorGidCoverage": [
+      {
+        "gid": 94,
+        "sourceType": "tile_floor_corridor",
+        "tiles": 176,
+        "proposedMaterial": "F03"
+      },
+      {
+        "gid": 97,
+        "sourceType": "tile_floor_pool_water",
+        "tiles": 25,
+        "proposedMaterial": "O01"
+      },
+      {
+        "gid": 98,
+        "sourceType": "tile_floor_z01_ceo",
+        "tiles": 80,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 99,
+        "sourceType": "tile_floor_z02_boardroom",
+        "tiles": 80,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 100,
+        "sourceType": "tile_floor_z03_architecture",
+        "tiles": 64,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 101,
+        "sourceType": "tile_floor_z04_classroom",
+        "tiles": 56,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 102,
+        "sourceType": "tile_floor_z05_library",
+        "tiles": 72,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 103,
+        "sourceType": "tile_floor_z06_lab",
+        "tiles": 90,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 104,
+        "sourceType": "tile_floor_z07_design",
+        "tiles": 70,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 105,
+        "sourceType": "tile_floor_z08_dev_pods",
+        "tiles": 80,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 106,
+        "sourceType": "tile_floor_z09_graphics_lab",
+        "tiles": 40,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 107,
+        "sourceType": "tile_floor_z10_qa_station",
+        "tiles": 40,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 108,
+        "sourceType": "tile_floor_z11_release_dock",
+        "tiles": 40,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 109,
+        "sourceType": "tile_floor_z12_datacenter",
+        "tiles": 80,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 110,
+        "sourceType": "tile_floor_z13_lobby",
+        "tiles": 100,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 111,
+        "sourceType": "tile_floor_z14_cafeteria",
+        "tiles": 120,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 112,
+        "sourceType": "tile_floor_z15_arcade",
+        "tiles": 80,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 113,
+        "sourceType": "tile_floor_z16_musholla",
+        "tiles": 70,
+        "proposedMaterial": "F01/F02"
+      },
+      {
+        "gid": 114,
+        "sourceType": "tile_floor_z17_pool_deck",
+        "tiles": 45,
+        "proposedMaterial": "F04"
+      }
+    ],
+    "wallGidCoverage": [
+      {
+        "layer": "walls_back",
+        "gid": 115,
+        "sourceType": "wall_back_corner_n",
+        "count": 1,
+        "candidateModules": [
+          "W09"
+        ]
+      },
+      {
+        "layer": "walls_back",
+        "gid": 116,
+        "sourceType": "wall_back_doorway",
+        "count": 12,
+        "candidateModules": [
+          "D01",
+          "D02",
+          "D03",
+          "D04"
+        ]
+      },
+      {
+        "layer": "walls_back",
+        "gid": 117,
+        "sourceType": "wall_back_ne",
+        "count": 77,
+        "candidateModules": [
+          "W01",
+          "W02",
+          "W03",
+          "W04"
+        ]
+      },
+      {
+        "layer": "walls_back",
+        "gid": 118,
+        "sourceType": "wall_back_nw",
+        "count": 116,
+        "candidateModules": [
+          "W01",
+          "W02",
+          "W03",
+          "W04"
+        ]
+      },
+      {
+        "layer": "walls_back",
+        "gid": 119,
+        "sourceType": "wall_back_window_day",
+        "count": 8,
+        "candidateModules": [
+          "G01",
+          "G02"
+        ]
+      },
+      {
+        "layer": "walls_front",
+        "gid": 121,
+        "sourceType": "wall_front_cutaway_corner_s",
+        "count": 2,
+        "candidateModules": [
+          "W10"
+        ]
+      },
+      {
+        "layer": "walls_front",
+        "gid": 122,
+        "sourceType": "wall_front_cutaway_doorway",
+        "count": 13,
+        "candidateModules": [
+          "D01",
+          "D02",
+          "D03",
+          "D04"
+        ]
+      },
+      {
+        "layer": "walls_front",
+        "gid": 123,
+        "sourceType": "wall_front_cutaway_se",
+        "count": 30,
+        "candidateModules": [
+          "W05",
+          "W06",
+          "W07",
+          "W08"
+        ]
+      },
+      {
+        "layer": "walls_front",
+        "gid": 124,
+        "sourceType": "wall_front_cutaway_sw",
+        "count": 113,
+        "candidateModules": [
+          "W05",
+          "W06",
+          "W07",
+          "W08"
+        ]
+      }
+    ],
+    "stage": "prompt inventory only; artwork generation, packing, assembly and visual/navigation QA remain",
+    "decorationExcluded": true,
+    "characterWorkDeferred": true,
+    "orientationMapping": "Candidate family only; choose and register the actual orientation against each map boundary during assembly."
+  }
+}

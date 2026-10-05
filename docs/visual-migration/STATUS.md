@@ -1,4 +1,12 @@
-# Status aktif — konsistensi karakter 2.5D, 5 Oktober 2026
+# Status aktif — foundation lingkungan general, 5 Oktober 2026
+
+User mengganti prioritas: lingkungan dasar seluruh kantor dahulu, dengan suasana Dot yang sama. Pekerjaan karakter, furniture, dekorasi dan penataan per ruang ditunda. Paket GPT web berisi 38 prompt (36 inti + dua partisi kaca opsional), delapan PNG referensi asli byte-identik dan dua diagram geometri/denah. Coverage map mencatat 19 jenis lantai, sembilan jenis wall, 17 zona, 133 slot dan 26 pintu. Paket 59 file / ZIP CRC dan hash diperiksa.
+
+Paket prompt selesai; **0/36 artwork foundation baru digenerate, belum dipasang**. User akan menghasilkan PNG di GPT web; tahap berikutnya packing/assembly global dan QA seam/alpha/geometri serta pintu/jalur. Semua asset inti harus benar-benar terpasang sebelum foundation dinyatakan 100%. [Paket dan panduan](ENVIRONMENT_FOUNDATION_PROMPT_PACK.md). Runtime dan susunan ruang pada preview tidak diubah dalam persiapan paket ini. Tidak ada push/deploy/VPS/worker/gateway change.
+
+---
+
+## Riwayat perbaikan konsistensi karakter 2.5D
 
 Default preview memakai AO_DOT_Z08_COMPONENTS_V2. Nova mendapat walk dan sit_type empat arah; Forge sit_type SE; 22 komponen ruangan terpasang. User memilih “Terapkan penataan baru dari Dot”: Guest dekat sisi utara, dua standing desk diganti sofa/TV dengan slot gaming dan collision yang nyata. Tiga workstation, batas ruang, 17 zona / 133 slot / 26 pintu tetap. Lihat [DOT_Z08_COMPONENTS_INTEGRATION.md](DOT_Z08_COMPONENTS_INTEGRATION.md).
 
