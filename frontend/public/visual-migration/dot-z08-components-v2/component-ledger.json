@@ -1,0 +1,833 @@
+{
+  "components": {
+    "doorframe-open-fall-right": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/doorframe-open-fall-right.png",
+      "sourceSha256": "1534429c2c07c5364d3af0beff81388d15ab1d5cb2d3a398e97e46307cd50842",
+      "crop": [
+        458,
+        80,
+        1050,
+        957
+      ],
+      "packedFile": "doorframe-open-fall-right.png",
+      "rasterSize": [
+        104,
+        154
+      ],
+      "rasterScale": 0.17567567567567569,
+      "pivotRaster": [
+        52.0,
+        129.2972972972973
+      ],
+      "pivotSourceProposal": [
+        754,
+        816
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "floor-oak-z08": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/floor-oak-z08.png",
+      "sourceSha256": "3f3f298c7bccde16412a8f01bf2c3726794231395f378eb0b29359ada5429dcc",
+      "crop": [
+        49,
+        46,
+        1527,
+        994
+      ],
+      "packedFile": "floor-oak-z08.png",
+      "rasterSize": [
+        1152,
+        739
+      ],
+      "rasterScale": 0.7794316644113667,
+      "pivotRaster": [
+        586.9120433017591,
+        6.2354533152909335
+      ],
+      "pivotSourceProposal": [
+        802,
+        54
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "pillar-corner-cyan": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/pillar-corner-cyan.png",
+      "sourceSha256": "4ae86f6e0f12b1530072b968b97ee532af2354ce06a1c356907547d4c381acbd",
+      "crop": [
+        508,
+        130,
+        747,
+        1130
+      ],
+      "packedFile": "pillar-corner-cyan.png",
+      "rasterSize": [
+        20,
+        84
+      ],
+      "rasterScale": 0.08368200836820083,
+      "pivotRaster": [
+        10.0418410041841,
+        79.8326359832636
+      ],
+      "pivotSourceProposal": [
+        628,
+        1084
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "wall-low-fall-right": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-low-fall-right.png",
+      "sourceSha256": "5f2ad543bfc3e96d58bfe5548343b10879b6e3553e48485eaeed4212648a49e3",
+      "crop": [
+        63,
+        61,
+        1432,
+        982
+      ],
+      "packedFile": "wall-low-fall-right.png",
+      "rasterSize": [
+        72,
+        48
+      ],
+      "rasterScale": 0.052593133674214754,
+      "pivotRaster": [
+        35.55295836376917,
+        29.504747991234478
+      ],
+      "pivotSourceProposal": [
+        739,
+        622
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "wall-low-rise-right": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-low-rise-right.png",
+      "sourceSha256": "5984c8932ce246f4352f6e6b44a193dd85c92fdf79a2551294cbf494dbd8f49e",
+      "crop": [
+        75,
+        24,
+        1572,
+        982
+      ],
+      "packedFile": "wall-low-rise-right.png",
+      "rasterSize": [
+        72,
+        46
+      ],
+      "rasterScale": 0.04809619238476954,
+      "pivotRaster": [
+        37.899799599198396,
+        29.14629258517034
+      ],
+      "pivotSourceProposal": [
+        863,
+        630
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "wall-tall-fall-right": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-tall-fall-right.png",
+      "sourceSha256": "94a7d56d0becb32719baf83b8f61864a77db141a1d0160b9f926da3320f69bea",
+      "crop": [
+        168,
+        41,
+        1356,
+        1023
+      ],
+      "packedFile": "wall-tall-fall-right.png",
+      "rasterSize": [
+        288,
+        238
+      ],
+      "rasterScale": 0.24242424242424243,
+      "pivotRaster": [
+        143.51515151515153,
+        161.93939393939394
+      ],
+      "pivotSourceProposal": [
+        760,
+        709
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "wall-tall-rise-right": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-tall-rise-right.png",
+      "sourceSha256": "845afda69f3002ff2f06c4a4f4f69a59081e27b5043bb534945eb97a878dbbca",
+      "crop": [
+        231,
+        71,
+        1304,
+        975
+      ],
+      "packedFile": "wall-tall-rise-right.png",
+      "rasterSize": [
+        288,
+        243
+      ],
+      "rasterScale": 0.2684063373718546,
+      "pivotRaster": [
+        146.0130475302889,
+        168.02236719478097
+      ],
+      "pivotSourceProposal": [
+        775,
+        697
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "Z08-architecture-board": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/decor/Z08-architecture-board.png",
+      "sourceSha256": "c6b98c632a7b401544990be634e0f74c34c24a32bd6cc029b28c6ba270229a97",
+      "crop": [
+        359,
+        53,
+        1187,
+        992
+      ],
+      "packedFile": "Z08-architecture-board.png",
+      "rasterSize": [
+        100,
+        113
+      ],
+      "rasterScale": 0.12077294685990338,
+      "pivotRaster": [
+        50.0,
+        112.56038647342994
+      ],
+      "pivotSourceProposal": [
+        773.0,
+        985
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": true
+    },
+    "Z08-desktop-plant": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/decor/Z08-desktop-plant.png",
+      "sourceSha256": "3558d0f92f5d8da0906cbc730ec8e0cf98409742225d7c034fc7713fea41e4b5",
+      "crop": [
+        233,
+        123,
+        1102,
+        1053
+      ],
+      "packedFile": "Z08-desktop-plant.png",
+      "rasterSize": [
+        28,
+        30
+      ],
+      "rasterScale": 0.03222094361334868,
+      "pivotRaster": [
+        14.000000000000002,
+        29.73993095512083
+      ],
+      "pivotSourceProposal": [
+        667.5,
+        1046
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": true
+    },
+    "Z08-framed-code-art": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/decor/Z08-framed-code-art.png",
+      "sourceSha256": "c5dbc7e7d0a62ee9f30980f1415015778cf09a9f0000b602b7c7d74712733069",
+      "crop": [
+        362,
+        75,
+        1002,
+        1124
+      ],
+      "packedFile": "Z08-framed-code-art.png",
+      "rasterSize": [
+        50,
+        82
+      ],
+      "rasterScale": 0.078125,
+      "pivotRaster": [
+        25.0,
+        81.40625
+      ],
+      "pivotSourceProposal": [
+        682.0,
+        1117
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": true
+    },
+    "Z08-kanban-board": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/decor/Z08-kanban-board.png",
+      "sourceSha256": "67474da0385560dcb187a4ec97fc132aafcdc1eb8aa1394d6f3b1701b28638d3",
+      "crop": [
+        367,
+        54,
+        1209,
+        987
+      ],
+      "packedFile": "Z08-kanban-board.png",
+      "rasterSize": [
+        96,
+        106
+      ],
+      "rasterScale": 0.11401425178147269,
+      "pivotRaster": [
+        48.0,
+        105.57719714964371
+      ],
+      "pivotSourceProposal": [
+        788.0,
+        980
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": true
+    },
+    "Z08-oak-wall-shelf": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/decor/Z08-oak-wall-shelf.png",
+      "sourceSha256": "23457deae807d9819d2cec6dbf3880d15264056bff7d5bae6f8414271d7040c3",
+      "crop": [
+        226,
+        84,
+        1201,
+        1089
+      ],
+      "packedFile": "Z08-oak-wall-shelf.png",
+      "rasterSize": [
+        100,
+        103
+      ],
+      "rasterScale": 0.10256410256410256,
+      "pivotRaster": [
+        50.0,
+        102.35897435897435
+      ],
+      "pivotSourceProposal": [
+        713.5,
+        1082
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": true
+    },
+    "console-playstation5-white-black": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/console-playstation5-white-black.png",
+      "sourceSha256": "cc9c2ee3f613c9d8d487f7c9c30ecdee8fad849b23547b7cea775b1445b7fab6",
+      "crop": [
+        381,
+        56,
+        949,
+        1081
+      ],
+      "packedFile": "console-playstation5-white-black.png",
+      "rasterSize": [
+        32,
+        58
+      ],
+      "rasterScale": 0.056338028169014086,
+      "pivotRaster": [
+        16.845070422535212,
+        52.61971830985916
+      ],
+      "pivotSourceProposal": [
+        680,
+        990
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "controller-dualsense-white-black": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/controller-dualsense-white-black.png",
+      "sourceSha256": "6cc53b7f4b225fb29b1e0a74e2d7d971914ab436bd632b0005078c89addd0cc8",
+      "crop": [
+        184,
+        82,
+        1302,
+        971
+      ],
+      "packedFile": "controller-dualsense-white-black.png",
+      "rasterSize": [
+        24,
+        19
+      ],
+      "rasterScale": 0.02146690518783542,
+      "pivotRaster": [
+        11.999999999999998,
+        18.933810375670838
+      ],
+      "pivotSourceProposal": [
+        743.0,
+        964
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": true
+    },
+    "media-cabinet-low-oak": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/media-cabinet-low-oak.png",
+      "sourceSha256": "95f962d49632a8f50e7971fe8951bd97a72d5f03e0466a00b61f49820586e9bf",
+      "crop": [
+        187,
+        87,
+        1409,
+        930
+      ],
+      "packedFile": "media-cabinet-low-oak.png",
+      "rasterSize": [
+        180,
+        124
+      ],
+      "rasterScale": 0.14729950900163666,
+      "pivotRaster": [
+        90.29459901800327,
+        80.7201309328969
+      ],
+      "pivotSourceProposal": [
+        800,
+        635
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "rug-muted-teal": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/rug-muted-teal.png",
+      "sourceSha256": "92a106bab3c2054a2ca678fd4c8630842c46ad3a33a3a351696f6dbc99dfd24c",
+      "crop": [
+        29,
+        53,
+        1545,
+        957
+      ],
+      "packedFile": "rug-muted-teal.png",
+      "rasterSize": [
+        360,
+        215
+      ],
+      "rasterScale": 0.23746701846965698,
+      "pivotRaster": [
+        179.52506596306068,
+        107.33509234828496
+      ],
+      "pivotSourceProposal": [
+        785,
+        505
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "sofa-charcoal-facing-tv": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/sofa-charcoal-facing-tv.png",
+      "sourceSha256": "d706cd5d05a2c83229a0fa11178deda66bef8b021fc73dc044661c379147d77e",
+      "crop": [
+        277,
+        129,
+        1277,
+        954
+      ],
+      "packedFile": "sofa-charcoal-facing-tv.png",
+      "rasterSize": [
+        200,
+        165
+      ],
+      "rasterScale": 0.2,
+      "pivotRaster": [
+        98.60000000000001,
+        108.2
+      ],
+      "pivotSourceProposal": [
+        770,
+        670
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "tv-multiplayer-screen": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/tv-multiplayer-screen.png",
+      "sourceSha256": "237b24bf8015328ba1ed574b57ee36fec36dbe568a708803dbbd8312b70f5598",
+      "crop": [
+        396,
+        35,
+        1207,
+        935
+      ],
+      "packedFile": "tv-multiplayer-screen.png",
+      "rasterSize": [
+        170,
+        189
+      ],
+      "rasterScale": 0.2096177558569667,
+      "pivotRaster": [
+        77.34895191122071,
+        150.92478421701603
+      ],
+      "pivotSourceProposal": [
+        765,
+        755
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "Z08-guest-chair-NE": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/workstations/Z08-guest-chair-NE.png",
+      "sourceSha256": "c8b70091dfb3fbd23d79ab8839e7e1faf62f79d769ff3e6e2114ef191d14e23a",
+      "crop": [
+        360,
+        196,
+        1132,
+        1007
+      ],
+      "packedFile": "Z08-guest-chair-NE.png",
+      "rasterSize": [
+        72,
+        76
+      ],
+      "rasterScale": 0.09326424870466321,
+      "pivotRaster": [
+        36.0,
+        55.67875647668394
+      ],
+      "pivotSourceProposal": [
+        746,
+        793
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "Z08-guest-desk": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/workstations/Z08-guest-desk.png",
+      "sourceSha256": "e92ff20e82e90bc5e9b714a1bdd866ddd6531920583f436d8684d7f291631536",
+      "crop": [
+        313,
+        132,
+        1208,
+        928
+      ],
+      "packedFile": "Z08-guest-desk.png",
+      "rasterSize": [
+        120,
+        107
+      ],
+      "rasterScale": 0.1340782122905028,
+      "pivotRaster": [
+        59.66480446927374,
+        76.29050279329608
+      ],
+      "pivotSourceProposal": [
+        758,
+        701
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "Z08-worker-chair-SE": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/workstations/Z08-worker-chair-SE.png",
+      "sourceSha256": "f3fe3923ff345f0b74946cb77231f8610ff4c2612b49e1500aab07b3e2ca4276",
+      "crop": [
+        503,
+        77,
+        1055,
+        973
+      ],
+      "packedFile": "Z08-worker-chair-SE.png",
+      "rasterSize": [
+        80,
+        130
+      ],
+      "rasterScale": 0.14492753623188406,
+      "pivotRaster": [
+        38.98550724637681,
+        112.02898550724638
+      ],
+      "pivotSourceProposal": [
+        772,
+        850
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    },
+    "Z08-worker-desk": {
+      "source": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/workstations/Z08-worker-desk.png",
+      "sourceSha256": "da49b5db0957049ce43d20d889ad62102470b59e5fc901ea128c82d36fbdf2c4",
+      "crop": [
+        299,
+        84,
+        1275,
+        934
+      ],
+      "packedFile": "Z08-worker-desk.png",
+      "rasterSize": [
+        160,
+        139
+      ],
+      "rasterScale": 0.16393442622950818,
+      "pivotRaster": [
+        80.49180327868852,
+        101.80327868852459
+      ],
+      "pivotSourceProposal": [
+        790,
+        705
+      ],
+      "pivotStatus": "candidate registration; browser QA pending",
+      "sourceAnchorWasNull": false
+    }
+  },
+  "usedComponentIds": [
+    "Z08-architecture-board",
+    "Z08-desktop-plant",
+    "Z08-framed-code-art",
+    "Z08-guest-chair-NE",
+    "Z08-guest-desk",
+    "Z08-kanban-board",
+    "Z08-oak-wall-shelf",
+    "Z08-worker-chair-SE",
+    "Z08-worker-desk",
+    "console-playstation5-white-black",
+    "controller-dualsense-white-black",
+    "doorframe-open-fall-right",
+    "floor-oak-z08",
+    "media-cabinet-low-oak",
+    "pillar-corner-cyan",
+    "rug-muted-teal",
+    "sofa-charcoal-facing-tv",
+    "tv-multiplayer-screen",
+    "wall-low-fall-right",
+    "wall-low-rise-right",
+    "wall-tall-fall-right",
+    "wall-tall-rise-right"
+  ],
+  "partitions": {
+    "workerDesk": {
+      "rear": "/visual-migration/dot-z08-components-v2/components/worker-desk-rear.png",
+      "front": "/visual-migration/dot-z08-components-v2/components/worker-desk-front.png",
+      "sourcePolygons": [
+        [
+          [
+            305,
+            493
+          ],
+          [
+            541,
+            635
+          ],
+          [
+            1269,
+            285
+          ],
+          [
+            1536,
+            285
+          ],
+          [
+            1536,
+            1024
+          ],
+          [
+            0,
+            1024
+          ],
+          [
+            0,
+            493
+          ]
+        ],
+        [
+          [
+            305,
+            493
+          ],
+          [
+            1040,
+            152
+          ],
+          [
+            1269,
+            285
+          ],
+          [
+            541,
+            635
+          ]
+        ],
+        [
+          [
+            674,
+            260
+          ],
+          [
+            1037,
+            87
+          ],
+          [
+            1037,
+            288
+          ],
+          [
+            674,
+            447
+          ]
+        ],
+        [
+          [
+            777,
+            419
+          ],
+          [
+            964,
+            350
+          ],
+          [
+            964,
+            428
+          ],
+          [
+            866,
+            456
+          ]
+        ]
+      ],
+      "visiblePixelsAndAlphaPartitionVerified": true
+    },
+    "sofa": {
+      "rear": "/visual-migration/dot-z08-components-v2/components/sofa-rear.png",
+      "front": "/visual-migration/dot-z08-components-v2/components/sofa-front.png",
+      "sourcePolygons": [
+        [
+          [
+            333,
+            220
+          ],
+          [
+            897,
+            565
+          ],
+          [
+            897,
+            868
+          ],
+          [
+            333,
+            532
+          ]
+        ],
+        [
+          [
+            918,
+            648
+          ],
+          [
+            1267,
+            449
+          ],
+          [
+            1267,
+            776
+          ],
+          [
+            918,
+            940
+          ]
+        ]
+      ],
+      "visiblePixelsAndAlphaPartitionVerified": true
+    }
+  },
+  "groundRegistrations": [
+    {
+      "component": "floor-oak-z08",
+      "file": "/visual-migration/dot-z08-components-v2/components/registered-z08-floor.png",
+      "bounds": {
+        "x": 960.0,
+        "y": 464.0,
+        "width": 576.0,
+        "height": 288.0
+      },
+      "sourceCorners": [
+        [
+          801.0,
+          52
+        ],
+        [
+          1520,
+          522.5
+        ],
+        [
+          713.0,
+          987
+        ],
+        [
+          55,
+          497.5
+        ]
+      ],
+      "worldCorners": [
+        [
+          1280.0,
+          464.0
+        ],
+        [
+          1536.0,
+          592.0
+        ],
+        [
+          1216.0,
+          752.0
+        ],
+        [
+          960.0,
+          624.0
+        ]
+      ],
+      "method": "four-corner perspective registration to unchanged logical grid"
+    },
+    {
+      "component": "rug-muted-teal",
+      "file": "/visual-migration/dot-z08-components-v2/components/registered-gaming-rug.png",
+      "bounds": {
+        "x": 1100.8000000000002,
+        "y": 569.6,
+        "width": 265.5,
+        "height": 133.0
+      },
+      "sourceCorners": [
+        [
+          601.0,
+          59
+        ],
+        [
+          1538,
+          628.0
+        ],
+        [
+          961.0,
+          950
+        ],
+        [
+          35,
+          365.0
+        ]
+      ],
+      "worldCorners": [
+        [
+          1248.0,
+          569.6
+        ],
+        [
+          1366.4,
+          628.8
+        ],
+        [
+          1219.2,
+          702.4
+        ],
+        [
+          1100.8000000000002,
+          643.2
+        ]
+      ],
+      "method": "four-corner perspective registration to unchanged logical grid"
+    }
+  ],
+  "browserQA": false
+}

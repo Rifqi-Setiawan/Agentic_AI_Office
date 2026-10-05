@@ -1,0 +1,4 @@
+Built-in imagegen, one call per individual asset with approved Z08 v3 reference and transparent_background=true. All files are native unedited outputs.
+Tall walls: muted blue-gray three-panel bay; charcoal top/base; opposing rise-right/fall-right orientations. Low walls: same palette with shallow foreground cutaway proportions. Pillar: square post, cyan inner accent. Doorframe: open transparent portal, fall-right orientation, no threshold. Floor: empty warm oak panel with no walls/furniture; exact map corner registration is not guaranteed.
+Every prompt requested polished hand-painted 2D, fixed 2:1 isometric camera, no photoreal/3D/coarse pixel style, no background/glow/floor plane beyond requested asset.
+Tall-rise-right cleanup trial was discarded after alpha sampling showed the original preview haze was already invisible. The original first output is shipped. Native alpha and RGB have not been modified.

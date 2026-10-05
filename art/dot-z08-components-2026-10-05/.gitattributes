@@ -1,0 +1,3 @@
+# Preserve imported artwork metadata and the map backup byte-for-byte.
+/sources/** -text
+/layout-before.tmj -text

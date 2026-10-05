@@ -1,0 +1,67 @@
+{
+  "sequence": [
+    "0",
+    "1"
+  ],
+  "fps_recommendation": 4,
+  "loop": "0,1,0,1",
+  "note": "Two-pose typing loop. Distinct alternating wrist/finger motion. Fullbody transparent PNG no furniture. Original generated pixels preserved. Small 1\u20132px silhouette drift; not pixel-perfect or runtime validated. Do not auto-trim each frame.",
+  "frames": [
+    {
+      "file": "forge_sit_type_se_0.png",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "alpha_bbox_128": [
+        382,
+        127,
+        958,
+        1140
+      ],
+      "suggested_ground_y": 1140
+    },
+    {
+      "file": "forge_sit_type_se_1.png",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "alpha_bbox_128": [
+        381,
+        128,
+        952,
+        1140
+      ],
+      "suggested_ground_y": 1140
+    },
+    {
+      "file": "nova_sit_type_se_0.png",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "alpha_bbox_128": [
+        325,
+        118,
+        959,
+        1164
+      ],
+      "suggested_ground_y": 1164
+    },
+    {
+      "file": "nova_sit_type_se_1.png",
+      "canvas": [
+        1254,
+        1254
+      ],
+      "alpha_bbox_128": [
+        324,
+        116,
+        949,
+        1165
+      ],
+      "suggested_ground_y": 1165
+    }
+  ]
+}

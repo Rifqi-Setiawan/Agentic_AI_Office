@@ -1,8 +1,11 @@
 {
-  "logicalHash": "8e45a9092b7424b8a3a550f6add8d837e3fb8495b5c50ad684a072b65abfa897",
+  "logicalHash": "07c61e2b9effbf162fe0418558f922e1dd43909af58245cf24d934e1d136e88b",
   "differences": {},
   "approvedAdjustments": [
-    "z08-separate-guest-hotdesk"
+    "z08-separate-guest-hotdesk",
+    "z08-dot-gaming-layout-guest",
+    "z08-dot-gaming-layout-seat-1",
+    "z08-dot-gaming-layout-seat-2"
   ],
   "approvalRecord": "docs/visual-migration/approved-layout-adjustments.json",
   "originalBaselineDifferences": [
@@ -12,5 +15,5 @@
   "zones": 17,
   "slots": 133,
   "doors": 26,
-  "mapSha256": "befa52bc1060f7cc699484fea39d2e1827821a83cbca663dc10825afd3838de5"
+  "mapSha256": "9a9bc468e345658b349923f4ae8dc696397bb929c69688b350ee74e6b610ef0e"
 }

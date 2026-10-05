@@ -182,8 +182,8 @@ export const AGENT_SPAWN_DEFS: AgentSpawnDef[] = [
     role: 'Pengunjung Kantor',
     signatureColor: '#9CA8B8',
     defaultSlotId: 'slot_z08_desk_guest',
-    fallbackGx: 21,
-    fallbackGy: 15,
-    fallbackFacing: 'SE',
+    fallbackGx: 22,
+    fallbackGy: 12,
+    fallbackFacing: 'NE',
   },
 ];

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "styleVersion": "AO_DOT_Z08_CANDIDATE",
+  "styleVersion": "AO_DOT_Z08_COMPONENTS_V2",
   "finalArt": false,
   "productionMethod": "built-in imagegen, mechanical sprite packing, React/CSS composition",
   "supersedes": "Blender/native-render/2312-frame production requirement; historical files retained",
@@ -19,7 +19,7 @@
     ],
     "exportScale": 2
   },
-  "mapSha256": "befa52bc1060f7cc699484fea39d2e1827821a83cbca663dc10825afd3838de5",
+  "mapSha256": "9a9bc468e345658b349923f4ae8dc696397bb929c69688b350ee74e6b610ef0e",
   "directions": [
     "se",
     "sw",
@@ -199,7 +199,7 @@
     {
       "id": "forge",
       "identitySource": "docs/blueprint/03-character-design-spec.md",
-      "status": "candidate: four idle views supplied; other actions remain baseline",
+      "status": "candidate: idle four views and two typing SE frames; other actions baseline",
       "requiredActions": [
         "idle",
         "walk",
@@ -223,14 +223,17 @@
           "ne",
           "nw"
         ],
+        "sit_type": {
+          "se": 2
+        },
         "walk": "pending; baseline fallback",
-        "sit_type": "pending; baseline fallback"
+        "browserQA": false
       }
     },
     {
       "id": "nova",
       "identitySource": "docs/blueprint/03-character-design-spec.md",
-      "status": "candidate: four idle views supplied; other actions remain baseline",
+      "status": "candidate: idle four views, walk four and sit_type two frames per direction; other actions baseline",
       "requiredActions": [
         "idle",
         "walk",
@@ -254,8 +257,19 @@
           "ne",
           "nw"
         ],
-        "walk": "pending; baseline fallback",
-        "sit_type": "pending; baseline fallback"
+        "walk": {
+          "se": 4,
+          "sw": 4,
+          "ne": 4,
+          "nw": 4
+        },
+        "sit_type": {
+          "se": 2,
+          "sw": 2,
+          "ne": 2,
+          "nw": 2
+        },
+        "browserQA": false
       }
     },
     {
@@ -1221,36 +1235,36 @@
           "id": "slot_z08_desk_guest",
           "type": "desk:guest",
           "capacity": 1,
-          "facing": "SE",
+          "facing": "NE",
           "anim": "sit_type",
           "y_offset": -6,
           "zone": "Z08",
-          "gx": 21,
-          "gy": 15
+          "gx": 22,
+          "gy": 12
         },
         {
           "objectId": 46,
-          "id": "slot_z08_pair_1",
-          "type": "pair_stand",
+          "id": "slot_z08_gaming_1",
+          "type": "dev_gaming_seat",
           "capacity": 1,
-          "facing": "NW",
-          "anim": "stand_talk",
-          "y_offset": 0,
+          "facing": "NE",
+          "anim": "game",
+          "y_offset": -4,
           "zone": "Z08",
-          "gx": 21,
-          "gy": 13
+          "gx": 19,
+          "gy": 16
         },
         {
           "objectId": 47,
-          "id": "slot_z08_pair_2",
-          "type": "pair_stand",
+          "id": "slot_z08_gaming_2",
+          "type": "dev_gaming_seat",
           "capacity": 1,
-          "facing": "NW",
-          "anim": "stand_talk",
-          "y_offset": 0,
+          "facing": "NE",
+          "anim": "game",
+          "y_offset": -4,
           "zone": "Z08",
-          "gx": 21,
-          "gy": 17
+          "gx": 20,
+          "gy": 16
         }
       ],
       "doors": [
@@ -1279,7 +1293,7 @@
           "gy": 14
         }
       ],
-      "status": "Dot desk/chair candidate installed; existing layout unchanged; revised room layout being prepared by Dot",
+      "status": "Dot components v2 assembled as local candidate; layout human-approved; browser QA pending",
       "layers": [
         "floor",
         "low cutaway wall pieces",
@@ -2706,5 +2720,5 @@
     "real provenance/freshness/redaction retained"
   ],
   "approvedLayoutAdjustments": "docs/visual-migration/approved-layout-adjustments.json",
-  "supplementalSourcesIndex": "art/dot-assets-2026-10-05/source-index.json"
+  "supplementalSourcesIndex": "art/dot-z08-components-2026-10-05/source-index.json"
 }

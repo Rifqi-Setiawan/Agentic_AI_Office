@@ -1,0 +1,24 @@
+{
+  "sourceFilesHashVerified": 74,
+  "newFrames": 26,
+  "newFrameMaxEdgeAlpha": 0,
+  "atlasFrames": {
+    "nova": 28,
+    "forge": 6
+  },
+  "props": 546,
+  "uniquePropIds": true,
+  "rasterBoundsVerified": true,
+  "publicFilesEqualDistFiles": 61,
+  "http": {
+    "src/world/scene/OfficeScene.tsx": 200,
+    "maps/floor1.tmj": 200,
+    "visual-migration/dot-z08-components-v2/assets.json": 200,
+    "visual-migration/dot-z08-components-v2/nova.json": 200,
+    "visual-migration/dot-z08-components-v2/forge.png": 200,
+    "visual-migration/dot-z08-components-v2/components/registered-z08-floor.png": 200
+  },
+  "mapSha256": "9a9bc468e345658b349923f4ae8dc696397bb929c69688b350ee74e6b610ef0e",
+  "assetsSha256": "3bef372c5ec8f992f9e6201733ab83f49733c26781b16e7c9c07c2417b9b742e",
+  "browserQA": false
+}

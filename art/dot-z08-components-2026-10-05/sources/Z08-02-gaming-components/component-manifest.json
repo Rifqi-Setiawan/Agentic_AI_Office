@@ -1,0 +1,718 @@
+{
+  "schemaVersion": 1,
+  "approvedRoom": "Z08 full-room v3 / Library libfile_a6fd0892354c8191b584b5b65e650f4e version2",
+  "assetCount": 22,
+  "imagegenMode": "built-in",
+  "pixelEditsApplied": false,
+  "registrationStatus": "not registered; sourceSize/alpha/checksums measured, pivots proposals only",
+  "assets": [
+    {
+      "id": "doorframe-open-fall-right",
+      "file": "architecture/doorframe-open-fall-right.png",
+      "sourceSize": [
+        1504,
+        1046
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 1358360,
+      "fullyOpaquePixelCount": 480,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        0,
+        21,
+        1402,
+        1020
+      ],
+      "sha256": "1534429c2c07c5364d3af0beff81388d15ab1d5cb2d3a398e97e46307cd50842",
+      "anchorProposalPx": [
+        754,
+        816
+      ],
+      "anchorMeaning": "midpoint between jamb ground contact centers",
+      "anchorStatus": "uncalibrated visual proposal",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "floor-oak-z08",
+      "file": "architecture/floor-oak-z08.png",
+      "sourceSize": [
+        1576,
+        998
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 869806,
+      "fullyOpaquePixelCount": 1027,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        50,
+        31,
+        1526,
+        998
+      ],
+      "sha256": "3f3f298c7bccde16412a8f01bf2c3726794231395f378eb0b29359ada5429dcc",
+      "anchorProposalPx": [
+        802,
+        54
+      ],
+      "anchorMeaning": "far/top floor corner; four-corner registration required",
+      "anchorStatus": "uncalibrated visual proposal",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "pillar-corner-cyan",
+      "file": "architecture/pillar-corner-cyan.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 1358930,
+      "fullyOpaquePixelCount": 1533,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        97,
+        79,
+        1218,
+        1182
+      ],
+      "sha256": "4ae86f6e0f12b1530072b968b97ee532af2354ce06a1c356907547d4c381acbd",
+      "anchorProposalPx": [
+        628,
+        1084
+      ],
+      "anchorMeaning": "projected center of post base",
+      "anchorStatus": "uncalibrated visual proposal",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "wall-low-fall-right",
+      "file": "architecture/wall-low-fall-right.png",
+      "sourceSize": [
+        1601,
+        982
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 1212495,
+      "fullyOpaquePixelCount": 1112,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        0,
+        21,
+        1571,
+        982
+      ],
+      "sha256": "5f2ad543bfc3e96d58bfe5548343b10879b6e3553e48485eaeed4212648a49e3",
+      "anchorProposalPx": [
+        739,
+        622
+      ],
+      "anchorMeaning": "midpoint of visible ground contact line",
+      "anchorStatus": "uncalibrated visual proposal",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "wall-low-rise-right",
+      "file": "architecture/wall-low-rise-right.png",
+      "sourceSize": [
+        1601,
+        982
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 1108595,
+      "fullyOpaquePixelCount": 1400,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        73,
+        26,
+        1573,
+        982
+      ],
+      "sha256": "5984c8932ce246f4352f6e6b44a193dd85c92fdf79a2551294cbf494dbd8f49e",
+      "anchorProposalPx": [
+        863,
+        630
+      ],
+      "anchorMeaning": "midpoint of visible ground contact line",
+      "anchorStatus": "uncalibrated visual proposal",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "wall-tall-fall-right",
+      "file": "architecture/wall-tall-fall-right.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixelCount": 1094915,
+      "fullyOpaquePixelCount": 0,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        0,
+        45,
+        1355,
+        1024
+      ],
+      "sha256": "94a7d56d0becb32719baf83b8f61864a77db141a1d0160b9f926da3320f69bea",
+      "anchorProposalPx": [
+        760,
+        709
+      ],
+      "anchorMeaning": "midpoint of visible ground contact line",
+      "anchorStatus": "uncalibrated visual proposal",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "wall-tall-rise-right",
+      "file": "architecture/wall-tall-rise-right.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixelCount": 1115239,
+      "fullyOpaquePixelCount": 0,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        225,
+        74,
+        1301,
+        973
+      ],
+      "sha256": "845afda69f3002ff2f06c4a4f4f69a59081e27b5043bb534945eb97a878dbbca",
+      "anchorProposalPx": [
+        775,
+        697
+      ],
+      "anchorMeaning": "midpoint of visible ground contact line",
+      "anchorStatus": "uncalibrated visual proposal",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "Z08-architecture-board",
+      "file": "decor/Z08-architecture-board.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixelCount": 1071403,
+      "fullyOpaquePixelCount": 0,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        0,
+        32,
+        1344,
+        1024
+      ],
+      "sha256": "c6b98c632a7b401544990be634e0f74c34c24a32bd6cc029b28c6ba270229a97",
+      "anchorProposalPx": null,
+      "anchorMeaning": "must measure semantic contact pivot during assembly",
+      "anchorStatus": "not measured",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "Z08-desktop-plant",
+      "file": "decor/Z08-desktop-plant.png",
+      "sourceSize": [
+        1278,
+        1230
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 1173556,
+      "fullyOpaquePixelCount": 1031,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        74,
+        126,
+        1100,
+        1147
+      ],
+      "sha256": "3558d0f92f5d8da0906cbc730ec8e0cf98409742225d7c034fc7713fea41e4b5",
+      "anchorProposalPx": null,
+      "anchorMeaning": "must measure semantic contact pivot during assembly",
+      "anchorStatus": "not measured",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "Z08-framed-code-art",
+      "file": "decor/Z08-framed-code-art.png",
+      "sourceSize": [
+        1347,
+        1167
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 1043244,
+      "fullyOpaquePixelCount": 1097,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        233,
+        79,
+        1165,
+        1121
+      ],
+      "sha256": "c5dbc7e7d0a62ee9f30980f1415015778cf09a9f0000b602b7c7d74712733069",
+      "anchorProposalPx": null,
+      "anchorMeaning": "must measure semantic contact pivot during assembly",
+      "anchorStatus": "not measured",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "Z08-kanban-board",
+      "file": "decor/Z08-kanban-board.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixelCount": 1093306,
+      "fullyOpaquePixelCount": 0,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        65,
+        58,
+        1344,
+        984
+      ],
+      "sha256": "67474da0385560dcb187a4ec97fc132aafcdc1eb8aa1394d6f3b1701b28638d3",
+      "anchorProposalPx": null,
+      "anchorMeaning": "must measure semantic contact pivot during assembly",
+      "anchorStatus": "not measured",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "Z08-oak-wall-shelf",
+      "file": "decor/Z08-oak-wall-shelf.png",
+      "sourceSize": [
+        1384,
+        1136
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 1203193,
+      "fullyOpaquePixelCount": 840,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        33,
+        19,
+        1284,
+        1136
+      ],
+      "sha256": "23457deae807d9819d2cec6dbf3880d15264056bff7d5bae6f8414271d7040c3",
+      "anchorProposalPx": null,
+      "anchorMeaning": "must measure semantic contact pivot during assembly",
+      "anchorStatus": "not measured",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "console-playstation5-white-black",
+      "file": "gaming/console-playstation5-white-black.png",
+      "sourceSize": [
+        1308,
+        1203
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 1118541,
+      "fullyOpaquePixelCount": 1169,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        23,
+        53,
+        1284,
+        1203
+      ],
+      "sha256": "cc9c2ee3f613c9d8d487f7c9c30ecdee8fad849b23547b7cea775b1445b7fab6",
+      "anchorProposalPx": [
+        680,
+        990
+      ],
+      "anchorMeaning": "base surface contact center",
+      "anchorStatus": "uncalibrated visual proposal, moderate confidence",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "controller-dualsense-white-black",
+      "file": "gaming/controller-dualsense-white-black.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixelCount": 1043955,
+      "fullyOpaquePixelCount": 0,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        0,
+        38,
+        1338,
+        970
+      ],
+      "sha256": "6cc53b7f4b225fb29b1e0a74e2d7d971914ab436bd632b0005078c89addd0cc8",
+      "anchorProposalPx": null,
+      "anchorMeaning": "must measure semantic contact pivot during assembly",
+      "anchorStatus": "not measured",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "media-cabinet-low-oak",
+      "file": "gaming/media-cabinet-low-oak.png",
+      "sourceSize": [
+        1601,
+        982
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 1099278,
+      "fullyOpaquePixelCount": 1245,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        0,
+        37,
+        1501,
+        927
+      ],
+      "sha256": "95f962d49632a8f50e7971fe8951bd97a72d5f03e0466a00b61f49820586e9bf",
+      "anchorProposalPx": [
+        800,
+        635
+      ],
+      "anchorMeaning": "ground footprint center",
+      "anchorStatus": "uncalibrated visual proposal, moderate confidence",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "rug-muted-teal",
+      "file": "gaming/rug-muted-teal.png",
+      "sourceSize": [
+        1601,
+        982
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 929746,
+      "fullyOpaquePixelCount": 924,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        0,
+        32,
+        1541,
+        954
+      ],
+      "sha256": "92a106bab3c2054a2ca678fd4c8630842c46ad3a33a3a351696f6dbc99dfd24c",
+      "anchorProposalPx": [
+        785,
+        505
+      ],
+      "anchorMeaning": "ground footprint center",
+      "anchorStatus": "uncalibrated visual proposal, moderate confidence",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "sofa-charcoal-facing-tv",
+      "file": "gaming/sofa-charcoal-facing-tv.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixelCount": 1131824,
+      "fullyOpaquePixelCount": 0,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        71,
+        21,
+        1458,
+        961
+      ],
+      "sha256": "d706cd5d05a2c83229a0fa11178deda66bef8b021fc73dc044661c379147d77e",
+      "anchorProposalPx": [
+        770,
+        670
+      ],
+      "anchorMeaning": "ground footprint center",
+      "anchorStatus": "uncalibrated visual proposal, moderate confidence",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "tv-multiplayer-screen",
+      "file": "gaming/tv-multiplayer-screen.png",
+      "sourceSize": [
+        1602,
+        982
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 1128718,
+      "fullyOpaquePixelCount": 1452,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        0,
+        32,
+        1500,
+        957
+      ],
+      "sha256": "237b24bf8015328ba1ed574b57ee36fec36dbe568a708803dbbd8312b70f5598",
+      "anchorProposalPx": [
+        765,
+        755
+      ],
+      "anchorMeaning": "stand surface contact center",
+      "anchorStatus": "uncalibrated visual proposal, moderate confidence",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "Z08-guest-chair-NE",
+      "file": "workstations/Z08-guest-chair-NE.png",
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "transparentPixelCount": 1280530,
+      "fullyOpaquePixelCount": 1570,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        72,
+        20,
+        1353,
+        1044
+      ],
+      "sha256": "c8b70091dfb3fbd23d79ab8839e7e1faf62f79d769ff3e6e2114ef191d14e23a",
+      "anchorProposalPx": [
+        746,
+        793
+      ],
+      "anchorMeaning": "sled footprint center",
+      "anchorStatus": "uncalibrated visual proposal, moderate confidence",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "Z08-guest-desk",
+      "file": "workstations/Z08-guest-desk.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixelCount": 1281607,
+      "fullyOpaquePixelCount": 0,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        316,
+        39,
+        1322,
+        952
+      ],
+      "sha256": "e92ff20e82e90bc5e9b714a1bdd866ddd6531920583f436d8684d7f291631536",
+      "anchorProposalPx": [
+        758,
+        701
+      ],
+      "anchorMeaning": "ground footprint center",
+      "anchorStatus": "uncalibrated visual proposal, moderate confidence",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "Z08-worker-chair-SE",
+      "file": "workstations/Z08-worker-chair-SE.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixelCount": 1287045,
+      "fullyOpaquePixelCount": 0,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        65,
+        37,
+        1055,
+        1008
+      ],
+      "sha256": "f3fe3923ff345f0b74946cb77231f8610ff4c2612b49e1500aab07b3e2ca4276",
+      "anchorProposalPx": [
+        772,
+        850
+      ],
+      "anchorMeaning": "floor under swivel hub",
+      "anchorStatus": "uncalibrated visual proposal, moderate confidence",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    },
+    {
+      "id": "Z08-worker-desk",
+      "file": "workstations/Z08-worker-desk.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "transparentPixelCount": 1172899,
+      "fullyOpaquePixelCount": 0,
+      "alphaNonzeroBoundsMeasuredOnly": [
+        65,
+        35,
+        1436,
+        1000
+      ],
+      "sha256": "da49b5db0957049ce43d20d889ad62102470b59e5fc901ea128c82d36fbdf2c4",
+      "anchorProposalPx": [
+        790,
+        705
+      ],
+      "anchorMeaning": "ground footprint center",
+      "anchorStatus": "uncalibrated visual proposal, moderate confidence",
+      "exportScale": null,
+      "cropRect": null,
+      "physicalScaleStatus": "not calibrated",
+      "generatedRedraw": true,
+      "occlusionSlicesIncluded": false
+    }
+  ]
+}

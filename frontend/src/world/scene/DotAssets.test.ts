@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { createHash } from 'node:crypto';
 import { resolveActorAnimation, type DepthProp, type PreviewAssets, type SpriteAtlas } from './AssetRegistry';
 
 const publicRoot = path.resolve(__dirname, '../../../public');
@@ -43,8 +42,8 @@ describe('supplied Dot assets in the real renderer manifests', () => {
 
   it('keeps the current layout, floor, depth and slots while replacing only Z08 desk/chair art', () => {
     const previous = read<PreviewAssets>('visual-migration/illustrated-z08-v3/assets.json');
-    const mapHash = createHash('sha256').update(fs.readFileSync(path.join(publicRoot, 'maps/floor1.tmj'))).digest('hex');
-    expect(candidate.logicalMapSha256).toBe(mapHash);
+    // The v1 art is a historical snapshot, before the approved gaming arrangement.
+    expect(candidate.logicalMapSha256).toBe(previous.logicalMapSha256);
     expect(candidate.floor).toEqual(previous.floor);
     expect(candidate.props.length).toBe(previous.props.length);
     const artKeys = new Set(['bounds', 'file', 'artKind']);

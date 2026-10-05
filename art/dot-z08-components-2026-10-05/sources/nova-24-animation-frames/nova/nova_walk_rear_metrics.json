@@ -1,0 +1,194 @@
+[
+  {
+    "file": "nova_walk_ne_0.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox_alpha_gt_128": [
+      334,
+      61,
+      957,
+      1203
+    ],
+    "upper_520_alpha_centroid": [
+      643.88,
+      312.58
+    ],
+    "transparent_pixels": 1137936,
+    "sha256": "ab17b5a1846f5689019284a8b54ae5b2c53e8cb43ba1781787e204bd3881a4b3"
+  },
+  {
+    "file": "nova_walk_ne_1.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox_alpha_gt_128": [
+      332,
+      60,
+      929,
+      1189
+    ],
+    "upper_520_alpha_centroid": [
+      644.82,
+      312.33
+    ],
+    "transparent_pixels": 1183862,
+    "sha256": "c0671de5ee17645eefae9dc920a451f0497a8f4c697065f09ec1ced22266d52f"
+  },
+  {
+    "file": "nova_walk_ne_2.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox_alpha_gt_128": [
+      332,
+      61,
+      959,
+      1208
+    ],
+    "upper_520_alpha_centroid": [
+      644.34,
+      312.62
+    ],
+    "transparent_pixels": 1162130,
+    "sha256": "0b837cf7e400a58bd202b55183d957fcdc855fc9db0b99ad9959180811da9fc6"
+  },
+  {
+    "file": "nova_walk_ne_3.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox_alpha_gt_128": [
+      332,
+      61,
+      915,
+      1163
+    ],
+    "upper_520_alpha_centroid": [
+      644.71,
+      312.78
+    ],
+    "transparent_pixels": 1194972,
+    "sha256": "33ef368bf8c1f5d5cafdade625f5e7cb0346a9c80d1b26e3f4937006701cb852"
+  },
+  {
+    "file": "nova_walk_nw_0.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox_alpha_gt_128": [
+      364,
+      63,
+      939,
+      1208
+    ],
+    "upper_520_alpha_centroid": [
+      631.92,
+      314.96
+    ],
+    "transparent_pixels": 1159470,
+    "sha256": "16201f0dba0b5e6bab457a7c1173f13d3ace155679f0c2196b7c10d7f3294e56"
+  },
+  {
+    "file": "nova_walk_nw_1.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox_alpha_gt_128": [
+      364,
+      63,
+      940,
+      1182
+    ],
+    "upper_520_alpha_centroid": [
+      631.96,
+      314.9
+    ],
+    "transparent_pixels": 1184121,
+    "sha256": "33fd62d87a7a0242132daed8beb863e68908d4bed9afcf2b8df9b6cb5e54008d"
+  },
+  {
+    "file": "nova_walk_nw_2.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox_alpha_gt_128": [
+      364,
+      63,
+      940,
+      1210
+    ],
+    "upper_520_alpha_centroid": [
+      632.15,
+      314.98
+    ],
+    "transparent_pixels": 1175621,
+    "sha256": "dfeab4582403a6ceba5b6d5ee20dbfb5d5939fbe34f55c45de80ade228e93e78"
+  },
+  {
+    "file": "nova_walk_nw_3.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox_alpha_gt_128": [
+      363,
+      64,
+      942,
+      1192
+    ],
+    "upper_520_alpha_centroid": [
+      632.03,
+      315.07
+    ],
+    "transparent_pixels": 1190869,
+    "sha256": "c22d5f8e79b49408452da8bd701a45f9ab4ef795d59926bebaffaca56fef96d2"
+  }
+]

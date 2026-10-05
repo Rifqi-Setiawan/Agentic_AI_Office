@@ -1,0 +1,200 @@
+{
+  "method": "built-in image_gen; one native RGBA image per requested asset; no pixel editing or cropping",
+  "reference": "/workspace/scratch/1f7ded418f78/z08-room-reference/Z08-full-room-reference-v3.png",
+  "assets": [
+    {
+      "file": "console-playstation5-white-black.png",
+      "path": "/workspace/scratch/1f7ded418f78/z08-components/gaming/console-playstation5-white-black.png",
+      "width": 1308,
+      "height": 1203,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "fully_transparent_pixels": 1118541,
+      "total_pixels": 1573524,
+      "alpha_bbox": [
+        23,
+        53,
+        1284,
+        1203
+      ],
+      "proposed_semantic_pivot": {
+        "status": "uncalibrated_visual_proposal",
+        "semantic": "base_tabletop_contact_center",
+        "pixel": [
+          680,
+          990
+        ],
+        "normalized": [
+          0.5199,
+          0.8229
+        ],
+        "coordinate_system": "origin at full-image top-left; x right, y down; normalized x/width and y/height",
+        "basis": "Estimated center of circular base contact footprint; upper base edge is partly occluded.",
+        "calibrated": false
+      }
+    },
+    {
+      "file": "controller-dualsense-white-black.png",
+      "path": "/workspace/scratch/1f7ded418f78/z08-components/gaming/controller-dualsense-white-black.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "fully_transparent_pixels": 1043955,
+      "total_pixels": 1572864,
+      "alpha_bbox": [
+        0,
+        38,
+        1338,
+        970
+      ],
+      "proposed_semantic_pivot": {
+        "status": "unknown_requires_manual_placement",
+        "semantic": "tabletop_contact_center",
+        "pixel": null,
+        "normalized": null,
+        "coordinate_system": "origin at full-image top-left; x right, y down; normalized x/width and y/height",
+        "basis": "Unreliable from this illustration: underside contacts are hidden and the generated tilt does not establish one calibrated tabletop plane. Set during composition.",
+        "calibrated": false
+      }
+    },
+    {
+      "file": "media-cabinet-low-oak.png",
+      "path": "/workspace/scratch/1f7ded418f78/z08-components/gaming/media-cabinet-low-oak.png",
+      "width": 1601,
+      "height": 982,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "fully_transparent_pixels": 1099278,
+      "total_pixels": 1572182,
+      "alpha_bbox": [
+        0,
+        37,
+        1501,
+        927
+      ],
+      "proposed_semantic_pivot": {
+        "status": "uncalibrated_visual_proposal",
+        "semantic": "ground_footprint_center",
+        "pixel": [
+          800,
+          635
+        ],
+        "normalized": [
+          0.4997,
+          0.6466
+        ],
+        "coordinate_system": "origin at full-image top-left; x right, y down; normalized x/width and y/height",
+        "basis": "Estimated center of cabinet four-foot support rectangle from visible feet and inferred hidden rear foot.",
+        "calibrated": false
+      }
+    },
+    {
+      "file": "rug-muted-teal.png",
+      "path": "/workspace/scratch/1f7ded418f78/z08-components/gaming/rug-muted-teal.png",
+      "width": 1601,
+      "height": 982,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "fully_transparent_pixels": 929746,
+      "total_pixels": 1572182,
+      "alpha_bbox": [
+        0,
+        32,
+        1541,
+        954
+      ],
+      "proposed_semantic_pivot": {
+        "status": "uncalibrated_visual_proposal",
+        "semantic": "ground_footprint_center",
+        "pixel": [
+          785,
+          505
+        ],
+        "normalized": [
+          0.4903,
+          0.5143
+        ],
+        "coordinate_system": "origin at full-image top-left; x right, y down; normalized x/width and y/height",
+        "basis": "Center of rug parallelogram on its ground plane, judged from four visible corners.",
+        "calibrated": false
+      }
+    },
+    {
+      "file": "sofa-charcoal-facing-tv.png",
+      "path": "/workspace/scratch/1f7ded418f78/z08-components/gaming/sofa-charcoal-facing-tv.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "fully_transparent_pixels": 1131824,
+      "total_pixels": 1572864,
+      "alpha_bbox": [
+        71,
+        21,
+        1458,
+        961
+      ],
+      "proposed_semantic_pivot": {
+        "status": "uncalibrated_visual_proposal",
+        "semantic": "ground_footprint_center",
+        "pixel": [
+          770,
+          670
+        ],
+        "normalized": [
+          0.5013,
+          0.6543
+        ],
+        "coordinate_system": "origin at full-image top-left; x right, y down; normalized x/width and y/height",
+        "basis": "Estimated center of four-foot ground support rectangle from three visible wooden foot contacts and inferred hidden foot.",
+        "calibrated": false
+      }
+    },
+    {
+      "file": "tv-multiplayer-screen.png",
+      "path": "/workspace/scratch/1f7ded418f78/z08-components/gaming/tv-multiplayer-screen.png",
+      "width": 1602,
+      "height": 982,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "fully_transparent_pixels": 1128718,
+      "total_pixels": 1573164,
+      "alpha_bbox": [
+        0,
+        32,
+        1500,
+        957
+      ],
+      "proposed_semantic_pivot": {
+        "status": "uncalibrated_visual_proposal",
+        "semantic": "stand_tabletop_contact_center",
+        "pixel": [
+          765,
+          755
+        ],
+        "normalized": [
+          0.4775,
+          0.7688
+        ],
+        "coordinate_system": "origin at full-image top-left; x right, y down; normalized x/width and y/height",
+        "basis": "Estimated center of rectangular TV pedestal contact footprint; independent of screen bounds.",
+        "calibrated": false
+      }
+    }
+  ],
+  "limitations": [
+    "Generative redraws rather than exact extraction or exact geometric registration.",
+    "Native canvases and object scales differ; engine-side scale and anchors still need placement.",
+    "Controller is one file intended for two placements.",
+    "Alpha preserved untouched. Sofa and controller maximum alpha is 254; other objects can reach 255."
+  ],
+  "prompts_file": "gaming-prompts.json",
+  "pivot_warning": "All non-null semantic pivots are uncalibrated visual proposals, not registration guarantees. None was derived by substituting alpha-bbox bottom. Controller pivot is intentionally null."
+}

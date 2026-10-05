@@ -1,0 +1,197 @@
+{
+  "method": "Read-only PNG inspection; generated pixels unaltered",
+  "frames": [
+    {
+      "file": "nova_sit_type_se_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_zero_fraction": 0.76643989631902,
+      "substantive_alpha_bbox": [
+        325,
+        118,
+        959,
+        1164
+      ],
+      "sha256": "af81af46fa853ddc1ba4d4d0efe91059ef1239a2e5177e33cb5afbf8ffe44d36"
+    },
+    {
+      "file": "nova_sit_type_se_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_zero_fraction": 0.7656888705742899,
+      "substantive_alpha_bbox": [
+        324,
+        116,
+        949,
+        1165
+      ],
+      "sha256": "78b6421cead14c92c0d29bc345897330c4d21b1d7d017de703c0d30f55428d29"
+    },
+    {
+      "file": "nova_sit_type_sw_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_zero_fraction": 0.7441215224519179,
+      "substantive_alpha_bbox": [
+        324,
+        133,
+        937,
+        1214
+      ],
+      "sha256": "7d3e08255e6204f19a6855feecfd24ce7328ef38d357f1f5ea4d0ae4eb83c28f"
+    },
+    {
+      "file": "nova_sit_type_sw_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_zero_fraction": 0.7402010535981828,
+      "substantive_alpha_bbox": [
+        324,
+        132,
+        939,
+        1215
+      ],
+      "sha256": "820b0dc75c69fb021f7cfa3a15e1f570745051cf92559d8ddc506be3cd8e4f31"
+    },
+    {
+      "file": "nova_sit_type_ne_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_zero_fraction": 0.7301680873199382,
+      "substantive_alpha_bbox": [
+        299,
+        95,
+        1046,
+        1156
+      ],
+      "sha256": "b8976c2917a33f509ab17477cb041602ade102d9d6cc44fae001ac34d9993e0b"
+    },
+    {
+      "file": "nova_sit_type_ne_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_zero_fraction": 0.7287868613101552,
+      "substantive_alpha_bbox": [
+        297,
+        95,
+        1047,
+        1156
+      ],
+      "sha256": "f1db7efbbda0ba6c4b9a32ddb3b60598fd4b9b108e6167ba03c400401e95d24b"
+    },
+    {
+      "file": "nova_sit_type_nw_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_zero_fraction": 0.7136296228464448,
+      "substantive_alpha_bbox": [
+        232,
+        89,
+        987,
+        1166
+      ],
+      "sha256": "fc616705edaab142df9a755d84665dfca0c845bc33fb65b298ef198d07ea7c05"
+    },
+    {
+      "file": "nova_sit_type_nw_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_zero_fraction": 0.7120398139033244,
+      "substantive_alpha_bbox": [
+        232,
+        89,
+        989,
+        1167
+      ],
+      "sha256": "40f515273cdefb6ae60c689704330207685fee90ca5d535a713496597e919b60"
+    }
+  ],
+  "loops": [
+    {
+      "direction": "se",
+      "order": [
+        0,
+        1
+      ],
+      "recommended_fps": 3.5,
+      "regions": {
+        "head": {
+          "rgb_mean_absolute_difference_visible_pixels": 5.581013911233486,
+          "opaque_mask_overlap_iou": 0.9798866837510095
+        },
+        "feet": {
+          "rgb_mean_absolute_difference_visible_pixels": 7.890869698325601,
+          "opaque_mask_overlap_iou": 0.9900854861879754
+        }
+      }
+    },
+    {
+      "direction": "sw",
+      "order": [
+        0,
+        1
+      ],
+      "recommended_fps": 3.5,
+      "regions": {
+        "head": {
+          "rgb_mean_absolute_difference_visible_pixels": 5.8396987846481005,
+          "opaque_mask_overlap_iou": 0.9844411373644469
+        },
+        "feet": {
+          "rgb_mean_absolute_difference_visible_pixels": 8.450380484138666,
+          "opaque_mask_overlap_iou": 0.9887420536748818
+        }
+      }
+    },
+    {
+      "direction": "ne",
+      "order": [
+        0,
+        1
+      ],
+      "recommended_fps": 3.5,
+      "regions": {
+        "head": {
+          "rgb_mean_absolute_difference_visible_pixels": 4.568263543129495,
+          "opaque_mask_overlap_iou": 0.9927177752244777
+        },
+        "feet": {
+          "rgb_mean_absolute_difference_visible_pixels": 8.322667204831525,
+          "opaque_mask_overlap_iou": 0.9905372679164051
+        }
+      }
+    },
+    {
+      "direction": "nw",
+      "order": [
+        0,
+        1
+      ],
+      "recommended_fps": 3.5,
+      "regions": {
+        "head": {
+          "rgb_mean_absolute_difference_visible_pixels": 3.755995407171878,
+          "opaque_mask_overlap_iou": 0.9902225755166931
+        },
+        "feet": {
+          "rgb_mean_absolute_difference_visible_pixels": 6.248068117218589,
+          "opaque_mask_overlap_iou": 0.9925785715624356
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Generative redraws are not pixel-identical outside edit regions.",
+    "Cross-direction sitting bases have visibly different pixel framing; semantic anchors require runtime calibration.",
+    "Two-frame typing is a minimal alternating loop, not a multi-keyframe smooth motion.",
+    "No engine preview was run."
+  ]
+}

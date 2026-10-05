@@ -1,0 +1,1194 @@
+{
+  "archives": [
+    {
+      "file": "C:\\Users\\Rifqi\\Downloads\\nova-24-animation-frames.zip",
+      "sha256": "2ed2de9fa52690fa582d8929d1532ceef5bfd8bad7838b7143fa96a333f08aeb"
+    },
+    {
+      "file": "C:\\Users\\Rifqi\\Downloads\\forge-nova-typing-se-frames.zip",
+      "sha256": "8264c52dc535065f723f4fadfc6e2f20e488dbaac006cca69e5f58fef9945820"
+    },
+    {
+      "file": "C:\\Users\\Rifqi\\Downloads\\Z08-04-architecture-components.zip",
+      "sha256": "90338ef20d6657a31d0fbe582290207e100a4fe7f2152a16ebef087f5dcbadb0"
+    },
+    {
+      "file": "C:\\Users\\Rifqi\\Downloads\\Z08-03-decor-components.zip",
+      "sha256": "b524f332966465673f4db260651760e9d56b66de38e13a77e7c8697e7eac73ba"
+    },
+    {
+      "file": "C:\\Users\\Rifqi\\Downloads\\Z08-02-gaming-components.zip",
+      "sha256": "9dc367c5373d79886fb38cfcf12e317a4f616aa982937c380b8b38775ae87a1f"
+    },
+    {
+      "file": "C:\\Users\\Rifqi\\Downloads\\Z08-01-workstations-components.zip",
+      "sha256": "eefac5f4a709864cff5ec33b5bcfb6f5e80e7d38e8e0fe5da7bac8d21925eef7"
+    }
+  ],
+  "files": [
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_se_0.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_sit_type_se_0.png",
+      "sha256": "af81af46fa853ddc1ba4d4d0efe91059ef1239a2e5177e33cb5afbf8ffe44d36",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        325,
+        118,
+        959,
+        1164
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_se_1.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_sit_type_se_1.png",
+      "sha256": "78b6421cead14c92c0d29bc345897330c4d21b1d7d017de703c0d30f55428d29",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        324,
+        116,
+        949,
+        1165
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_sw_0.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_sit_type_sw_0.png",
+      "sha256": "7d3e08255e6204f19a6855feecfd24ce7328ef38d357f1f5ea4d0ae4eb83c28f",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        324,
+        133,
+        937,
+        1214
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_sw_1.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_sit_type_sw_1.png",
+      "sha256": "820b0dc75c69fb021f7cfa3a15e1f570745051cf92559d8ddc506be3cd8e4f31",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        324,
+        132,
+        939,
+        1215
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_ne_0.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_sit_type_ne_0.png",
+      "sha256": "b8976c2917a33f509ab17477cb041602ade102d9d6cc44fae001ac34d9993e0b",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        299,
+        95,
+        1046,
+        1156
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_ne_1.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_sit_type_ne_1.png",
+      "sha256": "f1db7efbbda0ba6c4b9a32ddb3b60598fd4b9b108e6167ba03c400401e95d24b",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        297,
+        95,
+        1047,
+        1156
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_nw_0.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_sit_type_nw_0.png",
+      "sha256": "fc616705edaab142df9a755d84665dfca0c845bc33fb65b298ef198d07ea7c05",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        232,
+        89,
+        987,
+        1166
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_nw_1.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_sit_type_nw_1.png",
+      "sha256": "40f515273cdefb6ae60c689704330207685fee90ca5d535a713496597e919b60",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        232,
+        89,
+        989,
+        1167
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_se_0.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_se_0.png",
+      "sha256": "b9672ee167b8b8b8c641dd7595caf8b9e5501837b3c43bd2516a6030b07491c0",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        330,
+        63,
+        974,
+        1196
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_se_1.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_se_1.png",
+      "sha256": "cef2dbde8759ff0434c21195decbd4e249f7c8e1035139d14b679faef333c74f",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        333,
+        63,
+        925,
+        1205
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_se_2.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_se_2.png",
+      "sha256": "17c0964d5010c2c56d3c7d4ed58293ff083cd766f53640d1771732344361610f",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        332,
+        63,
+        1024,
+        1209
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_se_3.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_se_3.png",
+      "sha256": "7294aac95d997762f60371b222af3357788f8a9d27cf1324fcb709eae980736f",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        333,
+        63,
+        936,
+        1215
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_sw_0.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_sw_0.png",
+      "sha256": "03a93e216f3c3b958ed8d53377fe5b89db8129f672f7057c260f372ae65eeb91",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        350,
+        36,
+        954,
+        1223
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_sw_1.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_sw_1.png",
+      "sha256": "0c370570f1288a8a7a23a4aef4b64eb5eba3df45fb0ff63344a8ae4c6dad1e6c",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        350,
+        37,
+        932,
+        1225
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_sw_2.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_sw_2.png",
+      "sha256": "ff65edc915cc745a555c89b1037845caf0d5e8ae7ce46d10e023288fd05028c9",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        323,
+        36,
+        975,
+        1223
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_sw_3.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_sw_3.png",
+      "sha256": "879227f321a786d1458bcd6e1ac4e4ffef61590555d7c26742f5eacd485d0457",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        336,
+        36,
+        950,
+        1221
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_ne_0.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_ne_0.png",
+      "sha256": "ab17b5a1846f5689019284a8b54ae5b2c53e8cb43ba1781787e204bd3881a4b3",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        334,
+        61,
+        957,
+        1203
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_ne_1.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_ne_1.png",
+      "sha256": "c0671de5ee17645eefae9dc920a451f0497a8f4c697065f09ec1ced22266d52f",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        332,
+        60,
+        929,
+        1189
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_ne_2.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_ne_2.png",
+      "sha256": "0b837cf7e400a58bd202b55183d957fcdc855fc9db0b99ad9959180811da9fc6",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        332,
+        61,
+        959,
+        1208
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_ne_3.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_ne_3.png",
+      "sha256": "33ef368bf8c1f5d5cafdade625f5e7cb0346a9c80d1b26e3f4937006701cb852",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        332,
+        61,
+        915,
+        1163
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_nw_0.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_nw_0.png",
+      "sha256": "16201f0dba0b5e6bab457a7c1173f13d3ace155679f0c2196b7c10d7f3294e56",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        364,
+        63,
+        939,
+        1208
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_nw_1.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_nw_1.png",
+      "sha256": "33fd62d87a7a0242132daed8beb863e68908d4bed9afcf2b8df9b6cb5e54008d",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        364,
+        63,
+        940,
+        1182
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_nw_2.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_nw_2.png",
+      "sha256": "dfeab4582403a6ceba5b6d5ee20dbfb5d5939fbe34f55c45de80ade228e93e78",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        364,
+        63,
+        940,
+        1210
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_nw_3.png",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_nw_3.png",
+      "sha256": "c22d5f8e79b49408452da8bd701a45f9ab4ef795d59926bebaffaca56fef96d2",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        363,
+        64,
+        942,
+        1192
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/NOVA_README.txt",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/NOVA_README.txt",
+      "sha256": "758b8522b212fb7bb4202cef0e022d5250b71b07d8f58b9473ddf5fd891c3f5d"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova-animation-manifest.json",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova-animation-manifest.json",
+      "sha256": "661faa4e1335fc3de41d63049edaeb16d14a143f515c86bc9e5e4d3bc0dab51b"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova-typing-prompts.json",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova-typing-prompts.json",
+      "sha256": "28cb2aafa42254807db79f0aeac0a9cdba84fa627a4ae9c86ba42d2d27b70b54"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_typing_validation.json",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_typing_validation.json",
+      "sha256": "c43bb9a0ffd115d8538ce3305c5c6ffd5809f0c844ecba72c7c45cd956b4de30"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_front_prompts.txt",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_front_prompts.txt",
+      "sha256": "f4a97aefc08b7a9685aceaf1663430f489281610b6945c7db94b714f6a5bd0a5"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_front_validation.json",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_front_validation.json",
+      "sha256": "d8a731cf48a25abf65875ed1233eaaf18df7339a0d0fc83506a869559dab4741"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_rear_manifest.json",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_rear_manifest.json",
+      "sha256": "53221132f779313c88c26fd0ebe12d9074a8f49464b3adae26ca2744149d0ac9"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_rear_metrics.json",
+      "archive": "nova-24-animation-frames.zip",
+      "entry": "nova/nova_walk_rear_metrics.json",
+      "sha256": "000c3bc1b77a51df8cb9ae4802c12b39f4a0fdfcf39ea42ef4e5d3ee9a087e39"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/forge-nova-typing-se-frames/forge_sit_type_se_0.png",
+      "archive": "forge-nova-typing-se-frames.zip",
+      "entry": "forge_sit_type_se_0.png",
+      "sha256": "e282a3f56aa03e2f68fe91cdd056845473965c2f3ec2d588aa5302a4c013d226",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        382,
+        127,
+        958,
+        1140
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/forge-nova-typing-se-frames/forge_sit_type_se_1.png",
+      "archive": "forge-nova-typing-se-frames.zip",
+      "entry": "forge_sit_type_se_1.png",
+      "sha256": "0e826c908e6e5076d0ec7c400e0085ab8872d0f11a2d603fa66bc79e5a2c320b",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        381,
+        128,
+        952,
+        1140
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/forge-nova-typing-se-frames/nova_sit_type_se_0.png",
+      "archive": "forge-nova-typing-se-frames.zip",
+      "entry": "nova_sit_type_se_0.png",
+      "sha256": "af81af46fa853ddc1ba4d4d0efe91059ef1239a2e5177e33cb5afbf8ffe44d36",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        325,
+        118,
+        959,
+        1164
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/forge-nova-typing-se-frames/nova_sit_type_se_1.png",
+      "archive": "forge-nova-typing-se-frames.zip",
+      "entry": "nova_sit_type_se_1.png",
+      "sha256": "78b6421cead14c92c0d29bc345897330c4d21b1d7d017de703c0d30f55428d29",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        324,
+        116,
+        949,
+        1165
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/forge-nova-typing-se-frames/manifest.json",
+      "archive": "forge-nova-typing-se-frames.zip",
+      "entry": "manifest.json",
+      "sha256": "fd6691c835b335e2de1c8ec96eeb20101889e3788635d1c9925af1f600d6a615"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/GENERATION-NOTES.txt",
+      "archive": "Z08-04-architecture-components.zip",
+      "entry": "architecture/GENERATION-NOTES.txt",
+      "sha256": "a12ea4f984cbfea59aa9d80f7e1b1eb3567e5ca3831dee60584d70ea317fddd4"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/doorframe-open-fall-right.png",
+      "archive": "Z08-04-architecture-components.zip",
+      "entry": "architecture/doorframe-open-fall-right.png",
+      "sha256": "1534429c2c07c5364d3af0beff81388d15ab1d5cb2d3a398e97e46307cd50842",
+      "sourceSize": [
+        1504,
+        1046
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        464,
+        86,
+        1044,
+        951
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/floor-oak-z08.png",
+      "archive": "Z08-04-architecture-components.zip",
+      "entry": "architecture/floor-oak-z08.png",
+      "sha256": "3f3f298c7bccde16412a8f01bf2c3726794231395f378eb0b29359ada5429dcc",
+      "sourceSize": [
+        1576,
+        998
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        55,
+        52,
+        1521,
+        988
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/pillar-corner-cyan.png",
+      "archive": "Z08-04-architecture-components.zip",
+      "entry": "architecture/pillar-corner-cyan.png",
+      "sha256": "4ae86f6e0f12b1530072b968b97ee532af2354ce06a1c356907547d4c381acbd",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        514,
+        136,
+        741,
+        1124
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-low-fall-right.png",
+      "archive": "Z08-04-architecture-components.zip",
+      "entry": "architecture/wall-low-fall-right.png",
+      "sha256": "5f2ad543bfc3e96d58bfe5548343b10879b6e3553e48485eaeed4212648a49e3",
+      "sourceSize": [
+        1601,
+        982
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        69,
+        67,
+        1426,
+        982
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-low-rise-right.png",
+      "archive": "Z08-04-architecture-components.zip",
+      "entry": "architecture/wall-low-rise-right.png",
+      "sha256": "5984c8932ce246f4352f6e6b44a193dd85c92fdf79a2551294cbf494dbd8f49e",
+      "sourceSize": [
+        1601,
+        982
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        81,
+        30,
+        1566,
+        981
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-tall-fall-right.png",
+      "archive": "Z08-04-architecture-components.zip",
+      "entry": "architecture/wall-tall-fall-right.png",
+      "sha256": "94a7d56d0becb32719baf83b8f61864a77db141a1d0160b9f926da3320f69bea",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds128": [
+        174,
+        47,
+        1350,
+        1017
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/architecture/wall-tall-rise-right.png",
+      "archive": "Z08-04-architecture-components.zip",
+      "entry": "architecture/wall-tall-rise-right.png",
+      "sha256": "845afda69f3002ff2f06c4a4f4f69a59081e27b5043bb534945eb97a878dbbca",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds128": [
+        237,
+        77,
+        1298,
+        969
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/ASSEMBLY-README.txt",
+      "archive": "Z08-04-architecture-components.zip",
+      "entry": "ASSEMBLY-README.txt",
+      "sha256": "e14df50d54bd3d4532282b9013d838dce8f043e719cc8948a6ba42b3c645318f"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-04-architecture-components/component-manifest.json",
+      "archive": "Z08-04-architecture-components.zip",
+      "entry": "component-manifest.json",
+      "sha256": "d2898805b1fe815b162ea73226c0d5fa80184c83d3a507d8ace131039f18fb4e"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/decor/Z08-architecture-board.png",
+      "archive": "Z08-03-decor-components.zip",
+      "entry": "decor/Z08-architecture-board.png",
+      "sha256": "c6b98c632a7b401544990be634e0f74c34c24a32bd6cc029b28c6ba270229a97",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds128": [
+        365,
+        59,
+        1181,
+        986
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/decor/Z08-desktop-plant.png",
+      "archive": "Z08-03-decor-components.zip",
+      "entry": "decor/Z08-desktop-plant.png",
+      "sha256": "3558d0f92f5d8da0906cbc730ec8e0cf98409742225d7c034fc7713fea41e4b5",
+      "sourceSize": [
+        1278,
+        1230
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        239,
+        129,
+        1096,
+        1047
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/decor/Z08-framed-code-art.png",
+      "archive": "Z08-03-decor-components.zip",
+      "entry": "decor/Z08-framed-code-art.png",
+      "sha256": "c5dbc7e7d0a62ee9f30980f1415015778cf09a9f0000b602b7c7d74712733069",
+      "sourceSize": [
+        1347,
+        1167
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        368,
+        81,
+        996,
+        1118
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/decor/Z08-kanban-board.png",
+      "archive": "Z08-03-decor-components.zip",
+      "entry": "decor/Z08-kanban-board.png",
+      "sha256": "67474da0385560dcb187a4ec97fc132aafcdc1eb8aa1394d6f3b1701b28638d3",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds128": [
+        373,
+        60,
+        1203,
+        981
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/decor/Z08-oak-wall-shelf.png",
+      "archive": "Z08-03-decor-components.zip",
+      "entry": "decor/Z08-oak-wall-shelf.png",
+      "sha256": "23457deae807d9819d2cec6dbf3880d15264056bff7d5bae6f8414271d7040c3",
+      "sourceSize": [
+        1384,
+        1136
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        232,
+        90,
+        1195,
+        1083
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/decor/generation-prompts.md",
+      "archive": "Z08-03-decor-components.zip",
+      "entry": "decor/generation-prompts.md",
+      "sha256": "39b80a856b9340e096308700fd066984501e393f342dcce0c9d74386504be0f3"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/ASSEMBLY-README.txt",
+      "archive": "Z08-03-decor-components.zip",
+      "entry": "ASSEMBLY-README.txt",
+      "sha256": "e14df50d54bd3d4532282b9013d838dce8f043e719cc8948a6ba42b3c645318f"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-03-decor-components/component-manifest.json",
+      "archive": "Z08-03-decor-components.zip",
+      "entry": "component-manifest.json",
+      "sha256": "d2898805b1fe815b162ea73226c0d5fa80184c83d3a507d8ace131039f18fb4e"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/console-playstation5-white-black.png",
+      "archive": "Z08-02-gaming-components.zip",
+      "entry": "gaming/console-playstation5-white-black.png",
+      "sha256": "cc9c2ee3f613c9d8d487f7c9c30ecdee8fad849b23547b7cea775b1445b7fab6",
+      "sourceSize": [
+        1308,
+        1203
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        387,
+        62,
+        943,
+        1075
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/controller-dualsense-white-black.png",
+      "archive": "Z08-02-gaming-components.zip",
+      "entry": "gaming/controller-dualsense-white-black.png",
+      "sha256": "6cc53b7f4b225fb29b1e0a74e2d7d971914ab436bd632b0005078c89addd0cc8",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds128": [
+        190,
+        88,
+        1296,
+        965
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/gaming-assets-manifest.json",
+      "archive": "Z08-02-gaming-components.zip",
+      "entry": "gaming/gaming-assets-manifest.json",
+      "sha256": "76702674cb949dcca3fe32256c28cb1faad208b5087923151391142f189e4402"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/gaming-prompts.json",
+      "archive": "Z08-02-gaming-components.zip",
+      "entry": "gaming/gaming-prompts.json",
+      "sha256": "873c8f07d9bce107958d80ae6a542bb913f64727fc2afa7968beaaa697a5e529"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/media-cabinet-low-oak.png",
+      "archive": "Z08-02-gaming-components.zip",
+      "entry": "gaming/media-cabinet-low-oak.png",
+      "sha256": "95f962d49632a8f50e7971fe8951bd97a72d5f03e0466a00b61f49820586e9bf",
+      "sourceSize": [
+        1601,
+        982
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        193,
+        93,
+        1403,
+        924
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/rug-muted-teal.png",
+      "archive": "Z08-02-gaming-components.zip",
+      "entry": "gaming/rug-muted-teal.png",
+      "sha256": "92a106bab3c2054a2ca678fd4c8630842c46ad3a33a3a351696f6dbc99dfd24c",
+      "sourceSize": [
+        1601,
+        982
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        35,
+        59,
+        1539,
+        951
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/sofa-charcoal-facing-tv.png",
+      "archive": "Z08-02-gaming-components.zip",
+      "entry": "gaming/sofa-charcoal-facing-tv.png",
+      "sha256": "d706cd5d05a2c83229a0fa11178deda66bef8b021fc73dc044661c379147d77e",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds128": [
+        283,
+        135,
+        1271,
+        948
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/gaming/tv-multiplayer-screen.png",
+      "archive": "Z08-02-gaming-components.zip",
+      "entry": "gaming/tv-multiplayer-screen.png",
+      "sha256": "237b24bf8015328ba1ed574b57ee36fec36dbe568a708803dbbd8312b70f5598",
+      "sourceSize": [
+        1602,
+        982
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        402,
+        41,
+        1201,
+        929
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/ASSEMBLY-README.txt",
+      "archive": "Z08-02-gaming-components.zip",
+      "entry": "ASSEMBLY-README.txt",
+      "sha256": "e14df50d54bd3d4532282b9013d838dce8f043e719cc8948a6ba42b3c645318f"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-02-gaming-components/component-manifest.json",
+      "archive": "Z08-02-gaming-components.zip",
+      "entry": "component-manifest.json",
+      "sha256": "d2898805b1fe815b162ea73226c0d5fa80184c83d3a507d8ace131039f18fb4e"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/workstations/Z08-guest-chair-NE.png",
+      "archive": "Z08-01-workstations-components.zip",
+      "entry": "workstations/Z08-guest-chair-NE.png",
+      "sha256": "c8b70091dfb3fbd23d79ab8839e7e1faf62f79d769ff3e6e2114ef191d14e23a",
+      "sourceSize": [
+        1431,
+        1099
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds128": [
+        366,
+        202,
+        1126,
+        1001
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/workstations/Z08-guest-desk.png",
+      "archive": "Z08-01-workstations-components.zip",
+      "entry": "workstations/Z08-guest-desk.png",
+      "sha256": "e92ff20e82e90bc5e9b714a1bdd866ddd6531920583f436d8684d7f291631536",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds128": [
+        319,
+        138,
+        1202,
+        922
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/workstations/Z08-worker-chair-SE.png",
+      "archive": "Z08-01-workstations-components.zip",
+      "entry": "workstations/Z08-worker-chair-SE.png",
+      "sha256": "f3fe3923ff345f0b74946cb77231f8610ff4c2612b49e1500aab07b3e2ca4276",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds128": [
+        509,
+        83,
+        1049,
+        967
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/workstations/Z08-worker-desk.png",
+      "archive": "Z08-01-workstations-components.zip",
+      "entry": "workstations/Z08-worker-desk.png",
+      "sha256": "da49b5db0957049ce43d20d889ad62102470b59e5fc901ea128c82d36fbdf2c4",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds128": [
+        305,
+        90,
+        1269,
+        928
+      ]
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/workstations/alpha-verification.json",
+      "archive": "Z08-01-workstations-components.zip",
+      "entry": "workstations/alpha-verification.json",
+      "sha256": "8761e94f4a936531a125e4dfeae3cf71c78482cc9c48e9eb03cbb22c56a5bdac"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/workstations/generation-prompts.json",
+      "archive": "Z08-01-workstations-components.zip",
+      "entry": "workstations/generation-prompts.json",
+      "sha256": "269e5f7a6f687dac2dfb4162d90ed0c4de2e5d5170fce9c8e6a2a59e1bab5107"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/workstations/proposed-anchors.json",
+      "archive": "Z08-01-workstations-components.zip",
+      "entry": "workstations/proposed-anchors.json",
+      "sha256": "dce721df87c5b4fc7c88cdd47168345121d6e2f303c45f94bdf05814b29e318f"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/ASSEMBLY-README.txt",
+      "archive": "Z08-01-workstations-components.zip",
+      "entry": "ASSEMBLY-README.txt",
+      "sha256": "e14df50d54bd3d4532282b9013d838dce8f043e719cc8948a6ba42b3c645318f"
+    },
+    {
+      "file": "art/dot-z08-components-2026-10-05/sources/Z08-01-workstations-components/component-manifest.json",
+      "archive": "Z08-01-workstations-components.zip",
+      "entry": "component-manifest.json",
+      "sha256": "d2898805b1fe815b162ea73226c0d5fa80184c83d3a507d8ace131039f18fb4e"
+    }
+  ],
+  "roomComponents": 22,
+  "characterPngs": 28,
+  "novaSEDuplicates": [
+    {
+      "file": "nova_sit_type_se_0.png",
+      "identical": true,
+      "selectedPack": "nova-24-animation-frames"
+    },
+    {
+      "file": "nova_sit_type_se_1.png",
+      "identical": true,
+      "selectedPack": "nova-24-animation-frames"
+    }
+  ],
+  "sourceDocumentsAreMetadata": true,
+  "mapChangesAuthorizedBySourceDocument": false,
+  "browserQA": false,
+  "status": "integrated locally as candidate; browser QA and remaining character actions pending",
+  "runtimeManifest": "frontend/public/visual-migration/dot-z08-components-v2/assets.json",
+  "humanLayoutAuthorization": "Terapkan penataan baru dari Dot"
+}

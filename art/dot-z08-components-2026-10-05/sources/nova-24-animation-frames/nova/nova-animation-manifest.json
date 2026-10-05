@@ -1,0 +1,751 @@
+{
+  "character": "Nova",
+  "version": 1,
+  "selected_png_count": 24,
+  "source_reference": "nova-four-direction-idle.png",
+  "generation": "built-in imagegen only; byte-for-byte copies from generated PNGs",
+  "native_canvas": [
+    1254,
+    1254
+  ],
+  "pixel_postprocessing": null,
+  "sequences": [
+    {
+      "id": "sit_type_se",
+      "action": "sit_type",
+      "direction": "se",
+      "frame_files": [
+        "nova_sit_type_se_0.png",
+        "nova_sit_type_se_1.png"
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "suggested_fps": 3.5,
+      "loop": true,
+      "registration": {
+        "pixel_origin": "top-left",
+        "suggested_neck_feature_point_px": [
+          588,
+          525
+        ],
+        "normalized_neck_feature_point": [
+          0.4689,
+          0.41866
+        ],
+        "scope": "same fixed point for every frame in this sequence",
+        "confidence": "low; visual estimate for runtime review only",
+        "is_ground_pivot": false,
+        "verified_ground_pivot_px": null,
+        "world_tile_scale": null,
+        "automatic_per_frame_bbox_centering": false
+      }
+    },
+    {
+      "id": "sit_type_sw",
+      "action": "sit_type",
+      "direction": "sw",
+      "frame_files": [
+        "nova_sit_type_sw_0.png",
+        "nova_sit_type_sw_1.png"
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "suggested_fps": 3.5,
+      "loop": true,
+      "registration": {
+        "pixel_origin": "top-left",
+        "suggested_neck_feature_point_px": [
+          652,
+          555
+        ],
+        "normalized_neck_feature_point": [
+          0.519936,
+          0.442584
+        ],
+        "scope": "same fixed point for every frame in this sequence",
+        "confidence": "low; visual estimate for runtime review only",
+        "is_ground_pivot": false,
+        "verified_ground_pivot_px": null,
+        "world_tile_scale": null,
+        "automatic_per_frame_bbox_centering": false
+      }
+    },
+    {
+      "id": "sit_type_ne",
+      "action": "sit_type",
+      "direction": "ne",
+      "frame_files": [
+        "nova_sit_type_ne_0.png",
+        "nova_sit_type_ne_1.png"
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "suggested_fps": 3.5,
+      "loop": true,
+      "registration": {
+        "pixel_origin": "top-left",
+        "suggested_neck_feature_point_px": [
+          633,
+          567
+        ],
+        "normalized_neck_feature_point": [
+          0.504785,
+          0.452153
+        ],
+        "scope": "same fixed point for every frame in this sequence",
+        "confidence": "low; visual estimate for runtime review only",
+        "is_ground_pivot": false,
+        "verified_ground_pivot_px": null,
+        "world_tile_scale": null,
+        "automatic_per_frame_bbox_centering": false
+      }
+    },
+    {
+      "id": "sit_type_nw",
+      "action": "sit_type",
+      "direction": "nw",
+      "frame_files": [
+        "nova_sit_type_nw_0.png",
+        "nova_sit_type_nw_1.png"
+      ],
+      "order": [
+        0,
+        1
+      ],
+      "suggested_fps": 3.5,
+      "loop": true,
+      "registration": {
+        "pixel_origin": "top-left",
+        "suggested_neck_feature_point_px": [
+          696,
+          560
+        ],
+        "normalized_neck_feature_point": [
+          0.555024,
+          0.446571
+        ],
+        "scope": "same fixed point for every frame in this sequence",
+        "confidence": "low; visual estimate for runtime review only",
+        "is_ground_pivot": false,
+        "verified_ground_pivot_px": null,
+        "world_tile_scale": null,
+        "automatic_per_frame_bbox_centering": false
+      }
+    },
+    {
+      "id": "walk_se",
+      "action": "walk",
+      "direction": "se",
+      "frame_files": [
+        "nova_walk_se_0.png",
+        "nova_walk_se_1.png",
+        "nova_walk_se_2.png",
+        "nova_walk_se_3.png"
+      ],
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "suggested_fps": 7,
+      "loop": true,
+      "registration": {
+        "pixel_origin": "top-left",
+        "suggested_neck_feature_point_px": [
+          663,
+          527
+        ],
+        "normalized_neck_feature_point": [
+          0.528708,
+          0.420255
+        ],
+        "scope": "same fixed point for every frame in this sequence",
+        "confidence": "low; visual estimate for runtime review only",
+        "is_ground_pivot": false,
+        "verified_ground_pivot_px": null,
+        "world_tile_scale": null,
+        "automatic_per_frame_bbox_centering": false
+      }
+    },
+    {
+      "id": "walk_sw",
+      "action": "walk",
+      "direction": "sw",
+      "frame_files": [
+        "nova_walk_sw_0.png",
+        "nova_walk_sw_1.png",
+        "nova_walk_sw_2.png",
+        "nova_walk_sw_3.png"
+      ],
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "suggested_fps": 7,
+      "loop": true,
+      "registration": {
+        "pixel_origin": "top-left",
+        "suggested_neck_feature_point_px": [
+          616,
+          508
+        ],
+        "normalized_neck_feature_point": [
+          0.491228,
+          0.405104
+        ],
+        "scope": "same fixed point for every frame in this sequence",
+        "confidence": "low; visual estimate for runtime review only",
+        "is_ground_pivot": false,
+        "verified_ground_pivot_px": null,
+        "world_tile_scale": null,
+        "automatic_per_frame_bbox_centering": false
+      }
+    },
+    {
+      "id": "walk_ne",
+      "action": "walk",
+      "direction": "ne",
+      "frame_files": [
+        "nova_walk_ne_0.png",
+        "nova_walk_ne_1.png",
+        "nova_walk_ne_2.png",
+        "nova_walk_ne_3.png"
+      ],
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "suggested_fps": 7,
+      "loop": true,
+      "registration": {
+        "pixel_origin": "top-left",
+        "suggested_neck_feature_point_px": [
+          649,
+          519
+        ],
+        "normalized_neck_feature_point": [
+          0.517544,
+          0.413876
+        ],
+        "scope": "same fixed point for every frame in this sequence",
+        "confidence": "low; visual estimate for runtime review only",
+        "is_ground_pivot": false,
+        "verified_ground_pivot_px": null,
+        "world_tile_scale": null,
+        "automatic_per_frame_bbox_centering": false
+      }
+    },
+    {
+      "id": "walk_nw",
+      "action": "walk",
+      "direction": "nw",
+      "frame_files": [
+        "nova_walk_nw_0.png",
+        "nova_walk_nw_1.png",
+        "nova_walk_nw_2.png",
+        "nova_walk_nw_3.png"
+      ],
+      "order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "suggested_fps": 7,
+      "loop": true,
+      "registration": {
+        "pixel_origin": "top-left",
+        "suggested_neck_feature_point_px": [
+          654,
+          517
+        ],
+        "normalized_neck_feature_point": [
+          0.521531,
+          0.412281
+        ],
+        "scope": "same fixed point for every frame in this sequence",
+        "confidence": "low; visual estimate for runtime review only",
+        "is_ground_pivot": false,
+        "verified_ground_pivot_px": null,
+        "world_tile_scale": null,
+        "automatic_per_frame_bbox_centering": false
+      }
+    }
+  ],
+  "frames": [
+    {
+      "file": "nova_sit_type_se_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 765746,
+      "sha256": "af81af46fa853ddc1ba4d4d0efe91059ef1239a2e5177e33cb5afbf8ffe44d36",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.76643989631902,
+      "opaque_bbox_alpha_gt128": [
+        325,
+        118,
+        959,
+        1164
+      ]
+    },
+    {
+      "file": "nova_sit_type_se_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 756829,
+      "sha256": "78b6421cead14c92c0d29bc345897330c4d21b1d7d017de703c0d30f55428d29",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7656888705742899,
+      "opaque_bbox_alpha_gt128": [
+        324,
+        116,
+        949,
+        1165
+      ]
+    },
+    {
+      "file": "nova_sit_type_sw_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 809908,
+      "sha256": "7d3e08255e6204f19a6855feecfd24ce7328ef38d357f1f5ea4d0ae4eb83c28f",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7441215224519179,
+      "opaque_bbox_alpha_gt128": [
+        324,
+        133,
+        937,
+        1214
+      ]
+    },
+    {
+      "file": "nova_sit_type_sw_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 815274,
+      "sha256": "820b0dc75c69fb021f7cfa3a15e1f570745051cf92559d8ddc506be3cd8e4f31",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7402010535981828,
+      "opaque_bbox_alpha_gt128": [
+        324,
+        132,
+        939,
+        1215
+      ]
+    },
+    {
+      "file": "nova_sit_type_ne_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 805428,
+      "sha256": "b8976c2917a33f509ab17477cb041602ade102d9d6cc44fae001ac34d9993e0b",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7301680873199382,
+      "opaque_bbox_alpha_gt128": [
+        299,
+        95,
+        1046,
+        1156
+      ]
+    },
+    {
+      "file": "nova_sit_type_ne_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 784234,
+      "sha256": "f1db7efbbda0ba6c4b9a32ddb3b60598fd4b9b108e6167ba03c400401e95d24b",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7287868613101552,
+      "opaque_bbox_alpha_gt128": [
+        297,
+        95,
+        1047,
+        1156
+      ]
+    },
+    {
+      "file": "nova_sit_type_nw_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 867151,
+      "sha256": "fc616705edaab142df9a755d84665dfca0c845bc33fb65b298ef198d07ea7c05",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7136296228464448,
+      "opaque_bbox_alpha_gt128": [
+        232,
+        89,
+        987,
+        1166
+      ]
+    },
+    {
+      "file": "nova_sit_type_nw_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 858410,
+      "sha256": "40f515273cdefb6ae60c689704330207685fee90ca5d535a713496597e919b60",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7120398139033244,
+      "opaque_bbox_alpha_gt128": [
+        232,
+        89,
+        989,
+        1167
+      ]
+    },
+    {
+      "file": "nova_walk_se_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 886404,
+      "sha256": "b9672ee167b8b8b8c641dd7595caf8b9e5501837b3c43bd2516a6030b07491c0",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.710991175924442,
+      "opaque_bbox_alpha_gt128": [
+        330,
+        63,
+        974,
+        1196
+      ]
+    },
+    {
+      "file": "nova_walk_se_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 826382,
+      "sha256": "cef2dbde8759ff0434c21195decbd4e249f7c8e1035139d14b679faef333c74f",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7309350111540995,
+      "opaque_bbox_alpha_gt128": [
+        333,
+        63,
+        925,
+        1205
+      ]
+    },
+    {
+      "file": "nova_walk_se_2.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 875716,
+      "sha256": "17c0964d5010c2c56d3c7d4ed58293ff083cd766f53640d1771732344361610f",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.71511895586436,
+      "opaque_bbox_alpha_gt128": [
+        332,
+        63,
+        1024,
+        1209
+      ]
+    },
+    {
+      "file": "nova_walk_se_3.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 840910,
+      "sha256": "7294aac95d997762f60371b222af3357788f8a9d27cf1324fcb709eae980736f",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7241185463295763,
+      "opaque_bbox_alpha_gt128": [
+        333,
+        63,
+        936,
+        1215
+      ]
+    },
+    {
+      "file": "nova_walk_sw_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 904015,
+      "sha256": "03a93e216f3c3b958ed8d53377fe5b89db8129f672f7057c260f372ae65eeb91",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7123654067748755,
+      "opaque_bbox_alpha_gt128": [
+        350,
+        36,
+        954,
+        1223
+      ]
+    },
+    {
+      "file": "nova_walk_sw_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 829191,
+      "sha256": "0c370570f1288a8a7a23a4aef4b64eb5eba3df45fb0ff63344a8ae4c6dad1e6c",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7291474299784549,
+      "opaque_bbox_alpha_gt128": [
+        350,
+        37,
+        932,
+        1225
+      ]
+    },
+    {
+      "file": "nova_walk_sw_2.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 882117,
+      "sha256": "ff65edc915cc745a555c89b1037845caf0d5e8ae7ce46d10e023288fd05028c9",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7121816248610507,
+      "opaque_bbox_alpha_gt128": [
+        323,
+        36,
+        975,
+        1223
+      ]
+    },
+    {
+      "file": "nova_walk_sw_3.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 868128,
+      "sha256": "879227f321a786d1458bcd6e1ac4e4ffef61590555d7c26742f5eacd485d0457",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7200200188742117,
+      "opaque_bbox_alpha_gt128": [
+        336,
+        36,
+        950,
+        1221
+      ]
+    },
+    {
+      "file": "nova_walk_ne_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 807931,
+      "sha256": "ab17b5a1846f5689019284a8b54ae5b2c53e8cb43ba1781787e204bd3881a4b3",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7236403317994856,
+      "opaque_bbox_alpha_gt128": [
+        334,
+        61,
+        957,
+        1203
+      ]
+    },
+    {
+      "file": "nova_walk_ne_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 736532,
+      "sha256": "c0671de5ee17645eefae9dc920a451f0497a8f4c697065f09ec1ced22266d52f",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7528457580081857,
+      "opaque_bbox_alpha_gt128": [
+        332,
+        60,
+        929,
+        1189
+      ]
+    },
+    {
+      "file": "nova_walk_ne_2.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 763893,
+      "sha256": "0b837cf7e400a58bd202b55183d957fcdc855fc9db0b99ad9959180811da9fc6",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7390258668274281,
+      "opaque_bbox_alpha_gt128": [
+        332,
+        61,
+        959,
+        1208
+      ]
+    },
+    {
+      "file": "nova_walk_ne_3.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 705825,
+      "sha256": "33ef368bf8c1f5d5cafdade625f5e7cb0346a9c80d1b26e3f4937006701cb852",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7599108689514129,
+      "opaque_bbox_alpha_gt128": [
+        332,
+        61,
+        915,
+        1163
+      ]
+    },
+    {
+      "file": "nova_walk_nw_0.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 786618,
+      "sha256": "16201f0dba0b5e6bab457a7c1173f13d3ace155679f0c2196b7c10d7f3294e56",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7373343101119479,
+      "opaque_bbox_alpha_gt128": [
+        364,
+        63,
+        939,
+        1208
+      ]
+    },
+    {
+      "file": "nova_walk_nw_1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 734495,
+      "sha256": "33fd62d87a7a0242132daed8beb863e68908d4bed9afcf2b8df9b6cb5e54008d",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7530104622146929,
+      "opaque_bbox_alpha_gt128": [
+        364,
+        63,
+        940,
+        1182
+      ]
+    },
+    {
+      "file": "nova_walk_nw_2.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 760282,
+      "sha256": "dfeab4582403a6ceba5b6d5ee20dbfb5d5939fbe34f55c45de80ade228e93e78",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7476051118080833,
+      "opaque_bbox_alpha_gt128": [
+        364,
+        63,
+        940,
+        1210
+      ]
+    },
+    {
+      "file": "nova_walk_nw_3.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 739706,
+      "sha256": "c22d5f8e79b49408452da8bd701a45f9ab4ef795d59926bebaffaca56fef96d2",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "fully_transparent_fraction": 0.7573016745139636,
+      "opaque_bbox_alpha_gt128": [
+        363,
+        64,
+        942,
+        1192
+      ]
+    }
+  ],
+  "limitations": [
+    "Direction and action bases are not calibrated to a common ground pivot or world scale.",
+    "Generative redraws retain small non-limb changes; exact pixel locks and jump-free motion are not verified.",
+    "Suggested neck points are low-confidence visual estimates; they are not foot contact anchors.",
+    "No animated engine preview was run.",
+    "Sparse loops: 2 typing frames and 4 walk keyframes per direction."
+  ]
+}

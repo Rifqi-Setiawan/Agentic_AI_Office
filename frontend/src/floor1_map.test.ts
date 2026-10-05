@@ -117,7 +117,8 @@ describe('T1.9 Peta Tiled 44x32 dengan 17 zona dan layer slot', () => {
       Z05: { 'desk:scribe': 1, bookshelf_browse: 3, reading_chair: 2 },
       Z06: { 'desk:oracle': 1, lab_bench: 2, whiteboard: 1 },
       Z07: { 'desk:muse': 1, moodboard: 1 },
-      Z08: { 'desk:prism': 1, 'desk:forge': 1, 'desk:nova': 1, 'desk:guest': 1, pair_stand: 2 },
+      // Human-approved Dot layout replaces the two standing slots with console seats.
+      Z08: { 'desk:prism': 1, 'desk:forge': 1, 'desk:nova': 1, 'desk:guest': 1, dev_gaming_seat: 2 },
       Z09: { 'desk:steward': 1, tile_repair: 1 },
       Z10: { 'desk:sentinel': 1, inspect_stand: 1 },
       Z11: { 'desk:relay': 1, parcel_rack: 2 },

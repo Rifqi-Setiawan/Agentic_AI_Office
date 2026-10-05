@@ -1,0 +1,39 @@
+{
+  "packedComponents": 22,
+  "usedComponents": 22,
+  "retiredStandingProps": [
+    "furniture-594-standing",
+    "furniture-680-chair-se",
+    "furniture-682-hotdesk-se",
+    "furniture-770-standing"
+  ],
+  "retiredDoorJambProps": [
+    "walls_back-459-jamb-1",
+    "walls_back-459-jamb1",
+    "walls_back-639-jamb-1",
+    "walls_back-639-jamb1",
+    "walls_front-855-jamb-1",
+    "walls_front-855-jamb1"
+  ],
+  "sourcePixelPartitionsVerified": true,
+  "floorWorldCorners": [
+    [
+      1280.0,
+      464.0
+    ],
+    [
+      1536.0,
+      592.0
+    ],
+    [
+      1216.0,
+      752.0
+    ],
+    [
+      960.0,
+      624.0
+    ]
+  ],
+  "logicalMapSha256": "9a9bc468e345658b349923f4ae8dc696397bb929c69688b350ee74e6b610ef0e",
+  "browserQA": false
+}

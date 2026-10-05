@@ -21,6 +21,20 @@ function setup(id: string, roll: number) {
 }
 
 describe('T2.1 aktivitas ambient di slot kantor', () => {
+  it.each([['prism', 0.99], ['nova', 0.99]] as const)('%s reaches the approved Dev Pod console seats with a game action', (id, roll) => {
+    const { grid, char, state, scheduler } = setup(id, roll);
+    const walk = vi.spyOn(char, 'walk');
+    expect(scheduler.scheduleNextAmbientActivity(id, state, char)).toBe(true);
+    expect(walk).toHaveBeenCalledOnce();
+    const seat = walk.mock.calls[0][1]!;
+    expect(seat.zone).toBe('Z08');
+    expect(seat.type).toBe('dev_gaming_seat');
+    expect(seat.anim).toBe('game');
+    expect(grid.isWalkable(seat.gx, seat.gy)).toBe(true);
+    char.arrive();
+    expect(char.getCurrentAnimation()).toBe('game');
+    char.destroy();
+  });
   it.each([
     ['merlin', 0.9, 'drink', 'lounge_sofa'],
     ['merlin', 0, 'whiteboard', 'whiteboard'],

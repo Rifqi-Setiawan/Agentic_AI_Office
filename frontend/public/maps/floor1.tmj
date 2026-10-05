@@ -7202,7 +7202,7 @@
         0,
         0,
         0,
-        0,
+        90,
         0,
         0,
         0,
@@ -7290,7 +7290,7 @@
         0,
         0,
         0,
-        49,
+        15,
         0,
         0,
         20,
@@ -7332,8 +7332,8 @@
         0,
         15,
         0,
-        0,
-        0,
+        38,
+        78,
         0,
         0,
         0,
@@ -7376,9 +7376,9 @@
         0,
         0,
         0,
-        15,
         0,
-        90,
+        0,
+        0,
         0,
         0,
         0,
@@ -7463,10 +7463,10 @@
         0,
         0,
         0,
+        41,
+        41,
         0,
         0,
-        0,
-        49,
         0,
         0,
         0,
@@ -8623,8 +8623,8 @@
         0,
         0,
         0,
-        0,
         125,
+        125,
         0,
         0,
         0,
@@ -8711,7 +8711,7 @@
         0,
         0,
         0,
-        125,
+        0,
         125,
         0,
         0,
@@ -8750,11 +8750,11 @@
         125,
         125,
         125,
-        0,
         0,
         0,
         0,
-        0,
+        125,
+        125,
         0,
         0,
         0,
@@ -8799,7 +8799,7 @@
         0,
         0,
         0,
-        125,
+        0,
         125,
         0,
         0,
@@ -8884,10 +8884,10 @@
         0,
         0,
         0,
-        0,
+        125,
+        125,
         0,
         0,
-        125,
         125,
         0,
         0,
@@ -11892,7 +11892,7 @@
             {
               "name": "facing",
               "type": "string",
-              "value": "SE"
+              "value": "NE"
             },
             {
               "name": "anim",
@@ -11912,18 +11912,18 @@
             {
               "name": "gx",
               "type": "int",
-              "value": 21
+              "value": 22
             },
             {
               "name": "gy",
               "type": "int",
-              "value": 15
+              "value": 12
             }
           ]
         },
         {
           "id": 46,
-          "name": "slot_z08_pair_1",
+          "name": "slot_z08_gaming_1",
           "type": "pair_stand",
           "point": true,
           "x": 688,
@@ -11935,7 +11935,7 @@
             {
               "name": "type",
               "type": "string",
-              "value": "pair_stand"
+              "value": "dev_gaming_seat"
             },
             {
               "name": "capacity",
@@ -11945,17 +11945,17 @@
             {
               "name": "facing",
               "type": "string",
-              "value": "NW"
+              "value": "NE"
             },
             {
               "name": "anim",
               "type": "string",
-              "value": "stand_talk"
+              "value": "game"
             },
             {
               "name": "y_offset",
               "type": "int",
-              "value": 0
+              "value": -4
             },
             {
               "name": "zone",
@@ -11965,18 +11965,18 @@
             {
               "name": "gx",
               "type": "int",
-              "value": 21
+              "value": 19
             },
             {
               "name": "gy",
               "type": "int",
-              "value": 13
+              "value": 16
             }
           ]
         },
         {
           "id": 47,
-          "name": "slot_z08_pair_2",
+          "name": "slot_z08_gaming_2",
           "type": "pair_stand",
           "point": true,
           "x": 688,
@@ -11988,7 +11988,7 @@
             {
               "name": "type",
               "type": "string",
-              "value": "pair_stand"
+              "value": "dev_gaming_seat"
             },
             {
               "name": "capacity",
@@ -11998,17 +11998,17 @@
             {
               "name": "facing",
               "type": "string",
-              "value": "NW"
+              "value": "NE"
             },
             {
               "name": "anim",
               "type": "string",
-              "value": "stand_talk"
+              "value": "game"
             },
             {
               "name": "y_offset",
               "type": "int",
-              "value": 0
+              "value": -4
             },
             {
               "name": "zone",
@@ -12018,12 +12018,12 @@
             {
               "name": "gx",
               "type": "int",
-              "value": 21
+              "value": 20
             },
             {
               "name": "gy",
               "type": "int",
-              "value": 17
+              "value": 16
             }
           ]
         },

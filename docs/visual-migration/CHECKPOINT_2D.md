@@ -1,3 +1,13 @@
+# Checkpoint terbaru — Dot components v2
+
+Nova: 28 frame atlas, idle/walk/sit_type empat arah. Forge: 6 frame atlas, idle empat arah + typing SE. 22 komponen Z08 dipasang sesuai persetujuan langsung user untuk area gaming. 303 tes lulus; build/lint lulus; logical contract differences {}. Browser QA belum tersedia.
+
+Laporan dan batas hasil: DOT_Z08_COMPONENTS_INTEGRATION.md. Forge walk/sit_type arah lain, aksi lanjutan dan konsistensi Prism tetap pending. Komposisi ruang di evidence/dot-z08-components-2026-10-05/z08-room-candidate.png adalah offline.
+
+---
+
+## Riwayat checkpoint sebelumnya
+
 # Pembaruan pemasangan aset Dot
 
 Kiriman aset user sudah dipasang lokal: empat walk SE Prism, empat idle view Forge dan Nova, serta desk/chair. Default preview memakai AO_DOT_Z08_CANDIDATE; susunan/floor/map v3 tetap. 296 tes, build dan lint lulus. Pose Forge/Nova yang belum ada tetap baseline. Penataan Z08 sedang dibuat Dot. Bukti dan batas QA: [DOT_ASSETS_INTEGRATION.md](DOT_ASSETS_INTEGRATION.md). Bagian berikut adalah riwayat.

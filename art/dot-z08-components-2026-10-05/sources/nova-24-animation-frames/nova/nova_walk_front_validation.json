@@ -1,0 +1,174 @@
+{
+  "method": "Built-in imagegen only. No crop, resampling, pixel correction, canvas normalization or recoloring. Native PNGs copied to deliverable paths. Read-only PNG alpha and head metrics.",
+  "recommended_fps": 7,
+  "frame_order": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "dimensions_note": "Requested 1024 square; actual native output 1254 square retained without transformations.",
+  "alignment_note": "Head/torso visually stable but not guaranteed pixel-perfect. Foot shapes and ground contact vary by gait. Alpha<16 outer noise exists; bounds use alpha>16. Runtime anchor alignment and art-review recommended.",
+  "frames": [
+    {
+      "file": "nova_walk_se_0.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha_gt16": [
+        329,
+        62,
+        974,
+        1196
+      ],
+      "head_region_mean_absolute_rgba_delta_vs_frame0": 0.0,
+      "alpha_zero_fraction": 0.71099
+    },
+    {
+      "file": "nova_walk_se_1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha_gt16": [
+        333,
+        62,
+        926,
+        1206
+      ],
+      "head_region_mean_absolute_rgba_delta_vs_frame0": 3.5256,
+      "alpha_zero_fraction": 0.73094
+    },
+    {
+      "file": "nova_walk_se_2.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha_gt16": [
+        331,
+        62,
+        1025,
+        1209
+      ],
+      "head_region_mean_absolute_rgba_delta_vs_frame0": 6.4225,
+      "alpha_zero_fraction": 0.71512
+    },
+    {
+      "file": "nova_walk_se_3.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha_gt16": [
+        332,
+        62,
+        936,
+        1215
+      ],
+      "head_region_mean_absolute_rgba_delta_vs_frame0": 5.2048,
+      "alpha_zero_fraction": 0.72412
+    },
+    {
+      "file": "nova_walk_sw_0.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha_gt16": [
+        349,
+        35,
+        955,
+        1224
+      ],
+      "head_region_mean_absolute_rgba_delta_vs_frame0": 0.0,
+      "alpha_zero_fraction": 0.71237
+    },
+    {
+      "file": "nova_walk_sw_1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha_gt16": [
+        349,
+        36,
+        933,
+        1226
+      ],
+      "head_region_mean_absolute_rgba_delta_vs_frame0": 3.3963,
+      "alpha_zero_fraction": 0.72915
+    },
+    {
+      "file": "nova_walk_sw_2.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha_gt16": [
+        323,
+        35,
+        976,
+        1224
+      ],
+      "head_region_mean_absolute_rgba_delta_vs_frame0": 3.0369,
+      "alpha_zero_fraction": 0.71218
+    },
+    {
+      "file": "nova_walk_sw_3.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha_gt16": [
+        335,
+        36,
+        950,
+        1221
+      ],
+      "head_region_mean_absolute_rgba_delta_vs_frame0": 3.9648,
+      "alpha_zero_fraction": 0.72002
+    }
+  ]
+}

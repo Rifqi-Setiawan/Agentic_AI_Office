@@ -31,7 +31,8 @@ export const OfficeScene: React.FC = () => {
     const officeArt = new URLSearchParams(location.search).get('officeArt');
     const assetsUrl = officeArt === 'baseline' ? '/visual-migration/preview-assets.json'
       : officeArt === 'previous' ? '/visual-migration/illustrated-z08-v3/assets.json'
-      : '/visual-migration/dot-z08-candidate/assets.json';
+      : officeArt === 'dot-v1' ? '/visual-migration/dot-z08-candidate/assets.json'
+      : '/visual-migration/dot-z08-components-v2/assets.json';
     Promise.all([
       loadJson<TiledMapDoc>('/maps/floor1.tmj', signal),
       loadJson<PreviewAssets>(assetsUrl, signal),
@@ -59,7 +60,7 @@ export const OfficeScene: React.FC = () => {
   const selectAgent = useCallback((id: string) => {active.current?.handleAgentClick(id);}, []);
   const grid = useMemo(() => data ? new GridMap(data.map) : null, [data]);
   return <div className="office-scene" data-renderer="react-css">
-    <div className="migration-notice" role="status">{import.meta.env.DEV ? 'Preview lokal · fixture demo' : 'Renderer percobaan'} · {data?.assets.styleVersion === 'AO_DOT_Z08_CANDIDATE' ? 'Uji aset Dot · Forge/Nova baru idle · aksi lainnya memakai aset lama' : data?.assets.characterOverrides ? 'Kandidat ilustrasi Z08 + Prism · ruang dan aksi lainnya masih aset lama' : 'Pembanding aset lama'} · menunggu review gaya</div>
+    <div className="migration-notice" role="status">{import.meta.env.DEV ? 'Preview lokal · fixture demo' : 'Renderer percobaan'} · {data?.assets.styleVersion === 'AO_DOT_Z08_COMPONENTS_V2' ? 'Uji aset Dot · Nova jalan/duduk 4 arah · Forge duduk SE · aksi lainnya memakai aset lama' : data?.assets.styleVersion === 'AO_DOT_Z08_CANDIDATE' ? 'Uji aset Dot · Forge/Nova baru idle · aksi lainnya memakai aset lama' : data?.assets.characterOverrides ? 'Kandidat ilustrasi Z08 + Prism · ruang dan aksi lainnya masih aset lama' : 'Pembanding aset lama'} · menunggu review gaya</div>
     <button className="mobile-room-toggle" onClick={() => setMenu(!menu)} aria-expanded={menu}>17 ruang</button>
     <nav className={`scene-nav ${menu ? 'open' : ''}`} aria-label="Navigasi 17 ruang">
       <div className="nav-title">THE OFFICE <span>44 × 32</span></div>

@@ -1,0 +1,503 @@
+{
+  "frames": [
+    {
+      "file": "frames/forge_sit_type_se_0.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/forge-nova-typing-se-frames/forge_sit_type_se_0.png",
+      "sourceSha256": "e282a3f56aa03e2f68fe91cdd056845473965c2f3ec2d588aa5302a4c013d226",
+      "registrationSequence": "forge_sit_type_se",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/forge_sit_type_se_1.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/forge-nova-typing-se-frames/forge_sit_type_se_1.png",
+      "sourceSha256": "0e826c908e6e5076d0ec7c400e0085ab8872d0f11a2d603fa66bc79e5a2c320b",
+      "registrationSequence": "forge_sit_type_se",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_sit_type_se_0.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_se_0.png",
+      "sourceSha256": "af81af46fa853ddc1ba4d4d0efe91059ef1239a2e5177e33cb5afbf8ffe44d36",
+      "registrationSequence": "nova_sit_type_se",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_sit_type_se_1.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_se_1.png",
+      "sourceSha256": "78b6421cead14c92c0d29bc345897330c4d21b1d7d017de703c0d30f55428d29",
+      "registrationSequence": "nova_sit_type_se",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_sit_type_sw_0.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_sw_0.png",
+      "sourceSha256": "7d3e08255e6204f19a6855feecfd24ce7328ef38d357f1f5ea4d0ae4eb83c28f",
+      "registrationSequence": "nova_sit_type_sw",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_sit_type_sw_1.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_sw_1.png",
+      "sourceSha256": "820b0dc75c69fb021f7cfa3a15e1f570745051cf92559d8ddc506be3cd8e4f31",
+      "registrationSequence": "nova_sit_type_sw",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_sit_type_ne_0.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_ne_0.png",
+      "sourceSha256": "b8976c2917a33f509ab17477cb041602ade102d9d6cc44fae001ac34d9993e0b",
+      "registrationSequence": "nova_sit_type_ne",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_sit_type_ne_1.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_ne_1.png",
+      "sourceSha256": "f1db7efbbda0ba6c4b9a32ddb3b60598fd4b9b108e6167ba03c400401e95d24b",
+      "registrationSequence": "nova_sit_type_ne",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_sit_type_nw_0.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_nw_0.png",
+      "sourceSha256": "fc616705edaab142df9a755d84665dfca0c845bc33fb65b298ef198d07ea7c05",
+      "registrationSequence": "nova_sit_type_nw",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_sit_type_nw_1.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_sit_type_nw_1.png",
+      "sourceSha256": "40f515273cdefb6ae60c689704330207685fee90ca5d535a713496597e919b60",
+      "registrationSequence": "nova_sit_type_nw",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_se_0.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_se_0.png",
+      "sourceSha256": "b9672ee167b8b8b8c641dd7595caf8b9e5501837b3c43bd2516a6030b07491c0",
+      "registrationSequence": "nova_walk_se",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_se_1.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_se_1.png",
+      "sourceSha256": "cef2dbde8759ff0434c21195decbd4e249f7c8e1035139d14b679faef333c74f",
+      "registrationSequence": "nova_walk_se",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_se_2.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_se_2.png",
+      "sourceSha256": "17c0964d5010c2c56d3c7d4ed58293ff083cd766f53640d1771732344361610f",
+      "registrationSequence": "nova_walk_se",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_se_3.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_se_3.png",
+      "sourceSha256": "7294aac95d997762f60371b222af3357788f8a9d27cf1324fcb709eae980736f",
+      "registrationSequence": "nova_walk_se",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_sw_0.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_sw_0.png",
+      "sourceSha256": "03a93e216f3c3b958ed8d53377fe5b89db8129f672f7057c260f372ae65eeb91",
+      "registrationSequence": "nova_walk_sw",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_sw_1.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_sw_1.png",
+      "sourceSha256": "0c370570f1288a8a7a23a4aef4b64eb5eba3df45fb0ff63344a8ae4c6dad1e6c",
+      "registrationSequence": "nova_walk_sw",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_sw_2.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_sw_2.png",
+      "sourceSha256": "ff65edc915cc745a555c89b1037845caf0d5e8ae7ce46d10e023288fd05028c9",
+      "registrationSequence": "nova_walk_sw",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_sw_3.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_sw_3.png",
+      "sourceSha256": "879227f321a786d1458bcd6e1ac4e4ffef61590555d7c26742f5eacd485d0457",
+      "registrationSequence": "nova_walk_sw",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_ne_0.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_ne_0.png",
+      "sourceSha256": "ab17b5a1846f5689019284a8b54ae5b2c53e8cb43ba1781787e204bd3881a4b3",
+      "registrationSequence": "nova_walk_ne",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_ne_1.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_ne_1.png",
+      "sourceSha256": "c0671de5ee17645eefae9dc920a451f0497a8f4c697065f09ec1ced22266d52f",
+      "registrationSequence": "nova_walk_ne",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_ne_2.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_ne_2.png",
+      "sourceSha256": "0b837cf7e400a58bd202b55183d957fcdc855fc9db0b99ad9959180811da9fc6",
+      "registrationSequence": "nova_walk_ne",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_ne_3.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_ne_3.png",
+      "sourceSha256": "33ef368bf8c1f5d5cafdade625f5e7cb0346a9c80d1b26e3f4937006701cb852",
+      "registrationSequence": "nova_walk_ne",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_nw_0.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_nw_0.png",
+      "sourceSha256": "16201f0dba0b5e6bab457a7c1173f13d3ace155679f0c2196b7c10d7f3294e56",
+      "registrationSequence": "nova_walk_nw",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_nw_1.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_nw_1.png",
+      "sourceSha256": "33fd62d87a7a0242132daed8beb863e68908d4bed9afcf2b8df9b6cb5e54008d",
+      "registrationSequence": "nova_walk_nw",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_nw_2.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_nw_2.png",
+      "sourceSha256": "dfeab4582403a6ceba5b6d5ee20dbfb5d5939fbe34f55c45de80ade228e93e78",
+      "registrationSequence": "nova_walk_nw",
+      "crop": null,
+      "mirrored": false
+    },
+    {
+      "file": "frames/nova_walk_nw_3.png",
+      "source": "art/dot-z08-components-2026-10-05/sources/nova-24-animation-frames/nova/nova_walk_nw_3.png",
+      "sourceSha256": "c22d5f8e79b49408452da8bd701a45f9ab4ef795d59926bebaffaca56fef96d2",
+      "registrationSequence": "nova_walk_nw",
+      "crop": null,
+      "mirrored": false
+    }
+  ],
+  "registrations": [
+    {
+      "agent": "forge",
+      "action": "sit_type",
+      "direction": "se",
+      "sourceCanvas": [
+        1254,
+        1254
+      ],
+      "sourcePivotPx": [
+        670,
+        1135
+      ],
+      "sourcePivotStatus": "manually calibrated proposal; browser validation pending",
+      "uniformScale": 0.1339712918660287,
+      "runtimeCanvas": [
+        192,
+        224
+      ],
+      "pasteOffsetPx": [
+        6,
+        54
+      ],
+      "perFrameAutoTrim": false,
+      "mirrored": false,
+      "sourceFootExtremaUsedPerFrame": false,
+      "sourceFiles": [
+        "forge_sit_type_se_0.png",
+        "forge_sit_type_se_1.png"
+      ],
+      "fps": 4
+    },
+    {
+      "agent": "nova",
+      "action": "sit_type",
+      "direction": "se",
+      "sourceCanvas": [
+        1254,
+        1254
+      ],
+      "sourcePivotPx": [
+        655,
+        1150
+      ],
+      "sourcePivotStatus": "manually calibrated proposal; browser validation pending",
+      "uniformScale": 0.12998405103668262,
+      "runtimeCanvas": [
+        192,
+        224
+      ],
+      "pasteOffsetPx": [
+        11,
+        57
+      ],
+      "perFrameAutoTrim": false,
+      "mirrored": false,
+      "sourceFootExtremaUsedPerFrame": false,
+      "sourceFiles": [
+        "nova_sit_type_se_0.png",
+        "nova_sit_type_se_1.png"
+      ],
+      "fps": 3.5
+    },
+    {
+      "agent": "nova",
+      "action": "sit_type",
+      "direction": "sw",
+      "sourceCanvas": [
+        1254,
+        1254
+      ],
+      "sourcePivotPx": [
+        650,
+        1190
+      ],
+      "sourcePivotStatus": "manually calibrated proposal; browser validation pending",
+      "uniformScale": 0.12599681020733652,
+      "runtimeCanvas": [
+        192,
+        224
+      ],
+      "pasteOffsetPx": [
+        14,
+        56
+      ],
+      "perFrameAutoTrim": false,
+      "mirrored": false,
+      "sourceFootExtremaUsedPerFrame": false,
+      "sourceFiles": [
+        "nova_sit_type_sw_0.png",
+        "nova_sit_type_sw_1.png"
+      ],
+      "fps": 3.5
+    },
+    {
+      "agent": "nova",
+      "action": "sit_type",
+      "direction": "ne",
+      "sourceCanvas": [
+        1254,
+        1254
+      ],
+      "sourcePivotPx": [
+        665,
+        1138
+      ],
+      "sourcePivotStatus": "manually calibrated proposal; browser validation pending",
+      "uniformScale": 0.1283891547049442,
+      "runtimeCanvas": [
+        192,
+        224
+      ],
+      "pasteOffsetPx": [
+        11,
+        60
+      ],
+      "perFrameAutoTrim": false,
+      "mirrored": false,
+      "sourceFootExtremaUsedPerFrame": false,
+      "sourceFiles": [
+        "nova_sit_type_ne_0.png",
+        "nova_sit_type_ne_1.png"
+      ],
+      "fps": 3.5
+    },
+    {
+      "agent": "nova",
+      "action": "sit_type",
+      "direction": "nw",
+      "sourceCanvas": [
+        1254,
+        1254
+      ],
+      "sourcePivotPx": [
+        610,
+        1140
+      ],
+      "sourcePivotStatus": "manually calibrated proposal; browser validation pending",
+      "uniformScale": 0.12599681020733652,
+      "runtimeCanvas": [
+        192,
+        224
+      ],
+      "pasteOffsetPx": [
+        19,
+        62
+      ],
+      "perFrameAutoTrim": false,
+      "mirrored": false,
+      "sourceFootExtremaUsedPerFrame": false,
+      "sourceFiles": [
+        "nova_sit_type_nw_0.png",
+        "nova_sit_type_nw_1.png"
+      ],
+      "fps": 3.5
+    },
+    {
+      "agent": "nova",
+      "action": "walk",
+      "direction": "se",
+      "sourceCanvas": [
+        1254,
+        1254
+      ],
+      "sourcePivotPx": [
+        655,
+        1175
+      ],
+      "sourcePivotStatus": "manually calibrated proposal; browser validation pending",
+      "uniformScale": 0.12041467304625199,
+      "runtimeCanvas": [
+        192,
+        224
+      ],
+      "pasteOffsetPx": [
+        17,
+        65
+      ],
+      "perFrameAutoTrim": false,
+      "mirrored": false,
+      "sourceFootExtremaUsedPerFrame": false,
+      "sourceFiles": [
+        "nova_walk_se_0.png",
+        "nova_walk_se_1.png",
+        "nova_walk_se_2.png",
+        "nova_walk_se_3.png"
+      ],
+      "fps": 7
+    },
+    {
+      "agent": "nova",
+      "action": "walk",
+      "direction": "sw",
+      "sourceCanvas": [
+        1254,
+        1254
+      ],
+      "sourcePivotPx": [
+        650,
+        1185
+      ],
+      "sourcePivotStatus": "manually calibrated proposal; browser validation pending",
+      "uniformScale": 0.11483253588516747,
+      "runtimeCanvas": [
+        192,
+        224
+      ],
+      "pasteOffsetPx": [
+        21,
+        70
+      ],
+      "perFrameAutoTrim": false,
+      "mirrored": false,
+      "sourceFootExtremaUsedPerFrame": false,
+      "sourceFiles": [
+        "nova_walk_sw_0.png",
+        "nova_walk_sw_1.png",
+        "nova_walk_sw_2.png",
+        "nova_walk_sw_3.png"
+      ],
+      "fps": 7
+    },
+    {
+      "agent": "nova",
+      "action": "walk",
+      "direction": "ne",
+      "sourceCanvas": [
+        1254,
+        1254
+      ],
+      "sourcePivotPx": [
+        650,
+        1175
+      ],
+      "sourcePivotStatus": "manually calibrated proposal; browser validation pending",
+      "uniformScale": 0.11881977671451356,
+      "runtimeCanvas": [
+        192,
+        224
+      ],
+      "pasteOffsetPx": [
+        19,
+        66
+      ],
+      "perFrameAutoTrim": false,
+      "mirrored": false,
+      "sourceFootExtremaUsedPerFrame": false,
+      "sourceFiles": [
+        "nova_walk_ne_0.png",
+        "nova_walk_ne_1.png",
+        "nova_walk_ne_2.png",
+        "nova_walk_ne_3.png"
+      ],
+      "fps": 7
+    },
+    {
+      "agent": "nova",
+      "action": "walk",
+      "direction": "nw",
+      "sourceCanvas": [
+        1254,
+        1254
+      ],
+      "sourcePivotPx": [
+        655,
+        1175
+      ],
+      "sourcePivotStatus": "manually calibrated proposal; browser validation pending",
+      "uniformScale": 0.11881977671451356,
+      "runtimeCanvas": [
+        192,
+        224
+      ],
+      "pasteOffsetPx": [
+        18,
+        66
+      ],
+      "perFrameAutoTrim": false,
+      "mirrored": false,
+      "sourceFootExtremaUsedPerFrame": false,
+      "sourceFiles": [
+        "nova_walk_nw_0.png",
+        "nova_walk_nw_1.png",
+        "nova_walk_nw_2.png",
+        "nova_walk_nw_3.png"
+      ],
+      "fps": 7
+    }
+  ],
+  "browserQA": false,
+  "loopAccepted": false
+}

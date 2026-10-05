@@ -1,0 +1,122 @@
+[
+  {
+    "path": "/workspace/scratch/1f7ded418f78/z08-components/workstations/Z08-guest-chair-NE.png",
+    "dimensions": [
+      1431,
+      1099
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1280530,
+    "fully_opaque_pixels": 1570,
+    "near_opaque_pixels": 272910,
+    "partial_alpha_pixels": 19229,
+    "alpha_bbox": [
+      72,
+      20,
+      1353,
+      1044
+    ],
+    "threshold128_bbox": [
+      366,
+      202,
+      1126,
+      1001
+    ],
+    "all_corners_transparent": true,
+    "sha256": "c8b70091dfb3fbd23d79ab8839e7e1faf62f79d769ff3e6e2114ef191d14e23a"
+  },
+  {
+    "path": "/workspace/scratch/1f7ded418f78/z08-components/workstations/Z08-guest-desk.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "transparent_pixels": 1281607,
+    "fully_opaque_pixels": 0,
+    "near_opaque_pixels": 274503,
+    "partial_alpha_pixels": 16754,
+    "alpha_bbox": [
+      316,
+      39,
+      1322,
+      952
+    ],
+    "threshold128_bbox": [
+      319,
+      138,
+      1202,
+      922
+    ],
+    "all_corners_transparent": true,
+    "sha256": "e92ff20e82e90bc5e9b714a1bdd866ddd6531920583f436d8684d7f291631536"
+  },
+  {
+    "path": "/workspace/scratch/1f7ded418f78/z08-components/workstations/Z08-worker-chair-SE.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "transparent_pixels": 1287045,
+    "fully_opaque_pixels": 0,
+    "near_opaque_pixels": 264357,
+    "partial_alpha_pixels": 21462,
+    "alpha_bbox": [
+      65,
+      37,
+      1055,
+      1008
+    ],
+    "threshold128_bbox": [
+      509,
+      83,
+      1049,
+      967
+    ],
+    "all_corners_transparent": true,
+    "sha256": "f3fe3923ff345f0b74946cb77231f8610ff4c2612b49e1500aab07b3e2ca4276"
+  },
+  {
+    "path": "/workspace/scratch/1f7ded418f78/z08-components/workstations/Z08-worker-desk.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "transparent_pixels": 1172899,
+    "fully_opaque_pixels": 0,
+    "near_opaque_pixels": 382551,
+    "partial_alpha_pixels": 17414,
+    "alpha_bbox": [
+      65,
+      35,
+      1436,
+      1000
+    ],
+    "threshold128_bbox": [
+      305,
+      90,
+      1269,
+      928
+    ],
+    "all_corners_transparent": true,
+    "sha256": "da49b5db0957049ce43d20d889ad62102470b59e5fc901ea128c82d36fbdf2c4"
+  }
+]

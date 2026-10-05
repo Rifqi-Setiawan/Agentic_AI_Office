@@ -1,0 +1,3 @@
+# Preserve the Windows checkout bytes used by the visual migration SHA256 contract.
+/frontend/public/maps/floor1.tmj text eol=crlf
+/frontend/public/visual-migration/dot-z08-components-v2/*.json text eol=crlf

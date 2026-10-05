@@ -1,0 +1,67 @@
+{
+  "status": "uncalibrated_visual_proposals",
+  "confidence": "moderate",
+  "note": "No registration or tile scale has been established. Anchors are semantic visual estimates, not bbox-bottom anchors. Relative widths are optional composition starting points, normalized to worker desk long-axis width; validate in scene.",
+  "assets": [
+    {
+      "file": "Z08-worker-desk.png",
+      "anchorType": "ground_footprint_center",
+      "anchorPixels": [
+        790,
+        705
+      ],
+      "anchorNormalized": [
+        0.5143229166666666,
+        0.6884765625
+      ],
+      "logicalTileWidth": null,
+      "relativeWidth": 1,
+      "basis": "Estimated projected center among visible leg contacts and inferred rear corner"
+    },
+    {
+      "file": "Z08-worker-chair-SE.png",
+      "anchorType": "ground_contact_center",
+      "anchorPixels": [
+        772,
+        850
+      ],
+      "anchorNormalized": [
+        0.5026041666666666,
+        0.830078125
+      ],
+      "logicalTileWidth": null,
+      "relativeWidth": 0.43,
+      "basis": "Ground plane directly under central swivel hub, estimated using caster contacts"
+    },
+    {
+      "file": "Z08-guest-desk.png",
+      "anchorType": "ground_footprint_center",
+      "anchorPixels": [
+        758,
+        701
+      ],
+      "anchorNormalized": [
+        0.4934895833333333,
+        0.6845703125
+      ],
+      "logicalTileWidth": null,
+      "relativeWidth": 0.65,
+      "basis": "Estimated center of four projected leg ground contacts"
+    },
+    {
+      "file": "Z08-guest-chair-NE.png",
+      "anchorType": "ground_contact_center",
+      "anchorPixels": [
+        746,
+        793
+      ],
+      "anchorNormalized": [
+        0.5213137665967854,
+        0.721565059144677
+      ],
+      "logicalTileWidth": null,
+      "relativeWidth": 0.35,
+      "basis": "Estimated center of sled footprint, using visible opposing floor-contact bends"
+    }
+  ]
+}

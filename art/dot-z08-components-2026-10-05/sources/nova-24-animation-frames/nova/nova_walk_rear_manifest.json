@@ -1,0 +1,105 @@
+{
+  "character": "Nova",
+  "action": "walk",
+  "directions": [
+    "NE",
+    "NW"
+  ],
+  "generator": "built-in image_gen",
+  "pixel_processing": "None; original image generation PNGs copied unchanged",
+  "frame_order": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "fps": 7,
+  "fps_range": [
+    6,
+    8
+  ],
+  "loop": true,
+  "requested_size": [
+    1024,
+    1024
+  ],
+  "actual_size": [
+    1254,
+    1254
+  ],
+  "reference": "/workspace/scratch/1f7ded418f78/prism_assets/output/nova-four-direction-idle.png",
+  "transparency": "RGBA with real transparent alpha; no background, floor, shadows or furniture",
+  "notes": [
+    "NE clip hidden; NW single gold star on screen-left retained, consistent anatomical side.",
+    "Every frame visually inspected. Contact poses alternate and passing poses have bent/lifted legs. Arms also change.",
+    "Head position approximately preserved across within-direction edits. These are generated animation drawings; no pixel-perfect registration guarantee or deterministic cleanup was possible under image_gen-only constraint.",
+    "Native dimensions differ from requested 1024. Preserve original pixels; no resizing, cropping or code-based pixel editing applied.",
+    "Recommended playback 0,1,2,3 repeating at 6–8 fps. Use same untrimmed-canvas pivot within each clip. Inspect engine playback and adjust sprite metadata if needed; foot positions vary with the gait."
+  ],
+  "frames": [
+    {
+      "file": "nova_walk_ne_0.png",
+      "direction": "NE",
+      "index": 0,
+      "phase": "contact A",
+      "prompt": "Use case: identity-preserve. Make ONE transparent 1024x1024 PNG animation frame, one character only, no grid. Input image is Nova's four-direction model sheet. Use ONLY the BOTTOM LEFT character as the exact identity/style/camera reference: rear three-quarter view facing northeast / upper-right, plain black jacket back, her gold star hairclip is on the far side and HIDDEN in this direction. Never use a front view. Nova has short layered dark-purple bob hair with same silhouette and highlights, chibi proportions, black varsity jacket with cream sleeves and cyan collar/cuffs/waistband, black cargo pants with cyan tabs, chunky black/cyan sneakers with white soles. Match the polished 2D illustrated style, crisp smooth outline, same soft upper-left light. WALK NE frame 0 of 4: clear natural walking stride along upper-right diagonal, anatomical RIGHT foot reaching forward toward upper-right to contact ground; anatomical LEFT leg extended back toward lower-left, rear heel lifted with toe push-off; opposite arms swing naturally with left arm forward and right arm back. Full-body entirely in canvas; character height about 800 px, hair top y110, torso center about (512,560), stable ground/root pivot about (512,920), centered. No head tilt or torso bob; head and body upright, camera angle unchanged. Keep identity and clothing exactly. Genuine transparent alpha background, NO backdrop, floor, shadows, glow, text, labels, furniture, props, weapons, keyboards, chairs or tables. Make one isolated frame only.",
+      "correction_prompt": null
+    },
+    {
+      "file": "nova_walk_ne_1.png",
+      "direction": "NE",
+      "index": 1,
+      "phase": "passing A",
+      "prompt": "Use case: precise-object-edit, game walk animation frame. Input image is the EDIT TARGET and exact animation registration master. Produce ONE PNG with genuine transparency, one Nova only. Preserve the exact canvas dimensions and camera, same framing and root position. Do not auto-crop or zoom. Copy the entire head, hair, face/ear and black torso above waist unchanged at exactly the same image pixel positions. Preserve hair silhouette, purple highlights, no visible star clip in this NE rear three-quarter view, black jacket back with cream sleeves and cyan trim, black cargo pants cyan tabs, black/cyan/white sneakers. Keep polished 2D chibi illustration and original lighting. CHANGE ONLY articulated arms/hands and legs/feet to the specified next gait pose; no head bob, torso bob or scale change. Stable ground pivot and hip fixed, do not shift entire body to center the new limb silhouette. Transparent background, no ground/shadow/glow/furniture/props/text. Keep the two arms and legs anatomically connected. Request square 1024x1024 output if dimensions are controllable; never crop character. WALK NE frame 1, passing pose: the RIGHT leg that was forward is now supporting under the pelvis, knee nearly straight, foot flat angled upper-right; the LEFT leg bends at the knee and swings forward past the supporting leg, left foot visibly lifted off the ground near the support ankle. Both arms pass close to the torso with smaller neutral swing. The leg silhouette must be clearly narrower and more bent than input, unmistakably different from the wide contact stride. Keep every other detail and registration unchanged.",
+      "correction_prompt": "Use case: precise-object-edit. Make one transparent Nova NE walk frame. This input's leg pose needs to become a true narrow passing pose. Change ONLY everything below the cyan jacket waistband. Keep everything above the waistband completely unchanged, exact same hair/head/hidden-star/ear, torso and arms, same scale, pixel positions, camera and lighting. REPLACE BOTH LEGS. Near/right leg is now nearly straight DOWN below right hip, with its sneaker planted FLAT at x735,y1120 pointing toward upper-right. Far/left leg bends sharply with knee forward; its sneaker LIFTS high and inward at x575,y1000, close beside support calf. The left sneaker must be HIGHER than right sneaker, clearly lifted with visible sole. Feet close together beneath hips, narrow silhouette. No wide stride, no left foot down at bottom-left, no shoe extending outward to far screen-right. Matching black cargo pants cyan tabs and black/cyan/white shoes. Transparent square background, no floor/shadow/furniture, one frame only, keep original canvas dimensions."
+    },
+    {
+      "file": "nova_walk_ne_2.png",
+      "direction": "NE",
+      "index": 2,
+      "phase": "contact B",
+      "prompt": "Use case: precise-object-edit, game walk animation frame. Input image is the EDIT TARGET and exact animation registration master. Produce ONE PNG with genuine transparency, one Nova only. Preserve the exact canvas dimensions and camera, same framing and root position. Do not auto-crop or zoom. Copy the entire head, hair, face/ear and black torso above waist unchanged at exactly the same image pixel positions. Preserve hair silhouette, purple highlights, no visible star clip in this NE rear three-quarter view, black jacket back with cream sleeves and cyan trim, black cargo pants cyan tabs, black/cyan/white sneakers. Keep polished 2D chibi illustration and original lighting. CHANGE ONLY articulated arms/hands and legs/feet to the specified next gait pose; no head bob, torso bob or scale change. Stable ground pivot and hip fixed, do not shift entire body to center the new limb silhouette. Transparent background, no ground/shadow/glow/furniture/props/text. Keep the two arms and legs anatomically connected. Request square 1024x1024 output if dimensions are controllable; never crop character. WALK NE frame 2: OPPOSITE CONTACT to the input, a clear exchange of BOTH legs. The leg attached to the SCREEN-LEFT side of the pelvis must now extend FORWARD toward upper-right, crossing diagonally in front and its sneaker lands at roughly x800 y1035, toe toward upper-right. The leg attached to SCREEN-RIGHT side of the pelvis must extend BACKWARD toward lower-left and its sneaker is near x500 y1145 with its heel lifted and sole visible. This is NOT the original pose: swap which anatomical leg leads and which trails, using strong knee bends/overlap to make it unambiguous. Also reverse the arms: screen-right cream sleeve/hand swing BACK toward lower-left and screen-left arm swings FORWARD toward upper-right partly obscured by torso. Keep head and torso absolutely fixed, no rotation, no zoom. Frame 2, opposite contact.",
+      "correction_prompt": "Use case: precise-object-edit, game walk animation frame. Input image is the EDIT TARGET and exact animation registration master. Produce ONE PNG with genuine transparency, one Nova only. Preserve the exact canvas dimensions and camera, same framing and root position. Do not auto-crop or zoom. Copy the entire head, hair, face/ear and black torso above waist unchanged at exactly the same image pixel positions. Preserve hair silhouette, purple highlights, no visible star clip in this NE rear three-quarter view, black jacket back with cream sleeves and cyan trim, black cargo pants cyan tabs, black/cyan/white sneakers. Keep polished 2D chibi illustration and original lighting. CHANGE ONLY articulated arms/hands and legs/feet to the specified next gait pose; no head bob, torso bob or scale change. Stable ground pivot and hip fixed, do not shift entire body to center the new limb silhouette. Transparent background, no ground/shadow/glow/furniture/props/text. Keep the two arms and legs anatomically connected. Request square 1024x1024 output if dimensions are controllable; never crop character. CRITICAL POSE CHANGE, opposite contact: redraw BOTH ARMS and BOTH LEGS, do not keep their existing locations. The near/right arm now hangs backward DOWN the right side: right hand at x880,y805; the far/left arm swings forward UP and inward, left hand partly hidden behind torso near x520,y615. The shoe that is currently at bottom-left must move UP and RIGHT so the far/left shoe is at x585,y990 facing upper-right, flat planted. The shoe currently on the right must move DOWN so the near/right leg stretches backward DOWN-RIGHT with its shoe at x805,y1150; lifted heel faces the viewer and dark-cyan sole is visible. This creates the visually REVERSED stride with the left shoe higher than the right shoe. In output, lowest shoe MUST be on SCREEN-RIGHT, unlike input where lowest shoe is SCREEN-LEFT. Keep hair and torso in their exact original pixel positions. Single animation frame, not a pose comparison."
+    },
+    {
+      "file": "nova_walk_ne_3.png",
+      "direction": "NE",
+      "index": 3,
+      "phase": "passing B",
+      "prompt": "Use case: precise-object-edit, game walk animation frame. Input image is the EDIT TARGET and exact animation registration master. Produce ONE PNG with genuine transparency, one Nova only. Preserve the exact canvas dimensions and camera, same framing and root position. Do not auto-crop or zoom. Copy the entire head, hair, face/ear and black torso above waist unchanged at exactly the same image pixel positions. Preserve hair silhouette, purple highlights, no visible star clip in this NE rear three-quarter view, black jacket back with cream sleeves and cyan trim, black cargo pants cyan tabs, black/cyan/white sneakers. Keep polished 2D chibi illustration and original lighting. CHANGE ONLY articulated arms/hands and legs/feet to the specified next gait pose; no head bob, torso bob or scale change. Stable ground pivot and hip fixed, do not shift entire body to center the new limb silhouette. Transparent background, no ground/shadow/glow/furniture/props/text. Keep the two arms and legs anatomically connected. Request square 1024x1024 output if dimensions are controllable; never crop character. WALK NE frame 3, passing/recovery. Bring the far/left support foot directly below the hip, shoe at x590,y1080 on ground; straighten its lower leg, not extended forward. Bend the near/right knee sharply; its right sneaker lifts and folds forward close beside the planted leg at x730,y1000 with toe facing upper-right and much less sole exposed than input. Both feet must now be close beneath the body, narrow standing-like silhouette with ONE foot lifted and one flat, unlike wide input stride. Bring both arms closer to neutral side position, right hand around x855,y765 and left around x450,y680. Body and head do not move. Same Nova, transparent square single frame.",
+      "correction_prompt": null
+    },
+    {
+      "file": "nova_walk_nw_0.png",
+      "direction": "NW",
+      "index": 0,
+      "phase": "contact A",
+      "prompt": "Use case: identity-preserve. Make ONE square transparent 1024x1024 PNG animation frame, one character only, no grid. Input image is Nova's four-direction model sheet. Use ONLY the BOTTOM RIGHT character as exact identity/style/camera reference: rear three-quarter view facing northwest / upper-left, plain black jacket back, her single gold star hairclip is VISIBLE on SCREEN LEFT above her visible ear, exactly same anatomical side as reference. Never use front view or mirror hairclip away. Nova has short layered dark-purple bob hair same silhouette and highlights, chibi proportions, black varsity jacket cream sleeves cyan collar/cuffs/waistband, black cargo pants cyan tabs, chunky black/cyan sneakers white soles. Match polished 2D illustrated style, crisp smooth outline, same soft upper-left light. WALK NW frame 0 of 4: clear natural walking stride along upper-left diagonal, near/left leg reaching forward toward upper-left to contact ground; far/right leg extended back toward lower-right, rear heel lifted with toe push-off and sole visible; opposite arms swing, near/left arm swings back down while far/right arm forward up. Full-body entire canvas, roughly 800px tall, hair top y110, torso center (512,560), fixed ground/root pivot (512,920), centered. No head tilt or torso bob, fixed isometric camera. Genuine transparent alpha background, NO backdrop, floor, shadows, glow, text, labels, furniture, props, chairs or tables. Make one isolated frame only.",
+      "correction_prompt": null
+    },
+    {
+      "file": "nova_walk_nw_1.png",
+      "direction": "NW",
+      "index": 1,
+      "phase": "passing A",
+      "prompt": "Use case: precise-object-edit, game walk animation frame. Input image is the EDIT TARGET and exact animation registration master. Produce ONE square PNG with genuine transparency, one Nova only. Preserve exact canvas dimensions and camera, same framing and root position. Do not auto-crop, recenter or zoom. Copy the entire head, purple hair, gold star hairclip above SCREEN LEFT ear and plain black torso above waist unchanged at exactly the same pixel positions. Preserve hair silhouette, purple highlights, NW rear three-quarter view facing upper-left, black jacket back cream sleeves cyan trim, black cargo pants cyan tabs, black/cyan/white sneakers. Preserve polished 2D chibi style and lighting. CHANGE ONLY articulated arms/hands and legs/feet to specified next gait pose; no head bob, torso bob, or scale change. Stable root and fixed hip; do not shift whole body to center changed limb silhouette. Transparent alpha background, no ground/shadow/glow/furniture/props/text. Keep two arms and legs anatomically connected. Request square 1024x1024 output if dimensions controllable, never crop character. WALK NW frame 1, passing pose. Near/left leg supports below hip, shoe planted centered x580,y1110 facing upper-left. Far/right knee bends strongly and its lifted sneaker swings inward forward to x720,y1015 close behind left calf. Both feet beneath body, narrow silhouette, ONE flat grounded foot and ONE bent lifted foot, unlike original wide diagonal stride. Lower left arm closer to neutral at x425,y750; right arm also neutral closer to body x820,y750. Entire head and torso unchanged. One isolated frame.",
+      "correction_prompt": null
+    },
+    {
+      "file": "nova_walk_nw_2.png",
+      "direction": "NW",
+      "index": 2,
+      "phase": "contact B",
+      "prompt": "Use case: precise-object-edit, game walk animation frame. Input image is the EDIT TARGET and exact animation registration master. Produce ONE square PNG with genuine transparency, one Nova only. Preserve exact canvas dimensions and camera, same framing and root position. Do not auto-crop, recenter or zoom. Copy the entire head, purple hair, gold star hairclip above SCREEN LEFT ear and plain black torso above waist unchanged at exactly the same pixel positions. Preserve hair silhouette, purple highlights, NW rear three-quarter view facing upper-left, black jacket back cream sleeves cyan trim, black cargo pants cyan tabs, black/cyan/white sneakers. Preserve polished 2D chibi style and lighting. CHANGE ONLY articulated arms/hands and legs/feet to specified next gait pose; no head bob, torso bob, or scale change. Stable root and fixed hip; do not shift whole body to center changed limb silhouette. Transparent alpha background, no ground/shadow/glow/furniture/props/text. Keep two arms and legs anatomically connected. Request square 1024x1024 output if dimensions controllable, never crop character. WALK NW frame 2, OPPOSITE CONTACT. CRITICAL POSE CHANGE: reverse BOTH legs and arms from input. Shoe currently at SCREEN-RIGHT bottom must move UP and LEFT to x685,y1000, becoming far/right foot reaching forward toward upper-left, flat planted. Shoe currently at screen-left must move DOWN to x435,y1150, near/left leg stretched BACKWARD DOWN-LEFT, heel raised and bottom of sole visible. Lowest shoe MUST now be at SCREEN-LEFT, unlike original lowest shoe at SCREEN-RIGHT. Near/left arm swings back DOWN with hand at x375,y820; far/right arm swings forward UP with hand partly hidden behind torso near x810,y615. Keep exact head/hair/star/torso registration unchanged. This is a reversed walk step, not the original pose.",
+      "correction_prompt": "Use case: precise-object-edit. This transparent Nova NW walk frame has the wrong leg pose. Change ONLY everything below the cyan waistband, keeping the full image above the waistband absolutely unchanged, including head, hair, gold star on screen-left, torso, both arms/hands, canvas and camera. Delete the old leg shapes and draw the OPPOSITE walk stride. The NEW LEFTMOST shoe is the LOWEST shoe, near x450 y1160, with its sole facing viewer, attached to the near leg extending back diagonally DOWN LEFT. The NEW RIGHTMOST shoe is the HIGHER shoe, near x720 y1000, viewed from above and planted flat, attached to the far leg extending forward. This is a complete reversal of which leg is forward/back; lowest shoe must move from the right side to the left side. Draw two anatomically connected black cargo legs with cyan tabs and matching black/cyan white-soled shoes. The right-side shoe MUST NOT remain at bottom-right. Keep everything else in exact same pixel position, genuine transparent background, square same size output, one isolated full-body character. No floor or shadow."
+    },
+    {
+      "file": "nova_walk_nw_3.png",
+      "direction": "NW",
+      "index": 3,
+      "phase": "passing B",
+      "prompt": "Use case: precise-object-edit, game walk animation frame. Input image is the EDIT TARGET and exact animation registration master. Produce ONE square PNG with genuine transparency, one Nova only. Preserve exact canvas dimensions and camera, same framing and root position. Do not auto-crop, recenter or zoom. Copy the entire head, purple hair, gold star hairclip above SCREEN LEFT ear and plain black torso above waist unchanged at exactly the same pixel positions. Preserve hair silhouette, purple highlights, NW rear three-quarter view facing upper-left, black jacket back cream sleeves cyan trim, black cargo pants cyan tabs, black/cyan/white sneakers. Preserve polished 2D chibi style and lighting. CHANGE ONLY articulated arms/hands and legs/feet to specified next gait pose; no head bob, torso bob, or scale change. Stable root and fixed hip; do not shift whole body to center changed limb silhouette. Transparent alpha background, no ground/shadow/glow/furniture/props/text. Keep two arms and legs anatomically connected. Request square 1024x1024 output if dimensions controllable, never crop character. WALK NW frame 3, opposite passing/recovery. Bring far/right support foot below hip, shoe planted flat around x705,y1120 facing upper-left, lower leg nearly straight. Bend near/left knee sharply and lift its shoe inward near support ankle x540,y1010, toe upper-left, not extended backward. Feet now close beneath body; right-side shoe is lowest and flat; left-side shoe raised visibly with bent knee. Narrow passing silhouette, unlike wide diagonal input. Both arms nearer neutral side position, left hand around x415,y780, right around x815,y715. Keep full head and torso fixed exactly. Transparent single full-body frame.",
+      "correction_prompt": null
+    }
+  ]
+}
