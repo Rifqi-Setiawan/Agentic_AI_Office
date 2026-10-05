@@ -9,23 +9,23 @@ function atlas(names:string[],candidate=false):SpriteAtlas {
 describe('illustrated slice preserves direction and pending actions',()=>{
   it('uses the explicit SW illustration with its own atlas URL',()=>{
     const primary=atlas(['prism_idle_sw_0.png'],true);
-    const result=resolveActorAnimation(primary,atlas(['prism_idle_se_0.png']),'prism','idle','sw');
+    const result=resolveActorAnimation(primary,'prism','idle','sw');
     expect(result.frames).toEqual(['prism_idle_sw_0.png']);expect(result.mirrored).toBe(false);
     expect(result.source).toBe('illustration');expect(atlasImageUrl(result.atlas,'old.png')).toBe(primary.meta.image);
   });
   it('does not mirror a missing candidate West direction',()=>{
-    const result=resolveActorAnimation(atlas(['prism_idle_se_0.png'],true),undefined,'prism','idle','sw');
+    const result=resolveActorAnimation(atlas(['prism_idle_se_0.png'],true),'prism','idle','sw');
     expect(result.frames).toEqual([]);expect(result.mirrored).toBe(false);
   });
-  it('preserves an unconverted action using the explicit baseline, with honest source',()=>{
-    const primary=atlas(['prism_idle_se_0.png'],true),baseline=atlas(['prism_drink_se_0.png']);
-    const result=resolveActorAnimation(primary,baseline,'prism','drink','se');
-    expect(result.atlas).toBe(baseline);expect(result.source).toBe('baseline');
-    expect(result.frames).toEqual(['prism_drink_se_0.png']);
+  it('holds the same illustrated neutral view when an action is unavailable',()=>{
+    const primary=atlas(['prism_idle_se_0.png'],true);
+    const result=resolveActorAnimation(primary,'prism','drink','se');
+    expect(result.atlas).toBe(primary);expect(result.source).toBe('illustration');
+    expect(result.frames).toEqual(['prism_idle_se_0.png']);
+    expect(result.renderedAction).toBe('idle');expect(result.substituted).toBe(true);
   });
-  it('limits the existing West mirror fallback to the baseline',()=>{
-    const result=resolveActorAnimation(atlas([],true),atlas(['prism_drink_ne_0.png']),'prism','drink','nw');
-    expect(result.source).toBe('baseline');expect(result.mirrored).toBe(true);
-    expect(atlasImageUrl(result.atlas,'/sprites/characters/prism.png')).toBe('/sprites/characters/prism.png');
+  it('rejects old sprites even when their requested action is complete',()=>{
+    const result=resolveActorAnimation(atlas(['prism_drink_ne_0.png']),'prism','drink','ne');
+    expect(result.source).toBe('missing');expect(result.frames).toEqual([]);expect(result.mirrored).toBe(false);
   });
 });

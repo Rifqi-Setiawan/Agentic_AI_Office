@@ -1,14 +1,14 @@
 import { CharacterModel } from './CharacterModel';
 import type { CharacterRegistry } from './CharacterRegistry';
-import { AGENT_SPAWN_DEFS } from './roster';
+import { AGENT_SPAWN_DEFS, type AgentSpawnDef } from './roster';
 import type { GridMap } from '../../navigation/GridMap';
 import type { InteractionSlot } from '../types';
 import { gridToScreen } from '../projection';
 import { officeStore } from '../../store/officeStore';
 export class ModelRegistry implements CharacterRegistry {
   private characters = new Map<string, CharacterModel>();
-  constructor(grid: GridMap) {
-    for (const def of AGENT_SPAWN_DEFS) {
+  constructor(grid: GridMap, spawnDefs: readonly AgentSpawnDef[] = AGENT_SPAWN_DEFS) {
+    for (const def of spawnDefs) {
       const slot = grid.getSlot(def.defaultSlotId);
       const char = new CharacterModel({ ...def, initialGx: slot?.gx ?? def.fallbackGx,
         initialGy: slot?.gy ?? def.fallbackGy, initialFacing: slot?.facing ?? def.fallbackFacing });

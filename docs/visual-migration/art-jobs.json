@@ -2,6 +2,15 @@
   "schemaVersion": 2,
   "styleVersion": "AO_DOT_Z08_COMPONENTS_V2",
   "finalArt": false,
+  "actorRenderPolicy": {
+    "visibleAgents": ["prism", "forge", "nova"],
+    "requiredNeutralViews": ["se", "sw", "ne", "nw"],
+    "legacyCharacterFallback": false,
+    "pendingAction": "hold one existing 2.5D pose from the same agent and facing; prefer seated pose at a seated slot",
+    "unavailableAgent": "omit scene actor, simulation and seat reservations",
+    "identityBrowserQA": "passed; special Prism/Forge and game Nova retained their illustrated atlas",
+    "report": "docs/visual-migration/CHARACTER_CONSISTENCY_FIX.md"
+  },
   "productionMethod": "built-in imagegen, mechanical sprite packing, React/CSS composition",
   "supersedes": "Blender/native-render/2312-frame production requirement; historical files retained",
   "batchAllowed": false,
@@ -199,7 +208,7 @@
     {
       "id": "forge",
       "identitySource": "docs/blueprint/03-character-design-spec.md",
-      "status": "candidate: idle four views and two typing SE frames; other actions baseline",
+      "status": "candidate: idle four views and two typing SE frames; missing actions hold existing 2.5D pose",
       "requiredActions": [
         "idle",
         "walk",
@@ -226,14 +235,14 @@
         "sit_type": {
           "se": 2
         },
-        "walk": "pending; baseline fallback",
+        "walk": "pending; hold same-facing 2.5D idle pose",
         "browserQA": false
       }
     },
     {
       "id": "nova",
       "identitySource": "docs/blueprint/03-character-design-spec.md",
-      "status": "candidate: idle four views, walk four and sit_type two frames per direction; other actions baseline",
+      "status": "candidate: idle four views, walk four and sit_type two frames per direction; missing actions hold existing 2.5D pose",
       "requiredActions": [
         "idle",
         "walk",

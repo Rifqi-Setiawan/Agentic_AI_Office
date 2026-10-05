@@ -12,6 +12,7 @@ import { screenToGrid } from '../projection';
 import type { TiledMapDoc } from '../types';
 import { officeStore } from '../../store/officeStore';
 import type { WorldController } from '../worldController';
+import { illustratedActorDefs } from './ActorRoster';
 
 interface ActorNodes { body: HTMLElement; sprite: HTMLElement; missing: HTMLElement; status: HTMLElement; badges: HTMLElement[]; }
 export class DomWorld implements WorldController {
@@ -38,11 +39,11 @@ export class DomWorld implements WorldController {
 
   constructor(readonly viewport: HTMLElement, readonly world: HTMLElement, readonly camera: SceneCamera,
     map: TiledMapDoc, readonly assets: PreviewAssets, readonly environment: SpriteAtlas,
-    readonly atlases: Map<string, SpriteAtlas>, readonly baselineAtlases: Map<string, SpriteAtlas> = new Map()) {
+    readonly atlases: Map<string, SpriteAtlas>) {
     this.gridMap = new GridMap(map);
     this.pathfinder = new AStarPathfinder(this.gridMap);
     this.reservations = new SlotReservationManager(this.gridMap);
-    this.registry = new ModelRegistry(this.gridMap);
+    this.registry = new ModelRegistry(this.gridMap, illustratedActorDefs(atlases));
     const seedParam = new URLSearchParams(location.search).get('seed');
     const seed = Number(seedParam ?? 42);
     let randomState = seed | 0;
@@ -133,7 +134,18 @@ export class DomWorld implements WorldController {
       let atlas = this.atlases.get(char.id);
       if (!nodes || !atlas) continue;
       const el = nodes.body;
-      const show = char.visible && intersects(char.x - 55, char.y - 90, 110, 110);
+      const action = char.getCurrentAnimation();
+      const direction = char.facing.toLowerCase();
+      const slotAnimation = char.getCurrentSlot()?.anim;
+      const fallbackPose = slotAnimation === 'sit_type' || slotAnimation === 'game' ? 'sit_type' : 'idle';
+      const key = `${char.id}:${action}:${direction}:${fallbackPose}`;
+      let resolved = this.frames.get(key);
+      if (!resolved) {
+        resolved=resolveActorAnimation(atlas,char.id,action,direction,fallbackPose);
+        this.frames.set(key,resolved);
+      }
+      const {frames,mirrored,source,renderedAction,substituted}=resolved;
+      const show = char.visible && frames.length > 0 && intersects(char.x - 55, char.y - 90, 110, 110);
       const display = show ? '' : 'none';
       if (el.style.display !== display) el.style.display = display;
       if (!show) continue;
@@ -143,30 +155,23 @@ export class DomWorld implements WorldController {
       const fields = {gx:char.gx.toFixed(4),gy:char.gy.toFixed(4),fsm:char.fsmState,animation:char.getCurrentAnimation(),facing:char.facing};
       for (const [key,value] of Object.entries(fields)) if (el.dataset[key] !== value) el.dataset[key] = value;
       if (el.getAttribute('aria-pressed') !== String(char.isSelected)) el.setAttribute('aria-pressed', String(char.isSelected));
-      const action = char.getCurrentAnimation();
-      const direction = char.facing.toLowerCase();
-      const key = `${char.id}:${action}:${direction}`;
-      let resolved = this.frames.get(key);
-      if (!resolved) {
-        resolved=resolveActorAnimation(atlas,this.baselineAtlases.get(char.id),char.id,action,direction);
-        this.frames.set(key,resolved);
-      }
-      const {frames,mirrored,source}=resolved;
       atlas=resolved.atlas;
       if(el.dataset.artSource!==source) el.dataset.artSource=source;
+      if(el.dataset.renderedAnimation!==renderedAction) el.dataset.renderedAnimation=renderedAction;
+      if(el.dataset.poseFallback!==String(substituted)) el.dataset.poseFallback=String(substituted);
       const sprite = nodes.sprite;
       sprite.classList.toggle('illustrated-sprite',source==='illustration');
       const missing = !frames.length;
-      if (el.dataset.missingAnimation !== (missing ? action : '')) el.dataset.missingAnimation = missing ? action : '';
-      if (missing) { sprite.style.visibility = 'hidden'; if(nodes.missing.textContent !== `Aset belum ada: ${action}`) nodes.missing.textContent = `Aset belum ada: ${action}`; }
+      if (el.dataset.missingAnimation !== (substituted ? action : '')) el.dataset.missingAnimation = substituted ? action : '';
+      if (missing) { sprite.style.visibility = 'hidden'; }
       else {
         if (sprite.style.visibility) sprite.style.visibility = '';
         if (nodes.missing.textContent) nodes.missing.textContent = '';
-        const fps = atlas.meta.animationFps?.[action] ?? (({ idle: 4.8, walk: 8.4, swim: 4.8, whiteboard: 5.4, game: 7.2 } as Record<string, number>)[action] ?? 6);
-        const phase = action === 'walk' ? char.travelDistance * (fps / 2.5) : char.animationTime * fps;
+        const fps = atlas.meta.animationFps?.[renderedAction] ?? (({ idle: 4.8, walk: 8.4, swim: 4.8, whiteboard: 5.4, game: 7.2 } as Record<string, number>)[renderedAction] ?? 6);
+        const phase = renderedAction === 'walk' ? char.travelDistance * (fps / 2.5) : char.animationTime * fps;
         const frameIndex = this.reduced.matches ? 0 : char.loop ? Math.floor(phase) % frames.length : Math.min(Math.floor(phase), frames.length - 1);
         const name = frames[frameIndex];
-        const url=atlasImageUrl(atlas,`/sprites/characters/${char.id}.png`);
+        const url=atlasImageUrl(atlas,atlas.meta.image);
         if (sprite.dataset.frame !== name || sprite.dataset.atlasUrl!==url) { applyAtlasFrame(sprite, atlas, name, url); sprite.dataset.frame = name; sprite.dataset.atlasUrl=url; }
         const entry = atlas.frames[name];
         const scale = atlas.meta.exportScale ?? 1;

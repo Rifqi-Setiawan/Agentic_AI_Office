@@ -1,5 +1,7 @@
 # Aset karakter dan susunan Z08 dari Dot — 5 Oktober 2026
 
+**Pembaruan setelah review user:** fallback sprite lama telah dihapus. Scene CSS hanya menampilkan Prism/Forge/Nova; aksi yang belum ada menahan pose 2.5D dari agent/arah yang sama. 307 tes, build/lint dan pemeriksaan identitas di browser lulus. Lihat [CHARACTER_CONSISTENCY_FIX.md](CHARACTER_CONSISTENCY_FIX.md). Bagian berikut merekam hasil pemasangan awal sebelum perbaikan tersebut, termasuk fallback baseline dan blocker browser yang saat itu masih berlaku.
+
 Enam ZIP kiriman user sudah diimport dan dipasang pada kandidat lokal `AO_DOT_Z08_COMPONENTS_V2`. Setelah klarifikasi, user memilih **“Terapkan penataan baru dari Dot”**, termasuk mengganti dua standing desk dengan sofa/TV dan memperbarui interaksi/collision. Klaim “approved” di README paket tidak dijadikan persetujuan user; otorisasi perubahan map berasal dari jawaban langsung tersebut.
 
 Preview default: [kantor lokal](http://127.0.0.1:5175/?officeRenderer=claude&seed=42), Ctrl+F5 lalu pilih Z08. Domain produksi belum diperbarui.

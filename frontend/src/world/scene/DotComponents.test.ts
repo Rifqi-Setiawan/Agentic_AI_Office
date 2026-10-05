@@ -11,11 +11,10 @@ const root = 'visual-migration/dot-z08-components-v2/';
 describe('supplied Nova animation and Forge SE typing sequences', () => {
   it('uses all Nova typing/walk sequences in source order without mirroring', () => {
     const atlas = read<SpriteAtlas>(root + 'nova.json');
-    const baseline = read<SpriteAtlas>('sprites/characters/nova.json');
     expect(Object.keys(atlas.frames)).toHaveLength(28);
     for (const direction of ['se', 'sw', 'ne', 'nw']) {
       for (const [action, count] of [['sit_type', 2], ['walk', 4]] as const) {
-        const animation = resolveActorAnimation(atlas, baseline, 'nova', action, direction);
+        const animation = resolveActorAnimation(atlas, 'nova', action, direction);
         expect(animation.source).toBe('illustration');
         expect(animation.mirrored).toBe(false);
         expect(animation.frames).toEqual(Array.from({ length: count }, (_, n) => `nova_${action}_${direction}_${n}.png`));
@@ -23,18 +22,21 @@ describe('supplied Nova animation and Forge SE typing sequences', () => {
     }
     expect(atlas.meta.animationFps?.sit_type).toBe(3.5);
     expect(atlas.meta.animationFps?.walk).toBe(7);
-    expect(resolveActorAnimation(atlas, baseline, 'nova', 'celebrate', 'se').source).toBe('baseline');
+    const pending = resolveActorAnimation(atlas, 'nova', 'celebrate', 'se');
+    expect(pending.source).toBe('illustration');
+    expect(pending.frames).toEqual(['nova_idle_se_0.png']);
   });
 
-  it('uses Forge typing SE and preserves real baseline for all missing directions/actions', () => {
+  it('uses Forge typing SE and holds illustrated idle for all missing directions/actions', () => {
     const atlas = read<SpriteAtlas>(root + 'forge.json');
-    const baseline = read<SpriteAtlas>('sprites/characters/forge.json');
     expect(Object.keys(atlas.frames)).toHaveLength(6);
-    expect(resolveActorAnimation(atlas, baseline, 'forge', 'sit_type', 'se').frames).toEqual(['forge_sit_type_se_0.png', 'forge_sit_type_se_1.png']);
-    expect(resolveActorAnimation(atlas, baseline, 'forge', 'sit_type', 'se').source).toBe('illustration');
+    expect(resolveActorAnimation(atlas, 'forge', 'sit_type', 'se').frames).toEqual(['forge_sit_type_se_0.png', 'forge_sit_type_se_1.png']);
+    expect(resolveActorAnimation(atlas, 'forge', 'sit_type', 'se').source).toBe('illustration');
     for (const direction of ['se', 'sw', 'ne', 'nw']) {
-      expect(resolveActorAnimation(atlas, baseline, 'forge', 'walk', direction).source).toBe('baseline');
-      if (direction !== 'se') expect(resolveActorAnimation(atlas, baseline, 'forge', 'sit_type', direction).source).toBe('baseline');
+      const walk = resolveActorAnimation(atlas, 'forge', 'walk', direction);
+      expect(walk.source).toBe('illustration');
+      expect(walk.frames).toEqual([`forge_idle_${direction}_0.png`]);
+      if (direction !== 'se') expect(resolveActorAnimation(atlas, 'forge', 'sit_type', direction).frames).toEqual(walk.frames);
     }
   });
 

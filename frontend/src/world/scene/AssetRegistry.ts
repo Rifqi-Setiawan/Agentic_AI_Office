@@ -42,18 +42,16 @@ export function atlasImageUrl(atlas: SpriteAtlas, fallback: string) {
   return atlas.meta.image.startsWith('/') ? atlas.meta.image : fallback;
 }
 
-/** Candidate views are never mirrored. An explicit baseline can retain pending actions. */
-export function resolveActorAnimation(primary: SpriteAtlas, baseline: SpriteAtlas | undefined, id: string, action: string, direction: string) {
-  let frames = animationFrames(primary,id,action,direction);
-  if (frames.length) return {atlas:primary,frames,mirrored:false,source:primary.meta.candidate ? 'illustration' : 'baseline'};
-  const fallback = baseline ?? (primary.meta.candidate ? undefined : primary);
-  if (fallback) {
-    frames = animationFrames(fallback,id,action,direction);
-    if (frames.length) return {atlas:fallback,frames,mirrored:false,source:'baseline'};
-    if (fallback.meta.allowMirror !== false && (direction==='sw'||direction==='nw')) {
-      frames=animationFrames(fallback,id,action,direction==='sw'?'se':'ne');
-      if (frames.length) return {atlas:fallback,frames,mirrored:true,source:'baseline'};
+/** Keep identity and facing within the supplied 2.5D atlas. Pending actions hold
+ * one existing pose; old sprites and mirrored views are never substitutes. */
+export function resolveActorAnimation(primary: SpriteAtlas, id: string, action: string, direction: string, fallbackPose = 'idle') {
+  if (primary.meta.candidate) {
+    const frames = animationFrames(primary,id,action,direction);
+    if (frames.length) return {atlas:primary,frames,mirrored:false,source:'illustration',renderedAction:action,substituted:false};
+    for (const pose of new Set([fallbackPose, 'idle'])) {
+      const held = animationFrames(primary,id,pose,direction);
+      if (held.length) return {atlas:primary,frames:held.slice(0,1),mirrored:false,source:'illustration',renderedAction:pose,substituted:true};
     }
   }
-  return {atlas:primary,frames:[],mirrored:false,source:'missing'};
+  return {atlas:primary,frames:[],mirrored:false,source:'missing',renderedAction:'',substituted:false};
 }

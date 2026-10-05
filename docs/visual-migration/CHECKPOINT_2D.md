@@ -1,4 +1,10 @@
-# Checkpoint terbaru — Dot components v2
+# Checkpoint terbaru — karakter 2.5D konsisten
+
+Prism, Forge, Nova adalah tiga actor scene yang tersedia. Tidak ada fallback sprite lama atau actor yang belum memiliki empat view idle 2.5D. Aksi yang belum ada menahan pose 2.5D dari agent/arah yang sama. 307 tes / 44 file, build/lint lulus; browser sudah memverifikasi special/game tetap memakai atlas ilustrasi. Screenshot dan detail: [CHARACTER_CONSISTENCY_FIX.md](CHARACTER_CONSISTENCY_FIX.md). QA motion loop tetap pending.
+
+---
+
+## Riwayat penataan Dot components v2
 
 Nova: 28 frame atlas, idle/walk/sit_type empat arah. Forge: 6 frame atlas, idle empat arah + typing SE. 22 komponen Z08 dipasang sesuai persetujuan langsung user untuk area gaming. 303 tes lulus; build/lint lulus; logical contract differences {}. Browser QA belum tersedia.
 

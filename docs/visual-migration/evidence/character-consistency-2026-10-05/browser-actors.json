@@ -1,0 +1,69 @@
+[
+  {
+    "phase": "honest-mode-desks",
+    "actors": [
+      {
+        "action": "special",
+        "facing": "SE",
+        "fallback": "true",
+        "id": "prism",
+        "image": "url(\"/visual-migration/dot-z08-candidate/prism.png\")",
+        "pose": "sit_type",
+        "source": "illustration"
+      },
+      {
+        "action": "special",
+        "facing": "SE",
+        "fallback": "true",
+        "id": "forge",
+        "image": "url(\"/visual-migration/dot-z08-components-v2/forge.png\")",
+        "pose": "sit_type",
+        "source": "illustration"
+      },
+      {
+        "action": "sit_type",
+        "facing": "SE",
+        "fallback": "false",
+        "id": "nova",
+        "image": "url(\"/visual-migration/dot-z08-components-v2/nova.png\")",
+        "pose": "sit_type",
+        "source": "illustration"
+      }
+    ]
+  },
+  {
+    "phase": "ambient-restored",
+    "actors": [
+      {
+        "action": "sit_type",
+        "display": "none",
+        "facing": "SE",
+        "fallback": "false",
+        "id": "prism",
+        "image": "url(\"/visual-migration/dot-z08-candidate/prism.png\")",
+        "pose": "sit_type",
+        "source": "illustration"
+      },
+      {
+        "action": "sit_type",
+        "display": "none",
+        "facing": "SE",
+        "fallback": "false",
+        "id": "forge",
+        "image": "url(\"/visual-migration/dot-z08-components-v2/forge.png\")",
+        "pose": "sit_type",
+        "source": "illustration"
+      },
+      {
+        "action": "game",
+        "display": "",
+        "facing": "NW",
+        "fallback": "true",
+        "id": "nova",
+        "image": "url(\"/visual-migration/dot-z08-components-v2/nova.png\")",
+        "pose": "sit_type",
+        "source": "illustration"
+      }
+    ]
+  }
+]

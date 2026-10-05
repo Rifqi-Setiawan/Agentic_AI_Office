@@ -78,7 +78,7 @@ export class Choreographer {
 
   /**
    * Inisialisasi choreographer:
-   * 1. Inisialisasi state seluruh 17 agen.
+   * 1. Inisialisasi state agen yang tersedia pada character manager.
    * 2. Cadangkan slot meja masing-masing di SlotReservationManager.
    * 3. Pasang subscription ke vanilla Zustand officeStore.
    */
@@ -86,6 +86,9 @@ export class Choreographer {
     if (this.isInitialized) return;
 
     for (const def of AGENT_SPAWN_DEFS) {
+      // A scene may omit agents whose artwork is unavailable. They must not
+      // reserve invisible seats or join activities through choreography state.
+      if (!this.characterManager.getCharacter(def.id)) continue;
       let deskSlot = this.gridMap.getSlot(def.defaultSlotId);
       if (!deskSlot) {
         deskSlot = this.slotManager.findDeskForAgent(def.id) ?? undefined;

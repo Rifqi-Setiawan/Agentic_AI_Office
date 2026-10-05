@@ -1,8 +1,10 @@
-# Status aktif — aset karakter dan susunan Dot Z08, 5 Oktober 2026
+# Status aktif — konsistensi karakter 2.5D, 5 Oktober 2026
 
 Default preview memakai AO_DOT_Z08_COMPONENTS_V2. Nova mendapat walk dan sit_type empat arah; Forge sit_type SE; 22 komponen ruangan terpasang. User memilih “Terapkan penataan baru dari Dot”: Guest dekat sisi utara, dua standing desk diganti sofa/TV dengan slot gaming dan collision yang nyata. Tiga workstation, batas ruang, 17 zona / 133 slot / 26 pintu tetap. Lihat [DOT_Z08_COMPONENTS_INTEGRATION.md](DOT_Z08_COMPONENTS_INTEGRATION.md).
 
-303 tes / 43 file, build, lint, verifier kontrak dan pemeriksaan resource statis lulus. Aksi lanjutan tetap baseline; Forge walk dan typing tiga arah belum ada. QA browser masih terblokir. Komposisi offline dan GIF bukan screenshot/video browser. Tidak ada push/deploy/VPS/gateway change.
+Renderer CSS hanya memuat dan menampilkan Prism, Forge, Nova. Fallback sprite lama dihapus; aksi yang belum tersedia menahan satu pose 2.5D milik agent dan arah yang sama. Actor tanpa empat view idle 2.5D tidak dibuat dan tidak mereservasi kursi. Forge walk dan typing tiga arah tetap belum tersedia.
+
+307 tes / 44 file, build dan lint lulus. Browser kini dapat diakses: tiga actor memakai atlas ilustrasi; special Prism/Forge dan game Nova tidak berpindah ke sprite lama. Screenshot browser dan batas pemeriksaan tersedia di [CHARACTER_CONSISTENCY_FIX.md](CHARACTER_CONSISTENCY_FIX.md). Seluruh motion loop belum dinyatakan selesai. Tidak ada push/deploy/VPS/gateway change.
 
 Preview: http://127.0.0.1:5175/?officeRenderer=claude&seed=42 — Ctrl+F5, pilih Z08. Snapshot art sebelumnya tersimpan di dot-z08-candidate.
 
