@@ -1,0 +1,82 @@
+{
+  "assetId": "F01",
+  "revision": "r01",
+  "status": "received_needs_geometry_revision",
+  "generated": true,
+  "approved": false,
+  "packed": false,
+  "installed": false,
+  "sourcePath": "C:\\Users\\Rifqi\\Downloads\\Isometric Honey Oak Floor Tile.png",
+  "storedSource": "art/environment-foundation-2026-10-05/intake/F01-r01/F01-floor-oak-a-r01.png",
+  "sha256": "fbff64fc3c033c6b3d762f76b20a96be114e7943b07cf34be6608da4d5e51a82",
+  "sourceCopiedByteIdentical": true,
+  "nativeCanvas": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "hasAlphaChannel": true,
+  "cornerAlpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "alphaCounts": {
+    "transparent": 1145986,
+    "partial": 425540,
+    "opaque": 990
+  },
+  "mostCommonNonzeroAlpha": 253,
+  "analysisMethod": "Read-only pixel measurement. Dominant contour uses alpha >= 128 to exclude faint fringe pixels. No artwork generation, image editing or packing performed.",
+  "dominantBBoxExclusive": [
+    59,
+    287,
+    1192,
+    1027
+  ],
+  "dominantWidthHeight": [
+    1133,
+    740
+  ],
+  "dominantRatio": 1.531081081081081,
+  "targetRatio": 2,
+  "targetPackedDiamond": [
+    128,
+    64
+  ],
+  "estimatedExtremaVertices": {
+    "N": [
+      625.0,
+      287.0
+    ],
+    "E": [
+      1191.0,
+      641.5
+    ],
+    "S": [
+      604.0,
+      1026.0
+    ],
+    "W": [
+      59.0,
+      637.0
+    ]
+  },
+  "edgeSlopes": {
+    "NE": 0.6263250883392226,
+    "NW": -0.6183745583038869,
+    "ES": -0.6550255536626917,
+    "WS": 0.7137614678899082
+  },
+  "targetAbsoluteSlope": 0.5,
+  "visualMaterialAssessment": "Warm honey oak material matches the requested atmosphere; this is a subjective review of the supplied image.",
+  "geometryQA": "failed: dominant diamond ratio is approximately 1.53:1 instead of 2:1 and extrema edges differ from target slope.",
+  "repeatSeamQA": "pending; no repeat-test or browser acceptance claimed. Geometry must be corrected before final repeat registration.",
+  "alphaQA": "Real transparent exterior exists. Most nonzero pixels have alpha 253; alpha fringes and final packing need later validation.",
+  "runtimeQA": "not run; source frontend/backend/map/runtime assets unchanged.",
+  "backup": {
+    "path": "C:\\Users\\Rifqi\\Documents\\ChatGPT\\audit vps\\visual-migration-work\\Agentic-office-before-f01-intake-1af9462-2026-10-05.zip",
+    "sha256": "12f56e721cc27531d727dd9dfc753832d2f87412aa6a1c90e9cca93e4b035a86"
+  }
+}

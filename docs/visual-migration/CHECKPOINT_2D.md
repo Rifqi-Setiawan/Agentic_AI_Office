@@ -1,6 +1,6 @@
 # Checkpoint terbaru — paket foundation kantor
 
-Prioritas user: bangun lingkungan general seluruh 17 zona terlebih dahulu; karakter/dekorasi/layout per ruang ditunda. Paket 38 prompt / 10 referensi/panduan telah disiapkan dan diperiksa untuk GPT web. Lihat [ENVIRONMENT_FOUNDATION_PROMPT_PACK.md](ENVIRONMENT_FOUNDATION_PROMPT_PACK.md). Saat ini 0/36 inti baru generated; packing/pemasangan/QA general belum dimulai. Paket tidak mengubah runtime atau denah.
+Prioritas user: bangun lingkungan general seluruh 17 zona terlebih dahulu; karakter/dekorasi/layout per ruang ditunda. Paket 38 prompt / 10 referensi/panduan telah disiapkan dan diperiksa untuk GPT web. Lihat [ENVIRONMENT_FOUNDATION_PROMPT_PACK.md](ENVIRONMENT_FOUNDATION_PROMPT_PACK.md). Saat ini 1/36 inti generated telah dikirim; 0 accepted/packed/installed. F01 r01 disimpan byte-identik: transparansi tersedia, rasio diamond 1.5311:1 perlu dibenahi ke 2:1. [Intake dan prompt revisi F01](F01_FLOOR_INTAKE.md). Repeat/browser QA masih pending. Paket dan intake tidak mengubah runtime atau denah.
 
 ---
 

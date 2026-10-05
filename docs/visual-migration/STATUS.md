@@ -2,7 +2,7 @@
 
 User mengganti prioritas: lingkungan dasar seluruh kantor dahulu, dengan suasana Dot yang sama. Pekerjaan karakter, furniture, dekorasi dan penataan per ruang ditunda. Paket GPT web berisi 38 prompt (36 inti + dua partisi kaca opsional), delapan PNG referensi asli byte-identik dan dua diagram geometri/denah. Coverage map mencatat 19 jenis lantai, sembilan jenis wall, 17 zona, 133 slot dan 26 pintu. Paket 59 file / ZIP CRC dan hash diperiksa.
 
-Paket prompt selesai; **0/36 artwork foundation baru digenerate, belum dipasang**. User akan menghasilkan PNG di GPT web; tahap berikutnya packing/assembly global dan QA seam/alpha/geometri serta pintu/jalur. Semua asset inti harus benar-benar terpasang sebelum foundation dinyatakan 100%. [Paket dan panduan](ENVIRONMENT_FOUNDATION_PROMPT_PACK.md). Runtime dan susunan ruang pada preview tidak diubah dalam persiapan paket ini. Tidak ada push/deploy/VPS/worker/gateway change.
+Paket prompt selesai. **1/36 artwork foundation sudah dikirim sebagai hasil generated; 0/36 accepted dan belum dipasang**. F01 r01 memiliki transparansi asli dan warna oak yang sesuai, tetapi diamond dominan 1.5311:1 perlu direvisi ke 2:1. Source disimpan byte-identik; [hasil pemeriksaan dan prompt revisi](F01_FLOOR_INTAKE.md). Seam repeat dan browser QA F01 masih pending. User akan menghasilkan PNG di GPT web; tahap berikutnya packing/assembly global dan QA seam/alpha/geometri serta pintu/jalur. Semua asset inti harus benar-benar terpasang sebelum foundation dinyatakan 100%. [Paket dan panduan](ENVIRONMENT_FOUNDATION_PROMPT_PACK.md) tetap snapshot tahap persiapan. Runtime dan susunan ruang pada preview tidak diubah dalam persiapan paket/intake ini. Tidak ada push/deploy/VPS/worker/gateway change.
 
 ---
 

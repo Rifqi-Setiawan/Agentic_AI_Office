@@ -1,0 +1,17 @@
+Use case: precise-object-edit.
+Asset type: F01, a reusable flat honey-oak floor tile for a 2:1 dimetric office game.
+
+Input images, in this order:
+Image 1: F01-floor-oak-a-r01.png — EDIT TARGET. Preserve its warm honey-oak palette, fine quiet grain, illustrated shading and staggered plank style.
+Image 2: 01-geometri-2-to-1.png — TECHNICAL GEOMETRY ONLY. Follow its 2:1 projection; do not copy the diagram's colors, labels or wall.
+
+The supplied floor's visible diamond measures approximately 1.53:1. Correct its footprint to a symmetric, exact 2:1 diamond. Change the projection and resulting modular edge alignment only; preserve the material and atmosphere. Do not reproduce the original steeper silhouette.
+
+Geometry target: on a 1024x1024 canvas, the floor-only diamond spans 800x400 pixels. Its four corners are N=(512,312), E=(912,512), S=(512,712), W=(112,512). These coordinates are instructions, not text to draw. Top and bottom vertices align vertically; left and right vertices align horizontally. Each edge has absolute screen slope 0.5, not approximately 0.63 or 0.71. If another native canvas size is returned, scale these coordinates proportionally and preserve the exact 2:1 shape. All four edges are straight; the tile has no thickness or visible side faces.
+
+Keep planks running along R, screen down-right, under the corrected projection. Opposite tile edges must continue the same plank rhythm and quiet color without a dark outline or a bright seam when copies repeat on a 2:1 grid. Keep grain subtle; no unique prominent knot, bevel, border, perspective vanishing point, or lighting gradient across the whole tile.
+
+Return exactly one complete PNG with genuine RGBA transparency outside the diamond, an opaque wood surface inside it, clean antialiased edges and no detached fringe pixels. No black/white background, checkerboard baked into the file, cast shadow, dimensions, text, watermark, wall, furniture, plants, characters, room scene or spritesheet.
+
+Suggested downloaded filename: F01-floor-oak-a-r02.png
+Return the image only. Actual geometry, alpha and repeat seams will be checked after download; do not claim those checks have already passed.

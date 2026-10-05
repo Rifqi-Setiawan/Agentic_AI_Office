@@ -10,8 +10,18 @@
     "promptCount": 38,
     "requiredAssets": 36,
     "optionalGlassPartitions": 2,
-    "newRequiredAssetsGenerated": 0,
-    "status": "prompt pack prepared and verified; awaiting user-generated artwork for packing, assembly and QA",
+    "newRequiredAssetsGenerated": 1,
+    "newRequiredAssetsAccepted": 0,
+    "newRequiredAssetsInstalled": 0,
+    "status": "F01 r01 received and stored byte-identical; requires 2:1 geometry revision. Remaining 35 required assets await user artwork. Repeat/browser QA and packing pending",
+    "latestIntake": {
+      "assetId": "F01",
+      "revision": "r01",
+      "status": "received_needs_geometry_revision",
+      "dominantRatio": 1.531081081081081,
+      "targetRatio": 2,
+      "report": "docs/visual-migration/F01_FLOOR_INTAKE.md"
+    },
     "characterProductionDeferred": true,
     "roomDecorationAndLayoutDeferred": true,
     "report": "docs/visual-migration/ENVIRONMENT_FOUNDATION_PROMPT_PACK.md"
