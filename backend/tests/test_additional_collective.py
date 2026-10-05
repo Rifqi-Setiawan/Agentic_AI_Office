@@ -72,6 +72,7 @@ async def test_realtime_expiry_and_snapshot_race(kind: str) -> None:
 async def test_default_ttls_with_actual_elapsed_time(monkeypatch: pytest.MonkeyPatch) -> None:
     test_ttls = {k: 1 for k in KINDS}
     monkeypatch.setattr("office.domain.collective.DEFAULT_COLLECTIVE_TTL", test_ttls)
+
     async def observe(kind: str) -> None:
         engine = StateEngine()
         broadcast = Mock()
@@ -86,9 +87,6 @@ async def test_default_ttls_with_actual_elapsed_time(monkeypatch: pytest.MonkeyP
         assert elapsed >= test_ttls[kind]
         assert engine._active_collective is None
         assert broadcast.broadcast_collective.call_args.args[0] is None
-        print(
-            f"{kind}: real elapsed={elapsed:.3f}s, "
-            f"default TTL={test_ttls[kind]}s, SSE ended"
-        )
+        print(f"{kind}: real elapsed={elapsed:.3f}s, default TTL={test_ttls[kind]}s, SSE ended")
 
     await asyncio.gather(*(observe(kind) for kind in KINDS))

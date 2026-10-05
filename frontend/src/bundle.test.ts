@@ -1,18 +1,30 @@
-import { describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import { execSync } from 'node:child_process';
 
 describe('Bundle Size Acceptance Criterion', () => {
-  const distDir = path.resolve(__dirname, '../dist');
+  const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'office-bundle-test-'));
   const assetsDir = path.resolve(distDir, 'assets');
 
-  it('ensures initial JS bundle size <= 400 KB gzip', () => {
-    if (!fs.existsSync(assetsDir)) {
-      execSync('npm run build', { cwd: path.resolve(__dirname, '..'), stdio: 'pipe' });
-    }
+  beforeAll(() => {
+    // Always measure fresh production output. Vitest's NODE_ENV=test would
+    // otherwise include React's development runtime in a clean CI build.
+    execSync(`npm run build -- --outDir "${distDir}"`, {
+      cwd: path.resolve(__dirname, '..'),
+      env: { ...process.env, NODE_ENV: 'production' },
+      stdio: 'pipe',
+      timeout: 120_000,
+    });
+  }, 130_000);
 
+  afterAll(() => {
+    fs.rmSync(distDir, { recursive: true, force: true });
+  });
+
+  it('ensures initial JS bundle size <= 400 KB gzip', () => {
     expect(fs.existsSync(distDir), 'Direktori dist harus sudah di-build').toBe(true);
     expect(fs.existsSync(assetsDir), 'Direktori dist/assets harus ada').toBe(true);
 
