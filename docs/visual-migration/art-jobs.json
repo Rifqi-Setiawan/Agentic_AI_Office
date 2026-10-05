@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "styleVersion": "AO_ILLUSTRATED_2D_Z08_V3",
+  "styleVersion": "AO_DOT_Z08_CANDIDATE",
   "finalArt": false,
   "productionMethod": "built-in imagegen, mechanical sprite packing, React/CSS composition",
   "supersedes": "Blender/native-render/2312-frame production requirement; historical files retained",
@@ -189,12 +189,17 @@
         "game",
         "whiteboard",
         "special"
-      ]
+      ],
+      "dotWalkSE": {
+        "keyframes": 4,
+        "loopAccepted": false,
+        "identityConsistency": "cyan hoodie differs from spectrum sleeves in existing idle/sit"
+      }
     },
     {
       "id": "forge",
       "identitySource": "docs/blueprint/03-character-design-spec.md",
-      "status": "pending style checkpoint",
+      "status": "candidate: four idle views supplied; other actions remain baseline",
       "requiredActions": [
         "idle",
         "walk",
@@ -210,12 +215,22 @@
         "game",
         "whiteboard",
         "special"
-      ]
+      ],
+      "candidateCoverage": {
+        "idle": [
+          "se",
+          "sw",
+          "ne",
+          "nw"
+        ],
+        "walk": "pending; baseline fallback",
+        "sit_type": "pending; baseline fallback"
+      }
     },
     {
       "id": "nova",
       "identitySource": "docs/blueprint/03-character-design-spec.md",
-      "status": "pending style checkpoint",
+      "status": "candidate: four idle views supplied; other actions remain baseline",
       "requiredActions": [
         "idle",
         "walk",
@@ -231,7 +246,17 @@
         "game",
         "whiteboard",
         "special"
-      ]
+      ],
+      "candidateCoverage": {
+        "idle": [
+          "se",
+          "sw",
+          "ne",
+          "nw"
+        ],
+        "walk": "pending; baseline fallback",
+        "sit_type": "pending; baseline fallback"
+      }
     },
     {
       "id": "steward",
@@ -1254,7 +1279,7 @@
           "gy": 14
         }
       ],
-      "status": "illustrated slice candidate",
+      "status": "Dot desk/chair candidate installed; existing layout unchanged; revised room layout being prepared by Dot",
       "layers": [
         "floor",
         "low cutaway wall pieces",
@@ -2680,5 +2705,6 @@
     "browser motion/occlusion/interaction checks",
     "real provenance/freshness/redaction retained"
   ],
-  "approvedLayoutAdjustments": "docs/visual-migration/approved-layout-adjustments.json"
+  "approvedLayoutAdjustments": "docs/visual-migration/approved-layout-adjustments.json",
+  "supplementalSourcesIndex": "art/dot-assets-2026-10-05/source-index.json"
 }

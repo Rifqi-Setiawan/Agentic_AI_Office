@@ -1,0 +1,28 @@
+
+> office-v2-frontend@2.0.0 build
+> tsc && vite build
+
+vite v5.4.21 building for production...
+transforming...
+âœ“ 846 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                          1.22 kB â”‚ gzip:   0.59 kB
+dist/assets/OfficeScene-D75KNXTH.css     6.05 kB â”‚ gzip:   2.02 kB
+dist/assets/index-B3bfkkVI.css          34.36 kB â”‚ gzip:   6.53 kB
+dist/assets/webworkerAll-DbdkKjDP.js     0.12 kB â”‚ gzip:   0.11 kB
+dist/assets/browserAll-DvOefc7Q.js       0.21 kB â”‚ gzip:   0.17 kB
+dist/assets/OfficeScene-BwX3-nvt.js     35.49 kB â”‚ gzip:  11.92 kB
+dist/assets/howler-Br74NEEg.js          36.85 kB â”‚ gzip:  10.09 kB
+dist/assets/WorldApp-DQbPPEI6.js        62.67 kB â”‚ gzip:  17.99 kB
+dist/assets/vendor-gsap-SFc2wnMY.js     70.44 kB â”‚ gzip:  27.81 kB
+dist/assets/index-BmCp1_-Q.js           74.05 kB â”‚ gzip:  18.67 kB
+dist/assets/BubbleManager-FH-AdYmZ.js  135.44 kB â”‚ gzip:  44.37 kB
+dist/assets/vendor-react-qvKNXEaU.js   143.99 kB â”‚ gzip:  46.53 kB
+dist/assets/vendor-pixi-Qi1s-vvT.js    667.01 kB â”‚ gzip: 190.45 kB
+âœ“ built in 17.65s
+
+(!) Some chunks are larger than 600 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

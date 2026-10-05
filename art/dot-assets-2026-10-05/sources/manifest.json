@@ -1,0 +1,74 @@
+{
+  "status": "Four-keyframe animation candidate; not runtime-validated",
+  "style": "Polished 2D isometric, charcoal and cyan character/chair, light wood desk",
+  "frame_order": [
+    "prism-se-01-near-contact.png",
+    "prism-se-02-near-support-pass.png",
+    "prism-se-03-far-contact.png",
+    "prism-se-04-far-support-pass.png"
+  ],
+  "loop": "01 -> 02 -> 03 -> 04 -> 01; timing, pivot alignment and scale require engine validation",
+  "orientation": "Characters and chair face lower-right (SE). Desk monitor backs face viewer; chair/operator belongs across desk on keyboard side (upper-left in image).",
+  "assets": [
+    {
+      "file": "prism-se-01-near-contact.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "fully_transparent_pixels": 1182112,
+      "sha256": "f35fd2090ef63812e6909f552d0bdc380f78655149c7e0bdd105d40b2e7bfdfd"
+    },
+    {
+      "file": "prism-se-02-near-support-pass.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "fully_transparent_pixels": 1218021,
+      "sha256": "83e165a8708842d81993fec93dc931ea8c0534e36234387b2f3be50835040bd0"
+    },
+    {
+      "file": "prism-se-03-far-contact.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "fully_transparent_pixels": 1201266,
+      "sha256": "cbeda887a045d1587f22bc550b6d349581be2987229df8960d158198d75843a1"
+    },
+    {
+      "file": "prism-se-04-far-support-pass.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "fully_transparent_pixels": 1220085,
+      "sha256": "4550358bfc2cc7838bc6b7401c409545137fe0d162886838b936804f2c6eb024"
+    },
+    {
+      "file": "desk-se-lightwood-charcoal.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "fully_transparent_pixels": 1155332,
+      "sha256": "ecde3e74b6a84baa6ba1fe579d640bdac8682c5045b482f8c0750dde316b7325"
+    },
+    {
+      "file": "chair-se-charcoal-cyan.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_min": 0,
+      "alpha_max": 254,
+      "fully_transparent_pixels": 1223834,
+      "sha256": "ae5ffbb7a881d2785ec6e4da0f9dc83073487a8830247095930b21debce8c89b"
+    }
+  ]
+}

@@ -1,4 +1,10 @@
-# Pembaruan susunan tiga workstation v3
+# Pembaruan pemasangan aset Dot
+
+Kiriman aset user sudah dipasang lokal: empat walk SE Prism, empat idle view Forge dan Nova, serta desk/chair. Default preview memakai AO_DOT_Z08_CANDIDATE; susunan/floor/map v3 tetap. 296 tes, build dan lint lulus. Pose Forge/Nova yang belum ada tetap baseline. Penataan Z08 sedang dibuat Dot. Bukti dan batas QA: [DOT_ASSETS_INTEGRATION.md](DOT_ASSETS_INTEGRATION.md). Bagian berikut adalah riwayat.
+
+---
+
+# Pembaruan susunan tiga workstation v3 (riwayat)
 
 Persetujuan user untuk tiga meja utama sudah diterapkan. Guest tetap tersedia pada hotdesk kecil yang terpisah; map, generator, fallback dan collision konsisten. Kontrak mempertahankan 17 zona / 133 slot / 26 pintu, dengan hanya relokasi Guest yang diizinkan. 293 tes, build dan lint lulus. Bukti serta limit browser: [THREE_DESK_LAYOUT.md](THREE_DESK_LAYOUT.md). Default manifest sekarang v3; bagian berikut adalah riwayat v2/v1.
 

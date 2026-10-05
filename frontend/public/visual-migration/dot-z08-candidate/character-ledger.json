@@ -1,0 +1,190 @@
+{
+  "frames": [
+    {
+      "output": "frames/prism_walk_se_0.png",
+      "agent": "prism",
+      "action": "walk",
+      "facing": "SE",
+      "source": "prism-se-01-near-contact.png",
+      "sourceCrop": [
+        394,
+        18,
+        1146,
+        995
+      ],
+      "uniformScale": 0.13920163766632548,
+      "mirrored": false,
+      "sourceSha256": "f35fd2090ef63812e6909f552d0bdc380f78655149c7e0bdd105d40b2e7bfdfd"
+    },
+    {
+      "output": "frames/prism_walk_se_1.png",
+      "agent": "prism",
+      "action": "walk",
+      "facing": "SE",
+      "source": "prism-se-02-near-support-pass.png",
+      "sourceCrop": [
+        402,
+        10,
+        1058,
+        1003
+      ],
+      "uniformScale": 0.13695871097683787,
+      "mirrored": false,
+      "sourceSha256": "83e165a8708842d81993fec93dc931ea8c0534e36234387b2f3be50835040bd0"
+    },
+    {
+      "output": "frames/prism_walk_se_2.png",
+      "agent": "prism",
+      "action": "walk",
+      "facing": "SE",
+      "source": "prism-se-03-far-contact.png",
+      "sourceCrop": [
+        405,
+        18,
+        1115,
+        983
+      ],
+      "uniformScale": 0.14093264248704662,
+      "mirrored": false,
+      "sourceSha256": "cbeda887a045d1587f22bc550b6d349581be2987229df8960d158198d75843a1"
+    },
+    {
+      "output": "frames/prism_walk_se_3.png",
+      "agent": "prism",
+      "action": "walk",
+      "facing": "SE",
+      "source": "prism-se-04-far-support-pass.png",
+      "sourceCrop": [
+        402,
+        10,
+        1065,
+        1003
+      ],
+      "uniformScale": 0.13695871097683787,
+      "mirrored": false,
+      "sourceSha256": "4550358bfc2cc7838bc6b7401c409545137fe0d162886838b936804f2c6eb024"
+    },
+    {
+      "output": "frames/forge_idle_se_0.png",
+      "agent": "forge",
+      "action": "idle",
+      "facing": "SE",
+      "source": "forge-idle-sheet.png",
+      "sourceCrop": [
+        323,
+        7,
+        585,
+        516
+      ],
+      "uniformScale": 0.26719056974459726,
+      "mirrored": false
+    },
+    {
+      "output": "frames/forge_idle_sw_0.png",
+      "agent": "forge",
+      "action": "idle",
+      "facing": "SW",
+      "source": "forge-idle-sheet.png",
+      "sourceCrop": [
+        956,
+        8,
+        1214,
+        516
+      ],
+      "uniformScale": 0.2677165354330709,
+      "mirrored": false
+    },
+    {
+      "output": "frames/forge_idle_ne_0.png",
+      "agent": "forge",
+      "action": "idle",
+      "facing": "NE",
+      "source": "forge-idle-ne-clean.png",
+      "sourceCrop": [
+        193,
+        78,
+        878,
+        1432
+      ],
+      "uniformScale": 0.10044313146233383,
+      "mirrored": false
+    },
+    {
+      "output": "frames/forge_idle_nw_0.png",
+      "agent": "forge",
+      "action": "idle",
+      "facing": "NW",
+      "source": "forge-idle-sheet.png",
+      "sourceCrop": [
+        953,
+        506,
+        1207,
+        1005
+      ],
+      "uniformScale": 0.2725450901803607,
+      "mirrored": false
+    },
+    {
+      "output": "frames/nova_idle_se_0.png",
+      "agent": "nova",
+      "action": "idle",
+      "facing": "SE",
+      "source": "nova-idle-sheet.png",
+      "sourceCrop": [
+        322,
+        15,
+        594,
+        511
+      ],
+      "uniformScale": 0.27419354838709675,
+      "mirrored": false
+    },
+    {
+      "output": "frames/nova_idle_sw_0.png",
+      "agent": "nova",
+      "action": "idle",
+      "facing": "SW",
+      "source": "nova-idle-sheet.png",
+      "sourceCrop": [
+        942,
+        15,
+        1210,
+        511
+      ],
+      "uniformScale": 0.27419354838709675,
+      "mirrored": false
+    },
+    {
+      "output": "frames/nova_idle_ne_0.png",
+      "agent": "nova",
+      "action": "idle",
+      "facing": "NE",
+      "source": "nova-idle-sheet.png",
+      "sourceCrop": [
+        321,
+        515,
+        610,
+        1000
+      ],
+      "uniformScale": 0.2804123711340206,
+      "mirrored": false
+    },
+    {
+      "output": "frames/nova_idle_nw_0.png",
+      "agent": "nova",
+      "action": "idle",
+      "facing": "NW",
+      "source": "nova-idle-sheet.png",
+      "sourceCrop": [
+        926,
+        515,
+        1216,
+        1000
+      ],
+      "uniformScale": 0.2804123711340206,
+      "mirrored": false
+    }
+  ],
+  "browserMotionVerified": false,
+  "walkLoopAccepted": false
+}

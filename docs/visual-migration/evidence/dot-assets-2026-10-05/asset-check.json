@@ -1,0 +1,49 @@
+{
+  "type": "Static asset/export/resource checks, NOT browser QA",
+  "mapUnchangedFromV3": true,
+  "mapSha256": "befa52bc1060f7cc699484fea39d2e1827821a83cbca663dc10825afd3838de5",
+  "globalProps": 530,
+  "propLogicDepthUnchanged": true,
+  "floorUnchanged": true,
+  "atlasFrames": {
+    "prism": 22,
+    "forge": 4,
+    "nova": 4
+  },
+  "newFrameCount": 12,
+  "newFrameMaxEdgeAlpha": 0,
+  "mirroredNewFrames": 0,
+  "gifFrames": 4,
+  "gifFrameDurationMs": 200,
+  "protectedRuntimeDiff": [],
+  "localResources": [
+    {
+      "resource": "/src/world/scene/OfficeScene.tsx",
+      "status": 200,
+      "bytes": 45598
+    },
+    {
+      "resource": "/visual-migration/dot-z08-candidate/assets.json",
+      "status": 200,
+      "bytes": 164367
+    },
+    {
+      "resource": "/visual-migration/dot-z08-candidate/prism.json",
+      "status": 200,
+      "bytes": 8675
+    },
+    {
+      "resource": "/visual-migration/dot-z08-candidate/forge.png",
+      "status": 200,
+      "bytes": 85323
+    },
+    {
+      "resource": "/visual-migration/dot-z08-candidate/nova.png",
+      "status": 200,
+      "bytes": 91544
+    }
+  ],
+  "browserQA": false,
+  "walkLoopAccepted": false,
+  "builtFilesMatch": 22
+}

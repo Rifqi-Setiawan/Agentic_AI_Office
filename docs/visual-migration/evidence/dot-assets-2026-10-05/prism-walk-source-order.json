@@ -1,0 +1,17 @@
+{
+  "order": [
+    "prism-se-01-near-contact.png",
+    "prism-se-02-near-support-pass.png",
+    "prism-se-03-far-contact.png",
+    "prism-se-04-far-support-pass.png"
+  ],
+  "outputFrames": [
+    "frames/prism_walk_se_0.png",
+    "frames/prism_walk_se_1.png",
+    "frames/prism_walk_se_2.png",
+    "frames/prism_walk_se_3.png"
+  ],
+  "walkLoopAccepted": false,
+  "browserMotionVerified": false,
+  "identityDifference": "Dot walk hoodie uses cyan trim; existing Prism idle/sit have spectrum sleeves."
+}

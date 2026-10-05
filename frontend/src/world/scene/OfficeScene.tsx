@@ -28,9 +28,13 @@ export const OfficeScene: React.FC = () => {
   const [focusedZone, setFocusedZone] = useState(''), [debug, setDebug] = useState(false), [menu, setMenu] = useState(false);
   useEffect(() => {
     const abort = new AbortController(), signal = abort.signal;
+    const officeArt = new URLSearchParams(location.search).get('officeArt');
+    const assetsUrl = officeArt === 'baseline' ? '/visual-migration/preview-assets.json'
+      : officeArt === 'previous' ? '/visual-migration/illustrated-z08-v3/assets.json'
+      : '/visual-migration/dot-z08-candidate/assets.json';
     Promise.all([
       loadJson<TiledMapDoc>('/maps/floor1.tmj', signal),
-      loadJson<PreviewAssets>(new URLSearchParams(location.search).get('officeArt')==='baseline'?'/visual-migration/preview-assets.json':'/visual-migration/illustrated-z08-v3/assets.json', signal),
+      loadJson<PreviewAssets>(assetsUrl, signal),
       loadJson<SpriteAtlas>('/sprites/environment.json', signal),
       Promise.all(AGENT_SPAWN_DEFS.map(async def => [def.id, await loadJson<SpriteAtlas>(`/sprites/characters/${def.id}.json`, signal)] as const)),
     ]).then(async ([map, assets, environment, entries]) => {
@@ -55,7 +59,7 @@ export const OfficeScene: React.FC = () => {
   const selectAgent = useCallback((id: string) => {active.current?.handleAgentClick(id);}, []);
   const grid = useMemo(() => data ? new GridMap(data.map) : null, [data]);
   return <div className="office-scene" data-renderer="react-css">
-    <div className="migration-notice" role="status">{import.meta.env.DEV ? 'Preview lokal · fixture demo' : 'Renderer percobaan'} · {data?.assets.characterOverrides ? 'Kandidat ilustrasi Z08 + Prism · ruang dan aksi lainnya masih aset lama' : 'Pembanding aset lama'} · menunggu review gaya</div>
+    <div className="migration-notice" role="status">{import.meta.env.DEV ? 'Preview lokal · fixture demo' : 'Renderer percobaan'} · {data?.assets.styleVersion === 'AO_DOT_Z08_CANDIDATE' ? 'Uji aset Dot · Forge/Nova baru idle · aksi lainnya memakai aset lama' : data?.assets.characterOverrides ? 'Kandidat ilustrasi Z08 + Prism · ruang dan aksi lainnya masih aset lama' : 'Pembanding aset lama'} · menunggu review gaya</div>
     <button className="mobile-room-toggle" onClick={() => setMenu(!menu)} aria-expanded={menu}>17 ruang</button>
     <nav className={`scene-nav ${menu ? 'open' : ''}`} aria-label="Navigasi 17 ruang">
       <div className="nav-title">THE OFFICE <span>44 × 32</span></div>

@@ -1,0 +1,113 @@
+{
+  "source": "user supplied results from Dot",
+  "zipPath": "C:\\Users\\Rifqi\\Downloads\\prism-walk-and-office-assets.zip",
+  "zipSha256": "d791485476985224e815fb7ef925796c1ed3d92a7c96f28de8773ed6dbc8ff0e",
+  "status": "candidate integrated locally; browser QA and complete motion pending",
+  "noLayoutProposalInArchive": true,
+  "files": [
+    {
+      "id": "prism-se-01-near-contact",
+      "file": "art/dot-assets-2026-10-05/sources/prism-se-01-near-contact.png",
+      "sha256": "f35fd2090ef63812e6909f552d0bdc380f78655149c7e0bdd105d40b2e7bfdfd",
+      "imageSize": [
+        1536,
+        1024
+      ],
+      "role": "candidate supplied by user from Dot",
+      "metadataVerified": true
+    },
+    {
+      "id": "prism-se-02-near-support-pass",
+      "file": "art/dot-assets-2026-10-05/sources/prism-se-02-near-support-pass.png",
+      "sha256": "83e165a8708842d81993fec93dc931ea8c0534e36234387b2f3be50835040bd0",
+      "imageSize": [
+        1536,
+        1024
+      ],
+      "role": "candidate supplied by user from Dot",
+      "metadataVerified": true
+    },
+    {
+      "id": "prism-se-03-far-contact",
+      "file": "art/dot-assets-2026-10-05/sources/prism-se-03-far-contact.png",
+      "sha256": "cbeda887a045d1587f22bc550b6d349581be2987229df8960d158198d75843a1",
+      "imageSize": [
+        1536,
+        1024
+      ],
+      "role": "candidate supplied by user from Dot",
+      "metadataVerified": true
+    },
+    {
+      "id": "prism-se-04-far-support-pass",
+      "file": "art/dot-assets-2026-10-05/sources/prism-se-04-far-support-pass.png",
+      "sha256": "4550358bfc2cc7838bc6b7401c409545137fe0d162886838b936804f2c6eb024",
+      "imageSize": [
+        1536,
+        1024
+      ],
+      "role": "candidate supplied by user from Dot",
+      "metadataVerified": true
+    },
+    {
+      "id": "desk-se-lightwood-charcoal",
+      "file": "art/dot-assets-2026-10-05/sources/desk-se-lightwood-charcoal.png",
+      "sha256": "ecde3e74b6a84baa6ba1fe579d640bdac8682c5045b482f8c0750dde316b7325",
+      "imageSize": [
+        1536,
+        1024
+      ],
+      "role": "candidate supplied by user from Dot",
+      "metadataVerified": true
+    },
+    {
+      "id": "chair-se-charcoal-cyan",
+      "file": "art/dot-assets-2026-10-05/sources/chair-se-charcoal-cyan.png",
+      "sha256": "ae5ffbb7a881d2785ec6e4da0f9dc83073487a8830247095930b21debce8c89b",
+      "imageSize": [
+        1536,
+        1024
+      ],
+      "role": "candidate supplied by user from Dot",
+      "metadataVerified": true
+    },
+    {
+      "id": "forge-idle-sheet",
+      "file": "art/dot-assets-2026-10-05/sources/forge-idle-sheet.png",
+      "sourcePath": "C:\\Users\\Rifqi\\Downloads\\forge",
+      "sha256": "15e3a5acdeea4483943b48dc6fe494109e18f28b985963c855eeccc6965e20a6",
+      "imageSize": [
+        1536,
+        1024
+      ],
+      "role": "candidate supplied by user from Dot",
+      "animationCoverage": "4 static standing views; no walk or seated poses supplied"
+    },
+    {
+      "id": "nova-idle-sheet",
+      "file": "art/dot-assets-2026-10-05/sources/nova-idle-sheet.png",
+      "sourcePath": "C:\\Users\\Rifqi\\Downloads\\nova",
+      "sha256": "cfd636d3be6e4668f875b68bdd16759bc6608ef63a65edc2d98face6cd75eece",
+      "imageSize": [
+        1536,
+        1024
+      ],
+      "role": "candidate supplied by user from Dot",
+      "animationCoverage": "4 static standing views; no walk or seated poses supplied"
+    }
+  ],
+  "provenanceNote": "README claims built-in image generation; claim is retained as source metadata. No independent generation transcript or exact prompts supplied.",
+  "derivedCorrections": [
+    {
+      "id": "forge-idle-ne-clean",
+      "file": "art/dot-assets-2026-10-05/sources/forge-idle-ne-clean.png",
+      "tool": "built-in imagegen",
+      "source": "Forge NE crop from supplied sheet; stray neighboring shoe removed",
+      "generatedPath": "C:/Users/Rifqi/.codex/generated_images/01a10784-1460-7a70-833e-d07e95cd3259/exec-c5e7c920-45a4-4665-bdf9-64f9e669b5c3.png",
+      "sha256": "3b0d8ad0a07ce552ca872b09e30253cc3c9159f8581d916e54080ad3d1a6e482",
+      "prompt": "art/dot-assets-2026-10-05/forge-ne-cleanup-prompt.json",
+      "selected": true
+    }
+  ],
+  "runtimeManifest": "frontend/public/visual-migration/dot-z08-candidate/assets.json"
+}

@@ -1,6 +1,8 @@
 # Art bible aktif — ilustrasi 2D isometrik
 
-STYLE_ID: AO_ILLUSTRATED_2D_Z08_V3. Sumber otoritatif: brief user terbaru 5 Oktober 2026, koreksi orientasi meja/kursi dan persetujuan tiga meja utama, bukan instruksi produksi lama.
+STYLE_ID: AO_DOT_Z08_CANDIDATE. Sumber otoritatif: brief user terbaru 5 Oktober 2026, koreksi orientasi meja/kursi, persetujuan tiga meja utama, serta instruksi memasang aset Dot. Penataan Z08 sedang dikerjakan Dot dan bukan cakupan tahap pemasangan aset ini.
+
+Kiriman Dot menambah empat walk SE Prism, empat idle view Forge/Nova dan desk/chair. Pose yang belum ada tetap baseline. Hoodie cyan walk Prism belum konsisten dengan spectrum sleeves idle/sit; loop belum diterima. Source user tetap disimpan, dengan satu koreksi crop Forge NE terpisah melalui built-in imagegen. Detail: DOT_ASSETS_INTEGRATION.md.
 
 Gunakan garis kontur bersih, shading 2D terkendali, light oak/honey wood, charcoal, dinding blue-gray dan aksen cyan. Cahaya dari kiri atas layar. Detail harus terbaca pada ukuran penggunaan normal. Prism mengikuti gambar user: silver/cyan hair, cyan headphones, hoodie charcoal dengan spectrum sleeves, cargo trousers/gadget pouches, cyan sneakers. Roster lain mengikuti blueprint asli.
 

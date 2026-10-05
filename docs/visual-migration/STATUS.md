@@ -1,4 +1,14 @@
-# Status aktif — tiga meja utama Z08 v3, 5 Oktober 2026
+# Status aktif — pemasangan aset Dot, 5 Oktober 2026
+
+Sesuai instruksi user, fokus tahap ini memasang isi ZIP serta Forge/Nova. Default preview sekarang memakai AO_DOT_Z08_CANDIDATE: empat frame walk SE Prism, empat arah idle Forge, empat arah idle Nova, meja dan kursi Dot. Pose yang belum tersedia tetap memakai fallback baseline. Penataan/dekorasi Z08 sedang dikerjakan Dot; map dan susunan v3 tidak diubah pada tahap ini.
+
+296 tes / 42 file, build termasuk TypeScript, lint, kontrak dan pemeriksaan resource statis lulus. Bukti/crop/provenance serta batas hasil: [DOT_ASSETS_INTEGRATION.md](DOT_ASSETS_INTEGRATION.md). QA browser masih terblokir. Forge/Nova walk/sit_type, walk cycle lengkap dan konsistensi hoodie Prism masih pending. Tidak ada push/deploy/VPS/gateway change.
+
+Preview: http://127.0.0.1:5175/?officeRenderer=claude&seed=42 — Ctrl+F5. Pembanding v3 tersedia dengan officeArt=previous; baseline dengan officeArt=baseline.
+
+---
+
+## Riwayat susunan tiga meja utama Z08 v3
 
 Usulan susunan tiga workstation Prism/Forge/Nova disetujui user dan sudah diterapkan lokal. Guest memakai hotdesk satu laptop di sisi ruangan, dengan slot/kursi/fallback/collision yang ikut dipindahkan. Pengecualian denah terbatas ini tercatat di approved-layout-adjustments.json; 44×32 / 17 zona / 133 slot / 26 pintu dan koridor tetap. Default preview memakai AO_ILLUSTRATED_2D_Z08_V3.
 
