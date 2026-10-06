@@ -68,7 +68,7 @@ export const OfficeScene: React.FC = () => {
   const grid = useMemo(() => data ? new GridMap(data.map) : null, [data]);
   return <div ref={scene} className="office-scene" data-renderer="react-css">
     <div ref={controls} className="scene-controls">
-      <div className="migration-notice" role="status">{import.meta.env.DEV ? 'Preview lokal · fixture demo' : 'Renderer percobaan'} · Karakter 2.5D: {data?.actors.map(def => def.name).join(', ') || 'belum tersedia'} · pose yang belum lengkap memakai pose 2.5D yang tersedia · menunggu review gaya</div>
+      <div className="migration-notice" role="status">THE OFFICE 2.5D · 17 Zona Operasional · Roster 16 Agen</div>
       <button className="mobile-room-toggle" onClick={() => setMenu(!menu)} aria-expanded={menu}>17 ruang</button>
     </div>
     <nav className={`scene-nav ${menu ? 'open' : ''}`} aria-label="Navigasi 17 ruang">
@@ -77,7 +77,7 @@ export const OfficeScene: React.FC = () => {
       {grid?.zones.map((zone,index) => <button key={zone.id} className={focusedZone === zone.id ? 'active' : ''} onClick={() => focus(zone.id)} aria-label={`Fokus ${zone.id} ${zone.name}`}><span className="room-icon">{ZONE_ICONS[index]}</span><span><small>{zone.id}</small>{zone.name}</span></button>)}
       <div className="nav-foot">17 zona · 133 slot · 26 pintu</div>
     </nav>
-    <div className="scene-toolbar"><button onClick={() => { active.current?.camera.overview(); setFocusedZone(''); }}>Overview</button><button aria-pressed={debug} onClick={() => setDebug(!debug)}>Anchor / slot</button><a href="?officeRenderer=legacy">Renderer lama</a></div>
+    <div className="scene-toolbar"><button onClick={() => { active.current?.camera.overview(); setFocusedZone(''); }}>Overview</button><button aria-pressed={debug} onClick={() => setDebug(!debug)}>Anchor / slot</button></div>
     <div ref={viewport} className="scene-viewport" tabIndex={0} aria-label="Dunia kantor; geser untuk pan, scroll untuk zoom">
       {error && <div className="scene-error" role="alert">Scene gagal dimuat: {error}</div>}
       {!data && !error && <div className="scene-loading">Memuat dunia kantor…</div>}

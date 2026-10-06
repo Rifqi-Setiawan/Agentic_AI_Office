@@ -2,35 +2,20 @@ import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
-import { worldController } from './world/worldController';
 import { sseClient } from './services/sseClient';
 import { officeStore } from './store/officeStore';
 
-// Only the selected renderer is imported and mounted.
-// Default is now the new illustrated 17-room OfficeScene (Indra Yuda's latest overhaul).
-// Pass ?officeRenderer=legacy for fallback legacy Pixi view.
+// 1. Inisialisasi dunia kantor 2.5D (versi terbaru 17 zona & ilustrasi lengkap)
 const worldContainer = document.getElementById('world-root');
 let destroyWorld: (() => void) | undefined;
 let disposed = false;
 if (worldContainer) {
-  const isLegacy = new URLSearchParams(location.search).get('officeRenderer') === 'legacy';
-  if (isLegacy) {
-    import('./world/WorldApp').then(async ({ worldApp }) => {
-      if (disposed) return;
-      await worldApp.init(worldContainer);
-      if (disposed) { worldApp.destroy(); return; }
-      worldController.attach(worldApp);
-      (window as unknown as { __WORLD_APP__?: typeof worldApp }).__WORLD_APP__ = worldApp;
-      destroyWorld = () => { worldApp.destroy(); worldController.attach(null); delete (window as unknown as { __WORLD_APP__?: unknown }).__WORLD_APP__; };
-    }).catch(err => console.error('[World] Legacy scene failed:', err));
-  } else {
-    import('./world/scene/OfficeScene').then(({ OfficeScene }) => {
-      if (disposed) return;
-      const root = ReactDOM.createRoot(worldContainer);
-      root.render(<OfficeScene />);
-      destroyWorld = () => root.unmount();
-    }).catch(err => console.error('[World] DOM scene failed:', err));
-  }
+  import('./world/scene/OfficeScene').then(({ OfficeScene }) => {
+    if (disposed) return;
+    const root = ReactDOM.createRoot(worldContainer);
+    root.render(<OfficeScene />);
+    destroyWorld = () => root.unmount();
+  }).catch(err => console.error('[World] 2.5D scene failed:', err));
 }
 
 // 2. Inisialisasi root React terpisah khusus untuk antarmuka HUD
