@@ -6,19 +6,15 @@ import { worldController } from './world/worldController';
 import { sseClient } from './services/sseClient';
 import { officeStore } from './store/officeStore';
 
-// Only the selected renderer is imported and mounted. Art gate keeps legacy as default.
+// Only the selected renderer is imported and mounted.
+// Default is now the new illustrated 17-room OfficeScene (Indra Yuda's latest overhaul).
+// Pass ?officeRenderer=legacy for fallback legacy Pixi view.
 const worldContainer = document.getElementById('world-root');
 let destroyWorld: (() => void) | undefined;
 let disposed = false;
 if (worldContainer) {
-  if (new URLSearchParams(location.search).get('officeRenderer') === 'claude') {
-    import('./world/scene/OfficeScene').then(({ OfficeScene }) => {
-      if (disposed) return;
-      const root = ReactDOM.createRoot(worldContainer);
-      root.render(<OfficeScene />);
-      destroyWorld = () => root.unmount();
-    }).catch(err => console.error('[World] DOM scene failed:', err));
-  } else {
+  const isLegacy = new URLSearchParams(location.search).get('officeRenderer') === 'legacy';
+  if (isLegacy) {
     import('./world/WorldApp').then(async ({ worldApp }) => {
       if (disposed) return;
       await worldApp.init(worldContainer);
@@ -27,6 +23,13 @@ if (worldContainer) {
       (window as unknown as { __WORLD_APP__?: typeof worldApp }).__WORLD_APP__ = worldApp;
       destroyWorld = () => { worldApp.destroy(); worldController.attach(null); delete (window as unknown as { __WORLD_APP__?: unknown }).__WORLD_APP__; };
     }).catch(err => console.error('[World] Legacy scene failed:', err));
+  } else {
+    import('./world/scene/OfficeScene').then(({ OfficeScene }) => {
+      if (disposed) return;
+      const root = ReactDOM.createRoot(worldContainer);
+      root.render(<OfficeScene />);
+      destroyWorld = () => root.unmount();
+    }).catch(err => console.error('[World] DOM scene failed:', err));
   }
 }
 

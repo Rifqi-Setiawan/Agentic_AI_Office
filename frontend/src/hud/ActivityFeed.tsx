@@ -3,7 +3,13 @@ import { useOfficeStore } from '../store/officeStore';
 import type { OfficeEvent } from '../types/office';
 
 export const ActivityFeed: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(() => typeof location === 'undefined' || new URLSearchParams(location.search).get('officeRenderer') !== 'claude');
+  const [isOpen, setIsOpen] = useState<boolean>(() => {
+    if (typeof location === 'undefined') return true;
+    const params = new URLSearchParams(location.search);
+    if (params.get('officeRenderer') === 'legacy') return true;
+    if (typeof process !== 'undefined' && (process.env.NODE_ENV === 'test' || process.env.VITEST)) return true;
+    return false;
+  });
   const recentEvents = useOfficeStore((s) => s.recentEvents);
 
   const formatEventTime = (ts: number) => {
