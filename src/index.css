@@ -1,0 +1,690 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================================
+   Gaya UI ala game voxel (semua dibuat ulang dengan CSS)
+   ===================================================================== */
+
+@layer base {
+  body {
+    @apply bg-[#3b2a1d] font-mc text-ink antialiased;
+    overflow: hidden;
+  }
+}
+
+html {
+  background: #3b2a1d;
+}
+.mc-sky {
+  min-height: 100lvh;
+  background: linear-gradient(#5f93f5 0%, #8ab6ff 45%, #c9ddff 100%);
+}
+
+/* ——— logo & splash ——— */
+.mc-logo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(14px, 2.4vw, 26px);
+  line-height: 1.1;
+  color: #e6e6e6;
+  letter-spacing: 1px;
+  text-shadow: 3px 3px 0 #555, 5px 5px 0 #1e1e1e;
+}
+.mc-splash {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #ffff55;
+  text-shadow: 2px 2px 0 #3f3f00;
+  transform: rotate(-4deg);
+  transform-origin: left center;
+  animation: splash 0.55s ease-in-out infinite alternate;
+}
+@keyframes splash {
+  to { transform: rotate(-4deg) scale(1.08); }
+}
+
+/* ——— tombol batu ——— */
+.mc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 4px 12px;
+  font-size: 16px;
+  color: #fff;
+  text-shadow: 2px 2px 0 #3f3f3f;
+  background: #6f6f6f;
+  border: 2px solid #000;
+  box-shadow: inset 2px 2px 0 #a8a8a8, inset -2px -3px 0 #4a4a4a;
+  cursor: pointer;
+}
+.mc-btn:hover:not(:disabled) {
+  background: #7d86c8;
+  box-shadow: inset 2px 2px 0 #bcc4ff, inset -2px -3px 0 #4f5794;
+  color: #ffffa0;
+}
+.mc-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.mc-btn:focus-visible,
+.mc-hotslot:focus-visible,
+.mc-nametag:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ——— papan nama melayang ——— */
+.mc-nametag {
+  white-space: nowrap;
+  padding: 4px 8px 3px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.mc-nametag.is-hot {
+  color: #ffff55;
+  transform: scale(1.12);
+}
+
+.mc-bubble {
+  white-space: nowrap;
+  padding: 6px 10px;
+  font-size: 15px;
+  color: #141414;
+  background: #fff;
+  border: 2px solid #141414;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.35);
+  animation: pop 0.25s ease-out;
+}
+
+/* ——— panel jendela ala inventory ——— */
+.mc-panel {
+  background: #c6c6c6;
+  border: 2px solid #000;
+  box-shadow: inset 3px 3px 0 #fff, inset -3px -3px 0 #555, 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+}
+@media (min-width: 768px) {
+  .mc-sheet,
+  .mc-panel {
+    width: min(var(--panel-w), calc(100vw - 2rem));
+  }
+}
+.mc-pop {
+  animation: pop 0.22s ease-out;
+}
+@keyframes pop {
+  from { transform: scale(0.94); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.mc-inset {
+  background: #b5b5b5;
+  border: 2px solid;
+  border-color: #555 #fff #fff #555;
+}
+.mc-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  background: #8b8b8b;
+  border: 2px solid;
+  border-color: #373737 #fff #fff #373737;
+}
+.mc-slot:hover {
+  background: #a0a0a0;
+}
+.mc-frame {
+  padding: 6px;
+  background: #8a6d40;
+  border: 2px solid #000;
+  box-shadow: inset 2px 2px 0 #b9935c, inset -2px -2px 0 #5a4327;
+}
+.mc-paper {
+  display: inline-block;
+  width: 14px;
+  height: 18px;
+  flex-shrink: 0;
+  background: repeating-linear-gradient(#f2ead3 0 3px, #c9bd9a 3px 4px);
+  border: 2px solid #3f3f3f;
+}
+
+/* kartu pencapaian & toast */
+.mc-adv,
+.mc-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #212121;
+  border: 2px solid #000;
+  box-shadow: inset 2px 2px 0 #555, inset -2px -2px 0 #111;
+}
+.mc-toast {
+  width: 260px;
+  animation: slidein 0.35s ease-out;
+}
+@keyframes slidein {
+  from { transform: translateX(110%); }
+  to { transform: translateX(0); }
+}
+
+/* ——— buku proyek ——— */
+.mc-book {
+  background: #6b4b2a;
+  padding: 8px;
+  border: 2px solid #000;
+}
+.mc-page {
+  padding: 12px;
+  background: #f2ead3;
+  box-shadow: inset 0 0 0 2px #d8cba5;
+}
+.mc-page-left {
+  box-shadow: inset 0 0 0 2px #d8cba5, inset -10px 0 12px -10px rgba(0, 0, 0, 0.45);
+}
+.mc-photo {
+  padding: 4px;
+  background: #fff;
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.25);
+  transform: rotate(-1deg);
+}
+
+/* ——— hotbar ——— */
+.mc-hotbar {
+  display: flex;
+  padding: 2px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid #000;
+}
+.mc-hotslot {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 139, 139, 0.55);
+  border: 2px solid;
+  border-color: #373737 #a8a8a8 #a8a8a8 #373737;
+  cursor: pointer;
+}
+.mc-hotslot img {
+  width: 30px;
+  image-rendering: pixelated;
+}
+.mc-hotslot.is-active {
+  z-index: 1;
+  outline: 3px solid #fff;
+  outline-offset: -1px;
+  box-shadow: 0 0 0 5px #000;
+}
+.mc-hotnum {
+  position: absolute;
+  right: 2px;
+  bottom: -2px;
+  font-size: 13px;
+  color: #fff;
+  text-shadow: 1px 1px 0 #3f3f3f;
+}
+@media (min-width: 768px) {
+  .mc-hotslot {
+    width: 52px;
+    height: 52px;
+  }
+  .mc-hotslot img {
+    width: 34px;
+  }
+}
+.mc-itemname {
+  padding: 2px 8px;
+  font-size: 17px;
+  color: #fff;
+  text-shadow: 2px 2px 0 #3f3f3f;
+  animation: pop 0.2s ease-out;
+}
+
+.mc-chat {
+  padding: 2px 6px;
+  font-size: 16px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  animation: pop 0.25s ease-out;
+}
+
+.mc-loading {
+  min-height: 100lvh;
+  background-size: 64px;
+  image-rendering: pixelated;
+  box-shadow: inset 0 0 0 100vmax rgba(0, 0, 0, 0.55);
+}
+
+/* scrollbar tipis */
+.mc-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.mc-scroll::-webkit-scrollbar-track {
+  background: #8b8b8b;
+}
+.mc-scroll::-webkit-scrollbar-thumb {
+  background: #6f6f6f;
+  border: 2px solid #3f3f3f;
+}
+
+/* ——— perkenalan ——— */
+.mc-intro {
+  background: rgba(20, 30, 50, 0.25);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  cursor: pointer;
+}
+.mc-parchment {
+  padding: 22px 24px 16px;
+  background-color: #d9b98a;
+  background-image:
+    radial-gradient(rgba(122, 78, 34, 0.18) 1px, transparent 1px),
+    linear-gradient(#e2c597, #cfa972);
+  background-size: 6px 6px, 100% 100%;
+  border: 3px solid #3a2410;
+  box-shadow:
+    inset 4px 4px 0 #ecd3a8,
+    inset -4px -4px 0 #a9824f,
+    0 8px 0 #3a2410,
+    0 20px 40px -10px rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+.mc-portrait {
+  padding: 10px 12px;
+  background: #8a6d40;
+  border: 3px solid #3a2410;
+  box-shadow: inset 3px 3px 0 #b9935c, inset -3px -3px 0 #5a4327;
+}
+.mc-portrait img {
+  image-rendering: pixelated;
+}
+.mc-caret {
+  margin-left: 2px;
+  color: #7a4e22;
+}
+.mc-caret.is-blink {
+  animation: blink 0.9s steps(1) infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ——— kertas konten (diangkat dari meja) ——— */
+.mc-sheet {
+  background-color: #e9d6ae;
+  background-image:
+    radial-gradient(rgba(122, 78, 34, 0.12) 1px, transparent 1px),
+    linear-gradient(#f1e2bf, #e0c896);
+  background-size: 6px 6px, 100% 100%;
+  border: 3px solid #3a2410;
+  box-shadow:
+    inset 4px 4px 0 #f7ead0,
+    inset -4px -4px 0 #b9935c,
+    0 24px 50px -12px rgba(0, 0, 0, 0.65);
+}
+.mc-lift {
+  animation: lift 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.15);
+}
+@keyframes lift {
+  from { transform: translate(-45%, 25%) scale(0.35) rotate(-8deg); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.mc-sheet .mc-inset {
+  background: rgba(255, 248, 230, 0.55);
+  border-color: #b9935c #fff4dc #fff4dc #b9935c;
+}
+.mc-sheet .mc-slot {
+  background: rgba(185, 147, 92, 0.28);
+  border-color: #a9824f #fff4dc #fff4dc #a9824f;
+}
+.mc-sheet .mc-slot:hover {
+  background: rgba(185, 147, 92, 0.45);
+}
+.mc-sheet .mc-scroll::-webkit-scrollbar-track {
+  background: #d9b98a;
+}
+.mc-sheet .mc-scroll::-webkit-scrollbar-thumb {
+  background: #8a6d40;
+  border-color: #5a3d1e;
+}
+
+/* ——— mini game ——— */
+.mc-crack {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(45deg, transparent 46%, rgba(0, 0, 0, 0.75) 47%, rgba(0, 0, 0, 0.75) 53%, transparent 54%),
+    linear-gradient(-30deg, transparent 46%, rgba(0, 0, 0, 0.6) 47%, rgba(0, 0, 0, 0.6) 52%, transparent 53%);
+  pointer-events: none;
+}
+.mc-floatpts {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  color: #ffff55;
+  text-shadow: 2px 2px 0 #3f3f00;
+  pointer-events: none;
+  animation: floatup 0.7s ease-out forwards;
+}
+@keyframes floatup {
+  to { transform: translate(-50%, -26px); opacity: 0; }
+}
+.mc-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  background: #7a4e22;
+  border: 2px solid #3a2410;
+  box-shadow: inset 2px 2px 0 #a8743f, inset -2px -2px 0 #5a3a18;
+  transition: transform 0.15s;
+}
+.mc-card:hover {
+  transform: translateY(-2px);
+}
+.mc-card.is-open {
+  background: #f2ead3;
+  box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #c9bd9a;
+  animation: flip 0.2s ease-out;
+}
+.mc-card.is-done {
+  opacity: 0.55;
+}
+@keyframes flip {
+  from { transform: rotateY(90deg); }
+  to { transform: rotateY(0); }
+}
+.mc-hole {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 80%, #1e140b 0 40%, #5a3d27 41%, #6aaa45 70%);
+  border: 2px solid #3a2410;
+  touch-action: manipulation;
+}
+.mc-slime {
+  position: absolute;
+  left: 18%;
+  bottom: -70%;
+  width: 64%;
+  image-rendering: pixelated;
+  transition: bottom 0.12s ease-out, transform 0.1s;
+  pointer-events: none;
+}
+.mc-slime.is-up {
+  bottom: 12%;
+}
+.mc-slime.is-squash {
+  bottom: 6%;
+  transform: scaleY(0.5) scaleX(1.2);
+}
+
+/* ——— ikon loading ——— */
+.mc-loader {
+  animation: boot 0.9s ease-in-out infinite;
+}
+@keyframes boot {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-14px) rotate(90deg); }
+}
+.mc-dots::after {
+  content: '';
+  animation: dots 1.2s steps(4) infinite;
+}
+@keyframes dots {
+  0% { content: ''; }
+  25% { content: '.'; }
+  50% { content: '..'; }
+  75% { content: '...'; }
+}
+
+/* ——— daftar quest ——— */
+.mc-quest {
+  color: #fff;
+  background: rgba(16, 16, 16, 0.78);
+  border: 2px solid #000;
+  box-shadow: inset 2px 2px 0 #555, inset -2px -2px 0 #111;
+}
+.mc-suggest {
+  padding: 6px 8px;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #141414;
+  background: #ffd451;
+  border: 2px solid #000;
+  animation: pop 0.3s ease-out;
+}
+
+/* ——— balon obrolan warga ——— */
+.mc-speech {
+  position: relative;
+  transform: translate(-50%, calc(-100% - 12px));
+  width: max-content;
+  max-width: 260px;
+  padding: 7px 11px 8px;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #141414;
+  text-align: left;
+  background: #fff;
+  border: 2px solid #141414;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+  animation: pop 0.2s ease-out;
+}
+.mc-speech::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  width: 14px;
+  height: 12px;
+  background: #fff;
+  border-left: 2px solid #141414;
+  border-bottom: 2px solid #141414;
+  transform: translateX(-50%) skewX(-30deg);
+}
+.mc-speech-name {
+  font-size: 12px;
+  color: #7a4e22;
+}
+.mc-qtab {
+  padding: 5px 6px;
+  font-size: 15px;
+  color: #c6c6c6;
+  background: #2a2a2a;
+  border: 2px solid #000;
+  box-shadow: inset 2px 2px 0 #444;
+}
+.mc-qtab.is-on {
+  color: #ffff55;
+  background: #5a5a5a;
+  box-shadow: inset 2px 2px 0 #8b8b8b, inset -2px -2px 0 #3a3a3a;
+}
+.mc-qtab:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.mc-talkbtn {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  transform: translate(-50%, calc(-100% - 4px));
+  min-width: 34px;
+  min-height: 30px;
+  padding: 2px 7px;
+  font-size: 15px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  animation: bob 1.6s ease-in-out infinite;
+}
+.mc-talkbtn.is-hot {
+  color: #ffff55;
+  background: rgba(0, 0, 0, 0.75);
+  border-color: #ffff55;
+  animation: none;
+}
+@keyframes bob {
+  50% { margin-top: -4px; }
+}
+
+/* ——— langit tiap mode waktu ——— */
+.mc-sky-layer {
+  position: absolute;
+  inset: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+.mc-sky-pagi {
+  background: linear-gradient(#5f93f5 0%, #8ab6ff 45%, #c9ddff 100%);
+}
+.mc-sky-sore {
+  background: linear-gradient(#3d4e8a 0%, #b5607a 38%, #f0855a 68%, #ffd29a 100%);
+}
+.mc-sky-malam {
+  background: linear-gradient(#050a1c 0%, #0e1838 50%, #1d2b55 100%);
+}
+
+/* ——— kotak dialog bawah (adegan) ——— */
+.mc-dialog {
+  padding: 14px 22px 16px;
+  animation: pop 0.25s ease-out;
+}
+.mc-dialog-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  color: #7a4e22;
+}
+.mc-dialog-line {
+  margin-top: 8px;
+  width: min(520px, 80vw);
+  height: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(90deg, transparent, rgba(122, 78, 34, 0.7), transparent);
+}
+.mc-dialogbar {
+  min-height: 26vh;
+  /* kertas agak transparan + blur supaya tidak bertabrakan dengan warna dunia */
+  background-color: rgba(226, 197, 151, 0.78);
+  background-image: radial-gradient(rgba(122, 78, 34, 0.15) 1px, transparent 1px);
+  background-size: 6px 6px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-top: 4px solid rgba(58, 36, 16, 0.85);
+  box-shadow: inset 0 4px 0 rgba(236, 211, 168, 0.7), 0 -10px 30px rgba(0, 0, 0, 0.25);
+  animation: slideup 0.3s ease-out;
+}
+@keyframes slideup {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* label 3D disembunyikan saat panel/kertas terbuka supaya tidak menimpa tulisan */
+main[data-panel='1'] .mc-nametag,
+main[data-panel='1'] .mc-talkbtn {
+  display: none;
+}
+@media (max-width: 767px) {
+  .mc-logo {
+    display: inline-block;
+    padding: 3px 5px 2px;
+    font-size: 10px;
+    line-height: 1.5;
+    background: rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* ——— bar "Makan..." di atas kepala ——— */
+.mc-eatbar {
+  transform: translate(-50%, -100%);
+  width: 92px;
+  padding: 3px 5px 5px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+.mc-eatbar-label {
+  font-size: 13px;
+  line-height: 1.2;
+  color: #fff;
+}
+.mc-eatbar-track {
+  margin-top: 3px;
+  height: 7px;
+  background: #3a3a3a;
+  border: 1px solid #000;
+}
+.mc-eatbar-fill {
+  width: 0;
+  height: 100%;
+  background: #80ff20;
+}
+
+/* ——— foto studio ——— */
+.mc-flash {
+  background: #fff;
+  animation: flash 0.45s ease-out forwards;
+}
+@keyframes flash {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.mc-polaroid {
+  width: min(420px, 92vw);
+  padding: 14px 14px 16px;
+  background: #fbf8f1;
+  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.7);
+  transform: rotate(-1.5deg);
+}
+
+/* ——— pengunjung lain (realtime) ——— */
+.mc-peer {
+  transform: translate(-50%, -100%);
+  white-space: nowrap;
+  padding: 2px 7px;
+  font-size: 13px;
+  color: #fff;
+  background: rgba(30, 60, 120, 0.65);
+  border: 2px solid rgba(160, 200, 255, 0.7);
+}
+.mc-online {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  font-size: 14px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+}
+.mc-online-dot {
+  width: 8px;
+  height: 8px;
+  background: #80ff20;
+  box-shadow: 0 0 6px #80ff20;
+}
+
+/* tombol kanan atas di HP: lebih ramping */
+@media (max-width: 767px) {
+  .mc-top {
+    min-height: 30px;
+    padding: 2px 7px;
+    gap: 4px;
+    font-size: 14px;
+  }
+}

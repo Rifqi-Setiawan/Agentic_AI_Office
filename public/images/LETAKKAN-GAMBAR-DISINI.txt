@@ -1,0 +1,38 @@
+CARA MENARUH GAMBAR
+====================
+Taruh file gambar dengan NAMA PERSIS seperti di bawah. Kalau belum ada,
+slotnya tampil placeholder rapi (tidak error).
+
+FOTO PROFIL (section About)
+  public/images/profile.jpg     -> foto diri kamu (potret, rasio ~1:1)
+
+SCREENSHOT PROYEK (section My Projects) - rasio 16:10
+  public/images/woundify.jpg
+  public/images/finansialin.jpg
+  public/images/booqu.jpg
+  public/images/smoking-detection.jpg
+  public/images/pvc-cnn.jpg
+  public/images/telucup.jpg
+
+LOGO TECH STACK (section Tech Stack) - PNG transparan, ~128x128
+  public/images/tech/python.png
+  public/images/tech/java.png
+  public/images/tech/golang.png
+  public/images/tech/c-.png            (untuk "C++")
+  public/images/tech/javascript.png
+  public/images/tech/typescript.png
+  public/images/tech/react.png
+  public/images/tech/html-css.png      (untuk "HTML / CSS")
+  public/images/tech/php.png
+  public/images/tech/laravel.png
+  public/images/tech/spring-boot.png
+  public/images/tech/mysql.png
+  public/images/tech/machine-learning.png
+  public/images/tech/computer-vision.png
+  public/images/tech/ui-ux-figma.png   (untuk "UI/UX · Figma")
+  public/images/tech/mikrotik.png
+
+CATATAN
+- Nama file logo tech = nama skill dihuruf-kecilkan, spasi/simbol jadi "-".
+  (placeholder di web menampilkan nama file persis yang dibutuhkan)
+- Setelah menaruh gambar, cukup refresh browser.
